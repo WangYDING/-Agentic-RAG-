@@ -1,0 +1,9 @@
+.env
+.rag_index/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+.idea/

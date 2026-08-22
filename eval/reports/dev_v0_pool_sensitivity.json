@@ -1,0 +1,5938 @@
+{
+  "dataset": "eval/datasets/dev_v0_retrieval.jsonl",
+  "index_schema_version": 2,
+  "embedding_model": "BAAI/bge-small-zh-v1.5",
+  "embedding_dim": 512,
+  "index_chunk_count": 3701,
+  "reranker_model": "BAAI/bge-reranker-base",
+  "reranker_batching": "one model.predict batch per query; same scores/order as current reranker",
+  "candidate_pools": {
+    "10": {
+      "candidate_pool_size": 10,
+      "candidate_recall": 0.8872549019607843,
+      "candidate_hit_rate": 0.9411764705882353,
+      "dense_latency_ms": {
+        "mean": 157.96673530712724,
+        "p50": 58.305049780756235,
+        "p95": 458.33206011448056,
+        "per_case": [
+          75.62159979715943,
+          115.2325002476573,
+          138.79270013421774,
+          250.35730004310608,
+          31.314299907535315,
+          392.73110032081604,
+          279.91130016744137,
+          169.8541003279388,
+          262.9921999759972,
+          409.66879995539784,
+          266.64769975468516,
+          40.98849976435304,
+          968.4380004182458,
+          527.4332999251783,
+          158.1171997822821,
+          421.12370021641254,
+          218.08840008452535,
+          195.0594000518322,
+          156.379499938339,
+          20.27519978582859,
+          23.724500089883804,
+          16.83659991249442,
+          18.914199899882078,
+          15.99760027602315,
+          18.976799678057432,
+          27.92649995535612,
+          24.209899827837944,
+          21.341000217944384,
+          19.373599905520678,
+          19.924100022763014,
+          13.098999857902527,
+          15.306400135159492,
+          18.271700013428926,
+          17.940300051122904
+        ]
+      },
+      "rerank_latency_ms": {
+        "mean": 15354.31106176282,
+        "p50": 18076.842000009492,
+        "p95": 29180.91861496214,
+        "per_case": [
+          18989.92050020024,
+          28971.027300227433,
+          49842.050100211054,
+          17163.763499818742,
+          23590.41339997202,
+          27280.0807999447,
+          23690.36559993401,
+          21507.904899772257,
+          29118.90110000968,
+          21161.758299916983,
+          28717.72939991206,
+          13963.2878000848,
+          24000.87619991973,
+          19814.723500050604,
+          23541.869999840856,
+          29296.093999873847,
+          25930.314699653536,
+          28010.24640025571,
+          21470.313200261444,
+          2516.1080001853406,
+          16773.279699962586,
+          1833.8580001145601,
+          1889.7943999618292,
+          1871.836599893868,
+          2107.0793997496367,
+          2315.6439000740647,
+          2405.321199912578,
+          2385.9191997908056,
+          2371.005500201136,
+          1941.6935998015106,
+          1345.8329001441598,
+          1862.111700233072,
+          2175.527300219983,
+          2189.9239998310804
+        ]
+      },
+      "rerank_metrics": {
+        "recall@1": 0.7352941176470589,
+        "hitrate@1": 0.7941176470588235,
+        "recall@3": 0.8774509803921569,
+        "hitrate@3": 0.9411764705882353,
+        "recall@5": 0.8774509803921569,
+        "hitrate@5": 0.9411764705882353,
+        "recall@10": 0.8872549019607844,
+        "hitrate@10": 0.9411764705882353,
+        "mrr@10": 0.8676470588235294,
+        "count": 34
+      },
+      "dense_cases": [
+        {
+          "id": "SEM-001",
+          "question_type": "semantic_article",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 32,
+                "article": "4.3.1",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 75.62159979715943
+        },
+        {
+          "id": "SEM-002",
+          "question_type": "semantic_article",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 45,
+                "article": "7.2.1",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 115.2325002476573
+        },
+        {
+          "id": "SEM-003",
+          "question_type": "semantic_article",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 59,
+                "article": "10.1.4",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 138.79270013421774
+        },
+        {
+          "id": "SEM-004",
+          "question_type": "semantic_article",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 61,
+                "article": "10.3.4",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 250.35730004310608
+        },
+        {
+          "id": "ART-001",
+          "question_type": "article_number",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 50,
+                "article": "8.2.2",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 31.314299907535315
+        },
+        {
+          "id": "ART-002",
+          "question_type": "article_number",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 60,
+                "article": "10.2.4",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 392.73110032081604
+        },
+        {
+          "id": "NUM-001",
+          "question_type": "numeric",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 32,
+                "article": "4.3.5",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 279.91130016744137
+        },
+        {
+          "id": "NUM-002",
+          "question_type": "numeric",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 48,
+                "article": "7.4.2",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 169.8541003279388
+        },
+        {
+          "id": "TAB-001",
+          "question_type": "table_lookup",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 60,
+                "article": null,
+                "table": "表10.2.2"
+              },
+              "rank": 9
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 262.9921999759972
+        },
+        {
+          "id": "TAB-002",
+          "question_type": "table_lookup",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 61,
+                "article": null,
+                "table": "表10.3.5"
+              },
+              "rank": null
+            }
+          ],
+          "covered": 0,
+          "coverage": 0.0,
+          "latency_ms": 409.66879995539784
+        },
+        {
+          "id": "TERM-001",
+          "question_type": "terminology",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 28,
+                "article": "2.0.1",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 266.64769975468516
+        },
+        {
+          "id": "TERM-002",
+          "question_type": "terminology",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 28,
+                "article": "2.0.3",
+                "table": null
+              },
+              "rank": 5
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 40.98849976435304
+        },
+        {
+          "id": "TERM-003",
+          "question_type": "terminology",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 28,
+                "article": "2.0.10",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 968.4380004182458
+        },
+        {
+          "id": "NUM-003",
+          "question_type": "numeric",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 29,
+                "article": "3.0.13",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 527.4332999251783
+        },
+        {
+          "id": "NUM-004",
+          "question_type": "numeric",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 30,
+                "article": "3.0.19",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 158.1171997822821
+        },
+        {
+          "id": "TAB-003",
+          "question_type": "table_lookup",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 40,
+                "article": null,
+                "table": "表6.2.2"
+              },
+              "rank": 2
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 421.12370021641254
+        },
+        {
+          "id": "TAB-004",
+          "question_type": "table_lookup",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 52,
+                "article": null,
+                "table": "表8.3.4"
+              },
+              "rank": 2
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 218.08840008452535
+        },
+        {
+          "id": "MULTI-001",
+          "question_type": "multi_evidence",
+          "gold_count": 2,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 28,
+                "article": "2.0.7",
+                "table": null
+              },
+              "rank": 6
+            },
+            {
+              "gold_index": 1,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 28,
+                "article": "2.0.8",
+                "table": null
+              },
+              "rank": 7
+            }
+          ],
+          "covered": 2,
+          "coverage": 1.0,
+          "latency_ms": 195.0594000518322
+        },
+        {
+          "id": "MULTI-002",
+          "question_type": "multi_evidence",
+          "gold_count": 2,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 45,
+                "article": "7.2.1",
+                "table": null
+              },
+              "rank": null
+            },
+            {
+              "gold_index": 1,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 48,
+                "article": "7.3.2",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 0.5,
+          "latency_ms": 156.379499938339
+        },
+        {
+          "id": "MULTI-003",
+          "question_type": "multi_evidence",
+          "gold_count": 2,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 28,
+                "article": "2.0.14",
+                "table": null
+              },
+              "rank": null
+            },
+            {
+              "gold_index": 1,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 32,
+                "article": "4.2.6",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 0.5,
+          "latency_ms": 20.27519978582859
+        },
+        {
+          "id": "SHARD-001",
+          "question_type": "semantic_hard",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 29,
+                "article": "3.0.14",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 23.724500089883804
+        },
+        {
+          "id": "SHARD-002",
+          "question_type": "semantic_hard",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 50,
+                "article": "8.1.4",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 16.83659991249442
+        },
+        {
+          "id": "SHARD-003",
+          "question_type": "semantic_hard",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 52,
+                "article": "8.3.5",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 18.914199899882078
+        },
+        {
+          "id": "CONF-001",
+          "question_type": "confusing_article",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 48,
+                "article": "7.4.1",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 15.99760027602315
+        },
+        {
+          "id": "CONF-002",
+          "question_type": "confusing_article",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 50,
+                "article": "8.2.3",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 18.976799678057432
+        },
+        {
+          "id": "NHARD-001",
+          "question_type": "numeric_hard",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 31,
+                "article": "4.2.1",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 27.92649995535612
+        },
+        {
+          "id": "NHARD-002",
+          "question_type": "numeric_hard",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": null,
+                "article": "7.3.1",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 24.209899827837944
+        },
+        {
+          "id": "THARD-001",
+          "question_type": "table_hard",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 47,
+                "article": null,
+                "table": "表7.2.4-2"
+              },
+              "rank": 5
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 21.341000217944384
+        },
+        {
+          "id": "THARD-002",
+          "question_type": "table_hard",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 55,
+                "article": null,
+                "table": "表9.3.3"
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 19.373599905520678
+        },
+        {
+          "id": "MHARD-001",
+          "question_type": "multi_evidence_hard",
+          "gold_count": 2,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 50,
+                "article": "8.2.4",
+                "table": null
+              },
+              "rank": null
+            },
+            {
+              "gold_index": 1,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 50,
+                "article": "8.2.5",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 0.5,
+          "latency_ms": 19.924100022763014
+        },
+        {
+          "id": "UA-003",
+          "question_type": "false_premise",
+          "gold_count": 3,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 35,
+                "article": "5.1.1",
+                "table": null
+              },
+              "rank": 3
+            },
+            {
+              "gold_index": 1,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 35,
+                "article": "5.1.3",
+                "table": null
+              },
+              "rank": null
+            },
+            {
+              "gold_index": 2,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 31,
+                "article": "4.2.3",
+                "table": null
+              },
+              "rank": 2
+            }
+          ],
+          "covered": 2,
+          "coverage": 0.6666666666666666,
+          "latency_ms": 13.098999857902527
+        },
+        {
+          "id": "HARD-001",
+          "question_type": "hard_answerable",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 32,
+                "article": "4.3.6",
+                "table": null
+              },
+              "rank": null
+            }
+          ],
+          "covered": 0,
+          "coverage": 0.0,
+          "latency_ms": 15.306400135159492
+        },
+        {
+          "id": "HARD-002",
+          "question_type": "hard_answerable",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 41,
+                "article": "6.3.3",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 18.271700013428926
+        },
+        {
+          "id": "HARD-003",
+          "question_type": "hard_answerable",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 52,
+                "article": "8.4.2",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 17.940300051122904
+        }
+      ],
+      "rerank_cases": [
+        {
+          "id": "SEM-001",
+          "question_type": "semantic_article",
+          "gold_count": 1,
+          "hits": [
+            false,
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [],
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 18989.92050020024
+        },
+        {
+          "id": "SEM-002",
+          "question_type": "semantic_article",
+          "gold_count": 1,
+          "hits": [
+            true,
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 28971.027300227433
+        },
+        {
+          "id": "SEM-003",
+          "question_type": "semantic_article",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 49842.050100211054
+        },
+        {
+          "id": "SEM-004",
+          "question_type": "semantic_article",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 17163.763499818742
+        },
+        {
+          "id": "ART-001",
+          "question_type": "article_number",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 23590.41339997202
+        },
+        {
+          "id": "ART-002",
+          "question_type": "article_number",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 27280.0807999447
+        },
+        {
+          "id": "NUM-001",
+          "question_type": "numeric",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 23690.36559993401
+        },
+        {
+          "id": "NUM-002",
+          "question_type": "numeric",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 21507.904899772257
+        },
+        {
+          "id": "TAB-001",
+          "question_type": "table_lookup",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 29118.90110000968
+        },
+        {
+          "id": "TAB-002",
+          "question_type": "table_lookup",
+          "gold_count": 1,
+          "hits": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 21161.758299916983
+        },
+        {
+          "id": "TERM-001",
+          "question_type": "terminology",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 28717.72939991206
+        },
+        {
+          "id": "TERM-002",
+          "question_type": "terminology",
+          "gold_count": 1,
+          "hits": [
+            false,
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [],
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 13963.2878000848
+        },
+        {
+          "id": "TERM-003",
+          "question_type": "terminology",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 24000.87619991973
+        },
+        {
+          "id": "NUM-003",
+          "question_type": "numeric",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 19814.723500050604
+        },
+        {
+          "id": "NUM-004",
+          "question_type": "numeric",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 23541.869999840856
+        },
+        {
+          "id": "TAB-003",
+          "question_type": "table_lookup",
+          "gold_count": 1,
+          "hits": [
+            false,
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [],
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 29296.093999873847
+        },
+        {
+          "id": "TAB-004",
+          "question_type": "table_lookup",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 25930.314699653536
+        },
+        {
+          "id": "MULTI-001",
+          "question_type": "multi_evidence",
+          "gold_count": 2,
+          "hits": [
+            true,
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              1
+            ],
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 28010.24640025571
+        },
+        {
+          "id": "MULTI-002",
+          "question_type": "multi_evidence",
+          "gold_count": 2,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              1
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 21470.313200261444
+        },
+        {
+          "id": "MULTI-003",
+          "question_type": "multi_evidence",
+          "gold_count": 2,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              1
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 2516.1080001853406
+        },
+        {
+          "id": "SHARD-001",
+          "question_type": "semantic_hard",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 16773.279699962586
+        },
+        {
+          "id": "SHARD-002",
+          "question_type": "semantic_hard",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 1833.8580001145601
+        },
+        {
+          "id": "SHARD-003",
+          "question_type": "semantic_hard",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 1889.7943999618292
+        },
+        {
+          "id": "CONF-001",
+          "question_type": "confusing_article",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 1871.836599893868
+        },
+        {
+          "id": "CONF-002",
+          "question_type": "confusing_article",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 2107.0793997496367
+        },
+        {
+          "id": "NHARD-001",
+          "question_type": "numeric_hard",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 2315.6439000740647
+        },
+        {
+          "id": "NHARD-002",
+          "question_type": "numeric_hard",
+          "gold_count": 1,
+          "hits": [
+            true,
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 2405.321199912578
+        },
+        {
+          "id": "THARD-001",
+          "question_type": "table_hard",
+          "gold_count": 1,
+          "hits": [
+            false,
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [],
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 2385.9191997908056
+        },
+        {
+          "id": "THARD-002",
+          "question_type": "table_hard",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 2371.005500201136
+        },
+        {
+          "id": "MHARD-001",
+          "question_type": "multi_evidence_hard",
+          "gold_count": 2,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              1
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 1941.6935998015106
+        },
+        {
+          "id": "UA-003",
+          "question_type": "false_premise",
+          "gold_count": 3,
+          "hits": [
+            false,
+            true,
+            false,
+            false,
+            false,
+            false,
+            true,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [],
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [
+              2
+            ],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 1345.8329001441598
+        },
+        {
+          "id": "HARD-001",
+          "question_type": "hard_answerable",
+          "gold_count": 1,
+          "hits": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 1862.111700233072
+        },
+        {
+          "id": "HARD-002",
+          "question_type": "hard_answerable",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 2175.527300219983
+        },
+        {
+          "id": "HARD-003",
+          "question_type": "hard_answerable",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 2189.9239998310804
+        }
+      ],
+      "tab_002_canonical_table_rank": null,
+      "hard_001_formal_article_rank": null
+    },
+    "20": {
+      "candidate_pool_size": 20,
+      "candidate_recall": 0.946078431372549,
+      "candidate_hit_rate": 0.9705882352941176,
+      "dense_latency_ms": {
+        "mean": 17.741232329760404,
+        "p50": 15.691849868744612,
+        "p95": 21.829255181364715,
+        "per_case": [
+          11.756899766623974,
+          15.569999814033508,
+          14.953000005334616,
+          12.582200113683939,
+          17.755099572241306,
+          13.429199811071157,
+          14.00819979608059,
+          75.89530013501644,
+          15.514700207859278,
+          12.866700068116188,
+          15.956699848175049,
+          12.32330035418272,
+          12.603600043803453,
+          13.621899764984846,
+          14.161400031298399,
+          14.499600045382977,
+          14.3158002756536,
+          24.366400204598904,
+          13.541699852794409,
+          16.892799641937017,
+          19.081500358879566,
+          17.669000197201967,
+          15.813699923455715,
+          13.346699997782707,
+          19.487599842250347,
+          19.183999858796597,
+          17.84610003232956,
+          16.276999842375517,
+          20.463100168853998,
+          17.211399972438812,
+          18.286800011992455,
+          13.81070027127862,
+          20.447599701583385,
+          17.662199679762125
+        ]
+      },
+      "rerank_latency_ms": {
+        "mean": 4189.969367717447,
+        "p50": 4073.3890500850976,
+        "p95": 5020.382665004581,
+        "per_case": [
+          3524.1998001001775,
+          4793.871799949557,
+          7927.252300083637,
+          3981.5901000984013,
+          4433.751200325787,
+          3675.158299971372,
+          3924.0216999314725,
+          4627.206899691373,
+          4542.340099811554,
+          4058.9030999690294,
+          3778.0168997123837,
+          3206.55469968915,
+          3318.4895999729633,
+          3252.617200370878,
+          3594.5232999511063,
+          3709.0565003454685,
+          4353.7257998250425,
+          5441.04570010677,
+          4067.1440004371107,
+          4294.279400259256,
+          4369.63660037145,
+          3393.2832004502416,
+          3976.277200039476,
+          3594.1378003917634,
+          4239.313300233334,
+          4217.863300349563,
+          4045.067499857396,
+          4454.86869988963,
+          4654.12630001083,
+          4444.185599684715,
+          4079.6340997330844,
+          3677.6022003032267,
+          4490.574200171977,
+          4318.640100304037
+        ]
+      },
+      "rerank_metrics": {
+        "recall@1": 0.7352941176470589,
+        "hitrate@1": 0.7941176470588235,
+        "recall@3": 0.9215686274509803,
+        "hitrate@3": 0.9705882352941176,
+        "recall@5": 0.9215686274509803,
+        "hitrate@5": 0.9705882352941176,
+        "recall@10": 0.946078431372549,
+        "hitrate@10": 0.9705882352941176,
+        "mrr@10": 0.8823529411764706,
+        "count": 34
+      },
+      "dense_cases": [
+        {
+          "id": "SEM-001",
+          "question_type": "semantic_article",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 32,
+                "article": "4.3.1",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 11.756899766623974
+        },
+        {
+          "id": "SEM-002",
+          "question_type": "semantic_article",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 45,
+                "article": "7.2.1",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 15.569999814033508
+        },
+        {
+          "id": "SEM-003",
+          "question_type": "semantic_article",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 59,
+                "article": "10.1.4",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 14.953000005334616
+        },
+        {
+          "id": "SEM-004",
+          "question_type": "semantic_article",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 61,
+                "article": "10.3.4",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 12.582200113683939
+        },
+        {
+          "id": "ART-001",
+          "question_type": "article_number",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 50,
+                "article": "8.2.2",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 17.755099572241306
+        },
+        {
+          "id": "ART-002",
+          "question_type": "article_number",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 60,
+                "article": "10.2.4",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 13.429199811071157
+        },
+        {
+          "id": "NUM-001",
+          "question_type": "numeric",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 32,
+                "article": "4.3.5",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 14.00819979608059
+        },
+        {
+          "id": "NUM-002",
+          "question_type": "numeric",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 48,
+                "article": "7.4.2",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 75.89530013501644
+        },
+        {
+          "id": "TAB-001",
+          "question_type": "table_lookup",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 60,
+                "article": null,
+                "table": "表10.2.2"
+              },
+              "rank": 9
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 15.514700207859278
+        },
+        {
+          "id": "TAB-002",
+          "question_type": "table_lookup",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 61,
+                "article": null,
+                "table": "表10.3.5"
+              },
+              "rank": 18
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 12.866700068116188
+        },
+        {
+          "id": "TERM-001",
+          "question_type": "terminology",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 28,
+                "article": "2.0.1",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 15.956699848175049
+        },
+        {
+          "id": "TERM-002",
+          "question_type": "terminology",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 28,
+                "article": "2.0.3",
+                "table": null
+              },
+              "rank": 5
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 12.32330035418272
+        },
+        {
+          "id": "TERM-003",
+          "question_type": "terminology",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 28,
+                "article": "2.0.10",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 12.603600043803453
+        },
+        {
+          "id": "NUM-003",
+          "question_type": "numeric",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 29,
+                "article": "3.0.13",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 13.621899764984846
+        },
+        {
+          "id": "NUM-004",
+          "question_type": "numeric",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 30,
+                "article": "3.0.19",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 14.161400031298399
+        },
+        {
+          "id": "TAB-003",
+          "question_type": "table_lookup",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 40,
+                "article": null,
+                "table": "表6.2.2"
+              },
+              "rank": 2
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 14.499600045382977
+        },
+        {
+          "id": "TAB-004",
+          "question_type": "table_lookup",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 52,
+                "article": null,
+                "table": "表8.3.4"
+              },
+              "rank": 2
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 14.3158002756536
+        },
+        {
+          "id": "MULTI-001",
+          "question_type": "multi_evidence",
+          "gold_count": 2,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 28,
+                "article": "2.0.7",
+                "table": null
+              },
+              "rank": 6
+            },
+            {
+              "gold_index": 1,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 28,
+                "article": "2.0.8",
+                "table": null
+              },
+              "rank": 7
+            }
+          ],
+          "covered": 2,
+          "coverage": 1.0,
+          "latency_ms": 24.366400204598904
+        },
+        {
+          "id": "MULTI-002",
+          "question_type": "multi_evidence",
+          "gold_count": 2,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 45,
+                "article": "7.2.1",
+                "table": null
+              },
+              "rank": 18
+            },
+            {
+              "gold_index": 1,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 48,
+                "article": "7.3.2",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 2,
+          "coverage": 1.0,
+          "latency_ms": 13.541699852794409
+        },
+        {
+          "id": "MULTI-003",
+          "question_type": "multi_evidence",
+          "gold_count": 2,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 28,
+                "article": "2.0.14",
+                "table": null
+              },
+              "rank": null
+            },
+            {
+              "gold_index": 1,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 32,
+                "article": "4.2.6",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 0.5,
+          "latency_ms": 16.892799641937017
+        },
+        {
+          "id": "SHARD-001",
+          "question_type": "semantic_hard",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 29,
+                "article": "3.0.14",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 19.081500358879566
+        },
+        {
+          "id": "SHARD-002",
+          "question_type": "semantic_hard",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 50,
+                "article": "8.1.4",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 17.669000197201967
+        },
+        {
+          "id": "SHARD-003",
+          "question_type": "semantic_hard",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 52,
+                "article": "8.3.5",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 15.813699923455715
+        },
+        {
+          "id": "CONF-001",
+          "question_type": "confusing_article",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 48,
+                "article": "7.4.1",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 13.346699997782707
+        },
+        {
+          "id": "CONF-002",
+          "question_type": "confusing_article",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 50,
+                "article": "8.2.3",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 19.487599842250347
+        },
+        {
+          "id": "NHARD-001",
+          "question_type": "numeric_hard",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 31,
+                "article": "4.2.1",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 19.183999858796597
+        },
+        {
+          "id": "NHARD-002",
+          "question_type": "numeric_hard",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": null,
+                "article": "7.3.1",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 17.84610003232956
+        },
+        {
+          "id": "THARD-001",
+          "question_type": "table_hard",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 47,
+                "article": null,
+                "table": "表7.2.4-2"
+              },
+              "rank": 5
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 16.276999842375517
+        },
+        {
+          "id": "THARD-002",
+          "question_type": "table_hard",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 55,
+                "article": null,
+                "table": "表9.3.3"
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 20.463100168853998
+        },
+        {
+          "id": "MHARD-001",
+          "question_type": "multi_evidence_hard",
+          "gold_count": 2,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 50,
+                "article": "8.2.4",
+                "table": null
+              },
+              "rank": 15
+            },
+            {
+              "gold_index": 1,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 50,
+                "article": "8.2.5",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 2,
+          "coverage": 1.0,
+          "latency_ms": 17.211399972438812
+        },
+        {
+          "id": "UA-003",
+          "question_type": "false_premise",
+          "gold_count": 3,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 35,
+                "article": "5.1.1",
+                "table": null
+              },
+              "rank": 3
+            },
+            {
+              "gold_index": 1,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 35,
+                "article": "5.1.3",
+                "table": null
+              },
+              "rank": null
+            },
+            {
+              "gold_index": 2,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 31,
+                "article": "4.2.3",
+                "table": null
+              },
+              "rank": 2
+            }
+          ],
+          "covered": 2,
+          "coverage": 0.6666666666666666,
+          "latency_ms": 18.286800011992455
+        },
+        {
+          "id": "HARD-001",
+          "question_type": "hard_answerable",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 32,
+                "article": "4.3.6",
+                "table": null
+              },
+              "rank": null
+            }
+          ],
+          "covered": 0,
+          "coverage": 0.0,
+          "latency_ms": 13.81070027127862
+        },
+        {
+          "id": "HARD-002",
+          "question_type": "hard_answerable",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 41,
+                "article": "6.3.3",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 20.447599701583385
+        },
+        {
+          "id": "HARD-003",
+          "question_type": "hard_answerable",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 52,
+                "article": "8.4.2",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 17.662199679762125
+        }
+      ],
+      "rerank_cases": [
+        {
+          "id": "SEM-001",
+          "question_type": "semantic_article",
+          "gold_count": 1,
+          "hits": [
+            false,
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [],
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 3524.1998001001775
+        },
+        {
+          "id": "SEM-002",
+          "question_type": "semantic_article",
+          "gold_count": 1,
+          "hits": [
+            true,
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            true,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [
+              0
+            ],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 4793.871799949557
+        },
+        {
+          "id": "SEM-003",
+          "question_type": "semantic_article",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 7927.252300083637
+        },
+        {
+          "id": "SEM-004",
+          "question_type": "semantic_article",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 3981.5901000984013
+        },
+        {
+          "id": "ART-001",
+          "question_type": "article_number",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 4433.751200325787
+        },
+        {
+          "id": "ART-002",
+          "question_type": "article_number",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 3675.158299971372
+        },
+        {
+          "id": "NUM-001",
+          "question_type": "numeric",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 3924.0216999314725
+        },
+        {
+          "id": "NUM-002",
+          "question_type": "numeric",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 4627.206899691373
+        },
+        {
+          "id": "TAB-001",
+          "question_type": "table_lookup",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 4542.340099811554
+        },
+        {
+          "id": "TAB-002",
+          "question_type": "table_lookup",
+          "gold_count": 1,
+          "hits": [
+            false,
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [],
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 4058.9030999690294
+        },
+        {
+          "id": "TERM-001",
+          "question_type": "terminology",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 3778.0168997123837
+        },
+        {
+          "id": "TERM-002",
+          "question_type": "terminology",
+          "gold_count": 1,
+          "hits": [
+            false,
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [],
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 3206.55469968915
+        },
+        {
+          "id": "TERM-003",
+          "question_type": "terminology",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 3318.4895999729633
+        },
+        {
+          "id": "NUM-003",
+          "question_type": "numeric",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 3252.617200370878
+        },
+        {
+          "id": "NUM-004",
+          "question_type": "numeric",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 3594.5232999511063
+        },
+        {
+          "id": "TAB-003",
+          "question_type": "table_lookup",
+          "gold_count": 1,
+          "hits": [
+            false,
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [],
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 3709.0565003454685
+        },
+        {
+          "id": "TAB-004",
+          "question_type": "table_lookup",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 4353.7257998250425
+        },
+        {
+          "id": "MULTI-001",
+          "question_type": "multi_evidence",
+          "gold_count": 2,
+          "hits": [
+            true,
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              1
+            ],
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 5441.04570010677
+        },
+        {
+          "id": "MULTI-002",
+          "question_type": "multi_evidence",
+          "gold_count": 2,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            true
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              1
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [
+              0
+            ]
+          ],
+          "metric_eligible": true,
+          "latency_ms": 4067.1440004371107
+        },
+        {
+          "id": "MULTI-003",
+          "question_type": "multi_evidence",
+          "gold_count": 2,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              1
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 4294.279400259256
+        },
+        {
+          "id": "SHARD-001",
+          "question_type": "semantic_hard",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 4369.63660037145
+        },
+        {
+          "id": "SHARD-002",
+          "question_type": "semantic_hard",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 3393.2832004502416
+        },
+        {
+          "id": "SHARD-003",
+          "question_type": "semantic_hard",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 3976.277200039476
+        },
+        {
+          "id": "CONF-001",
+          "question_type": "confusing_article",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 3594.1378003917634
+        },
+        {
+          "id": "CONF-002",
+          "question_type": "confusing_article",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 4239.313300233334
+        },
+        {
+          "id": "NHARD-001",
+          "question_type": "numeric_hard",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 4217.863300349563
+        },
+        {
+          "id": "NHARD-002",
+          "question_type": "numeric_hard",
+          "gold_count": 1,
+          "hits": [
+            true,
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 4045.067499857396
+        },
+        {
+          "id": "THARD-001",
+          "question_type": "table_hard",
+          "gold_count": 1,
+          "hits": [
+            false,
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [],
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 4454.86869988963
+        },
+        {
+          "id": "THARD-002",
+          "question_type": "table_hard",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 4654.12630001083
+        },
+        {
+          "id": "MHARD-001",
+          "question_type": "multi_evidence_hard",
+          "gold_count": 2,
+          "hits": [
+            true,
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              1
+            ],
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 4444.185599684715
+        },
+        {
+          "id": "UA-003",
+          "question_type": "false_premise",
+          "gold_count": 3,
+          "hits": [
+            false,
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            true,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [],
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [
+              2
+            ],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 4079.6340997330844
+        },
+        {
+          "id": "HARD-001",
+          "question_type": "hard_answerable",
+          "gold_count": 1,
+          "hits": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 3677.6022003032267
+        },
+        {
+          "id": "HARD-002",
+          "question_type": "hard_answerable",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 4490.574200171977
+        },
+        {
+          "id": "HARD-003",
+          "question_type": "hard_answerable",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 4318.640100304037
+        }
+      ],
+      "tab_002_canonical_table_rank": 18,
+      "hard_001_formal_article_rank": null
+    },
+    "50": {
+      "candidate_pool_size": 50,
+      "candidate_recall": 0.9901960784313726,
+      "candidate_hit_rate": 1,
+      "dense_latency_ms": {
+        "mean": 21.305902943234234,
+        "p50": 15.783399809151888,
+        "p95": 37.53434487152845,
+        "per_case": [
+          13.014999683946371,
+          14.216899871826172,
+          14.66419966891408,
+          13.712100218981504,
+          14.817100018262863,
+          13.764200266450644,
+          13.307899702340364,
+          15.755899716168642,
+          14.91750031709671,
+          14.013700187206268,
+          11.083700228482485,
+          13.538400176912546,
+          14.160200022161007,
+          12.096500024199486,
+          14.64490033686161,
+          13.08790035545826,
+          15.810899902135134,
+          13.799999840557575,
+          23.581900168210268,
+          27.01850002631545,
+          35.126099828630686,
+          22.42140006273985,
+          25.251199956983328,
+          24.213699623942375,
+          26.37379989027977,
+          45.59280024841428,
+          27.672700118273497,
+          30.27729969471693,
+          30.67820006981492,
+          30.455200001597404,
+          24.56599986180663,
+          27.722899802029133,
+          42.00679995119572,
+          31.035200227051973
+        ]
+      },
+      "rerank_latency_ms": {
+        "mean": 10838.979282334229,
+        "p50": 11922.728050034493,
+        "p95": 15356.006030063145,
+        "per_case": [
+          6824.369399808347,
+          8494.944599922746,
+          13549.510600045323,
+          7520.564599893987,
+          8378.5803001374,
+          7184.365800116211,
+          7805.212500039488,
+          7079.219599720091,
+          8308.193600270897,
+          8035.730400122702,
+          7016.687300056219,
+          6160.327100194991,
+          7445.038199890405,
+          7453.152200207114,
+          7750.326599925756,
+          7292.699800338596,
+          8314.332500100136,
+          12631.859400309622,
+          12623.523499816656,
+          13266.261899843812,
+          15098.149199970067,
+          12146.243700291961,
+          13044.345999602228,
+          12581.039399839938,
+          13102.778799831867,
+          14467.494799755514,
+          13634.535399731249,
+          15044.397899881005,
+          15834.883000236005,
+          14384.790699928999,
+          11699.212399777025,
+          16167.68359998241,
+          13840.796099975705,
+          14344.04469979927
+        ]
+      },
+      "rerank_metrics": {
+        "recall@1": 0.7352941176470589,
+        "hitrate@1": 0.7941176470588235,
+        "recall@3": 0.965686274509804,
+        "hitrate@3": 1.0,
+        "recall@5": 0.965686274509804,
+        "hitrate@5": 1.0,
+        "recall@10": 0.965686274509804,
+        "hitrate@10": 1.0,
+        "mrr@10": 0.892156862745098,
+        "count": 34
+      },
+      "dense_cases": [
+        {
+          "id": "SEM-001",
+          "question_type": "semantic_article",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 32,
+                "article": "4.3.1",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 13.014999683946371
+        },
+        {
+          "id": "SEM-002",
+          "question_type": "semantic_article",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 45,
+                "article": "7.2.1",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 14.216899871826172
+        },
+        {
+          "id": "SEM-003",
+          "question_type": "semantic_article",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 59,
+                "article": "10.1.4",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 14.66419966891408
+        },
+        {
+          "id": "SEM-004",
+          "question_type": "semantic_article",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 61,
+                "article": "10.3.4",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 13.712100218981504
+        },
+        {
+          "id": "ART-001",
+          "question_type": "article_number",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 50,
+                "article": "8.2.2",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 14.817100018262863
+        },
+        {
+          "id": "ART-002",
+          "question_type": "article_number",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 60,
+                "article": "10.2.4",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 13.764200266450644
+        },
+        {
+          "id": "NUM-001",
+          "question_type": "numeric",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 32,
+                "article": "4.3.5",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 13.307899702340364
+        },
+        {
+          "id": "NUM-002",
+          "question_type": "numeric",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 48,
+                "article": "7.4.2",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 15.755899716168642
+        },
+        {
+          "id": "TAB-001",
+          "question_type": "table_lookup",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 60,
+                "article": null,
+                "table": "表10.2.2"
+              },
+              "rank": 9
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 14.91750031709671
+        },
+        {
+          "id": "TAB-002",
+          "question_type": "table_lookup",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 61,
+                "article": null,
+                "table": "表10.3.5"
+              },
+              "rank": 18
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 14.013700187206268
+        },
+        {
+          "id": "TERM-001",
+          "question_type": "terminology",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 28,
+                "article": "2.0.1",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 11.083700228482485
+        },
+        {
+          "id": "TERM-002",
+          "question_type": "terminology",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 28,
+                "article": "2.0.3",
+                "table": null
+              },
+              "rank": 5
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 13.538400176912546
+        },
+        {
+          "id": "TERM-003",
+          "question_type": "terminology",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 28,
+                "article": "2.0.10",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 14.160200022161007
+        },
+        {
+          "id": "NUM-003",
+          "question_type": "numeric",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 29,
+                "article": "3.0.13",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 12.096500024199486
+        },
+        {
+          "id": "NUM-004",
+          "question_type": "numeric",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 30,
+                "article": "3.0.19",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 14.64490033686161
+        },
+        {
+          "id": "TAB-003",
+          "question_type": "table_lookup",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 40,
+                "article": null,
+                "table": "表6.2.2"
+              },
+              "rank": 2
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 13.08790035545826
+        },
+        {
+          "id": "TAB-004",
+          "question_type": "table_lookup",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 52,
+                "article": null,
+                "table": "表8.3.4"
+              },
+              "rank": 2
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 15.810899902135134
+        },
+        {
+          "id": "MULTI-001",
+          "question_type": "multi_evidence",
+          "gold_count": 2,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 28,
+                "article": "2.0.7",
+                "table": null
+              },
+              "rank": 6
+            },
+            {
+              "gold_index": 1,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 28,
+                "article": "2.0.8",
+                "table": null
+              },
+              "rank": 7
+            }
+          ],
+          "covered": 2,
+          "coverage": 1.0,
+          "latency_ms": 13.799999840557575
+        },
+        {
+          "id": "MULTI-002",
+          "question_type": "multi_evidence",
+          "gold_count": 2,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 45,
+                "article": "7.2.1",
+                "table": null
+              },
+              "rank": 18
+            },
+            {
+              "gold_index": 1,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 48,
+                "article": "7.3.2",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 2,
+          "coverage": 1.0,
+          "latency_ms": 23.581900168210268
+        },
+        {
+          "id": "MULTI-003",
+          "question_type": "multi_evidence",
+          "gold_count": 2,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 28,
+                "article": "2.0.14",
+                "table": null
+              },
+              "rank": 22
+            },
+            {
+              "gold_index": 1,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 32,
+                "article": "4.2.6",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 2,
+          "coverage": 1.0,
+          "latency_ms": 27.01850002631545
+        },
+        {
+          "id": "SHARD-001",
+          "question_type": "semantic_hard",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 29,
+                "article": "3.0.14",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 35.126099828630686
+        },
+        {
+          "id": "SHARD-002",
+          "question_type": "semantic_hard",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 50,
+                "article": "8.1.4",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 22.42140006273985
+        },
+        {
+          "id": "SHARD-003",
+          "question_type": "semantic_hard",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 52,
+                "article": "8.3.5",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 25.251199956983328
+        },
+        {
+          "id": "CONF-001",
+          "question_type": "confusing_article",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 48,
+                "article": "7.4.1",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 24.213699623942375
+        },
+        {
+          "id": "CONF-002",
+          "question_type": "confusing_article",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 50,
+                "article": "8.2.3",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 26.37379989027977
+        },
+        {
+          "id": "NHARD-001",
+          "question_type": "numeric_hard",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 31,
+                "article": "4.2.1",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 45.59280024841428
+        },
+        {
+          "id": "NHARD-002",
+          "question_type": "numeric_hard",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": null,
+                "article": "7.3.1",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 27.672700118273497
+        },
+        {
+          "id": "THARD-001",
+          "question_type": "table_hard",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 47,
+                "article": null,
+                "table": "表7.2.4-2"
+              },
+              "rank": 5
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 30.27729969471693
+        },
+        {
+          "id": "THARD-002",
+          "question_type": "table_hard",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 55,
+                "article": null,
+                "table": "表9.3.3"
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 30.67820006981492
+        },
+        {
+          "id": "MHARD-001",
+          "question_type": "multi_evidence_hard",
+          "gold_count": 2,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 50,
+                "article": "8.2.4",
+                "table": null
+              },
+              "rank": 15
+            },
+            {
+              "gold_index": 1,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 50,
+                "article": "8.2.5",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 2,
+          "coverage": 1.0,
+          "latency_ms": 30.455200001597404
+        },
+        {
+          "id": "UA-003",
+          "question_type": "false_premise",
+          "gold_count": 3,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 35,
+                "article": "5.1.1",
+                "table": null
+              },
+              "rank": 3
+            },
+            {
+              "gold_index": 1,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 35,
+                "article": "5.1.3",
+                "table": null
+              },
+              "rank": null
+            },
+            {
+              "gold_index": 2,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 31,
+                "article": "4.2.3",
+                "table": null
+              },
+              "rank": 2
+            }
+          ],
+          "covered": 2,
+          "coverage": 0.6666666666666666,
+          "latency_ms": 24.56599986180663
+        },
+        {
+          "id": "HARD-001",
+          "question_type": "hard_answerable",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 32,
+                "article": "4.3.6",
+                "table": null
+              },
+              "rank": 36
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 27.722899802029133
+        },
+        {
+          "id": "HARD-002",
+          "question_type": "hard_answerable",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 41,
+                "article": "6.3.3",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 42.00679995119572
+        },
+        {
+          "id": "HARD-003",
+          "question_type": "hard_answerable",
+          "gold_count": 1,
+          "gold_ranks": [
+            {
+              "gold_index": 0,
+              "evidence": {
+                "document": "城市轨道交通工程设计标准.pdf",
+                "page": 52,
+                "article": "8.4.2",
+                "table": null
+              },
+              "rank": 1
+            }
+          ],
+          "covered": 1,
+          "coverage": 1.0,
+          "latency_ms": 31.035200227051973
+        }
+      ],
+      "rerank_cases": [
+        {
+          "id": "SEM-001",
+          "question_type": "semantic_article",
+          "gold_count": 1,
+          "hits": [
+            false,
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [],
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 6824.369399808347
+        },
+        {
+          "id": "SEM-002",
+          "question_type": "semantic_article",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 8494.944599922746
+        },
+        {
+          "id": "SEM-003",
+          "question_type": "semantic_article",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 13549.510600045323
+        },
+        {
+          "id": "SEM-004",
+          "question_type": "semantic_article",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 7520.564599893987
+        },
+        {
+          "id": "ART-001",
+          "question_type": "article_number",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 8378.5803001374
+        },
+        {
+          "id": "ART-002",
+          "question_type": "article_number",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 7184.365800116211
+        },
+        {
+          "id": "NUM-001",
+          "question_type": "numeric",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 7805.212500039488
+        },
+        {
+          "id": "NUM-002",
+          "question_type": "numeric",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 7079.219599720091
+        },
+        {
+          "id": "TAB-001",
+          "question_type": "table_lookup",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 8308.193600270897
+        },
+        {
+          "id": "TAB-002",
+          "question_type": "table_lookup",
+          "gold_count": 1,
+          "hits": [
+            false,
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [],
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 8035.730400122702
+        },
+        {
+          "id": "TERM-001",
+          "question_type": "terminology",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 7016.687300056219
+        },
+        {
+          "id": "TERM-002",
+          "question_type": "terminology",
+          "gold_count": 1,
+          "hits": [
+            false,
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [],
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 6160.327100194991
+        },
+        {
+          "id": "TERM-003",
+          "question_type": "terminology",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 7445.038199890405
+        },
+        {
+          "id": "NUM-003",
+          "question_type": "numeric",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 7453.152200207114
+        },
+        {
+          "id": "NUM-004",
+          "question_type": "numeric",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 7750.326599925756
+        },
+        {
+          "id": "TAB-003",
+          "question_type": "table_lookup",
+          "gold_count": 1,
+          "hits": [
+            false,
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [],
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 7292.699800338596
+        },
+        {
+          "id": "TAB-004",
+          "question_type": "table_lookup",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 8314.332500100136
+        },
+        {
+          "id": "MULTI-001",
+          "question_type": "multi_evidence",
+          "gold_count": 2,
+          "hits": [
+            true,
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              1
+            ],
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 12631.859400309622
+        },
+        {
+          "id": "MULTI-002",
+          "question_type": "multi_evidence",
+          "gold_count": 2,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              1
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 12623.523499816656
+        },
+        {
+          "id": "MULTI-003",
+          "question_type": "multi_evidence",
+          "gold_count": 2,
+          "hits": [
+            true,
+            false,
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              1
+            ],
+            [],
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 13266.261899843812
+        },
+        {
+          "id": "SHARD-001",
+          "question_type": "semantic_hard",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 15098.149199970067
+        },
+        {
+          "id": "SHARD-002",
+          "question_type": "semantic_hard",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 12146.243700291961
+        },
+        {
+          "id": "SHARD-003",
+          "question_type": "semantic_hard",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 13044.345999602228
+        },
+        {
+          "id": "CONF-001",
+          "question_type": "confusing_article",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 12581.039399839938
+        },
+        {
+          "id": "CONF-002",
+          "question_type": "confusing_article",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 13102.778799831867
+        },
+        {
+          "id": "NHARD-001",
+          "question_type": "numeric_hard",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 14467.494799755514
+        },
+        {
+          "id": "NHARD-002",
+          "question_type": "numeric_hard",
+          "gold_count": 1,
+          "hits": [
+            true,
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 13634.535399731249
+        },
+        {
+          "id": "THARD-001",
+          "question_type": "table_hard",
+          "gold_count": 1,
+          "hits": [
+            false,
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [],
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 15044.397899881005
+        },
+        {
+          "id": "THARD-002",
+          "question_type": "table_hard",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 15834.883000236005
+        },
+        {
+          "id": "MHARD-001",
+          "question_type": "multi_evidence_hard",
+          "gold_count": 2,
+          "hits": [
+            true,
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              1
+            ],
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 14384.790699928999
+        },
+        {
+          "id": "UA-003",
+          "question_type": "false_premise",
+          "gold_count": 3,
+          "hits": [
+            false,
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [],
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 11699.212399777025
+        },
+        {
+          "id": "HARD-001",
+          "question_type": "hard_answerable",
+          "gold_count": 1,
+          "hits": [
+            false,
+            false,
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [],
+            [],
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 16167.68359998241
+        },
+        {
+          "id": "HARD-002",
+          "question_type": "hard_answerable",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 13840.796099975705
+        },
+        {
+          "id": "HARD-003",
+          "question_type": "hard_answerable",
+          "gold_count": 1,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "gold_hit_ids_by_rank": [
+            [
+              0
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "metric_eligible": true,
+          "latency_ms": 14344.04469979927
+        }
+      ],
+      "tab_002_canonical_table_rank": 18,
+      "hard_001_formal_article_rank": 36
+    }
+  }
+}

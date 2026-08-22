@@ -1,0 +1,10 @@
+faiss-cpu<2,>=1.8
+numpy<3,>=1.26
+openai<2,>=1.35
+pymupdf<2,>=1.24
+python-dotenv<2,>=1
+sentence-transformers<6,>=3
+streamlit<2,>=1.36
+
+[dev]
+pytest<10,>=8

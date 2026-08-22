@@ -1,0 +1,269 @@
+# 面向城市轨道交通工程规范的可追溯 Agentic RAG 问答与条文核验系统
+
+工程规范问答不同于普通 FAQ：答案不仅要相关，还要能定位到具体页码、条文或表格，并在证据不完整时停止作答。固定窗口可能破坏条文边界，表格中的数值关系也容易丢失；高相关检索结果还可能只覆盖问题的一部分，直接交给大模型仍会产生不完整回答。
+
+本项目围绕《城市轨道交通工程设计标准》构建可追溯 RAG：从 page/article/table-aware ingestion、持久化索引和 Hybrid Retrieval 出发，通过 CrossEncoder 获得 Top Evidence，再由 Evidence Sufficiency Grader 判断证据能否完整回答问题。证据不足时，系统最多进行一次由缺失信息驱动的 targeted retry；第二次仍不足则拒答，而不是用模型自身知识补齐。
+
+项目重点不是堆叠组件，而是通过 benchmark 和 failure analysis 推动架构演化：先定位 Dense candidate recall 瓶颈，再验证 BM25 与 Dense 的互补性，最后用 evidence sufficiency 区分“相关”与“足够回答”。
+
+### 结果速览
+
+| 阶段 | 结果 |
+|---|---:|
+| Dense baseline Recall@10（dev） | 0.8873 |
+| Hybrid RRF Recall@10（dev） | 0.9608 |
+| Hybrid + Reranker MRR@10（dev） | 0.8922 |
+| 相比 Dense50 的 rerank latency（dev） | 约降低 64% |
+| Hard-negative 正确拒答（held-out） | 4 / 4 |
+| Answerable false refusal（held-out） | 2 / 16（12.5%） |
+| Generated answers citation validation（held-out） | 14 / 14 |
+
+`dev` 指标用于架构开发与选择；held-out `test_v1` 在系统和数据冻结后仅运行一次，未用于后续调参。
+
+## 核心能力
+
+- **结构化摄取**：保留页码、章节、条文、表格及文本偏移，支持 article-aware / table-aware chunks。
+- **持久化索引**：FAISS 索引配套 manifest、checksum 和 schema version。
+- **Hybrid Retrieval**：Dense Top10 与 BM25 Top10 合并、稳定 chunk identity 去重，再由 BGE CrossEncoder 重排。
+- **Evidence / Citation**：上下文携带稳定 Evidence ID 与 provenance，并校验引用编号和来源。
+- **Evidence Sufficiency**：只依据 question 与 supplied evidence 判断是否覆盖全部必要子要求。
+- **Bounded Agent**：`max_retries = 1`，由 `missing_requirements` 驱动有限重试，随后 answer 或 refuse。
+- **分层评测**：覆盖 retrieval、hard-negative refusal、evidence sufficiency 和冻结后的 held-out Agent test。
+
+## 系统架构
+
+```mermaid
+flowchart TD
+    PDF["工程规范 PDF"] --> INGEST["Structured Ingestion<br/>page / article / table aware"]
+    INGEST --> CHUNKS["Structured Chunks<br/>provenance + metadata"]
+    CHUNKS --> INDEX["Persistent FAISS Index<br/>manifest + checksum"]
+    QUERY["User Query"] --> DENSE["Dense Top10"]
+    QUERY --> BM25["BM25 Top10"]
+    INDEX --> DENSE
+    INDEX --> BM25
+    DENSE --> UNION["Union / Dedup<br/>RRF metadata"]
+    BM25 --> UNION
+    UNION --> RERANK["CrossEncoder Rerank"]
+    RERANK --> TOP3["Top3 Evidence"]
+    TOP3 --> GRADE{"Evidence sufficient?"}
+    GRADE -->|sufficient| GENERATE["Generate Answer"]
+    GENERATE --> CITE["Citation Validate"]
+    CITE --> RETURN["Return"]
+    GRADE -->|insufficient| RETRY{"retry_count < 1?"}
+    RETRY -->|yes| REWRITE["Targeted Rewrite<br/>from missing_requirements"]
+    REWRITE --> RETRIEVE2["Retrieve + Merge + Rerank"]
+    RETRIEVE2 --> GRADE2{"Grade Again"}
+    GRADE2 -->|sufficient| GENERATE
+    GRADE2 -->|insufficient| REFUSE["Refuse"]
+```
+
+Agent workflow 没有自由 planner、无限循环或 Multi-Agent。状态记录 query、rewrite、retry count、evidence、sufficiency decision、missing requirements、final action 和结构化 trace。
+
+> 当前边界：`src/agent_workflow.py` 实现上述 bounded Agent；`agent_demo.py` 与 Streamlit 入口均复用同一套 Hybrid Agent 编排。`main.py` 保留为基础 RAG CLI 演示入口。
+
+## 为什么不是普通 RAG
+
+### 1. 初始 baseline
+
+```text
+PDF → PyMuPDF → fixed-size chunks → BGE Dense → FAISS
+    → CrossEncoder → LLM
+```
+
+这一版本可以运行，但固定窗口可能跨越条文，表格语义容易丢失，来源 metadata 不足以支持可靠引用，也没有正式 benchmark、evidence sufficiency 或拒答机制。只要检索返回内容，系统就倾向于继续生成。
+
+### 2. Structured Ingestion
+
+摄取层随后改为 page-aware、chapter/article-aware 和 table-aware 解析，并为 chunk 保存 document、page、article、table、content type 与字符位置等 provenance。当前索引约包含 3,701 个 chunks，使用 schema v2 的 manifest/checksum 验证并持久化到 FAISS。
+
+这一步解决的是证据单元和可追溯性问题，而不是直接追求更高的单项检索分数。
+
+### 3. Retrieval Enhancement
+
+34 道 single-turn development retrieval cases 展示了架构演化的原因：
+
+| Dev 配置 | Recall@10 | MRR@10 | 平均 rerank latency |
+|---|---:|---:|---:|
+| Dense Top10 | 0.8873 | 0.7993 | - |
+| Dense Top10 + CrossEncoder | 0.8873 | 0.8676 | - |
+| Dense Top20 + CrossEncoder | 0.9461 | 0.8824 | 约 9.80s |
+| Dense Top50 + CrossEncoder | 0.9657 | 0.8922 | 约 17.84s |
+| BM25 Top10 | 0.9510 | 0.7888 | - |
+| Dense10 + BM25-10 RRF Top10 | 0.9608 | 0.8336 | - |
+| Hybrid union + CrossEncoder | 0.9510 | 0.8922 | 约 6.35s |
+
+CrossEncoder 将 Dense Top10 的 MRR@10 从 `0.7993` 提升到 `0.8676`，但 Recall@10 保持 `0.8873`：重排只能调整 candidate pool 内部顺序，不能补回未被 Dense 召回的证据。
+
+扩大 Dense pool 可以改善 recall，但成本增长明显。BM25 对条文编号、专有术语和精确数值形成了互补召回。最终 Hybrid 方案平均使用 `15.38` 个去重候选，在 MRR@10 上达到 Dense50 + CrossEncoder 的 `0.8922`，rerank latency 约降低 64%；其 Recall@10 为 `0.9510`，略低于 Dense50 的 `0.9657`，因此不能表述为全面超过 Dense50。
+
+## 为什么需要 Evidence Sufficiency
+
+CrossEncoder 判断 query 与 evidence 的相关性，而不是 evidence 是否覆盖问题的全部要求。扩展 hard-negative development benchmark 后，出现明显分数重叠：
+
+- Answerable Top1 rerank score 最低值：`0.959680`
+- Unanswerable Top1 rerank score 最高值：`0.999148`
+- 仅用 Top1 score 区分 answerability 的 AUROC：`0.8529`
+- 3 道 `partial_support` 的 Top1 分数全部高于 `0.994`
+
+“高度相关”仍可能只支持一半问题。单一 relevance threshold 会在 false accept 与 false refusal 之间产生明显冲突。
+
+因此项目增加 Evidence Sufficiency Grader。它只接收 question 与 supplied evidence，将问题拆成必要子要求；任一必要要求缺证据即返回 `insufficient`，并输出 `supported_evidence_ids`、`missing_requirements` 和 reason。19 道 sufficiency development set 包含 8 道 sufficient 与 11 道 insufficient：
+
+| Accuracy | FAR | FRR |
+|---:|---:|---:|
+| 1.0000 | 0.0000 | 0.0000 |
+
+这是小规模 development set 的结果，用于验证设计可行性，不代表生产环境能够 100% 泛化。
+
+## Bounded Agent Workflow
+
+Agent 的作用不是增加一个名称，而是根据 evidence state 做有限决策：
+
+1. Hybrid retrieve、dedup、CrossEncoder rerank，选择 Top3 evidence。
+2. Grader 判定 `sufficient` 时生成答案并校验引用。
+3. 判定 `insufficient` 时，将 `missing_requirements` 加入检索目标，最多 retry 一次。
+4. retry evidence 与原 evidence 按稳定 chunk identity 合并、去重并重新重排。
+5. 第二次仍 `insufficient` 时直接拒答，不调用 generator 生成事实答案。
+
+约束被显式写入状态机：`max_retries = 1`，无无限循环、无 Multi-Agent、无 memory planner、无任意工具调用。trace 只记录步骤与结构化决策，不暴露模型内部推理过程。
+
+## Final Held-out Evaluation
+
+开发集实验完成后，系统与测试数据被冻结，再运行 `test_v1` held-out evaluation。测试集包含 20 题：16 道 answerable 与 4 道 hard-negative unanswerable。
+
+### Agent decision
+
+| 指标 | 结果 |
+|---|---:|
+| 首轮 sufficient | 13 |
+| 首轮 insufficient / retry | 7 |
+| retry 后 sufficient | 1 |
+| retry 后仍 insufficient | 6 |
+| final answer | 14 |
+| final refuse | 6 |
+| False Accept | 0 |
+| False Refusal | 2 |
+| Hard-negative 正确拒答 | 4 / 4 |
+
+14 个 generated answers 的 citation validation 全部通过。这里的 citation validation 仅验证 Evidence ID、来源与 provenance 是否可解析合法，不等同于答案事实正确性。
+
+### Retrieval / evidence
+
+| 指标 | 结果 |
+|---|---:|
+| Initial HitRate@3 | 0.8750 |
+| Initial Recall@3 | 0.7727 |
+| Initial Recall@10 | 0.8182 |
+| Multi-evidence Top3 完整覆盖 | 1 / 3 |
+
+### Held-out failure cases
+
+- `MULTI-003`：缺少“地下车站主体耐火等级”证据，retry 后仍不足，最终错误拒答。
+- `AGENT-001`：缺少完整的运行安全监测能力证据，targeted retry 未补齐，最终错误拒答。
+- `MULTI-002`：grader 判为 sufficient，但 evidence 未覆盖“设备连续工作 24 小时”，生成答案明确缺少该部分，属于 evidence completeness 判断错误。
+
+测试结果之后没有修改系统逻辑、Prompt、retrieval 参数或 `test_v1` 数据。
+
+## Failure Analysis 与局限
+
+- **Multi-evidence recall 仍是主要瓶颈**：held-out test 的 Top3 完整覆盖仅 `1/3`，命中部分证据不代表可以完整回答。
+- **Targeted retry 能力有限**：Final test 共触发 7 次 retry。4 道 hard-negative 在第二轮仍证据不足并正确拒答；3 道 answerable retry case 中，1 道补齐证据后恢复回答，2 道因证据仍不足而错误拒答。对应 hard-negative false accept 为 `0/4`，answerable false refusal 为 `2/16（12.5%）`。
+- **Sufficiency 仍会误判**：development set 表现良好，但 held-out 的 `MULTI-002` 暴露了对部分支持证据的 false sufficient 风险。
+- **表格评测仍有结构边界**：正文条文 chunk 与 canonical table chunk 可能分别召回；同时要求 article/table 的 gold matcher 可能低估实际 coverage，text/table duplication 也会占用候选位。
+- **复杂版面不是 v1 重点**：公式、复杂图形、扫描件 OCR 与跨页复杂表格仍需要专门解析能力。
+- **知识范围有限**：当前核心实验基于单一城市轨道交通工程规范，尚未验证多规范版本冲突、跨文档引用与权限过滤。
+
+## Evaluation Design
+
+| Dataset | 用途 |
+|---|---|
+| `dev_v0` | 40 题开发集，其中34题用于 single-turn retrieval baseline 与 failure analysis |
+| `refusal_dev_v0` | 15 道 hard-negative，覆盖 missing fact、项目外部信息、当前/未来信息与 partial support |
+| `sufficiency_dev_v0` | 19 个固定 Top3 evidence bundles，用于验证 sufficient / insufficient 判定 |
+| `test_v1` | 冻结后的20题 held-out Agent test；系统冻结后运行，不用于调参或筛题 |
+
+评测报告保存在 `eval/reports/`。`test_v1` 运行后没有根据结果修改系统逻辑或测试数据。
+
+## Quick Start
+
+### 1. 环境准备
+
+需要 Python `3.10–3.13`。以下命令以 PowerShell 为例：
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+python -m pip install -e ".[dev]"
+Copy-Item .env.example .env
+```
+
+### 2. 配置 DeepSeek API
+
+在 `.env` 中填写实际配置，不要提交密钥：
+
+```dotenv
+DEEPSEEK_API_KEY=your-api-key
+DEEPSEEK_BASE_URL=your-openai-compatible-base-url
+DEEPSEEK_MODEL=your-available-model-identifier
+```
+
+模型 identifier 取决于所使用的 DeepSeek OpenAI-compatible 服务。项目最终 grader evaluation 使用过 `deepseek-v4-flash`，但该名称不保证在其他服务商或时间点可用。
+
+### 3. 准备文档与索引
+
+默认文档路径为 `data/raw/城市轨道交通工程设计标准.pdf`。首次运行 CLI 或 Web 时，`RAGService.from_pdf()` 会通过 `IndexManager` 构建索引；后续在 PDF checksum、chunk 参数和 embedding model 一致时加载 `.rag_index/` 中的持久化索引。
+
+### 4. 运行演示入口
+
+```powershell
+# 基础 CLI：Dense + CrossEncoder + generation + citation
+python main.py
+
+# Web UI：完整 Hybrid Agent + Sufficiency Grader + bounded retry/refusal
+streamlit run app.py
+
+# 完整 Agent Demo：Hybrid + Grader + bounded retry/refusal
+python agent_demo.py
+```
+
+`agent_demo.py` 与 `app.py` 都直接复用 `src/agent_workflow.py`，输出最终答案或拒答、最终 Evidence 及结构化 Agent Trace。`main.py` 仍保留基础 RAG CLI 行为。
+
+### 5. 运行测试
+
+```powershell
+python -m pytest
+```
+
+当前完整测试结果：`57 passed, 5 subtests passed`。
+
+## 项目结构
+
+```text
+src/
+├── loader.py / splitter.py       # 结构化 PDF 解析与切分
+├── index_manager.py              # 持久索引、manifest 与 checksum
+├── retriever.py / reranker.py    # Dense retrieval 与 CrossEncoder
+├── evidence.py                   # Evidence、provenance 与 citation validation
+├── evidence_sufficiency.py       # 结构化 evidence sufficiency grader
+├── agent_workflow.py             # max_retries=1 的 bounded Agent 状态机
+└── rag_service.py                # CLI / Streamlit 基础 RAG 服务
+
+eval/
+├── bm25.py / rrf.py              # BM25 与固定等权 RRF 实验组件
+├── datasets/                     # dev、refusal、sufficiency、held-out 数据集
+├── reports/                      # 正式实验与逐题报告
+└── run_*.py                      # retrieval / grader / Agent 评测入口
+
+tests/                            # ingestion、index、retrieval、evidence、grader、Agent 测试
+data/raw/                         # 原始工程规范 PDF
+docs/                             # 项目审计与演进背景
+```
+
+## 技术栈
+
+Python、PyMuPDF、Sentence Transformers、`BAAI/bge-small-zh-v1.5`、FAISS、BM25、`BAAI/bge-reranker-base` CrossEncoder、DeepSeek OpenAI-compatible API、Streamlit、pytest。
+
+## 设计原则
+
+这个项目的核心取舍是：先通过 evidence 和 evaluation 明确失败发生在哪里，再增加最小必要机制。Hybrid Retrieval 解决候选互补，CrossEncoder 解决候选排序，Evidence Sufficiency 解决“相关但不足”，bounded Agent 则把 retry 与 refusal 变成可观察、可终止的状态决策。

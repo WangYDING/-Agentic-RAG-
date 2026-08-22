@@ -1,0 +1,71 @@
+Metadata-Version: 2.4
+Name: engineering-spec-rag
+Version: 0.1.0
+Summary: RAG prototype for engineering specification documents
+Requires-Python: <3.14,>=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: faiss-cpu<2,>=1.8
+Requires-Dist: numpy<3,>=1.26
+Requires-Dist: openai<2,>=1.35
+Requires-Dist: pymupdf<2,>=1.24
+Requires-Dist: python-dotenv<2,>=1
+Requires-Dist: sentence-transformers<6,>=3
+Requires-Dist: streamlit<2,>=1.36
+Provides-Extra: dev
+Requires-Dist: pytest<10,>=8; extra == "dev"
+
+# 项目描述
+
+面向隧道工程规范与施工技术文档，构建基于RAG的知识库问答系统，实现文档解析、文本切分、向量检索与基于上下文的答案生成，提升工程规范查阅效率，并支持答案引用溯源
+
+面向隧道规范查阅场景的智能辅助系统，支持多文档规范检索、证据引用和结构化回答，帮助工程人员快速定位相关条文与技术要求。
+
+**工程规范智能问答系统（RAG）**
+
+面向城市轨道交通/隧道规范文档，构建基于本地中文 embedding + FAISS 的语义检索系统，并引入 Cross-Encoder reranker 进行重排序，形成“召回 + 精排”的两阶段检索架构；结合 DeepSeek 实现结构化答案生成与引用来源追溯，提升规范问答场景下的回答准确性与可解释性。
+👉 第一层（问题）
+
+工程规范文档通常较长，查阅效率低，尤其在施工或检测过程中快速定位条文较困难。
+
+👉 第二层（方案）
+
+我构建了一个基于RAG的规范知识库问答系统，通过向量检索定位相关条文，再由大模型生成结构化回答。
+
+👉 第三层（优化）
+
+在项目中我针对PDF文本断行、页眉页脚噪声和中文断词问题进行了优化，提高了检索质量。
+
+👉 第四层（扩展）
+
+后续可以扩展为工程助手Agent，实现规范查询、报告生成等功能。
+
+## 当前实现边界
+
+当前版本是单 PDF、进程内 FAISS 索引的 Basic RAG baseline。CLI 使用最近对话拼接检索问题；Streamlit 使用 LLM Query Rewrite。两者共享 `src.rag_service.RAGService` 编排层，并保持 dense retrieval、Cross-Encoder rerank 和生成 prompt 不变。
+
+当前不包含 BM25、Hybrid Retrieval、Agent、持久化索引或评测系统。
+
+## 环境
+
+需要 Python 3.10-3.13。不要提交 `.env` 或 `.venv`。
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+python -m pip install -e ".[dev]"
+Copy-Item .env.example .env
+```
+
+在 `.env` 中填写 DeepSeek 配置，然后运行：
+
+```powershell
+python main.py
+streamlit run app.py
+```
+
+运行不需要模型或 API 的基础回归测试：
+
+```powershell
+python -m unittest discover -s tests -v
+```
