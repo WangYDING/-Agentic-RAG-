@@ -6,7 +6,7 @@ from src.agent_workflow import AgentResponse
 from src.application import build_agent_workflow
 from src.config import AppConfig, ConfigurationError
 from src.evidence import format_evidence_citation
-from src.presentation import format_agent_trace
+from src.presentation import configure_utf8_output, format_agent_trace
 
 
 def render_response(response: AgentResponse) -> str:
@@ -38,6 +38,7 @@ def render_response(response: AgentResponse) -> str:
 
 
 def main(argv: list[str] | None = None) -> int:
+    configure_utf8_output()
     parser = argparse.ArgumentParser(description="Run the bounded Hybrid RAG Agent demo.")
     parser.add_argument("--pdf", help="覆盖 RAG_PDF_PATH")
     parser.add_argument("--index-dir", help="覆盖 RAG_INDEX_DIR")

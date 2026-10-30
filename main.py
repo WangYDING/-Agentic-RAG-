@@ -1,13 +1,31 @@
+from dotenv import load_dotenv
+
 from src.chat_memory import ChatMemory
+from src.config import AppConfig, ConfigurationError
+from src.embedder import Embedder
 from src.evidence import format_evidence_citation
+from src.generator import Generator
 from src.rag_service import EmptyDocumentError, RAGService
+from src.reranker import Reranker
 
 if __name__ == "__main__":
-    pdf_path = "data/raw/城市轨道交通工程设计标准.pdf"
+    load_dotenv()
+    config = AppConfig.from_sources()
     try:
-        service = RAGService.from_pdf(pdf_path)
-    except EmptyDocumentError as exc:
-        print(exc)
+        config.validate_for_agent()
+        service = RAGService.from_pdf(
+            config.pdf_path,
+            index_dir=config.index_dir,
+            embedder=Embedder(config.embedding_model),
+            reranker=Reranker(config.reranker_model),
+            generator=Generator(
+                api_key=config.api_key,
+                base_url=config.api_base_url,
+                model=config.generation_model,
+            ),
+        )
+    except (ConfigurationError, EmptyDocumentError) as exc:
+        print(f"配置错误：{exc}")
         exit()
 
     print(f"chunks数量: {service.chunk_count}")
@@ -29,8 +47,8 @@ if __name__ == "__main__":
             query=query,
             memory=memory,
             query_mode="history",
-            top_k=10,
-            top_n=3,
+            top_k=config.retrieval_top_k,
+            top_n=config.evidence_top_n,
             use_rerank=True,
         )
 

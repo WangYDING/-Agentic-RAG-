@@ -1,6 +1,6 @@
 # 工程化实施路线
 
-日期：2026-10-30。依据：RAG_PROJECT_AUDIT.md 与当前源码。状态：阶段 1 已完成本地与远端 CI 验收。后续阶段仍为计划，不表示相应能力已经完成。
+日期：2026-10-30。依据：RAG_PROJECT_AUDIT.md 与当前源码。状态：阶段 1 已完成本地与远端 CI 验收；阶段 2 已完成本地验收。后续阶段仍为计划，不表示相应能力已经完成。
 
 ## 目标与范围
 
@@ -32,6 +32,8 @@
 涉及：agent_demo.py、app.py、src、eval、pyproject.toml。
 
 验收：正式应用不导入 eval runner；构建并安装 wheel，在源码目录之外验证组件和入口；使用替代组件验证 CLI/Web 共用编排，真实模型验证独立进行。
+
+本地完成记录（2026-10-30）：BM25、Hybrid 与 RRF 已迁入 `src`，应用不再导入 `eval`；配置优先级、默认值和缺项提示的离线测试通过；CLI/Web 共用 `src.application.build_agent_workflow`。Ruff 通过，离线测试 `59 passed`，integration `9 passed, 5 subtests passed`。wheel 已安装到仓库外的独立临时环境，包导入、`engineering-rag --help`、`engineering-rag-web --help` 和无密钥错误契约均通过；未调用真实模型或收费 API。
 
 ## 阶段 3：可靠输出与失败处理（估计 2–3 个工作日）
 

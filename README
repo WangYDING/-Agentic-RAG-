@@ -232,6 +232,22 @@ DEEPSEEK_BASE_URL=your-openai-compatible-base-url
 DEEPSEEK_MODEL=your-available-model-identifier
 ```
 
+应用配置统一由 `src/config.py` 管理，覆盖顺序为：**显式参数 → 环境变量 / `.env` → 默认值**。
+
+| 配置 | 环境变量 | 默认值 / 要求 |
+|---|---|---|
+| PDF 路径 | `RAG_PDF_PATH` | `data/raw/城市轨道交通工程设计标准.pdf` |
+| 索引目录 | `RAG_INDEX_DIR` | `.rag_index` |
+| Embedding 模型 | `RAG_EMBEDDING_MODEL` | `BAAI/bge-small-zh-v1.5` |
+| Reranker 模型 | `RAG_RERANKER_MODEL` | `BAAI/bge-reranker-base` |
+| 生成/判定/改写模型 | `DEEPSEEK_MODEL` | `deepseek-chat` |
+| API 地址 | `DEEPSEEK_BASE_URL` | 完整 Agent 必填 |
+| API 密钥 | `DEEPSEEK_API_KEY` | 完整 Agent 必填；错误信息不会输出密钥 |
+| 每路检索候选数 | `RAG_RETRIEVAL_TOP_K` | `10` |
+| 最终证据数 | `RAG_EVIDENCE_TOP_N` | `3` |
+
+`.env` 只在 CLI/Web 入口加载一次；`src` 中的配置、模型和业务模块不会在导入时自行读取 `.env`。
+
 例如 sufficiency 评测入口为 `eval/run_sufficiency.py`，完整 Agent 入口为 `eval/run_agent_test.py`；运行前用 `--help` 查看必填数据集和输出参数。冻结的 `test_v1` 是一次性 held-out 记录，不应在日常 CI 中反复运行或用于调参。
 
 ### 3. 静态检查与打包
@@ -257,40 +273,49 @@ GitHub Actions 配置在 `.github/workflows/ci.yml`，使用 Windows + Python 3.
 
 本次干净环境使用 `NumPy 2.5.4`、`SciPy 1.18.1`、`scikit-learn 1.9.1` 与 `FAISS 1.15.1`，未复现此前的缺包或 NumPy/SciPy 兼容错误，因此没有为了猜测性兼容问题降级 NumPy。远端 GitHub Actions 已在 `phase-1-reproducible-baseline` 分支完成首次验证：[Reproducible baseline #1](https://github.com/WangYDING/-Agentic-RAG-/actions/runs/40997691755) 全部通过。
 
-## 运行演示
+第二阶段本地验证同样在 `2026-10-30` 完成：Ruff 通过；离线测试 `59 passed`；integration `9 passed, 5 subtests passed`；wheel 安装到仓库外的全新临时环境后，包导入、CLI/Web 帮助和配置错误契约均通过。真实模型与收费 API 未在本阶段调用。
+
+## 安装后的正式启动方式
 
 默认文档路径为 `data/raw/城市轨道交通工程设计标准.pdf`。首次运行 CLI 或 Web 时，`RAGService.from_pdf()` 会通过 `IndexManager` 构建索引；后续在 PDF checksum、chunk 参数和 embedding model 一致时加载 `.rag_index/` 中的持久化索引。
 
 ```powershell
-# 基础 CLI：Dense + CrossEncoder + generation + citation
-.\.venv\Scripts\python.exe main.py
+# 完整 Agent CLI：Hybrid + Grader + bounded retry/refusal
+.\.venv\Scripts\engineering-rag.exe --help
+.\.venv\Scripts\engineering-rag.exe --question "车站发生火灾时消防联动如何执行？"
 
 # Web UI：完整 Hybrid Agent + Sufficiency Grader + bounded retry/refusal
-.\.venv\Scripts\streamlit.exe run app.py
+.\.venv\Scripts\engineering-rag-web.exe
 
-# 完整 Agent Demo：Hybrid + Grader + bounded retry/refusal
-.\.venv\Scripts\python.exe agent_demo.py
+# 源码仓库中的基础 RAG CLI：Dense + CrossEncoder + generation + citation
+.\.venv\Scripts\python.exe main.py
 ```
 
-这些运行入口会加载/下载真实模型；生成、query rewrite 与 sufficiency grader 还需要上面的 API 配置。`agent_demo.py` 与 `app.py` 都复用 `src/agent_workflow.py`，输出最终答案或拒答、最终 Evidence 及结构化 Agent Trace。`main.py` 保留基础 RAG CLI 行为。
+前两个正式入口都调用 `src.application.build_agent_workflow(config)`，因此 Web/CLI 使用完全相同的配置和完整 Agent 编排。它们会加载或下载真实模型；生成、query rewrite 与 sufficiency grader 还需要上面的 API 配置。`main.py` 仅保留源码仓库中的基础 Dense RAG 演示，不代表完整 Hybrid Agent。
+
+wheel 验收会安装到另一个临时环境，并从源码目录之外验证包导入、两个 `--help` 命令和缺少 API 配置时的错误提示；这个过程不下载模型、不调用 API。
 
 ## 项目结构
 
 ```text
 src/
+├── config.py / application.py   # 统一配置与完整 Agent 应用工厂
 ├── loader.py / splitter.py       # 结构化 PDF 解析与切分
 ├── index_manager.py              # 持久索引、manifest 与 checksum
 ├── retriever.py / reranker.py    # Dense retrieval 与 CrossEncoder
+├── bm25_retriever.py             # 正式 BM25 检索组件
+├── hybrid_retriever.py           # Dense + BM25 运行时融合
+├── retrieval_fusion.py           # 稳定 chunk identity 与等权 RRF
 ├── evidence.py                   # Evidence、provenance 与 citation validation
 ├── evidence_sufficiency.py       # 结构化 evidence sufficiency grader
 ├── agent_workflow.py             # max_retries=1 的 bounded Agent 状态机
-└── rag_service.py                # CLI / Streamlit 基础 RAG 服务
+├── presentation.py               # CLI/Web 共用的安全 trace 格式化
+└── web_launcher.py               # 安装后 Web 启动入口
 
 eval/
-├── bm25.py / rrf.py              # BM25 与固定等权 RRF 实验组件
 ├── datasets/                     # dev、refusal、sufficiency、held-out 数据集
 ├── reports/                      # 正式实验与逐题报告
-└── run_*.py                      # retrieval / grader / Agent 评测入口
+└── run_*.py                      # 数据读取、评测执行、指标与报告；复用 src 组件
 
 tests/                            # ingestion、index、retrieval、evidence、grader、Agent 测试
 data/raw/                         # 原始工程规范 PDF

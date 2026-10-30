@@ -1,4 +1,13 @@
+import sys
+
 from src.agent_workflow import AgentResponse
+
+
+def configure_utf8_output() -> None:
+    for stream in (sys.stdout, sys.stderr):
+        reconfigure = getattr(stream, "reconfigure", None)
+        if reconfigure is not None:
+            reconfigure(encoding="utf-8", errors="replace")
 
 
 def format_agent_trace(response: AgentResponse) -> list[str]:

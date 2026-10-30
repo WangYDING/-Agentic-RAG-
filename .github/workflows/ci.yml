@@ -33,3 +33,39 @@ jobs:
 
       - name: Build source and wheel distributions
         run: uv run --locked python -m build
+
+      - name: Verify the wheel outside the source directory
+        shell: pwsh
+        run: |
+          $smokeDir = Join-Path $env:RUNNER_TEMP "engineering-rag-wheel-smoke"
+          uv venv --python 3.12 $smokeDir
+          $wheel = (Get-ChildItem "dist\*.whl" | Select-Object -First 1).FullName
+          uv pip install --python "$smokeDir\Scripts\python.exe" $wheel
+
+          Push-Location $env:RUNNER_TEMP
+          try {
+            & "$smokeDir\Scripts\python.exe" -c "import agent_demo; import src.application; import src.config"
+            if ($LASTEXITCODE -ne 0) { throw "Installed package import failed" }
+
+            & "$smokeDir\Scripts\engineering-rag.exe" --help
+            if ($LASTEXITCODE -ne 0) { throw "CLI help failed" }
+
+            & "$smokeDir\Scripts\engineering-rag-web.exe" --help
+            if ($LASTEXITCODE -ne 0) { throw "Web help failed" }
+
+            $env:DEEPSEEK_API_KEY = $null
+            $env:DEEPSEEK_BASE_URL = $null
+            $previousNativePreference = $PSNativeCommandUseErrorActionPreference
+            $PSNativeCommandUseErrorActionPreference = $false
+            $output = & "$smokeDir\Scripts\engineering-rag.exe" --question smoke 2>&1
+            if ($LASTEXITCODE -ne 2) { throw "Expected configuration exit code 2" }
+            $PSNativeCommandUseErrorActionPreference = $previousNativePreference
+            $outputText = $output | Out-String
+            if ($outputText -notmatch "DEEPSEEK_API_KEY" -or $outputText -notmatch "DEEPSEEK_BASE_URL") {
+              throw "Configuration error did not name missing fields"
+            }
+            $global:LASTEXITCODE = 0
+          }
+          finally {
+            Pop-Location
+          }
