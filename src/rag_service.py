@@ -22,6 +22,7 @@ class RAGResponse:
     evidences: list[Evidence]
     citation_validation: CitationValidation
     result: ApplicationResult
+    index_version_id: str | None = None
 
     @property
     def result_type(self) -> str:
@@ -41,6 +42,7 @@ class RAGService:
         chunk_count: int | None = None,
         embedding_dim: int | None = None,
         cleaned_text_preview: str = "",
+        index_version_id: str | None = None,
     ):
         self.retriever = retriever
         self.reranker = reranker
@@ -49,6 +51,7 @@ class RAGService:
         self.chunk_count = chunk_count
         self.embedding_dim = embedding_dim
         self.cleaned_text_preview = cleaned_text_preview
+        self.index_version_id = index_version_id
 
     @classmethod
     def from_pdf(
@@ -92,6 +95,7 @@ class RAGService:
             chunk_count=managed_index.manifest.chunk_count,
             embedding_dim=managed_index.manifest.embedding_dim,
             cleaned_text_preview=managed_index.cleaned_text_preview,
+            index_version_id=managed_index.manifest.version_id,
         )
 
     def answer(
@@ -133,7 +137,9 @@ class RAGService:
                     message=message,
                     error_code="INVALID_CITATION",
                     retryable=False,
+                    index_version_id=self.index_version_id,
                 ),
+                index_version_id=self.index_version_id,
             )
         memory.add_user_message(query)
         memory.add_assistant_message(answer)
@@ -144,7 +150,12 @@ class RAGService:
             results=results,
             evidences=evidences,
             citation_validation=citation_validation,
-            result=ApplicationResult(result_type="answer", message=answer),
+            result=ApplicationResult(
+                result_type="answer",
+                message=answer,
+                index_version_id=self.index_version_id,
+            ),
+            index_version_id=self.index_version_id,
         )
 
     def _build_retrieval_query(

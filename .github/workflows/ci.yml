@@ -53,6 +53,9 @@ jobs:
             & "$smokeDir\Scripts\engineering-rag-web.exe" --help
             if ($LASTEXITCODE -ne 0) { throw "Web help failed" }
 
+            & "$smokeDir\Scripts\engineering-rag-index.exe" --help
+            if ($LASTEXITCODE -ne 0) { throw "Index CLI help failed" }
+
             $env:DEEPSEEK_API_KEY = $null
             $env:DEEPSEEK_BASE_URL = $null
             $previousNativePreference = $PSNativeCommandUseErrorActionPreference

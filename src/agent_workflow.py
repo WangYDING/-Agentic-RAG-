@@ -26,6 +26,7 @@ class AgentState:
     citation_validation: CitationValidation | None = None
     trace: list[dict[str, Any]] = field(default_factory=list)
     request_id: str = field(default_factory=lambda: uuid4().hex)
+    index_version_id: str | None = None
 
 
 @dataclass(frozen=True)
@@ -67,6 +68,7 @@ class AgentWorkflow:
         evidence_top_n: int = 3,
         max_model_calls: int = 6,
         total_timeout_seconds: float = 90.0,
+        index_version_id: str | None = None,
     ):
         if max_retries != 1:
             raise ValueError("AgentWorkflow requires max_retries=1")
@@ -80,9 +82,14 @@ class AgentWorkflow:
         self.evidence_top_n = evidence_top_n
         self.max_model_calls = max_model_calls
         self.total_timeout_seconds = total_timeout_seconds
+        self.index_version_id = index_version_id
 
     def run(self, query: str) -> AgentResponse:
-        state = AgentState(original_query=query, retrieval_query=query)
+        state = AgentState(
+            original_query=query,
+            retrieval_query=query,
+            index_version_id=self.index_version_id,
+        )
         budget = CallBudget(
             max_calls=self.max_model_calls,
             total_timeout_seconds=self.total_timeout_seconds,
@@ -192,6 +199,7 @@ class AgentWorkflow:
                     error_code="INVALID_CITATION",
                     retryable=False,
                     request_id=state.request_id,
+                    index_version_id=state.index_version_id,
                     trace=tuple(state.trace),
                 ),
             )
@@ -203,6 +211,7 @@ class AgentWorkflow:
                 result_type="answer",
                 message=answer,
                 request_id=state.request_id,
+                index_version_id=state.index_version_id,
                 trace=tuple(state.trace),
             ),
         )
@@ -222,6 +231,7 @@ class AgentWorkflow:
                 message=message,
                 missing_requirements=tuple(state.missing_requirements),
                 request_id=state.request_id,
+                index_version_id=state.index_version_id,
                 trace=tuple(state.trace),
             ),
         )
@@ -243,6 +253,7 @@ class AgentWorkflow:
                 result_type="error",
                 message=message,
                 request_id=state.request_id,
+                index_version_id=state.index_version_id,
                 error_code=code,
                 retryable=retryable,
                 trace=tuple(state.trace),

@@ -3,7 +3,7 @@ import logging
 from uuid import uuid4
 from dotenv import load_dotenv
 
-from src.application import build_agent_workflow
+from src.application import build_agent_workflow, get_index_cache_token
 from src.config import AppConfig, ConfigurationError
 from src.evidence import format_evidence_citation
 from src.presentation import format_agent_trace, present_agent_response
@@ -22,7 +22,7 @@ except ConfigurationError as exc:
 
 
 @st.cache_resource
-def load_agent_workflow(config: AppConfig):
+def load_agent_workflow(config: AppConfig, index_version: str):
     return build_agent_workflow(config)
 
 
@@ -42,7 +42,8 @@ with st.sidebar:
 
 try:
     config = AppConfig.from_sources(pdf_path=pdf_path, index_dir=index_dir)
-    workflow = load_agent_workflow(config)
+    index_version = get_index_cache_token(config)
+    workflow = load_agent_workflow(config, index_version)
 except ConfigurationError as exc:
     st.error(f"配置错误：{exc}")
     st.stop()

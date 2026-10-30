@@ -239,6 +239,7 @@ DEEPSEEK_MODEL=your-available-model-identifier
 | PDF 路径 | `RAG_PDF_PATH` | `data/raw/城市轨道交通工程设计标准.pdf` |
 | 索引目录 | `RAG_INDEX_DIR` | `.rag_index` |
 | Embedding 模型 | `RAG_EMBEDDING_MODEL` | `BAAI/bge-small-zh-v1.5` |
+| Embedding revision | `RAG_EMBEDDING_REVISION` | 可选；生产环境建议固定可用 revision |
 | Reranker 模型 | `RAG_RERANKER_MODEL` | `BAAI/bge-reranker-base` |
 | 生成/判定/改写模型 | `DEEPSEEK_MODEL` | `deepseek-chat` |
 | API 地址 | `DEEPSEEK_BASE_URL` | 完整 Agent 必填 |
@@ -249,6 +250,8 @@ DEEPSEEK_MODEL=your-available-model-identifier
 | 暂时性网络错误重试次数 | `RAG_MAX_NETWORK_RETRIES` | `1` |
 | 一次问答总时限（秒） | `RAG_TOTAL_TIMEOUT_SECONDS` | `90` |
 | 一次问答模型调用上限 | `RAG_MAX_MODEL_CALLS` | `6` |
+| 是否允许问答入口首次自动构建索引 | `RAG_INDEX_AUTO_BUILD` | `true`；生产式部署建议设为 `false` |
+| 同文档构建锁等待时间（秒） | `RAG_INDEX_LOCK_TIMEOUT_SECONDS` | `30` |
 
 `.env` 只在 CLI/Web 入口加载一次；`src` 中的配置、模型和业务模块不会在导入时自行读取 `.env`。
 
@@ -281,6 +284,8 @@ GitHub Actions 配置在 `.github/workflows/ci.yml`，使用 Windows + Python 3.
 
 第三阶段“可靠输出”于 `2026-10-30` 完成本地与远端验收：Ruff 通过；离线测试 `80 passed`；integration `9 passed, 5 subtests passed`；sdist 与 wheel 构建成功。故障注入覆盖合法答案、两轮证据不足、无引用、未知引用、来源/页码缺失、Grader 空响应/非法 JSON/矛盾字段、超时、限流、认证失败和调用预算耗尽，未调用真实模型或收费 API。[GitHub Actions 第 8 次运行](https://github.com/WangYDING/-Agentic-RAG-/actions/runs/41027041784) 在 Windows / Python 3.12 上全部通过。
 
+第四阶段“索引可靠性”于 `2026-10-30` 完成本地与远端验收：Ruff 通过；离线测试 `83 passed`；integration `21 passed, 5 subtests passed`；sdist 与 wheel 构建成功。故障测试覆盖半成品写入、发布前失败、锁超时、活动指针损坏、metadata 哈希异常、文档错配、重启加载和新版本缓存令牌切换；未调用真实模型或收费 API。[GitHub Actions 第 10 次运行](https://github.com/WangYDING/-Agentic-RAG-/actions/runs/41028835048) 在锁定的 Windows / Python 3.12 环境全部通过，包括安装后索引 CLI 帮助检查。
+
 ### 可靠输出契约
 
 完整 Agent 的 CLI 与 Web 使用同一套三态结果：
@@ -311,7 +316,40 @@ GitHub Actions 配置在 `.github/workflows/ci.yml`，使用 Windows + Python 3.
 
 前两个正式入口都调用 `src.application.build_agent_workflow(config)`，因此 Web/CLI 使用完全相同的配置和完整 Agent 编排。它们会加载或下载真实模型；生成、query rewrite 与 sufficiency grader 还需要上面的 API 配置。`main.py` 仅保留源码仓库中的基础 Dense RAG 演示，不代表完整 Hybrid Agent。
 
-wheel 验收会安装到另一个临时环境，并从源码目录之外验证包导入、两个 `--help` 命令和缺少 API 配置时的错误提示；这个过程不下载模型、不调用 API。
+wheel 验收会安装到另一个临时环境，并从源码目录之外验证包导入、三个安装入口的 `--help` 命令和缺少 API 配置时的错误提示；这个过程不下载模型、不调用 API。
+
+## 索引构建、检查与版本切换
+
+索引采用内容寻址版本，不再覆盖活动目录：
+
+```text
+.rag_index/
+└── <document_name>_<document_id>/
+    ├── active.json
+    ├── build.lock
+    └── versions/
+        └── <version_id>/
+            ├── index.faiss
+            ├── metadata.json
+            └── manifest.json
+```
+
+`document_id` 由规范化绝对路径确定，避免不同目录中的同名 PDF 相互覆盖；`version_id` 由 PDF 内容哈希、切分参数、embedding 模型/revision 和解析版本共同确定。manifest 保存两个产物的 SHA-256、向量维度和数量。
+
+```powershell
+# 构建缺失版本；已存在且有效时直接复用
+engineering-rag-index build --pdf data/raw/城市轨道交通工程设计标准.pdf
+
+# 重新校验并确保确定性版本已发布；有效的内容寻址版本不会重复计算
+engineering-rag-index rebuild --pdf data/raw/城市轨道交通工程设计标准.pdf
+
+# 只校验当前请求对应的已发布版本，不下载 embedding 模型、不自动构建
+engineering-rag-index check --pdf data/raw/城市轨道交通工程设计标准.pdf
+```
+
+构建过程先在 `versions/` 下的同文件系统临时目录写入全部产物并自校验，再发布完整版本目录，最后原子替换 `active.json`。同一文档的构建使用跨 Windows/Linux 文件锁；等待超时会明确返回“正在构建”。构建失败保留上一活动指针和全部旧版本。
+
+加载只接受与当前 PDF 和构建配置完全匹配的版本。活动指针损坏但目标版本完整时可以修复指针；目标版本产物损坏时明确报错，不会回退到不匹配的旧文档。Web 缓存键包含活动 `version_id`，发布后下一次脚本运行会装载新快照；单次问答持有一个固定的内存快照，并在结果中记录 `index_version`。
 
 ## 项目结构
 
@@ -320,6 +358,7 @@ src/
 ├── config.py / application.py   # 统一配置与完整 Agent 应用工厂
 ├── loader.py / splitter.py       # 结构化 PDF 解析与切分
 ├── index_manager.py              # 持久索引、manifest 与 checksum
+├── index_cli.py                  # 显式 build/rebuild/check 命令
 ├── retriever.py / reranker.py    # Dense retrieval 与 CrossEncoder
 ├── bm25_retriever.py             # 正式 BM25 检索组件
 ├── hybrid_retriever.py           # Dense + BM25 运行时融合

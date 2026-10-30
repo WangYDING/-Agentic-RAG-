@@ -45,11 +45,18 @@ def build_agent_workflow(
         max_network_retries=config.max_network_retries,
     )
 
-    embedder = factories.Embedder(config.embedding_model)
-    managed = factories.IndexManager(config.index_dir).build_or_load(
-        config.pdf_path,
-        embedder=embedder,
+    embedder = factories.Embedder(
+        config.embedding_model,
+        model_revision=config.embedding_revision,
     )
+    index_manager = factories.IndexManager(
+        config.index_dir,
+        lock_timeout_seconds=config.index_lock_timeout_seconds,
+    )
+    if config.index_auto_build:
+        managed = index_manager.build_or_load(config.pdf_path, embedder=embedder)
+    else:
+        managed = index_manager.load_published(config.pdf_path, embedder=embedder)
     retriever = factories.HybridRetriever(
         factories.Retriever(managed.vector_store, embedder),
         factories.BM25Retriever(managed.vector_store.chunk_records),
@@ -79,4 +86,11 @@ def build_agent_workflow(
         evidence_top_n=config.evidence_top_n,
         max_model_calls=config.max_model_calls,
         total_timeout_seconds=config.total_timeout_seconds,
+        index_version_id=managed.manifest.version_id,
     )
+
+
+def get_index_cache_token(config: AppConfig) -> str:
+    from src.index_manager import IndexManager
+
+    return IndexManager(config.index_dir).active_version_token(config.pdf_path)

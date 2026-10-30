@@ -14,13 +14,18 @@ class ResultPresentation:
 
 
 def present_agent_response(response: AgentResponse) -> ResultPresentation:
+    version_detail = (
+        (f"index_version: {response.state.index_version_id}",)
+        if response.state.index_version_id
+        else ()
+    )
     if response.result_type == "answer":
         return ResultPresentation(
             heading="Final Answer",
             message=response.answer,
             severity="success",
             show_evidence=True,
-            details=(f"request_id: {response.request_id}",),
+            details=(f"request_id: {response.request_id}", *version_detail),
         )
     if response.result_type == "refuse":
         return ResultPresentation(
@@ -28,7 +33,7 @@ def present_agent_response(response: AgentResponse) -> ResultPresentation:
             message=response.answer,
             severity="info",
             show_evidence=False,
-            details=(f"request_id: {response.request_id}",),
+            details=(f"request_id: {response.request_id}", *version_detail),
         )
     return ResultPresentation(
         heading="Service Error",
@@ -39,6 +44,7 @@ def present_agent_response(response: AgentResponse) -> ResultPresentation:
             f"request_id: {response.request_id}",
             f"error_code: {response.error_code or 'INTERNAL_ERROR'}",
             f"retryable: {str(response.retryable).lower()}",
+            *version_detail,
         ),
     )
 

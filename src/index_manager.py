@@ -152,6 +152,78 @@ class IndexManager:
                 return loaded
         return self.rebuild(embedder=embedder, **identity)
 
+    def load_published(
+        self,
+        pdf_path: str | Path,
+        *,
+        embedder,
+        chunk_size: int = 300,
+        overlap: int = 50,
+        recover_pointer: bool = True,
+    ) -> ManagedIndex:
+        """Load only the exact requested snapshot; never auto-build or use stale content."""
+
+        identity = self._identity(
+            pdf_path, embedder=embedder, chunk_size=chunk_size, overlap=overlap
+        )
+        loaded = self._try_load_active(identity)
+        if loaded is not None:
+            return loaded
+        document_dir = self._document_index_dir(
+            identity["pdf_path"], identity["document_id"]
+        )
+        candidate = self._try_load_version(
+            document_dir, identity["version_id"], identity
+        )
+        if candidate is not None and recover_pointer:
+            with BuildLock(document_dir / "build.lock", self.lock_timeout_seconds):
+                loaded = self._try_load_active(identity)
+                if loaded is not None:
+                    return loaded
+                self._publish_active(document_dir, candidate.manifest)
+            return ManagedIndex(candidate.vector_store, candidate.manifest, "recover_pointer")
+
+        active_path = document_dir / "active.json"
+        target_path = document_dir / "versions" / identity["version_id"]
+        if target_path.exists():
+            raise IndexCorruptionError(
+                "请求对应的索引版本存在但未通过完整性校验，未回退到其他文档版本。"
+            )
+        if active_path.exists():
+            raise IndexUnavailableError(
+                "活动索引与当前文档或构建配置不匹配，需要显式构建目标版本。"
+            )
+        raise IndexUnavailableError("尚未发布当前文档对应的索引版本。")
+
+    def check(
+        self,
+        pdf_path: str | Path,
+        *,
+        embedder,
+        chunk_size: int = 300,
+        overlap: int = 50,
+    ) -> IndexManifest:
+        return self.load_published(
+            pdf_path,
+            embedder=embedder,
+            chunk_size=chunk_size,
+            overlap=overlap,
+            recover_pointer=False,
+        ).manifest
+
+    def active_version_token(self, pdf_path: str | Path) -> str:
+        pdf_path = Path(pdf_path)
+        document_id = calculate_document_id(pdf_path)
+        active_path = self._document_index_dir(pdf_path, document_id) / "active.json"
+        try:
+            active = _read_json(active_path)
+        except (OSError, json.JSONDecodeError):
+            return "unpublished"
+        if active.get("document_id") != document_id:
+            return "invalid"
+        version_id = active.get("version_id")
+        return version_id if isinstance(version_id, str) and version_id else "invalid"
+
     def rebuild(
         self,
         pdf_path: str | Path,

@@ -1,6 +1,6 @@
 # 工程化实施路线
 
-日期：2026-10-30。依据：RAG_PROJECT_AUDIT.md 与当前源码。状态：阶段 1、阶段 2、阶段 3 已完成本地与远端 CI 验收。后续阶段仍为计划，不表示相应能力已经完成。
+日期：2026-10-30。依据：RAG_PROJECT_AUDIT.md 与当前源码。状态：阶段 1、阶段 2、阶段 3、阶段 4 已完成本地与远端 CI 验收。后续阶段仍为计划，不表示相应能力已经完成。
 
 ## 目标与范围
 
@@ -62,6 +62,8 @@
 涉及：src/index_manager.py、src/vector_store.py、应用工厂、索引构建入口。
 
 验收：模拟构建中断、产物损坏、并发构建、同名文档和配置变更；不会加载混合版本；失败不破坏旧版本；发布后能显式切换到新索引。
+
+完成记录（2026-10-30）：文档身份由规范化路径确定，构建版本由内容哈希、切分参数、embedding 模型/revision 与解析版本确定；manifest 记录产物 SHA-256、维度和数量。构建在同文件系统临时目录完成并自校验，随后发布不可变版本目录并原子替换 `active.json`；同文档构建通过 Windows/Linux 文件锁互斥，获得锁后重新检查目标版本。严格加载只接受当前请求对应版本；活动指针可从同一目标完整版本恢复，损坏产物或文档错配会明确失败。新增 `engineering-rag-index build/rebuild/check`，Web 缓存键包含活动版本，每次 Agent/RAG 响应记录索引版本。Ruff 通过；离线测试 `83 passed`；integration `21 passed, 5 subtests passed`；sdist/wheel 构建成功；未调用真实模型或收费 API。[GitHub Actions 第 10 次运行](https://github.com/WangYDING/-Agentic-RAG-/actions/runs/41028835048) 在锁定的 Windows / Python 3.12 环境全部通过。
 
 ## 阶段 5：观测与部署（估计 2–3 个工作日）
 

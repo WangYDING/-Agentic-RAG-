@@ -16,6 +16,8 @@ DEFAULT_REQUEST_TIMEOUT_SECONDS = 30.0
 DEFAULT_MAX_NETWORK_RETRIES = 1
 DEFAULT_TOTAL_TIMEOUT_SECONDS = 90.0
 DEFAULT_MAX_MODEL_CALLS = 6
+DEFAULT_INDEX_AUTO_BUILD = True
+DEFAULT_INDEX_LOCK_TIMEOUT_SECONDS = 30.0
 
 
 class ConfigurationError(ValueError):
@@ -60,11 +62,23 @@ def _positive_float(value: float | str, name: str) -> float:
     return parsed
 
 
+def _boolean(value: bool | str, name: str) -> bool:
+    if isinstance(value, bool):
+        return value
+    normalized = str(value).strip().lower()
+    if normalized in {"1", "true", "yes", "on"}:
+        return True
+    if normalized in {"0", "false", "no", "off"}:
+        return False
+    raise ConfigurationError(f"{name} 必须是 true 或 false。")
+
+
 @dataclass(frozen=True)
 class AppConfig:
     pdf_path: str = DEFAULT_PDF_PATH
     index_dir: str = DEFAULT_INDEX_DIR
     embedding_model: str = DEFAULT_EMBEDDING_MODEL
+    embedding_revision: str | None = None
     reranker_model: str = DEFAULT_RERANKER_MODEL
     generation_model: str = DEFAULT_GENERATION_MODEL
     api_base_url: str | None = None
@@ -75,6 +89,8 @@ class AppConfig:
     max_network_retries: int = DEFAULT_MAX_NETWORK_RETRIES
     total_timeout_seconds: float = DEFAULT_TOTAL_TIMEOUT_SECONDS
     max_model_calls: int = DEFAULT_MAX_MODEL_CALLS
+    index_auto_build: bool = DEFAULT_INDEX_AUTO_BUILD
+    index_lock_timeout_seconds: float = DEFAULT_INDEX_LOCK_TIMEOUT_SECONDS
 
     @classmethod
     def from_sources(
@@ -84,6 +100,7 @@ class AppConfig:
         pdf_path: str | None = None,
         index_dir: str | None = None,
         embedding_model: str | None = None,
+        embedding_revision: str | None = None,
         reranker_model: str | None = None,
         generation_model: str | None = None,
         api_base_url: str | None = None,
@@ -94,6 +111,8 @@ class AppConfig:
         max_network_retries: int | str | None = None,
         total_timeout_seconds: float | str | None = None,
         max_model_calls: int | str | None = None,
+        index_auto_build: bool | str | None = None,
+        index_lock_timeout_seconds: float | str | None = None,
     ) -> AppConfig:
         values = os.environ if environ is None else environ
         resolved_top_k = _resolve(
@@ -122,6 +141,12 @@ class AppConfig:
                     "RAG_EMBEDDING_MODEL",
                     DEFAULT_EMBEDDING_MODEL,
                 )
+            ),
+            embedding_revision=_resolve(
+                embedding_revision,
+                values,
+                "RAG_EMBEDDING_REVISION",
+                None,
             ),
             reranker_model=str(
                 _resolve(
@@ -182,6 +207,24 @@ class AppConfig:
                     DEFAULT_MAX_MODEL_CALLS,
                 ),
                 "RAG_MAX_MODEL_CALLS",
+            ),
+            index_auto_build=_boolean(
+                _resolve(
+                    index_auto_build,
+                    values,
+                    "RAG_INDEX_AUTO_BUILD",
+                    DEFAULT_INDEX_AUTO_BUILD,
+                ),
+                "RAG_INDEX_AUTO_BUILD",
+            ),
+            index_lock_timeout_seconds=_positive_float(
+                _resolve(
+                    index_lock_timeout_seconds,
+                    values,
+                    "RAG_INDEX_LOCK_TIMEOUT_SECONDS",
+                    DEFAULT_INDEX_LOCK_TIMEOUT_SECONDS,
+                ),
+                "RAG_INDEX_LOCK_TIMEOUT_SECONDS",
             ),
         )
 

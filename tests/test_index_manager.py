@@ -10,7 +10,9 @@ import pytest
 
 from src.index_manager import (
     INDEX_SCHEMA_VERSION,
+    IndexCorruptionError,
     IndexManager,
+    IndexUnavailableError,
     calculate_document_id,
     calculate_file_checksum,
 )
@@ -180,6 +182,22 @@ class IndexManagerTest(unittest.TestCase):
 
             self.assertNotEqual(first.manifest.version_id, second.manifest.version_id)
 
+    def test_embedding_revision_changes_version(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            pdf_path = root / "spec.pdf"
+            make_pdf(pdf_path, "1.0.1\nhello world")
+            manager = IndexManager(root / "index")
+            first_embedder = FakeEmbedder()
+            first_embedder.model_revision = "rev-a"
+            second_embedder = FakeEmbedder()
+            second_embedder.model_revision = "rev-b"
+
+            first = manager.build_or_load(pdf_path, embedder=first_embedder)
+            second = manager.build_or_load(pdf_path, embedder=second_embedder)
+
+            self.assertNotEqual(first.manifest.version_id, second.manifest.version_id)
+
     def test_modified_metadata_hash_is_detected_and_rebuilt(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
@@ -286,6 +304,82 @@ class IndexManagerTest(unittest.TestCase):
             release.set()
             thread.join(timeout=3)
             self.assertEqual(failures, [])
+
+    def test_corrupt_active_pointer_recovers_exact_valid_version(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            pdf_path = root / "spec.pdf"
+            make_pdf(pdf_path, "1.0.1\nhello world")
+            manager = IndexManager(root / "index")
+            built = manager.build_or_load(pdf_path, embedder=FakeEmbedder())
+            document_dir = next((root / "index").iterdir())
+            (document_dir / "active.json").write_text("{broken", encoding="utf-8")
+
+            recovered = manager.load_published(pdf_path, embedder=FakeEmbedder())
+
+            self.assertEqual(recovered.action, "recover_pointer")
+            self.assertEqual(recovered.manifest.version_id, built.manifest.version_id)
+            active = json.loads((document_dir / "active.json").read_text(encoding="utf-8"))
+            self.assertEqual(active["version_id"], built.manifest.version_id)
+
+    def test_corrupt_active_artifact_is_reported_without_stale_fallback(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            pdf_path = root / "spec.pdf"
+            make_pdf(pdf_path, "1.0.1\nhello world")
+            manager = IndexManager(root / "index")
+            built = manager.build_or_load(pdf_path, embedder=FakeEmbedder())
+            version_dir = next((root / "index").iterdir()) / "versions" / built.manifest.version_id
+            (version_dir / "metadata.json").write_text("[]", encoding="utf-8")
+
+            with self.assertRaisesRegex(IndexCorruptionError, "未通过完整性校验"):
+                manager.load_published(pdf_path, embedder=FakeEmbedder())
+
+    def test_document_change_does_not_load_previous_active_version(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            pdf_path = root / "spec.pdf"
+            make_pdf(pdf_path, "1.0.1\nold content")
+            manager = IndexManager(root / "index")
+            first = manager.build_or_load(pdf_path, embedder=FakeEmbedder())
+            pdf_path.unlink()
+            make_pdf(pdf_path, "1.0.1\nnew content")
+
+            with self.assertRaisesRegex(IndexUnavailableError, "不匹配"):
+                manager.load_published(pdf_path, embedder=FakeEmbedder())
+            document_dir = next((root / "index").iterdir())
+            active = json.loads((document_dir / "active.json").read_text(encoding="utf-8"))
+            self.assertEqual(active["version_id"], first.manifest.version_id)
+
+    def test_restart_loads_published_snapshot_without_embedding(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            pdf_path = root / "spec.pdf"
+            make_pdf(pdf_path, "1.0.1\nhello world")
+            first_manager = IndexManager(root / "index")
+            built = first_manager.build_or_load(pdf_path, embedder=FakeEmbedder())
+            embedder = FakeEmbedder()
+
+            loaded = IndexManager(root / "index").load_published(
+                pdf_path, embedder=embedder
+            )
+
+            self.assertEqual(loaded.manifest.version_id, built.manifest.version_id)
+            self.assertEqual(embedder.embed_texts_calls, 0)
+
+    def test_active_version_token_changes_after_new_publish(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            pdf_path = root / "spec.pdf"
+            make_pdf(pdf_path, "1.0.1\nold content")
+            manager = IndexManager(root / "index")
+            manager.build_or_load(pdf_path, embedder=FakeEmbedder())
+            first_token = manager.active_version_token(pdf_path)
+            pdf_path.unlink()
+            make_pdf(pdf_path, "1.0.1\nnew content")
+            manager.build_or_load(pdf_path, embedder=FakeEmbedder())
+
+            self.assertNotEqual(manager.active_version_token(pdf_path), first_token)
 
 
 if __name__ == "__main__":

@@ -19,6 +19,7 @@ class ApplicationResult:
     retryable: bool = False
     missing_requirements: tuple[str, ...] = ()
     trace: tuple[dict[str, Any], ...] = ()
+    index_version_id: str | None = None
 
     @property
     def is_answer(self) -> bool:

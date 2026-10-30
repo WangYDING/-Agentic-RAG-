@@ -12,6 +12,8 @@ from src.config import (
     DEFAULT_MAX_NETWORK_RETRIES,
     DEFAULT_REQUEST_TIMEOUT_SECONDS,
     DEFAULT_TOTAL_TIMEOUT_SECONDS,
+    DEFAULT_INDEX_AUTO_BUILD,
+    DEFAULT_INDEX_LOCK_TIMEOUT_SECONDS,
     AppConfig,
     ConfigurationError,
 )
@@ -31,6 +33,8 @@ def test_defaults_are_stable_without_environment():
     assert config.max_network_retries == DEFAULT_MAX_NETWORK_RETRIES
     assert config.total_timeout_seconds == DEFAULT_TOTAL_TIMEOUT_SECONDS
     assert config.max_model_calls == DEFAULT_MAX_MODEL_CALLS
+    assert config.index_auto_build == DEFAULT_INDEX_AUTO_BUILD
+    assert config.index_lock_timeout_seconds == DEFAULT_INDEX_LOCK_TIMEOUT_SECONDS
 
 
 def test_explicit_values_override_environment():
@@ -38,6 +42,7 @@ def test_explicit_values_override_environment():
         "RAG_PDF_PATH": "env.pdf",
         "RAG_INDEX_DIR": "env-index",
         "RAG_EMBEDDING_MODEL": "env-embedding",
+        "RAG_EMBEDDING_REVISION": "env-revision",
         "RAG_RERANKER_MODEL": "env-reranker",
         "DEEPSEEK_MODEL": "env-generation",
         "DEEPSEEK_BASE_URL": "https://env.test",
@@ -48,6 +53,8 @@ def test_explicit_values_override_environment():
         "RAG_MAX_NETWORK_RETRIES": "2",
         "RAG_TOTAL_TIMEOUT_SECONDS": "60",
         "RAG_MAX_MODEL_CALLS": "8",
+        "RAG_INDEX_AUTO_BUILD": "false",
+        "RAG_INDEX_LOCK_TIMEOUT_SECONDS": "12",
     }
 
     config = AppConfig.from_sources(
@@ -55,6 +62,7 @@ def test_explicit_values_override_environment():
         pdf_path="explicit.pdf",
         index_dir="explicit-index",
         embedding_model="explicit-embedding",
+        embedding_revision="explicit-revision",
         reranker_model="explicit-reranker",
         generation_model="explicit-generation",
         api_base_url="https://explicit.test",
@@ -65,11 +73,14 @@ def test_explicit_values_override_environment():
         max_network_retries=0,
         total_timeout_seconds=45,
         max_model_calls=7,
+        index_auto_build=True,
+        index_lock_timeout_seconds=9,
     )
 
     assert config.pdf_path == "explicit.pdf"
     assert config.index_dir == "explicit-index"
     assert config.embedding_model == "explicit-embedding"
+    assert config.embedding_revision == "explicit-revision"
     assert config.reranker_model == "explicit-reranker"
     assert config.generation_model == "explicit-generation"
     assert config.api_base_url == "https://explicit.test"
@@ -80,6 +91,8 @@ def test_explicit_values_override_environment():
     assert config.max_network_retries == 0
     assert config.total_timeout_seconds == 45
     assert config.max_model_calls == 7
+    assert config.index_auto_build is True
+    assert config.index_lock_timeout_seconds == 9
 
 
 def test_environment_overrides_defaults():
@@ -119,6 +132,7 @@ def test_missing_agent_configuration_names_fields_without_secret_values():
         "RAG_REQUEST_TIMEOUT_SECONDS",
         "RAG_TOTAL_TIMEOUT_SECONDS",
         "RAG_MAX_MODEL_CALLS",
+        "RAG_INDEX_LOCK_TIMEOUT_SECONDS",
     ],
 )
 def test_numeric_configuration_must_be_positive(name):
@@ -129,3 +143,8 @@ def test_numeric_configuration_must_be_positive(name):
 def test_network_retries_must_be_nonnegative():
     with pytest.raises(ConfigurationError, match="RAG_MAX_NETWORK_RETRIES"):
         AppConfig.from_sources(environ={"RAG_MAX_NETWORK_RETRIES": "-1"})
+
+
+def test_index_auto_build_must_be_boolean():
+    with pytest.raises(ConfigurationError, match="RAG_INDEX_AUTO_BUILD"):
+        AppConfig.from_sources(environ={"RAG_INDEX_AUTO_BUILD": "sometimes"})

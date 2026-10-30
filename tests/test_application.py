@@ -8,12 +8,14 @@ from src.config import AppConfig
 def test_application_factory_assembles_workflow_from_configured_components():
     calls = {}
     sentinel = SimpleNamespace(
-        vector_store=SimpleNamespace(chunk_records=[{"text": "chunk"}])
+        vector_store=SimpleNamespace(chunk_records=[{"text": "chunk"}]),
+        manifest=SimpleNamespace(version_id="version-123"),
     )
 
     class FakeIndexManager:
-        def __init__(self, index_dir):
+        def __init__(self, index_dir, **kwargs):
             calls["index_dir"] = index_dir
+            calls["index_manager_kwargs"] = kwargs
 
         def build_or_load(self, pdf_path, embedder):
             calls["pdf_path"] = pdf_path
@@ -60,8 +62,11 @@ def test_application_factory_assembles_workflow_from_configured_components():
     assert workflow.evidence_top_n == 4
     assert workflow.max_model_calls == 6
     assert workflow.total_timeout_seconds == 90.0
+    assert workflow.index_version_id == "version-123"
     assert calls["embedder"]["args"] == ("embedding-model",)
+    assert calls["embedder"]["kwargs"]["model_revision"] is None
     assert calls["index_dir"] == "index-dir"
+    assert calls["index_manager_kwargs"]["lock_timeout_seconds"] == 30.0
     assert calls["pdf_path"] == "spec.pdf"
     assert calls["reranker"]["args"] == ("reranker-model",)
     assert calls["grader"]["kwargs"]["model"] == "generation-model"

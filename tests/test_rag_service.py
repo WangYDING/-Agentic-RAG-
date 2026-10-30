@@ -59,6 +59,7 @@ class RAGServiceTest(unittest.TestCase):
             reranker=self.reranker,
             generator=self.generator,
             rewriter=rewriter,
+            index_version_id="snapshot-v1",
         )
 
     def test_cli_baseline_uses_history_query_then_reranks_original_query(self):
@@ -91,6 +92,7 @@ class RAGServiceTest(unittest.TestCase):
         self.assertEqual([e.evidence_id for e in response.evidences], ["E1", "E2", "E3"])
         self.assertTrue(response.citation_validation.valid)
         self.assertEqual(response.result_type, "answer")
+        self.assertEqual(response.index_version_id, "snapshot-v1")
         self.assertEqual(memory.get_recent_history()[-2:], [
             {"role": "user", "content": "当前问题"},
             {"role": "assistant", "content": "baseline answer [E1]"},
