@@ -1,19 +1,20 @@
 import streamlit as st
 from dotenv import load_dotenv
 
-from agent_demo import DemoConfigurationError, build_agent_workflow, format_agent_trace
+from src.application import build_agent_workflow
+from src.config import AppConfig, ConfigurationError
 from src.evidence import format_evidence_citation
+from src.presentation import format_agent_trace
 
-
-DEFAULT_PDF = "data/raw/城市轨道交通工程设计标准.pdf"
 
 load_dotenv()
+environment_config = AppConfig.from_sources()
 st.set_page_config(page_title="工程规范 Agentic RAG", layout="wide")
 
 
 @st.cache_resource
-def load_agent_workflow(pdf_path: str, index_dir: str):
-    return build_agent_workflow(pdf_path=pdf_path, index_dir=index_dir)
+def load_agent_workflow(config: AppConfig):
+    return build_agent_workflow(config)
 
 
 if "chat_history" not in st.session_state:
@@ -24,15 +25,16 @@ st.caption("Hybrid Retrieval + Evidence Sufficiency + bounded retry/refusal")
 
 with st.sidebar:
     st.header("配置")
-    pdf_path = st.text_input("PDF 路径", value=DEFAULT_PDF)
-    index_dir = st.text_input("索引目录", value=".rag_index")
+    pdf_path = st.text_input("PDF 路径", value=environment_config.pdf_path)
+    index_dir = st.text_input("索引目录", value=environment_config.index_dir)
     if st.button("清空对话"):
         st.session_state.chat_history = []
         st.rerun()
 
 try:
-    workflow = load_agent_workflow(pdf_path, index_dir)
-except DemoConfigurationError as exc:
+    config = AppConfig.from_sources(pdf_path=pdf_path, index_dir=index_dir)
+    workflow = load_agent_workflow(config)
+except ConfigurationError as exc:
     st.error(f"配置错误：{exc}")
     st.stop()
 except (FileNotFoundError, ValueError) as exc:

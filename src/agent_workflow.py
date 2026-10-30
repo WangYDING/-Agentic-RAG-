@@ -30,7 +30,18 @@ class AgentResponse:
 class AgentWorkflow:
     """Bounded retrieve-grade-retry workflow with at most one retry."""
 
-    def __init__(self, retriever, reranker, grader, generator, rewriter=None, *, max_retries: int = 1):
+    def __init__(
+        self,
+        retriever,
+        reranker,
+        grader,
+        generator,
+        rewriter=None,
+        *,
+        max_retries: int = 1,
+        retrieval_top_k: int = 10,
+        evidence_top_n: int = 3,
+    ):
         if max_retries != 1:
             raise ValueError("AgentWorkflow requires max_retries=1")
         self.retriever = retriever
@@ -39,6 +50,8 @@ class AgentWorkflow:
         self.generator = generator
         self.rewriter = rewriter
         self.max_retries = max_retries
+        self.retrieval_top_k = retrieval_top_k
+        self.evidence_top_n = evidence_top_n
 
     def run(self, query: str) -> AgentResponse:
         state = AgentState(original_query=query, retrieval_query=query)
@@ -59,9 +72,13 @@ class AgentWorkflow:
 
     def _retrieve_rerank_grade(self, state: AgentState, retrieval_query: str, prior_results: list[dict]):
         state.trace.append({"step": "retrieve", "query": retrieval_query, "retry_count": state.retry_count})
-        retrieved = self.retriever.retrieve(retrieval_query, top_k=10)
+        retrieved = self.retriever.retrieve(
+            retrieval_query, top_k=self.retrieval_top_k
+        )
         candidates = self._merge_results(prior_results, retrieved)
-        reranked = self.reranker.rerank(state.original_query, candidates, top_n=3)
+        reranked = self.reranker.rerank(
+            state.original_query, candidates, top_n=self.evidence_top_n
+        )
         evidences = build_evidence_list(reranked)
         decision = self.grader.grade(state.original_query, evidences)
         state.evidences = evidences

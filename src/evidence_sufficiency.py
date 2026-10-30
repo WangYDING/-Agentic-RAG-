@@ -1,14 +1,9 @@
 import json
-import os
 from dataclasses import dataclass
 
-from dotenv import load_dotenv
 from openai import OpenAI
 
 from src.evidence import Evidence, build_evidence_context
-
-load_dotenv()
-
 
 @dataclass(frozen=True)
 class SufficiencyDecision:
@@ -19,12 +14,19 @@ class SufficiencyDecision:
 
 
 class EvidenceSufficiencyGrader:
-    def __init__(self, client=None, model: str | None = None):
+    def __init__(
+        self,
+        client=None,
+        model: str = "deepseek-chat",
+        *,
+        api_key: str | None = None,
+        base_url: str | None = None,
+    ):
         self.client = client or OpenAI(
-            api_key=os.getenv("DEEPSEEK_API_KEY"),
-            base_url=os.getenv("DEEPSEEK_BASE_URL"),
+            api_key=api_key,
+            base_url=base_url,
         )
-        self.model = model or os.getenv("DEEPSEEK_MODEL", "deepseek-chat")
+        self.model = model
 
     def grade(self, question: str, evidences: list[Evidence]) -> SufficiencyDecision:
         available_ids = {evidence.evidence_id for evidence in evidences}

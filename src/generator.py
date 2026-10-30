@@ -1,19 +1,18 @@
 from openai import OpenAI
-from dotenv import load_dotenv
-import os
 
 from src.evidence import Evidence, build_evidence_context
 
-load_dotenv()
-
-
 class Generator:
-    def __init__(self):
-        self.client = OpenAI(
-            api_key=os.getenv("DEEPSEEK_API_KEY"),
-            base_url=os.getenv("DEEPSEEK_BASE_URL")
-        )
-        self.model = os.getenv("DEEPSEEK_MODEL", "deepseek-chat")
+    def __init__(
+        self,
+        client=None,
+        *,
+        api_key: str | None = None,
+        base_url: str | None = None,
+        model: str = "deepseek-chat",
+    ):
+        self.client = client or OpenAI(api_key=api_key, base_url=base_url)
+        self.model = model
 
     def generate_answer(self, query: str, evidences: list[Evidence], chat_history: list[dict] = None) -> str:
         context = build_evidence_context(evidences)

@@ -1,9 +1,5 @@
-from types import SimpleNamespace
-
-import pytest
-
 import agent_demo
-from src.agent_workflow import AgentResponse, AgentState, AgentWorkflow
+from src.agent_workflow import AgentResponse, AgentState
 from src.evidence import CitationValidation, Evidence
 
 
@@ -39,34 +35,6 @@ def response(*, action="answer", missing=None):
     return AgentResponse("拒答" if missing else "答案 [E1]", state)
 
 
-def test_demo_builds_existing_agent_workflow(monkeypatch):
-    sentinel = SimpleNamespace(vector_store=SimpleNamespace(chunk_records=[]))
-    monkeypatch.setenv("DEEPSEEK_API_KEY", "key")
-    monkeypatch.setenv("DEEPSEEK_BASE_URL", "https://example.test")
-    monkeypatch.setenv("DEEPSEEK_MODEL", "model")
-    factories = SimpleNamespace(
-        Embedder=lambda: object(),
-        IndexManager=lambda index_dir: SimpleNamespace(
-            build_or_load=lambda pdf, embedder: sentinel
-        ),
-        Retriever=lambda store, embedder: object(),
-        BM25Retriever=lambda records: object(),
-        HybridRetriever=lambda dense, bm25: object(),
-        Reranker=lambda: object(),
-        EvidenceSufficiencyGrader=lambda: object(),
-        Generator=lambda: object(),
-        QueryRewriter=lambda: object(),
-    )
-    monkeypatch.setattr(
-        agent_demo, "_load_workflow_component_factories", lambda: factories
-    )
-
-    workflow = agent_demo.build_agent_workflow()
-
-    assert isinstance(workflow, AgentWorkflow)
-    assert workflow.max_retries == 1
-
-
 def test_sufficient_output_contains_answer_evidence_and_trace():
     output = agent_demo.render_response(response())
 
@@ -98,12 +66,3 @@ def test_trace_does_not_expose_reasoning_fields():
     assert "must not appear" not in output
     assert "hidden" not in output
     assert "private_reasoning" not in output
-
-
-@pytest.mark.parametrize("missing", agent_demo.REQUIRED_ENV_VARS)
-def test_missing_environment_has_clear_error(missing):
-    environ = {name: "value" for name in agent_demo.REQUIRED_ENV_VARS}
-    environ[missing] = ""
-
-    with pytest.raises(agent_demo.DemoConfigurationError, match=missing):
-        agent_demo.validate_environment(environ)
