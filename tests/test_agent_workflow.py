@@ -2,6 +2,7 @@ import unittest
 from types import SimpleNamespace
 
 from src.agent_workflow import AgentWorkflow, REFUSAL_MESSAGE
+from src.reliability import ReliabilityError
 
 
 def result(chunk_id, text=None):
@@ -38,7 +39,9 @@ class FakeGrader:
         self.decisions = list(decisions)
         self.calls = []
 
-    def grade(self, query, evidences):
+    def grade(self, query, evidences, *, budget=None):
+        if budget is not None:
+            budget.consume()
         self.calls.append((query, list(evidences)))
         decision, missing = self.decisions.pop(0)
         return SimpleNamespace(decision=decision, missing_requirements=missing)
@@ -49,7 +52,9 @@ class FakeGenerator:
         self.calls = []
         self.answer = answer
 
-    def generate_answer(self, query, evidences, chat_history):
+    def generate_answer(self, query, evidences, chat_history, *, budget=None):
+        if budget is not None:
+            budget.consume()
         self.calls.append((query, list(evidences), list(chat_history)))
         return self.answer
 
@@ -58,7 +63,9 @@ class FakeRewriter:
     def __init__(self):
         self.calls = []
 
-    def rewrite(self, query, chat_history):
+    def rewrite(self, query, chat_history, *, budget=None):
+        if budget is not None:
+            budget.consume()
         self.calls.append((query, list(chat_history)))
         return "targeted retry query"
 
@@ -121,6 +128,32 @@ class AgentWorkflowTest(unittest.TestCase):
     def test_retry_limit_cannot_exceed_one(self):
         with self.assertRaisesRegex(ValueError, "max_retries=1"):
             AgentWorkflow(FakeRetriever(), FakeReranker(), FakeGrader([]), FakeGenerator(), max_retries=2)
+
+    def test_service_failure_is_error_not_refusal(self):
+        workflow = self.build([("sufficient", [])])
+
+        def fail(*args, **kwargs):
+            raise ReliabilityError("RATE_LIMITED", "模型服务当前限流。", retryable=True)
+
+        workflow.grader.grade = fail
+        response = workflow.run("question")
+
+        self.assertEqual(response.result_type, "error")
+        self.assertEqual(response.error_code, "RATE_LIMITED")
+        self.assertTrue(response.retryable)
+        self.assertNotEqual(response.state.final_action, "refuse")
+        self.assertTrue(response.request_id)
+
+    def test_model_call_budget_exhaustion_stops_before_generator(self):
+        workflow = self.build([("insufficient", ["detail"]), ("sufficient", [])])
+        workflow.rewriter = FakeRewriter()
+        workflow.max_model_calls = 2
+
+        response = workflow.run("question")
+
+        self.assertEqual(response.result_type, "error")
+        self.assertEqual(response.error_code, "CALL_BUDGET_EXHAUSTED")
+        self.assertEqual(self.generator.calls, [])
 
 
 if __name__ == "__main__":

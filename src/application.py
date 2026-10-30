@@ -4,6 +4,7 @@ from types import SimpleNamespace
 
 from src.agent_workflow import AgentWorkflow
 from src.config import AppConfig
+from src.reliability import CallPolicy
 
 
 def _load_component_factories():
@@ -39,6 +40,10 @@ def build_agent_workflow(
     """Build the complete Hybrid + sufficiency bounded Agent application."""
     config.validate_for_agent()
     factories = factories or _load_component_factories()
+    call_policy = CallPolicy(
+        request_timeout_seconds=config.request_timeout_seconds,
+        max_network_retries=config.max_network_retries,
+    )
 
     embedder = factories.Embedder(config.embedding_model)
     managed = factories.IndexManager(config.index_dir).build_or_load(
@@ -56,17 +61,22 @@ def build_agent_workflow(
             api_key=config.api_key,
             base_url=config.api_base_url,
             model=config.generation_model,
+            call_policy=call_policy,
         ),
         generator=factories.Generator(
             api_key=config.api_key,
             base_url=config.api_base_url,
             model=config.generation_model,
+            call_policy=call_policy,
         ),
         rewriter=factories.QueryRewriter(
             api_key=config.api_key,
             base_url=config.api_base_url,
             model=config.generation_model,
+            call_policy=call_policy,
         ),
         retrieval_top_k=config.retrieval_top_k,
         evidence_top_n=config.evidence_top_n,
+        max_model_calls=config.max_model_calls,
+        total_timeout_seconds=config.total_timeout_seconds,
     )

@@ -1,6 +1,12 @@
 from openai import OpenAI
 
 from src.evidence import Evidence, build_evidence_context
+from src.reliability import (
+    CallBudget,
+    CallPolicy,
+    InvalidModelResponseError,
+    execute_model_call,
+)
 
 class Generator:
     def __init__(
@@ -10,11 +16,25 @@ class Generator:
         api_key: str | None = None,
         base_url: str | None = None,
         model: str = "deepseek-chat",
+        call_policy: CallPolicy | None = None,
     ):
-        self.client = client or OpenAI(api_key=api_key, base_url=base_url)
+        self.call_policy = call_policy or CallPolicy()
+        self.client = client or OpenAI(
+            api_key=api_key,
+            base_url=base_url,
+            max_retries=0,
+            timeout=self.call_policy.request_timeout_seconds,
+        )
         self.model = model
 
-    def generate_answer(self, query: str, evidences: list[Evidence], chat_history: list[dict] = None) -> str:
+    def generate_answer(
+        self,
+        query: str,
+        evidences: list[Evidence],
+        chat_history: list[dict] = None,
+        *,
+        budget: CallBudget | None = None,
+    ) -> str:
         context = build_evidence_context(evidences)
 
         history_text = ""
@@ -67,13 +87,25 @@ class Generator:
 请给出回答：
 """
 
-        response = self.client.chat.completions.create(
-            model=self.model,
-            messages=[
-                {"role": "system", "content": "你是一个严谨的专业文档问答助手。"},
-                {"role": "user", "content": prompt}
-            ],
-            temperature=0.2
+        active_budget = budget or CallBudget()
+        response = execute_model_call(
+            lambda timeout: self.client.chat.completions.create(
+                model=self.model,
+                messages=[
+                    {"role": "system", "content": "你是一个严谨的专业文档问答助手。"},
+                    {"role": "user", "content": prompt},
+                ],
+                temperature=0.2,
+                timeout=timeout,
+            ),
+            operation="生成",
+            budget=active_budget,
+            policy=self.call_policy,
         )
-
-        return response.choices[0].message.content
+        try:
+            content = response.choices[0].message.content
+        except (AttributeError, IndexError) as exc:
+            raise InvalidModelResponseError("missing completion content") from exc
+        if not isinstance(content, str) or not content.strip():
+            raise InvalidModelResponseError("empty completion content")
+        return content.strip()

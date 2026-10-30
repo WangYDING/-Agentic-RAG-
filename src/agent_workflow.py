@@ -1,11 +1,16 @@
 from dataclasses import dataclass, field
+import inspect
+import logging
 from typing import Any
+from uuid import uuid4
 
 from src.evidence import CitationValidation, Evidence, build_evidence_list, validate_citations
 from src.results import ApplicationResult
+from src.reliability import CallBudget, ReliabilityError
 
 
 REFUSAL_MESSAGE = "当前规范及已检索证据不足以完整回答该问题。"
+logger = logging.getLogger(__name__)
 
 
 @dataclass
@@ -20,6 +25,7 @@ class AgentState:
     final_action: str | None = None
     citation_validation: CitationValidation | None = None
     trace: list[dict[str, Any]] = field(default_factory=list)
+    request_id: str = field(default_factory=lambda: uuid4().hex)
 
 
 @dataclass(frozen=True)
@@ -59,6 +65,8 @@ class AgentWorkflow:
         max_retries: int = 1,
         retrieval_top_k: int = 10,
         evidence_top_n: int = 3,
+        max_model_calls: int = 6,
+        total_timeout_seconds: float = 90.0,
     ):
         if max_retries != 1:
             raise ValueError("AgentWorkflow requires max_retries=1")
@@ -70,25 +78,56 @@ class AgentWorkflow:
         self.max_retries = max_retries
         self.retrieval_top_k = retrieval_top_k
         self.evidence_top_n = evidence_top_n
+        self.max_model_calls = max_model_calls
+        self.total_timeout_seconds = total_timeout_seconds
 
     def run(self, query: str) -> AgentResponse:
         state = AgentState(original_query=query, retrieval_query=query)
-        initial_results, decision = self._retrieve_rerank_grade(state, query, prior_results=[])
+        budget = CallBudget(
+            max_calls=self.max_model_calls,
+            total_timeout_seconds=self.total_timeout_seconds,
+        )
+        try:
+            return self._run(state, query, budget)
+        except ReliabilityError as exc:
+            logger.warning("request failed request_id=%s code=%s", state.request_id, exc.code)
+            return self._error(state, code=exc.code, message=exc.public_message, retryable=exc.retryable)
+        except Exception:
+            logger.exception("unexpected request failure request_id=%s", state.request_id)
+            return self._error(
+                state,
+                code="INTERNAL_ERROR",
+                message="请求处理失败，请稍后重试。",
+                retryable=True,
+            )
+
+    def _run(self, state: AgentState, query: str, budget: CallBudget) -> AgentResponse:
+        initial_results, decision = self._retrieve_rerank_grade(
+            state, query, prior_results=[], budget=budget
+        )
         if decision.decision == "sufficient":
-            return self._answer(state)
+            return self._answer(state, budget)
 
         state.final_action = "retry"
         state.trace.append({"step": "retry", "retry_count": 1, "missing_requirements": decision.missing_requirements})
         state.retry_count = 1
-        retry_query = self._build_retry_query(query, decision.missing_requirements)
+        retry_query = self._build_retry_query(query, decision.missing_requirements, budget)
         state.rewritten_query = retry_query
         state.retrieval_query = retry_query
-        _, second_decision = self._retrieve_rerank_grade(state, retry_query, prior_results=initial_results)
+        _, second_decision = self._retrieve_rerank_grade(
+            state, retry_query, prior_results=initial_results, budget=budget
+        )
         if second_decision.decision == "sufficient":
-            return self._answer(state)
+            return self._answer(state, budget)
         return self._refuse(state)
 
-    def _retrieve_rerank_grade(self, state: AgentState, retrieval_query: str, prior_results: list[dict]):
+    def _retrieve_rerank_grade(
+        self,
+        state: AgentState,
+        retrieval_query: str,
+        prior_results: list[dict],
+        budget: CallBudget,
+    ):
         state.trace.append({"step": "retrieve", "query": retrieval_query, "retry_count": state.retry_count})
         retrieved = self.retriever.retrieve(
             retrieval_query, top_k=self.retrieval_top_k
@@ -98,7 +137,9 @@ class AgentWorkflow:
             state.original_query, candidates, top_n=self.evidence_top_n
         )
         evidences = build_evidence_list(reranked)
-        decision = self.grader.grade(state.original_query, evidences)
+        decision = self._call_with_budget(
+            self.grader.grade, state.original_query, evidences, budget=budget
+        )
         state.evidences = evidences
         state.sufficiency_decision = decision.decision
         state.missing_requirements = list(decision.missing_requirements)
@@ -110,18 +151,27 @@ class AgentWorkflow:
         })
         return candidates, decision
 
-    def _build_retry_query(self, query: str, missing_requirements: list[str]) -> str:
+    def _build_retry_query(
+        self, query: str, missing_requirements: list[str], budget: CallBudget
+    ) -> str:
         missing = "；".join(missing_requirements) if missing_requirements else "完整回答所需的缺失信息"
         targeted_query = f"{query}\n补充检索目标：{missing}"
         if self.rewriter is None:
             return targeted_query
-        return self.rewriter.rewrite(query=targeted_query, chat_history=[])
+        return self._call_with_budget(
+            self.rewriter.rewrite,
+            query=targeted_query,
+            chat_history=[],
+            budget=budget,
+        )
 
-    def _answer(self, state: AgentState) -> AgentResponse:
-        answer = self.generator.generate_answer(
+    def _answer(self, state: AgentState, budget: CallBudget) -> AgentResponse:
+        answer = self._call_with_budget(
+            self.generator.generate_answer,
             query=state.original_query,
             evidences=state.evidences,
             chat_history=[],
+            budget=budget,
         )
         state.trace.append({"step": "answer"})
         state.citation_validation = validate_citations(answer, state.evidences)
@@ -141,6 +191,7 @@ class AgentWorkflow:
                     message=message,
                     error_code="INVALID_CITATION",
                     retryable=False,
+                    request_id=state.request_id,
                     trace=tuple(state.trace),
                 ),
             )
@@ -151,6 +202,7 @@ class AgentWorkflow:
             result=ApplicationResult(
                 result_type="answer",
                 message=answer,
+                request_id=state.request_id,
                 trace=tuple(state.trace),
             ),
         )
@@ -169,9 +221,39 @@ class AgentWorkflow:
                 result_type="refuse",
                 message=message,
                 missing_requirements=tuple(state.missing_requirements),
+                request_id=state.request_id,
                 trace=tuple(state.trace),
             ),
         )
+
+    def _error(
+        self,
+        state: AgentState,
+        *,
+        code: str,
+        message: str,
+        retryable: bool,
+    ) -> AgentResponse:
+        state.final_action = "error"
+        state.trace.append({"step": "error", "error_code": code})
+        return AgentResponse(
+            answer=message,
+            state=state,
+            result=ApplicationResult(
+                result_type="error",
+                message=message,
+                request_id=state.request_id,
+                error_code=code,
+                retryable=retryable,
+                trace=tuple(state.trace),
+            ),
+        )
+
+    @staticmethod
+    def _call_with_budget(method, *args, budget: CallBudget, **kwargs):
+        if "budget" in inspect.signature(method).parameters:
+            kwargs["budget"] = budget
+        return method(*args, **kwargs)
 
     @staticmethod
     def _merge_results(existing: list[dict], added: list[dict]) -> list[dict]:

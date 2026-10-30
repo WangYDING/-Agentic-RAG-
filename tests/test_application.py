@@ -58,10 +58,13 @@ def test_application_factory_assembles_workflow_from_configured_components():
     assert workflow.max_retries == 1
     assert workflow.retrieval_top_k == 14
     assert workflow.evidence_top_n == 4
+    assert workflow.max_model_calls == 6
+    assert workflow.total_timeout_seconds == 90.0
     assert calls["embedder"]["args"] == ("embedding-model",)
     assert calls["index_dir"] == "index-dir"
     assert calls["pdf_path"] == "spec.pdf"
     assert calls["reranker"]["args"] == ("reranker-model",)
     assert calls["grader"]["kwargs"]["model"] == "generation-model"
+    assert calls["grader"]["kwargs"]["call_policy"].max_network_retries == 1
     assert calls["generator"]["kwargs"]["api_key"] == "secret"
     assert calls["rewriter"]["kwargs"]["base_url"] == "https://api.test"

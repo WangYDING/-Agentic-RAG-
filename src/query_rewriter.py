@@ -1,5 +1,12 @@
 from openai import OpenAI
 
+from src.reliability import (
+    CallBudget,
+    CallPolicy,
+    InvalidModelResponseError,
+    execute_model_call,
+)
+
 
 class QueryRewriter:
     def __init__(
@@ -9,11 +16,24 @@ class QueryRewriter:
         api_key: str | None = None,
         base_url: str | None = None,
         model: str = "deepseek-chat",
+        call_policy: CallPolicy | None = None,
     ):
-        self.client = client or OpenAI(api_key=api_key, base_url=base_url)
+        self.call_policy = call_policy or CallPolicy()
+        self.client = client or OpenAI(
+            api_key=api_key,
+            base_url=base_url,
+            max_retries=0,
+            timeout=self.call_policy.request_timeout_seconds,
+        )
         self.model = model
 
-    def rewrite(self, query: str, chat_history: list[dict] = None) -> str:
+    def rewrite(
+        self,
+        query: str,
+        chat_history: list[dict] = None,
+        *,
+        budget: CallBudget | None = None,
+    ) -> str:
         history_text = ""
         if chat_history:
             history_parts = []
@@ -41,13 +61,25 @@ class QueryRewriter:
 改写后的检索问题：
 """
 
-        response = self.client.chat.completions.create(
-            model=self.model,
-            messages=[
-                {"role": "system", "content": "你是一个严谨的查询改写助手。"},
-                {"role": "user", "content": prompt}
-            ],
-            temperature=0.1
+        active_budget = budget or CallBudget()
+        response = execute_model_call(
+            lambda timeout: self.client.chat.completions.create(
+                model=self.model,
+                messages=[
+                    {"role": "system", "content": "你是一个严谨的查询改写助手。"},
+                    {"role": "user", "content": prompt},
+                ],
+                temperature=0.1,
+                timeout=timeout,
+            ),
+            operation="查询改写",
+            budget=active_budget,
+            policy=self.call_policy,
         )
-
-        return response.choices[0].message.content.strip()
+        try:
+            content = response.choices[0].message.content
+        except (AttributeError, IndexError) as exc:
+            raise InvalidModelResponseError("missing rewrite content") from exc
+        if not isinstance(content, str) or not content.strip():
+            raise InvalidModelResponseError("empty rewrite content")
+        return content.strip()

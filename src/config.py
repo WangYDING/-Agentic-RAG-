@@ -12,6 +12,10 @@ DEFAULT_RERANKER_MODEL = "BAAI/bge-reranker-base"
 DEFAULT_GENERATION_MODEL = "deepseek-chat"
 DEFAULT_RETRIEVAL_TOP_K = 10
 DEFAULT_EVIDENCE_TOP_N = 3
+DEFAULT_REQUEST_TIMEOUT_SECONDS = 30.0
+DEFAULT_MAX_NETWORK_RETRIES = 1
+DEFAULT_TOTAL_TIMEOUT_SECONDS = 90.0
+DEFAULT_MAX_MODEL_CALLS = 6
 
 
 class ConfigurationError(ValueError):
@@ -36,6 +40,26 @@ def _positive_int(value: int | str, name: str) -> int:
     return parsed
 
 
+def _nonnegative_int(value: int | str, name: str) -> int:
+    try:
+        parsed = int(value)
+    except (TypeError, ValueError) as exc:
+        raise ConfigurationError(f"{name} 必须是非负整数。") from exc
+    if parsed < 0:
+        raise ConfigurationError(f"{name} 必须是非负整数。")
+    return parsed
+
+
+def _positive_float(value: float | str, name: str) -> float:
+    try:
+        parsed = float(value)
+    except (TypeError, ValueError) as exc:
+        raise ConfigurationError(f"{name} 必须是正数。") from exc
+    if parsed <= 0:
+        raise ConfigurationError(f"{name} 必须是正数。")
+    return parsed
+
+
 @dataclass(frozen=True)
 class AppConfig:
     pdf_path: str = DEFAULT_PDF_PATH
@@ -47,6 +71,10 @@ class AppConfig:
     api_key: str | None = field(default=None, repr=False)
     retrieval_top_k: int = DEFAULT_RETRIEVAL_TOP_K
     evidence_top_n: int = DEFAULT_EVIDENCE_TOP_N
+    request_timeout_seconds: float = DEFAULT_REQUEST_TIMEOUT_SECONDS
+    max_network_retries: int = DEFAULT_MAX_NETWORK_RETRIES
+    total_timeout_seconds: float = DEFAULT_TOTAL_TIMEOUT_SECONDS
+    max_model_calls: int = DEFAULT_MAX_MODEL_CALLS
 
     @classmethod
     def from_sources(
@@ -62,6 +90,10 @@ class AppConfig:
         api_key: str | None = None,
         retrieval_top_k: int | str | None = None,
         evidence_top_n: int | str | None = None,
+        request_timeout_seconds: float | str | None = None,
+        max_network_retries: int | str | None = None,
+        total_timeout_seconds: float | str | None = None,
+        max_model_calls: int | str | None = None,
     ) -> AppConfig:
         values = os.environ if environ is None else environ
         resolved_top_k = _resolve(
@@ -115,6 +147,42 @@ class AppConfig:
                 resolved_top_k, "RAG_RETRIEVAL_TOP_K"
             ),
             evidence_top_n=_positive_int(resolved_top_n, "RAG_EVIDENCE_TOP_N"),
+            request_timeout_seconds=_positive_float(
+                _resolve(
+                    request_timeout_seconds,
+                    values,
+                    "RAG_REQUEST_TIMEOUT_SECONDS",
+                    DEFAULT_REQUEST_TIMEOUT_SECONDS,
+                ),
+                "RAG_REQUEST_TIMEOUT_SECONDS",
+            ),
+            max_network_retries=_nonnegative_int(
+                _resolve(
+                    max_network_retries,
+                    values,
+                    "RAG_MAX_NETWORK_RETRIES",
+                    DEFAULT_MAX_NETWORK_RETRIES,
+                ),
+                "RAG_MAX_NETWORK_RETRIES",
+            ),
+            total_timeout_seconds=_positive_float(
+                _resolve(
+                    total_timeout_seconds,
+                    values,
+                    "RAG_TOTAL_TIMEOUT_SECONDS",
+                    DEFAULT_TOTAL_TIMEOUT_SECONDS,
+                ),
+                "RAG_TOTAL_TIMEOUT_SECONDS",
+            ),
+            max_model_calls=_positive_int(
+                _resolve(
+                    max_model_calls,
+                    values,
+                    "RAG_MAX_MODEL_CALLS",
+                    DEFAULT_MAX_MODEL_CALLS,
+                ),
+                "RAG_MAX_MODEL_CALLS",
+            ),
         )
 
     def validate_for_agent(self) -> AppConfig:
