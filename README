@@ -184,23 +184,47 @@ Agent 的作用不是增加一个名称，而是根据 evidence state 做有限�
 
 评测报告保存在 `eval/reports/`。`test_v1` 运行后没有根据结果修改系统逻辑或测试数据。
 
-## Quick Start
+## 可复现安装与验证
 
-### 1. 环境准备
+第一阶段只承诺 Windows 上的 Python `3.12`；本地验证使用 `Python 3.12.16`。`pyproject.toml` 声明允许范围，`uv.lock` 固定完整依赖版本。以下 uv 流程是唯一推荐安装方式。
 
-需要 Python `3.10–3.13`。以下命令以 PowerShell 为例：
+### 1. 按锁文件创建环境
+
+以下命令以 PowerShell 为例；它不会复用当前 Anaconda 环境：
 
 ```powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-python -m pip install --upgrade pip
-python -m pip install -e ".[dev]"
-Copy-Item .env.example .env
+# 首次安装 uv；已经能运行 uv 时可直接使用 uv 命令
+py -m pip install --user uv
+
+# 安装项目验证过的 Python 版本，并严格按 uv.lock 创建 .venv
+py -m uv python install 3.12
+py -m uv sync --locked --extra dev --python 3.12
 ```
 
-### 2. 配置 DeepSeek API
+不要用未带 `--locked` 的同步结果作为第一阶段验收依据。更新依赖声明后，先显式运行 `py -m uv lock --python 3.12`，审阅并提交新的 `uv.lock`，再重新执行锁定安装和测试。
 
-在 `.env` 中填写实际配置，不要提交密钥：
+### 2. 三类测试
+
+默认验收只运行离线单元测试，不读取 API 密钥、不下载模型，也不调用收费服务：
+
+```powershell
+# 离线单元测试：状态转移、引用、指标、去重和配置校验
+.\.venv\Scripts\python.exe -m pytest -m "not integration and not model"
+
+# 本地集成测试：真实/临时 PDF 解析、FAISS 索引保存与加载
+.\.venv\Scripts\python.exe -m pytest -m integration
+
+# 真实模型 smoke test：首次运行会下载 BGE embedding 模型，必须显式执行
+.\.venv\Scripts\python.exe -m pytest -m model
+```
+
+完整 integration 结果需要 `data/raw/城市轨道交通工程设计标准.pdf`；该文件缺失时，与真实 PDF 相关的用例会明确显示为跳过，临时 PDF/FAISS 用例仍会执行。`model` 测试可能需要联网、磁盘空间和模型缓存，不属于默认 CI。
+
+真实 Agent/Grader 评测还需要有效的 OpenAI-compatible API 配置并可能产生费用。先复制配置文件并填写本地密钥（不要提交）：
+
+```powershell
+Copy-Item .env.example .env
+```
 
 ```dotenv
 DEEPSEEK_API_KEY=your-api-key
@@ -208,34 +232,47 @@ DEEPSEEK_BASE_URL=your-openai-compatible-base-url
 DEEPSEEK_MODEL=your-available-model-identifier
 ```
 
-模型 identifier 取决于所使用的 DeepSeek OpenAI-compatible 服务。项目最终 grader evaluation 使用过 `deepseek-v4-flash`，但该名称不保证在其他服务商或时间点可用。
+例如 sufficiency 评测入口为 `eval/run_sufficiency.py`，完整 Agent 入口为 `eval/run_agent_test.py`；运行前用 `--help` 查看必填数据集和输出参数。冻结的 `test_v1` 是一次性 held-out 记录，不应在日常 CI 中反复运行或用于调参。
 
-### 3. 准备文档与索引
+### 3. 静态检查与打包
+
+```powershell
+.\.venv\Scripts\ruff.exe check .
+.\.venv\Scripts\python.exe -m build
+```
+
+GitHub Actions 配置在 `.github/workflows/ci.yml`，使用 Windows + Python 3.12，严格按锁文件安装，然后运行 Ruff、离线测试并构建 sdist/wheel。自动检查不注入 API 密钥，也不会运行 integration 或 model 标记。
+
+### 4. 实际验证记录
+
+本地验证日期：`2026-10-30`；平台：Windows；Python：`3.12.16`；uv：`0.13.6`。
+
+| 检查 | 结果 |
+|---|---|
+| `uv sync --locked --extra dev --python 3.12` | 成功，按锁文件安装 89 个包 |
+| Ruff | 通过 |
+| 离线单元测试 | `55 passed` |
+| 本地 integration | `9 passed, 5 subtests passed` |
+| sdist / wheel 构建 | 成功 |
+
+本次干净环境使用 `NumPy 2.5.4`、`SciPy 1.18.1`、`scikit-learn 1.9.1` 与 `FAISS 1.15.1`，未复现此前的缺包或 NumPy/SciPy 兼容错误，因此没有为了猜测性兼容问题降级 NumPy。远端 GitHub Actions 只有在仓库推送并实际跑绿后才能算远端验收；当前记录只证明本地干净环境通过。
+
+## 运行演示
 
 默认文档路径为 `data/raw/城市轨道交通工程设计标准.pdf`。首次运行 CLI 或 Web 时，`RAGService.from_pdf()` 会通过 `IndexManager` 构建索引；后续在 PDF checksum、chunk 参数和 embedding model 一致时加载 `.rag_index/` 中的持久化索引。
 
-### 4. 运行演示入口
-
 ```powershell
 # 基础 CLI：Dense + CrossEncoder + generation + citation
-python main.py
+.\.venv\Scripts\python.exe main.py
 
 # Web UI：完整 Hybrid Agent + Sufficiency Grader + bounded retry/refusal
-streamlit run app.py
+.\.venv\Scripts\streamlit.exe run app.py
 
 # 完整 Agent Demo：Hybrid + Grader + bounded retry/refusal
-python agent_demo.py
+.\.venv\Scripts\python.exe agent_demo.py
 ```
 
-`agent_demo.py` 与 `app.py` 都直接复用 `src/agent_workflow.py`，输出最终答案或拒答、最终 Evidence 及结构化 Agent Trace。`main.py` 仍保留基础 RAG CLI 行为。
-
-### 5. 运行测试
-
-```powershell
-python -m pytest
-```
-
-当前完整测试结果：`57 passed, 5 subtests passed`。
+这些运行入口会加载/下载真实模型；生成、query rewrite 与 sufficiency grader 还需要上面的 API 配置。`agent_demo.py` 与 `app.py` 都复用 `src/agent_workflow.py`，输出最终答案或拒答、最终 Evidence 及结构化 Agent Trace。`main.py` 保留基础 RAG CLI 行为。
 
 ## 项目结构
 

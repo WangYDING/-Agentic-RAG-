@@ -29,13 +29,10 @@ def validate_environment(environ: Mapping[str, str] | None = None) -> None:
         )
 
 
-def build_agent_workflow(
-    pdf_path: str = "data/raw/城市轨道交通工程设计标准.pdf",
-    index_dir: str = ".rag_index",
-) -> AgentWorkflow:
-    validate_environment()
+def _load_workflow_component_factories():
+    """Load heavyweight runtime components only when a real workflow is built."""
+    from types import SimpleNamespace
 
-    # Keep model imports local so formatting/configuration tests stay lightweight.
     from eval.bm25 import BM25Retriever
     from eval.run_agent_test import HybridRetriever
     from src.embedder import Embedder
@@ -46,18 +43,40 @@ def build_agent_workflow(
     from src.reranker import Reranker
     from src.retriever import Retriever
 
-    embedder = Embedder()
-    managed = IndexManager(index_dir).build_or_load(pdf_path, embedder=embedder)
-    hybrid_retriever = HybridRetriever(
-        Retriever(managed.vector_store, embedder),
-        BM25Retriever(managed.vector_store.chunk_records),
+    return SimpleNamespace(
+        BM25Retriever=BM25Retriever,
+        HybridRetriever=HybridRetriever,
+        Embedder=Embedder,
+        EvidenceSufficiencyGrader=EvidenceSufficiencyGrader,
+        Generator=Generator,
+        IndexManager=IndexManager,
+        QueryRewriter=QueryRewriter,
+        Reranker=Reranker,
+        Retriever=Retriever,
+    )
+
+
+def build_agent_workflow(
+    pdf_path: str = "data/raw/城市轨道交通工程设计标准.pdf",
+    index_dir: str = ".rag_index",
+) -> AgentWorkflow:
+    validate_environment()
+
+    factories = _load_workflow_component_factories()
+    embedder = factories.Embedder()
+    managed = factories.IndexManager(index_dir).build_or_load(
+        pdf_path, embedder=embedder
+    )
+    hybrid_retriever = factories.HybridRetriever(
+        factories.Retriever(managed.vector_store, embedder),
+        factories.BM25Retriever(managed.vector_store.chunk_records),
     )
     return AgentWorkflow(
         retriever=hybrid_retriever,
-        reranker=Reranker(),
-        grader=EvidenceSufficiencyGrader(),
-        generator=Generator(),
-        rewriter=QueryRewriter(),
+        reranker=factories.Reranker(),
+        grader=factories.EvidenceSufficiencyGrader(),
+        generator=factories.Generator(),
+        rewriter=factories.QueryRewriter(),
     )
 
 

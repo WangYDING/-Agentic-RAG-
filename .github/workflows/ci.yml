@@ -1,0 +1,35 @@
+name: Reproducible baseline
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  windows-python-312:
+    runs-on: windows-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
+      - name: Install the locked development environment
+        run: uv sync --locked --extra dev
+
+      - name: Check Python errors and imports
+        run: uv run --locked ruff check .
+
+      - name: Run offline tests
+        run: uv run --locked python -m pytest -m "not integration and not model"
+
+      - name: Build source and wheel distributions
+        run: uv run --locked python -m build

@@ -6,7 +6,7 @@ from eval.metrics import compute_grouped_metrics, compute_retrieval_metrics
 from eval.bm25 import BM25Retriever
 from eval.report import write_json_report, write_markdown_report
 from eval.rrf import reciprocal_rank_fusion
-from eval.schema import is_gold_hit, load_eval_dataset, matched_gold_indices
+from eval.schema import load_eval_dataset, matched_gold_indices
 from src.embedder import Embedder
 from src.index_manager import IndexManager
 from src.reranker import Reranker

@@ -2,8 +2,13 @@ import re
 import unittest
 from pathlib import Path
 
+import pytest
+
 from src.loader import load_pdf_pages
 from src.splitter import split_pages_with_ref
+
+
+pytestmark = pytest.mark.integration
 
 
 PDF_PATH = Path("data/raw/城市轨道交通工程设计标准.pdf")

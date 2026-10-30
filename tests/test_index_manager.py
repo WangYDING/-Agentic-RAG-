@@ -4,8 +4,12 @@ import json
 from pathlib import Path
 
 import fitz
+import pytest
 
 from src.index_manager import INDEX_SCHEMA_VERSION, IndexManager, calculate_file_checksum
+
+
+pytestmark = pytest.mark.integration
 
 
 class FakeEmbedder:

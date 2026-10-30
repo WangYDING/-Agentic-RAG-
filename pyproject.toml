@@ -7,7 +7,7 @@ name = "engineering-spec-rag"
 version = "0.1.0"
 description = "RAG prototype for engineering specification documents"
 readme = {file = "README", content-type = "text/markdown"}
-requires-python = ">=3.10,<3.14"
+requires-python = ">=3.12,<3.13"
 dependencies = [
     "faiss-cpu>=1.8,<2",
     "jieba>=0.42,<1",
@@ -16,12 +16,17 @@ dependencies = [
     "pymupdf>=1.24,<2",
     "python-dotenv>=1,<2",
     "rank-bm25>=0.2,<1",
+    "scikit-learn>=1.5,<2",
     "sentence-transformers>=3,<6",
     "streamlit>=1.36,<2",
 ]
 
 [project.optional-dependencies]
-dev = ["pytest>=8,<10"]
+dev = [
+    "build>=1.2,<2",
+    "pytest>=8,<10",
+    "ruff>=0.8,<1",
+]
 
 [tool.setuptools.packages.find]
 include = ["src*"]
@@ -29,4 +34,14 @@ namespaces = true
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = "-q"
+addopts = '-q -m "not integration and not model"'
+markers = [
+    "integration: local integration tests that exercise PDF parsing or FAISS persistence",
+    "model: tests that download or call real models/APIs and may require credentials or budget",
+]
+
+[tool.ruff]
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]

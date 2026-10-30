@@ -44,15 +44,22 @@ def test_demo_builds_existing_agent_workflow(monkeypatch):
     monkeypatch.setenv("DEEPSEEK_API_KEY", "key")
     monkeypatch.setenv("DEEPSEEK_BASE_URL", "https://example.test")
     monkeypatch.setenv("DEEPSEEK_MODEL", "model")
-    monkeypatch.setattr("src.embedder.Embedder", lambda: object())
-    monkeypatch.setattr("src.index_manager.IndexManager.build_or_load", lambda self, pdf, embedder: sentinel)
-    monkeypatch.setattr("src.retriever.Retriever", lambda store, embedder: object())
-    monkeypatch.setattr("eval.bm25.BM25Retriever", lambda records: object())
-    monkeypatch.setattr("eval.run_agent_test.HybridRetriever", lambda dense, bm25: object())
-    monkeypatch.setattr("src.reranker.Reranker", lambda: object())
-    monkeypatch.setattr("src.evidence_sufficiency.EvidenceSufficiencyGrader", lambda: object())
-    monkeypatch.setattr("src.generator.Generator", lambda: object())
-    monkeypatch.setattr("src.query_rewriter.QueryRewriter", lambda: object())
+    factories = SimpleNamespace(
+        Embedder=lambda: object(),
+        IndexManager=lambda index_dir: SimpleNamespace(
+            build_or_load=lambda pdf, embedder: sentinel
+        ),
+        Retriever=lambda store, embedder: object(),
+        BM25Retriever=lambda records: object(),
+        HybridRetriever=lambda dense, bm25: object(),
+        Reranker=lambda: object(),
+        EvidenceSufficiencyGrader=lambda: object(),
+        Generator=lambda: object(),
+        QueryRewriter=lambda: object(),
+    )
+    monkeypatch.setattr(
+        agent_demo, "_load_workflow_component_factories", lambda: factories
+    )
 
     workflow = agent_demo.build_agent_workflow()
 
