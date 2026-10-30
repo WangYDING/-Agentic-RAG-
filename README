@@ -245,6 +245,10 @@ DEEPSEEK_MODEL=your-available-model-identifier
 | API 密钥 | `DEEPSEEK_API_KEY` | 完整 Agent 必填；错误信息不会输出密钥 |
 | 每路检索候选数 | `RAG_RETRIEVAL_TOP_K` | `10` |
 | 最终证据数 | `RAG_EVIDENCE_TOP_N` | `3` |
+| 单次模型调用超时（秒） | `RAG_REQUEST_TIMEOUT_SECONDS` | `30` |
+| 暂时性网络错误重试次数 | `RAG_MAX_NETWORK_RETRIES` | `1` |
+| 一次问答总时限（秒） | `RAG_TOTAL_TIMEOUT_SECONDS` | `90` |
+| 一次问答模型调用上限 | `RAG_MAX_MODEL_CALLS` | `6` |
 
 `.env` 只在 CLI/Web 入口加载一次；`src` 中的配置、模型和业务模块不会在导入时自行读取 `.env`。
 
@@ -274,6 +278,20 @@ GitHub Actions 配置在 `.github/workflows/ci.yml`，使用 Windows + Python 3.
 本次干净环境使用 `NumPy 2.5.4`、`SciPy 1.18.1`、`scikit-learn 1.9.1` 与 `FAISS 1.15.1`，未复现此前的缺包或 NumPy/SciPy 兼容错误，因此没有为了猜测性兼容问题降级 NumPy。远端 GitHub Actions 已在 `phase-1-reproducible-baseline` 分支完成首次验证：[Reproducible baseline #1](https://github.com/WangYDING/-Agentic-RAG-/actions/runs/40997691755) 全部通过。
 
 第二阶段本地验证同样在 `2026-10-30` 完成：Ruff 通过；离线测试 `59 passed`；integration `9 passed, 5 subtests passed`；wheel 安装到仓库外的全新临时环境后，包导入、CLI/Web 帮助和配置错误契约均通过。真实模型与收费 API 未在本阶段调用。
+
+第三阶段“可靠输出”于 `2026-10-30` 完成本地与远端验收：Ruff 通过；离线测试 `80 passed`；integration `9 passed, 5 subtests passed`；sdist 与 wheel 构建成功。故障注入覆盖合法答案、两轮证据不足、无引用、未知引用、来源/页码缺失、Grader 空响应/非法 JSON/矛盾字段、超时、限流、认证失败和调用预算耗尽，未调用真实模型或收费 API。[GitHub Actions 第 8 次运行](https://github.com/WangYDING/-Agentic-RAG-/actions/runs/41027041784) 在 Windows / Python 3.12 上全部通过。
+
+### 可靠输出契约
+
+完整 Agent 的 CLI 与 Web 使用同一套三态结果：
+
+| 状态 | 含义 | 对外行为 |
+|---|---|---|
+| `answer` | 证据充分且引用校验通过 | 展示答案和被引用证据 |
+| `refuse` | 一次补充检索后仍缺少必要证据 | 明确说明缺失要求，不调用 Generator |
+| `error` | 模型、索引、预算或输出校验失败 | 隐藏候选答案，显示安全提示、错误代码、请求编号和是否可重试 |
+
+引用校验只保证编号和 provenance 合法，不代表答案事实正确。模型 SDK 自带重试已关闭；应用只对超时、限流、连接问题和部分服务端错误做有限重试，认证和参数错误不重试。Grader 非法响应最多纠正一次，业务补充检索仍最多一次，两者共同受总调用次数和总时限约束。
 
 ## 安装后的正式启动方式
 
@@ -306,10 +324,11 @@ src/
 ├── bm25_retriever.py             # 正式 BM25 检索组件
 ├── hybrid_retriever.py           # Dense + BM25 运行时融合
 ├── retrieval_fusion.py           # 稳定 chunk identity 与等权 RRF
-├── evidence.py                   # Evidence、provenance 与 citation validation
+├── evidence.py                   # Evidence、provenance 与强制 citation gate
 ├── evidence_sufficiency.py       # 结构化 evidence sufficiency grader
 ├── agent_workflow.py             # max_retries=1 的 bounded Agent 状态机
-├── presentation.py               # CLI/Web 共用的安全 trace 格式化
+├── reliability.py / results.py   # 调用预算、故障分类与三态结果契约
+├── presentation.py               # CLI/Web 共用的安全结果与 trace 格式化
 └── web_launcher.py               # 安装后 Web 启动入口
 
 eval/

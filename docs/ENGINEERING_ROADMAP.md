@@ -1,6 +1,6 @@
 # 工程化实施路线
 
-日期：2026-10-30。依据：RAG_PROJECT_AUDIT.md 与当前源码。状态：阶段 1 已完成本地与远端 CI 验收；阶段 2 已完成本地验收。后续阶段仍为计划，不表示相应能力已经完成。
+日期：2026-10-30。依据：RAG_PROJECT_AUDIT.md 与当前源码。状态：阶段 1、阶段 2、阶段 3 已完成本地与远端 CI 验收。后续阶段仍为计划，不表示相应能力已经完成。
 
 ## 目标与范围
 
@@ -47,6 +47,8 @@
 涉及：src/evidence.py、src/evidence_sufficiency.py、src/agent_workflow.py、src/generator.py、src/query_rewriter.py、入口适配层。
 
 验收：针对成功、业务拒答、非法引用、无引用、超时、限流、空响应、非法 JSON 的故障注入检查通过；业务补充检索仍最多一次；失败结果不作为正常答案显示。引用格式通过不表述为事实正确。
+
+完成记录（2026-10-30）：应用层统一为 `answer`、`refuse`、`error` 三态并保留 request_id、错误代码、可重试标记和安全 trace；无引用、未知引用以及被引用证据来源/页码缺失均会阻断正常答案。Grader 对空响应、非法 JSON 和字段矛盾最多纠正一次；模型 SDK 重试关闭，由应用统一处理超时、限流、认证和服务端错误，并由每次调用超时、网络重试次数、总时限和总调用次数共同限界。CLI/Web 共用安全展示规则，不显示候选错误答案、堆栈或敏感配置。Ruff 通过；离线测试 `80 passed`；integration `9 passed, 5 subtests passed`；sdist/wheel 构建成功；未调用真实模型或收费 API。[GitHub Actions 第 8 次运行](https://github.com/WangYDING/-Agentic-RAG-/actions/runs/41027041784) 在 Windows / Python 3.12 上全部通过。
 
 ## 阶段 4：索引可靠性（估计 2–3 个工作日）
 

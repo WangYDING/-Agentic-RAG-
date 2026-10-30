@@ -96,6 +96,16 @@ class EvidenceCitationTest(unittest.TestCase):
         self.assertFalse(validation.valid)
         self.assertIn("UNRESOLVED_PAGE:E1", validation.errors)
 
+    def test_validator_rejects_missing_source_on_cited_evidence(self):
+        result = ARTICLE_RESULT.copy()
+        result["source"] = ""
+        evidences = build_evidence_list([result])
+
+        validation = validate_citations("结论来自 [E1]。", evidences)
+
+        self.assertFalse(validation.valid)
+        self.assertIn("UNRESOLVED_SOURCE:E1", validation.errors)
+
     def test_format_evidence_citation_contains_resolvable_metadata(self):
         article, table = build_evidence_list([ARTICLE_RESULT, TABLE_RESULT])
 

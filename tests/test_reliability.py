@@ -1,4 +1,5 @@
 from types import SimpleNamespace
+import time
 
 import pytest
 
@@ -88,3 +89,21 @@ def test_total_call_budget_prevents_another_call():
         )
 
     assert error.value.code == "CALL_BUDGET_EXHAUSTED"
+
+
+def test_expired_total_timeout_prevents_first_call():
+    budget = CallBudget(
+        max_calls=2,
+        total_timeout_seconds=1,
+        started_at=time.monotonic() - 2,
+    )
+
+    with pytest.raises(ReliabilityError) as error:
+        execute_model_call(
+            lambda timeout: "never",
+            operation="测试",
+            budget=budget,
+            policy=CallPolicy(max_network_retries=0),
+        )
+
+    assert error.value.code == "TOTAL_TIMEOUT_EXCEEDED"

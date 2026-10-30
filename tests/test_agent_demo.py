@@ -1,6 +1,7 @@
 import agent_demo
 from src.agent_workflow import AgentResponse, AgentState
 from src.evidence import CitationValidation, Evidence
+from src.results import ApplicationResult
 
 
 def evidence():
@@ -32,8 +33,6 @@ def response(*, action="answer", missing=None):
             *([{"step": "retry", "missing_requirements": missing}, {"step": "refuse"}] if missing else [{"step": "answer"}, {"step": "citation_validation", "valid": True}]),
         ],
     )
-    from src.results import ApplicationResult
-
     message = "拒答" if missing else "答案 [E1]"
     return AgentResponse(
         message,
@@ -77,3 +76,30 @@ def test_trace_does_not_expose_reasoning_fields():
     assert "must not appear" not in output
     assert "hidden" not in output
     assert "private_reasoning" not in output
+
+
+def test_error_output_is_safe_and_hides_evidence():
+    state = AgentState(
+        original_query="问题",
+        retrieval_query="问题",
+        evidences=[evidence()],
+        final_action="error",
+        trace=[{"step": "error", "error_code": "RATE_LIMITED"}],
+    )
+    result = ApplicationResult(
+        result_type="error",
+        message="模型服务当前限流。",
+        request_id="safe-request-id",
+        error_code="RATE_LIMITED",
+        retryable=True,
+    )
+
+    output = agent_demo.render_response(AgentResponse(result.message, state, result))
+
+    assert "### Service Error" in output
+    assert "模型服务当前限流。" in output
+    assert "request_id: safe-request-id" in output
+    assert "error_code: RATE_LIMITED" in output
+    assert "retryable: true" in output
+    assert "### Evidence" not in output
+    assert "规范证据" not in output

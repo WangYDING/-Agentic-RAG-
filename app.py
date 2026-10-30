@@ -1,15 +1,24 @@
 import streamlit as st
+import logging
+from uuid import uuid4
 from dotenv import load_dotenv
 
 from src.application import build_agent_workflow
 from src.config import AppConfig, ConfigurationError
 from src.evidence import format_evidence_citation
-from src.presentation import format_agent_trace
+from src.presentation import format_agent_trace, present_agent_response
+
+
+logger = logging.getLogger(__name__)
 
 
 load_dotenv()
-environment_config = AppConfig.from_sources()
 st.set_page_config(page_title="工程规范 Agentic RAG", layout="wide")
+try:
+    environment_config = AppConfig.from_sources()
+except ConfigurationError as exc:
+    st.error(f"配置错误：{exc}")
+    st.stop()
 
 
 @st.cache_resource
@@ -37,8 +46,10 @@ try:
 except ConfigurationError as exc:
     st.error(f"配置错误：{exc}")
     st.stop()
-except (FileNotFoundError, ValueError) as exc:
-    st.error(f"初始化失败：{exc}")
+except Exception:
+    request_id = uuid4().hex
+    logger.exception("application initialization failed request_id=%s", request_id)
+    st.error(f"初始化失败，请检查本地文件和服务配置。请求编号：{request_id}")
     st.stop()
 
 for message in st.session_state.chat_history:
@@ -53,13 +64,21 @@ if query:
         st.markdown(query)
 
     response = workflow.run(query)
-    st.session_state.chat_history.append({"role": "assistant", "content": response.answer})
+    public = present_agent_response(response)
+    st.session_state.chat_history.append({"role": "assistant", "content": public.message})
 
     with st.chat_message("assistant"):
-        st.markdown(response.answer)
+        if public.severity == "error":
+            st.error(public.message)
+        elif public.severity == "info":
+            st.info(public.message)
+        else:
+            st.markdown(public.message)
+        for detail in public.details:
+            st.caption(detail)
 
-        with st.expander("Evidence", expanded=True):
-            if response.state.evidences:
+        if public.show_evidence:
+            with st.expander("Evidence", expanded=True):
                 for evidence in response.state.evidences:
                     st.markdown(f"**{format_evidence_citation(evidence)}**")
                     st.caption(
@@ -68,12 +87,6 @@ if query:
                     )
                     st.write(evidence.text)
                     st.divider()
-            else:
-                st.write("无")
-
-            validation = response.state.citation_validation
-            if validation is not None and not validation.valid:
-                st.warning(f"引用校验错误：{validation.errors}")
 
         with st.expander("Agent Trace", expanded=False):
             for step in format_agent_trace(response):
