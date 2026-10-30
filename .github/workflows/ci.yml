@@ -78,3 +78,20 @@ jobs:
           finally {
             Pop-Location
           }
+
+  linux-container-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build the locked non-root container image
+        run: docker build --tag engineering-rag:ci .
+
+      - name: Verify image user and installed operations commands
+        run: |
+          test "$(docker image inspect engineering-rag:ci --format '{{.Config.User}}')" = "rag"
+          docker run --rm engineering-rag:ci engineering-rag-index --help
+          docker run --rm engineering-rag:ci engineering-rag-model --help
+          docker run --rm engineering-rag:ci engineering-rag-health --help
