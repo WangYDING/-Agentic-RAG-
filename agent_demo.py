@@ -13,6 +13,7 @@ from src.presentation import (
     format_agent_trace,
     present_agent_response,
 )
+from src.observability import configure_json_logging
 
 
 logger = logging.getLogger(__name__)
@@ -52,6 +53,7 @@ def render_response(response: AgentResponse) -> str:
 
 def main(argv: list[str] | None = None) -> int:
     configure_utf8_output()
+    configure_json_logging()
     parser = argparse.ArgumentParser(description="Run the bounded Hybrid RAG Agent demo.")
     parser.add_argument("--pdf", help="覆盖 RAG_PDF_PATH")
     parser.add_argument("--index-dir", help="覆盖 RAG_INDEX_DIR")

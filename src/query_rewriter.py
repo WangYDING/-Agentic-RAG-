@@ -76,6 +76,7 @@ class QueryRewriter:
             budget=active_budget,
             policy=self.call_policy,
         )
+        active_budget.record_usage(response)
         try:
             content = response.choices[0].message.content
         except (AttributeError, IndexError) as exc:

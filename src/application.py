@@ -87,6 +87,11 @@ def build_agent_workflow(
         max_model_calls=config.max_model_calls,
         total_timeout_seconds=config.total_timeout_seconds,
         index_version_id=managed.manifest.version_id,
+        model_ids={
+            "embedding": config.embedding_model,
+            "reranker": config.reranker_model,
+            "generation": config.generation_model,
+        },
     )
 
 

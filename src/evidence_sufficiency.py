@@ -89,6 +89,7 @@ JSON 格式：
                 budget=active_budget,
                 policy=self.call_policy,
             )
+            active_budget.record_usage(response)
             try:
                 content = response.choices[0].message.content
                 return self._parse(content, available_ids)

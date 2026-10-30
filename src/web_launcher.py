@@ -5,6 +5,7 @@ import sys
 from pathlib import Path
 
 from src.presentation import configure_utf8_output
+from src.observability import configure_json_logging
 
 
 def installed_web_app_path() -> Path:
@@ -16,6 +17,7 @@ def installed_web_app_path() -> Path:
 
 def main() -> int:
     configure_utf8_output()
+    configure_json_logging()
     from streamlit.web import cli as streamlit_cli
 
     sys.argv = [

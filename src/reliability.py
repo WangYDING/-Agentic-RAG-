@@ -20,6 +20,10 @@ class CallBudget:
     total_timeout_seconds: float = 90.0
     started_at: float = field(default_factory=time.monotonic)
     calls_used: int = 0
+    network_retries: int = 0
+    input_tokens: int = 0
+    output_tokens: int = 0
+    estimated_cost: float | None = None
 
     def consume(self) -> None:
         if self.calls_used >= self.max_calls:
@@ -39,6 +43,17 @@ class CallBudget:
     def remaining_seconds(self) -> float:
         elapsed = time.monotonic() - self.started_at
         return max(0.0, self.total_timeout_seconds - elapsed)
+
+    def record_usage(self, response) -> None:
+        usage = getattr(response, "usage", None)
+        if usage is None:
+            return
+        self.input_tokens += int(
+            getattr(usage, "prompt_tokens", getattr(usage, "input_tokens", 0)) or 0
+        )
+        self.output_tokens += int(
+            getattr(usage, "completion_tokens", getattr(usage, "output_tokens", 0)) or 0
+        )
 
 
 class ReliabilityError(RuntimeError):
@@ -79,6 +94,7 @@ def execute_model_call(
             error = classify_service_error(exc, operation=operation)
             if not error.retryable or attempt >= policy.max_network_retries:
                 raise error from exc
+            budget.network_retries += 1
     raise AssertionError("unreachable")
 
 
