@@ -6,7 +6,12 @@ from pathlib import Path
 import fitz
 import pytest
 
-from src.index_manager import INDEX_SCHEMA_VERSION, IndexManager, calculate_file_checksum
+from src.index_manager import (
+    INDEX_SCHEMA_VERSION,
+    IndexManager,
+    calculate_document_id,
+    calculate_file_checksum,
+)
 
 
 pytestmark = pytest.mark.integration
@@ -48,6 +53,16 @@ class IndexManagerTest(unittest.TestCase):
             self.assertTrue((index_dir / "index.faiss").exists())
             self.assertTrue((index_dir / "metadata.json").exists())
             self.assertEqual(result.manifest.checksum_sha256, calculate_file_checksum(pdf_path))
+            self.assertEqual(result.manifest.document_id, calculate_document_id(pdf_path))
+            self.assertTrue(result.manifest.version_id)
+            self.assertEqual(
+                result.manifest.index_sha256,
+                calculate_file_checksum(index_dir / "index.faiss"),
+            )
+            self.assertEqual(
+                result.manifest.metadata_sha256,
+                calculate_file_checksum(index_dir / "metadata.json"),
+            )
             self.assertEqual(result.manifest.schema_version, INDEX_SCHEMA_VERSION)
             self.assertEqual(result.vector_store.index.ntotal, result.manifest.chunk_count)
             self.assertEqual(len(result.vector_store.chunk_records), result.manifest.chunk_count)
@@ -125,6 +140,51 @@ class IndexManagerTest(unittest.TestCase):
             data = json.loads(manifest_path.read_text(encoding="utf-8"))
             data["schema_version"] = -1
             manifest_path.write_text(json.dumps(data), encoding="utf-8")
+
+            embedder = FakeEmbedder()
+            result = manager.build_or_load(pdf_path, embedder=embedder)
+
+            self.assertEqual(result.action, "rebuild")
+            self.assertEqual(embedder.embed_texts_calls, 1)
+
+    def test_same_filename_in_different_directories_has_distinct_identity(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            first_path = root / "first" / "spec.pdf"
+            second_path = root / "second" / "spec.pdf"
+            first_path.parent.mkdir()
+            second_path.parent.mkdir()
+            make_pdf(first_path, "1.0.1\nfirst")
+            make_pdf(second_path, "1.0.1\nsecond")
+            manager = IndexManager(root / "index")
+
+            first = manager.build_or_load(first_path, embedder=FakeEmbedder())
+            second = manager.build_or_load(second_path, embedder=FakeEmbedder())
+
+            self.assertNotEqual(first.manifest.document_id, second.manifest.document_id)
+            self.assertEqual(len(list((root / "index").iterdir())), 2)
+
+    def test_chunk_parameters_change_version(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            pdf_path = root / "spec.pdf"
+            make_pdf(pdf_path, "1.0.1\nhello world")
+            manager = IndexManager(root / "index")
+
+            first = manager.build_or_load(pdf_path, embedder=FakeEmbedder(), chunk_size=300)
+            second = manager.build_or_load(pdf_path, embedder=FakeEmbedder(), chunk_size=120)
+
+            self.assertNotEqual(first.manifest.version_id, second.manifest.version_id)
+
+    def test_modified_metadata_hash_is_detected_and_rebuilt(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            pdf_path = root / "spec.pdf"
+            make_pdf(pdf_path, "1.0.1\nhello world")
+            manager = IndexManager(root / "index")
+            manager.build_or_load(pdf_path, embedder=FakeEmbedder())
+            metadata_path = next((root / "index").glob("*/metadata.json"))
+            metadata_path.write_text("[]", encoding="utf-8")
 
             embedder = FakeEmbedder()
             result = manager.build_or_load(pdf_path, embedder=embedder)
