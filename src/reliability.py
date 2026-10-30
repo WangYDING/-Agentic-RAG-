@@ -24,6 +24,8 @@ class CallBudget:
     input_tokens: int = 0
     output_tokens: int = 0
     estimated_cost: float | None = None
+    input_cost_per_million: float | None = None
+    output_cost_per_million: float | None = None
 
     def consume(self) -> None:
         if self.calls_used >= self.max_calls:
@@ -54,6 +56,15 @@ class CallBudget:
         self.output_tokens += int(
             getattr(usage, "completion_tokens", getattr(usage, "output_tokens", 0)) or 0
         )
+        if (
+            self.input_cost_per_million is not None
+            and self.output_cost_per_million is not None
+        ):
+            self.estimated_cost = round(
+                self.input_tokens * self.input_cost_per_million / 1_000_000
+                + self.output_tokens * self.output_cost_per_million / 1_000_000,
+                8,
+            )
 
 
 class ReliabilityError(RuntimeError):

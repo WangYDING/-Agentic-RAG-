@@ -75,6 +75,8 @@ class AgentWorkflow:
         total_timeout_seconds: float = 90.0,
         index_version_id: str | None = None,
         model_ids: dict[str, str] | None = None,
+        input_cost_per_million: float | None = None,
+        output_cost_per_million: float | None = None,
     ):
         if max_retries != 1:
             raise ValueError("AgentWorkflow requires max_retries=1")
@@ -90,6 +92,8 @@ class AgentWorkflow:
         self.total_timeout_seconds = total_timeout_seconds
         self.index_version_id = index_version_id
         self.model_ids = dict(model_ids or {})
+        self.input_cost_per_million = input_cost_per_million
+        self.output_cost_per_million = output_cost_per_million
 
     def run(self, query: str) -> AgentResponse:
         state = AgentState(
@@ -100,6 +104,8 @@ class AgentWorkflow:
         budget = CallBudget(
             max_calls=self.max_model_calls,
             total_timeout_seconds=self.total_timeout_seconds,
+            input_cost_per_million=self.input_cost_per_million,
+            output_cost_per_million=self.output_cost_per_million,
         )
         observer = RequestObserver(state.request_id, self.index_version_id, self.model_ids)
         observer_token = active_observer.set(observer)

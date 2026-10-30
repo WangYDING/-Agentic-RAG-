@@ -56,6 +56,12 @@ jobs:
             & "$smokeDir\Scripts\engineering-rag-index.exe" --help
             if ($LASTEXITCODE -ne 0) { throw "Index CLI help failed" }
 
+            & "$smokeDir\Scripts\engineering-rag-model.exe" --help
+            if ($LASTEXITCODE -ne 0) { throw "Model CLI help failed" }
+
+            & "$smokeDir\Scripts\engineering-rag-health.exe" --help
+            if ($LASTEXITCODE -ne 0) { throw "Health CLI help failed" }
+
             $env:DEEPSEEK_API_KEY = $null
             $env:DEEPSEEK_BASE_URL = $null
             $previousNativePreference = $PSNativeCommandUseErrorActionPreference

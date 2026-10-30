@@ -18,16 +18,17 @@ from src.presentation import configure_utf8_output
 def main(argv: list[str] | None = None) -> int:
     configure_utf8_output()
     parser = argparse.ArgumentParser(description="Build and verify published RAG indexes.")
-    parser.add_argument("command", choices=["build", "rebuild", "check"])
+    parser.add_argument("command", choices=["build", "rebuild", "check", "backup", "restore"])
     parser.add_argument("--pdf", help="覆盖 RAG_PDF_PATH")
     parser.add_argument("--index-dir", help="覆盖 RAG_INDEX_DIR")
     parser.add_argument("--chunk-size", type=int, default=300)
     parser.add_argument("--overlap", type=int, default=50)
+    parser.add_argument("--backup-dir", help="备份根目录；restore 时可指向具体版本目录")
     args = parser.parse_args(argv)
     load_dotenv()
     try:
         config = AppConfig.from_sources(pdf_path=args.pdf, index_dir=args.index_dir)
-        if args.command == "check":
+        if args.command in {"check", "backup", "restore"}:
             embedder = SimpleNamespace(
                 model_name=config.embedding_model,
                 model_revision=config.embedding_revision,
@@ -51,6 +52,22 @@ def main(argv: list[str] | None = None) -> int:
         if args.command == "check":
             manifest = manager.check(config.pdf_path, **kwargs)
             action = "valid"
+        elif args.command == "backup":
+            if not args.backup_dir:
+                raise ValueError("backup 需要 --backup-dir。")
+            destination = manager.backup_active(
+                config.pdf_path, args.backup_dir, **kwargs
+            )
+            manifest = manager.check(config.pdf_path, **kwargs)
+            action = f"backup:{destination}"
+        elif args.command == "restore":
+            if not args.backup_dir:
+                raise ValueError("restore 需要 --backup-dir 指向具体版本目录。")
+            restored = manager.restore_backup(
+                config.pdf_path, args.backup_dir, **kwargs
+            )
+            manifest = restored.manifest
+            action = restored.action
         else:
             result = manager.build_or_load(
                 config.pdf_path,

@@ -6,18 +6,21 @@ import os
 import re
 import shutil
 import time
+import logging
 from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any, Callable
 from uuid import uuid4
 
 from src.vector_store import VectorStore
+from src.observability import log_event, metrics
 
 
 INDEX_SCHEMA_VERSION = 3
 ACTIVE_SCHEMA_VERSION = 1
 PARSER_VERSION = "pymupdf-structured-v1"
 EMPTY_DOCUMENT_MESSAGE = "当前文档未提取到可用文本，可能是扫描版 PDF。"
+logger = logging.getLogger(__name__)
 
 
 class EmptyDocumentError(ValueError):
@@ -149,8 +152,16 @@ class IndexManager:
         if not force_rebuild:
             loaded = self._try_load_active(identity)
             if loaded is not None:
+                self._record_action(loaded)
                 return loaded
-        return self.rebuild(embedder=embedder, **identity)
+        try:
+            result = self.rebuild(embedder=embedder, **identity)
+            self._record_action(result)
+            return result
+        except Exception as exc:
+            metrics.increment("index_build_failures_total")
+            log_event(logger, "index_build_failed", error_type=type(exc).__name__)
+            raise
 
     def load_published(
         self,
@@ -223,6 +234,103 @@ class IndexManager:
             return "invalid"
         version_id = active.get("version_id")
         return version_id if isinstance(version_id, str) and version_id else "invalid"
+
+    def backup_active(
+        self,
+        pdf_path: str | Path,
+        backup_root: str | Path,
+        *,
+        embedder,
+        chunk_size: int = 300,
+        overlap: int = 50,
+    ) -> Path:
+        managed = self.load_published(
+            pdf_path,
+            embedder=embedder,
+            chunk_size=chunk_size,
+            overlap=overlap,
+            recover_pointer=False,
+        )
+        identity = self._identity(
+            pdf_path, embedder=embedder, chunk_size=chunk_size, overlap=overlap
+        )
+        document_dir = self._document_index_dir(
+            identity["pdf_path"], identity["document_id"]
+        )
+        source = document_dir / "versions" / managed.manifest.version_id
+        target = (
+            Path(backup_root)
+            / managed.manifest.document_id
+            / managed.manifest.version_id
+        )
+        target.parent.mkdir(parents=True, exist_ok=True)
+        temporary = target.parent / f".tmp-{target.name}-{uuid4().hex}"
+        try:
+            shutil.copytree(source, temporary)
+            self._load_version(temporary, expected=managed.manifest)
+            if target.exists():
+                shutil.rmtree(target)
+            os.replace(temporary, target)
+        finally:
+            if temporary.exists():
+                shutil.rmtree(temporary, ignore_errors=True)
+        log_event(
+            logger,
+            "index_backup_completed",
+            document_id=managed.manifest.document_id,
+            version_id=managed.manifest.version_id,
+        )
+        return target
+
+    def restore_backup(
+        self,
+        pdf_path: str | Path,
+        backup_version_dir: str | Path,
+        *,
+        embedder,
+        chunk_size: int = 300,
+        overlap: int = 50,
+    ) -> ManagedIndex:
+        identity = self._identity(
+            pdf_path, embedder=embedder, chunk_size=chunk_size, overlap=overlap
+        )
+        backup_version_dir = Path(backup_version_dir)
+        manifest = self._manifest_for_identity(
+            backup_version_dir / "manifest.json", identity
+        )
+        if manifest is None:
+            raise IndexUnavailableError("备份与当前文档、模型或切分配置不匹配。")
+        self._load_version(backup_version_dir, expected=manifest)
+        document_dir = self._document_index_dir(
+            identity["pdf_path"], identity["document_id"]
+        )
+        final_dir = document_dir / "versions" / manifest.version_id
+        with BuildLock(document_dir / "build.lock", self.lock_timeout_seconds):
+            temporary = final_dir.parent / f".restore-{manifest.version_id[:12]}-{uuid4().hex}"
+            previous = final_dir.parent / f".previous-{manifest.version_id[:12]}-{uuid4().hex}"
+            temporary.parent.mkdir(parents=True, exist_ok=True)
+            try:
+                shutil.copytree(backup_version_dir, temporary)
+                self._load_version(temporary, expected=manifest)
+                if final_dir.exists():
+                    os.replace(final_dir, previous)
+                try:
+                    os.replace(temporary, final_dir)
+                except Exception:
+                    if previous.exists() and not final_dir.exists():
+                        os.replace(previous, final_dir)
+                    raise
+                self._publish_active(document_dir, manifest)
+            finally:
+                if temporary.exists():
+                    shutil.rmtree(temporary, ignore_errors=True)
+                if previous.exists():
+                    shutil.rmtree(previous, ignore_errors=True)
+        store = self._load_version(final_dir, expected=manifest)
+        result = ManagedIndex(store, manifest, "restore")
+        metrics.increment("index_restores_total")
+        self._record_action(result)
+        return result
 
     def rebuild(
         self,
@@ -478,6 +586,22 @@ class IndexManager:
     def _fault(self, point: str) -> None:
         if self.fault_injector is not None:
             self.fault_injector(point)
+
+    @staticmethod
+    def _record_action(result: ManagedIndex) -> None:
+        if result.action in {"load", "load_after_wait"}:
+            metrics.increment("index_loads_total")
+            event = "index_loaded"
+        else:
+            metrics.increment("index_version_switches_total")
+            event = "index_version_switched"
+        log_event(
+            logger,
+            event,
+            action=result.action,
+            document_id=result.manifest.document_id,
+            version_id=result.manifest.version_id,
+        )
 
 
 def calculate_file_checksum(path: str | Path) -> str:

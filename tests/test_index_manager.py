@@ -41,6 +41,47 @@ def make_pdf(path: Path, text: str):
 
 
 class IndexManagerTest(unittest.TestCase):
+    def test_backup_and_restore_preserve_valid_snapshot(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            pdf_path = root / "spec.pdf"
+            make_pdf(pdf_path, "1.0.1\nbackup restore")
+            index_root = root / "index"
+            manager = IndexManager(index_root)
+            built = manager.build_or_load(pdf_path, embedder=FakeEmbedder())
+
+            backup = manager.backup_active(
+                pdf_path, root / "backup", embedder=FakeEmbedder()
+            )
+            shutil_target = next(index_root.iterdir())
+            import shutil
+
+            shutil.rmtree(shutil_target)
+            restored = manager.restore_backup(
+                pdf_path, backup, embedder=FakeEmbedder()
+            )
+
+            self.assertEqual(restored.action, "restore")
+            self.assertEqual(restored.manifest.version_id, built.manifest.version_id)
+            reloaded = manager.load_published(pdf_path, embedder=FakeEmbedder())
+            self.assertEqual(reloaded.manifest.version_id, built.manifest.version_id)
+
+    def test_restore_rejects_backup_for_changed_document(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            pdf_path = root / "spec.pdf"
+            make_pdf(pdf_path, "1.0.1\nold")
+            manager = IndexManager(root / "index")
+            manager.build_or_load(pdf_path, embedder=FakeEmbedder())
+            backup = manager.backup_active(
+                pdf_path, root / "backup", embedder=FakeEmbedder()
+            )
+            pdf_path.unlink()
+            make_pdf(pdf_path, "1.0.1\nnew")
+
+            with self.assertRaisesRegex(IndexUnavailableError, "不匹配"):
+                manager.restore_backup(pdf_path, backup, embedder=FakeEmbedder())
+
     def test_first_build_writes_manifest_index_and_metadata(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)

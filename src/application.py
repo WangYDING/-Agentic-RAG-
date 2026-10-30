@@ -92,6 +92,8 @@ def build_agent_workflow(
             "reranker": config.reranker_model,
             "generation": config.generation_model,
         },
+        input_cost_per_million=config.input_cost_per_million,
+        output_cost_per_million=config.output_cost_per_million,
     )
 
 

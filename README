@@ -252,6 +252,9 @@ DEEPSEEK_MODEL=your-available-model-identifier
 | 一次问答模型调用上限 | `RAG_MAX_MODEL_CALLS` | `6` |
 | 是否允许问答入口首次自动构建索引 | `RAG_INDEX_AUTO_BUILD` | `true`；生产式部署建议设为 `false` |
 | 同文档构建锁等待时间（秒） | `RAG_INDEX_LOCK_TIMEOUT_SECONDS` | `30` |
+| 模型缓存目录 | `RAG_MODEL_CACHE_DIR` | `.model_cache`；容器内为 `/models` |
+| 输入 token 单价（每百万） | `RAG_INPUT_COST_PER_MILLION` | 可选；与输出单价同时配置后记录估算费用 |
+| 输出 token 单价（每百万） | `RAG_OUTPUT_COST_PER_MILLION` | 可选；仅为估算，不作为账单 |
 
 `.env` 只在 CLI/Web 入口加载一次；`src` 中的配置、模型和业务模块不会在导入时自行读取 `.env`。
 
@@ -285,6 +288,10 @@ GitHub Actions 配置在 `.github/workflows/ci.yml`，使用 Windows + Python 3.
 第三阶段“可靠输出”于 `2026-10-30` 完成本地与远端验收：Ruff 通过；离线测试 `80 passed`；integration `9 passed, 5 subtests passed`；sdist 与 wheel 构建成功。故障注入覆盖合法答案、两轮证据不足、无引用、未知引用、来源/页码缺失、Grader 空响应/非法 JSON/矛盾字段、超时、限流、认证失败和调用预算耗尽，未调用真实模型或收费 API。[GitHub Actions 第 8 次运行](https://github.com/WangYDING/-Agentic-RAG-/actions/runs/41027041784) 在 Windows / Python 3.12 上全部通过。
 
 第四阶段“索引可靠性”于 `2026-10-30` 完成本地与远端验收：Ruff 通过；离线测试 `83 passed`；integration `21 passed, 5 subtests passed`；sdist 与 wheel 构建成功。故障测试覆盖半成品写入、发布前失败、锁超时、活动指针损坏、metadata 哈希异常、文档错配、重启加载和新版本缓存令牌切换；未调用真实模型或收费 API。[GitHub Actions 第 10 次运行](https://github.com/WangYDING/-Agentic-RAG-/actions/runs/41028835048) 在锁定的 Windows / Python 3.12 环境全部通过，包括安装后索引 CLI 帮助检查。
+
+第五阶段部署方式、持久卷、健康检查、日志排障和索引恢复步骤见 [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md)。本机可验证项与因缺少 Docker/API 配置未执行的真实演练见 [`docs/DEPLOYMENT_VALIDATION.md`](docs/DEPLOYMENT_VALIDATION.md)。
+
+第五阶段本地可执行部分于 `2026-10-30` 验证：Ruff 通过；离线测试 `88 passed`；integration `23 passed`；sdist、wheel 及仓库外全新环境安装通过。当前机器没有 Docker 命令和 API 配置，因此真实镜像启动、容器重启、真实问答及冷/热启动数据尚未冒充为完成项。
 
 ### 可靠输出契约
 

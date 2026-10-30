@@ -53,6 +53,18 @@ def _nonnegative_int(value: int | str, name: str) -> int:
     return parsed
 
 
+def _optional_nonnegative_float(value: float | str | None, name: str) -> float | None:
+    if value in {None, ""}:
+        return None
+    try:
+        parsed = float(value)
+    except (TypeError, ValueError) as exc:
+        raise ConfigurationError(f"{name} 必须是非负数。") from exc
+    if parsed < 0:
+        raise ConfigurationError(f"{name} 必须是非负数。")
+    return parsed
+
+
 def _positive_float(value: float | str, name: str) -> float:
     try:
         parsed = float(value)
@@ -93,6 +105,8 @@ class AppConfig:
     index_auto_build: bool = DEFAULT_INDEX_AUTO_BUILD
     index_lock_timeout_seconds: float = DEFAULT_INDEX_LOCK_TIMEOUT_SECONDS
     model_cache_dir: str = DEFAULT_MODEL_CACHE_DIR
+    input_cost_per_million: float | None = None
+    output_cost_per_million: float | None = None
 
     @classmethod
     def from_sources(
@@ -116,6 +130,8 @@ class AppConfig:
         index_auto_build: bool | str | None = None,
         index_lock_timeout_seconds: float | str | None = None,
         model_cache_dir: str | None = None,
+        input_cost_per_million: float | str | None = None,
+        output_cost_per_million: float | str | None = None,
     ) -> AppConfig:
         values = os.environ if environ is None else environ
         resolved_top_k = _resolve(
@@ -236,6 +252,24 @@ class AppConfig:
                     "RAG_MODEL_CACHE_DIR",
                     DEFAULT_MODEL_CACHE_DIR,
                 )
+            ),
+            input_cost_per_million=_optional_nonnegative_float(
+                _resolve(
+                    input_cost_per_million,
+                    values,
+                    "RAG_INPUT_COST_PER_MILLION",
+                    None,
+                ),
+                "RAG_INPUT_COST_PER_MILLION",
+            ),
+            output_cost_per_million=_optional_nonnegative_float(
+                _resolve(
+                    output_cost_per_million,
+                    values,
+                    "RAG_OUTPUT_COST_PER_MILLION",
+                    None,
+                ),
+                "RAG_OUTPUT_COST_PER_MILLION",
             ),
         )
 

@@ -59,3 +59,18 @@ def test_metrics_keep_refusal_and_error_separate():
     snapshot = metrics.snapshot()
     assert snapshot["outcomes"] == {"answer": 0, "refuse": 1, "error": 1}
     assert snapshot["rates"] == {"answer": 0.0, "refuse": 0.5, "error": 0.5}
+
+
+def test_usage_cost_is_only_estimated_when_both_rates_are_configured():
+    usage = SimpleNamespace(prompt_tokens=1000, completion_tokens=500)
+    response = SimpleNamespace(usage=usage)
+    budget = CallBudget(
+        input_cost_per_million=2.0,
+        output_cost_per_million=4.0,
+    )
+    budget.record_usage(response)
+    assert budget.estimated_cost == 0.004
+
+    unpriced = CallBudget()
+    unpriced.record_usage(response)
+    assert unpriced.estimated_cost is None
