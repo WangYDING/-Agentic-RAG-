@@ -32,7 +32,18 @@ def response(*, action="answer", missing=None):
             *([{"step": "retry", "missing_requirements": missing}, {"step": "refuse"}] if missing else [{"step": "answer"}, {"step": "citation_validation", "valid": True}]),
         ],
     )
-    return AgentResponse("拒答" if missing else "答案 [E1]", state)
+    from src.results import ApplicationResult
+
+    message = "拒答" if missing else "答案 [E1]"
+    return AgentResponse(
+        message,
+        state,
+        ApplicationResult(
+            result_type="refuse" if missing else "answer",
+            message=message,
+            missing_requirements=tuple(missing),
+        ),
+    )
 
 
 def test_sufficient_output_contains_answer_evidence_and_trace():

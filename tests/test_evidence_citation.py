@@ -69,6 +69,23 @@ class EvidenceCitationTest(unittest.TestCase):
         self.assertEqual(validation.cited_ids, ["E1", "E2"])
         self.assertIn("UNKNOWN_EVIDENCE_ID:E2", validation.errors)
 
+    def test_validator_rejects_answer_without_any_citation(self):
+        evidences = build_evidence_list([ARTICLE_RESULT])
+
+        validation = validate_citations("这是一个没有引用的结论。", evidences)
+
+        self.assertFalse(validation.valid)
+        self.assertIn("MISSING_CITATION", validation.errors)
+
+    def test_validator_only_requires_metadata_for_cited_evidence(self):
+        unresolved = ARTICLE_RESULT.copy()
+        unresolved["page_start"] = None
+        evidences = build_evidence_list([ARTICLE_RESULT, unresolved])
+
+        validation = validate_citations("结论来自 [E1]。", evidences)
+
+        self.assertTrue(validation.valid)
+
     def test_validator_rejects_unresolved_metadata(self):
         result = ARTICLE_RESULT.copy()
         result["page_start"] = None

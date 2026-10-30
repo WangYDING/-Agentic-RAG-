@@ -3,6 +3,7 @@ from typing import Any, Literal
 
 from src.chat_memory import ChatMemory
 from src.evidence import CitationValidation, Evidence, build_evidence_list, validate_citations
+from src.results import ApplicationResult
 
 
 EMPTY_DOCUMENT_MESSAGE = "当前文档未提取到可用文本，可能是扫描版 PDF。"
@@ -20,6 +21,11 @@ class RAGResponse:
     results: list[dict[str, Any]]
     evidences: list[Evidence]
     citation_validation: CitationValidation
+    result: ApplicationResult
+
+    @property
+    def result_type(self) -> str:
+        return self.result.result_type
 
 
 class RAGService:
@@ -114,6 +120,21 @@ class RAGService:
             chat_history=history,
         )
         citation_validation = validate_citations(answer, evidences)
+        if not citation_validation.valid:
+            message = "生成结果未通过引用校验，已阻止返回。"
+            return RAGResponse(
+                answer=message,
+                retrieval_query=retrieval_query,
+                results=results,
+                evidences=evidences,
+                citation_validation=citation_validation,
+                result=ApplicationResult(
+                    result_type="error",
+                    message=message,
+                    error_code="INVALID_CITATION",
+                    retryable=False,
+                ),
+            )
         memory.add_user_message(query)
         memory.add_assistant_message(answer)
 
@@ -123,6 +144,7 @@ class RAGService:
             results=results,
             evidences=evidences,
             citation_validation=citation_validation,
+            result=ApplicationResult(result_type="answer", message=answer),
         )
 
     def _build_retrieval_query(

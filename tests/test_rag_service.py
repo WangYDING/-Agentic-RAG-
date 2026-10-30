@@ -30,12 +30,13 @@ class FakeReranker:
 
 
 class FakeGenerator:
-    def __init__(self):
+    def __init__(self, answer="baseline answer [E1]"):
         self.calls = []
+        self.answer = answer
 
     def generate_answer(self, query, evidences, chat_history):
         self.calls.append((query, evidences, list(chat_history)))
-        return "baseline answer [E1]"
+        return self.answer
 
 
 class FakeRewriter:
@@ -89,6 +90,7 @@ class RAGServiceTest(unittest.TestCase):
         self.assertEqual(response.answer, "baseline answer [E1]")
         self.assertEqual([e.evidence_id for e in response.evidences], ["E1", "E2", "E3"])
         self.assertTrue(response.citation_validation.valid)
+        self.assertEqual(response.result_type, "answer")
         self.assertEqual(memory.get_recent_history()[-2:], [
             {"role": "user", "content": "当前问题"},
             {"role": "assistant", "content": "baseline answer [E1]"},
@@ -135,6 +137,19 @@ class RAGServiceTest(unittest.TestCase):
         service = self.build_service()
         with self.assertRaisesRegex(RuntimeError, "requires a query rewriter"):
             service.answer("问题", ChatMemory(), query_mode="rewrite")
+
+    def test_invalid_citation_is_not_added_to_memory(self):
+        memory = ChatMemory()
+        service = self.build_service()
+        service.generator.answer = "unsupported answer"
+
+        response = service.answer(
+            "问题", memory, query_mode="history"
+        )
+
+        self.assertEqual(response.result_type, "error")
+        self.assertEqual(response.result.error_code, "INVALID_CITATION")
+        self.assertEqual(memory.get_recent_history(), [])
 
 
 if __name__ == "__main__":

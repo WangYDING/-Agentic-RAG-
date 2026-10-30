@@ -101,11 +101,17 @@ def validate_citations(answer: str, evidences: list[Evidence]) -> CitationValida
     cited_ids = sorted(set(re.findall(r"\[(E\d+)\]", answer)), key=_evidence_sort_key)
     errors = []
 
+    if not cited_ids:
+        errors.append("MISSING_CITATION")
+
     for cited_id in cited_ids:
         if cited_id not in available:
             errors.append(f"UNKNOWN_EVIDENCE_ID:{cited_id}")
 
-    for evidence in evidences:
+    for cited_id in cited_ids:
+        evidence = available.get(cited_id)
+        if evidence is None:
+            continue
         if not evidence.source:
             errors.append(f"UNRESOLVED_SOURCE:{evidence.evidence_id}")
         if evidence.page_start is None:

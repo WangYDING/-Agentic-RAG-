@@ -45,12 +45,13 @@ class FakeGrader:
 
 
 class FakeGenerator:
-    def __init__(self):
+    def __init__(self, answer="answer [E1]"):
         self.calls = []
+        self.answer = answer
 
     def generate_answer(self, query, evidences, chat_history):
         self.calls.append((query, list(evidences), list(chat_history)))
-        return "answer [E1]"
+        return self.answer
 
 
 class FakeRewriter:
@@ -75,6 +76,7 @@ class AgentWorkflowTest(unittest.TestCase):
 
         self.assertEqual(response.state.retry_count, 0)
         self.assertEqual(response.state.final_action, "answer")
+        self.assertEqual(response.result_type, "answer")
         self.assertEqual([item["step"] for item in response.state.trace], ["retrieve", "grade", "answer", "citation_validation"])
         self.assertTrue(response.state.citation_validation.valid)
         self.assertEqual(len(self.retriever.calls), 1)
@@ -97,12 +99,24 @@ class AgentWorkflowTest(unittest.TestCase):
 
         self.assertEqual(response.state.retry_count, 1)
         self.assertEqual(response.state.final_action, "refuse")
+        self.assertEqual(response.result_type, "refuse")
         self.assertTrue(response.answer.startswith(REFUSAL_MESSAGE))
         self.assertIn("project cost", response.answer)
         self.assertEqual(self.generator.calls, [])
         self.assertEqual(len(self.retriever.calls), 2)
         self.assertEqual(len(self.grader.calls), 2)
         self.assertEqual([item["step"] for item in response.state.trace], ["retrieve", "grade", "retry", "retrieve", "grade", "refuse"])
+
+    def test_invalid_citation_is_blocked_as_error(self):
+        workflow = self.build([("sufficient", [])])
+        workflow.generator.answer = "answer [E99]"
+
+        response = workflow.run("question")
+
+        self.assertEqual(response.result_type, "error")
+        self.assertEqual(response.error_code, "INVALID_CITATION")
+        self.assertEqual(response.state.final_action, "error")
+        self.assertNotIn("answer [E99]", response.answer)
 
     def test_retry_limit_cannot_exceed_one(self):
         with self.assertRaisesRegex(ValueError, "max_retries=1"):
