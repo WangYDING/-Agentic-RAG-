@@ -1,6 +1,6 @@
 import unittest
 
-from eval.rrf import RRF_K, reciprocal_rank_fusion
+from src.retrieval_fusion import RRF_K, reciprocal_rank_fusion
 
 
 class RRFTest(unittest.TestCase):

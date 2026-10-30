@@ -4,31 +4,17 @@ from collections import Counter
 from dataclasses import asdict
 from pathlib import Path
 
-from eval.bm25 import BM25Retriever
-from eval.rrf import reciprocal_rank_fusion
 from eval.schema import load_eval_dataset, matched_gold_indices
 from src.agent_workflow import AgentWorkflow
+from src.bm25_retriever import BM25Retriever
 from src.embedder import Embedder
 from src.evidence_sufficiency import EvidenceSufficiencyGrader
 from src.generator import Generator
 from src.index_manager import IndexManager
+from src.hybrid_retriever import HybridRetriever
 from src.query_rewriter import QueryRewriter
 from src.reranker import Reranker
 from src.retriever import Retriever
-
-
-class HybridRetriever:
-    def __init__(self, dense, bm25):
-        self.dense = dense
-        self.bm25 = bm25
-        self.calls = []
-
-    def retrieve(self, query, top_k=10):
-        dense_results = self.dense.retrieve(query, top_k=top_k)
-        bm25_results = self.bm25.retrieve(query, top_k=top_k)
-        union = reciprocal_rank_fusion(dense_results, bm25_results, top_k=None)
-        self.calls.append({"query": query, "dense": dense_results, "bm25": bm25_results, "union": union})
-        return union
 
 
 class ObservedReranker:

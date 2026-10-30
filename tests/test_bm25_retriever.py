@@ -1,6 +1,6 @@
 import unittest
 
-from eval.bm25 import BM25Retriever
+from src.bm25_retriever import BM25Retriever
 
 
 class BM25RetrieverTest(unittest.TestCase):

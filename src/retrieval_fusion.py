@@ -8,7 +8,9 @@ def chunk_identity(result: dict) -> tuple[str | None, object]:
     return result.get("source"), result.get("chunk_id")
 
 
-def reciprocal_rank_fusion(*ranked_lists: list[dict], top_k: int | None = 10) -> list[dict]:
+def reciprocal_rank_fusion(
+    *ranked_lists: list[dict], top_k: int | None = 10
+) -> list[dict]:
     fused: dict[tuple[str | None, object], dict] = {}
     for ranked in ranked_lists:
         for rank, result in enumerate(ranked, start=1):
