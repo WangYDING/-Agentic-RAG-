@@ -44,11 +44,17 @@ class VectorStore:
         return results
 
     def save(self, index_path: str | Path, meta_path: str | Path):
+        self.save_index(index_path)
+        self.save_metadata(meta_path)
+
+    def save_index(self, index_path: str | Path):
         faiss.write_index(self.index, str(index_path))
-        with open(meta_path, "w", encoding="utf-8") as f:
-            json.dump(self.chunk_records, f, ensure_ascii=False)
         if not Path(index_path).exists():
             raise OSError(f"FAISS index was not written: {index_path}")
+
+    def save_metadata(self, meta_path: str | Path):
+        with open(meta_path, "w", encoding="utf-8") as f:
+            json.dump(self.chunk_records, f, ensure_ascii=False)
         if not Path(meta_path).exists():
             raise OSError(f"Metadata was not written: {meta_path}")
 
