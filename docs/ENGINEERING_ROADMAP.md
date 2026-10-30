@@ -1,6 +1,6 @@
 # 工程化实施路线
 
-日期：2026-10-30。依据：RAG_PROJECT_AUDIT.md 与当前源码。状态：阶段 1 已完成本地验收；远端 CI 待仓库推送后确认。后续阶段仍为计划，不表示相应能力已经完成。
+日期：2026-10-30。依据：RAG_PROJECT_AUDIT.md 与当前源码。状态：阶段 1 已完成本地与远端 CI 验收。后续阶段仍为计划，不表示相应能力已经完成。
 
 ## 目标与范围
 
@@ -19,7 +19,7 @@
 
 验收：在干净环境按文档安装并运行；离线测试无需 API 密钥且通过；需外部资源的测试有清楚入口；记录实际结果。远端 CI 只有运行通过才算验收。
 
-本地完成记录（2026-10-30）：Windows / Python 3.12.16 使用 `uv.lock` 清空并重建环境成功；Ruff 通过；离线测试 `55 passed`；integration `9 passed, 5 subtests passed`；sdist 与 wheel 构建成功。GitHub Actions 配置已添加，但尚无远端运行证据，因此远端 CI 验收仍待完成。
+完成记录（2026-10-30）：Windows / Python 3.12.16 使用 `uv.lock` 清空并重建环境成功；Ruff 通过；离线测试 `55 passed`；integration `9 passed, 5 subtests passed`；sdist 与 wheel 构建成功。远端 Windows / Python 3.12 GitHub Actions 首次运行全部通过：[Reproducible baseline #1](https://github.com/WangYDING/-Agentic-RAG-/actions/runs/40997691755)。
 
 ## 阶段 2：应用包与配置（估计 1–2 个工作日）
 

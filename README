@@ -255,7 +255,7 @@ GitHub Actions 配置在 `.github/workflows/ci.yml`，使用 Windows + Python 3.
 | 本地 integration | `9 passed, 5 subtests passed` |
 | sdist / wheel 构建 | 成功 |
 
-本次干净环境使用 `NumPy 2.5.4`、`SciPy 1.18.1`、`scikit-learn 1.9.1` 与 `FAISS 1.15.1`，未复现此前的缺包或 NumPy/SciPy 兼容错误，因此没有为了猜测性兼容问题降级 NumPy。远端 GitHub Actions 只有在仓库推送并实际跑绿后才能算远端验收；当前记录只证明本地干净环境通过。
+本次干净环境使用 `NumPy 2.5.4`、`SciPy 1.18.1`、`scikit-learn 1.9.1` 与 `FAISS 1.15.1`，未复现此前的缺包或 NumPy/SciPy 兼容错误，因此没有为了猜测性兼容问题降级 NumPy。远端 GitHub Actions 已在 `phase-1-reproducible-baseline` 分支完成首次验证：[Reproducible baseline #1](https://github.com/WangYDING/-Agentic-RAG-/actions/runs/40997691755) 全部通过。
 
 ## 运行演示
 
