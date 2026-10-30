@@ -18,6 +18,7 @@ DEFAULT_TOTAL_TIMEOUT_SECONDS = 90.0
 DEFAULT_MAX_MODEL_CALLS = 6
 DEFAULT_INDEX_AUTO_BUILD = True
 DEFAULT_INDEX_LOCK_TIMEOUT_SECONDS = 30.0
+DEFAULT_MODEL_CACHE_DIR = ".model_cache"
 
 
 class ConfigurationError(ValueError):
@@ -91,6 +92,7 @@ class AppConfig:
     max_model_calls: int = DEFAULT_MAX_MODEL_CALLS
     index_auto_build: bool = DEFAULT_INDEX_AUTO_BUILD
     index_lock_timeout_seconds: float = DEFAULT_INDEX_LOCK_TIMEOUT_SECONDS
+    model_cache_dir: str = DEFAULT_MODEL_CACHE_DIR
 
     @classmethod
     def from_sources(
@@ -113,6 +115,7 @@ class AppConfig:
         max_model_calls: int | str | None = None,
         index_auto_build: bool | str | None = None,
         index_lock_timeout_seconds: float | str | None = None,
+        model_cache_dir: str | None = None,
     ) -> AppConfig:
         values = os.environ if environ is None else environ
         resolved_top_k = _resolve(
@@ -225,6 +228,14 @@ class AppConfig:
                     DEFAULT_INDEX_LOCK_TIMEOUT_SECONDS,
                 ),
                 "RAG_INDEX_LOCK_TIMEOUT_SECONDS",
+            ),
+            model_cache_dir=str(
+                _resolve(
+                    model_cache_dir,
+                    values,
+                    "RAG_MODEL_CACHE_DIR",
+                    DEFAULT_MODEL_CACHE_DIR,
+                )
             ),
         )
 

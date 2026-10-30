@@ -25,6 +25,8 @@ dependencies = [
 engineering-rag = "agent_demo:main"
 engineering-rag-web = "src.web_launcher:main"
 engineering-rag-index = "src.index_cli:main"
+engineering-rag-model = "src.model_cli:main"
+engineering-rag-health = "src.health_cli:main"
 
 [project.optional-dependencies]
 dev = [
