@@ -127,8 +127,9 @@ class AgentWorkflow:
         return response
 
     def _run(self, state: AgentState, query: str, budget: CallBudget) -> AgentResponse:
+        score_cache: dict[tuple, float] = {}
         initial_results, decision = self._retrieve_rerank_grade(
-            state, query, prior_results=[], budget=budget
+            state, query, prior_results=[], score_cache=score_cache, budget=budget
         )
         if decision.decision == "sufficient":
             return self._answer(state, budget)
@@ -140,7 +141,11 @@ class AgentWorkflow:
         state.rewritten_query = retry_query
         state.retrieval_query = retry_query
         _, second_decision = self._retrieve_rerank_grade(
-            state, retry_query, prior_results=initial_results, budget=budget
+            state,
+            retry_query,
+            prior_results=initial_results,
+            score_cache=score_cache,
+            budget=budget,
         )
         if second_decision.decision == "sufficient":
             return self._answer(state, budget)
@@ -151,6 +156,7 @@ class AgentWorkflow:
         state: AgentState,
         retrieval_query: str,
         prior_results: list[dict],
+        score_cache: dict[tuple, float],
         budget: CallBudget,
     ):
         state.trace.append({"step": "retrieve", "query": retrieval_query, "retry_count": state.retry_count})
@@ -161,20 +167,27 @@ class AgentWorkflow:
         with self._stage("rerank"):
             focused = []
             if prior_results:
-                focused = self.reranker.rerank(
-                    retrieval_query, retrieved, top_n=1
+                focused = self._rerank_with_cache(
+                    retrieval_query,
+                    retrieved,
+                    top_n=1,
+                    score_cache=score_cache,
                 )
                 expanded = self._expand_focused_neighbors(focused)
                 if len(expanded) > len(focused):
-                    focused = self.reranker.rerank(
+                    focused = self._rerank_with_cache(
                         retrieval_query,
                         expanded,
                         top_n=min(2, len(expanded)),
+                        score_cache=score_cache,
                     )
                     retrieved = self._merge_results(retrieved, expanded)
             candidates = self._merge_results(prior_results, retrieved)
-            reranked = self.reranker.rerank(
-                state.original_query, candidates, top_n=self.evidence_top_n
+            reranked = self._rerank_with_cache(
+                state.original_query,
+                candidates,
+                top_n=self.evidence_top_n,
+                score_cache=score_cache,
             )
             reranked = self._preserve_focused_evidence(
                 reranked, focused, top_n=self.evidence_top_n
@@ -194,6 +207,59 @@ class AgentWorkflow:
             "retry_count": state.retry_count,
         })
         return candidates, decision
+
+    def _rerank_with_cache(
+        self,
+        query: str,
+        candidates: list[dict],
+        *,
+        top_n: int,
+        score_cache: dict[tuple, float],
+    ) -> list[dict]:
+        score_candidates = getattr(self.reranker, "score_candidates", None)
+        select_top = getattr(self.reranker, "select_top", None)
+        if (
+            not getattr(self.reranker, "supports_score_cache", True)
+            or not callable(score_candidates)
+            or not callable(select_top)
+        ):
+            return self.reranker.rerank(query, candidates, top_n=top_n)
+
+        pending: list[dict] = []
+        pending_keys: list[tuple] = []
+        seen_pending = set()
+        for candidate in candidates:
+            key = self._rerank_cache_key(query, candidate)
+            if key not in score_cache and key not in seen_pending:
+                pending.append(candidate)
+                pending_keys.append(key)
+                seen_pending.add(key)
+
+        if pending:
+            newly_scored = score_candidates(query, pending)
+            if len(newly_scored) != len(pending_keys):
+                raise ValueError("reranker returned a different number of scored candidates")
+            for key, scored in zip(pending_keys, newly_scored):
+                score_cache[key] = float(scored["rerank_score"])
+
+        scored_candidates = []
+        for candidate in candidates:
+            scored = candidate.copy()
+            scored["rerank_score"] = score_cache[
+                self._rerank_cache_key(query, candidate)
+            ]
+            scored_candidates.append(scored)
+        return select_top(scored_candidates, top_n=top_n)
+
+    def _rerank_cache_key(self, query: str, candidate: dict) -> tuple:
+        return (
+            query,
+            self.index_version_id,
+            candidate.get("document_id"),
+            candidate.get("source"),
+            candidate.get("chunk_id"),
+            candidate.get("text"),
+        )
 
     def _build_retry_query(
         self, query: str, missing_requirements: list[str], budget: CallBudget

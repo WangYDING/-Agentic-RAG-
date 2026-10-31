@@ -34,6 +34,47 @@ class FakeReranker:
         return results[:top_n]
 
 
+class ScoringReranker:
+    supports_score_cache = True
+
+    def __init__(self, scores=None):
+        self.scores = scores or {}
+        self.score_calls = []
+
+    def score_candidates(self, query, results):
+        self.score_calls.append((query, [item.copy() for item in results]))
+        return [
+            {
+                **item,
+                "rerank_score": float(
+                    self.scores.get((query, item["text"]), len(item["text"]))
+                ),
+            }
+            for item in results
+        ]
+
+    @staticmethod
+    def select_top(scored_results, top_n=3):
+        return sorted(
+            scored_results,
+            key=lambda item: item["rerank_score"],
+            reverse=True,
+        )[:top_n]
+
+    def rerank(self, query, results, top_n=3):
+        return self.select_top(self.score_candidates(query, results), top_n)
+
+
+class OverlapRetriever:
+    def __init__(self):
+        self.calls = []
+
+    def retrieve(self, query, top_k):
+        self.calls.append((query, top_k))
+        ids = [0, 1, 2] if len(self.calls) % 2 else [1, 2, 3]
+        return [result(chunk_id) for chunk_id in ids]
+
+
 class FakeGrader:
     def __init__(self, decisions):
         self.decisions = list(decisions)
@@ -207,6 +248,97 @@ class AgentWorkflowTest(unittest.TestCase):
         self.assertEqual(response.result_type, "error")
         self.assertEqual(response.error_code, "CALL_BUDGET_EXHAUSTED")
         self.assertEqual(self.generator.calls, [])
+
+    def test_retry_scores_only_new_merged_candidates_and_request_caches_are_isolated(self):
+        retriever = OverlapRetriever()
+        reranker = ScoringReranker()
+        workflow = AgentWorkflow(
+            retriever,
+            reranker,
+            FakeGrader([
+                ("insufficient", ["detail"]),
+                ("sufficient", []),
+                ("insufficient", ["detail"]),
+                ("sufficient", []),
+            ]),
+            FakeGenerator(),
+            index_version_id="index-v1",
+        )
+
+        first = workflow.run("question")
+        second = workflow.run("question")
+
+        self.assertEqual(first.result_type, "answer")
+        self.assertEqual(second.result_type, "answer")
+        self.assertEqual(
+            [
+                (call[0], [item["chunk_id"] for item in call[1]])
+                for call in reranker.score_calls
+            ],
+            [
+                ("question", [0, 1, 2]),
+                ("detail", [1, 2, 3]),
+                ("question", [3]),
+                ("question", [0, 1, 2]),
+                ("detail", [1, 2, 3]),
+                ("question", [3]),
+            ],
+        )
+
+    def test_cache_key_includes_query_text_and_index_version(self):
+        reranker = ScoringReranker()
+        workflow = AgentWorkflow(
+            FakeRetriever(),
+            reranker,
+            FakeGrader([]),
+            FakeGenerator(),
+            index_version_id="index-v1",
+        )
+        cache = {}
+        original = result(1, "original text")
+
+        workflow._rerank_with_cache("q1", [original], top_n=1, score_cache=cache)
+        workflow._rerank_with_cache("q1", [original], top_n=1, score_cache=cache)
+        workflow._rerank_with_cache("q2", [original], top_n=1, score_cache=cache)
+        workflow._rerank_with_cache(
+            "q1", [result(1, "changed text")], top_n=1, score_cache=cache
+        )
+        workflow.index_version_id = "index-v2"
+        workflow._rerank_with_cache("q1", [original], top_n=1, score_cache=cache)
+
+        self.assertEqual([len(call[1]) for call in reranker.score_calls], [1, 1, 1, 1])
+
+    def test_cached_and_full_rescoring_produce_same_stable_order(self):
+        scores = {
+            ("question", "evidence 0"): 0.9,
+            ("question", "evidence 1"): 0.7,
+            ("question", "evidence 2"): 0.7,
+            ("question", "evidence 3"): 0.3,
+        }
+        candidates = [result(index) for index in range(4)]
+        baseline_reranker = ScoringReranker(scores)
+        expected = baseline_reranker.rerank("question", candidates, top_n=4)
+        cached_reranker = ScoringReranker(scores)
+        workflow = AgentWorkflow(
+            FakeRetriever(),
+            cached_reranker,
+            FakeGrader([]),
+            FakeGenerator(),
+            index_version_id="index-v1",
+        )
+        cache = {}
+        workflow._rerank_with_cache(
+            "question", candidates[:3], top_n=3, score_cache=cache
+        )
+        actual = workflow._rerank_with_cache(
+            "question", candidates, top_n=4, score_cache=cache
+        )
+
+        self.assertEqual(
+            [item["chunk_id"] for item in actual],
+            [item["chunk_id"] for item in expected],
+        )
+        self.assertEqual([len(call[1]) for call in cached_reranker.score_calls], [3, 1])
 
 
 if __name__ == "__main__":
