@@ -94,12 +94,65 @@ class AgentWorkflowTest(unittest.TestCase):
         response = self.build([("insufficient", ["second requirement"]), ("sufficient", [])], rewriter).run("question")
 
         self.assertEqual(response.state.retry_count, 1)
-        self.assertEqual(response.state.rewritten_query, "targeted retry query")
+        self.assertEqual(response.state.rewritten_query, "second requirement")
         self.assertEqual(response.state.final_action, "answer")
         self.assertEqual([item["step"] for item in response.state.trace], ["retrieve", "grade", "retry", "retrieve", "grade", "answer", "citation_validation"])
-        self.assertIn("second requirement", rewriter.calls[0][0])
+        self.assertEqual(rewriter.calls, [])
         self.assertEqual(len(self.generator.calls), 1)
-        self.assertEqual(len(self.reranker.calls[1][1]), 6)
+        self.assertEqual(len(self.reranker.calls[1][1]), 3)
+        self.assertEqual(len(self.reranker.calls[2][1]), 6)
+
+    def test_retry_preserves_top_evidence_for_missing_requirement(self):
+        workflow = self.build(
+            [("insufficient", ["missing facet"]), ("sufficient", [])]
+        )
+
+        class FocusAwareReranker(FakeReranker):
+            def rerank(self, query, results, top_n):
+                self.calls.append((query, list(results), top_n))
+                if query == "missing facet":
+                    return list(reversed(results))[:top_n]
+                return results[:top_n]
+
+        self.reranker = FocusAwareReranker()
+        workflow.reranker = self.reranker
+
+        response = workflow.run("question")
+
+        self.assertEqual(response.result_type, "answer")
+        second_grade_evidence = self.grader.calls[1][1]
+        self.assertEqual([item.chunk_id for item in second_grade_evidence], [0, 1, 12])
+
+    def test_retry_reranks_same_article_neighbor_for_split_evidence(self):
+        workflow = self.build(
+            [("insufficient", ["missing facet"]), ("sufficient", [])]
+        )
+
+        def expand_neighbors(results):
+            return [*results, result(13, "exact missing facet")]
+
+        self.retriever.expand_neighbors = expand_neighbors
+
+        class NeighborAwareReranker(FakeReranker):
+            def rerank(self, query, results, top_n):
+                self.calls.append((query, list(results), top_n))
+                if query == "missing facet" and any(
+                    item["chunk_id"] == 13 for item in results
+                ):
+                    ranked = sorted(
+                        results, key=lambda item: item["chunk_id"] == 13, reverse=True
+                    )
+                    return ranked[:top_n]
+                return results[:top_n]
+
+        self.reranker = NeighborAwareReranker()
+        workflow.reranker = self.reranker
+
+        response = workflow.run("question")
+
+        self.assertEqual(response.result_type, "answer")
+        second_grade_evidence = self.grader.calls[1][1]
+        self.assertEqual([item.chunk_id for item in second_grade_evidence], [0, 13, 10])
 
     def test_two_insufficient_grades_refuse_without_generator(self):
         response = self.build([("insufficient", ["cost"]), ("insufficient", ["project cost"])]).run("question")

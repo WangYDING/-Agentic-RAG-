@@ -158,10 +158,26 @@ class AgentWorkflow:
             retrieved = self.retriever.retrieve(
                 retrieval_query, top_k=self.retrieval_top_k
             )
-        candidates = self._merge_results(prior_results, retrieved)
         with self._stage("rerank"):
+            focused = []
+            if prior_results:
+                focused = self.reranker.rerank(
+                    retrieval_query, retrieved, top_n=1
+                )
+                expanded = self._expand_focused_neighbors(focused)
+                if len(expanded) > len(focused):
+                    focused = self.reranker.rerank(
+                        retrieval_query,
+                        expanded,
+                        top_n=min(2, len(expanded)),
+                    )
+                    retrieved = self._merge_results(retrieved, expanded)
+            candidates = self._merge_results(prior_results, retrieved)
             reranked = self.reranker.rerank(
                 state.original_query, candidates, top_n=self.evidence_top_n
+            )
+            reranked = self._preserve_focused_evidence(
+                reranked, focused, top_n=self.evidence_top_n
             )
         evidences = build_evidence_list(reranked)
         with self._stage("grader"):
@@ -182,14 +198,17 @@ class AgentWorkflow:
     def _build_retry_query(
         self, query: str, missing_requirements: list[str], budget: CallBudget
     ) -> str:
-        missing = "；".join(missing_requirements) if missing_requirements else "完整回答所需的缺失信息"
-        targeted_query = f"{query}\n补充检索目标：{missing}"
+        missing = "；".join(
+            item.strip() for item in missing_requirements if item.strip()
+        )
+        if missing:
+            return missing
         if self.rewriter is None:
-            return targeted_query
+            return query
         with self._stage("rewrite"):
             return self._call_with_budget(
                 self.rewriter.rewrite,
-                query=targeted_query,
+                query=query,
                 chat_history=[],
                 budget=budget,
             )
@@ -299,6 +318,36 @@ class AgentWorkflow:
                 seen.add(identity)
                 merged.append(result)
         return merged
+
+    @staticmethod
+    def _preserve_focused_evidence(
+        reranked: list[dict], focused: list[dict], *, top_n: int
+    ) -> list[dict]:
+        if not focused or top_n <= 0:
+            return reranked[:top_n]
+        focused_unique = []
+        focused_identities = set()
+        for item in focused[:top_n]:
+            identity = (item.get("source"), item.get("chunk_id"))
+            if identity not in focused_identities:
+                focused_identities.add(identity)
+                focused_unique.append(item)
+        remaining = [
+            item
+            for item in reranked
+            if (item.get("source"), item.get("chunk_id"))
+            not in focused_identities
+        ]
+        return [
+            *remaining[: max(0, top_n - len(focused_unique))],
+            *focused_unique,
+        ]
+
+    def _expand_focused_neighbors(self, focused: list[dict]) -> list[dict]:
+        expand = getattr(self.retriever, "expand_neighbors", None)
+        if expand is None:
+            return focused
+        return expand(focused)
 
     def _stage(self, name: str):
         observer = active_observer.get()
