@@ -5,7 +5,7 @@
   "role": "independent",
   "status": "frozen",
   "data_file": "independent_v2_draft.jsonl",
-  "sha256": "2d8e9ddcf501235b19afbf1a9438474e24841d3355e959936ef9565b8ecd5fd3",
+  "sha256": "2791c00f07eeddd9764198bc20ad8f7ee1c6ad5965a0fbc273cad5c26f624531",
   "count": 20,
   "type_distribution": {
     "multi_evidence_candidate": 3,
