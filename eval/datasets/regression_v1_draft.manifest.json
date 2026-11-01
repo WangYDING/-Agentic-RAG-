@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "dataset_id": "regression_v1_draft",
+  "version": "0.3-pdf-content-reviewed",
+  "role": "development",
+  "status": "draft",
+  "data_file": "regression_v1_draft.jsonl",
+  "sha256": "200425c134f33e7ed82eebc71c74bb39bcaa11c8b46304498b1817bbb32cd84b",
+  "count": 30,
+  "type_distribution": {
+    "multi_evidence_candidate": 3,
+    "table_lookup": 1,
+    "numeric_candidate": 9,
+    "article_lookup_candidate": 13,
+    "partial_support_unanswerable": 1,
+    "unanswerable_candidate": 3
+  },
+  "source_pdf_sha256": "e5ca2388ad68ed7b21b6092e66c12a73c74c17de8b532bef91c5b2ea57be78f7",
+  "frozen_at": null,
+  "used_for_tuning": false,
+  "acceptance_criteria": null,
+  "notes": "User-authorized AI content review completed against the repository PDF on 2026-11-01. All cases record approved annotations after checking question scope, answerability, evidence page/clause/table, answer points, values, units, and applicability conditions. Reviewer identity and limitations are explicit in eval/reviews/candidate_content_review_2026-11-01.json. Dataset remains draft and the independent set has not been executed or frozen."
+}

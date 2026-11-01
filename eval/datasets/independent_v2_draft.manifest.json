@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "dataset_id": "independent_v2_draft",
+  "version": "0.3-pdf-content-reviewed",
+  "role": "independent",
+  "status": "frozen",
+  "data_file": "independent_v2_draft.jsonl",
+  "sha256": "2d8e9ddcf501235b19afbf1a9438474e24841d3355e959936ef9565b8ecd5fd3",
+  "count": 20,
+  "type_distribution": {
+    "multi_evidence_candidate": 3,
+    "numeric_candidate": 8,
+    "table_lookup": 1,
+    "partial_support_unanswerable": 1,
+    "article_lookup_candidate": 4,
+    "unanswerable_candidate": 3
+  },
+  "source_pdf_sha256": "e5ca2388ad68ed7b21b6092e66c12a73c74c17de8b532bef91c5b2ea57be78f7",
+  "frozen_at": "2026-11-01T00:00:00+08:00",
+  "used_for_tuning": false,
+  "acceptance_criteria": {
+    "gate_id": "independent-v2-quality-gate-v1",
+    "path": "../acceptance/quality_gate_v1.json",
+    "sha256": "49a63015c101810309b6d0527d95e4d39a36166516098795697a1fcf099a0fdb",
+    "declared_before_independent_run": true
+  },
+  "notes": "User-authorized AI content review completed against the repository PDF on 2026-11-01. All cases record approved annotations after checking question scope, answerability, evidence page/clause/table, answer points, values, units, and applicability conditions. Reviewer identity and non-domain-expert limitations are explicit in eval/reviews/candidate_content_review_2026-11-01.json. The acceptance gate was predeclared and the dataset frozen on 2026-11-01 before any independent system result was run or inspected."
+}

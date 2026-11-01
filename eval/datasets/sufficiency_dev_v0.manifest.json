@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "dataset_id": "sufficiency_dev_v0",
+  "version": "legacy-1",
+  "role": "historical",
+  "status": "historical",
+  "data_format": "sufficiency",
+  "data_file": "sufficiency_dev_v0.jsonl",
+  "sha256": "ef1a66e8c0110eb8efc0e8caf6db9a81f92035d39a28111a38a5290c223692ae",
+  "count": 19,
+  "type_distribution": {
+    "ordinary_sufficient": 6,
+    "multi_evidence": 4,
+    "missing_fact": 2,
+    "external_project_info": 2,
+    "future_or_current": 2,
+    "partial_support": 3
+  },
+  "frozen_at": null,
+  "acceptance_criteria": null,
+  "used_for_tuning": null,
+  "notes": "Historical evidence bundles; not an independent Agent test."
+}

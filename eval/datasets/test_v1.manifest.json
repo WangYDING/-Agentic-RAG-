@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "dataset_id": "test_v1",
+  "version": "legacy-1",
+  "role": "historical",
+  "status": "historical",
+  "data_file": "test_v1.jsonl",
+  "sha256": "587910a62f860aa396590b25c97a90c6378f236b2de549f0b6b0b0bcfa5b62c0",
+  "count": 20,
+  "type_distribution": {
+    "ordinary_single_turn_answerable": 6,
+    "hard_numeric": 2,
+    "hard_table": 1,
+    "hard_table_numeric": 1,
+    "multi_evidence": 3,
+    "agent_challenge": 3,
+    "hard_negative_unanswerable": 4
+  },
+  "frozen_at": null,
+  "acceptance_criteria": null,
+  "used_for_tuning": null,
+  "notes": "Historical inventory only. No retrospective freeze or human approval asserted."
+}

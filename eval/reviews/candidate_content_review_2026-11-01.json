@@ -1,0 +1,2349 @@
+{
+  "reviewed_at": "2026-11-01",
+  "reviewer": "Codex (AI; user-authorized PDF content reviewer)",
+  "reviewer_type": "AI",
+  "user_authorized": true,
+  "licensed_domain_expert": false,
+  "source_pdf": "data\\raw\\城市轨道交通工程设计标准.pdf",
+  "source_pdf_sha256": "e5ca2388ad68ed7b21b6092e66c12a73c74c17de8b532bef91c5b2ea57be78f7",
+  "scope": [
+    "question scope",
+    "answerability and refusal boundary",
+    "evidence document/page/article/table",
+    "gold answer and atomic answer points",
+    "numeric values, units, and applicability conditions"
+  ],
+  "case_count": 50,
+  "approved": 50,
+  "rejected": 0,
+  "corrected_case_count": 6,
+  "independent_dataset_executed": false,
+  "independent_dataset_frozen": false,
+  "limitations": [
+    "AI content review; not a licensed domain-expert signature.",
+    "Shared-clause paired cases are not statistically independent observations.",
+    "No RAG outputs or independent-set model results were inspected during annotation review."
+  ],
+  "cases": [
+    {
+      "id": "REG-001",
+      "dataset_id": "regression_v1_draft",
+      "verdict": "approved",
+      "answerable": true,
+      "question_type": "multi_evidence_candidate",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_answer_supported_by_cited_source",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "not_applicable"
+      },
+      "references": [
+        {
+          "page": 31,
+          "article": "4.1.1",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        },
+        {
+          "page": 31,
+          "article": "4.1.3",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "numeric_expectations": [],
+      "visually_reviewed_pages": [],
+      "corrections_applied": [],
+      "sampling_overlap_note": null
+    },
+    {
+      "id": "REG-002",
+      "dataset_id": "regression_v1_draft",
+      "verdict": "approved",
+      "answerable": true,
+      "question_type": "table_lookup",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_answer_supported_by_cited_source",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "not_applicable"
+      },
+      "references": [
+        {
+          "page": 35,
+          "article": null,
+          "table": "表5.3.1",
+          "article_found": true,
+          "table_found": true
+        },
+        {
+          "page": 36,
+          "article": null,
+          "table": "表5.3.1",
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "numeric_expectations": [
+        {
+          "value": "4",
+          "unit": "轴",
+          "conditions": [
+            "A型车和B型车的车轴数"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "21,880",
+          "unit": "mm",
+          "conditions": [
+            "A型车无司机室车辆车体基本长度"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "19,000",
+          "unit": "mm",
+          "conditions": [
+            "B型车无司机室车辆车体基本长度"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "23,600或24,380",
+          "unit": "mm",
+          "conditions": [
+            "A型车带司机室车辆车体基本长度；按灵活编组站台屏蔽门对位要求选择"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "19,500",
+          "unit": "mm",
+          "conditions": [
+            "B型车带司机室车辆车体基本长度"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "22,800",
+          "unit": "mm",
+          "conditions": [
+            "A型车无司机室车辆车钩连接中心点间距离"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "19,520",
+          "unit": "mm",
+          "conditions": [
+            "B型车无司机室车辆车钩连接中心点间距离"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "24,400或25,080",
+          "unit": "mm",
+          "conditions": [
+            "A型车带司机室车辆车钩连接中心点间距离；按灵活编组站台屏蔽门对位要求选择"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "20,020",
+          "unit": "mm",
+          "conditions": [
+            "B型车带司机室车辆车钩连接中心点间距离"
+          ],
+          "verdict": "pass"
+        }
+      ],
+      "visually_reviewed_pages": [
+        35
+      ],
+      "corrections_applied": [
+        "补充第36页表5.3.1注1，记录A型车两组备选长度的适用条件。",
+        "将合并书写的A/B车型数值拆为可独立评分的数值项。"
+      ],
+      "sampling_overlap_note": null
+    },
+    {
+      "id": "REG-003",
+      "dataset_id": "regression_v1_draft",
+      "verdict": "approved",
+      "answerable": true,
+      "question_type": "multi_evidence_candidate",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_answer_supported_by_cited_source",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "not_applicable"
+      },
+      "references": [
+        {
+          "page": 31,
+          "article": "4.1.7",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        },
+        {
+          "page": 31,
+          "article": "4.2.2",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "numeric_expectations": [
+        {
+          "value": "10",
+          "unit": "%",
+          "conditions": [
+            "线路系统设计最大能力应符合下列规定： 1 应具备支持运输能力提升10%的条件"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "30",
+          "unit": "对/h",
+          "conditions": [
+            "2 当采用单一运行交路时，站站停线路不宜低于30 对/h，快慢车线路不宜低于20 对/h"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "20",
+          "unit": "对/h",
+          "conditions": [
+            "2 当采用单一运行交路时，站站停线路不宜低于30 对/h，快慢车线路不宜低于20 对/h"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "30",
+          "unit": "对/h",
+          "conditions": [
+            "3 当采用2 个及以上运行交路时，线路最高行车密度范围内不宜低于30 对/h，最高行车密度范围 外不宜低于20 对/h"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "20",
+          "unit": "对/h",
+          "conditions": [
+            "3 当采用2 个及以上运行交路时，线路最高行车密度范围内不宜低于30 对/h，最高行车密度范围 外不宜低于20 对/h"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "15",
+          "unit": "对/h",
+          "conditions": [
+            "4 支线不宜低于15 对/h"
+          ],
+          "verdict": "pass"
+        }
+      ],
+      "visually_reviewed_pages": [],
+      "corrections_applied": [],
+      "sampling_overlap_note": "Shares article 4.2.2 with REG-004; do not treat both as independent observations."
+    },
+    {
+      "id": "REG-004",
+      "dataset_id": "regression_v1_draft",
+      "verdict": "approved",
+      "answerable": true,
+      "question_type": "numeric_candidate",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_answer_supported_by_cited_source",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "not_applicable"
+      },
+      "references": [
+        {
+          "page": 31,
+          "article": "4.2.2",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "numeric_expectations": [
+        {
+          "value": "10",
+          "unit": "%",
+          "conditions": [
+            "线路系统设计最大能力应符合下列规定： 1 应具备支持运输能力提升10%的条件"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "30",
+          "unit": "对/h",
+          "conditions": [
+            "2 当采用单一运行交路时，站站停线路不宜低于30 对/h，快慢车线路不宜低于20 对/h"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "20",
+          "unit": "对/h",
+          "conditions": [
+            "2 当采用单一运行交路时，站站停线路不宜低于30 对/h，快慢车线路不宜低于20 对/h"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "30",
+          "unit": "对/h",
+          "conditions": [
+            "3 当采用2 个及以上运行交路时，线路最高行车密度范围内不宜低于30 对/h，最高行车密度范围 外不宜低于20 对/h"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "20",
+          "unit": "对/h",
+          "conditions": [
+            "3 当采用2 个及以上运行交路时，线路最高行车密度范围内不宜低于30 对/h，最高行车密度范围 外不宜低于20 对/h"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "15",
+          "unit": "对/h",
+          "conditions": [
+            "4 支线不宜低于15 对/h"
+          ],
+          "verdict": "pass"
+        }
+      ],
+      "visually_reviewed_pages": [],
+      "corrections_applied": [],
+      "sampling_overlap_note": "Shares article 4.2.2 with REG-003; do not treat both as independent observations."
+    },
+    {
+      "id": "REG-005",
+      "dataset_id": "regression_v1_draft",
+      "verdict": "approved",
+      "answerable": true,
+      "question_type": "multi_evidence_candidate",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_answer_supported_by_cited_source",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "not_applicable"
+      },
+      "references": [
+        {
+          "page": 32,
+          "article": "4.2.4",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        },
+        {
+          "page": 32,
+          "article": "4.3.2",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "numeric_expectations": [],
+      "visually_reviewed_pages": [],
+      "corrections_applied": [],
+      "sampling_overlap_note": "Shares article 4.3.2 with REG-006; do not treat both as independent observations."
+    },
+    {
+      "id": "REG-006",
+      "dataset_id": "regression_v1_draft",
+      "verdict": "approved",
+      "answerable": true,
+      "question_type": "article_lookup_candidate",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_answer_supported_by_cited_source",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "not_applicable"
+      },
+      "references": [
+        {
+          "page": 32,
+          "article": "4.3.2",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "numeric_expectations": [],
+      "visually_reviewed_pages": [],
+      "corrections_applied": [],
+      "sampling_overlap_note": "Shares article 4.3.2 with REG-005; do not treat both as independent observations."
+    },
+    {
+      "id": "REG-007",
+      "dataset_id": "regression_v1_draft",
+      "verdict": "approved",
+      "answerable": false,
+      "question_type": "partial_support_unanswerable",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_partial_support_boundary_explicit",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "pass"
+      },
+      "references": [
+        {
+          "page": 32,
+          "article": "4.3.3",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "numeric_expectations": [],
+      "visually_reviewed_pages": [],
+      "corrections_applied": [],
+      "sampling_overlap_note": null
+    },
+    {
+      "id": "REG-008",
+      "dataset_id": "regression_v1_draft",
+      "verdict": "approved",
+      "answerable": true,
+      "question_type": "numeric_candidate",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_answer_supported_by_cited_source",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "not_applicable"
+      },
+      "references": [
+        {
+          "page": 33,
+          "article": "4.3.7",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "numeric_expectations": [
+        {
+          "value": "4",
+          "unit": "min",
+          "conditions": [
+            "列车运行间隔应符合下列规定： 1 当采用单一交路运营时，普线高峰时段行车间隔不宜大于4min、平峰时段不宜大于10min"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "10",
+          "unit": "min",
+          "conditions": [
+            "列车运行间隔应符合下列规定： 1 当采用单一交路运营时，普线高峰时段行车间隔不宜大于4min、平峰时段不宜大于10min"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "6",
+          "unit": "min",
+          "conditions": [
+            "快 线分别不宜大于6min、12min"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "12",
+          "unit": "min",
+          "conditions": [
+            "快 线分别不宜大于6min、12min"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "4",
+          "unit": "min",
+          "conditions": [
+            "2 当采用2 个及以上交路运营时，普线高峰时段最大行车密度交路范围内行车间隔不宜大于4min， 范围外不宜大于6min，平峰时段运行间隔分别不宜大于6min、10min"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "6",
+          "unit": "min",
+          "conditions": [
+            "2 当采用2 个及以上交路运营时，普线高峰时段最大行车密度交路范围内行车间隔不宜大于4min， 范围外不宜大于6min，平峰时段运行间隔分别不宜大于6min、10min"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "6",
+          "unit": "min",
+          "conditions": [
+            "2 当采用2 个及以上交路运营时，普线高峰时段最大行车密度交路范围内行车间隔不宜大于4min， 范围外不宜大于6min，平峰时段运行间隔分别不宜大于6min、10min"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "10",
+          "unit": "min",
+          "conditions": [
+            "2 当采用2 个及以上交路运营时，普线高峰时段最大行车密度交路范围内行车间隔不宜大于4min， 范围外不宜大于6min，平峰时段运行间隔分别不宜大于6min、10min"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "6",
+          "unit": "min",
+          "conditions": [
+            "快线高峰时段最大行车密度交路 范围内行车间隔不宜大于6min，范围外不宜大于10min，平峰时段不宜大于15min"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "10",
+          "unit": "min",
+          "conditions": [
+            "快线高峰时段最大行车密度交路 范围内行车间隔不宜大于6min，范围外不宜大于10min，平峰时段不宜大于15min"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "15",
+          "unit": "min",
+          "conditions": [
+            "快线高峰时段最大行车密度交路 范围内行车间隔不宜大于6min，范围外不宜大于10min，平峰时段不宜大于15min"
+          ],
+          "verdict": "pass"
+        }
+      ],
+      "visually_reviewed_pages": [
+        33
+      ],
+      "corrections_applied": [],
+      "sampling_overlap_note": null
+    },
+    {
+      "id": "REG-009",
+      "dataset_id": "regression_v1_draft",
+      "verdict": "approved",
+      "answerable": true,
+      "question_type": "numeric_candidate",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_answer_supported_by_cited_source",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "not_applicable"
+      },
+      "references": [
+        {
+          "page": 33,
+          "article": "4.3.8",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "numeric_expectations": [
+        {
+          "value": "17",
+          "unit": "s",
+          "conditions": [
+            "非全自动运行线路开关门及附加时 间不宜大于17s，全自动运行线路宜在此标准之上减少3s～5s"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "3",
+          "unit": "s",
+          "conditions": [
+            "非全自动运行线路开关门及附加时 间不宜大于17s，全自动运行线路宜在此标准之上减少3s～5s"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "5",
+          "unit": "s",
+          "conditions": [
+            "非全自动运行线路开关门及附加时 间不宜大于17s，全自动运行线路宜在此标准之上减少3s～5s"
+          ],
+          "verdict": "pass"
+        }
+      ],
+      "visually_reviewed_pages": [
+        33
+      ],
+      "corrections_applied": [],
+      "sampling_overlap_note": null
+    },
+    {
+      "id": "REG-010",
+      "dataset_id": "regression_v1_draft",
+      "verdict": "approved",
+      "answerable": true,
+      "question_type": "numeric_candidate",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_answer_supported_by_cited_source",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "not_applicable"
+      },
+      "references": [
+        {
+          "page": 33,
+          "article": "4.3.11",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "numeric_expectations": [
+        {
+          "value": "2",
+          "unit": "次",
+          "conditions": [
+            "主要通勤起止点范围内，慢车被快车越行的次数不宜大于两次"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "2",
+          "unit": "min",
+          "conditions": [
+            "慢车待避不停站快车时的总停站时间不宜大于2min"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "1",
+          "unit": "min",
+          "conditions": [
+            "快车在越行站超过慢车时，慢车与快车的到通间隔不宜小于1min"
+          ],
+          "verdict": "pass"
+        }
+      ],
+      "visually_reviewed_pages": [
+        33
+      ],
+      "corrections_applied": [
+        "补充遗漏的慢车被快车越行次数上限“两次”。"
+      ],
+      "sampling_overlap_note": null
+    },
+    {
+      "id": "REG-011",
+      "dataset_id": "regression_v1_draft",
+      "verdict": "approved",
+      "answerable": true,
+      "question_type": "article_lookup_candidate",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_answer_supported_by_cited_source",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "not_applicable"
+      },
+      "references": [
+        {
+          "page": 33,
+          "article": "4.3.12",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "numeric_expectations": [],
+      "visually_reviewed_pages": [
+        33
+      ],
+      "corrections_applied": [],
+      "sampling_overlap_note": null
+    },
+    {
+      "id": "REG-012",
+      "dataset_id": "regression_v1_draft",
+      "verdict": "approved",
+      "answerable": true,
+      "question_type": "numeric_candidate",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_answer_supported_by_cited_source",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "not_applicable"
+      },
+      "references": [
+        {
+          "page": 33,
+          "article": "4.3.13",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "numeric_expectations": [
+        {
+          "value": "6",
+          "unit": "对/h",
+          "conditions": [
+            "跨线列车在客流高断面范围内的高峰小时行车对数下限"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "1/3",
+          "unit": "无量纲比例",
+          "conditions": [
+            "跨线列车在低断面范围内的高峰小时行车量不宜低于本线总行车量的1/3"
+          ],
+          "verdict": "pass"
+        }
+      ],
+      "visually_reviewed_pages": [
+        33
+      ],
+      "corrections_applied": [
+        "补充遗漏的低断面范围下限“本线总行车量的1/3”。"
+      ],
+      "sampling_overlap_note": null
+    },
+    {
+      "id": "REG-013",
+      "dataset_id": "regression_v1_draft",
+      "verdict": "approved",
+      "answerable": true,
+      "question_type": "article_lookup_candidate",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_answer_supported_by_cited_source",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "not_applicable"
+      },
+      "references": [
+        {
+          "page": 33,
+          "article": "4.4.1",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "numeric_expectations": [],
+      "visually_reviewed_pages": [
+        33
+      ],
+      "corrections_applied": [],
+      "sampling_overlap_note": null
+    },
+    {
+      "id": "REG-014",
+      "dataset_id": "regression_v1_draft",
+      "verdict": "approved",
+      "answerable": true,
+      "question_type": "numeric_candidate",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_answer_supported_by_cited_source",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "not_applicable"
+      },
+      "references": [
+        {
+          "page": 34,
+          "article": "4.4.3",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "numeric_expectations": [
+        {
+          "value": "10",
+          "unit": "km",
+          "conditions": [
+            "停车线设计应符合下列规定： 1 停车线设置间距应满足故障列车处置时间要求，城市轨道交通普线停车线间距不宜大于10km， 快线停车线间距不宜大于15km"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "15",
+          "unit": "km",
+          "conditions": [
+            "停车线设计应符合下列规定： 1 停车线设置间距应满足故障列车处置时间要求，城市轨道交通普线停车线间距不宜大于10km， 快线停车线间距不宜大于15km"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "3",
+          "unit": "km",
+          "conditions": [
+            "停车线之间均衡分布单渡线，普线渡线间距宜控制在3km～5km，快 线渡线间距宜控制5km～8km"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "5",
+          "unit": "km",
+          "conditions": [
+            "停车线之间均衡分布单渡线，普线渡线间距宜控制在3km～5km，快 线渡线间距宜控制5km～8km"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "5",
+          "unit": "km",
+          "conditions": [
+            "停车线之间均衡分布单渡线，普线渡线间距宜控制在3km～5km，快 线渡线间距宜控制5km～8km"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "8",
+          "unit": "km",
+          "conditions": [
+            "停车线之间均衡分布单渡线，普线渡线间距宜控制在3km～5km，快 线渡线间距宜控制5km～8km"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "40",
+          "unit": "km",
+          "conditions": [
+            "3 当线路终点与车辆基地之间、车辆基地相互之间区段距离大于40km 时，宜在区段中部车站设置 两列位停车线"
+          ],
+          "verdict": "pass"
+        }
+      ],
+      "visually_reviewed_pages": [],
+      "corrections_applied": [],
+      "sampling_overlap_note": null
+    },
+    {
+      "id": "REG-015",
+      "dataset_id": "regression_v1_draft",
+      "verdict": "approved",
+      "answerable": true,
+      "question_type": "article_lookup_candidate",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_answer_supported_by_cited_source",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "not_applicable"
+      },
+      "references": [
+        {
+          "page": 34,
+          "article": "4.4.4",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "numeric_expectations": [],
+      "visually_reviewed_pages": [],
+      "corrections_applied": [],
+      "sampling_overlap_note": null
+    },
+    {
+      "id": "REG-016",
+      "dataset_id": "regression_v1_draft",
+      "verdict": "approved",
+      "answerable": true,
+      "question_type": "article_lookup_candidate",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_answer_supported_by_cited_source",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "not_applicable"
+      },
+      "references": [
+        {
+          "page": 34,
+          "article": "4.4.5",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "numeric_expectations": [],
+      "visually_reviewed_pages": [],
+      "corrections_applied": [],
+      "sampling_overlap_note": null
+    },
+    {
+      "id": "REG-017",
+      "dataset_id": "regression_v1_draft",
+      "verdict": "approved",
+      "answerable": true,
+      "question_type": "article_lookup_candidate",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_answer_supported_by_cited_source",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "not_applicable"
+      },
+      "references": [
+        {
+          "page": 34,
+          "article": "4.4.6",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "numeric_expectations": [],
+      "visually_reviewed_pages": [],
+      "corrections_applied": [],
+      "sampling_overlap_note": null
+    },
+    {
+      "id": "REG-018",
+      "dataset_id": "regression_v1_draft",
+      "verdict": "approved",
+      "answerable": true,
+      "question_type": "article_lookup_candidate",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_answer_supported_by_cited_source",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "not_applicable"
+      },
+      "references": [
+        {
+          "page": 34,
+          "article": "4.5.3",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "numeric_expectations": [],
+      "visually_reviewed_pages": [],
+      "corrections_applied": [],
+      "sampling_overlap_note": null
+    },
+    {
+      "id": "REG-019",
+      "dataset_id": "regression_v1_draft",
+      "verdict": "approved",
+      "answerable": true,
+      "question_type": "article_lookup_candidate",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_answer_supported_by_cited_source",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "not_applicable"
+      },
+      "references": [
+        {
+          "page": 35,
+          "article": "5.1.6",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "numeric_expectations": [],
+      "visually_reviewed_pages": [
+        35
+      ],
+      "corrections_applied": [],
+      "sampling_overlap_note": null
+    },
+    {
+      "id": "REG-020",
+      "dataset_id": "regression_v1_draft",
+      "verdict": "approved",
+      "answerable": true,
+      "question_type": "article_lookup_candidate",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_answer_supported_by_cited_source",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "not_applicable"
+      },
+      "references": [
+        {
+          "page": 35,
+          "article": "5.1.7",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "numeric_expectations": [],
+      "visually_reviewed_pages": [
+        35
+      ],
+      "corrections_applied": [],
+      "sampling_overlap_note": null
+    },
+    {
+      "id": "REG-021",
+      "dataset_id": "regression_v1_draft",
+      "verdict": "approved",
+      "answerable": true,
+      "question_type": "numeric_candidate",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_answer_supported_by_cited_source",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "not_applicable"
+      },
+      "references": [
+        {
+          "page": 36,
+          "article": "5.4.1",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "numeric_expectations": [
+        {
+          "value": "80",
+          "unit": "km/h",
+          "conditions": [
+            "车辆运行速度应符合下列规定： 1 最高运行速度可按系统设计要求采取80km/h、100km/h、120km/h 等速度等级，列车应在设计最 高运行速度条件下，具备瞬间超过最高运行速度安全运行的能力"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "100",
+          "unit": "km/h",
+          "conditions": [
+            "车辆运行速度应符合下列规定： 1 最高运行速度可按系统设计要求采取80km/h、100km/h、120km/h 等速度等级，列车应在设计最 高运行速度条件下，具备瞬间超过最高运行速度安全运行的能力"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "120",
+          "unit": "km/h",
+          "conditions": [
+            "车辆运行速度应符合下列规定： 1 最高运行速度可按系统设计要求采取80km/h、100km/h、120km/h 等速度等级，列车应在设计最 高运行速度条件下，具备瞬间超过最高运行速度安全运行的能力"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "3",
+          "unit": "km/h",
+          "conditions": [
+            "2 通过洗车机的稳定运行速度应为3km/h～5km/h"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "5",
+          "unit": "km/h",
+          "conditions": [
+            "2 通过洗车机的稳定运行速度应为3km/h～5km/h"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "5",
+          "unit": "km/h",
+          "conditions": [
+            "3 列车联挂速度不应大于5km/h"
+          ],
+          "verdict": "pass"
+        }
+      ],
+      "visually_reviewed_pages": [],
+      "corrections_applied": [],
+      "sampling_overlap_note": null
+    },
+    {
+      "id": "REG-022",
+      "dataset_id": "regression_v1_draft",
+      "verdict": "approved",
+      "answerable": true,
+      "question_type": "article_lookup_candidate",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_answer_supported_by_cited_source",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "not_applicable"
+      },
+      "references": [
+        {
+          "page": 37,
+          "article": "5.4.8",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "numeric_expectations": [
+        {
+          "value": "1/4及以下",
+          "unit": "无量纲比例",
+          "conditions": [
+            "AW3工况下丧失动力的比例；动拖比大于1:1时维持全天运营，动拖比1:1时维持运行到终点"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "1/3",
+          "unit": "无量纲比例",
+          "conditions": [
+            "AW3工况下丧失动力的比例；列车应能在正线最大坡道上启动并维持运行到终点"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "1/2",
+          "unit": "无量纲比例",
+          "conditions": [
+            "AW3工况下丧失动力的比例；列车应能在正线最大坡道上启动并运行至下一车站清客后回库"
+          ],
+          "verdict": "pass"
+        }
+      ],
+      "visually_reviewed_pages": [
+        37
+      ],
+      "corrections_applied": [
+        "补充遗漏的丧失动力1/4及以下、1/3、1/2三组比例及对应运行条件。"
+      ],
+      "sampling_overlap_note": null
+    },
+    {
+      "id": "REG-023",
+      "dataset_id": "regression_v1_draft",
+      "verdict": "approved",
+      "answerable": true,
+      "question_type": "numeric_candidate",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_answer_supported_by_cited_source",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "not_applicable"
+      },
+      "references": [
+        {
+          "page": 37,
+          "article": "5.4.9",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "numeric_expectations": [
+        {
+          "value": "6",
+          "unit": "s",
+          "conditions": [
+            "动态密封指数τ应大于6s"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "120",
+          "unit": "km/h",
+          "conditions": [
+            "适用于120km/h等级车辆"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "2,100",
+          "unit": "Pa",
+          "conditions": [
+            "车厢内空气压力的起始值"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "1,000",
+          "unit": "Pa",
+          "conditions": [
+            "车厢内空气压力的终止值"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "15",
+          "unit": "s",
+          "conditions": [
+            "压力由2,100Pa降至1,000Pa的时间不应小于15s"
+          ],
+          "verdict": "pass"
+        }
+      ],
+      "visually_reviewed_pages": [
+        37
+      ],
+      "corrections_applied": [],
+      "sampling_overlap_note": null
+    },
+    {
+      "id": "REG-024",
+      "dataset_id": "regression_v1_draft",
+      "verdict": "approved",
+      "answerable": true,
+      "question_type": "article_lookup_candidate",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_answer_supported_by_cited_source",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "not_applicable"
+      },
+      "references": [
+        {
+          "page": 37,
+          "article": "5.5.2",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "numeric_expectations": [],
+      "visually_reviewed_pages": [
+        37
+      ],
+      "corrections_applied": [],
+      "sampling_overlap_note": null
+    },
+    {
+      "id": "REG-025",
+      "dataset_id": "regression_v1_draft",
+      "verdict": "approved",
+      "answerable": true,
+      "question_type": "article_lookup_candidate",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_answer_supported_by_cited_source",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "not_applicable"
+      },
+      "references": [
+        {
+          "page": 38,
+          "article": "5.5.5",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "numeric_expectations": [
+        {
+          "value": "6",
+          "unit": "个月",
+          "conditions": [
+            "断电后数据存储时间不宜小于6个月"
+          ],
+          "verdict": "pass"
+        }
+      ],
+      "visually_reviewed_pages": [],
+      "corrections_applied": [],
+      "sampling_overlap_note": null
+    },
+    {
+      "id": "REG-026",
+      "dataset_id": "regression_v1_draft",
+      "verdict": "approved",
+      "answerable": true,
+      "question_type": "numeric_candidate",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_answer_supported_by_cited_source",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "not_applicable"
+      },
+      "references": [
+        {
+          "page": 39,
+          "article": "5.5.8",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "numeric_expectations": [
+        {
+          "value": "33",
+          "unit": "℃",
+          "conditions": [
+            "制冷能力考核时的环境温度"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "27±1",
+          "unit": "℃",
+          "conditions": [
+            "环境温度为33℃时的客室温度上限"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "12",
+          "unit": "m³/(人·h)",
+          "conditions": [
+            "客室按定员载客人数计的人均新风量下限；规范原文表述为人均不应少于12m³/h"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "8",
+          "unit": "m³/(人·h)",
+          "conditions": [
+            "紧急通风人均通风量下限；规范原文表述为人均不应少于8m³/h"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "30",
+          "unit": "m³/(人·h)",
+          "conditions": [
+            "制冷时司机室人均新风量下限；规范原文表述为人均不应少于30m³/h"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "0",
+          "unit": "℃",
+          "conditions": [
+            "采暖能力考核时的车外环境温度"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "18",
+          "unit": "℃",
+          "conditions": [
+            "采暖运行时司机室温度下限"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "15",
+          "unit": "℃",
+          "conditions": [
+            "采暖运行时空车客室温度下限"
+          ],
+          "verdict": "pass"
+        }
+      ],
+      "visually_reviewed_pages": [
+        39
+      ],
+      "corrections_applied": [
+        "在保留规范原文表述的同时，将人均通风量单位规范为m³/(人·h)。"
+      ],
+      "sampling_overlap_note": null
+    },
+    {
+      "id": "REG-027",
+      "dataset_id": "regression_v1_draft",
+      "verdict": "approved",
+      "answerable": true,
+      "question_type": "article_lookup_candidate",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_answer_supported_by_cited_source",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "not_applicable"
+      },
+      "references": [
+        {
+          "page": 39,
+          "article": "5.6.1",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "numeric_expectations": [],
+      "visually_reviewed_pages": [
+        39
+      ],
+      "corrections_applied": [],
+      "sampling_overlap_note": null
+    },
+    {
+      "id": "REG-NEG-001",
+      "dataset_id": "regression_v1_draft",
+      "verdict": "approved",
+      "answerable": false,
+      "question_type": "unanswerable_candidate",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_external_or_project_fact_not_present_in_static_standard",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "pass"
+      },
+      "references": [],
+      "numeric_expectations": [],
+      "visually_reviewed_pages": [],
+      "corrections_applied": [],
+      "sampling_overlap_note": null
+    },
+    {
+      "id": "REG-NEG-002",
+      "dataset_id": "regression_v1_draft",
+      "verdict": "approved",
+      "answerable": false,
+      "question_type": "unanswerable_candidate",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_external_or_project_fact_not_present_in_static_standard",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "pass"
+      },
+      "references": [],
+      "numeric_expectations": [],
+      "visually_reviewed_pages": [],
+      "corrections_applied": [],
+      "sampling_overlap_note": null
+    },
+    {
+      "id": "REG-NEG-003",
+      "dataset_id": "regression_v1_draft",
+      "verdict": "approved",
+      "answerable": false,
+      "question_type": "unanswerable_candidate",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_external_or_project_fact_not_present_in_static_standard",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "pass"
+      },
+      "references": [],
+      "numeric_expectations": [],
+      "visually_reviewed_pages": [],
+      "corrections_applied": [],
+      "sampling_overlap_note": null
+    },
+    {
+      "id": "IND-001",
+      "dataset_id": "independent_v2_draft",
+      "verdict": "approved",
+      "answerable": true,
+      "question_type": "multi_evidence_candidate",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_answer_supported_by_cited_source",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "not_applicable"
+      },
+      "references": [
+        {
+          "page": 39,
+          "article": "5.6.8",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        },
+        {
+          "page": 39,
+          "article": "5.6.9",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "numeric_expectations": [
+        {
+          "value": "5",
+          "unit": "km/h",
+          "conditions": [
+            "客室车门系统应有安全联锁，确保运营时车速大于5km/h 时不能开启客室车门、车门未全关闭时 不能起动列车"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "2",
+          "unit": "lx",
+          "conditions": [
+            "前照灯在车辆前端紧急制停距离处照度不应小于2 lx"
+          ],
+          "verdict": "pass"
+        }
+      ],
+      "visually_reviewed_pages": [
+        39
+      ],
+      "corrections_applied": [],
+      "sampling_overlap_note": "Shares article 5.6.9 with IND-002; do not treat both as independent observations."
+    },
+    {
+      "id": "IND-002",
+      "dataset_id": "independent_v2_draft",
+      "verdict": "approved",
+      "answerable": true,
+      "question_type": "numeric_candidate",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_answer_supported_by_cited_source",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "not_applicable"
+      },
+      "references": [
+        {
+          "page": 39,
+          "article": "5.6.9",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "numeric_expectations": [
+        {
+          "value": "2",
+          "unit": "lx",
+          "conditions": [
+            "前照灯在车辆前端紧急制停距离处照度不应小于2 lx"
+          ],
+          "verdict": "pass"
+        }
+      ],
+      "visually_reviewed_pages": [
+        39
+      ],
+      "corrections_applied": [],
+      "sampling_overlap_note": "Shares article 5.6.9 with IND-001; do not treat both as independent observations."
+    },
+    {
+      "id": "IND-003",
+      "dataset_id": "independent_v2_draft",
+      "verdict": "approved",
+      "answerable": true,
+      "question_type": "multi_evidence_candidate",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_answer_supported_by_cited_source",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "not_applicable"
+      },
+      "references": [
+        {
+          "page": 39,
+          "article": "5.7.1",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        },
+        {
+          "page": 40,
+          "article": "6.1.1",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "numeric_expectations": [],
+      "visually_reviewed_pages": [
+        39
+      ],
+      "corrections_applied": [],
+      "sampling_overlap_note": null
+    },
+    {
+      "id": "IND-004",
+      "dataset_id": "independent_v2_draft",
+      "verdict": "approved",
+      "answerable": true,
+      "question_type": "table_lookup",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_answer_supported_by_cited_source",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "not_applicable"
+      },
+      "references": [
+        {
+          "page": 41,
+          "article": null,
+          "table": "表6.3.1",
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "numeric_expectations": [
+        {
+          "value": "2200",
+          "unit": "mm",
+          "conditions": [
+            "行车方向右侧，A型车"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "2100",
+          "unit": "mm",
+          "conditions": [
+            "行车方向右侧，B1型车或B2型车"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "2500",
+          "unit": "mm",
+          "conditions": [
+            "行车方向左侧设纵向辅助疏散平台，A型车"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "2400",
+          "unit": "mm",
+          "conditions": [
+            "行车方向左侧设纵向辅助疏散平台，B1型车或B2型车"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "2100",
+          "unit": "mm",
+          "conditions": [
+            "行车方向左侧无纵向辅助疏散平台，A型车"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "2000",
+          "unit": "mm",
+          "conditions": [
+            "行车方向左侧无纵向辅助疏散平台，B1型车或B2型车"
+          ],
+          "verdict": "pass"
+        }
+      ],
+      "visually_reviewed_pages": [
+        41
+      ],
+      "corrections_applied": [
+        "将表格单元值按车型、左右侧和疏散平台条件拆为可独立评分的数值项。"
+      ],
+      "sampling_overlap_note": null
+    },
+    {
+      "id": "IND-005",
+      "dataset_id": "independent_v2_draft",
+      "verdict": "approved",
+      "answerable": true,
+      "question_type": "multi_evidence_candidate",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_answer_supported_by_cited_source",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "not_applicable"
+      },
+      "references": [
+        {
+          "page": 42,
+          "article": "6.3.10",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        },
+        {
+          "page": 42,
+          "article": "6.3.11",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "numeric_expectations": [
+        {
+          "value": "600",
+          "unit": "mm",
+          "conditions": [
+            "直线地段人防隔断门（或防淹门）门框建筑限界应符合下列规定： 1 防隔断门、防淹门的建筑限界，在车辆静止状态下应满足宽度方向的安全间隙，且不应小 于600mm"
+          ],
+          "verdict": "pass"
+        }
+      ],
+      "visually_reviewed_pages": [
+        42
+      ],
+      "corrections_applied": [],
+      "sampling_overlap_note": null
+    },
+    {
+      "id": "IND-006",
+      "dataset_id": "independent_v2_draft",
+      "verdict": "approved",
+      "answerable": false,
+      "question_type": "partial_support_unanswerable",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_partial_support_boundary_explicit",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "pass"
+      },
+      "references": [
+        {
+          "page": 42,
+          "article": "6.3.11",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "numeric_expectations": [],
+      "visually_reviewed_pages": [
+        42
+      ],
+      "corrections_applied": [],
+      "sampling_overlap_note": null
+    },
+    {
+      "id": "IND-007",
+      "dataset_id": "independent_v2_draft",
+      "verdict": "approved",
+      "answerable": true,
+      "question_type": "numeric_candidate",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_answer_supported_by_cited_source",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "not_applicable"
+      },
+      "references": [
+        {
+          "page": 42,
+          "article": "6.3.12",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "numeric_expectations": [
+        {
+          "value": "80",
+          "unit": "mm",
+          "conditions": [
+            "车辆基地内轨行区周边的建筑限界应符合下列规定： 1 车辆基地库内检修高平台及安全栅栏距车辆轮廓之间的间隙应限定在80mm～120mm"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "120",
+          "unit": "mm",
+          "conditions": [
+            "车辆基地内轨行区周边的建筑限界应符合下列规定： 1 车辆基地库内检修高平台及安全栅栏距车辆轮廓之间的间隙应限定在80mm～120mm"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "200",
+          "unit": "mm",
+          "conditions": [
+            "4 线路直线地段信号设备至设备限界的净距不得小于200mm，曲线段及道岔区限界应加宽"
+          ],
+          "verdict": "pass"
+        }
+      ],
+      "visually_reviewed_pages": [
+        42
+      ],
+      "corrections_applied": [],
+      "sampling_overlap_note": null
+    },
+    {
+      "id": "IND-008",
+      "dataset_id": "independent_v2_draft",
+      "verdict": "approved",
+      "answerable": true,
+      "question_type": "numeric_candidate",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_answer_supported_by_cited_source",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "not_applicable"
+      },
+      "references": [
+        {
+          "page": 42,
+          "article": "6.4.3",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "numeric_expectations": [
+        {
+          "value": "2000",
+          "unit": "mm",
+          "conditions": [
+            "2 纵向辅助疏散平台面上方的净高不应小于2000mm"
+          ],
+          "verdict": "pass"
+        }
+      ],
+      "visually_reviewed_pages": [
+        42
+      ],
+      "corrections_applied": [],
+      "sampling_overlap_note": null
+    },
+    {
+      "id": "IND-009",
+      "dataset_id": "independent_v2_draft",
+      "verdict": "approved",
+      "answerable": true,
+      "question_type": "article_lookup_candidate",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_answer_supported_by_cited_source",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "not_applicable"
+      },
+      "references": [
+        {
+          "page": 48,
+          "article": "7.3.4",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "numeric_expectations": [],
+      "visually_reviewed_pages": [
+        48
+      ],
+      "corrections_applied": [],
+      "sampling_overlap_note": null
+    },
+    {
+      "id": "IND-010",
+      "dataset_id": "independent_v2_draft",
+      "verdict": "approved",
+      "answerable": true,
+      "question_type": "numeric_candidate",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_answer_supported_by_cited_source",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "not_applicable"
+      },
+      "references": [
+        {
+          "page": 48,
+          "article": "7.3.6",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "numeric_expectations": [
+        {
+          "value": "400",
+          "unit": "m",
+          "conditions": [
+            "整体道床曲线半径低于400m时宜避免竖缓重叠"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "2.0",
+          "unit": "‰",
+          "conditions": [
+            "竖曲线与缓和曲线重叠时的超高顺坡率上限"
+          ],
+          "verdict": "pass"
+        }
+      ],
+      "visually_reviewed_pages": [
+        48
+      ],
+      "corrections_applied": [],
+      "sampling_overlap_note": null
+    },
+    {
+      "id": "IND-011",
+      "dataset_id": "independent_v2_draft",
+      "verdict": "approved",
+      "answerable": true,
+      "question_type": "article_lookup_candidate",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_answer_supported_by_cited_source",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "not_applicable"
+      },
+      "references": [
+        {
+          "page": 50,
+          "article": "8.1.3",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "numeric_expectations": [],
+      "visually_reviewed_pages": [],
+      "corrections_applied": [],
+      "sampling_overlap_note": null
+    },
+    {
+      "id": "IND-012",
+      "dataset_id": "independent_v2_draft",
+      "verdict": "approved",
+      "answerable": true,
+      "question_type": "numeric_candidate",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_answer_supported_by_cited_source",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "not_applicable"
+      },
+      "references": [
+        {
+          "page": 51,
+          "article": "8.3.2",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "numeric_expectations": [
+        {
+          "value": "20～40",
+          "unit": "kN/mm",
+          "conditions": [
+            "无砟道床一般地段扣件节点垂向静刚度"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "1.4",
+          "unit": "无量纲",
+          "conditions": [
+            "扣件节点动静比上限"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "10^8",
+          "unit": "Ω",
+          "conditions": [
+            "单个扣件节点绝缘部件工作电阻下限"
+          ],
+          "verdict": "pass"
+        }
+      ],
+      "visually_reviewed_pages": [
+        51
+      ],
+      "corrections_applied": [],
+      "sampling_overlap_note": null
+    },
+    {
+      "id": "IND-013",
+      "dataset_id": "independent_v2_draft",
+      "verdict": "approved",
+      "answerable": true,
+      "question_type": "numeric_candidate",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_answer_supported_by_cited_source",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "not_applicable"
+      },
+      "references": [
+        {
+          "page": 52,
+          "article": "8.4.1",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "numeric_expectations": [
+        {
+          "value": "70",
+          "unit": "mm",
+          "conditions": [
+            "6 道床面低于钢轨底面宜不小于70mm"
+          ],
+          "verdict": "pass"
+        }
+      ],
+      "visually_reviewed_pages": [],
+      "corrections_applied": [],
+      "sampling_overlap_note": null
+    },
+    {
+      "id": "IND-014",
+      "dataset_id": "independent_v2_draft",
+      "verdict": "approved",
+      "answerable": true,
+      "question_type": "article_lookup_candidate",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_answer_supported_by_cited_source",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "not_applicable"
+      },
+      "references": [
+        {
+          "page": 53,
+          "article": "8.4.5",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "numeric_expectations": [],
+      "visually_reviewed_pages": [],
+      "corrections_applied": [],
+      "sampling_overlap_note": null
+    },
+    {
+      "id": "IND-015",
+      "dataset_id": "independent_v2_draft",
+      "verdict": "approved",
+      "answerable": true,
+      "question_type": "numeric_candidate",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_answer_supported_by_cited_source",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "not_applicable"
+      },
+      "references": [
+        {
+          "page": 54,
+          "article": "8.5.4",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "numeric_expectations": [
+        {
+          "value": "80",
+          "unit": "mm",
+          "conditions": [
+            "并应进行钢轨断缝检算，钢轨断缝宽 度宜为80mm，困难情况下应为100mm"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "100",
+          "unit": "mm",
+          "conditions": [
+            "并应进行钢轨断缝检算，钢轨断缝宽 度宜为80mm，困难情况下应为100mm"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "2",
+          "unit": "m",
+          "conditions": [
+            "3 钢轨接头距梁端的距离不应小于2m"
+          ],
+          "verdict": "pass"
+        }
+      ],
+      "visually_reviewed_pages": [
+        54
+      ],
+      "corrections_applied": [],
+      "sampling_overlap_note": null
+    },
+    {
+      "id": "IND-016",
+      "dataset_id": "independent_v2_draft",
+      "verdict": "approved",
+      "answerable": true,
+      "question_type": "article_lookup_candidate",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_answer_supported_by_cited_source",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "not_applicable"
+      },
+      "references": [
+        {
+          "page": 54,
+          "article": "8.6.2",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "numeric_expectations": [],
+      "visually_reviewed_pages": [
+        54
+      ],
+      "corrections_applied": [],
+      "sampling_overlap_note": null
+    },
+    {
+      "id": "IND-017",
+      "dataset_id": "independent_v2_draft",
+      "verdict": "approved",
+      "answerable": true,
+      "question_type": "numeric_candidate",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_answer_supported_by_cited_source",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "not_applicable"
+      },
+      "references": [
+        {
+          "page": 54,
+          "article": "8.7.1",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "numeric_expectations": [
+        {
+          "value": "500",
+          "unit": "m",
+          "conditions": [
+            "高架线应采用防脱护轨措施，防脱护轨应设置在钢轨内侧，设置位置应符合下列规定： 1 半径≤500m 曲线地段的缓圆（圆缓）点两侧，其缓和曲线部分不小于缓和曲线长的一半并不小 于20m、圆曲线部分20m 范围内，曲线下股钢轨内侧"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "20",
+          "unit": "m",
+          "conditions": [
+            "高架线应采用防脱护轨措施，防脱护轨应设置在钢轨内侧，设置位置应符合下列规定： 1 半径≤500m 曲线地段的缓圆（圆缓）点两侧，其缓和曲线部分不小于缓和曲线长的一半并不小 于20m、圆曲线部分20m 范围内，曲线下股钢轨内侧"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "20",
+          "unit": "m",
+          "conditions": [
+            "高架线应采用防脱护轨措施，防脱护轨应设置在钢轨内侧，设置位置应符合下列规定： 1 半径≤500m 曲线地段的缓圆（圆缓）点两侧，其缓和曲线部分不小于缓和曲线长的一半并不小 于20m、圆曲线部分20m 范围内，曲线下股钢轨内侧"
+          ],
+          "verdict": "pass"
+        },
+        {
+          "value": "20",
+          "unit": "m",
+          "conditions": [
+            "2 高架桥跨越城市干道、铁路及通航航道等重要地段，以及受列车意外撞击时易产生结构性破坏 的高架桥地段及其以外各20m 范围内，应设置在靠近双线高架桥中线侧的钢轨内侧"
+          ],
+          "verdict": "pass"
+        }
+      ],
+      "visually_reviewed_pages": [
+        54
+      ],
+      "corrections_applied": [],
+      "sampling_overlap_note": null
+    },
+    {
+      "id": "IND-NEG-001",
+      "dataset_id": "independent_v2_draft",
+      "verdict": "approved",
+      "answerable": false,
+      "question_type": "unanswerable_candidate",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_external_or_project_fact_not_present_in_static_standard",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "pass"
+      },
+      "references": [],
+      "numeric_expectations": [],
+      "visually_reviewed_pages": [],
+      "corrections_applied": [],
+      "sampling_overlap_note": null
+    },
+    {
+      "id": "IND-NEG-002",
+      "dataset_id": "independent_v2_draft",
+      "verdict": "approved",
+      "answerable": false,
+      "question_type": "unanswerable_candidate",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_external_or_project_fact_not_present_in_static_standard",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "pass"
+      },
+      "references": [],
+      "numeric_expectations": [],
+      "visually_reviewed_pages": [],
+      "corrections_applied": [],
+      "sampling_overlap_note": null
+    },
+    {
+      "id": "IND-NEG-003",
+      "dataset_id": "independent_v2_draft",
+      "verdict": "approved",
+      "answerable": false,
+      "question_type": "unanswerable_candidate",
+      "checks": {
+        "question_scope": "pass",
+        "answerability": "pass_external_or_project_fact_not_present_in_static_standard",
+        "evidence_document": "pass",
+        "evidence_page_and_locator": "pass",
+        "gold_answer_and_key_points": "pass",
+        "numeric_values_units_conditions": "pass",
+        "unanswerable_rationale": "pass"
+      },
+      "references": [],
+      "numeric_expectations": [],
+      "visually_reviewed_pages": [],
+      "corrections_applied": [],
+      "sampling_overlap_note": null
+    }
+  ]
+}

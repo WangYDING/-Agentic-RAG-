@@ -31,6 +31,9 @@ jobs:
       - name: Run offline tests
         run: uv run --locked python -m pytest -m "not integration and not model"
 
+      - name: Validate evaluation datasets without model calls
+        run: uv run --locked python -m eval.dataset_manifest "eval/datasets/*.manifest.json"
+
       - name: Build source and wheel distributions
         run: uv run --locked python -m build
 
