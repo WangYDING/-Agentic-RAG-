@@ -30,7 +30,7 @@
 
 answerable 必须是真布尔值，拒绝字符串 "false" 等误转换；ID 必须唯一。source_verified 和 approved 都必须填写复核人与复核时间，只有 approved 满足当前数据冻结校验。reviewer 和 notes 必须如实披露审核者类型及限制，不能把 AI 审核写成人工或领域专家签字。旧数据缺少新字段时保持空值与 pending，不追认审核。
 
-每个 manifest 包含 dataset_id、version、role、status、data_file、sha256、count、type_distribution，可补充 source_pdf_sha256、frozen_at、used_for_tuning 和 acceptance_criteria。
+每个 manifest 包含 dataset_id、version、role、status、data_file、sha256、count、type_distribution，可补充 source_pdf_sha256、frozen_at、used_for_tuning 和 acceptance_criteria。文本文件计算 SHA-256 前统一将 CRLF 归一为 LF，避免 Windows/Linux 换行造成错误的不一致；PDF 等二进制文件按原始字节计算。
 
 ## 3. 冻结流程
 

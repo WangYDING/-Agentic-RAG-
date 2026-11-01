@@ -6,8 +6,8 @@
 - 依赖锁：`uv.lock` SHA-256 `4093b9a78526c47bf7d4b46457c2c7106cb0338ac31a2fac917a93f28b302a4e`。
 - Python / uv：Python 3.12.16；uv 0.13.6。
 - PDF：`e5ca2388ad68ed7b21b6092e66c12a73c74c17de8b532bef91c5b2ea57be78f7`。
-- 开发候选集：30 题，SHA-256 `200425c134f33e7ed82eebc71c74bb39bcaa11c8b46304498b1817bbb32cd84b`。
-- 独立候选集：20 题，SHA-256 `2d8e9ddcf501235b19afbf1a9438474e24841d3355e959936ef9565b8ecd5fd3`；已冻结，未运行。
+- 开发候选集：30 题，跨平台文本 SHA-256 `6494b97539384f8648c2580ea65f783904eb4c5599e9966205fe540211a65cbb`。
+- 独立候选集：20 题，跨平台文本 SHA-256 `2791c00f07eeddd9764198bc20ad8f7ee1c6ad5965a0fbc273cad5c26f624531`；已冻结，未运行。
 - 质量门槛：`independent-v2-quality-gate-v1`，SHA-256 `49a63015c101810309b6d0527d95e4d39a36166516098795697a1fcf099a0fdb`。
 - Prompt 源文件：Generator `9502e4f3…52b38`；Grader `2f353fdf…725da`；Rewriter `d9c0ff24…5de16`（完整值可由版本内文件重算）。
 
