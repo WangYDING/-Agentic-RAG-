@@ -56,7 +56,7 @@
 | Embedding 本次缓存解析 | Hugging Face `main` 当时解析为 `7999e1d3359715c523056ef9478215996d62a620`；应用 manifest 没有强制该值，未来重新下载仍可能漂移 |
 | Reranker | 配置标识 `BAAI/bge-reranker-base`；配置 revision 不受独立字段约束（未固定） |
 | Reranker 本次缓存解析 | Hugging Face `main` 当时解析为 `2cfc18c9415c912f9d8155881c133215df768a70`；应用准备标记只固定模型名，未来重新下载仍可能漂移 |
-| 生成模型 | `deepseek-chat`；外部服务底层 revision 未知且无法由本仓库固定 |
+| 生成模型 | 实际真实预检使用 `deepseek-flash`；外部服务底层 revision 未知且无法由本仓库固定。`deepseek-chat` 仅为代码默认值，不是本轮实测模型 |
 | Dense TopK / BM25 TopK | 两路均使用 `retrieval_top_k=10`；Hybrid 去重与 RRF 合并 |
 | RRF | `rrf_k=60`（评测运行指纹中的固定检索常量） |
 | 最终证据数 | `evidence_top_n=3` |
@@ -99,10 +99,10 @@
 
 ## API 配置状态与秘密处理
 
-- 当前准备环境：`DEEPSEEK_API_KEY` 未配置，`DEEPSEEK_BASE_URL` 未配置。
+- 初始准备时 API 未配置；真实预检执行时 `DEEPSEEK_API_KEY` 与 `DEEPSEEK_BASE_URL` 均已通过候选目录中被 Git 忽略的运行时配置提供，实际服务地址为 `https://api.deepseek.com`，实际模型标识为 `deepseek-flash`。
 - 候选清单不包含密钥、令牌、代理地址或其他认证信息。
-- 第 3 步真实开发题验证必须在运行时注入 API 配置，并在结果中只记录“已配置/未配置”、服务地址类别和模型标识，不记录密钥。
-- 因当前 API 配置未齐备，第 3 步的真实问答尚不能开始；这不影响锁定安装、模型准备、数据校验和索引准备的完成状态。
+- 记录只保留“已配置”、公开服务地址和模型标识，不记录密钥值。
+- 真实开发题验证结果另见 `docs/PHASE0_REAL_PRECHECK_2026-11-04.md`。
 
 ## 实际执行的准备命令
 
