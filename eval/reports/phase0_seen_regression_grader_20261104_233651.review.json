@@ -1,0 +1,181 @@
+{
+  "dataset_sha256": "47c1534397394f891929b2fc1589993ba12a6cde2d119baa78fb501e470f1913",
+  "report_schema_version": 2,
+  "rubric": {
+    "evidence_support": {
+      "0": "unsupported or contradictory",
+      "1": "partly supported",
+      "2": "fully supported"
+    },
+    "completeness": {
+      "0": "critical requirements missing",
+      "1": "some requirements missing",
+      "2": "all required points covered"
+    },
+    "numeric_conditions": {
+      "0": "incorrect number/unit/condition",
+      "1": "partially correct",
+      "2": "correct; null if not applicable"
+    },
+    "unsupported_facts": {
+      "0": "material outside facts",
+      "1": "minor outside facts",
+      "2": "no unsupported factual additions"
+    }
+  },
+  "instructions": "Only a human reviewer may approve. null means unreviewed or not applicable, never a passing score.",
+  "cases": [
+    {
+      "id": "IND-002",
+      "request_id": "e2bc8e18094c4e6d8f60591b92ccf406",
+      "question": "司机室前照灯、列车尾灯和车辆侧壁指示灯有哪些配置与性能要求？",
+      "expected_answerability": true,
+      "requirements": [
+        "覆盖要点：司机室前端应装设可远近光变换的前照灯",
+        "覆盖要点：前照灯在车辆前端紧急制停距离处照度不应小于2 lx",
+        "覆盖要点：列车尾端应设有红色防护灯",
+        "覆盖要点：车辆侧壁可设置显示车门开闭、制动缸缓解等指示灯"
+      ],
+      "key_points": [
+        "司机室前端应装设可远近光变换的前照灯",
+        "前照灯在车辆前端紧急制停距离处照度不应小于2 lx",
+        "列车尾端应设有红色防护灯",
+        "车辆侧壁可设置显示车门开闭、制动缸缓解等指示灯"
+      ],
+      "numeric_expectations": [
+        {
+          "value": "2",
+          "unit": "lx",
+          "conditions": [
+            "前照灯在车辆前端紧急制停距离处照度不应小于2 lx"
+          ]
+        }
+      ],
+      "answer": "核心结论：前照灯为强制配置并规定照度下限；尾端应设红色防护灯；侧壁指示灯为可设置的车门开闭、制动缸缓解等状态指示，另司机室内应设客室侧门开闭状态显示灯。\n\n1. **司机室前照灯**：司机室前端应装设可远近光变换的前照灯；在车辆前端紧急制停距离处的照度不应小于 2 lx。[E1]\n\n2. **列车尾灯**：列车尾端应设置红色防护灯。[E1]\n\n3. **车辆侧壁指示灯**：车辆侧壁可设置用于显示车门开闭、制动缸缓解等状态的指示灯；此外，司机室内应设置客室侧门开闭状态显示灯。[E1][E2]\n\n注：给定片段未提供侧壁指示灯的更多性能指标。",
+      "evidence": [
+        {
+          "text": "5.6.9\n司机室前端应装设可远近光变换的前照灯。前照灯在车辆前端紧急制停距离处照度不应小于2 lx。\n列车尾端应设有红色防护灯。车辆侧壁可设置显示车门开闭、制动缸缓解等指示灯。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 39,
+          "page_end": 39,
+          "article_id": "5.6.9",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 388,
+          "score": 0.773747980594635,
+          "rrf_score": null,
+          "rerank_score": 0.9993247985839844,
+          "display_ref": "第5.6.9条"
+        },
+        {
+          "text": "5.6.7\n司机室内应设置客室侧门开闭状态显示灯。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 39,
+          "page_end": 39,
+          "article_id": "5.6.7",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 386,
+          "score": 0.6802053451538086,
+          "rrf_score": null,
+          "rerank_score": 0.9735690951347351,
+          "display_ref": "第5.6.7条"
+        },
+        {
+          "text": "5.7.4\n列车宜设置模式运行灯和动车提示灯。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 39,
+          "page_end": 39,
+          "article_id": "5.7.4",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 395,
+          "score": 0.6282236576080322,
+          "rrf_score": null,
+          "rerank_score": 0.9642956852912903,
+          "display_ref": "第5.7.4条"
+        }
+      ],
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "IND-006",
+      "request_id": "274bd06ccb024314aa0162f00d54e81b",
+      "question": "安装射流风机、风管和配电柜等设备时应怎样检算建筑限界？本项目实际设备尺寸和最终加宽、加高量是多少？",
+      "expected_answerability": false,
+      "requirements": [
+        "说明设备安装地段的建筑限界检算与处置要求",
+        "识别项目实际设备尺寸和最终加宽、加高量不在规范中，拒绝编造"
+      ],
+      "key_points": [
+        "在安装射流风机、风管、配电柜、控制箱、接触网隔离开关、道岔转辙机等设备地段，应按设备安装位置及尺寸检算建筑限界，必要时应采取局部加宽、加高措施",
+        "规范不能给出本项目实际设备尺寸和最终加宽、加高量"
+      ],
+      "numeric_expectations": [],
+      "answer": "当前规范及已检索证据不足以完整回答该问题。 缺少的信息：本项目实际设备尺寸；本项目最终加宽、加高量。",
+      "evidence": [
+        {
+          "text": "6.3.11\n在安装射流风机、风管、配电柜、控制箱、接触网隔离开关道岔转辙机等设备地段，应按设备\n安装位置及尺寸检算建筑限界，必要时应采取局部加宽、加高措施。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 42,
+          "page_end": 42,
+          "article_id": "6.3.11",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 424,
+          "score": 0.8372566103935242,
+          "rrf_score": null,
+          "rerank_score": 0.9995813965797424,
+          "display_ref": "第6.3.11条"
+        },
+        {
+          "text": "加宽量应按下式计算：\n���=\n222768+30240��\n���\n（E.0.1-3）\n式中：\n���—缓和曲线引起的曲线外侧限界加宽量（mm）。\n4\nB1 型车和B2 型车缓和曲线外侧加宽量应按下式计算：\n���=\n160107+25280��\n���\n（E.0.1-4）\nE.0.2 轨道超高引起的加宽量应按下列公式计算：\nihe ⁼X¹ cosα⁺Y¹ sinα-X¹\n（E.0.2-1）\no\nhe ⁼X² cosα-Y² sinα-X²\n（E.0.2-2）\nhtc =hac×lj/L\n（E.0.2-3）\nα=sin\n-1（htc/s）\n（E.0.2-4）\n式中：\nihe\n—轨道超高引起的",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 257,
+          "page_end": 257,
+          "article_id": "31.3.11",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2680,
+          "score": 0.592071533203125,
+          "rrf_score": null,
+          "rerank_score": 0.9521123766899109,
+          "display_ref": "第31.3.11条"
+        },
+        {
+          "text": ".0.2-3）\nα=sin\n-1（htc/s）\n（E.0.2-4）\n式中：\nihe\n—轨道超高引起的缓和曲线内侧限界加宽量（mm）；\no\nhe\n—轨道超高引起的缓和曲线外侧限界加宽量（mm）；\nX1 —计算曲线内侧限界加宽的设备限界控制点的横坐标值（mm）；\nY1 —计算曲线内侧限界加宽的设备限界控制点的纵坐标值（mm）；\nX2 —计算曲线外侧限界加宽的设备限界控制点的横坐标值（mm）；\nY2 —计算曲线外侧限界加宽的设备限界控制点的纵坐标值（mm）；\nhac —圆曲线段轨道超高值；\nhtc\n—缓和曲线上计算点处的超高值（mm）。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 257,
+          "page_end": 257,
+          "article_id": "31.3.11",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2681,
+          "score": 0.0,
+          "rrf_score": null,
+          "rerank_score": 0.9207007884979248,
+          "display_ref": "第31.3.11条"
+        }
+      ],
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      }
+    }
+  ]
+}

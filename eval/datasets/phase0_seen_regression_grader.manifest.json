@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "dataset_id": "phase0_seen_regression_grader",
+  "version": "1.0-question-bounded-sufficiency",
+  "role": "development",
+  "status": "draft",
+  "data_file": "phase0_seen_regression_grader.jsonl",
+  "sha256": "47c1534397394f891929b2fc1589993ba12a6cde2d119baa78fb501e470f1913",
+  "count": 2,
+  "type_distribution": {
+    "numeric_candidate": 1,
+    "partial_support_unanswerable": 1
+  },
+  "source_pdf_sha256": "e5ca2388ad68ed7b21b6092e66c12a73c74c17de8b532bef91c5b2ea57be78f7",
+  "frozen_at": null,
+  "used_for_tuning": true,
+  "acceptance_criteria": null,
+  "notes": "Known phase 0 cases derived from frozen IND-002 and IND-006 after results were inspected. This pair checks that complete applicable evidence is accepted without invented metrics while explicit unsupported project values still cause refusal. It is seen regression data and must never be reported as independent validation."
+}
