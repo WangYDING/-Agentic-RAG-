@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "dataset_id": "phase0_seen_regression_ind012",
+  "version": "1.0-superscript-fix",
+  "role": "development",
+  "status": "draft",
+  "data_file": "phase0_seen_regression_ind012.jsonl",
+  "sha256": "2ad259e9fdf9c2633aa34557c8883461247046b67c164711fb54a4b33a18f785",
+  "count": 1,
+  "type_distribution": {
+    "numeric_candidate": 1
+  },
+  "source_pdf_sha256": "e5ca2388ad68ed7b21b6092e66c12a73c74c17de8b532bef91c5b2ea57be78f7",
+  "frozen_at": null,
+  "used_for_tuning": true,
+  "acceptance_criteria": null,
+  "notes": "Known phase 0 case derived from frozen IND-012 after its result was inspected. The question is unchanged; the flattened 108Ω annotation was corrected to 10^8Ω after visual PDF verification. This dataset is for seen regression only and must never be reported as independent validation."
+}
