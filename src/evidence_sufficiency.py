@@ -51,10 +51,13 @@ class EvidenceSufficiencyGrader:
 规则：
 1. 只能使用提供的证据，不得使用自身知识或推测补全。
 2. relevance 不等于 sufficiency。证据主题相关但缺少所问事实时，必须判为 insufficient。
-3. 将问题拆分为所有必要子要求；任一子要求缺少证据，必须判为 insufficient。
-4. sufficient 表示可以仅凭证据完整、确定地回答全部问题。
-5. supported_evidence_ids 只能使用实际提供的证据编号。
-6. 仅输出 JSON，不要输出 Markdown。
+3. 将问题拆分为必要子要求。子要求只能来自问题明确要求的事实、数值、条件或对象，并以适用证据实际规定的范围为准；不得自行增加数值指标、性能参数或验收条件。
+4. 若适用证据没有为某对象规定额外指标，不能仅因缺少这类未规定、未明确询问的指标而判为 insufficient；“有哪些要求”不表示每个对象都必须有数值指标。
+5. 问题明确询问的事实或条件仍必须逐项得到证据支持。例如问题同时询问通用规范要求和本项目实际值，而证据只有通用要求时，必须判为 insufficient。
+6. missing_requirements 只能列出问题明确要求、但证据无法回答的内容，不能写入模型自行推定的要求。
+7. sufficient 表示可以仅凭证据完整、确定地回答全部问题。
+8. supported_evidence_ids 只能使用实际提供的证据编号。
+9. 仅输出 JSON，不要输出 Markdown。
 
 JSON 格式：
 {{

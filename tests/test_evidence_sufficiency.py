@@ -50,6 +50,70 @@ class EvidenceSufficiencyGraderTest(unittest.TestCase):
         self.assertEqual(completions.calls[0]["response_format"], {"type": "json_object"})
         self.assertEqual(completions.calls[0]["temperature"], 0)
 
+    def test_complete_applicable_clause_does_not_require_invented_metrics(self):
+        evidence = Evidence(
+            "E1",
+            (
+                "5.6.9 司机室前端应装设可远近光变换的前照灯。"
+                "前照灯在车辆前端紧急制停距离处照度不应小于2 lx。"
+                "列车尾端应设有红色防护灯。"
+                "车辆侧壁可设置显示车门开闭、制动缸缓解等指示灯。"
+            ),
+            "spec.pdf",
+            39,
+            39,
+            569,
+            article_id="5.6.9",
+        )
+        completions = FakeCompletions({
+            "decision": "sufficient",
+            "supported_evidence_ids": ["E1"],
+            "missing_requirements": [],
+            "reason": "适用条文已给出三类装置的全部配置与性能规定。",
+        })
+        client = SimpleNamespace(chat=SimpleNamespace(completions=completions))
+
+        result = EvidenceSufficiencyGrader(client=client, model="test").grade(
+            "司机室前照灯、列车尾灯和车辆侧壁指示灯有哪些配置与性能要求？",
+            [evidence],
+        )
+
+        prompt = completions.calls[0]["messages"][1]["content"]
+        self.assertEqual(result.decision, "sufficient")
+        self.assertIn("不得自行增加数值指标、性能参数或验收条件", prompt)
+        self.assertIn("适用证据没有为某对象规定额外指标", prompt)
+
+    def test_explicit_project_condition_still_requires_support(self):
+        evidence = Evidence(
+            "E1",
+            "6.3.11 设备地段应按安装位置及尺寸检算建筑限界，必要时局部加宽、加高。",
+            "spec.pdf",
+            42,
+            42,
+            6311,
+            article_id="6.3.11",
+        )
+        completions = FakeCompletions({
+            "decision": "insufficient",
+            "supported_evidence_ids": ["E1"],
+            "missing_requirements": ["本项目实际设备尺寸和最终加宽、加高量"],
+            "reason": "证据只有通用原则，没有问题明确询问的项目实际值。",
+        })
+        client = SimpleNamespace(chat=SimpleNamespace(completions=completions))
+
+        result = EvidenceSufficiencyGrader(client=client, model="test").grade(
+            "设备安装时如何检算限界，本项目实际尺寸和最终加宽、加高量是多少？",
+            [evidence],
+        )
+
+        prompt = completions.calls[0]["messages"][1]["content"]
+        self.assertEqual(result.decision, "insufficient")
+        self.assertEqual(
+            result.missing_requirements,
+            ["本项目实际设备尺寸和最终加宽、加高量"],
+        )
+        self.assertIn("问题明确要求的事实、数值、条件或对象", prompt)
+
     def test_rejects_unknown_evidence_id(self):
         content = json.dumps({
             "decision": "sufficient",
