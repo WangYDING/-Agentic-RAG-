@@ -1,6 +1,7 @@
 from dataclasses import dataclass, field
 import inspect
 import logging
+import re
 from contextvars import ContextVar
 from typing import Any
 from uuid import uuid4
@@ -134,6 +135,13 @@ class AgentWorkflow:
         if decision.decision == "sufficient":
             return self._answer(state, budget)
 
+        supported_ids = set(getattr(decision, "supported_evidence_ids", []))
+        protected_identities = {
+            (evidence.source, evidence.chunk_id)
+            for evidence in state.evidences
+            if evidence.evidence_id in supported_ids
+        }
+
         state.final_action = "retry"
         state.trace.append({"step": "retry", "retry_count": 1, "missing_requirements": decision.missing_requirements})
         state.retry_count = 1
@@ -146,6 +154,8 @@ class AgentWorkflow:
             prior_results=initial_results,
             score_cache=score_cache,
             budget=budget,
+            coverage_requirements=decision.missing_requirements,
+            protected_identities=protected_identities,
         )
         if second_decision.decision == "sufficient":
             return self._answer(state, budget)
@@ -158,6 +168,8 @@ class AgentWorkflow:
         prior_results: list[dict],
         score_cache: dict[tuple, float],
         budget: CallBudget,
+        coverage_requirements: list[str] | None = None,
+        protected_identities: set[tuple] | None = None,
     ):
         state.trace.append({"step": "retrieve", "query": retrieval_query, "retry_count": state.retry_count})
         with self._stage("retrieval"):
@@ -183,15 +195,32 @@ class AgentWorkflow:
                     )
                     retrieved = self._merge_results(retrieved, expanded)
             candidates = self._merge_results(prior_results, retrieved)
-            reranked = self._rerank_with_cache(
-                state.original_query,
-                candidates,
-                top_n=self.evidence_top_n,
-                score_cache=score_cache,
-            )
-            reranked = self._preserve_focused_evidence(
-                reranked, focused, top_n=self.evidence_top_n
-            )
+            if coverage_requirements:
+                protected = [
+                    candidate
+                    for candidate in candidates
+                    if (candidate.get("source"), candidate.get("chunk_id"))
+                    in (protected_identities or set())
+                ]
+                reranked = self._select_requirement_coverage(
+                    state.original_query,
+                    candidates,
+                    coverage_requirements,
+                    top_n=self.evidence_top_n,
+                    score_cache=score_cache,
+                    preferred=focused,
+                    protected=protected,
+                )
+            else:
+                reranked = self._rerank_with_cache(
+                    state.original_query,
+                    candidates,
+                    top_n=self.evidence_top_n,
+                    score_cache=score_cache,
+                )
+                reranked = self._preserve_focused_evidence(
+                    reranked, focused, top_n=self.evidence_top_n
+                )
         evidences = build_evidence_list(reranked)
         with self._stage("grader"):
             decision = self._call_with_budget(
@@ -259,6 +288,155 @@ class AgentWorkflow:
             candidate.get("source"),
             candidate.get("chunk_id"),
             candidate.get("text"),
+        )
+
+    def _select_requirement_coverage(
+        self,
+        original_query: str,
+        candidates: list[dict],
+        requirements: list[str],
+        *,
+        top_n: int,
+        score_cache: dict[tuple, float],
+        preferred: list[dict] | None = None,
+        protected: list[dict] | None = None,
+    ) -> list[dict]:
+        if top_n <= 0 or not candidates:
+            return []
+
+        original_ranked = self._rerank_with_cache(
+            original_query,
+            candidates,
+            top_n=len(candidates),
+            score_cache=score_cache,
+        )
+        coverage_queries = self._coverage_queries(requirements)
+        protected_limit = min(
+            1,
+            max(0, top_n - min(len(coverage_queries), top_n)),
+        )
+        protected_unique = []
+        protected_identities = set()
+        for candidate in protected or []:
+            identity = self._evidence_content_identity(candidate)
+            if (
+                identity not in protected_identities
+                and len(protected_unique) < protected_limit
+            ):
+                protected_identities.add(identity)
+                protected_unique.append(candidate)
+
+        coverage = []
+        coverage_identities = set(protected_identities)
+        requirement_rankings = [
+            self._rerank_with_cache(
+                requirement,
+                candidates,
+                top_n=len(candidates),
+                score_cache=score_cache,
+            )
+            for requirement in coverage_queries
+        ]
+
+        if len(requirement_rankings) > 1:
+            rank_positions = []
+            for ranked in requirement_rankings:
+                rank_positions.append({
+                    self._evidence_content_identity(candidate): index
+                    for index, candidate in enumerate(ranked)
+                })
+            consensus = min(
+                original_ranked,
+                key=lambda candidate: (
+                    max(
+                        positions.get(
+                            self._evidence_content_identity(candidate),
+                            len(candidates),
+                        )
+                        for positions in rank_positions
+                    ),
+                    sum(
+                        positions.get(
+                            self._evidence_content_identity(candidate),
+                            len(candidates),
+                        )
+                        for positions in rank_positions
+                    ),
+                ),
+            )
+            consensus_identity = self._evidence_content_identity(consensus)
+            if consensus_identity not in coverage_identities:
+                coverage_identities.add(consensus_identity)
+                coverage.append(consensus)
+
+        for ranked in requirement_rankings:
+            if len(protected_unique) + len(coverage) >= top_n or not ranked:
+                break
+            best = ranked[0]
+            identity = self._evidence_content_identity(best)
+            if identity not in coverage_identities:
+                coverage_identities.add(identity)
+                coverage.append(best)
+
+        expanded_coverage = self._expand_focused_neighbors(coverage)
+        for candidate in expanded_coverage:
+            if len(protected_unique) + len(coverage) >= top_n:
+                break
+            identity = self._evidence_content_identity(candidate)
+            if identity not in coverage_identities:
+                coverage_identities.add(identity)
+                coverage.append(candidate)
+
+        for candidate in preferred or []:
+            if len(protected_unique) + len(coverage) >= top_n:
+                break
+            identity = self._evidence_content_identity(candidate)
+            if identity not in coverage_identities:
+                coverage_identities.add(identity)
+                coverage.append(candidate)
+
+        remaining = []
+        seen = set(coverage_identities)
+        for candidate in original_ranked:
+            identity = self._evidence_content_identity(candidate)
+            if identity in seen:
+                continue
+            seen.add(identity)
+            remaining.append(candidate)
+
+        supplemental = coverage
+        remaining_slots = max(
+            0,
+            top_n - len(protected_unique) - len(supplemental),
+        )
+        return [
+            *protected_unique,
+            *remaining[:remaining_slots],
+            *supplemental,
+        ]
+
+    @staticmethod
+    def _coverage_queries(requirements: list[str]) -> list[str]:
+        queries = []
+        seen = set()
+        for requirement in requirements:
+            parts = [
+                part.strip(" ：:")
+                for part in re.split(r"[；;、]", requirement)
+                if part.strip(" ：:")
+            ]
+            for part in parts or [requirement.strip()]:
+                if part and part not in seen:
+                    seen.add(part)
+                    queries.append(part)
+        return queries
+
+    @staticmethod
+    def _evidence_content_identity(candidate: dict) -> tuple:
+        normalized_text = " ".join(str(candidate.get("text", "")).split())
+        return (
+            candidate.get("source"),
+            normalized_text,
         )
 
     def _build_retry_query(

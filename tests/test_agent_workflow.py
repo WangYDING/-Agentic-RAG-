@@ -84,8 +84,14 @@ class FakeGrader:
         if budget is not None:
             budget.consume()
         self.calls.append((query, list(evidences)))
-        decision, missing = self.decisions.pop(0)
-        return SimpleNamespace(decision=decision, missing_requirements=missing)
+        item = self.decisions.pop(0)
+        decision, missing = item[:2]
+        supported = item[2] if len(item) > 2 else []
+        return SimpleNamespace(
+            decision=decision,
+            missing_requirements=missing,
+            supported_evidence_ids=supported,
+        )
 
 
 class FakeGenerator:
@@ -195,6 +201,149 @@ class AgentWorkflowTest(unittest.TestCase):
         second_grade_evidence = self.grader.calls[1][1]
         self.assertEqual([item.chunk_id for item in second_grade_evidence], [0, 13, 10])
 
+    def test_requirement_coverage_keeps_distinct_facets_within_top_three(self):
+        candidates = [
+            result(1, "车门安全联锁要求"),
+            result(2, "前照灯尾灯和侧壁指示灯要求"),
+            result(3, "无关的信号设备接地要求"),
+            result(4, "车门安全联锁要求"),
+        ]
+        scores = {
+            ("完整问题", "车门安全联锁要求"): 0.98,
+            ("完整问题", "前照灯尾灯和侧壁指示灯要求"): 0.70,
+            ("完整问题", "无关的信号设备接地要求"): 0.99,
+            ("缺少车门联锁", "车门安全联锁要求"): 0.99,
+            ("缺少车门联锁", "前照灯尾灯和侧壁指示灯要求"): 0.10,
+            ("缺少车门联锁", "无关的信号设备接地要求"): 0.05,
+            ("缺少车灯要求", "前照灯尾灯和侧壁指示灯要求"): 0.99,
+            ("缺少车灯要求", "车门安全联锁要求"): 0.10,
+            ("缺少车灯要求", "无关的信号设备接地要求"): 0.05,
+        }
+        workflow = AgentWorkflow(
+            FakeRetriever(),
+            ScoringReranker(scores),
+            FakeGrader([]),
+            FakeGenerator(),
+        )
+
+        selected = workflow._select_requirement_coverage(
+            "完整问题",
+            candidates,
+            ["缺少车门联锁、缺少车灯要求"],
+            top_n=3,
+            score_cache={},
+        )
+
+        self.assertEqual(selected[0]["chunk_id"], 3)
+        self.assertEqual({item["chunk_id"] for item in selected[1:]}, {1, 2})
+
+    def test_requirement_coverage_deduplicates_identical_evidence(self):
+        candidates = [
+            result(1, "同一条文内容"),
+            result(2, "同一条文内容"),
+            result(3, "另一必要条文"),
+            result(4, "无关候选"),
+        ]
+        scores = {
+            ("完整问题", "同一条文内容"): 0.99,
+            ("完整问题", "另一必要条文"): 0.60,
+            ("完整问题", "无关候选"): 0.80,
+            ("要求一", "同一条文内容"): 0.99,
+            ("要求一", "另一必要条文"): 0.10,
+            ("要求一", "无关候选"): 0.05,
+            ("要求二", "另一必要条文"): 0.99,
+            ("要求二", "同一条文内容"): 0.10,
+            ("要求二", "无关候选"): 0.05,
+        }
+        workflow = AgentWorkflow(
+            FakeRetriever(),
+            ScoringReranker(scores),
+            FakeGrader([]),
+            FakeGenerator(),
+        )
+
+        selected = workflow._select_requirement_coverage(
+            "完整问题",
+            candidates,
+            ["要求一", "要求二"],
+            top_n=3,
+            score_cache={},
+        )
+
+        self.assertEqual(selected[0]["chunk_id"], 4)
+        self.assertEqual({item["chunk_id"] for item in selected[1:]}, {1, 3})
+
+    def test_requirement_coverage_cannot_create_missing_evidence(self):
+        candidates = [result(1, "只有通用规范要求"), result(2, "无关候选")]
+        workflow = AgentWorkflow(
+            FakeRetriever(),
+            ScoringReranker(),
+            FakeGrader([]),
+            FakeGenerator(),
+        )
+
+        selected = workflow._select_requirement_coverage(
+            "规范要求和本项目实际值是什么？",
+            candidates,
+            ["本项目实际值"],
+            top_n=3,
+            score_cache={},
+        )
+
+        self.assertEqual(
+            {item["chunk_id"] for item in selected},
+            {1, 2},
+        )
+        self.assertTrue(
+            all(item["text"] in {candidate["text"] for candidate in candidates} for item in selected)
+        )
+
+    def test_retry_protects_previously_supported_evidence(self):
+        workflow = self.build(
+            [
+                ("insufficient", ["missing facet"], ["E1"]),
+                ("sufficient", [], ["E1", "E3"]),
+            ]
+        )
+
+        class FocusAwareReranker(FakeReranker):
+            def rerank(self, query, results, top_n):
+                self.calls.append((query, list(results), top_n))
+                if query == "missing facet":
+                    return list(reversed(results))[:top_n]
+                return results[:top_n]
+
+        self.reranker = FocusAwareReranker()
+        workflow.reranker = self.reranker
+
+        response = workflow.run("question")
+
+        self.assertEqual(response.result_type, "answer")
+        second_grade_evidence = self.grader.calls[1][1]
+        self.assertIn(0, [item.chunk_id for item in second_grade_evidence])
+        self.assertIn(12, [item.chunk_id for item in second_grade_evidence])
+
+    def test_protected_and_coverage_evidence_never_exceed_top_n(self):
+        candidates = [result(index) for index in range(6)]
+        workflow = AgentWorkflow(
+            FakeRetriever(),
+            ScoringReranker(),
+            FakeGrader([]),
+            FakeGenerator(),
+        )
+
+        selected = workflow._select_requirement_coverage(
+            "完整问题",
+            candidates,
+            ["要求一", "要求二"],
+            top_n=3,
+            score_cache={},
+            preferred=candidates[3:5],
+            protected=candidates[:1],
+        )
+
+        self.assertEqual(len(selected), 3)
+
     def test_two_insufficient_grades_refuse_without_generator(self):
         response = self.build([("insufficient", ["cost"]), ("insufficient", ["project cost"])]).run("question")
 
@@ -279,9 +428,11 @@ class AgentWorkflowTest(unittest.TestCase):
                 ("question", [0, 1, 2]),
                 ("detail", [1, 2, 3]),
                 ("question", [3]),
+                ("detail", [0]),
                 ("question", [0, 1, 2]),
                 ("detail", [1, 2, 3]),
                 ("question", [3]),
+                ("detail", [0]),
             ],
         )
 
