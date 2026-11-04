@@ -18,7 +18,7 @@ from src.observability import log_event, metrics
 
 INDEX_SCHEMA_VERSION = 3
 ACTIVE_SCHEMA_VERSION = 1
-PARSER_VERSION = "pymupdf-structured-v1"
+PARSER_VERSION = "pymupdf-structured-v2-superscript"
 EMPTY_DOCUMENT_MESSAGE = "当前文档未提取到可用文本，可能是扫描版 PDF。"
 logger = logging.getLogger(__name__)
 

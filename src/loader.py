@@ -8,6 +8,11 @@ from src.document_schema import DocumentMetadata, Page, PageMetadata, Table, Tab
 
 HEADER_FOOTER_MIN_REPEAT_RATIO = 0.35
 WATERMARK_MIN_REPEAT_RATIO = 0.35
+SUPERSCRIPT_FLAG = 1
+SUPERSCRIPT_TRANSLATION = str.maketrans(
+    "0123456789+-=()",
+    "⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾",
+)
 
 
 def load_pdf_pages(file_path: str) -> tuple[DocumentMetadata, list[Page]]:
@@ -20,7 +25,7 @@ def load_pdf_pages(file_path: str) -> tuple[DocumentMetadata, list[Page]]:
     doc = fitz.open(file_path)
     try:
         for page in doc:
-            raw_pages.append(page.get_text("text"))
+            raw_pages.append(extract_page_text(page))
         page_count = doc.page_count
 
         document = DocumentMetadata(
@@ -105,6 +110,33 @@ def extract_page_tables(
 def load_pdf_text(file_path: str) -> str:
     _, pages = load_pdf_pages(file_path)
     return "\n".join(page.text for page in pages if page.text.strip())
+
+
+def extract_page_text(page) -> str:
+    """Preserve numeric superscripts without guessing from ordinary digit sequences."""
+    text = page.get_text("text")
+    structured = page.get_text("dict")
+
+    for block in structured.get("blocks", []):
+        for line in block.get("lines", []):
+            spans = line.get("spans", [])
+            plain_line = "".join(span.get("text", "") for span in spans)
+            corrected_line = "".join(
+                _preserve_superscript_span(span) for span in spans
+            )
+            if corrected_line != plain_line and plain_line in text:
+                text = text.replace(plain_line, corrected_line, 1)
+
+    return text
+
+
+def _preserve_superscript_span(span: dict) -> str:
+    span_text = span.get("text", "")
+    if not span.get("flags", 0) & SUPERSCRIPT_FLAG:
+        return span_text
+    if not span_text or any(character not in "0123456789+-=()" for character in span_text):
+        return span_text
+    return span_text.translate(SUPERSCRIPT_TRANSLATION)
 
 
 def detect_repeated_page_noise(page_texts: list[str]) -> set[str]:
