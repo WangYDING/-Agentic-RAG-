@@ -26,6 +26,7 @@
       "local_pdf_path": "data/raw/城市轨道交通工程设计标准.pdf",
       "pdf_sha256": "e5ca2388ad68ed7b21b6092e66c12a73c74c17de8b532bef91c5b2ea57be78f7",
       "verification_status": "official_source_and_local_pdf_verified",
+      "ingestion_readiness": "ready",
       "verified_at": "2026-11-05",
       "verification_notes": "官方标准页面、标准首页、实施通知、本地 PDF 哈希和阶段 0 内容均已核验。"
     },
@@ -37,18 +38,19 @@
       "authority": "中华人民共和国住房和城乡建设部、国家市场监督管理总局",
       "jurisdiction": "中国",
       "source_page_url": "https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2024/art_17339_767715.html",
-      "source_pdf_url": null,
+      "source_pdf_url": "https://www.mohurd.gov.cn/cms_files/filemanager/1150240553/attach/202411/be640ef3-6e0a-4935-b7e2-bac5a14422bc.pdf?fileName=%E5%9F%8E%E5%B8%82%E8%BD%A8%E9%81%93%E4%BA%A4%E9%80%9A%E5%B7%A5%E7%A8%8B%E9%A1%B9%E7%9B%AE%E8%A7%84%E8%8C%83",
       "release_date": "2022-07-15",
       "effective_from": "2023-03-01",
       "effective_to": null,
       "effective_status": "effective_mandatory",
       "supersedes": ["GB 50490-2009"],
       "applicability_note": "强制性工程建设规范，全部条文必须严格执行；现行工程建设标准与其不一致时以本规范为准。具体项目适用性仍需核验。",
-      "local_pdf_path": null,
-      "pdf_sha256": null,
-      "verification_status": "official_announcement_verified_pdf_pending",
+      "local_pdf_path": "data/raw/GB55033-2022_城市轨道交通工程项目规范.pdf",
+      "pdf_sha256": "907ffd92c569f79f163121904cccce69bc20905f9563854960bd184ca76f6fef",
+      "verification_status": "official_source_and_local_pdf_verified",
+      "ingestion_readiness": "ocr_required",
       "verified_at": "2026-11-05",
-      "verification_notes": "住建部公告及公开附件入口已核验；本地 PDF 尚未成功取得和计算哈希，因此不得进入可检索状态。"
+      "verification_notes": "住建部公告、官方附件、42 页文件身份和 SHA-256 已核验。附件正文为浏览专用图像层，常规文本抽取只有水印；进入索引前必须建立并核验 OCR 派生产物。"
     },
     {
       "spec_id": "cn.gb50157",
@@ -58,18 +60,19 @@
       "authority": "中华人民共和国住房和城乡建设部、原国家质量监督检验检疫总局",
       "jurisdiction": "中国",
       "source_page_url": "https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2015/art_17339_224416.html",
-      "source_pdf_url": null,
+      "source_pdf_url": "https://www.mohurd.gov.cn/cms_files/filemanager/mohurdold/file/old/2013/20130820/GB50157-2013%20%E5%9C%B0%E9%93%81%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83.pdf?fileName=%E5%9C%B0%E9%93%81%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83",
       "release_date": "2013-08-08",
       "effective_from": "2014-03-01",
       "effective_to": null,
       "effective_status": "effective_with_supersession_constraints",
       "supersedes": ["GB 50157-2003"],
       "applicability_note": "GB 55033-2022 实施后，本规范一批强制性条文被废止，且与 GB 55033-2022 不一致的规定应以 GB 55033-2022 为准。目录不把本规范简单标为整体废止；具体条文适用性需逐条核验。",
-      "local_pdf_path": null,
-      "pdf_sha256": null,
-      "verification_status": "official_announcement_verified_pdf_pending",
+      "local_pdf_path": "data/raw/GB50157-2013_地铁设计规范.pdf",
+      "pdf_sha256": "a1130f89afba11f00fdb3353375aa1c424b4eb44d462ee6bd1de2835c235dab3",
+      "verification_status": "official_source_and_local_pdf_verified",
+      "ingestion_readiness": "ocr_required",
       "verified_at": "2026-11-05",
-      "verification_notes": "住建部发布公告与 GB 55033-2022 的废止条文公告已核验；本地 PDF 尚未成功取得和计算哈希，因此不得进入可检索状态。"
+      "verification_notes": "住建部发布公告、官方附件、337 页文件身份和 SHA-256，以及 GB 55033-2022 公告列出的被废止强制性条文已核验。附件正文为扫描图像，进入索引前必须建立并核验 OCR 派生产物。"
     }
   ]
 }
