@@ -1,0 +1,1273 @@
+{
+  "report_schema_version": 2,
+  "provenance": {
+    "schema_version": 1,
+    "captured_at": "2026-11-04T15:48:18.113017+00:00",
+    "git_commit": "3b651f058cea1c58eb746b06c245282927c68860",
+    "git_dirty": true,
+    "uv_lock_sha256": "4093b9a78526c47bf7d4b46457c2c7106cb0338ac31a2fac917a93f28b302a4e",
+    "dataset_sha256": "962703e593483f1f3d362158d09a9f89e7ad0f821d32a36096552f0a0f5081d0",
+    "pdf_sha256": "e5ca2388ad68ed7b21b6092e66c12a73c74c17de8b532bef91c5b2ea57be78f7",
+    "configuration": {
+      "embedding_model": "BAAI/bge-small-zh-v1.5",
+      "embedding_revision": null,
+      "reranker_model": "BAAI/bge-reranker-base",
+      "generation_model": "deepseek-flash",
+      "retrieval_top_k": 10,
+      "evidence_top_n": 3,
+      "request_timeout_seconds": 30.0,
+      "max_network_retries": 1,
+      "total_timeout_seconds": 90.0,
+      "max_model_calls": 6,
+      "input_cost_per_million": null,
+      "output_cost_per_million": null,
+      "index_auto_build": false,
+      "index_lock_timeout_seconds": 30.0,
+      "api_endpoint_sha256": "ede47230ac9ca7d26f3cfe67de26982cce152929ba545e7ebcbcb7c00211178b"
+    },
+    "configuration_sha256": "25e10b218f11d5c033d2fa58d1c469ad690b7d737b2f9b2e2580d53d5c83b0d1",
+    "index_manifest": {
+      "schema_version": 3,
+      "source": "城市轨道交通工程设计标准.pdf",
+      "document_id": "e32b2a73134e8548ffbd374f14a52b27aaee9c2d7d2e482b802e756fb0c5fca2",
+      "version_id": "a1445f985213104ec683f9cc26146f5aa40f5766384ea527ae64e19bc903f5b9",
+      "checksum_sha256": "e5ca2388ad68ed7b21b6092e66c12a73c74c17de8b532bef91c5b2ea57be78f7",
+      "chunk_size": 300,
+      "overlap": 50,
+      "embedding_model": "BAAI/bge-small-zh-v1.5",
+      "embedding_revision": null,
+      "parser_version": "pymupdf-structured-v2-superscript",
+      "embedding_dim": 512,
+      "chunk_count": 3701,
+      "index_file": "index.faiss",
+      "metadata_file": "metadata.json",
+      "index_sha256": "6e70f528c811828feab5f4ffb17a6e906237525a7542535b9d446d6203f25ee9",
+      "metadata_sha256": "7bdcba78567d26417a096271f095b999b7500ecc8566abe997ea7505e94c8c29"
+    },
+    "prompt_source_sha256": {
+      "src/generator.py": "9502e4f333d6ba3fc66d1ad66edb8e210b82f840ae5deeb7d3ca778f93252b38",
+      "src/evidence_sufficiency.py": "1197142dbd9e59170a868bbf841cd1a066ce5be5cf7e661cf802ea89e027a7ce",
+      "src/query_rewriter.py": "d9c0ff24cd09d733604a793f699653a46cfd10d8fd9625efec640e3fdd95de16"
+    },
+    "runtime_source_sha256": {
+      "src/agent_workflow.py": "0a949c78454550a150ca0ba4d290fa33c04ae0e6efe056de19d56db9c041cd54",
+      "src/application.py": "7601747eac16f4bc73c2c8361e93a362670d149dabf7aee3477a201ea7d26ba0",
+      "src/bm25_retriever.py": "9292b0b700454a98c6c7eff92c4c6b39137fa8269af12c82590cd1ef8495ab82",
+      "src/chat_memory.py": "e7eb6507d2d853c5ecfc7f31583515f201824e796e6b17badc4104c9ba28e490",
+      "src/config.py": "18798879a21a8457d6d29ce60b484b944598617cd3d8fd816b0af5396fc7cd7f",
+      "src/document_schema.py": "32c001b8ca80a01add7ba60d0d6160e50af10aaddb03c2dc02d85a023a5d075c",
+      "src/embedder.py": "155055fbabd7371f6a9b78d61daf20ad818ac4ce4dbd03ca58314a9bb50d2376",
+      "src/evidence.py": "9b2d8a3fd32e4237440380b4a47c87d82f611059ab98332376c12d5b8532bbac",
+      "src/evidence_sufficiency.py": "1197142dbd9e59170a868bbf841cd1a066ce5be5cf7e661cf802ea89e027a7ce",
+      "src/generator.py": "9502e4f333d6ba3fc66d1ad66edb8e210b82f840ae5deeb7d3ca778f93252b38",
+      "src/health_cli.py": "ad7dd5f8e19a667cb94a9de3ec1482ebebb3057b7b1afd1137358e7f641fde15",
+      "src/hybrid_retriever.py": "faddf7f42e8aa4ec82790a3fcfae927ef2930dd6a123cc4413b8e051d83454d8",
+      "src/index_cli.py": "840aae7f2124c3acb90bd2e88e528370e0adb6c9a5432599e5951e3e148d94fd",
+      "src/index_manager.py": "3c44831f5855630efd001916d0d6e51d8c3f38db6fe77b6fdaef351fa5e91cc8",
+      "src/loader.py": "c9a30f943394643f1a45588a379dcb8c4f2e3ee4f706310af888bc52d22942ed",
+      "src/model_cli.py": "9e7081084a1f207fd3479f07e5292cd29058b88df35ad7b86dbdeb6561f50cd7",
+      "src/observability.py": "41278de595cccfd1d62c7fe092341cf7c2834decd67401d88d22e7c9e5f8f8e1",
+      "src/presentation.py": "cc32314d7e80ee142f3e0cdca42d5c8a76a622d047212a9593bc293d134348ec",
+      "src/query_rewriter.py": "d9c0ff24cd09d733604a793f699653a46cfd10d8fd9625efec640e3fdd95de16",
+      "src/rag_service.py": "0ab79be8821ca04050c17fdd58be1a3578ac6b015899ef95cc27c6fe39826c7f",
+      "src/reliability.py": "ceaeac5642249356c82ebd6e49f0249a26927e859683d5a1155dae8728c7a2f7",
+      "src/reranker.py": "1a43434f779f49fb078115f3b0dddd2d9c6838312d5594aa528c752b23b8ae78",
+      "src/results.py": "dfdac9b35ad394857412f6f25d42dc8ac8e6b18eec1a09b6d8929497b7c6d13f",
+      "src/retrieval_fusion.py": "038d4db65d43e029c3a6c79e013eb65b519eca8ec3ca9e8cba0cac0b0e51e28a",
+      "src/retriever.py": "4f8a420a1e282e94b1571ad53a81b6987c7eedc0f6f970db1370bdbebcdce760",
+      "src/splitter.py": "791c4d27e62f6eec2939e482b5ab2ef077c18df1cf6df9b4afd8f9db8e42c7e0",
+      "src/vector_store.py": "a998526d75d1b3f683a78124cd6b8d3dbc6b9b67279bc0112e50c59068a1c0a9",
+      "src/web_launcher.py": "4895316604e7f70acbe5aab8be31dcd0fbf876c87b05a382288208b654b738c3",
+      "eval/__init__.py": "adf57529570e1ef094cdb288f04b68682b71bb47920a61069cf3aaa60404fd19",
+      "eval/build_sufficiency_dataset.py": "5c01f16c63bf7d541e87155f227bfe42dd3a6167fb4f33284ffbbd776f0bdfe0",
+      "eval/curate_candidates.py": "5da7af6aa84dd7ad9ae20782e4554396137c78943d37de0a5146bc16b3b66b12",
+      "eval/dataset_manifest.py": "96fd489a3746e44a20ec1f3fb7f3a0e12bbd41810d2587a794d90e8c1ed9af74",
+      "eval/finalize_candidate_review.py": "7008018647c888bbccb8c3abcc70939f29b1e2b84d516491fc108cab7f47b241",
+      "eval/metrics.py": "d5e509c06c32ed31d01c859df1dab8604fa1480382e1a3d770bed37b3f3bb0dd",
+      "eval/provenance.py": "719f40e976c39fe1ae2d595428b9ca6e264e5d99e3bdb67b4bb00fdfad84afb3",
+      "eval/report.py": "3b0071bb967d2e21c2ed2e07a05ade582874b4478dd93bb0f739db25476943be",
+      "eval/review.py": "ff50e2c9a5d4b6d9a8ce60bba640235a84834c0ad764881cb2db2ac82127c8ea",
+      "eval/run_agent_test.py": "cc5002e0e28a39c05aadcf9bc6fcb3226de92847c09ac8ddc717a9527357edef",
+      "eval/run_retrieval.py": "b83dcfe19a3f1a65b88b2db6a3225afcccc216d6aa8da78735dc1d24533bbb9c",
+      "eval/run_score_diagnostic.py": "46ddf49d30112bbbffa524a64f2b431647711fe75b94261dbb8282fcb3c6e36d",
+      "eval/run_sufficiency.py": "0d39cf4073f2ed6f51d797c4a0231031f036cb6e8a01588bea7c97363695bd33",
+      "eval/schema.py": "7cb95d69ef3432058b6a0adeebd9f4e93313588434cb5f9d8fa37cb893676e1d"
+    },
+    "prompt_hash_scope": "whole source files; changes outside prompts also invalidate hashes",
+    "model_revisions": {
+      "embedding": null,
+      "reranker": null,
+      "generation": null
+    },
+    "environment": {
+      "python": "3.12.16",
+      "platform": "Windows-10-10.0.19044-SP0",
+      "packages": {
+        "numpy": "2.5.4",
+        "scipy": "1.18.1",
+        "scikit-learn": "1.9.1",
+        "faiss-cpu": "1.15.1",
+        "openai": "1.109.1",
+        "pymupdf": "1.28.2",
+        "sentence-transformers": "5.7.0"
+      }
+    },
+    "release_dependencies": {
+      "real_deployment_latency_baseline": "pending",
+      "real_model_usage_cost_baseline": "pending"
+    },
+    "dataset_manifest": {
+      "schema_version": 1,
+      "dataset_id": "phase0_seen_regression_evidence_selection",
+      "version": "1.0-requirement-coverage-top3",
+      "role": "development",
+      "status": "draft",
+      "data_file": "phase0_seen_regression_evidence_selection.jsonl",
+      "sha256": "962703e593483f1f3d362158d09a9f89e7ad0f821d32a36096552f0a0f5081d0",
+      "count": 4,
+      "type_distribution": {
+        "multi_evidence_candidate": 2,
+        "multi_evidence": 1,
+        "partial_support_unanswerable": 1
+      },
+      "source_pdf_sha256": "e5ca2388ad68ed7b21b6092e66c12a73c74c17de8b532bef91c5b2ea57be78f7",
+      "frozen_at": null,
+      "used_for_tuning": true,
+      "acceptance_criteria": null,
+      "notes": "Seen regression set for requirement-aware evidence selection. IND-001 and IND-003 reproduce phase 0 Top10-to-Top3 loss; MULTI-002 protects an existing multi-evidence success; IND-006 protects partial-support refusal. This is not independent validation."
+    },
+    "index_version_id": "a1445f985213104ec683f9cc26146f5aa40f5766384ea527ae64e19bc903f5b9",
+    "runtime_workflow": {
+      "retrieval_top_k": 10,
+      "evidence_top_n": 3,
+      "max_model_calls": 6,
+      "total_timeout_seconds": 90.0,
+      "max_retries": 1
+    },
+    "retrieval_constants": {
+      "rrf_k": 60,
+      "bounded_retrieval_retries": 1
+    }
+  },
+  "evidence_top_n": 3,
+  "dataset_path": "eval/datasets/phase0_seen_regression_evidence_selection.jsonl",
+  "pdf_path": "data/raw/城市轨道交通工程设计标准.pdf",
+  "index_dir": ".rag_index",
+  "model": "deepseek-flash",
+  "dataset": {
+    "count": 4,
+    "type_distribution": {
+      "multi_evidence_candidate": 2,
+      "multi_evidence": 1,
+      "partial_support_unanswerable": 1
+    },
+    "answerable": 3,
+    "unanswerable": 1
+  },
+  "category_counts": {
+    "multi_evidence": {
+      "count": 1,
+      "answer": 1,
+      "refuse": 0,
+      "error": 0
+    },
+    "multi_evidence_candidate": {
+      "count": 2,
+      "answer": 1,
+      "refuse": 1,
+      "error": 0
+    },
+    "partial_support_unanswerable": {
+      "count": 1,
+      "answer": 0,
+      "refuse": 1,
+      "error": 0
+    }
+  },
+  "initial_rank_metrics": {
+    "recall@1": 0.3333333333333333,
+    "hitrate@1": 0.6666666666666666,
+    "recall@3": 0.5,
+    "hitrate@3": 1.0,
+    "recall@5": 0.6666666666666666,
+    "hitrate@5": 1.0,
+    "recall@10": 0.8333333333333334,
+    "hitrate@10": 1.0,
+    "mrr@10": 0.7777777777777778,
+    "count": 3
+  },
+  "retrieval_evidence": {
+    "initial_hit_rate_at_n": 1.0,
+    "initial_recall_at_n": 0.5,
+    "initial_recall_at_10": 0.8333333333333334,
+    "final_hit_rate_at_n": 1.0,
+    "final_recall_at_n": 0.8333333333333334,
+    "multi_evidence_complete_at_n": 2,
+    "multi_evidence_count": 3
+  },
+  "agent_decision": {
+    "first_sufficient": 0,
+    "first_insufficient_retry": 4,
+    "retry_sufficient": 2,
+    "retry_still_insufficient": 2,
+    "final_answer": 2,
+    "final_error": 0,
+    "final_refuse": 2,
+    "correct_unanswerable_refusal": 1,
+    "false_accept": 0,
+    "false_refusal": 1,
+    "false_accept_rate": 0.0,
+    "false_refusal_rate": 0.3333333333333333
+  },
+  "citation_validation": {
+    "answered": 2,
+    "valid": 2,
+    "invalid_ids": []
+  },
+  "finished_at": "2026-11-04T15:49:54.228177+00:00",
+  "human_review_status": "pending",
+  "release_decision": "blocked_pending_human_review_and_real_deployment_baselines",
+  "cases": [
+    {
+      "id": "IND-001",
+      "measurements": {
+        "wall_time_ms": 11218.000000342727,
+        "stage_timings_ms": {
+          "retrieval": 31.0,
+          "rerank": 4375.0,
+          "grader": 6812.0
+        },
+        "token_usage": {
+          "input": 1510,
+          "output": 904,
+          "total": 2414
+        },
+        "estimated_cost": null,
+        "model_calls": 2,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [
+            0
+          ],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [
+            1
+          ],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 2,
+        "metric_eligible": true
+      },
+      "category": "multi_evidence_candidate",
+      "question": "客室车门安全联锁与车辆前后端照明、信号装置分别有哪些要求？",
+      "expected_answerability": true,
+      "gold_answer": "客室车门系统应有安全联锁，确保运营时车速大于5km/h 时不能开启客室车门、车门未全关闭时不能起动列车。安全联锁功能应符合国家标准《城市轨道交通工程项目规范》GB 55033 及《地铁设计规范》GB 50157 的规定。司机室前端应装设可远近光变换的前照灯。前照灯在车辆前端紧急制停距离处照度不应小于2 lx。列车尾端应设有红色防护灯。车辆侧壁可设置显示车门开闭、制动缸缓解等指示灯。",
+      "required_requirements": [
+        "覆盖客室车门安全联锁、5km/h和车门未全关闭时不能起动",
+        "覆盖安全联锁适用的国家标准",
+        "覆盖前照灯远近光和紧急制停距离处不小于2 lx",
+        "覆盖尾端红色防护灯和侧壁状态指示灯"
+      ],
+      "key_answer_points": [
+        "客室车门安全联锁及适用标准",
+        "前照灯、尾灯和侧壁指示灯要求"
+      ],
+      "numeric_expectations": [
+        {
+          "value": "5",
+          "unit": "km/h",
+          "conditions": [
+            "车速大于该值时不能开启客室车门"
+          ]
+        },
+        {
+          "value": "2",
+          "unit": "lx",
+          "conditions": [
+            "前照灯在紧急制停距离处照度下限"
+          ]
+        }
+      ],
+      "request_id": "9ffa1e64185944499daa949f1e20a954",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 39,
+          "article": "5.6.8",
+          "table": null
+        },
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 39,
+          "article": "5.6.9",
+          "table": null
+        }
+      ],
+      "final_action": "refuse",
+      "retry_count": 1,
+      "rewritten_query": "车辆前后端照明、信号装置分别有哪些要求",
+      "final_answer_or_refusal": "当前规范及已检索证据不足以完整回答该问题。 缺少的信息：车辆前后端照明的要求；车辆前后端信号装置的要求。",
+      "first_grade": {
+        "step": "grade",
+        "decision": "insufficient",
+        "missing_requirements": [
+          "车辆前后端照明、信号装置分别有哪些要求"
+        ],
+        "retry_count": 0
+      },
+      "second_grade": {
+        "step": "grade",
+        "decision": "insufficient",
+        "missing_requirements": [
+          "车辆前后端照明的要求",
+          "车辆前后端信号装置的要求"
+        ],
+        "retry_count": 1
+      },
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "客室车门安全联锁与车辆前后端照明、信号装置分别有哪些要求？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "车辆前后端照明、信号装置分别有哪些要求"
+          ],
+          "retry_count": 0
+        },
+        {
+          "step": "retry",
+          "retry_count": 1,
+          "missing_requirements": [
+            "车辆前后端照明、信号装置分别有哪些要求"
+          ]
+        },
+        {
+          "step": "retrieve",
+          "query": "车辆前后端照明、信号装置分别有哪些要求",
+          "retry_count": 1
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "车辆前后端照明的要求",
+            "车辆前后端信号装置的要求"
+          ],
+          "retry_count": 1
+        },
+        {
+          "step": "refuse",
+          "missing_requirements": [
+            "车辆前后端照明的要求",
+            "车辆前后端信号装置的要求"
+          ]
+        }
+      ],
+      "initial_candidate_count": 16,
+      "retry_candidate_count": 20,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": false
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [
+          0,
+          1
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": true
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": false
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [
+          0,
+          1
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": true
+      },
+      "final_evidence_refs": [
+        {
+          "text": "5.6.8\n客室车门系统应有安全联锁，确保运营时车速大于5km/h 时不能开启客室车门、车门未全关闭时\n不能起动列车。安全联锁功能应符合国家标准《城市轨道交通工程项目规范》GB 55033 及《地铁设计\n规范》GB 50157 的规定。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 39,
+          "page_end": 39,
+          "article_id": "5.6.8",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 387,
+          "score": 0.6881489753723145,
+          "rrf_score": null,
+          "rerank_score": null,
+          "display_ref": "第5.6.8条"
+        },
+        {
+          "text": "况时的需要，应能满足车辆\n在故障情况下的应急照明、外部照明、车载安全设备、广播、通讯、应急通风等工作不低于45min；采\n用电动客室车门的车辆还应满足紧急开闭一次客室侧门的用电需求。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 38,
+          "page_end": 38,
+          "article_id": "5.5.4",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 373,
+          "score": 0.7072722911834717,
+          "rrf_score": null,
+          "rerank_score": 0.9824122786521912,
+          "display_ref": "第5.5.4条"
+        },
+        {
+          "text": "18.9.10\n信号设备的接地系统应符合下列要求：\n1\n信号设备室内应设综合接地箱，高架、地面车站及与隧道以外区间连接的车站信号设备室内宜",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 166,
+          "page_end": 166,
+          "article_id": "18.9.10",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 1745,
+          "score": 0.6653813123703003,
+          "rrf_score": null,
+          "rerank_score": 0.9734511375427246,
+          "display_ref": "第18.9.10条"
+        }
+      ],
+      "citation_validation": null
+    },
+    {
+      "id": "IND-003",
+      "measurements": {
+        "wall_time_ms": 29578.999999910593,
+        "stage_timings_ms": {
+          "retrieval": 16.0,
+          "rerank": 3391.0,
+          "grader": 15000.0,
+          "generation": 11172.0
+        },
+        "token_usage": {
+          "input": 2639,
+          "output": 3933,
+          "total": 6572
+        },
+        "estimated_cost": null,
+        "model_calls": 3,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          false,
+          false,
+          true,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [],
+          [],
+          [
+            0
+          ],
+          [],
+          [
+            1
+          ],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 2,
+        "metric_eligible": true
+      },
+      "category": "multi_evidence_candidate",
+      "question": "全自动运行列车应具备哪些功能，限界坐标系又应如何建立？",
+      "expected_answerability": true,
+      "gold_answer": "列车应适应全自动运行需要，支持实现全自动运行模式（FAM）模式运行功能、唤醒功能、休眠功能、远程控制功能、站台屏蔽门车门对位隔离功能、障碍物检测功能、乘客服务功能等。限界坐标系应为正交于轨道所在平面的直角坐标，应以直线地段通过两钢轨轨顶中心连线的中点引出的水平坐标轴为水平轴，以Y表示；应以通过该中点垂直于水平轴的坐标轴为垂直轴，以Z表示。",
+      "required_requirements": [
+        "覆盖车辆第5.7.1条的全自动运行功能",
+        "覆盖限界坐标系的平面、原点、Y轴和Z轴"
+      ],
+      "key_answer_points": [
+        "列车FAM、唤醒、休眠、远控、对位隔离、障碍物检测、乘客服务等功能",
+        "正交轨道平面的直角坐标，以钢轨轨顶中心连线中点建立Y轴和Z轴"
+      ],
+      "numeric_expectations": [],
+      "request_id": "489898150f164bd0889a91d0039743dd",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 39,
+          "article": "5.7.1",
+          "table": null
+        },
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 40,
+          "article": "6.1.1",
+          "table": null
+        }
+      ],
+      "final_action": "answer",
+      "retry_count": 1,
+      "rewritten_query": "限界坐标系应如何建立",
+      "final_answer_or_refusal": "全自动运行列车应支持FAM运行及唤醒、休眠、远程控制、对位隔离、障碍物检测、乘客服务等功能；限界坐标系应采用正交于轨道所在平面的直角坐标，并以Y为水平轴、Z为垂直轴 [E1][E4]。\n\n1. **列车本体功能**：列车应适应全自动运行需要，支持实现FAM模式运行功能、唤醒功能、休眠功能、远程控制功能、站台屏蔽门车门对位隔离功能、障碍物检测功能、乘客服务功能等 [E1]。\n\n2. **全自动运行线路相关运行/信号功能**：全自动运行线路还应满足远程和本地休眠、唤醒，跳跃、自动对位调整，蠕动运行模式、远程限速运行，配合车门与站台屏蔽门实现故障对位隔离，站台自动发车，清客，全自动折返，全自动进出车辆基地，全自动洗车等要求；具备机械编组功能的线路，ATO系统应具备FAM模式下控制列车自动联挂、解编的功能 [E2]。ATS系统还应具备自动控制区域/非自动控制区域分区显示、人工设置全自动运行授权、与其他系统联动实现正常/故障/应急场景管理和控制等功能 [E3]。\n\n3. **限界坐标系建立**：限界坐标系应为正交于轨道所在平面的直角坐标；水平轴应取直线地段通过两钢轨轨顶中心连线中点引出的水平坐标轴，以Y表示；垂直轴应取通过该中点并垂直于水平轴的坐标轴，以Z表示 [E4]。\n\n片段对列车功能采用“等”表述，未提供完整闭合清单。",
+      "first_grade": {
+        "step": "grade",
+        "decision": "insufficient",
+        "missing_requirements": [
+          "限界坐标系应如何建立"
+        ],
+        "retry_count": 0
+      },
+      "second_grade": {
+        "step": "grade",
+        "decision": "sufficient",
+        "missing_requirements": [],
+        "retry_count": 1
+      },
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "全自动运行列车应具备哪些功能，限界坐标系又应如何建立？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "限界坐标系应如何建立"
+          ],
+          "retry_count": 0
+        },
+        {
+          "step": "retry",
+          "retry_count": 1,
+          "missing_requirements": [
+            "限界坐标系应如何建立"
+          ]
+        },
+        {
+          "step": "retrieve",
+          "query": "限界坐标系应如何建立",
+          "retry_count": 1
+        },
+        {
+          "step": "grade",
+          "decision": "sufficient",
+          "missing_requirements": [],
+          "retry_count": 1
+        },
+        {
+          "step": "answer"
+        },
+        {
+          "step": "citation_validation",
+          "valid": true
+        }
+      ],
+      "initial_candidate_count": 17,
+      "retry_candidate_count": 18,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": false
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [
+          0,
+          1
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": true
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [
+          0,
+          1
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": true
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [
+          0,
+          1
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": true
+      },
+      "final_evidence_refs": [
+        {
+          "text": "5.7.1\n列车应适应全自动运行需要，支持实现全自动运行模式（FAM）模式运行功能、唤醒功能、休眠\n功能、远程控制功能、站台屏蔽门车门对位隔离功能、障碍物检测功能、乘客服务功能等。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 39,
+          "page_end": 39,
+          "article_id": "5.7.1",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 392,
+          "score": 0.7222284078598022,
+          "rrf_score": null,
+          "rerank_score": null,
+          "display_ref": "第5.7.1条"
+        },
+        {
+          "text": "18.4.5\n全自动运行线路除满足本标准第18.4.4 条的功能外，还应满足下列要求：\n1\n远程和本地休眠、唤醒功能；\n2\n跳跃、自动对位调整功能；\n3\n蠕动运行模式、远程限速运行功能；\n4\n配合车门与站台屏蔽门实现故障对位隔离功能；\n5\n站台自动发车功能；\n6\n清客功能；\n7\n全自动折返功能；\n8\n全自动进出车辆基地功能；\n9\n全自动洗车功能；\n10\n具备机械编组功能的线路，ATO系统应具备FAM模式下控制列车进行自动联挂、解编的功能。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 158,
+          "page_end": 158,
+          "article_id": "18.4.5",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 1669,
+          "score": 0.678593635559082,
+          "rrf_score": null,
+          "rerank_score": null,
+          "display_ref": "第18.4.5条"
+        },
+        {
+          "text": "18.2.3\n全自动运行线路ATS 系统除满足本标准第18.2.2 条的功能外，还应具备下列主要功能：\n1\n自动控制区域、非自动控制区域分区显示功能；\n2\n应具有通过人工操作实现对列车设置全自动运行授权的功能；\n3\n应与其他系统联动控制实现全自动运行正常、故障及应急场景的管理和控制功能。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 155,
+          "page_end": 155,
+          "article_id": "18.2.3",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 1640,
+          "score": 0.670569896697998,
+          "rrf_score": null,
+          "rerank_score": null,
+          "display_ref": "第18.2.3条"
+        },
+        {
+          "text": "6.1\n一般规定\n6.1.1\n限界坐标系应为正交于轨道所在平面的直角坐标，应以直线地段通过两钢轨轨顶中心连线的中点\n引出的水平坐标轴为水平轴，以Y 表示；应以通过该中点垂直于水平轴的坐标轴为垂直轴，以Z 表示。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 40,
+          "page_end": 40,
+          "article_id": "6.1.1",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 398,
+          "score": 0.6696627736091614,
+          "rrf_score": null,
+          "rerank_score": 0.9982205033302307,
+          "display_ref": "第6.1.1条"
+        }
+      ],
+      "citation_validation": {
+        "valid": true,
+        "cited_ids": [
+          "E1",
+          "E2",
+          "E3",
+          "E4"
+        ],
+        "available_ids": [
+          "E1",
+          "E2",
+          "E3",
+          "E4"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "MULTI-002",
+      "measurements": {
+        "wall_time_ms": 17781.000000424683,
+        "stage_timings_ms": {
+          "retrieval": 46.0,
+          "rerank": 3922.0,
+          "grader": 8610.0,
+          "generation": 5203.0
+        },
+        "token_usage": {
+          "input": 3047,
+          "output": 1751,
+          "total": 4798
+        },
+        "estimated_cost": null,
+        "model_calls": 3,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [
+            1
+          ],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 2,
+        "metric_eligible": true
+      },
+      "category": "multi_evidence",
+      "question": "地下车站站台范围内的线路，在平面曲线和纵向坡度设置上分别有什么要求？",
+      "expected_answerability": true,
+      "gold_answer": "平面上，车站站台宜设在直线上；必须设在曲线上时，站台有效长度范围内，A型车线路曲线半径不应小于1500m，B型车不应小于1000m。纵断面上，地下车站站台范围内的线路应设在一个坡道上，坡度宜为2‰；困难地段可采用不大于3‰的坡度，采取有效排水措施时可以采用平坡。",
+      "required_requirements": [
+        "覆盖站台范围平面曲线要求",
+        "覆盖地下车站站台范围纵坡要求"
+      ],
+      "key_answer_points": [
+        "直线优先，曲线时A型车不小于1500m、B型车不小于1000m",
+        "一个坡道，宜2‰，困难地段不大于3‰，有效排水时可平坡"
+      ],
+      "numeric_expectations": [
+        {
+          "value": "1500",
+          "unit": "m",
+          "conditions": [
+            "A型车站台曲线半径下限"
+          ]
+        },
+        {
+          "value": "1000",
+          "unit": "m",
+          "conditions": [
+            "B型车站台曲线半径下限"
+          ]
+        },
+        {
+          "value": "2",
+          "unit": "‰",
+          "conditions": [
+            "地下车站站台范围线路宜采用坡度"
+          ]
+        },
+        {
+          "value": "3",
+          "unit": "‰",
+          "conditions": [
+            "困难地段坡度上限"
+          ]
+        }
+      ],
+      "request_id": "c377ef02c09a495f8c5d7636ad27e71f",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 45,
+          "article": "7.2.1",
+          "table": null
+        },
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 48,
+          "article": "7.3.2",
+          "table": null
+        }
+      ],
+      "final_action": "answer",
+      "retry_count": 1,
+      "rewritten_query": "地下车站站台范围内线路在平面曲线设置上的要求",
+      "final_answer_or_refusal": "地下车站站台范围内线路：纵坡应设在一个坡道上、宜采用2‰；平面宜设在直线上，受限设于曲线时应满足最小曲线半径要求。\n\n1. **纵向坡度**：站台范围内线路应设在一个坡道上，坡度宜为2‰；困难地段可设在不大于3‰的坡道上；当采取有效排水措施时，可采用平坡 [E1]。\n\n2. **平面曲线**：车站站台宜设在直线上；当设在曲线上时，站台有效长度范围的线路曲线最小半径应根据车辆与站台屏蔽门间隙确定，A型车不应小于1500m，B型车不应小于1000m [E3]。",
+      "first_grade": {
+        "step": "grade",
+        "decision": "insufficient",
+        "missing_requirements": [
+          "地下车站站台范围内线路在平面曲线设置上的要求"
+        ],
+        "retry_count": 0
+      },
+      "second_grade": {
+        "step": "grade",
+        "decision": "sufficient",
+        "missing_requirements": [],
+        "retry_count": 1
+      },
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "地下车站站台范围内的线路，在平面曲线和纵向坡度设置上分别有什么要求？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "地下车站站台范围内线路在平面曲线设置上的要求"
+          ],
+          "retry_count": 0
+        },
+        {
+          "step": "retry",
+          "retry_count": 1,
+          "missing_requirements": [
+            "地下车站站台范围内线路在平面曲线设置上的要求"
+          ]
+        },
+        {
+          "step": "retrieve",
+          "query": "地下车站站台范围内线路在平面曲线设置上的要求",
+          "retry_count": 1
+        },
+        {
+          "step": "grade",
+          "decision": "sufficient",
+          "missing_requirements": [],
+          "retry_count": 1
+        },
+        {
+          "step": "answer"
+        },
+        {
+          "step": "citation_validation",
+          "valid": true
+        }
+      ],
+      "initial_candidate_count": 16,
+      "retry_candidate_count": 18,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [
+          1
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": false
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [
+          1
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": false
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [
+          0,
+          1
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": true
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [
+          0,
+          1
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": true
+      },
+      "final_evidence_refs": [
+        {
+          "text": "7.3.2\n车站及其配线坡度设计应符合下列规定：\n1\n地下车站宜布置在纵断面的凸型部位上，应根据具体条件，按节能坡理念，设计合理的进出站\n坡度和坡段长度；\n2\n地下车站站台范围内的线路应设在一个坡道上，坡度宜为2‰。在困难地段车站可设在不大于3‰\n的坡道上。当采取有效排水措施时，可采用平坡；\n3\n地面及高架车站站台范围内线路坡度宜采用平坡；\n4\n停车线应布置在面向车挡或区间的下坡道上，隧道内的坡度宜为2‰，地面和高架桥上坡度不宜\n大于1.5‰；\n5\n整体道床道岔宜设在不大于5‰的坡道上，在困难地段可设在不大于10‰的坡道上；碎石道床\n道岔坡度不宜大于1.5‰。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 48,
+          "page_end": 48,
+          "article_id": "7.3.2",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 468,
+          "score": 0.7662400603294373,
+          "rrf_score": null,
+          "rerank_score": null,
+          "display_ref": "第7.3.2条"
+        },
+        {
+          "text": "7.2.1\n平面曲线设计应符合下列规定：\n1\n线路平面圆曲线半径应根据车辆类型、地形条件、运行速度、环境要求等因素比选确定。最小\n曲线半径不应小于表7.2.1 规定；\n表7.2.1\n最小曲线半径（m）\n车型\n线路\nA型车\nB型车\n一般地段\n困难地段\n一般地段\n困难地段\n正线\n350\n300\n300\n250\n出入线、联络线（非载客）\n250\n200\n200\n—\n2\n线路平面曲线半径选择宜适应所在区段的列车运行速度要求。当条件不具备设置满足运行速\n度要求的曲线半径时，圆曲线半径应适当加大，并宜以10m 的倍数取值。列车通过曲线时，应按限定\n的允许未被平衡横向加速度计算通过的最高运行速度；\n3\n车站",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 45,
+          "page_end": 45,
+          "article_id": "7.2.1",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 441,
+          "score": 0.7252182364463806,
+          "rrf_score": null,
+          "rerank_score": 0.9913865327835083,
+          "display_ref": "第7.2.1条"
+        },
+        {
+          "text": "m 的倍数取值。列车通过曲线时，应按限定\n的允许未被平衡横向加速度计算通过的最高运行速度；\n3\n车站站台宜设在直线上。当设在曲线上时，其站台有效长度范围的线路曲线最小半径根据车辆\n与站台屏蔽门间隙确定，A 型车不应小于1500m，B 型车不应小于1000m；\n4\n折返线、停车线等宜设在直线上。困难情况下，除道岔区外，可设在曲线上，并可不设缓和曲\n线，但在车挡前宜保持不少于20m 的直线段；\n5\n圆曲线最小长度，在正线、联络线及车辆基地出入线上，A 型车不宜小于25m，B 型车不宜小\n于20m。在困难情况下，不得小于一节车辆的全轴距；\n6\n新建线路不应采用复曲线，在困难地段，应经技术经济比较后再",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 45,
+          "page_end": 45,
+          "article_id": "7.2.1",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 442,
+          "score": 0.0,
+          "rrf_score": null,
+          "rerank_score": 0.9826620817184448,
+          "display_ref": "第7.2.1条"
+        }
+      ],
+      "citation_validation": {
+        "valid": true,
+        "cited_ids": [
+          "E1",
+          "E3"
+        ],
+        "available_ids": [
+          "E1",
+          "E2",
+          "E3"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "IND-006",
+      "measurements": {
+        "wall_time_ms": 18093.999999575317,
+        "stage_timings_ms": {
+          "retrieval": 31.0,
+          "rerank": 11031.0,
+          "grader": 7032.0
+        },
+        "token_usage": {
+          "input": 1733,
+          "output": 634,
+          "total": 2367
+        },
+        "estimated_cost": null,
+        "model_calls": 2,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [
+            0
+          ],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 1,
+        "metric_eligible": false
+      },
+      "category": "partial_support_unanswerable",
+      "question": "安装射流风机、风管和配电柜等设备时应怎样检算建筑限界？本项目实际设备尺寸和最终加宽、加高量是多少？",
+      "expected_answerability": false,
+      "gold_answer": "在安装相关设备地段，应按设备安装位置及尺寸检算建筑限界，必要时采取局部加宽、加高措施。规范未给出本项目实际设备尺寸和最终加宽、加高量。",
+      "required_requirements": [
+        "说明设备安装地段的建筑限界检算与处置要求",
+        "识别项目实际设备尺寸和最终加宽、加高量不在规范中，拒绝编造"
+      ],
+      "key_answer_points": [
+        "按设备安装位置及尺寸检算，必要时局部加宽、加高",
+        "规范不能给出项目实际值"
+      ],
+      "numeric_expectations": [],
+      "request_id": "0a8c3375424c4ad68f5c9500374fdf61",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 42,
+          "article": "6.3.11",
+          "table": null
+        }
+      ],
+      "final_action": "refuse",
+      "retry_count": 1,
+      "rewritten_query": "本项目实际设备尺寸；本项目最终加宽量；本项目最终加高量",
+      "final_answer_or_refusal": "当前规范及已检索证据不足以完整回答该问题。 缺少的信息：本项目实际设备尺寸；本项目最终加宽量；本项目最终加高量。",
+      "first_grade": {
+        "step": "grade",
+        "decision": "insufficient",
+        "missing_requirements": [
+          "本项目实际设备尺寸",
+          "本项目最终加宽量",
+          "本项目最终加高量"
+        ],
+        "retry_count": 0
+      },
+      "second_grade": {
+        "step": "grade",
+        "decision": "insufficient",
+        "missing_requirements": [
+          "本项目实际设备尺寸",
+          "本项目最终加宽量",
+          "本项目最终加高量"
+        ],
+        "retry_count": 1
+      },
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "安装射流风机、风管和配电柜等设备时应怎样检算建筑限界？本项目实际设备尺寸和最终加宽、加高量是多少？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "本项目实际设备尺寸",
+            "本项目最终加宽量",
+            "本项目最终加高量"
+          ],
+          "retry_count": 0
+        },
+        {
+          "step": "retry",
+          "retry_count": 1,
+          "missing_requirements": [
+            "本项目实际设备尺寸",
+            "本项目最终加宽量",
+            "本项目最终加高量"
+          ]
+        },
+        {
+          "step": "retrieve",
+          "query": "本项目实际设备尺寸；本项目最终加宽量；本项目最终加高量",
+          "retry_count": 1
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "本项目实际设备尺寸",
+            "本项目最终加宽量",
+            "本项目最终加高量"
+          ],
+          "retry_count": 1
+        },
+        {
+          "step": "refuse",
+          "missing_requirements": [
+            "本项目实际设备尺寸",
+            "本项目最终加宽量",
+            "本项目最终加高量"
+          ]
+        }
+      ],
+      "initial_candidate_count": 18,
+      "retry_candidate_count": 20,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_evidence_refs": [
+        {
+          "text": "6.3.11\n在安装射流风机、风管、配电柜、控制箱、接触网隔离开关道岔转辙机等设备地段，应按设备\n安装位置及尺寸检算建筑限界，必要时应采取局部加宽、加高措施。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 42,
+          "page_end": 42,
+          "article_id": "6.3.11",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 424,
+          "score": 0.8372566103935242,
+          "rrf_score": null,
+          "rerank_score": null,
+          "display_ref": "第6.3.11条"
+        },
+        {
+          "text": "6.3.11\n射流风机、风管、道岔转辙机等设备体量较大，有的还需要一定的动作空间，所以必需对其限\n界进行检算。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 287,
+          "page_end": 287,
+          "article_id": "6.3.11",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2893,
+          "score": 0.7866052389144897,
+          "rrf_score": null,
+          "rerank_score": null,
+          "display_ref": "第6.3.11条"
+        },
+        {
+          "text": "加宽量应按下式计算：\n���=\n222768+30240��\n���\n（E.0.1-3）\n式中：\n���—缓和曲线引起的曲线外侧限界加宽量（mm）。\n4\nB1 型车和B2 型车缓和曲线外侧加宽量应按下式计算：\n���=\n160107+25280��\n���\n（E.0.1-4）\nE.0.2 轨道超高引起的加宽量应按下列公式计算：\nihe ⁼X¹ cosα⁺Y¹ sinα-X¹\n（E.0.2-1）\no\nhe ⁼X² cosα-Y² sinα-X²\n（E.0.2-2）\nhtc =hac×lj/L\n（E.0.2-3）\nα=sin\n-1（htc/s）\n（E.0.2-4）\n式中：\nihe\n—轨道超高引起的",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 257,
+          "page_end": 257,
+          "article_id": "31.3.11",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2680,
+          "score": 0.592071533203125,
+          "rrf_score": null,
+          "rerank_score": 0.911198079586029,
+          "display_ref": "第31.3.11条"
+        },
+        {
+          "text": ".0.2-3）\nα=sin\n-1（htc/s）\n（E.0.2-4）\n式中：\nihe\n—轨道超高引起的缓和曲线内侧限界加宽量（mm）；\no\nhe\n—轨道超高引起的缓和曲线外侧限界加宽量（mm）；\nX1 —计算曲线内侧限界加宽的设备限界控制点的横坐标值（mm）；\nY1 —计算曲线内侧限界加宽的设备限界控制点的纵坐标值（mm）；\nX2 —计算曲线外侧限界加宽的设备限界控制点的横坐标值（mm）；\nY2 —计算曲线外侧限界加宽的设备限界控制点的纵坐标值（mm）；\nhac —圆曲线段轨道超高值；\nhtc\n—缓和曲线上计算点处的超高值（mm）。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 257,
+          "page_end": 257,
+          "article_id": "31.3.11",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2681,
+          "score": 0.0,
+          "rrf_score": null,
+          "rerank_score": 0.9207007884979248,
+          "display_ref": "第31.3.11条"
+        }
+      ],
+      "citation_validation": null
+    }
+  ],
+  "input_integrity_at_finish": {
+    "dataset_unchanged": true,
+    "pdf_unchanged": true
+  }
+}

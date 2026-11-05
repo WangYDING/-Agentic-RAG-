@@ -1,0 +1,355 @@
+{
+  "dataset_sha256": "962703e593483f1f3d362158d09a9f89e7ad0f821d32a36096552f0a0f5081d0",
+  "report_schema_version": 2,
+  "rubric": {
+    "evidence_support": {
+      "0": "unsupported or contradictory",
+      "1": "partly supported",
+      "2": "fully supported"
+    },
+    "completeness": {
+      "0": "critical requirements missing",
+      "1": "some requirements missing",
+      "2": "all required points covered"
+    },
+    "numeric_conditions": {
+      "0": "incorrect number/unit/condition",
+      "1": "partially correct",
+      "2": "correct; null if not applicable"
+    },
+    "unsupported_facts": {
+      "0": "material outside facts",
+      "1": "minor outside facts",
+      "2": "no unsupported factual additions"
+    }
+  },
+  "instructions": "Only a human reviewer may approve. null means unreviewed or not applicable, never a passing score.",
+  "cases": [
+    {
+      "id": "IND-001",
+      "request_id": "246cc754bfd34606b8ec42635683aba8",
+      "question": "客室车门安全联锁与车辆前后端照明、信号装置分别有哪些要求？",
+      "expected_answerability": true,
+      "requirements": [
+        "覆盖客室车门安全联锁、5km/h和车门未全关闭时不能起动",
+        "覆盖安全联锁适用的国家标准",
+        "覆盖前照灯远近光和紧急制停距离处不小于2 lx",
+        "覆盖尾端红色防护灯和侧壁状态指示灯"
+      ],
+      "key_points": [
+        "客室车门安全联锁及适用标准",
+        "前照灯、尾灯和侧壁指示灯要求"
+      ],
+      "numeric_expectations": [
+        {
+          "value": "5",
+          "unit": "km/h",
+          "conditions": [
+            "车速大于该值时不能开启客室车门"
+          ]
+        },
+        {
+          "value": "2",
+          "unit": "lx",
+          "conditions": [
+            "前照灯在紧急制停距离处照度下限"
+          ]
+        }
+      ],
+      "answer": "客室车门应设置安全联锁，车辆前端应设可变换远近光的前照灯，尾端应设红色防护灯；给定片段未提供车辆前后端“信号装置”的完整专门要求。\n\n1. **客室车门安全联锁**：客室车门系统应有安全联锁，运营时车速大于5 km/h时不能开启客室车门，车门未全关闭时不能起动列车；安全联锁功能应符合GB 55033及GB 50157的规定。[E1]\n\n2. **前端照明**：司机室前端应装设可远近光变换的前照灯，前照灯在车辆前端紧急制停距离处照度不应小于2 lx。[E3]\n\n3. **尾端及侧壁指示**：列车尾端应设有红色防护灯；车辆侧壁可设置显示车门开闭、制动缸缓解等指示灯。[E3]",
+      "evidence": [
+        {
+          "text": "5.6.8\n客室车门系统应有安全联锁，确保运营时车速大于5km/h 时不能开启客室车门、车门未全关闭时\n不能起动列车。安全联锁功能应符合国家标准《城市轨道交通工程项目规范》GB 55033 及《地铁设计\n规范》GB 50157 的规定。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 39,
+          "page_end": 39,
+          "article_id": "5.6.8",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 387,
+          "score": 0.6881489753723145,
+          "rrf_score": null,
+          "rerank_score": null,
+          "display_ref": "第5.6.8条"
+        },
+        {
+          "text": "18.9.14\n信号关键设备防水、防尘防护等级应满足国家标准《外壳防护等级（IP 代码）》GB/T 4208 中\n的外壳防护等级要求，具体要求如下：\n1\n车载各种天线应能防水、防尘并满足外壳防护等级IP66 级的规定；\n2\n测速电机应能防水、防尘并满足外壳防护等级IP67 级的规定；\n3\n计轴磁头及地面应答器应能防水、防尘并满足外壳防护等级IP67 级的规定；\n4\n车载人机界面屏幕前面板应能防水、防尘并满足外壳防护等级IP65 级的规定；\n5\n轨旁AP 应能防水、防尘并满足外壳防护等级IP65 级的规定；\n6\n转辙机应能防水、防尘并满足外壳防护等级IP54 级的规定，采用无维护密封型转辙机时其",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 167,
+          "page_end": 167,
+          "article_id": "18.9.14",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 1755,
+          "score": 0.6692672967910767,
+          "rrf_score": null,
+          "rerank_score": 0.8934928178787231,
+          "display_ref": "第18.9.14条"
+        },
+        {
+          "text": "5.6.9\n司机室前端应装设可远近光变换的前照灯。前照灯在车辆前端紧急制停距离处照度不应小于2 lx。\n列车尾端应设有红色防护灯。车辆侧壁可设置显示车门开闭、制动缸缓解等指示灯。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 39,
+          "page_end": 39,
+          "article_id": "5.6.9",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 388,
+          "score": 0.7049673795700073,
+          "rrf_score": null,
+          "rerank_score": 0.9655030369758606,
+          "display_ref": "第5.6.9条"
+        }
+      ],
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "IND-003",
+      "request_id": "9731d0affb304ff9ac06cb26fa31afee",
+      "question": "全自动运行列车应具备哪些功能，限界坐标系又应如何建立？",
+      "expected_answerability": true,
+      "requirements": [
+        "覆盖车辆第5.7.1条的全自动运行功能",
+        "覆盖限界坐标系的平面、原点、Y轴和Z轴"
+      ],
+      "key_points": [
+        "列车FAM、唤醒、休眠、远控、对位隔离、障碍物检测、乘客服务等功能",
+        "正交轨道平面的直角坐标，以钢轨轨顶中心连线中点建立Y轴和Z轴"
+      ],
+      "numeric_expectations": [],
+      "answer": "核心结论：全自动运行列车应支持全自动运行模式及唤醒、休眠、远程控制、对位隔离、障碍物检测、乘客服务等功能；限界坐标系应采用正交于轨道所在平面的直角坐标，水平轴以Y表示、垂直轴以Z表示。\n\n1. **列车功能要求**：列车应适应全自动运行需要，支持实现FAM模式运行、唤醒、休眠、远程控制、站台屏蔽门与车门对位隔离、障碍物检测、乘客服务等功能 [E1]。\n\n2. **全自动运行线路还应满足的信号相关功能**：除相关基本功能外，还应满足远程和本地休眠/唤醒、跳跃及自动对位调整、蠕动运行模式和远程限速运行、配合车门与站台屏蔽门实现故障对位隔离、站台自动发车、清客、全自动折返、全自动进出车辆基地、全自动洗车；具备机械编组功能的线路，ATO系统应具备FAM模式下控制列车自动联挂、解编的功能 [E2]。\n\n3. **限界坐标系建立**：限界坐标系应为正交于轨道所在平面的直角坐标；应以直线地段通过两钢轨轨顶中心连线的中点引出的水平坐标轴为水平轴，以Y表示；应以通过该中点且垂直于水平轴的坐标轴为垂直轴，以Z表示 [E3]。",
+      "evidence": [
+        {
+          "text": "5.7.1\n列车应适应全自动运行需要，支持实现全自动运行模式（FAM）模式运行功能、唤醒功能、休眠\n功能、远程控制功能、站台屏蔽门车门对位隔离功能、障碍物检测功能、乘客服务功能等。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 39,
+          "page_end": 39,
+          "article_id": "5.7.1",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 392,
+          "score": 0.7222284078598022,
+          "rrf_score": null,
+          "rerank_score": null,
+          "display_ref": "第5.7.1条"
+        },
+        {
+          "text": "18.4.5\n全自动运行线路除满足本标准第18.4.4 条的功能外，还应满足下列要求：\n1\n远程和本地休眠、唤醒功能；\n2\n跳跃、自动对位调整功能；\n3\n蠕动运行模式、远程限速运行功能；\n4\n配合车门与站台屏蔽门实现故障对位隔离功能；\n5\n站台自动发车功能；\n6\n清客功能；\n7\n全自动折返功能；\n8\n全自动进出车辆基地功能；\n9\n全自动洗车功能；\n10\n具备机械编组功能的线路，ATO系统应具备FAM模式下控制列车进行自动联挂、解编的功能。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 158,
+          "page_end": 158,
+          "article_id": "18.4.5",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 1669,
+          "score": 0.678593635559082,
+          "rrf_score": null,
+          "rerank_score": null,
+          "display_ref": "第18.4.5条"
+        },
+        {
+          "text": "6.1\n一般规定\n6.1.1\n限界坐标系应为正交于轨道所在平面的直角坐标，应以直线地段通过两钢轨轨顶中心连线的中点\n引出的水平坐标轴为水平轴，以Y 表示；应以通过该中点垂直于水平轴的坐标轴为垂直轴，以Z 表示。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 40,
+          "page_end": 40,
+          "article_id": "6.1.1",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 398,
+          "score": 0.6696627736091614,
+          "rrf_score": null,
+          "rerank_score": 0.9982205033302307,
+          "display_ref": "第6.1.1条"
+        }
+      ],
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "MULTI-002",
+      "request_id": "5d97599a3cdd47c7ba3fd78fa9fd2a77",
+      "question": "地下车站站台范围内的线路，在平面曲线和纵向坡度设置上分别有什么要求？",
+      "expected_answerability": true,
+      "requirements": [
+        "覆盖站台范围平面曲线要求",
+        "覆盖地下车站站台范围纵坡要求"
+      ],
+      "key_points": [
+        "直线优先，曲线时A型车不小于1500m、B型车不小于1000m",
+        "一个坡道，宜2‰，困难地段不大于3‰，有效排水时可平坡"
+      ],
+      "numeric_expectations": [
+        {
+          "value": "1500",
+          "unit": "m",
+          "conditions": [
+            "A型车站台曲线半径下限"
+          ]
+        },
+        {
+          "value": "1000",
+          "unit": "m",
+          "conditions": [
+            "B型车站台曲线半径下限"
+          ]
+        },
+        {
+          "value": "2",
+          "unit": "‰",
+          "conditions": [
+            "地下车站站台范围线路宜采用坡度"
+          ]
+        },
+        {
+          "value": "3",
+          "unit": "‰",
+          "conditions": [
+            "困难地段坡度上限"
+          ]
+        }
+      ],
+      "answer": "当前规范及已检索证据不足以完整回答该问题。 缺少的信息：地下车站站台范围内线路在平面曲线设置上的具体要求。",
+      "evidence": [
+        {
+          "text": "7.3.2\n车站及其配线坡度设计应符合下列规定：\n1\n地下车站宜布置在纵断面的凸型部位上，应根据具体条件，按节能坡理念，设计合理的进出站\n坡度和坡段长度；\n2\n地下车站站台范围内的线路应设在一个坡道上，坡度宜为2‰。在困难地段车站可设在不大于3‰\n的坡道上。当采取有效排水措施时，可采用平坡；\n3\n地面及高架车站站台范围内线路坡度宜采用平坡；\n4\n停车线应布置在面向车挡或区间的下坡道上，隧道内的坡度宜为2‰，地面和高架桥上坡度不宜\n大于1.5‰；\n5\n整体道床道岔宜设在不大于5‰的坡道上，在困难地段可设在不大于10‰的坡道上；碎石道床\n道岔坡度不宜大于1.5‰。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 48,
+          "page_end": 48,
+          "article_id": "7.3.2",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 468,
+          "score": 0.7662400603294373,
+          "rrf_score": null,
+          "rerank_score": null,
+          "display_ref": "第7.3.2条"
+        },
+        {
+          "text": "5.2.3\n车辆使用的线路平面曲线、线路坡度和竖曲线标准应符合本标准第7.2.1、7.3.1、7.3.3 条的规定。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 35,
+          "page_end": 35,
+          "article_id": "5.2.3",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 344,
+          "score": 0.6875236630439758,
+          "rrf_score": null,
+          "rerank_score": null,
+          "display_ref": "第5.2.3条"
+        },
+        {
+          "text": "7.2.1\n平面曲线设计应符合下列规定：\n1\n线路平面圆曲线半径应根据车辆类型、地形条件、运行速度、环境要求等因素比选确定。最小\n曲线半径不应小于表7.2.1 规定；\n表7.2.1\n最小曲线半径（m）\n车型\n线路\nA型车\nB型车\n一般地段\n困难地段\n一般地段\n困难地段\n正线\n350\n300\n300\n250\n出入线、联络线（非载客）\n250\n200\n200\n—\n2\n线路平面曲线半径选择宜适应所在区段的列车运行速度要求。当条件不具备设置满足运行速\n度要求的曲线半径时，圆曲线半径应适当加大，并宜以10m 的倍数取值。列车通过曲线时，应按限定\n的允许未被平衡横向加速度计算通过的最高运行速度；\n3\n车站",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 45,
+          "page_end": 45,
+          "article_id": "7.2.1",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 441,
+          "score": 0.7346330881118774,
+          "rrf_score": null,
+          "rerank_score": 0.9940603375434875,
+          "display_ref": "第7.2.1条"
+        }
+      ],
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "IND-006",
+      "request_id": "8a051592a8ba4350bf229ec837d59fad",
+      "question": "安装射流风机、风管和配电柜等设备时应怎样检算建筑限界？本项目实际设备尺寸和最终加宽、加高量是多少？",
+      "expected_answerability": false,
+      "requirements": [
+        "说明设备安装地段的建筑限界检算与处置要求",
+        "识别项目实际设备尺寸和最终加宽、加高量不在规范中，拒绝编造"
+      ],
+      "key_points": [
+        "按设备安装位置及尺寸检算，必要时局部加宽、加高",
+        "规范不能给出项目实际值"
+      ],
+      "numeric_expectations": [],
+      "answer": "当前规范及已检索证据不足以完整回答该问题。 缺少的信息：安装射流风机、风管和配电柜等设备时建筑限界的检算方法和具体要求；本项目实际设备尺寸；本项目最终的限界加宽量和加高量。",
+      "evidence": [
+        {
+          "text": "�⁺².⁰，110m≤R＜800m\n（D.0.1-1）\n∆��=∆��=\n605\n�⁺².⁰，R（800m\n（D.0.2-2）\n式中：\nR—曲线半径（m）；\n∆��—车体设备限界在曲线地段外侧总加宽量（mm）；\n∆��—车体设备限界在曲线地段内侧总加宽量（mm）。\n5\n整体道床距轨顶平面高度大于355mm、450mm 及490mm 的设备限界在曲线地段加宽量应按下\n列公式计算：\n∆Xa=∆Xi=\n25127\nR +4.3，110m≤R＜800m\n（D.0.2-3）\n∆Xa=∆Xi=\n24675\nR +4.3，R（800m\n（D.0.2-4）\n式中：\nR—曲线半径（m）；\n∆��—车体设备限界在",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 255,
+          "page_end": 255,
+          "article_id": "31.3.11",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2676,
+          "score": 19.615114624022986,
+          "rrf_score": null,
+          "rerank_score": 0.9754392504692078,
+          "display_ref": "第31.3.11条"
+        },
+        {
+          "text": "6.3.11\n射流风机、风管、道岔转辙机等设备体量较大，有的还需要一定的动作空间，所以必需对其限\n界进行检算。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 287,
+          "page_end": 287,
+          "article_id": "6.3.11",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2893,
+          "score": 0.7866052389144897,
+          "rrf_score": null,
+          "rerank_score": 0.6617066860198975,
+          "display_ref": "第6.3.11条"
+        },
+        {
+          "text": "加宽量应按下式计算：\n���=\n222768+30240��\n���\n（E.0.1-3）\n式中：\n���—缓和曲线引起的曲线外侧限界加宽量（mm）。\n4\nB1 型车和B2 型车缓和曲线外侧加宽量应按下式计算：\n���=\n160107+25280��\n���\n（E.0.1-4）\nE.0.2 轨道超高引起的加宽量应按下列公式计算：\nihe ⁼X¹ cosα⁺Y¹ sinα-X¹\n（E.0.2-1）\no\nhe ⁼X² cosα-Y² sinα-X²\n（E.0.2-2）\nhtc =hac×lj/L\n（E.0.2-3）\nα=sin\n-1（htc/s）\n（E.0.2-4）\n式中：\nihe\n—轨道超高引起的",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 257,
+          "page_end": 257,
+          "article_id": "31.3.11",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2680,
+          "score": 0.5993891954421997,
+          "rrf_score": null,
+          "rerank_score": 0.947880208492279,
+          "display_ref": "第31.3.11条"
+        }
+      ],
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      }
+    }
+  ]
+}

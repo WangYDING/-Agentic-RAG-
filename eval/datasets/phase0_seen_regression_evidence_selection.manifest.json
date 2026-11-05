@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "dataset_id": "phase0_seen_regression_evidence_selection",
+  "version": "1.0-requirement-coverage-top3",
+  "role": "development",
+  "status": "draft",
+  "data_file": "phase0_seen_regression_evidence_selection.jsonl",
+  "sha256": "962703e593483f1f3d362158d09a9f89e7ad0f821d32a36096552f0a0f5081d0",
+  "count": 4,
+  "type_distribution": {
+    "multi_evidence_candidate": 2,
+    "multi_evidence": 1,
+    "partial_support_unanswerable": 1
+  },
+  "source_pdf_sha256": "e5ca2388ad68ed7b21b6092e66c12a73c74c17de8b532bef91c5b2ea57be78f7",
+  "frozen_at": null,
+  "used_for_tuning": true,
+  "acceptance_criteria": null,
+  "notes": "Seen regression set for requirement-aware evidence selection. IND-001 and IND-003 reproduce phase 0 Top10-to-Top3 loss; MULTI-002 protects an existing multi-evidence success; IND-006 protects partial-support refusal. This is not independent validation."
+}
