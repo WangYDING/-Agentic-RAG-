@@ -1,9 +1,11 @@
+import json
 import re
 import fitz
 from pathlib import Path
 from statistics import median
 
 from src.document_schema import DocumentMetadata, Page, PageMetadata, Table, TableMetadata
+from src.ocr_artifacts import OcrArtifactError, validate_ocr_artifact
 
 
 HEADER_FOOTER_MIN_REPEAT_RATIO = 0.35
@@ -15,7 +17,12 @@ SUPERSCRIPT_TRANSLATION = str.maketrans(
 )
 
 
-def load_pdf_pages(file_path: str) -> tuple[DocumentMetadata, list[Page]]:
+def load_pdf_pages(
+    file_path: str,
+    *,
+    spec_id: str | None = None,
+    edition_id: str | None = None,
+) -> tuple[DocumentMetadata, list[Page]]:
     file_path = Path(file_path)
 
     if not file_path.exists():
@@ -32,6 +39,8 @@ def load_pdf_pages(file_path: str) -> tuple[DocumentMetadata, list[Page]]:
             document_id=file_path.stem,
             source=file_path.name,
             page_count=page_count,
+            spec_id=spec_id,
+            edition_id=edition_id,
         )
         repeated_noise = detect_repeated_page_noise(raw_pages)
 
@@ -55,6 +64,8 @@ def load_pdf_pages(file_path: str) -> tuple[DocumentMetadata, list[Page]]:
                         page_number=index,
                         char_count_raw=len(raw_text),
                         char_count_cleaned=len(cleaned_text),
+                        spec_id=document.spec_id,
+                        edition_id=document.edition_id,
                     ),
                 )
             )
@@ -94,6 +105,8 @@ def extract_page_tables(
             table_id=table_id,
             title=title,
             bbox=tuple(float(value) for value in table.bbox) if table.bbox else None,
+            spec_id=document.spec_id,
+            edition_id=document.edition_id,
         )
         tables.append(
             Table(
@@ -110,6 +123,57 @@ def extract_page_tables(
 def load_pdf_text(file_path: str) -> str:
     _, pages = load_pdf_pages(file_path)
     return "\n".join(page.text for page in pages if page.text.strip())
+
+
+def load_verified_ocr_pages(
+    artifact_dir: str | Path,
+    *,
+    source_pdf: str | Path | None = None,
+) -> tuple[DocumentMetadata, list[Page]]:
+    """Load a hash-verified, page-addressable OCR artifact without parsing its PDF."""
+    artifact_dir = Path(artifact_dir)
+    source_path = Path(source_pdf) if source_pdf is not None else None
+    validation = validate_ocr_artifact(artifact_dir, source_pdf=source_path)
+    if not validation.get("automatic_checks_passed"):
+        raise OcrArtifactError("OCR artifact has not passed automatic validation")
+
+    manifest = json.loads((artifact_dir / "manifest.json").read_text(encoding="utf-8"))
+    spec_id = manifest.get("spec_id")
+    edition_id = manifest.get("edition_id")
+    business_id = manifest.get("business_id")
+    if business_id != f"{spec_id}@{edition_id}":
+        raise OcrArtifactError("OCR business identity is inconsistent")
+
+    source = manifest["source_pdf"]
+    document = DocumentMetadata(
+        document_id=business_id,
+        source=source["file_name"],
+        page_count=source["page_count"],
+        spec_id=spec_id,
+        edition_id=edition_id,
+    )
+    pages: list[Page] = []
+    for entry in manifest["pages"]:
+        record = json.loads(
+            (artifact_dir / entry["path"]).read_text(encoding="utf-8")
+        )
+        text = record["text"]
+        pages.append(
+            Page(
+                text=text,
+                raw_text=text,
+                metadata=PageMetadata(
+                    document_id=document.document_id,
+                    source=document.source,
+                    page_number=record["page_number"],
+                    char_count_raw=len(text),
+                    char_count_cleaned=len(text),
+                    spec_id=document.spec_id,
+                    edition_id=document.edition_id,
+                ),
+            )
+        )
+    return document, pages
 
 
 def extract_page_text(page) -> str:

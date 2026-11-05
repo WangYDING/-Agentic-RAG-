@@ -10,6 +10,7 @@ from src.evidence import CitationValidation, Evidence, build_evidence_list, vali
 from src.results import ApplicationResult
 from src.reliability import CallBudget, ReliabilityError
 from src.observability import RequestObserver
+from src.retrieval_fusion import chunk_identity
 
 
 REFUSAL_MESSAGE = "当前规范及已检索证据不足以完整回答该问题。"
@@ -137,7 +138,7 @@ class AgentWorkflow:
 
         supported_ids = set(getattr(decision, "supported_evidence_ids", []))
         protected_identities = {
-            (evidence.source, evidence.chunk_id)
+            evidence.stable_identity
             for evidence in state.evidences
             if evidence.evidence_id in supported_ids
         }
@@ -199,7 +200,7 @@ class AgentWorkflow:
                 protected = [
                     candidate
                     for candidate in candidates
-                    if (candidate.get("source"), candidate.get("chunk_id"))
+                    if chunk_identity(candidate)
                     in (protected_identities or set())
                 ]
                 reranked = self._select_requirement_coverage(
@@ -557,7 +558,7 @@ class AgentWorkflow:
         merged = []
         seen = set()
         for result in [*existing, *added]:
-            identity = (result.get("source"), result.get("chunk_id"))
+            identity = chunk_identity(result)
             if identity not in seen:
                 seen.add(identity)
                 merged.append(result)
@@ -572,14 +573,14 @@ class AgentWorkflow:
         focused_unique = []
         focused_identities = set()
         for item in focused[:top_n]:
-            identity = (item.get("source"), item.get("chunk_id"))
+            identity = chunk_identity(item)
             if identity not in focused_identities:
                 focused_identities.add(identity)
                 focused_unique.append(item)
         remaining = [
             item
             for item in reranked
-            if (item.get("source"), item.get("chunk_id"))
+            if chunk_identity(item)
             not in focused_identities
         ]
         return [

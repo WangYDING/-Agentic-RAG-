@@ -21,6 +21,14 @@ class Evidence:
     score: float | None = None
     rerank_score: float | None = None
     metadata: dict[str, Any] | None = None
+    spec_id: str | None = None
+    edition_id: str | None = None
+
+    @property
+    def stable_identity(self) -> tuple[object, ...]:
+        if self.spec_id is not None and self.edition_id is not None:
+            return self.spec_id, self.edition_id, self.chunk_id
+        return self.source, self.chunk_id
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
@@ -87,6 +95,8 @@ def build_evidence_list(results: list[dict[str, Any]]) -> list[Evidence]:
                 score=result.get("score"),
                 rerank_score=result.get("rerank_score"),
                 metadata=result.get("extra", {}),
+                spec_id=result.get("spec_id"),
+                edition_id=result.get("edition_id"),
             )
         )
     return evidences

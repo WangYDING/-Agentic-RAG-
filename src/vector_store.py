@@ -27,6 +27,8 @@ class VectorStore:
                     "source": record["source"],
                     "chunk_id": record["chunk_id"],
                     "document_id": record.get("document_id"),
+                    "spec_id": record.get("spec_id"),
+                    "edition_id": record.get("edition_id"),
                     "page_start": record.get("page_start"),
                     "page_end": record.get("page_end"),
                     "char_start": record.get("char_start"),

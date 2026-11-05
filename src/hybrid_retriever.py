@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from src.retrieval_fusion import reciprocal_rank_fusion
+from src.retrieval_fusion import chunk_identity, reciprocal_rank_fusion
 
 
 class HybridRetriever:
@@ -11,7 +11,7 @@ class HybridRetriever:
         self.bm25 = bm25
         self.calls = []
         self._chunk_records = {
-            (record.get("source"), record.get("chunk_id")): record
+            chunk_identity(record): record
             for record in getattr(bm25, "chunk_records", [])
         }
 
@@ -33,19 +33,18 @@ class HybridRetriever:
         """Add only adjacent chunks that belong to the same source and article."""
         expanded = list(results)
         seen = {
-            (result.get("source"), result.get("chunk_id")) for result in results
+            chunk_identity(result) for result in results
         }
         for result in results:
             chunk_id = result.get("chunk_id")
             article_id = result.get("article_id")
-            source = result.get("source")
             if not isinstance(chunk_id, int) or not article_id:
                 continue
             for neighbor_id in (chunk_id - 1, chunk_id + 1):
-                record = self._chunk_records.get((source, neighbor_id))
+                identity = chunk_identity({**result, "chunk_id": neighbor_id})
+                record = self._chunk_records.get(identity)
                 if not record or record.get("article_id") != article_id:
                     continue
-                identity = (source, neighbor_id)
                 if identity in seen:
                     continue
                 seen.add(identity)

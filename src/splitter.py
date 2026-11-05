@@ -130,6 +130,8 @@ def split_pages_with_ref(
                                     chapter_title=current_chapter_title,
                                     article_id=article_id,
                                     display_ref=display_ref,
+                                    spec_id=document.spec_id,
+                                    edition_id=document.edition_id,
                                 ),
                             )
                         )
@@ -163,6 +165,8 @@ def split_pages_with_ref(
                                 "bbox": table.metadata.bbox,
                             }
                         },
+                        spec_id=document.spec_id,
+                        edition_id=document.edition_id,
                     ),
                 )
             )
