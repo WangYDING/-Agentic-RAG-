@@ -29,6 +29,13 @@ class IngestionMetadataTest(unittest.TestCase):
         self.assertEqual(article_ids[0], "10.3.3")
         self.assertEqual(article_ids[1], "10.3.3")
 
+    def test_ocr_article_id_can_touch_chinese_body_without_matching_numbers(self):
+        parsed = parse_structural_lines(
+            "1.0.2本规范适用于最高运行速度不超过100km/h。"
+        )
+
+        self.assertEqual(parsed[0]["article_id"], "1.0.2")
+
     def test_chapter_can_be_inferred_from_split_title_and_first_article(self):
         parsed = parse_structural_lines("总\n则\n1.0.1\n制定本标准。")
 

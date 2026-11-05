@@ -16,7 +16,7 @@ def extract_article_id(text: str):
     # 7.2 xxx
     # 13.1.1 xxx
     # 30.8.5 xxx
-    pattern = re.compile(r'^\s*((?:\d+\.){2,}\d+)\s+')
+    pattern = re.compile(r'^\s*((?:\d+\.){2,}\d+)(?=\s|[\u4e00-\u9fff])')
 
     for line in lines:
         line = line.strip()
@@ -340,7 +340,7 @@ def _match_chapter(line: str, lines: list[str], index: int):
 
 
 def _match_article(line: str, lines: list[str], index: int):
-    inline = re.match(r"^((?:\d+\.){2,}\d+)\s+", line)
+    inline = re.match(r"^((?:\d+\.){2,}\d+)(?=\s|[\u4e00-\u9fff])", line)
     if inline and inline.group(1).split(".")[0] != "0":
         return inline.group(1)
 

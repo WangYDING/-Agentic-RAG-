@@ -62,6 +62,10 @@ class SpecDocument:
     verified_at: str | None
     verification_notes: str
     catalog_root: Path
+    ingestion_readiness: str | None = None
+    ocr_artifact_path: str | None = None
+    ocr_manifest_sha256: str | None = None
+    ocr_validation_sha256: str | None = None
 
     @property
     def business_id(self) -> str:
@@ -76,6 +80,15 @@ class SpecDocument:
         if self.local_pdf_path is None:
             return None
         path = Path(self.local_pdf_path)
+        if not path.is_absolute():
+            path = self.catalog_root / path
+        return path.resolve()
+
+    @property
+    def resolved_ocr_artifact_path(self) -> Path | None:
+        if self.ocr_artifact_path is None:
+            return None
+        path = Path(self.ocr_artifact_path)
         if not path.is_absolute():
             path = self.catalog_root / path
         return path.resolve()
@@ -208,6 +221,20 @@ def _parse_document(payload: Any, catalog_root: Path) -> SpecDocument:
         isinstance(item, str) and item.strip() for item in supersedes
     ):
         raise SpecCatalogError("supersedes must be a list of non-empty strings")
+    ingestion_readiness = payload.get("ingestion_readiness")
+    if ingestion_readiness is not None and not isinstance(ingestion_readiness, str):
+        raise SpecCatalogError("ingestion_readiness must be a string or null")
+    ocr_artifact_path = payload.get("ocr_artifact_path")
+    if ocr_artifact_path is not None and (
+        not isinstance(ocr_artifact_path, str) or not ocr_artifact_path.strip()
+    ):
+        raise SpecCatalogError("ocr_artifact_path must be a non-empty string or null")
+    for field_name in ("ocr_manifest_sha256", "ocr_validation_sha256"):
+        value = payload.get(field_name)
+        if value is not None and (
+            not isinstance(value, str) or not _SHA256_PATTERN.fullmatch(value)
+        ):
+            raise SpecCatalogError(f"{field_name} must be a SHA-256 value or null")
 
     return SpecDocument(
         spec_id=spec_id,
@@ -230,6 +257,10 @@ def _parse_document(payload: Any, catalog_root: Path) -> SpecDocument:
         verified_at=verified_at,
         verification_notes=_required_text(payload, "verification_notes"),
         catalog_root=catalog_root,
+        ingestion_readiness=ingestion_readiness,
+        ocr_artifact_path=ocr_artifact_path,
+        ocr_manifest_sha256=payload.get("ocr_manifest_sha256"),
+        ocr_validation_sha256=payload.get("ocr_validation_sha256"),
     )
 
 

@@ -28,6 +28,7 @@ engineering-rag-index = "src.index_cli:main"
 engineering-rag-model = "src.model_cli:main"
 engineering-rag-health = "src.health_cli:main"
 engineering-rag-ocr = "src.ocr_cli:main"
+engineering-rag-kb = "src.knowledge_base_cli:main"
 
 [project.optional-dependencies]
 dev = [
