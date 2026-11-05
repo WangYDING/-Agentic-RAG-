@@ -11,6 +11,11 @@ from src.results import ApplicationResult
 from src.reliability import CallBudget, ReliabilityError
 from src.observability import RequestObserver
 from src.retrieval_fusion import chunk_identity
+from src.query_scope import (
+    QueryScope,
+    QueryScopeClarificationRequired,
+    QueryScopeError,
+)
 
 
 REFUSAL_MESSAGE = "当前规范及已检索证据不足以完整回答该问题。"
@@ -34,6 +39,7 @@ class AgentState:
     trace: list[dict[str, Any]] = field(default_factory=list)
     request_id: str = field(default_factory=lambda: uuid4().hex)
     index_version_id: str | None = None
+    query_scope: tuple[str, ...] = ()
 
 
 @dataclass(frozen=True)
@@ -97,7 +103,7 @@ class AgentWorkflow:
         self.input_cost_per_million = input_cost_per_million
         self.output_cost_per_million = output_cost_per_million
 
-    def run(self, query: str) -> AgentResponse:
+    def run(self, query: str, scope: QueryScope | None = None) -> AgentResponse:
         state = AgentState(
             original_query=query,
             retrieval_query=query,
@@ -112,7 +118,29 @@ class AgentWorkflow:
         observer = RequestObserver(state.request_id, self.index_version_id, self.model_ids)
         observer_token = active_observer.set(observer)
         try:
-            response = self._run(state, query, budget)
+            request_retriever = self.retriever
+            bind_scope = getattr(self.retriever, "for_scope", None)
+            if bind_scope is not None:
+                request_retriever = bind_scope(scope or QueryScope.unspecified())
+                state.query_scope = request_retriever.scope.business_ids
+                state.index_version_id = request_retriever.scope.snapshot_id
+                state.trace.append(
+                    {
+                        "step": "bind_scope",
+                        "snapshot_id": state.index_version_id,
+                        "scope": list(state.query_scope),
+                    }
+                )
+            response = self._run(state, query, budget, request_retriever)
+        except QueryScopeClarificationRequired as exc:
+            response = self._scope_clarification(state, str(exc))
+        except QueryScopeError as exc:
+            response = self._error(
+                state,
+                code="INVALID_QUERY_SCOPE",
+                message=str(exc),
+                retryable=False,
+            )
         except ReliabilityError as exc:
             logger.warning("request failed request_id=%s code=%s", state.request_id, exc.code)
             response = self._error(state, code=exc.code, message=exc.public_message, retryable=exc.retryable)
@@ -128,10 +156,21 @@ class AgentWorkflow:
         active_observer.reset(observer_token)
         return response
 
-    def _run(self, state: AgentState, query: str, budget: CallBudget) -> AgentResponse:
+    def _run(
+        self,
+        state: AgentState,
+        query: str,
+        budget: CallBudget,
+        request_retriever,
+    ) -> AgentResponse:
         score_cache: dict[tuple, float] = {}
         initial_results, decision = self._retrieve_rerank_grade(
-            state, query, prior_results=[], score_cache=score_cache, budget=budget
+            state,
+            query,
+            prior_results=[],
+            score_cache=score_cache,
+            budget=budget,
+            request_retriever=request_retriever,
         )
         if decision.decision == "sufficient":
             return self._answer(state, budget)
@@ -157,6 +196,7 @@ class AgentWorkflow:
             budget=budget,
             coverage_requirements=decision.missing_requirements,
             protected_identities=protected_identities,
+            request_retriever=request_retriever,
         )
         if second_decision.decision == "sufficient":
             return self._answer(state, budget)
@@ -169,12 +209,13 @@ class AgentWorkflow:
         prior_results: list[dict],
         score_cache: dict[tuple, float],
         budget: CallBudget,
+        request_retriever,
         coverage_requirements: list[str] | None = None,
         protected_identities: set[tuple] | None = None,
     ):
         state.trace.append({"step": "retrieve", "query": retrieval_query, "retry_count": state.retry_count})
         with self._stage("retrieval"):
-            retrieved = self.retriever.retrieve(
+            retrieved = request_retriever.retrieve(
                 retrieval_query, top_k=self.retrieval_top_k
             )
         with self._stage("rerank"):
@@ -186,7 +227,7 @@ class AgentWorkflow:
                     top_n=1,
                     score_cache=score_cache,
                 )
-                expanded = self._expand_focused_neighbors(focused)
+                expanded = self._expand_focused_neighbors(focused, request_retriever)
                 if len(expanded) > len(focused):
                     focused = self._rerank_with_cache(
                         retrieval_query,
@@ -211,6 +252,7 @@ class AgentWorkflow:
                     score_cache=score_cache,
                     preferred=focused,
                     protected=protected,
+                    request_retriever=request_retriever,
                 )
             else:
                 reranked = self._rerank_with_cache(
@@ -301,6 +343,7 @@ class AgentWorkflow:
         score_cache: dict[tuple, float],
         preferred: list[dict] | None = None,
         protected: list[dict] | None = None,
+        request_retriever=None,
     ) -> list[dict]:
         if top_n <= 0 or not candidates:
             return []
@@ -379,7 +422,9 @@ class AgentWorkflow:
                 coverage_identities.add(identity)
                 coverage.append(best)
 
-        expanded_coverage = self._expand_focused_neighbors(coverage)
+        expanded_coverage = self._expand_focused_neighbors(
+            coverage, request_retriever or self.retriever
+        )
         for candidate in expanded_coverage:
             if len(protected_unique) + len(coverage) >= top_n:
                 break
@@ -523,6 +568,23 @@ class AgentWorkflow:
             ),
         )
 
+    def _scope_clarification(self, state: AgentState, message: str) -> AgentResponse:
+        state.final_action = "clarify_scope"
+        state.missing_requirements = [message]
+        state.trace.append({"step": "clarify_scope", "message": message})
+        return AgentResponse(
+            answer=message,
+            state=state,
+            result=ApplicationResult(
+                result_type="refuse",
+                message=message,
+                missing_requirements=(message,),
+                request_id=state.request_id,
+                index_version_id=state.index_version_id,
+                trace=tuple(state.trace),
+            ),
+        )
+
     def _error(
         self,
         state: AgentState,
@@ -588,8 +650,10 @@ class AgentWorkflow:
             *focused_unique,
         ]
 
-    def _expand_focused_neighbors(self, focused: list[dict]) -> list[dict]:
-        expand = getattr(self.retriever, "expand_neighbors", None)
+    def _expand_focused_neighbors(
+        self, focused: list[dict], request_retriever=None
+    ) -> list[dict]:
+        expand = getattr(request_retriever or self.retriever, "expand_neighbors", None)
         if expand is None:
             return focused
         return expand(focused)

@@ -1,0 +1,489 @@
+{
+  "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+  "embedding_model": "BAAI/bge-small-zh-v1.5",
+  "top_k_per_document_per_route": 10,
+  "questions": [
+    {
+      "id": "P1-Q001",
+      "behavior": "retrieve",
+      "scope": [
+        "cn.beijing.db11t995@2025"
+      ],
+      "candidate_count": 17,
+      "per_document_candidates": [
+        {
+          "business_id": "cn.beijing.db11t995@2025",
+          "dense_candidates": 10,
+          "bm25_candidates": 10,
+          "exact_article_candidates": 0
+        }
+      ],
+      "expected_article_hits": {
+        "cn.beijing.db11t995@2025": [
+          "5.6.8"
+        ]
+      },
+      "all_expected_articles_recalled": true,
+      "out_of_scope": [],
+      "elapsed_ms": 955.584
+    },
+    {
+      "id": "P1-Q002",
+      "behavior": "retrieve",
+      "scope": [
+        "cn.beijing.db11t995@2025"
+      ],
+      "candidate_count": 19,
+      "per_document_candidates": [
+        {
+          "business_id": "cn.beijing.db11t995@2025",
+          "dense_candidates": 10,
+          "bm25_candidates": 10,
+          "exact_article_candidates": 0
+        }
+      ],
+      "expected_article_hits": {
+        "cn.beijing.db11t995@2025": [
+          "5.6.9"
+        ]
+      },
+      "all_expected_articles_recalled": true,
+      "out_of_scope": [],
+      "elapsed_ms": 655.21
+    },
+    {
+      "id": "P1-Q003",
+      "behavior": "retrieve",
+      "scope": [
+        "cn.beijing.db11t995@2025"
+      ],
+      "candidate_count": 18,
+      "per_document_candidates": [
+        {
+          "business_id": "cn.beijing.db11t995@2025",
+          "dense_candidates": 10,
+          "bm25_candidates": 10,
+          "exact_article_candidates": 0
+        }
+      ],
+      "expected_article_hits": {
+        "cn.beijing.db11t995@2025": [
+          "8.3.2"
+        ]
+      },
+      "all_expected_articles_recalled": true,
+      "out_of_scope": [],
+      "elapsed_ms": 659.041
+    },
+    {
+      "id": "P1-Q004",
+      "behavior": "retrieve",
+      "scope": [
+        "cn.beijing.db11t995@2025"
+      ],
+      "candidate_count": 19,
+      "per_document_candidates": [
+        {
+          "business_id": "cn.beijing.db11t995@2025",
+          "dense_candidates": 10,
+          "bm25_candidates": 10,
+          "exact_article_candidates": 0
+        }
+      ],
+      "expected_article_hits": {
+        "cn.beijing.db11t995@2025": [
+          "8.7.1"
+        ]
+      },
+      "all_expected_articles_recalled": true,
+      "out_of_scope": [],
+      "elapsed_ms": 667.093
+    },
+    {
+      "id": "P1-Q005",
+      "behavior": "retrieve",
+      "scope": [
+        "cn.beijing.db11t995@2025"
+      ],
+      "candidate_count": 19,
+      "per_document_candidates": [
+        {
+          "business_id": "cn.beijing.db11t995@2025",
+          "dense_candidates": 10,
+          "bm25_candidates": 10,
+          "exact_article_candidates": 0
+        }
+      ],
+      "expected_article_hits": {
+        "cn.beijing.db11t995@2025": [
+          "6.1.1"
+        ]
+      },
+      "all_expected_articles_recalled": true,
+      "out_of_scope": [],
+      "elapsed_ms": 664.464
+    },
+    {
+      "id": "P1-Q006",
+      "behavior": "retrieve",
+      "scope": [
+        "cn.gb55033@2022"
+      ],
+      "candidate_count": 16,
+      "per_document_candidates": [
+        {
+          "business_id": "cn.gb55033@2022",
+          "dense_candidates": 10,
+          "bm25_candidates": 10,
+          "exact_article_candidates": 0
+        }
+      ],
+      "expected_article_hits": {
+        "cn.gb55033@2022": [
+          "2.1.13"
+        ]
+      },
+      "all_expected_articles_recalled": true,
+      "out_of_scope": [],
+      "elapsed_ms": 51.161
+    },
+    {
+      "id": "P1-Q007",
+      "behavior": "retrieve",
+      "scope": [
+        "cn.gb50157@2013"
+      ],
+      "candidate_count": 18,
+      "per_document_candidates": [
+        {
+          "business_id": "cn.gb50157@2013",
+          "dense_candidates": 10,
+          "bm25_candidates": 10,
+          "exact_article_candidates": 0
+        }
+      ],
+      "expected_article_hits": {
+        "cn.gb50157@2013": [
+          "4.7.4"
+        ]
+      },
+      "all_expected_articles_recalled": true,
+      "out_of_scope": [],
+      "elapsed_ms": 293.132
+    },
+    {
+      "id": "P1-Q008",
+      "behavior": "retrieve",
+      "scope": [
+        "cn.beijing.db11t995@2025",
+        "cn.gb50157@2013",
+        "cn.gb55033@2022"
+      ],
+      "candidate_count": 56,
+      "per_document_candidates": [
+        {
+          "business_id": "cn.beijing.db11t995@2025",
+          "dense_candidates": 10,
+          "bm25_candidates": 10,
+          "exact_article_candidates": 0
+        },
+        {
+          "business_id": "cn.gb50157@2013",
+          "dense_candidates": 10,
+          "bm25_candidates": 10,
+          "exact_article_candidates": 0
+        },
+        {
+          "business_id": "cn.gb55033@2022",
+          "dense_candidates": 10,
+          "bm25_candidates": 10,
+          "exact_article_candidates": 0
+        }
+      ],
+      "expected_article_hits": {
+        "cn.beijing.db11t995@2025": [
+          "5.6.8"
+        ],
+        "cn.gb55033@2022": [],
+        "cn.gb50157@2013": [
+          "4.7.4"
+        ]
+      },
+      "all_expected_articles_recalled": true,
+      "out_of_scope": [],
+      "elapsed_ms": 961.678
+    },
+    {
+      "id": "P1-Q009",
+      "behavior": "retrieve",
+      "scope": [
+        "cn.beijing.db11t995@2025",
+        "cn.gb50157@2013",
+        "cn.gb55033@2022"
+      ],
+      "candidate_count": 54,
+      "per_document_candidates": [
+        {
+          "business_id": "cn.beijing.db11t995@2025",
+          "dense_candidates": 10,
+          "bm25_candidates": 10,
+          "exact_article_candidates": 0
+        },
+        {
+          "business_id": "cn.gb50157@2013",
+          "dense_candidates": 10,
+          "bm25_candidates": 10,
+          "exact_article_candidates": 0
+        },
+        {
+          "business_id": "cn.gb55033@2022",
+          "dense_candidates": 10,
+          "bm25_candidates": 10,
+          "exact_article_candidates": 0
+        }
+      ],
+      "expected_article_hits": {
+        "cn.beijing.db11t995@2025": [
+          "4.2.4"
+        ],
+        "cn.gb55033@2022": [
+          "2.1.6"
+        ],
+        "cn.gb50157@2013": [
+          "1.0.2"
+        ]
+      },
+      "all_expected_articles_recalled": false,
+      "out_of_scope": [],
+      "elapsed_ms": 980.382
+    },
+    {
+      "id": "P1-Q010",
+      "behavior": "retrieve",
+      "scope": [
+        "cn.beijing.db11t995@2025",
+        "cn.gb50157@2013",
+        "cn.gb55033@2022"
+      ],
+      "candidate_count": 54,
+      "per_document_candidates": [
+        {
+          "business_id": "cn.beijing.db11t995@2025",
+          "dense_candidates": 10,
+          "bm25_candidates": 10,
+          "exact_article_candidates": 0
+        },
+        {
+          "business_id": "cn.gb50157@2013",
+          "dense_candidates": 10,
+          "bm25_candidates": 10,
+          "exact_article_candidates": 0
+        },
+        {
+          "business_id": "cn.gb55033@2022",
+          "dense_candidates": 10,
+          "bm25_candidates": 10,
+          "exact_article_candidates": 0
+        }
+      ],
+      "expected_article_hits": {
+        "cn.beijing.db11t995@2025": [
+          "5.6.3"
+        ],
+        "cn.gb55033@2022": [
+          "4.2.1"
+        ],
+        "cn.gb50157@2013": [
+          "4.7.1"
+        ]
+      },
+      "all_expected_articles_recalled": true,
+      "out_of_scope": [],
+      "elapsed_ms": 998.599
+    },
+    {
+      "id": "P1-Q011",
+      "behavior": "retrieve",
+      "scope": [
+        "cn.beijing.db11t995@2025",
+        "cn.gb50157@2013",
+        "cn.gb55033@2022"
+      ],
+      "candidate_count": 51,
+      "per_document_candidates": [
+        {
+          "business_id": "cn.beijing.db11t995@2025",
+          "dense_candidates": 10,
+          "bm25_candidates": 10,
+          "exact_article_candidates": 0
+        },
+        {
+          "business_id": "cn.gb50157@2013",
+          "dense_candidates": 10,
+          "bm25_candidates": 10,
+          "exact_article_candidates": 0
+        },
+        {
+          "business_id": "cn.gb55033@2022",
+          "dense_candidates": 10,
+          "bm25_candidates": 10,
+          "exact_article_candidates": 0
+        }
+      ],
+      "expected_article_hits": {
+        "cn.beijing.db11t995@2025": [
+          "3.0.21"
+        ],
+        "cn.gb55033@2022": [
+          "2.1.14",
+          "5.6.6"
+        ],
+        "cn.gb50157@2013": [
+          "1.0.22"
+        ]
+      },
+      "all_expected_articles_recalled": false,
+      "out_of_scope": [],
+      "elapsed_ms": 984.635
+    },
+    {
+      "id": "P1-Q012",
+      "behavior": "retrieve",
+      "scope": [
+        "cn.beijing.db11t995@2025",
+        "cn.gb50157@2013",
+        "cn.gb55033@2022"
+      ],
+      "candidate_count": 57,
+      "per_document_candidates": [
+        {
+          "business_id": "cn.beijing.db11t995@2025",
+          "dense_candidates": 10,
+          "bm25_candidates": 10,
+          "exact_article_candidates": 0
+        },
+        {
+          "business_id": "cn.gb50157@2013",
+          "dense_candidates": 10,
+          "bm25_candidates": 10,
+          "exact_article_candidates": 0
+        },
+        {
+          "business_id": "cn.gb55033@2022",
+          "dense_candidates": 10,
+          "bm25_candidates": 10,
+          "exact_article_candidates": 0
+        }
+      ],
+      "expected_article_hits": {
+        "cn.beijing.db11t995@2025": [
+          "5.7.1"
+        ],
+        "cn.gb55033@2022": [],
+        "cn.gb50157@2013": []
+      },
+      "all_expected_articles_recalled": true,
+      "out_of_scope": [],
+      "elapsed_ms": 1122.079
+    },
+    {
+      "id": "P1-Q013",
+      "behavior": "clarify_scope",
+      "message": "请为所选规范明确版本或适用日期：cn.beijing.db11t995",
+      "elapsed_ms": 0.017
+    },
+    {
+      "id": "P1-Q014",
+      "behavior": "clarify_scope",
+      "message": "请为所选规范明确版本或适用日期：cn.gb50157",
+      "elapsed_ms": 0.008
+    },
+    {
+      "id": "P1-Q015",
+      "behavior": "clarify_scope",
+      "message": "请先选择查询范围：全部三份规范，或指定规范及版本。",
+      "elapsed_ms": 0.004
+    },
+    {
+      "id": "P1-Q016",
+      "behavior": "clarify_scope",
+      "message": "请先选择查询范围：全部三份规范，或指定规范及版本。",
+      "elapsed_ms": 0.004
+    },
+    {
+      "id": "P1-Q017",
+      "behavior": "retrieve",
+      "scope": [
+        "cn.beijing.db11t995@2025"
+      ],
+      "candidate_count": 21,
+      "per_document_candidates": [
+        {
+          "business_id": "cn.beijing.db11t995@2025",
+          "dense_candidates": 10,
+          "bm25_candidates": 10,
+          "exact_article_candidates": 2
+        }
+      ],
+      "expected_article_hits": {
+        "cn.beijing.db11t995@2025": [
+          "6.1.1"
+        ]
+      },
+      "all_expected_articles_recalled": true,
+      "out_of_scope": [],
+      "elapsed_ms": 655.361
+    },
+    {
+      "id": "P1-Q018",
+      "behavior": "retrieve",
+      "scope": [
+        "cn.beijing.db11t995@2025",
+        "cn.gb50157@2013",
+        "cn.gb55033@2022"
+      ],
+      "candidate_count": 59,
+      "per_document_candidates": [
+        {
+          "business_id": "cn.beijing.db11t995@2025",
+          "dense_candidates": 10,
+          "bm25_candidates": 10,
+          "exact_article_candidates": 2
+        },
+        {
+          "business_id": "cn.gb50157@2013",
+          "dense_candidates": 10,
+          "bm25_candidates": 10,
+          "exact_article_candidates": 1
+        },
+        {
+          "business_id": "cn.gb55033@2022",
+          "dense_candidates": 10,
+          "bm25_candidates": 10,
+          "exact_article_candidates": 1
+        }
+      ],
+      "expected_article_hits": {
+        "cn.beijing.db11t995@2025": [
+          "6.1.1"
+        ],
+        "cn.gb55033@2022": [
+          "6.1.1"
+        ],
+        "cn.gb50157@2013": [
+          "6.1.1"
+        ]
+      },
+      "all_expected_articles_recalled": true,
+      "out_of_scope": [],
+      "elapsed_ms": 976.172
+    }
+  ],
+  "summary": {
+    "question_count": 18,
+    "clarification_count": 4,
+    "retrieval_count": 14,
+    "out_of_scope_count": 0,
+    "all_expected_articles_recalled_count": 12
+  }
+}
