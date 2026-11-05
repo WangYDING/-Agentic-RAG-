@@ -62,6 +62,12 @@ def format_agent_trace(response: AgentResponse) -> list[str]:
         step = event.get("step")
         if step == "retrieve":
             lines.append("retrieve")
+        elif step == "bind_scope":
+            lines.append(
+                "scope: " + ", ".join(event.get("scope", []))
+            )
+        elif step == "clarify_scope":
+            lines.append("clarify_scope")
         elif step == "grade":
             lines.append(f"grade: {event.get('decision', 'unknown')}")
         elif step == "retry":

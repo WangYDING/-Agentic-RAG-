@@ -50,10 +50,30 @@ def _facade():
             business_id=f"{spec_id}@{edition_id}",
         )
         documents.append(SimpleNamespace(manifest=manifest, vector_store=FakeStore(records)))
-        catalog_documents.append(SimpleNamespace(spec_id=spec_id, edition_id=edition_id))
+        catalog_documents.append(
+            SimpleNamespace(
+                spec_id=spec_id,
+                edition_id=edition_id,
+                business_id=f"{spec_id}@{edition_id}",
+                standard_code=spec_id.upper(),
+                title=f"Title {edition_id}",
+            )
+        )
     snapshot = SimpleNamespace(snapshot_id="a" * 64, documents=documents)
     catalog = SimpleNamespace(documents=catalog_documents)
     return SnapshotRetriever(snapshot, catalog, FakeEmbedder()), documents
+
+
+def test_existing_request_facade_keeps_old_snapshot_when_new_facade_is_created():
+    old, _ = _facade()
+    old_scoped = old.for_scope(QueryScope.all_documents())
+    new, _ = _facade()
+    new.snapshot_id = "b" * 64
+    new.snapshot.snapshot_id = "b" * 64
+    new_scoped = new.for_scope(QueryScope.all_documents())
+
+    assert old_scoped.scope.snapshot_id == "a" * 64
+    assert new_scoped.scope.snapshot_id == "b" * 64
 
 
 def test_exact_scope_searches_only_selected_document_in_both_routes():

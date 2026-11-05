@@ -22,6 +22,8 @@ class ScopeBoundaryError(RuntimeError):
 @dataclass(frozen=True)
 class _DocumentRetriever:
     business_id: str
+    standard_code: str
+    title: str
     dense: object
     bm25: BM25Retriever
 
@@ -43,6 +45,7 @@ class SnapshotRetriever:
             catalog_versions=versions_from_catalog(self.catalog),
         )
         allowed = set(resolved.business_ids)
+        catalog_by_id = {item.business_id: item for item in self.catalog.documents}
         documents = []
         for item in self.snapshot.documents:
             if item.manifest.business_id not in allowed:
@@ -50,6 +53,8 @@ class SnapshotRetriever:
             documents.append(
                 _DocumentRetriever(
                     item.manifest.business_id,
+                    catalog_by_id[item.manifest.business_id].standard_code,
+                    catalog_by_id[item.manifest.business_id].title,
                     Retriever(item.vector_store, self.embedder),
                     BM25Retriever(item.vector_store.chunk_records),
                 )
@@ -77,10 +82,14 @@ class ScopedSnapshotRetriever:
         per_document = []
         requested_articles = set(re.findall(r"(?<!\d)(\d+(?:\.\d+){2,})(?!\d)", query))
         for document in self.documents:
-            dense = document.dense.retrieve(query, top_k=top_k)
-            bm25 = document.bm25.retrieve(query, top_k=top_k)
+            dense = self._decorate(document.dense.retrieve(query, top_k=top_k), document)
+            bm25 = self._decorate(document.bm25.retrieve(query, top_k=top_k), document)
             exact_articles = [
-                {**record, "score": 1.0, "match_type": "exact_article"}
+                {
+                    **self._decorate_record(record, document),
+                    "score": 1.0,
+                    "match_type": "exact_article",
+                }
                 for record in document.bm25.chunk_records
                 if record.get("article_id") in requested_articles
             ]
@@ -138,3 +147,20 @@ class ScopedSnapshotRetriever:
         ]
         if escaped:
             raise ScopeBoundaryError(f"retrieval produced out-of-scope evidence: {escaped}")
+
+    @staticmethod
+    def _decorate(results: list[dict], document: _DocumentRetriever) -> list[dict]:
+        return [
+            ScopedSnapshotRetriever._decorate_record(item, document)
+            for item in results
+        ]
+
+    @staticmethod
+    def _decorate_record(record: dict, document: _DocumentRetriever) -> dict:
+        return {
+            **record,
+            "standard_code": document.standard_code,
+            "spec_title": document.title,
+            "pdf_page_start": record.get("page_start"),
+            "pdf_page_end": record.get("page_end"),
+        }

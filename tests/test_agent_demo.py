@@ -1,7 +1,10 @@
+from argparse import Namespace
+
 import agent_demo
 from src.agent_workflow import AgentResponse, AgentState
 from src.evidence import CitationValidation, Evidence
 from src.results import ApplicationResult
+from src.query_scope import QueryScopeKind
 
 
 def evidence():
@@ -103,3 +106,21 @@ def test_error_output_is_safe_and_hides_evidence():
     assert "retryable: true" in output
     assert "### Evidence" not in output
     assert "规范证据" not in output
+
+
+def test_cli_scope_selection_supports_all_and_exact_versions():
+    all_scope = agent_demo._query_scope_from_args(
+        Namespace(all_specs=True, spec_version=[])
+    )
+    exact = agent_demo._query_scope_from_args(
+        Namespace(
+            all_specs=False,
+            spec_version=["cn.gb55033@2022", "cn.gb50157@2013"],
+        )
+    )
+
+    assert all_scope.kind is QueryScopeKind.ALL
+    assert {item.business_id for item in exact.versions} == {
+        "cn.gb55033@2022",
+        "cn.gb50157@2013",
+    }

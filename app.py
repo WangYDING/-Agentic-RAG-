@@ -3,10 +3,17 @@ import logging
 from uuid import uuid4
 from dotenv import load_dotenv
 
-from src.application import build_agent_workflow, get_index_cache_token
+from src.application import (
+    build_agent_workflow,
+    build_multi_spec_agent_workflow,
+    get_index_cache_token,
+    get_knowledge_base_cache_token,
+)
 from src.config import AppConfig, ConfigurationError
 from src.evidence import format_evidence_citation
 from src.presentation import format_agent_trace, present_agent_response
+from src.query_scope import QueryScope, SpecEdition
+from src.spec_catalog import SpecCatalog
 
 
 logger = logging.getLogger(__name__)
@@ -22,7 +29,20 @@ except ConfigurationError as exc:
 
 
 @st.cache_resource
-def load_agent_workflow(config: AppConfig, index_version: str):
+def load_agent_workflow(
+    config: AppConfig,
+    index_version: str,
+    mode: str,
+    knowledge_base_root: str,
+    catalog_path: str,
+):
+    if mode == "多规范":
+        return build_multi_spec_agent_workflow(
+            config,
+            knowledge_base_root=knowledge_base_root,
+            catalog_path=catalog_path,
+            expected_snapshot_id=index_version,
+        )
     return build_agent_workflow(config)
 
 
@@ -34,16 +54,46 @@ st.caption("Hybrid Retrieval + Evidence Sufficiency + bounded retry/refusal")
 
 with st.sidebar:
     st.header("配置")
-    pdf_path = st.text_input("PDF 路径", value=environment_config.pdf_path)
-    index_dir = st.text_input("索引目录", value=environment_config.index_dir)
+    mode = st.selectbox("知识库模式", ["单规范", "多规范"])
+    pdf_path = environment_config.pdf_path
+    index_dir = environment_config.index_dir
+    knowledge_base_root = ".rag_knowledge_base"
+    catalog_path = "data/spec_catalog.v1.json"
+    query_scope = None
+    if mode == "单规范":
+        pdf_path = st.text_input("PDF 路径", value=pdf_path)
+        index_dir = st.text_input("索引目录", value=index_dir)
+    else:
+        knowledge_base_root = st.text_input("知识库目录", value=knowledge_base_root)
+        catalog_path = st.text_input("文档目录", value=catalog_path)
+        catalog = SpecCatalog.load(catalog_path)
+        options = {
+            f"{item.standard_code}《{item.title}》 ({item.edition_id})": SpecEdition(
+                item.spec_id, item.edition_id
+            )
+            for item in catalog.documents
+        }
+        scope_mode = st.radio("查询范围", ["请选择", "全部三份", "指定规范版本"])
+        if scope_mode == "全部三份":
+            query_scope = QueryScope.all_documents()
+        elif scope_mode == "指定规范版本":
+            selected = st.multiselect("规范版本", list(options))
+            if selected:
+                query_scope = QueryScope.exact_versions(options[item] for item in selected)
     if st.button("清空对话"):
         st.session_state.chat_history = []
         st.rerun()
 
 try:
     config = AppConfig.from_sources(pdf_path=pdf_path, index_dir=index_dir)
-    index_version = get_index_cache_token(config)
-    workflow = load_agent_workflow(config, index_version)
+    index_version = (
+        get_knowledge_base_cache_token(knowledge_base_root)
+        if mode == "多规范"
+        else get_index_cache_token(config)
+    )
+    workflow = load_agent_workflow(
+        config, index_version, mode, knowledge_base_root, catalog_path
+    )
 except ConfigurationError as exc:
     st.error(f"配置错误：{exc}")
     st.stop()
@@ -64,7 +114,7 @@ if query:
     with st.chat_message("user"):
         st.markdown(query)
 
-    response = workflow.run(query)
+    response = workflow.run(query, scope=query_scope)
     public = present_agent_response(response)
     st.session_state.chat_history.append({"role": "assistant", "content": public.message})
 

@@ -1,6 +1,7 @@
 import unittest
 
 from src.evidence import (
+    Evidence,
     build_evidence_context,
     build_evidence_list,
     format_evidence_citation,
@@ -114,6 +115,31 @@ class EvidenceCitationTest(unittest.TestCase):
             "[E1] spec.pdf - p.61 - 第10.3.3条",
         )
         self.assertIn("[E2] spec.pdf - p.61 - 第10.3.5条 - 表10.3.5", format_evidence_citation(table))
+
+    def test_multi_spec_citation_names_standard_version_article_and_pdf_page(self):
+        evidence = Evidence(
+            "E1",
+            "条文内容",
+            "scan.pdf",
+            5,
+            5,
+            1,
+            article_id="2.1.13",
+            spec_id="cn.gb55033",
+            edition_id="2022",
+            standard_code="GB 55033-2022",
+            spec_title="城市轨道交通工程项目规范",
+            pdf_page_start=5,
+            pdf_page_end=5,
+        )
+
+        citation = format_evidence_citation(evidence)
+
+        self.assertEqual(
+            citation,
+            "[E1] GB 55033-2022《城市轨道交通工程项目规范》 - 版本 2022 - "
+            "PDF 第 5 页 - 第2.1.13条",
+        )
 
 
 if __name__ == "__main__":

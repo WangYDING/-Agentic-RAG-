@@ -1,0 +1,529 @@
+{
+  "run_type": "phase1_slice3_scoped_real_smoke",
+  "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+  "generation_model": "deepseek-flash",
+  "questions": [
+    {
+      "id": "P1-Q006",
+      "question": "仅依据 GB 55033-2022，城市轨道交通工程应具备哪些基本消防疏散与救援条件？",
+      "requested_scope": {
+        "spec_ids": [
+          "cn.gb55033"
+        ],
+        "edition_ids": [
+          "2022"
+        ]
+      },
+      "request_id": "48926e288b9148308d6f8964045e655a",
+      "result_type": "answer",
+      "answer": "核心结论：城市轨道交通工程应配备必要的消防设施，并具备乘客及相关人员安全疏散和方便救援的条件 [E1]。\n\n1. **消防与疏散救援基本条件**：应配备必要的消防设施，并具备安全疏散及方便救援的条件 [E1]。\n2. **应急空间与设施功能**：应设置应急情况下乘客安全滞留空间、区间线路疏散通道、应急疏散场地和疏散通道，并确定疏散指挥岗位位置；出入口和自动扶梯应能在应急状态下迅速转变为疏散模式，自动检票机阻挡装置应能转换为释放状态 [E2]。\n3. **通信、信息与处置条件**：应设置通信指挥系统和事件响应机构通信方式，显示和广播疏散信息，设置救援标志、疏散照明和疏散导向标识；并应具备在故障、事故或灾难情况下迅速采取有效处置措施的工程技术条件 [E2][E3]。",
+      "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+      "bound_scope": [
+        "cn.gb55033@2022"
+      ],
+      "retry_count": 0,
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "text": "2.1.13 城市轨道交通工程应配备必要的消防设施，并应具备乘\n客和相关人员安全疏散及方便救援的条件。",
+          "source": "GB55033-2022_城市轨道交通工程项目规范.pdf",
+          "page_start": 7,
+          "page_end": 7,
+          "chunk_id": 26,
+          "content_type": "text",
+          "chapter_id": "2",
+          "chapter_title": "2 基本规定",
+          "article_id": "2.1.13",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第2.1.13条",
+          "score": 0.8299797177314758,
+          "rerank_score": 0.9984394907951355,
+          "metadata": {},
+          "spec_id": "cn.gb55033",
+          "edition_id": "2022",
+          "standard_code": "GB 55033-2022",
+          "spec_title": "城市轨道交通工程项目规范",
+          "pdf_page_start": 7,
+          "pdf_page_end": 7,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E2",
+          "text": "2.5.3 城市轨道交通应设置下列应急空间或设施，并应具备相\n应的功能：\n1 应设置应急情况下乘客安全滞留空间，包括区间线路轨\n道中心或道岔区旁侧乘客紧急疏散通道和安全滞留的空间，并应\n具备相应的疏散能力；\n2 应设置区间线路疏散通道，出入口和自动扶梯应能在应\n急状态下迅速转变为疏散模式，自动检票机阻挡装置应能转换为\n释放状态；\n应设置应急疏散场地、疏散通道，确定疏散指挥岗位\n3\n位置；\n4 应设置通信指挥系统和事件响应机构通信方式；\n5 应显示和广播疏散信息，设置救援标志、疏散照明和疏\n散导向标识。\n9",
+          "source": "GB55033-2022_城市轨道交通工程项目规范.pdf",
+          "page_start": 13,
+          "page_end": 13,
+          "chunk_id": 77,
+          "content_type": "text",
+          "chapter_id": "2",
+          "chapter_title": "2 基本规定",
+          "article_id": "2.5.3",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第2.5.3条",
+          "score": 0.7469571828842163,
+          "rerank_score": 0.9863796830177307,
+          "metadata": {},
+          "spec_id": "cn.gb55033",
+          "edition_id": "2022",
+          "standard_code": "GB 55033-2022",
+          "spec_title": "城市轨道交通工程项目规范",
+          "pdf_page_start": 13,
+          "pdf_page_end": 13,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E3",
+          "text": "2.1.28 城市轨道交通应具备在发生故障、事故或灾难的情况\n下，迅速采取有效处置措施的工程技术条件。",
+          "source": "GB55033-2022_城市轨道交通工程项目规范.pdf",
+          "page_start": 9,
+          "page_end": 9,
+          "chunk_id": 41,
+          "content_type": "text",
+          "chapter_id": "2",
+          "chapter_title": "2 基本规定",
+          "article_id": "2.1.28",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第2.1.28条",
+          "score": 9.542217763152786,
+          "rerank_score": 0.9828270673751831,
+          "metadata": {},
+          "spec_id": "cn.gb55033",
+          "edition_id": "2022",
+          "standard_code": "GB 55033-2022",
+          "spec_title": "城市轨道交通工程项目规范",
+          "pdf_page_start": 9,
+          "pdf_page_end": 9,
+          "printed_page_start": null,
+          "printed_page_end": null
+        }
+      ],
+      "request_metrics": {
+        "request_id": "48926e288b9148308d6f8964045e655a",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 0.0,
+          "rerank": 828.0,
+          "grader": 4875.0,
+          "generation": 4593.0
+        },
+        "total_ms": 10687.0,
+        "outcome": "answer",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 0,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 1649,
+          "output": 1149,
+          "total": 2798
+        },
+        "estimated_cost": null
+      }
+    },
+    {
+      "id": "P1-Q007",
+      "question": "仅依据 GB 50157-2013，地铁车辆客室车门安全联锁有哪些设计要求？",
+      "requested_scope": {
+        "spec_ids": [
+          "cn.gb50157"
+        ],
+        "edition_ids": [
+          "2013"
+        ]
+      },
+      "request_id": "3ed83c93df0e4e90a3a23b1e13a4d9d4",
+      "result_type": "answer",
+      "answer": "核心结论：客室车门系统应设置安全联锁，并满足车速与车门关闭状态两方面的联锁条件 [E1]。\n\n1. 应设置客室车门安全联锁 [E1]。\n2. 车速大于 5 km/h 时，车门不能开启 [E1]。\n3. 车门未全关闭时，列车不能启动 [E1]。",
+      "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+      "bound_scope": [
+        "cn.gb50157@2013"
+      ],
+      "retry_count": 0,
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "text": "4.7.4 客室车门系统应设置安全联锁，应确保车速大于5km/h\n时不能开启、车门未全关闭时不能启动列车。",
+          "source": "GB50157-2013_地铁设计规范.pdf",
+          "page_start": 43,
+          "page_end": 43,
+          "chunk_id": 252,
+          "content_type": "text",
+          "chapter_id": "4",
+          "chapter_title": null,
+          "article_id": "4.7.4",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第4.7.4条",
+          "score": 0.7371904850006104,
+          "rerank_score": 0.9975130558013916,
+          "metadata": {},
+          "spec_id": "cn.gb50157",
+          "edition_id": "2013",
+          "standard_code": "GB 50157-2013",
+          "spec_title": "地铁设计规范",
+          "pdf_page_start": 43,
+          "pdf_page_end": 43,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E2",
+          "text": "1.0.20 地铁工程应设置安防设施。安防设施的设计除应符合本\n规范的有关规定外，尚应合理设置安全检查设备的接口、监控系\n统、危险品处理设施，以及相关用房等。",
+          "source": "GB50157-2013_地铁设计规范.pdf",
+          "page_start": 21,
+          "page_end": 21,
+          "chunk_id": 75,
+          "content_type": "text",
+          "chapter_id": "1",
+          "chapter_title": null,
+          "article_id": "1.0.20",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第1.0.20条",
+          "score": 0.6452249884605408,
+          "rerank_score": 0.9920996427536011,
+          "metadata": {},
+          "spec_id": "cn.gb50157",
+          "edition_id": "2013",
+          "standard_code": "GB 50157-2013",
+          "spec_title": "地铁设计规范",
+          "pdf_page_start": 21,
+          "pdf_page_end": 21,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E3",
+          "text": "23 门禁\n23.1一般规定\n23.1.1 地铁涉及安全的重要设施的通道门、系统和设备用房门\n及管理用房门应设门禁。",
+          "source": "GB50157-2013_地铁设计规范.pdf",
+          "page_start": 236,
+          "page_end": 236,
+          "chunk_id": 1532,
+          "content_type": "text",
+          "chapter_id": "23",
+          "chapter_title": null,
+          "article_id": "23.1.1",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第23.1.1条",
+          "score": 0.6561984419822693,
+          "rerank_score": 0.9175416231155396,
+          "metadata": {},
+          "spec_id": "cn.gb50157",
+          "edition_id": "2013",
+          "standard_code": "GB 50157-2013",
+          "spec_title": "地铁设计规范",
+          "pdf_page_start": 236,
+          "pdf_page_end": 236,
+          "printed_page_start": null,
+          "printed_page_end": null
+        }
+      ],
+      "request_metrics": {
+        "request_id": "3ed83c93df0e4e90a3a23b1e13a4d9d4",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 16.0,
+          "rerank": 969.0,
+          "grader": 3125.0,
+          "generation": 2922.0
+        },
+        "total_ms": 7282.0,
+        "outcome": "answer",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 0,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 1427,
+          "output": 587,
+          "total": 2014
+        },
+        "estimated_cost": null
+      }
+    },
+    {
+      "id": "P1-Q017",
+      "question": "DB11/T 995-2025 第 6.1.1 条规定了什么？",
+      "requested_scope": {
+        "spec_ids": [
+          "cn.beijing.db11t995"
+        ],
+        "edition_ids": [
+          "2025"
+        ]
+      },
+      "request_id": "69d19c7dc62046baaf14f62015e30eb9",
+      "result_type": "answer",
+      "answer": "核心结论：第 6.1.1 条规定了限界设计基准坐标的建立方式及曲线超高地段的坐标处理原则。[E1][E2]\n\n1. 限界坐标系应采用正交于轨道所在平面的直角坐标：水平轴取直线地段通过两钢轨轨顶中心连线中点引出的水平轴，以 **Y** 表示；垂直轴取通过该中点并垂直于水平轴的坐标轴，以 **Z** 表示。[E1]\n2. 限界形状和大小由各控制点及其连接线组成，规定基准坐标是为了统一确定各控制点的准确位置并便于计算。[E2]\n3. 在设置曲线超高地段，限界坐标不随超高角旋转。[E2]",
+      "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+      "bound_scope": [
+        "cn.beijing.db11t995@2025"
+      ],
+      "retry_count": 0,
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "text": "6.1\n一般规定\n6.1.1\n限界坐标系应为正交于轨道所在平面的直角坐标，应以直线地段通过两钢轨轨顶中心连线的中点\n引出的水平坐标轴为水平轴，以Y 表示；应以通过该中点垂直于水平轴的坐标轴为垂直轴，以Z 表示。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 40,
+          "page_end": 40,
+          "chunk_id": 398,
+          "content_type": "text",
+          "chapter_id": "6",
+          "chapter_title": "限界",
+          "article_id": "6.1.1",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第6.1.1条",
+          "score": 1.0,
+          "rerank_score": 0.9663063883781433,
+          "metadata": {},
+          "spec_id": "cn.beijing.db11t995",
+          "edition_id": "2025",
+          "standard_code": "DB11/T 995-2025",
+          "spec_title": "城市轨道交通工程设计标准",
+          "pdf_page_start": 40,
+          "pdf_page_end": 40,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E2",
+          "text": "6.1\n一般规定\n6.1.1\n限界的形状大小由各控制点及其连接线组成，为了统一确定各控制点的准确位置、方便计算，需\n规定限界设计的基准坐标。在设置曲线超高地段，限界坐标不随超高角旋转。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 286,
+          "page_end": 286,
+          "chunk_id": 2874,
+          "content_type": "text",
+          "chapter_id": "6",
+          "chapter_title": "限界",
+          "article_id": "6.1.1",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第6.1.1条",
+          "score": 1.0,
+          "rerank_score": 0.9654415845870972,
+          "metadata": {},
+          "spec_id": "cn.beijing.db11t995",
+          "edition_id": "2025",
+          "standard_code": "DB11/T 995-2025",
+          "spec_title": "城市轨道交通工程设计标准",
+          "pdf_page_start": 286,
+          "pdf_page_end": 286,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E3",
+          "text": "高运行速度不大于\n120km/h 的地铁新建工程的设计按照本标准认真执行。\n原《城市轨道交通工程设计规范》（DB11/ 995-2013）自本标准\n实施之日起废止。\n本标准由北京市规划和自然资源委员会归口管理并组织实施。\n特此通知。\n附件：城市轨道交通工程设计标准（DB11/T 995-2025）\n2025 年7 月16 日",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 5,
+          "page_end": 5,
+          "chunk_id": 3,
+          "content_type": "text",
+          "chapter_id": null,
+          "chapter_title": null,
+          "article_id": null,
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "p5-chunk_3",
+          "score": 25.675434365940674,
+          "rerank_score": 0.9481432437896729,
+          "metadata": {},
+          "spec_id": "cn.beijing.db11t995",
+          "edition_id": "2025",
+          "standard_code": "DB11/T 995-2025",
+          "spec_title": "城市轨道交通工程设计标准",
+          "pdf_page_start": 5,
+          "pdf_page_end": 5,
+          "printed_page_start": null,
+          "printed_page_end": null
+        }
+      ],
+      "request_metrics": {
+        "request_id": "69d19c7dc62046baaf14f62015e30eb9",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 16.0,
+          "rerank": 1453.0,
+          "grader": 3469.0,
+          "generation": 5468.0
+        },
+        "total_ms": 11015.0,
+        "outcome": "answer",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 0,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 1573,
+          "output": 1035,
+          "total": 2608
+        },
+        "estimated_cost": null
+      }
+    },
+    {
+      "id": "P1-Q018",
+      "question": "分别说明三份规范各自第 6.1.1 条的内容；如果某份没有该条或无法核验，要明确说明。",
+      "requested_scope": {
+        "spec_ids": [
+          "cn.beijing.db11t995",
+          "cn.gb55033",
+          "cn.gb50157"
+        ],
+        "edition_ids": [
+          "2025",
+          "2022",
+          "2013"
+        ]
+      },
+      "request_id": "7933da5c68b94cca88de74d41fdd71c4",
+      "result_type": "answer",
+      "answer": "三份片段中均可见第6.1.1条正文；其中 [E2] 的章节标注与条文正文存在不一致，需按片段正文核验并注意其章节归属限制。\n\n1. **DB11/T 995-2025 第6.1.1条**：限界坐标系应为正交于轨道所在平面的直角坐标；水平轴应取直线地段通过两钢轨轨顶中心连线的中点引出的水平坐标轴，以Y表示；垂直轴应取通过该中点且垂直于水平轴的坐标轴，以Z表示 [E1]。\n\n2. **GB 55033-2022 第6.1.1条**：牵引供电系统、应急照明、通信、信号、线网清分系统、线路中央计算机系统、自动售检票系统、火灾自动报警系统、综合监控系统、出入口控制系统、站台屏蔽门系统、消防用电设备，以及与防排烟、事故通风、消防疏散、主排水泵、雨水泵、防淹门、公共安全防范有关的用电设备，均应为一级负荷 [E2]。但该片段章节标注显示为“6 给水、排水系统…”，正文却为“6 机电设备系统 6.1供电系统”，章节归属无法仅凭该片段完全核验 [E2]。\n\n3. **GB 50157-2013 第6.1.1条**：地铁线路应按其运营中的功能定位分为正线（干线与支线）、配线和车场线；配线应包括车辆基地出入线、联络线、折返线、停车线、渡线、安全线 [E3]。",
+      "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+      "bound_scope": [
+        "cn.beijing.db11t995@2025",
+        "cn.gb50157@2013",
+        "cn.gb55033@2022"
+      ],
+      "retry_count": 0,
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "text": "6.1\n一般规定\n6.1.1\n限界坐标系应为正交于轨道所在平面的直角坐标，应以直线地段通过两钢轨轨顶中心连线的中点\n引出的水平坐标轴为水平轴，以Y 表示；应以通过该中点垂直于水平轴的坐标轴为垂直轴，以Z 表示。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 40,
+          "page_end": 40,
+          "chunk_id": 398,
+          "content_type": "text",
+          "chapter_id": "6",
+          "chapter_title": "限界",
+          "article_id": "6.1.1",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第6.1.1条",
+          "score": 1.0,
+          "rerank_score": 0.6993430852890015,
+          "metadata": {},
+          "spec_id": "cn.beijing.db11t995",
+          "edition_id": "2025",
+          "standard_code": "DB11/T 995-2025",
+          "spec_title": "城市轨道交通工程设计标准",
+          "pdf_page_start": 40,
+          "pdf_page_end": 40,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E2",
+          "text": "6 机电设备系统\n6.1供电系统\n6.1.1牵引供电系统、应急照明、通信、信号、线网清分系统、\n线路中央计算机系统、自动售检票系统、火灾自动报警系统、综\n合监控系统、出入口控制系统、站台屏蔽门系统、消防用电设备\n及与防排烟、事故通风、消防疏散、主排水泵、雨水泵、防淹\n门、公共安全防范有关的用电设备均应为一级负荷。",
+          "source": "GB55033-2022_城市轨道交通工程项目规范.pdf",
+          "page_start": 28,
+          "page_end": 28,
+          "chunk_id": 172,
+          "content_type": "text",
+          "chapter_id": "6",
+          "chapter_title": "给水、排水系统…",
+          "article_id": "6.1.1",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第6.1.1条",
+          "score": 1.0,
+          "rerank_score": 0.6278476119041443,
+          "metadata": {},
+          "spec_id": "cn.gb55033",
+          "edition_id": "2022",
+          "standard_code": "GB 55033-2022",
+          "spec_title": "城市轨道交通工程项目规范",
+          "pdf_page_start": 28,
+          "pdf_page_end": 28,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E3",
+          "text": "6.1.1 地铁线路应按其运营中的功能定位，分为正线（干线与\n支线）、配线和车场线。配线应包括车辆基地出入线、联络线、\n折返线、停车线、渡线、安全线。",
+          "source": "GB50157-2013_地铁设计规范.pdf",
+          "page_start": 52,
+          "page_end": 52,
+          "chunk_id": 295,
+          "content_type": "text",
+          "chapter_id": "6",
+          "chapter_title": null,
+          "article_id": "6.1.1",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第6.1.1条",
+          "score": 1.0,
+          "rerank_score": 0.4867907464504242,
+          "metadata": {},
+          "spec_id": "cn.gb50157",
+          "edition_id": "2013",
+          "standard_code": "GB 50157-2013",
+          "spec_title": "地铁设计规范",
+          "pdf_page_start": 52,
+          "pdf_page_end": 52,
+          "printed_page_start": null,
+          "printed_page_end": null
+        }
+      ],
+      "request_metrics": {
+        "request_id": "7933da5c68b94cca88de74d41fdd71c4",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 47.0,
+          "rerank": 2500.0,
+          "grader": 2906.0,
+          "generation": 6453.0
+        },
+        "total_ms": 12812.0,
+        "outcome": "answer",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 0,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 1671,
+          "output": 1233,
+          "total": 2904
+        },
+        "estimated_cost": null
+      }
+    }
+  ]
+}
