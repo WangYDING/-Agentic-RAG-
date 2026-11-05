@@ -27,12 +27,17 @@ engineering-rag-web = "src.web_launcher:main"
 engineering-rag-index = "src.index_cli:main"
 engineering-rag-model = "src.model_cli:main"
 engineering-rag-health = "src.health_cli:main"
+engineering-rag-ocr = "src.ocr_cli:main"
 
 [project.optional-dependencies]
 dev = [
     "build>=1.2,<2",
     "pytest>=8,<10",
     "ruff>=0.8,<1",
+]
+ocr = [
+    "onnxruntime==1.31.1",
+    "rapidocr==3.10.0",
 ]
 
 [tool.setuptools]

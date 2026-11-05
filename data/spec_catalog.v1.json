@@ -48,9 +48,13 @@
       "local_pdf_path": "data/raw/GB55033-2022_城市轨道交通工程项目规范.pdf",
       "pdf_sha256": "907ffd92c569f79f163121904cccce69bc20905f9563854960bd184ca76f6fef",
       "verification_status": "official_source_and_local_pdf_verified",
-      "ingestion_readiness": "ocr_required",
+      "ingestion_readiness": "ocr_verified",
+      "ocr_artifact_path": "data/derived/ocr/verified/cn.gb55033@2022",
+      "ocr_manifest_sha256": "38a3d3b65ab0397dde7df72d7e72605db1f0d58ae3d118a7faaeb6e2d2f82d45",
+      "ocr_validation_sha256": "5f10427ee7647d1ef6f54de43e347e3f43945864fab6ef526da5b6805f84df54",
+      "ocr_review_record": "data/ocr_reviews/PHASE1_OCR_REVIEW_2026-11-05.md",
       "verified_at": "2026-11-05",
-      "verification_notes": "住建部公告、官方附件、42 页文件身份和 SHA-256 已核验。附件正文为浏览专用图像层，常规文本抽取只有水印；进入索引前必须建立并核验 OCR 派生产物。"
+      "verification_notes": "住建部公告、官方附件、42 页文件身份和 SHA-256 已核验。逐页 OCR 产物已通过页数、页哈希、空白页、乱码和条文号连续性自动校验，并完成人工抽检。"
     },
     {
       "spec_id": "cn.gb50157",
@@ -70,9 +74,13 @@
       "local_pdf_path": "data/raw/GB50157-2013_地铁设计规范.pdf",
       "pdf_sha256": "a1130f89afba11f00fdb3353375aa1c424b4eb44d462ee6bd1de2835c235dab3",
       "verification_status": "official_source_and_local_pdf_verified",
-      "ingestion_readiness": "ocr_required",
+      "ingestion_readiness": "ocr_verified",
+      "ocr_artifact_path": "data/derived/ocr/verified/cn.gb50157@2013",
+      "ocr_manifest_sha256": "58dc0f29c956539afd58fc1217ef5dbe538f078469f7f71f0cd525c465d3f29f",
+      "ocr_validation_sha256": "3c30621130beca84860d421cbc393e47d2390baeb28b626583ee43128ca33b9a",
+      "ocr_review_record": "data/ocr_reviews/PHASE1_OCR_REVIEW_2026-11-05.md",
       "verified_at": "2026-11-05",
-      "verification_notes": "住建部发布公告、官方附件、337 页文件身份和 SHA-256，以及 GB 55033-2022 公告列出的被废止强制性条文已核验。附件正文为扫描图像，进入索引前必须建立并核验 OCR 派生产物。"
+      "verification_notes": "住建部发布公告、官方附件、337 页文件身份和 SHA-256，以及 GB 55033-2022 公告列出的被废止强制性条文已核验。逐页 OCR 产物已通过自动校验和人工抽检；第 4.7.5 条照度单位的 OCR 错误已用可审计纠正记录修复。"
     }
   ]
 }

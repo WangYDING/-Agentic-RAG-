@@ -1,10 +1,19 @@
 faiss-cpu<2,>=1.8
+jieba<1,>=0.42
 numpy<3,>=1.26
 openai<2,>=1.35
 pymupdf<2,>=1.24
 python-dotenv<2,>=1
+rank-bm25<1,>=0.2
+scikit-learn<2,>=1.5
 sentence-transformers<6,>=3
 streamlit<2,>=1.36
 
 [dev]
+build<2,>=1.2
 pytest<10,>=8
+ruff<1,>=0.8
+
+[ocr]
+onnxruntime==1.31.1
+rapidocr==3.10.0

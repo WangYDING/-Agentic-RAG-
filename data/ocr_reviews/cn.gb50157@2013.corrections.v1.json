@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "spec_id": "cn.gb50157",
+  "edition_id": "2013",
+  "input_manifest_sha256": "df3ff01ed041cb7797fca2e61c6ee2950ed3d6d994ebd7732f2728dc67ffd736",
+  "reviewer": "Codex AI visual review authorized by the user",
+  "reviewed_at": "2026-11-05",
+  "corrections": [
+    {
+      "page_number": 43,
+      "old_text": "不应小于21x。",
+      "new_text": "不应小于2lx。",
+      "reason": "OCR confused lowercase l in the illuminance unit with digit 1.",
+      "verified_against": "Official PDF page 43, printed page 24, clause 4.7.5"
+    }
+  ]
+}
