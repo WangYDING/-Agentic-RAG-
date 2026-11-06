@@ -145,7 +145,14 @@ class AgentWorkflowTest(unittest.TestCase):
         self.assertEqual(response.state.retry_count, 1)
         self.assertEqual(response.state.rewritten_query, "second requirement")
         self.assertEqual(response.state.final_action, "answer")
-        self.assertEqual([item["step"] for item in response.state.trace], ["retrieve", "grade", "retry", "retrieve", "grade", "answer", "citation_validation"])
+        self.assertEqual(
+            [item["step"] for item in response.state.trace],
+            [
+                "retrieve", "grade", "parse_evidence_requirements", "retry",
+                "retrieve", "retain_article_groups", "verify_final_evidence_context",
+                "grade", "answer", "citation_validation",
+            ],
+        )
         self.assertEqual(rewriter.calls, [])
         self.assertEqual(len(self.generator.calls), 1)
         self.assertEqual(len(self.reranker.calls[1][1]), 3)
@@ -357,7 +364,14 @@ class AgentWorkflowTest(unittest.TestCase):
         self.assertEqual(self.generator.calls, [])
         self.assertEqual(len(self.retriever.calls), 2)
         self.assertEqual(len(self.grader.calls), 2)
-        self.assertEqual([item["step"] for item in response.state.trace], ["retrieve", "grade", "retry", "retrieve", "grade", "refuse"])
+        self.assertEqual(
+            [item["step"] for item in response.state.trace],
+            [
+                "retrieve", "grade", "parse_evidence_requirements", "retry",
+                "retrieve", "retain_article_groups", "verify_final_evidence_context",
+                "grade", "refuse",
+            ],
+        )
 
     def test_invalid_citation_is_blocked_as_error(self):
         workflow = self.build([("sufficient", [])])
@@ -430,11 +444,9 @@ class AgentWorkflowTest(unittest.TestCase):
                 ("question", [0, 1, 2]),
                 ("detail", [1, 2, 3]),
                 ("question", [3]),
-                ("detail", [0]),
                 ("question", [0, 1, 2]),
                 ("detail", [1, 2, 3]),
                 ("question", [3]),
-                ("detail", [0]),
             ],
         )
 
@@ -602,6 +614,142 @@ class AgentWorkflowTest(unittest.TestCase):
         )
 
         self.assertEqual([item["article_id"] for item in selected], ["3.0.21", "3.0.19"])
+
+    def test_scope_balance_keeps_best_evidence_from_each_compared_document(self):
+        candidates = [
+            {
+                "text": text,
+                "source": f"{spec_id}.pdf",
+                "spec_id": spec_id,
+                "edition_id": edition_id,
+                "chunk_id": index,
+                "article_id": article,
+            }
+            for index, (spec_id, edition_id, article, text) in enumerate(
+                (
+                    ("cn.a", "2025", "1.0.1", "车站出入口数量要求"),
+                    ("cn.a", "2025", "9.9.9", "公共区疏散照明要求"),
+                    ("cn.b", "2022", "2.0.1", "车站出入口协调要求"),
+                    ("cn.c", "2013", "3.0.1", "车站出入口设置要求"),
+                )
+            )
+        ]
+        scores = {
+            ("三份规范对车站出入口数量分别有什么规定？", "车站出入口数量要求"): 8,
+            ("三份规范对车站出入口数量分别有什么规定？", "公共区疏散照明要求"): 10,
+            ("三份规范对车站出入口数量分别有什么规定？", "车站出入口协调要求"): 7,
+            ("三份规范对车站出入口数量分别有什么规定？", "车站出入口设置要求"): 6,
+        }
+        workflow = AgentWorkflow(
+            FakeRetriever(), ScoringReranker(scores), FakeGrader([]), FakeGenerator()
+        )
+
+        selected = workflow._select_scope_balance(
+            "三份规范对车站出入口数量分别有什么规定？",
+            candidates,
+            ("cn.a@2025", "cn.b@2022", "cn.c@2013"),
+            top_n=3,
+            score_cache={},
+            preferred=candidates[:3],
+        )
+
+        self.assertEqual(
+            {f"{item['spec_id']}@{item['edition_id']}" for item in selected},
+            {"cn.a@2025", "cn.b@2022", "cn.c@2013"},
+        )
+        self.assertIn("1.0.1", {item["article_id"] for item in selected})
+
+    def test_scope_balance_only_applies_to_explicit_comparisons(self):
+        self.assertTrue(AgentWorkflow._requests_per_scope_answer("三份规范分别有什么规定？"))
+        self.assertTrue(AgentWorkflow._requests_per_scope_answer("比较两份规范的要求"))
+        self.assertFalse(AgentWorkflow._requests_per_scope_answer("城市轨道交通有什么要求？"))
+
+    def test_multi_scope_per_spec_request_uses_current_limit_above_top3(self):
+        workflow = AgentWorkflow(
+            FakeRetriever(), FakeReranker(), FakeGrader([]), FakeGenerator(),
+            evidence_top_n=3,
+        )
+
+        limit = workflow._request_evidence_limit(
+            "请分别说明三份规范各自第6.2.3条的核心要求。",
+            ("cn.a@2025", "cn.b@2022", "cn.c@2013"),
+        )
+
+        self.assertEqual(limit, 6)
+
+    def test_requirement_candidates_honor_explicit_specification_and_article(self):
+        candidates = [
+            {
+                "standard_code": code,
+                "spec_id": spec_id,
+                "edition_id": edition,
+                "article_id": article,
+                "text": f"{code} {article}",
+            }
+            for code, spec_id, edition, article in (
+                ("DB11/T 995-2025", "cn.db", "2025", "6.2.3"),
+                ("GB 55033-2022", "cn.gb", "2022", "6.2.3"),
+                ("GB 55033-2022", "cn.gb", "2022", "6.2.4"),
+            )
+        ]
+
+        selected = AgentWorkflow._candidates_for_requirement(
+            "GB 55033-2022第6.2.3条的主题和核心要求", candidates
+        )
+
+        self.assertEqual(len(selected), 1)
+        self.assertEqual(selected[0]["spec_id"], "cn.gb")
+        self.assertEqual(selected[0]["article_id"], "6.2.3")
+
+    def test_requirement_candidates_fall_back_when_no_explicit_scope_matches(self):
+        candidates = [{"text": "general", "article_id": "1.0.1"}]
+
+        self.assertIs(
+            AgentWorkflow._candidates_for_requirement("一般要求", candidates),
+            candidates,
+        )
+
+    def test_requirement_candidates_prefer_exact_missing_phrase_within_scope(self):
+        candidates = [
+            {
+                "standard_code": "DB11/T 995-2025",
+                "spec_id": "cn.db",
+                "edition_id": "2025",
+                "article_id": article,
+                "text": text,
+            }
+            for article, text in (
+                ("30.5.8", "车站公共区疏散照明要求。"),
+                ("10.2.1", "本条明确了站点的出入口数量、结建率和连通率要求。"),
+            )
+        ]
+
+        selected = AgentWorkflow._candidates_for_requirement(
+            "DB11/T 995-2025 对车站出入口数量的要求", candidates
+        )
+
+        self.assertEqual([item["article_id"] for item in selected], ["10.2.1"])
+
+    def test_unscoped_requirement_does_not_lexically_narrow_candidates(self):
+        candidates = [
+            {"text": "车辆前后端照明装置", "article_id": "5.6.9"},
+            {"text": "信号系统与车库门接口", "article_id": "18.9.6"},
+        ]
+
+        selected = AgentWorkflow._candidates_for_requirement(
+            "车辆前后端信号装置的要求", candidates
+        )
+
+        self.assertIs(selected, candidates)
+
+    def test_focused_overlap_prefers_relevant_low_rank_candidate(self):
+        relevant = {"text": "明确站点的出入口数量、结建率和连通率要求"}
+        unrelated = {"text": "公共区疏散照明要求"}
+
+        self.assertGreater(
+            AgentWorkflow._focused_overlap_score(relevant, "车站出入口数量"),
+            AgentWorkflow._focused_overlap_score(unrelated, "车站出入口数量"),
+        )
 
 
 if __name__ == "__main__":

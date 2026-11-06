@@ -1,0 +1,165 @@
+{
+  "run_type": "phase1_scoped_real_agent_evaluation",
+  "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+  "generation_model": "deepseek-flash",
+  "questions": [
+    {
+      "id": "P1-IND-020",
+      "question": "DB11/T 995-2025 与 GB 55033-2022 对通信后备供电时间有什么直接要求？",
+      "requested_scope": {
+        "spec_ids": [
+          "cn.beijing.db11t995",
+          "cn.gb55033"
+        ],
+        "edition_ids": [
+          "2025",
+          "2022"
+        ]
+      },
+      "request_id": "7beef6fd5b194575907b6b7d909f2cca",
+      "result_type": "answer",
+      "answer": "核心结论：两份规范均要求通信相关后备供电时间不少于 2h，但适用对象表述不同。\n\n- **DB11/T 995-2025**：民用传输系统供电宜配置不间断电源，且不间断电源的后备供电时间**不少于 2h** [E2]。\n- **GB 55033-2022**：通信电源的后备供电时间**不应少于 2h**，并应满足通信设备不间断、无瞬变供电要求 [E4]。",
+      "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+      "bound_scope": [
+        "cn.beijing.db11t995@2025",
+        "cn.gb55033@2022"
+      ],
+      "retry_count": 0,
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "text": "附件\n批准发布的北京市地方标准目录\n2025 年标字第8 号（总第366 号）\n序号\n标准号\n标准名称\n被修订标准号\n发布日期\n实施日期\n1.\nDB11/T 689-2025\n既有建筑抗震加固技术规程\nDB11/ 689-2016\n202525\n20261\n2.\n城市轨道交通工程设计标准\nDB11/ 995-2013\n202525\n20261\n3.\nDB11/T 1455-2025\n电动汽车充电基础设施规划\n设计标准\nDB11/ 1455-2017\n202525\n20251\n4.\nDB11/T 1624-2025\n电动自行车停放场所防火设\n计标准\nDB11/ 1624-2019\n202525",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 8,
+          "page_end": 8,
+          "chunk_id": 6,
+          "content_type": "text",
+          "chapter_id": null,
+          "chapter_title": null,
+          "article_id": null,
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "p8-chunk_6",
+          "score": 0.6516973972320557,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.beijing.db11t995",
+          "edition_id": "2025",
+          "standard_code": "DB11/T 995-2025",
+          "spec_title": "城市轨道交通工程设计标准",
+          "pdf_page_start": 8,
+          "pdf_page_end": 8,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E2",
+          "text": "17.5.6\n民用电源系统宜由交流电源切换屏、交流配电盘、不间断电源和接地系统组成，民用传输系统\n的供电宜配置不间断电源，不间断电源的后备供电时间不少于2h。为民用通信引入设备的供电配置电量\n计量设备。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 150,
+          "page_end": 150,
+          "chunk_id": 1579,
+          "content_type": "text",
+          "chapter_id": "17",
+          "chapter_title": "通信",
+          "article_id": "17.5.6",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第17.5.6条",
+          "score": 18.689990028076735,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.beijing.db11t995",
+          "edition_id": "2025",
+          "standard_code": "DB11/T 995-2025",
+          "spec_title": "城市轨道交通工程设计标准",
+          "pdf_page_start": 150,
+          "pdf_page_end": 150,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E3",
+          "text": "目次\n1 总则\n血\n2 基本规定\n2.1一般要求\n2.2 规划\n2.3\n杂散电流防护\n2.4 环境保护与资源节约\n2.5 应急设施\n3 限界…\n10\n4 车辆\n14\n4.1 一般规定\n14\n4.2 车体及内装\n14\n4.3 牵引和制动…\n15\n4.4 车载设备和设施\n15\n4.5 安全与应急\n16\n土建工程\n18\n一般规定\n18\n5.2 线路工程\n18\n5.3\n轨道与路基工程\n19\n5.4 车站建筑\n20\n5.5 结构工程\n22\n5.6 车辆基地与其他设施\n22\n6 机电设备系统…\n24\n6.1 供电系统\n24\n6.2 通信系统\n26\n6.3 信号系统\n27\n6",
+          "source": "GB55033-2022_城市轨道交通工程项目规范.pdf",
+          "page_start": 3,
+          "page_end": 3,
+          "chunk_id": 6,
+          "content_type": "text",
+          "chapter_id": null,
+          "chapter_title": null,
+          "article_id": null,
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "p3-chunk_6",
+          "score": 0.5884434580802917,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.gb55033",
+          "edition_id": "2022",
+          "standard_code": "GB 55033-2022",
+          "spec_title": "城市轨道交通工程项目规范",
+          "pdf_page_start": 3,
+          "pdf_page_end": 3,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E4",
+          "text": "6.2.3 通信电源应能实现集中监控管理，并应满足通信设备不\n间断、无瞬变供电要求；通信电源的后备供电时间不应少于2h；\n通信接地系统应满足人身安全、通信设备安全及通信设备正常工\n作要求；通信系统应采取防雷措施。",
+          "source": "GB55033-2022_城市轨道交通工程项目规范.pdf",
+          "page_start": 31,
+          "page_end": 31,
+          "chunk_id": 190,
+          "content_type": "text",
+          "chapter_id": "6",
+          "chapter_title": "给水、排水系统…",
+          "article_id": "6.2.3",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第6.2.3条",
+          "score": 0.6636816263198853,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.gb55033",
+          "edition_id": "2022",
+          "standard_code": "GB 55033-2022",
+          "spec_title": "城市轨道交通工程项目规范",
+          "pdf_page_start": 31,
+          "pdf_page_end": 31,
+          "printed_page_start": null,
+          "printed_page_end": null
+        }
+      ],
+      "request_metrics": {
+        "request_id": "7beef6fd5b194575907b6b7d909f2cca",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 63.0,
+          "rerank": 4531.0,
+          "grader": 3265.0,
+          "generation": 3907.0
+        },
+        "total_ms": 12750.0,
+        "outcome": "answer",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 0,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 2583,
+          "output": 901,
+          "total": 3484
+        },
+        "estimated_cost": null
+      }
+    }
+  ]
+}

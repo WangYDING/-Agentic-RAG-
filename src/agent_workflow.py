@@ -7,6 +7,12 @@ from typing import Any
 from uuid import uuid4
 
 from src.evidence import CitationValidation, Evidence, build_evidence_list, validate_citations
+from src.evidence_retention import (
+    ParsedRequirements,
+    build_retry_query,
+    parse_evidence_requirements,
+    select_retained_article_groups,
+)
 from src.results import ApplicationResult
 from src.reliability import CallBudget, ReliabilityError
 from src.observability import RequestObserver
@@ -133,18 +139,9 @@ class AgentWorkflow:
                         "scope": list(state.query_scope),
                     }
                 )
-                targets = decompose_retrieval_targets(query)
-                if len(state.query_scope) > 1 and len(targets) > 1:
-                    focused_target_count = len(focused_query_variants(targets))
-                    state.evidence_limit = min(
-                        8,
-                        max(
-                            self.evidence_top_n,
-                            len(state.query_scope) * focused_target_count,
-                        ),
-                    )
-                else:
-                    state.evidence_limit = self.evidence_top_n
+                state.evidence_limit = self._request_evidence_limit(
+                    query, state.query_scope
+                )
             response = self._run(state, query, budget, request_retriever)
         except QueryScopeClarificationRequired as exc:
             response = self._scope_clarification(state, str(exc))
@@ -189,17 +186,20 @@ class AgentWorkflow:
         if decision.decision == "sufficient":
             return self._answer(state, budget)
 
-        supported_ids = set(getattr(decision, "supported_evidence_ids", []))
-        protected_identities = {
-            evidence.stable_identity
-            for evidence in state.evidences
-            if evidence.evidence_id in supported_ids
-        }
+        parsed_requirements = parse_evidence_requirements(
+            query, decision.missing_requirements, state.query_scope
+        )
+        state.trace.append(self._requirement_trace(parsed_requirements))
 
         state.final_action = "retry"
         state.trace.append({"step": "retry", "retry_count": 1, "missing_requirements": decision.missing_requirements})
         state.retry_count = 1
-        retry_query = self._build_retry_query(query, decision.missing_requirements, budget)
+        retry_query = self._build_retry_query(
+            query,
+            decision.missing_requirements,
+            budget,
+            parsed_requirements=parsed_requirements,
+        )
         state.rewritten_query = retry_query
         state.retrieval_query = retry_query
         _, second_decision = self._retrieve_rerank_grade(
@@ -209,7 +209,7 @@ class AgentWorkflow:
             score_cache=score_cache,
             budget=budget,
             coverage_requirements=decision.missing_requirements,
-            protected_identities=protected_identities,
+            parsed_requirements=parsed_requirements,
             request_retriever=request_retriever,
         )
         if second_decision.decision == "sufficient":
@@ -225,7 +225,7 @@ class AgentWorkflow:
         budget: CallBudget,
         request_retriever,
         coverage_requirements: list[str] | None = None,
-        protected_identities: set[tuple] | None = None,
+        parsed_requirements: ParsedRequirements | None = None,
     ):
         state.trace.append({"step": "retrieve", "query": retrieval_query, "retry_count": state.retry_count})
         with self._stage("retrieval"):
@@ -252,22 +252,32 @@ class AgentWorkflow:
                     retrieved = self._merge_results(retrieved, expanded)
             candidates = self._merge_results(prior_results, retrieved)
             if coverage_requirements:
-                protected = [
-                    candidate
-                    for candidate in candidates
-                    if chunk_identity(candidate)
-                    in (protected_identities or set())
-                ]
-                reranked = self._select_requirement_coverage(
+                candidates = self._expand_complete_article_groups(
+                    candidates, request_retriever
+                )
+                reranked = self._rerank_with_cache(
                     state.original_query,
                     candidates,
-                    coverage_requirements,
                     top_n=state.evidence_limit,
                     score_cache=score_cache,
-                    preferred=focused,
-                    protected=protected,
-                    request_retriever=request_retriever,
                 )
+                reranked = self._preserve_focused_evidence(
+                    reranked, focused, top_n=state.evidence_limit
+                )
+                retention = select_retained_article_groups(
+                    parsed_requirements
+                    or parse_evidence_requirements(
+                        state.original_query,
+                        coverage_requirements,
+                        state.query_scope,
+                    ),
+                    candidates,
+                    reranked=reranked,
+                    evidence_limit=state.evidence_limit,
+                    allowed_business_ids=state.query_scope,
+                )
+                reranked = list(retention.selected)
+                state.trace.append(self._retention_trace(retention, state.evidence_limit))
             else:
                 reranked = self._rerank_with_cache(
                     state.original_query,
@@ -279,7 +289,11 @@ class AgentWorkflow:
                     reranked, focused, top_n=state.evidence_limit
                 )
             targets = decompose_retrieval_targets(state.original_query)
-            if len(state.query_scope) > 1 and len(targets) > 1:
+            if (
+                not coverage_requirements
+                and len(state.query_scope) > 1
+                and len(targets) > 1
+            ):
                 reranked = self._select_scope_target_coverage(
                     candidates,
                     focused_query_variants(targets),
@@ -288,7 +302,27 @@ class AgentWorkflow:
                     score_cache=score_cache,
                     preferred=reranked,
                 )
+            elif (
+                not coverage_requirements
+                and len(state.query_scope) > 1
+                and self._requests_per_scope_answer(state.original_query)
+            ):
+                reranked = self._select_scope_balance(
+                    state.original_query,
+                    candidates,
+                    state.query_scope,
+                    top_n=state.evidence_limit,
+                    score_cache=score_cache,
+                    preferred=reranked,
+                )
         evidences = build_evidence_list(reranked)
+        if coverage_requirements:
+            retained_groups = state.trace[-1].get("retained_groups", [])
+            state.trace.append(
+                self._verify_final_evidence_context(
+                    reranked, state.query_scope, retained_groups
+                )
+            )
         with self._stage("grader"):
             decision = self._call_with_budget(
                 self.grader.grade,
@@ -351,6 +385,115 @@ class AgentWorkflow:
             scored_candidates.append(scored)
         return select_top(scored_candidates, top_n=top_n)
 
+    @staticmethod
+    def _requirement_trace(parsed: ParsedRequirements) -> dict[str, Any]:
+        def serialize(requirement):
+            return {
+                "business_id": requirement.business_id,
+                "article_id": requirement.article_id,
+                "subrequirement": requirement.subrequirement,
+                "source": requirement.source.value,
+                "authoritative": requirement.authoritative,
+                "status": requirement.status,
+                "reason": requirement.reason,
+            }
+
+        return {
+            "step": "parse_evidence_requirements",
+            "question_requirements": [
+                serialize(item) for item in parsed.question_requirements
+            ],
+            "grader_requirements": [
+                serialize(item) for item in parsed.grader_requirements
+            ],
+        }
+
+    @staticmethod
+    def _retention_trace(retention, evidence_limit: int) -> dict[str, Any]:
+        return {
+            "step": "retain_article_groups",
+            "evidence_limit": evidence_limit,
+            "retained_groups": [
+                {
+                    "business_id": group.business_id,
+                    "article_id": group.article_id,
+                    "chunk_ids": list(group.chunk_ids),
+                    "basis": group.basis,
+                    "covered_text": group.covered_text,
+                }
+                for group in retention.retained_groups
+            ],
+            "fallbacks": [
+                {
+                    "subrequirement": item.subrequirement,
+                    "reason": item.reason,
+                    "candidate_articles": list(item.candidate_articles),
+                }
+                for item in retention.fallbacks
+            ],
+        }
+
+    def _expand_complete_article_groups(self, candidates, request_retriever):
+        """Expand same-article neighbors to a fixed point before group retention."""
+        expand = getattr(request_retriever, "expand_neighbors", None)
+        if not callable(expand):
+            return candidates
+        expanded = list(candidates)
+        previous_count = -1
+        while len(expanded) != previous_count:
+            previous_count = len(expanded)
+            expanded = self._merge_results(expanded, expand(expanded))
+        return [
+            {**item, "article_group_complete": True}
+            if item.get("article_id")
+            else item
+            for item in expanded
+        ]
+
+    @staticmethod
+    def _verify_final_evidence_context(
+        selected: list[dict],
+        allowed_business_ids: tuple[str, ...],
+        retained_groups: list[dict],
+    ) -> dict[str, Any]:
+        allowed = set(allowed_business_ids)
+        final_groups: dict[tuple[str, str], set] = {}
+        out_of_scope = []
+        for item in selected:
+            business_id = f"{item.get('spec_id')}@{item.get('edition_id')}"
+            if allowed and business_id not in allowed:
+                out_of_scope.append(
+                    {
+                        "business_id": business_id,
+                        "article_id": item.get("article_id"),
+                        "chunk_id": item.get("chunk_id"),
+                    }
+                )
+            if item.get("article_id"):
+                final_groups.setdefault(
+                    (business_id, str(item["article_id"])), set()
+                ).add(item.get("chunk_id"))
+        incomplete = []
+        for group in retained_groups:
+            key = (group["business_id"], group["article_id"])
+            expected = set(group["chunk_ids"])
+            actual = final_groups.get(key, set())
+            if not expected <= actual:
+                incomplete.append(
+                    {
+                        "business_id": key[0],
+                        "article_id": key[1],
+                        "missing_chunk_ids": sorted(expected - actual),
+                    }
+                )
+        return {
+            "step": "verify_final_evidence_context",
+            "complete": not incomplete,
+            "within_scope": not out_of_scope,
+            "incomplete_groups": incomplete,
+            "out_of_scope": out_of_scope,
+        }
+
     def _rerank_cache_key(self, query: str, candidate: dict) -> tuple:
         return (
             query,
@@ -400,15 +543,19 @@ class AgentWorkflow:
 
         coverage = []
         coverage_identities = set(protected_identities)
-        requirement_rankings = [
-            self._rerank_with_cache(
-                requirement,
-                candidates,
-                top_n=len(candidates),
-                score_cache=score_cache,
+        requirement_rankings = []
+        for requirement in coverage_queries:
+            requirement_candidates = self._candidates_for_requirement(
+                requirement, candidates
             )
-            for requirement in coverage_queries
-        ]
+            requirement_rankings.append(
+                self._rerank_with_cache(
+                    requirement,
+                    requirement_candidates,
+                    top_n=len(requirement_candidates),
+                    score_cache=score_cache,
+                )
+            )
 
         if len(requirement_rankings) > 1:
             rank_positions = []
@@ -417,29 +564,32 @@ class AgentWorkflow:
                     self._evidence_content_identity(candidate): index
                     for index, candidate in enumerate(ranked)
                 })
-            consensus = min(
-                original_ranked,
-                key=lambda candidate: (
-                    max(
-                        positions.get(
-                            self._evidence_content_identity(candidate),
-                            len(candidates),
-                        )
-                        for positions in rank_positions
+            common_identities = set(rank_positions[0])
+            for positions in rank_positions[1:]:
+                common_identities.intersection_update(positions)
+            if common_identities:
+                consensus = min(
+                    (
+                        candidate
+                        for candidate in original_ranked
+                        if self._evidence_content_identity(candidate)
+                        in common_identities
                     ),
-                    sum(
-                        positions.get(
-                            self._evidence_content_identity(candidate),
-                            len(candidates),
-                        )
-                        for positions in rank_positions
+                    key=lambda candidate: (
+                        max(
+                            positions[self._evidence_content_identity(candidate)]
+                            for positions in rank_positions
+                        ),
+                        sum(
+                            positions[self._evidence_content_identity(candidate)]
+                            for positions in rank_positions
+                        ),
                     ),
-                ),
-            )
-            consensus_identity = self._evidence_content_identity(consensus)
-            if consensus_identity not in coverage_identities:
-                coverage_identities.add(consensus_identity)
-                coverage.append(consensus)
+                )
+                consensus_identity = self._evidence_content_identity(consensus)
+                if consensus_identity not in coverage_identities:
+                    coverage_identities.add(consensus_identity)
+                    coverage.append(consensus)
 
         for ranked in requirement_rankings:
             if len(protected_unique) + len(coverage) >= top_n or not ranked:
@@ -525,6 +675,7 @@ class AgentWorkflow:
                         and self._matches_focused_intent(candidate, focused_query)
                     ),
                     key=lambda candidate: (
+                        -self._focused_overlap_score(candidate, focused_query),
                         candidate["document_query_ranks"][focused_query],
                         -(candidate.get("rrf_score") or 0.0),
                     ),
@@ -568,7 +719,10 @@ class AgentWorkflow:
                         and focused_query in candidate.get("document_query_ranks", {})
                         and self._matches_focused_intent(candidate, focused_query)
                     ),
-                    key=lambda candidate: candidate["document_query_ranks"][focused_query],
+                    key=lambda candidate: (
+                        -self._focused_overlap_score(candidate, focused_query),
+                        candidate["document_query_ranks"][focused_query],
+                    ),
                 )
                 candidate = next(
                     (
@@ -593,6 +747,79 @@ class AgentWorkflow:
                 selected.append(candidate)
                 fulfilled_targets.add((business_id, focused_query))
         return selected or preferred[:top_n]
+
+    def _select_scope_balance(
+        self,
+        query: str,
+        candidates: list[dict],
+        business_ids: tuple[str, ...],
+        *,
+        top_n: int,
+        score_cache: dict[tuple, float],
+        preferred: list[dict],
+    ) -> list[dict]:
+        """Keep the best available evidence for every explicitly compared scope."""
+        ranked = self._rerank_with_cache(
+            query, candidates, top_n=len(candidates), score_cache=score_cache
+        )
+        rank_positions = {
+            chunk_identity(candidate): index for index, candidate in enumerate(ranked)
+        }
+        selected = []
+        seen = set()
+        for business_id in business_ids:
+            scoped = (
+                item
+                for item in ranked
+                if f"{item.get('spec_id')}@{item.get('edition_id')}"
+                == business_id
+                and chunk_identity(item) not in seen
+            )
+            candidate = min(
+                scoped,
+                key=lambda item: (
+                    -self._focused_overlap_score(item, query),
+                    rank_positions[chunk_identity(item)],
+                ),
+                default=None,
+            )
+            if candidate is not None and len(selected) < top_n:
+                seen.add(chunk_identity(candidate))
+                selected.append(candidate)
+        for candidate in [*preferred, *ranked]:
+            if len(selected) >= top_n:
+                break
+            identity = chunk_identity(candidate)
+            if identity not in seen:
+                seen.add(identity)
+                selected.append(candidate)
+        return selected
+
+    @staticmethod
+    def _requests_per_scope_answer(query: str) -> bool:
+        return bool(
+            re.search(
+                r"(?:两份|三份|各份|各规范|分别|各自|比较|对比)",
+                query,
+            )
+        )
+
+    def _request_evidence_limit(
+        self, query: str, business_ids: tuple[str, ...]
+    ) -> int:
+        if len(business_ids) <= 1:
+            return self.evidence_top_n
+        targets = focused_query_variants(decompose_retrieval_targets(query))
+        if len(targets) > 1:
+            target_count = len(targets)
+        elif self._requests_per_scope_answer(query):
+            target_count = 2
+        else:
+            return self.evidence_top_n
+        return min(
+            8,
+            max(self.evidence_top_n, len(business_ids) * target_count),
+        )
 
     @staticmethod
     def _matches_focused_intent(candidate: dict, focused_query: str) -> bool:
@@ -634,6 +861,84 @@ class AgentWorkflow:
         return queries
 
     @staticmethod
+    def _candidates_for_requirement(
+        requirement: str, candidates: list[dict]
+    ) -> list[dict]:
+        """Honor an explicit specification/version or article named by a requirement."""
+        normalized_requirement = re.sub(r"[^A-Z0-9]", "", requirement.upper())
+        scoped = []
+        for candidate in candidates:
+            identifiers = (
+                candidate.get("standard_code"),
+                f"{candidate.get('spec_id')}@{candidate.get('edition_id')}",
+            )
+            if any(
+                (normalized := re.sub(r"[^A-Z0-9]", "", str(identifier).upper()))
+                and normalized in normalized_requirement
+                for identifier in identifiers
+            ):
+                scoped.append(candidate)
+        narrowed = scoped or candidates
+        requested_articles = set(
+            re.findall(r"(?<!\d)(\d+(?:\.\d+){2,})(?!\d)", requirement)
+        )
+        article_matches = [
+            candidate
+            for candidate in narrowed
+            if candidate.get("article_id") in requested_articles
+        ]
+        if article_matches:
+            return article_matches
+        phrase = requirement
+        for standard_code in {
+            str(candidate.get("standard_code", "")).strip()
+            for candidate in candidates
+        }:
+            if standard_code:
+                phrase = re.sub(re.escape(standard_code), "", phrase, flags=re.I)
+        phrase = re.sub(r"^(?:关于|对)", "", phrase.strip(" ：:，,"))
+        phrase = re.sub(
+            r"的?(?:具体)?(?:直接)?(?:要求|规定)(?:.*)$", "", phrase
+        ).strip(" ：:，,")
+        if not scoped:
+            return narrowed
+        phrase_matches = [
+            candidate
+            for candidate in narrowed
+            if len(phrase) >= 4 and phrase in str(candidate.get("text", ""))
+        ]
+        if phrase_matches:
+            return phrase_matches
+        phrase_bigrams = {
+            phrase[index : index + 2]
+            for index in range(max(0, len(phrase) - 1))
+            if re.fullmatch(r"[\u4e00-\u9fff]{2}", phrase[index : index + 2])
+        }
+        overlap = [
+            (
+                sum(bigram in str(candidate.get("text", "")) for bigram in phrase_bigrams),
+                candidate,
+            )
+            for candidate in narrowed
+        ]
+        best_overlap = max((score for score, _ in overlap), default=0)
+        if best_overlap >= 2:
+            return [candidate for score, candidate in overlap if score == best_overlap]
+        return narrowed
+
+    @staticmethod
+    def _focused_overlap_score(candidate: dict, focused_query: str) -> int:
+        query_bigrams = {
+            focused_query[index : index + 2]
+            for index in range(max(0, len(focused_query) - 1))
+            if re.fullmatch(
+                r"[\u4e00-\u9fff]{2}", focused_query[index : index + 2]
+            )
+        }
+        text = str(candidate.get("text", ""))
+        return sum(bigram in text for bigram in query_bigrams)
+
+    @staticmethod
     def _evidence_content_identity(candidate: dict) -> tuple:
         normalized_text = " ".join(str(candidate.get("text", "")).split())
         return (
@@ -642,13 +947,17 @@ class AgentWorkflow:
         )
 
     def _build_retry_query(
-        self, query: str, missing_requirements: list[str], budget: CallBudget
+        self,
+        query: str,
+        missing_requirements: list[str],
+        budget: CallBudget,
+        parsed_requirements: ParsedRequirements | None = None,
     ) -> str:
         missing = "；".join(
             item.strip() for item in missing_requirements if item.strip()
         )
         if missing:
-            return missing
+            return build_retry_query(parsed_requirements, missing) if parsed_requirements else missing
         if self.rewriter is None:
             return query
         with self._stage("rewrite"):

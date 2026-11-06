@@ -1,0 +1,290 @@
+{
+  "run_type": "phase1_scoped_real_agent_evaluation",
+  "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+  "generation_model": "deepseek-flash",
+  "questions": [
+    {
+      "id": "P1-IND-011",
+      "question": "比较 GB 55033-2022 与 GB 50157-2013 的设计年限规定，并指出前者额外提出的运能要求。",
+      "requested_scope": {
+        "spec_ids": [
+          "cn.gb55033",
+          "cn.gb50157"
+        ],
+        "edition_ids": [
+          "2022",
+          "2013"
+        ]
+      },
+      "request_id": "8ee40f604e154db088ca572b59247913",
+      "result_type": "refuse",
+      "answer": "当前规范及已检索证据不足以完整回答该问题。 缺少的信息：GB 50157-2013 的设计年限具体规定（初期、近期、远期年限）。",
+      "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+      "bound_scope": [
+        "cn.gb50157@2013",
+        "cn.gb55033@2022"
+      ],
+      "retry_count": 1,
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "text": "3.2.2系统设计能力应满足相应年限设计运输能力的需要，系\n统设计远期最大能力应满足行车密度不小于30对/h的要求。",
+          "source": "GB50157-2013_地铁设计规范.pdf",
+          "page_start": 31,
+          "page_end": 31,
+          "chunk_id": 150,
+          "content_type": "text",
+          "chapter_id": "3",
+          "chapter_title": "2 术语3 运营组织",
+          "article_id": "3.2.2",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第3.2.2条",
+          "score": 0.6725338697433472,
+          "rerank_score": 0.7361215353012085,
+          "metadata": {},
+          "spec_id": "cn.gb50157",
+          "edition_id": "2013",
+          "standard_code": "GB 50157-2013",
+          "spec_title": "地铁设计规范",
+          "pdf_page_start": 31,
+          "pdf_page_end": 31,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E2",
+          "text": "2.1.5 城市轨道交通工程设计年限应以建成通车年为基准年，\n之后应分为初期3年、近期10年、远期25年。在设计年限内，\n设计运能应满足客流预测需求，应留有不小于10%的运能储备。",
+          "source": "GB55033-2022_城市轨道交通工程项目规范.pdf",
+          "page_start": 6,
+          "page_end": 6,
+          "chunk_id": 17,
+          "content_type": "text",
+          "chapter_id": "2",
+          "chapter_title": "2 基本规定",
+          "article_id": "2.1.5",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第2.1.5条",
+          "score": 0.6568983793258667,
+          "rerank_score": 0.6659668684005737,
+          "metadata": {},
+          "spec_id": "cn.gb55033",
+          "edition_id": "2022",
+          "standard_code": "GB 55033-2022",
+          "spec_title": "城市轨道交通工程项目规范",
+          "pdf_page_start": 6,
+          "pdf_page_end": 6,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E3",
+          "text": "1 主体结构和使用期间不可更换的结构构件，应根据使用\n环境类别，按设计使用年限为100年的要求进行耐久性设计；\n2 使用期间可以更换且不影响运营的次要结构构件，可按\n设计使用年限50年的要求进行耐久性设计；\n3 临时结构宜根据其使用性质和结构特点确定其使用年限。",
+          "source": "GB50157-2013_地铁设计规范.pdf",
+          "page_start": 104,
+          "page_end": 104,
+          "chunk_id": 611,
+          "content_type": "text",
+          "chapter_id": "11",
+          "chapter_title": null,
+          "article_id": "11.1.6",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第11.1.6条",
+          "score": 27.003795674672013,
+          "rerank_score": 0.8388499617576599,
+          "metadata": {},
+          "spec_id": "cn.gb50157",
+          "edition_id": "2013",
+          "standard_code": "GB 50157-2013",
+          "spec_title": "地铁设计规范",
+          "pdf_page_start": 104,
+          "pdf_page_end": 104,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E4",
+          "text": "11.1.6 地下结构的耐久性设计应符合下列规定：\n84",
+          "source": "GB50157-2013_地铁设计规范.pdf",
+          "page_start": 103,
+          "page_end": 103,
+          "chunk_id": 610,
+          "content_type": "text",
+          "chapter_id": "11",
+          "chapter_title": null,
+          "article_id": "11.1.6",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第11.1.6条",
+          "score": 0.0,
+          "rerank_score": 0.0048743258230388165,
+          "metadata": {},
+          "spec_id": "cn.gb50157",
+          "edition_id": "2013",
+          "standard_code": null,
+          "spec_title": null,
+          "pdf_page_start": 103,
+          "pdf_page_end": 103,
+          "printed_page_start": null,
+          "printed_page_end": null
+        }
+      ],
+      "trace": [
+        {
+          "step": "bind_scope",
+          "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+          "scope": [
+            "cn.gb50157@2013",
+            "cn.gb55033@2022"
+          ]
+        },
+        {
+          "step": "retrieve",
+          "query": "比较 GB 55033-2022 与 GB 50157-2013 的设计年限规定，并指出前者额外提出的运能要求。",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "GB 50157-2013 关于设计年限的具体规定（如设计年限的划分或取值），无法据此与 GB 55033-2022 的设计年限规定进行完整比较"
+          ],
+          "retry_count": 0
+        },
+        {
+          "step": "parse_evidence_requirements",
+          "question_requirements": [
+            {
+              "business_id": "cn.gb50157@2013",
+              "article_id": null,
+              "subrequirement": "比较 GB 55033-2022 与 GB 50157-2013 的设计年限规定，并指出前者额外提出的运能要求",
+              "source": "question",
+              "authoritative": true,
+              "status": "parsed",
+              "reason": null
+            },
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": null,
+              "subrequirement": "比较 GB 55033-2022 与 GB 50157-2013 的设计年限规定，并指出前者额外提出的运能要求",
+              "source": "question",
+              "authoritative": true,
+              "status": "parsed",
+              "reason": null
+            }
+          ],
+          "grader_requirements": [
+            {
+              "business_id": "cn.gb50157@2013",
+              "article_id": null,
+              "subrequirement": "GB 50157-2013 关于设计年限的具体规定（如设计年限的划分或取值），无法据此与 GB 55033-2022 的设计年限规定进行完整比较",
+              "source": "grader",
+              "authoritative": true,
+              "status": "mapped_to_question",
+              "reason": null
+            },
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": null,
+              "subrequirement": "GB 50157-2013 关于设计年限的具体规定（如设计年限的划分或取值），无法据此与 GB 55033-2022 的设计年限规定进行完整比较",
+              "source": "grader",
+              "authoritative": true,
+              "status": "mapped_to_question",
+              "reason": null
+            }
+          ]
+        },
+        {
+          "step": "retry",
+          "retry_count": 1,
+          "missing_requirements": [
+            "GB 50157-2013 关于设计年限的具体规定（如设计年限的划分或取值），无法据此与 GB 55033-2022 的设计年限规定进行完整比较"
+          ]
+        },
+        {
+          "step": "retrieve",
+          "query": "GB 50157-2013 关于设计年限的具体规定（如设计年限的划分或取值）",
+          "retry_count": 1
+        },
+        {
+          "step": "retain_article_groups",
+          "evidence_limit": 4,
+          "retained_groups": [],
+          "fallbacks": [
+            {
+              "subrequirement": "比较 GB 55033-2022 与 GB 50157-2013 的设计年限规定，并指出前者额外提出的运能要求",
+              "reason": "no_direct_coverage",
+              "candidate_articles": []
+            },
+            {
+              "subrequirement": "比较 GB 55033-2022 与 GB 50157-2013 的设计年限规定，并指出前者额外提出的运能要求",
+              "reason": "no_direct_coverage",
+              "candidate_articles": []
+            },
+            {
+              "subrequirement": "GB 50157-2013 关于设计年限的具体规定（如设计年限的划分或取值），无法据此与 GB 55033-2022 的设计年限规定进行完整比较",
+              "reason": "no_direct_coverage",
+              "candidate_articles": []
+            },
+            {
+              "subrequirement": "GB 50157-2013 关于设计年限的具体规定（如设计年限的划分或取值），无法据此与 GB 55033-2022 的设计年限规定进行完整比较",
+              "reason": "no_direct_coverage",
+              "candidate_articles": []
+            }
+          ]
+        },
+        {
+          "step": "verify_final_evidence_context",
+          "complete": true,
+          "within_scope": true,
+          "incomplete_groups": [],
+          "out_of_scope": []
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "GB 50157-2013 的设计年限具体规定（初期、近期、远期年限）"
+          ],
+          "retry_count": 1
+        },
+        {
+          "step": "refuse",
+          "missing_requirements": [
+            "GB 50157-2013 的设计年限具体规定（初期、近期、远期年限）"
+          ]
+        }
+      ],
+      "request_metrics": {
+        "request_id": "8ee40f604e154db088ca572b59247913",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 94.0,
+          "rerank": 13703.0,
+          "grader": 14422.0
+        },
+        "total_ms": 28875.0,
+        "outcome": "refuse",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 1,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 2134,
+          "output": 2646,
+          "total": 4780
+        },
+        "estimated_cost": null
+      }
+    }
+  ]
+}

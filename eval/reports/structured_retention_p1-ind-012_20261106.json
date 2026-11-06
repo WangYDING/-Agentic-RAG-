@@ -1,0 +1,142 @@
+{
+  "run_type": "phase1_scoped_real_agent_evaluation",
+  "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+  "generation_model": "deepseek-flash",
+  "questions": [
+    {
+      "id": "P1-IND-012",
+      "question": "三份规范对1435mm标准轨距及小半径曲线轨距加宽分别给出了什么直接规定？",
+      "requested_scope": {
+        "spec_ids": [
+          "cn.beijing.db11t995",
+          "cn.gb55033",
+          "cn.gb50157"
+        ],
+        "edition_ids": [
+          "2025",
+          "2022",
+          "2013"
+        ]
+      },
+      "request_id": "8ed2134de8c3490b8572389829cac541",
+      "result_type": "answer",
+      "answer": "核心结论：三份规范均明确规定城市轨道交通钢轮钢轨系统采用1435mm标准轨距；其中DB11/T 995-2025和GB 50157-2013对半径小于250m曲线地段提出了轨距加宽的直接要求，GB 55033-2022仅见标准轨距规定。\n\n1. **DB11/T 995-2025**：钢轨标准轨距应为1435mm；半径小于250m的曲线地段应进行轨距加宽，加宽值应符合表8.2.2规定 [E1]。片段可见：250m＞R≥200m时，A型车加宽5mm、B型车不列加宽值；200m＞R≥150m时，A型车加宽10mm、B型车加宽5mm [E1]。\n\n2. **GB 50157-2013**：标准轨距为1435mm；半径小于250m的曲线地段应进行轨距加宽，加宽值应符合表7.2.2规定 [E2]。轨距加宽值应在缓和曲线范围内递减；无缓和曲线或其长度不足时，应在直线地段递减，递减率不宜大于2% [E2]。片段中表7.2.2仅显示250m＞R≥200m一行，A型车为5mm、B型车为45mm（按片段原文），片段未展示完整表格 [E2]。\n\n3. **GB 55033-2022**：包括有轨电车轨道在内的城市轨道交通钢轮钢轨系统的轨道应采用1435mm标准轨距 [E3]。对于小半径曲线轨距加宽，给定证据未找到直接规定 [E3]。",
+      "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+      "bound_scope": [
+        "cn.beijing.db11t995@2025",
+        "cn.gb50157@2013",
+        "cn.gb55033@2022"
+      ],
+      "retry_count": 0,
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "text": "8.2.2\n钢轨标准轨距应为1435mm，半径小于250m 曲线地段，应进行轨距加宽，加宽值应符合表8.2.2\n的规定。\n表8.2.2\n曲线地段轨距加宽值\n曲线半径R（m）\n加宽值（mm）\nA型车\nB型车\n250＞R≥200\n5\n—\n200＞R≥150\n10\n5",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 50,
+          "page_end": 50,
+          "chunk_id": 487,
+          "content_type": "text",
+          "chapter_id": "8",
+          "chapter_title": "轨道",
+          "article_id": "8.2.2",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第8.2.2条",
+          "score": 0.6510183811187744,
+          "rerank_score": 0.990608811378479,
+          "metadata": {},
+          "spec_id": "cn.beijing.db11t995",
+          "edition_id": "2025",
+          "standard_code": "DB11/T 995-2025",
+          "spec_title": "城市轨道交通工程设计标准",
+          "pdf_page_start": 50,
+          "pdf_page_end": 50,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E2",
+          "text": "7.2.2 标准轨距为1435mm，半径小于250m的曲线地段应进\n行轨距加宽，加宽值应符合表7.2.2的规定。轨距加宽值应在缓\n和曲线范围内递减，无缓和曲线或其长度不足时，应在直线地段\n递减，递减率不宜大于2%。\n表7.2.2 曲线地段轨距加宽值\n曲线半径R\n加宽值（mm）\n(m)\nA型车\nB型车\n250>R≥200\n5\n45",
+          "source": "GB50157-2013_地铁设计规范.pdf",
+          "page_start": 64,
+          "page_end": 64,
+          "chunk_id": 349,
+          "content_type": "text",
+          "chapter_id": "7",
+          "chapter_title": null,
+          "article_id": "7.2.2",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第7.2.2条",
+          "score": 0.6968278884887695,
+          "rerank_score": 0.9907981157302856,
+          "metadata": {},
+          "spec_id": "cn.gb50157",
+          "edition_id": "2013",
+          "standard_code": "GB 50157-2013",
+          "spec_title": "地铁设计规范",
+          "pdf_page_start": 64,
+          "pdf_page_end": 64,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E3",
+          "text": "2.1.2 包括有轨电车轨道在内的城市轨道交通钢轮钢轨系统的\n轨道应采用1435mm标准轨距。",
+          "source": "GB55033-2022_城市轨道交通工程项目规范.pdf",
+          "page_start": 6,
+          "page_end": 6,
+          "chunk_id": 14,
+          "content_type": "text",
+          "chapter_id": "2",
+          "chapter_title": "2 基本规定",
+          "article_id": "2.1.2",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第2.1.2条",
+          "score": 0.6732237339019775,
+          "rerank_score": 0.8337494730949402,
+          "metadata": {},
+          "spec_id": "cn.gb55033",
+          "edition_id": "2022",
+          "standard_code": "GB 55033-2022",
+          "spec_title": "城市轨道交通工程项目规范",
+          "pdf_page_start": 6,
+          "pdf_page_end": 6,
+          "printed_page_start": null,
+          "printed_page_end": null
+        }
+      ],
+      "request_metrics": {
+        "request_id": "8ed2134de8c3490b8572389829cac541",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 47.0,
+          "rerank": 2844.0,
+          "grader": 19922.0,
+          "generation": 8297.0
+        },
+        "total_ms": 32360.0,
+        "outcome": "answer",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 0,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 2009,
+          "output": 4378,
+          "total": 6387
+        },
+        "estimated_cost": null
+      }
+    }
+  ]
+}

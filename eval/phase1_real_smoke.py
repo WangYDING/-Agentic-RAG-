@@ -75,6 +75,7 @@ def main(argv: list[str] | None = None) -> int:
                     "bound_scope": list(response.state.query_scope),
                     "retry_count": response.state.retry_count,
                     "evidence": [item.to_dict() for item in response.state.evidences],
+                    "trace": response.state.trace,
                     "request_metrics": handler.by_request.get(response.request_id),
                 }
             )
