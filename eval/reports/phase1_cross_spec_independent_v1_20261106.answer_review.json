@@ -1,0 +1,1408 @@
+{
+  "reviewer": "Codex (AI)",
+  "summary": {
+    "total": 30,
+    "service_errors": 0,
+    "scope_violations": 0,
+    "candidate_complete": 24,
+    "candidate_denominator": 25,
+    "false_refusals": 7,
+    "complete_answers": 16,
+    "answerable_denominator": 25,
+    "false_accepts": 0,
+    "clarifications_without_calls": 2,
+    "generated_answers": 18,
+    "legal_citations": 18,
+    "correct_final_behavior": 23,
+    "critical_numeric_unit_condition_errors": 0,
+    "unsupported_material_claims": 0,
+    "latency_ms": {
+      "total": 487311.0,
+      "mean": 16243.7,
+      "p50": 10281.0,
+      "p95": 59235.0
+    },
+    "tokens": {
+      "total": 98548,
+      "mean": 3284.9333333333334,
+      "p50": 2982,
+      "p95": 6701
+    },
+    "model_calls": 58,
+    "cost_by_scope": {
+      "single_spec": {
+        "count": 15,
+        "latency_ms_mean": 8957.266666666666,
+        "latency_ms_p50": 7594.0,
+        "latency_ms_p95": 20437.0,
+        "tokens_mean": 2827.733333333333,
+        "tokens_p50": 2913,
+        "tokens_p95": 3787,
+        "model_calls": 30
+      },
+      "cross_spec": {
+        "count": 13,
+        "latency_ms_mean": 27150.153846153848,
+        "latency_ms_p50": 23859.0,
+        "latency_ms_p95": 63031.0,
+        "tokens_mean": 4317.846153846154,
+        "tokens_p50": 3440,
+        "tokens_p95": 11502,
+        "model_calls": 28
+      },
+      "clarification": {
+        "count": 2,
+        "latency_ms_mean": 0.0,
+        "latency_ms_p50": 0.0,
+        "latency_ms_p95": 0.0,
+        "tokens_mean": 0,
+        "tokens_p50": 0,
+        "tokens_p95": 0,
+        "model_calls": 0
+      }
+    },
+    "verdict": "未通过"
+  },
+  "questions": [
+    {
+      "id": "P1-IND-001",
+      "expected_behavior": "answer",
+      "actual_result_type": "answer",
+      "review_verdict": "pass",
+      "review_note": "答案要点、数值、单位、条件与来源一致。",
+      "candidate_complete": true,
+      "candidate_missing": [],
+      "final_evidence_complete": true,
+      "final_missing": [],
+      "scope_violations": [],
+      "citation_legal": true,
+      "request_id": "7932fddfd0e74479bb5ca8065df6a533",
+      "metrics": {
+        "request_id": "7932fddfd0e74479bb5ca8065df6a533",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 16.0,
+          "rerank": 547.0,
+          "grader": 2875.0,
+          "generation": 2828.0
+        },
+        "total_ms": 6641.0,
+        "outcome": "answer",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 0,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 1847,
+          "output": 517,
+          "total": 2364
+        },
+        "estimated_cost": null
+      }
+    },
+    {
+      "id": "P1-IND-002",
+      "expected_behavior": "answer",
+      "actual_result_type": "answer",
+      "review_verdict": "pass",
+      "review_note": "答案要点、数值、单位、条件与来源一致。",
+      "candidate_complete": true,
+      "candidate_missing": [],
+      "final_evidence_complete": true,
+      "final_missing": [],
+      "scope_violations": [],
+      "citation_legal": true,
+      "request_id": "4fe4c8289e844b7ab499e1fc1401d3a3",
+      "metrics": {
+        "request_id": "4fe4c8289e844b7ab499e1fc1401d3a3",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 0.0,
+          "rerank": 781.0,
+          "grader": 2422.0,
+          "generation": 5719.0
+        },
+        "total_ms": 8969.0,
+        "outcome": "answer",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 0,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 1843,
+          "output": 1043,
+          "total": 2886
+        },
+        "estimated_cost": null
+      }
+    },
+    {
+      "id": "P1-IND-003",
+      "expected_behavior": "answer",
+      "actual_result_type": "answer",
+      "review_verdict": "pass",
+      "review_note": "答案要点、数值、单位、条件与来源一致。",
+      "candidate_complete": true,
+      "candidate_missing": [],
+      "final_evidence_complete": true,
+      "final_missing": [],
+      "scope_violations": [],
+      "citation_legal": true,
+      "request_id": "5f32e96c50264030b77775dd030e3904",
+      "metrics": {
+        "request_id": "5f32e96c50264030b77775dd030e3904",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 31.0,
+          "rerank": 2250.0,
+          "grader": 2313.0,
+          "generation": 2609.0
+        },
+        "total_ms": 7234.0,
+        "outcome": "answer",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 0,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 1739,
+          "output": 430,
+          "total": 2169
+        },
+        "estimated_cost": null
+      }
+    },
+    {
+      "id": "P1-IND-004",
+      "expected_behavior": "answer",
+      "actual_result_type": "answer",
+      "review_verdict": "pass",
+      "review_note": "答案要点、数值、单位、条件与来源一致。",
+      "candidate_complete": true,
+      "candidate_missing": [],
+      "final_evidence_complete": true,
+      "final_missing": [],
+      "scope_violations": [],
+      "citation_legal": true,
+      "request_id": "eb6234fd30504aaba87ab65b8a8b543c",
+      "metrics": {
+        "request_id": "eb6234fd30504aaba87ab65b8a8b543c",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 16.0,
+          "rerank": 1093.0,
+          "grader": 2032.0,
+          "generation": 2671.0
+        },
+        "total_ms": 5859.0,
+        "outcome": "answer",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 0,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 2141,
+          "output": 551,
+          "total": 2692
+        },
+        "estimated_cost": null
+      }
+    },
+    {
+      "id": "P1-IND-005",
+      "expected_behavior": "answer",
+      "actual_result_type": "answer",
+      "review_verdict": "pass",
+      "review_note": "答案要点、数值、单位、条件与来源一致。",
+      "candidate_complete": true,
+      "candidate_missing": [],
+      "final_evidence_complete": true,
+      "final_missing": [],
+      "scope_violations": [],
+      "citation_legal": true,
+      "request_id": "296e90f30ba24e01b95bf450122549b2",
+      "metrics": {
+        "request_id": "296e90f30ba24e01b95bf450122549b2",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 16.0,
+          "rerank": 750.0,
+          "grader": 3297.0,
+          "generation": 3484.0
+        },
+        "total_ms": 7594.0,
+        "outcome": "answer",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 0,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 2053,
+          "output": 911,
+          "total": 2964
+        },
+        "estimated_cost": null
+      }
+    },
+    {
+      "id": "P1-IND-006",
+      "expected_behavior": "answer",
+      "actual_result_type": "answer",
+      "review_verdict": "pass",
+      "review_note": "答案要点、数值、单位、条件与来源一致。",
+      "candidate_complete": true,
+      "candidate_missing": [],
+      "final_evidence_complete": true,
+      "final_missing": [],
+      "scope_violations": [],
+      "citation_legal": true,
+      "request_id": "cb5c96fd727d407a84951684c2f72022",
+      "metrics": {
+        "request_id": "cb5c96fd727d407a84951684c2f72022",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 16.0,
+          "rerank": 563.0,
+          "grader": 1421.0,
+          "generation": 2688.0
+        },
+        "total_ms": 4969.0,
+        "outcome": "answer",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 0,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 1863,
+          "output": 420,
+          "total": 2283
+        },
+        "estimated_cost": null
+      }
+    },
+    {
+      "id": "P1-IND-007",
+      "expected_behavior": "answer",
+      "actual_result_type": "answer",
+      "review_verdict": "pass",
+      "review_note": "答案要点、数值、单位、条件与来源一致。",
+      "candidate_complete": true,
+      "candidate_missing": [],
+      "final_evidence_complete": true,
+      "final_missing": [],
+      "scope_violations": [],
+      "citation_legal": true,
+      "request_id": "f41156ea25274246a79a352b18797926",
+      "metrics": {
+        "request_id": "f41156ea25274246a79a352b18797926",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 15.0,
+          "rerank": 1125.0,
+          "grader": 1922.0,
+          "generation": 2766.0
+        },
+        "total_ms": 6094.0,
+        "outcome": "answer",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 0,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 1709,
+          "output": 455,
+          "total": 2164
+        },
+        "estimated_cost": null
+      }
+    },
+    {
+      "id": "P1-IND-008",
+      "expected_behavior": "answer",
+      "actual_result_type": "answer",
+      "review_verdict": "pass",
+      "review_note": "答案要点、数值、单位、条件与来源一致。",
+      "candidate_complete": true,
+      "candidate_missing": [],
+      "final_evidence_complete": true,
+      "final_missing": [],
+      "scope_violations": [],
+      "citation_legal": true,
+      "request_id": "0e10095ff2cb49b39d2c9083f1a8afe3",
+      "metrics": {
+        "request_id": "0e10095ff2cb49b39d2c9083f1a8afe3",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 31.0,
+          "rerank": 1500.0,
+          "grader": 1485.0,
+          "generation": 2859.0
+        },
+        "total_ms": 6531.0,
+        "outcome": "answer",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 0,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 2425,
+          "output": 551,
+          "total": 2976
+        },
+        "estimated_cost": null
+      }
+    },
+    {
+      "id": "P1-IND-009",
+      "expected_behavior": "answer",
+      "actual_result_type": "answer",
+      "review_verdict": "pass",
+      "review_note": "答案要点、数值、单位、条件与来源一致。",
+      "candidate_complete": true,
+      "candidate_missing": [],
+      "final_evidence_complete": true,
+      "final_missing": [],
+      "scope_violations": [],
+      "citation_legal": true,
+      "request_id": "112a108a3345493b96b5a29fb5a4b66d",
+      "metrics": {
+        "request_id": "112a108a3345493b96b5a29fb5a4b66d",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 16.0,
+          "rerank": 1437.0,
+          "grader": 3813.0,
+          "generation": 3437.0
+        },
+        "total_ms": 9390.0,
+        "outcome": "answer",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 0,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 2321,
+          "output": 840,
+          "total": 3161
+        },
+        "estimated_cost": null
+      }
+    },
+    {
+      "id": "P1-IND-010",
+      "expected_behavior": "answer",
+      "actual_result_type": "answer",
+      "review_verdict": "pass",
+      "review_note": "答案要点、数值、单位、条件与来源一致。",
+      "candidate_complete": true,
+      "candidate_missing": [],
+      "final_evidence_complete": true,
+      "final_missing": [],
+      "scope_violations": [],
+      "citation_legal": true,
+      "request_id": "867bf9a46f1b425384b0373a4604626c",
+      "metrics": {
+        "request_id": "867bf9a46f1b425384b0373a4604626c",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 32.0,
+          "rerank": 1421.0,
+          "grader": 3797.0,
+          "generation": 4578.0
+        },
+        "total_ms": 10515.0,
+        "outcome": "answer",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 0,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 2089,
+          "output": 1183,
+          "total": 3272
+        },
+        "estimated_cost": null
+      }
+    },
+    {
+      "id": "P1-IND-011",
+      "expected_behavior": "answer",
+      "actual_result_type": "refuse",
+      "review_verdict": "false_refusal",
+      "review_note": "候选池已有两份规范的设计年限条文，但最终遗漏 GB 50157-2013 第1.0.8条。",
+      "candidate_complete": true,
+      "candidate_missing": [],
+      "final_evidence_complete": false,
+      "final_missing": [
+        [
+          "cn.gb50157@2013",
+          "1.0.8"
+        ]
+      ],
+      "scope_violations": [],
+      "citation_legal": true,
+      "request_id": "f2b197b17e4148519c3e025619bf5756",
+      "metrics": {
+        "request_id": "f2b197b17e4148519c3e025619bf5756",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 109.0,
+          "rerank": 21891.0,
+          "grader": 10578.0
+        },
+        "total_ms": 32875.0,
+        "outcome": "refuse",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 1,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 2268,
+          "output": 1424,
+          "total": 3692
+        },
+        "estimated_cost": null
+      }
+    },
+    {
+      "id": "P1-IND-012",
+      "expected_behavior": "answer",
+      "actual_result_type": "refuse",
+      "review_verdict": "false_refusal",
+      "review_note": "候选池已有两份规范的轨距条文，但最终遗漏 GB 55033-2022 第2.1.2条。",
+      "candidate_complete": true,
+      "candidate_missing": [],
+      "final_evidence_complete": false,
+      "final_missing": [
+        [
+          "cn.gb55033@2022",
+          "2.1.2"
+        ]
+      ],
+      "scope_violations": [],
+      "citation_legal": true,
+      "request_id": "46a25bcf39044f4786fa10198a0c700c",
+      "metrics": {
+        "request_id": "46a25bcf39044f4786fa10198a0c700c",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 77.0,
+          "rerank": 7672.0,
+          "grader": 6594.0
+        },
+        "total_ms": 15359.0,
+        "outcome": "refuse",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 1,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 2029,
+          "output": 953,
+          "total": 2982
+        },
+        "estimated_cost": null
+      }
+    },
+    {
+      "id": "P1-IND-013",
+      "expected_behavior": "answer",
+      "actual_result_type": "answer",
+      "review_verdict": "incomplete",
+      "review_note": "遗漏 GB 55033-2022 的直接新风规定，且 GB 50157-2013 必要条文未进入候选池。",
+      "candidate_complete": false,
+      "candidate_missing": [
+        [
+          "cn.gb50157@2013",
+          "13.2.17"
+        ],
+        [
+          "cn.gb50157@2013",
+          "13.2.4"
+        ]
+      ],
+      "final_evidence_complete": false,
+      "final_missing": [
+        [
+          "cn.gb50157@2013",
+          "13.2.17"
+        ],
+        [
+          "cn.gb50157@2013",
+          "13.2.4"
+        ],
+        [
+          "cn.gb55033@2022",
+          "6.4.10"
+        ],
+        [
+          "cn.gb55033@2022",
+          "6.4.9"
+        ]
+      ],
+      "scope_violations": [],
+      "citation_legal": true,
+      "request_id": "e0f46a68558d4701a95002bbc2e805ce",
+      "metrics": {
+        "request_id": "e0f46a68558d4701a95002bbc2e805ce",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 109.0,
+          "rerank": 4891.0,
+          "grader": 44469.0,
+          "generation": 12562.0
+        },
+        "total_ms": 63031.0,
+        "outcome": "answer",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 0,
+        "model_calls": 3,
+        "model_retries": 1,
+        "token_usage": {
+          "input": 2467,
+          "output": 4234,
+          "total": 6701
+        },
+        "estimated_cost": null
+      }
+    },
+    {
+      "id": "P1-IND-014",
+      "expected_behavior": "answer",
+      "actual_result_type": "answer",
+      "review_verdict": "pass",
+      "review_note": "三份规范的动力损失与救援要求逐项对比完整。",
+      "candidate_complete": true,
+      "candidate_missing": [],
+      "final_evidence_complete": true,
+      "final_missing": [],
+      "scope_violations": [],
+      "citation_legal": true,
+      "request_id": "0dc5bd8a64204503bd1a3e38b763ce30",
+      "metrics": {
+        "request_id": "0dc5bd8a64204503bd1a3e38b763ce30",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 188.0,
+          "rerank": 18812.0,
+          "grader": 25219.0,
+          "generation": 14016.0
+        },
+        "total_ms": 59235.0,
+        "outcome": "answer",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 1,
+        "model_calls": 3,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 4819,
+          "output": 6683,
+          "total": 11502
+        },
+        "estimated_cost": null
+      }
+    },
+    {
+      "id": "P1-IND-015",
+      "expected_behavior": "answer",
+      "actual_result_type": "answer",
+      "review_verdict": "pass",
+      "review_note": "运行时长及100%制动载荷条件正确。",
+      "candidate_complete": true,
+      "candidate_missing": [],
+      "final_evidence_complete": true,
+      "final_missing": [],
+      "scope_violations": [],
+      "citation_legal": true,
+      "request_id": "b60db162a44f44ce9859b0278d4cc42c",
+      "metrics": {
+        "request_id": "b60db162a44f44ce9859b0278d4cc42c",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 15.0,
+          "rerank": 2532.0,
+          "grader": 4625.0,
+          "generation": 16359.0
+        },
+        "total_ms": 23859.0,
+        "outcome": "answer",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 0,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 1737,
+          "output": 3438,
+          "total": 5175
+        },
+        "estimated_cost": null
+      }
+    },
+    {
+      "id": "P1-IND-016",
+      "expected_behavior": "answer",
+      "actual_result_type": "answer",
+      "review_verdict": "incomplete",
+      "review_note": "遗漏 GB 55033-2022 第2.1.16条关于公共厕所的要求。",
+      "candidate_complete": true,
+      "candidate_missing": [],
+      "final_evidence_complete": false,
+      "final_missing": [
+        [
+          "cn.gb55033@2022",
+          "2.1.16"
+        ]
+      ],
+      "scope_violations": [],
+      "citation_legal": true,
+      "request_id": "d8ab2fdd8e084b52bb0d1842f474e20f",
+      "metrics": {
+        "request_id": "d8ab2fdd8e084b52bb0d1842f474e20f",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 47.0,
+          "rerank": 2938.0,
+          "grader": 4453.0,
+          "generation": 4641.0
+        },
+        "total_ms": 13063.0,
+        "outcome": "answer",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 0,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 1733,
+          "output": 1299,
+          "total": 3032
+        },
+        "estimated_cost": null
+      }
+    },
+    {
+      "id": "P1-IND-017",
+      "expected_behavior": "answer",
+      "actual_result_type": "refuse",
+      "review_verdict": "false_refusal",
+      "review_note": "候选池已有两份规范的疏散平台条文，最终遗漏 GB 55033-2022 第3.0.10条。",
+      "candidate_complete": true,
+      "candidate_missing": [],
+      "final_evidence_complete": false,
+      "final_missing": [
+        [
+          "cn.gb55033@2022",
+          "3.0.10"
+        ]
+      ],
+      "scope_violations": [],
+      "citation_legal": true,
+      "request_id": "cfee7530fa8d4e2089c5c9bd1fffe4f1",
+      "metrics": {
+        "request_id": "cfee7530fa8d4e2089c5c9bd1fffe4f1",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 63.0,
+          "rerank": 10405.0,
+          "grader": 7579.0
+        },
+        "total_ms": 18750.0,
+        "outcome": "refuse",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 1,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 2333,
+          "output": 1107,
+          "total": 3440
+        },
+        "estimated_cost": null
+      }
+    },
+    {
+      "id": "P1-IND-018",
+      "expected_behavior": "answer",
+      "actual_result_type": "refuse",
+      "review_verdict": "false_refusal",
+      "review_note": "候选池已有必要条文，最终遗漏 DB11/T 995-2025 第10.2.1条。",
+      "candidate_complete": true,
+      "candidate_missing": [],
+      "final_evidence_complete": false,
+      "final_missing": [
+        [
+          "cn.beijing.db11t995@2025",
+          "10.2.1"
+        ]
+      ],
+      "scope_violations": [],
+      "citation_legal": true,
+      "request_id": "f44d8784c73e48d89601e9e187751a6b",
+      "metrics": {
+        "request_id": "f44d8784c73e48d89601e9e187751a6b",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 109.0,
+          "rerank": 17219.0,
+          "grader": 7468.0
+        },
+        "total_ms": 25531.0,
+        "outcome": "refuse",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 1,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 1993,
+          "output": 1145,
+          "total": 3138
+        },
+        "estimated_cost": null
+      }
+    },
+    {
+      "id": "P1-IND-019",
+      "expected_behavior": "answer",
+      "actual_result_type": "answer",
+      "review_verdict": "pass",
+      "review_note": "两份规范的二氧化碳日平均浓度数值和单位正确。",
+      "candidate_complete": true,
+      "candidate_missing": [],
+      "final_evidence_complete": true,
+      "final_missing": [],
+      "scope_violations": [],
+      "citation_legal": true,
+      "request_id": "0c06dde899884f949a6191a7a65d897c",
+      "metrics": {
+        "request_id": "0c06dde899884f949a6191a7a65d897c",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 31.0,
+          "rerank": 2250.0,
+          "grader": 2109.0,
+          "generation": 2656.0
+        },
+        "total_ms": 7359.0,
+        "outcome": "answer",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 0,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 1715,
+          "output": 572,
+          "total": 2287
+        },
+        "estimated_cost": null
+      }
+    },
+    {
+      "id": "P1-IND-020",
+      "expected_behavior": "answer",
+      "actual_result_type": "refuse",
+      "review_verdict": "false_refusal",
+      "review_note": "候选池已有必要条文，最终遗漏 DB11/T 995-2025 第17.5.6条。",
+      "candidate_complete": true,
+      "candidate_missing": [],
+      "final_evidence_complete": false,
+      "final_missing": [
+        [
+          "cn.beijing.db11t995@2025",
+          "17.5.6"
+        ]
+      ],
+      "scope_violations": [],
+      "citation_legal": true,
+      "request_id": "227a23972400443ea1df64767af61d55",
+      "metrics": {
+        "request_id": "227a23972400443ea1df64767af61d55",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 94.0,
+          "rerank": 11609.0,
+          "grader": 16250.0
+        },
+        "total_ms": 28672.0,
+        "outcome": "refuse",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 1,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 2806,
+          "output": 2277,
+          "total": 5083
+        },
+        "estimated_cost": null
+      }
+    },
+    {
+      "id": "P1-IND-021",
+      "expected_behavior": "answer",
+      "actual_result_type": "refuse",
+      "review_verdict": "false_refusal",
+      "review_note": "最终证据已包含必要表格条文，仍被充分性判断拒答。",
+      "candidate_complete": true,
+      "candidate_missing": [],
+      "final_evidence_complete": true,
+      "final_missing": [],
+      "scope_violations": [],
+      "citation_legal": true,
+      "request_id": "abd7dbadf47a455c83f2c0f46cf3b11b",
+      "metrics": {
+        "request_id": "abd7dbadf47a455c83f2c0f46cf3b11b",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 46.0,
+          "rerank": 10173.0,
+          "grader": 10171.0
+        },
+        "total_ms": 20437.0,
+        "outcome": "refuse",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 1,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 2156,
+          "output": 1631,
+          "total": 3787
+        },
+        "estimated_cost": null
+      }
+    },
+    {
+      "id": "P1-IND-022",
+      "expected_behavior": "answer",
+      "actual_result_type": "answer",
+      "review_verdict": "pass",
+      "review_note": "A/B型车两档曲线半径的表格值正确。",
+      "candidate_complete": true,
+      "candidate_missing": [],
+      "final_evidence_complete": true,
+      "final_missing": [],
+      "scope_violations": [],
+      "citation_legal": true,
+      "request_id": "a0901cf16ce940f2a8219a14d99a20cc",
+      "metrics": {
+        "request_id": "a0901cf16ce940f2a8219a14d99a20cc",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 62.0,
+          "rerank": 4782.0,
+          "grader": 2937.0,
+          "generation": 4516.0
+        },
+        "total_ms": 12985.0,
+        "outcome": "answer",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 0,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 2305,
+          "output": 948,
+          "total": 3253
+        },
+        "estimated_cost": null
+      }
+    },
+    {
+      "id": "P1-IND-023",
+      "expected_behavior": "answer",
+      "actual_result_type": "answer",
+      "review_verdict": "pass",
+      "review_note": "混凝土强度、100年耐久年限和伸缩缝间距完整。",
+      "candidate_complete": true,
+      "candidate_missing": [],
+      "final_evidence_complete": true,
+      "final_missing": [],
+      "scope_violations": [],
+      "citation_legal": true,
+      "request_id": "37a74ad02f9c4268b3afcbe13fbf8e75",
+      "metrics": {
+        "request_id": "37a74ad02f9c4268b3afcbe13fbf8e75",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 15.0,
+          "rerank": 1141.0,
+          "grader": 1922.0,
+          "generation": 3437.0
+        },
+        "total_ms": 6797.0,
+        "outcome": "answer",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 0,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 2217,
+          "output": 696,
+          "total": 2913
+        },
+        "estimated_cost": null
+      }
+    },
+    {
+      "id": "P1-IND-024",
+      "expected_behavior": "answer",
+      "actual_result_type": "answer",
+      "review_verdict": "pass",
+      "review_note": "制动载荷、急停、附加制动器和传动安全要求完整。",
+      "candidate_complete": true,
+      "candidate_missing": [],
+      "final_evidence_complete": true,
+      "final_missing": [],
+      "scope_violations": [],
+      "citation_legal": true,
+      "request_id": "cb1d1d38de114eb48a7a46b75a52fe8d",
+      "metrics": {
+        "request_id": "cb1d1d38de114eb48a7a46b75a52fe8d",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 0.0,
+          "rerank": 1141.0,
+          "grader": 4015.0,
+          "generation": 4860.0
+        },
+        "total_ms": 10063.0,
+        "outcome": "answer",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 0,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 2081,
+          "output": 1223,
+          "total": 3304
+        },
+        "estimated_cost": null
+      }
+    },
+    {
+      "id": "P1-IND-025",
+      "expected_behavior": "answer",
+      "actual_result_type": "refuse",
+      "review_verdict": "false_refusal",
+      "review_note": "候选池已有三份同号条文，最终丢失其中两份后拒答。",
+      "candidate_complete": true,
+      "candidate_missing": [],
+      "final_evidence_complete": false,
+      "final_missing": [
+        [
+          "cn.beijing.db11t995@2025",
+          "6.2.3"
+        ],
+        [
+          "cn.gb55033@2022",
+          "6.2.3"
+        ]
+      ],
+      "scope_violations": [],
+      "citation_legal": true,
+      "request_id": "2372e5b9b8244ab5b184bb245df4bd73",
+      "metrics": {
+        "request_id": "2372e5b9b8244ab5b184bb245df4bd73",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 110.0,
+          "rerank": 16687.0,
+          "grader": 7922.0
+        },
+        "total_ms": 25703.0,
+        "outcome": "refuse",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 1,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 2248,
+          "output": 1204,
+          "total": 3452
+        },
+        "estimated_cost": null
+      }
+    },
+    {
+      "id": "P1-IND-026",
+      "expected_behavior": "clarify_scope",
+      "actual_result_type": "refuse",
+      "review_verdict": "clarify_pass",
+      "review_note": "明确要求选择范围，检索和模型调用均为0。",
+      "candidate_complete": true,
+      "candidate_missing": [],
+      "final_evidence_complete": true,
+      "final_missing": [],
+      "scope_violations": [],
+      "citation_legal": true,
+      "request_id": "13399eb828a14881886dec79dc29aec2",
+      "metrics": {
+        "request_id": "13399eb828a14881886dec79dc29aec2",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {},
+        "total_ms": 0.0,
+        "outcome": "refuse",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 0,
+        "model_calls": 0,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 0,
+          "output": 0,
+          "total": 0
+        },
+        "estimated_cost": null
+      }
+    },
+    {
+      "id": "P1-IND-027",
+      "expected_behavior": "clarify_scope",
+      "actual_result_type": "refuse",
+      "review_verdict": "clarify_pass",
+      "review_note": "同号条文范围不明时要求澄清，检索和模型调用均为0。",
+      "candidate_complete": true,
+      "candidate_missing": [],
+      "final_evidence_complete": true,
+      "final_missing": [],
+      "scope_violations": [],
+      "citation_legal": true,
+      "request_id": "4e5278c2859b46fa85b4357b3691d665",
+      "metrics": {
+        "request_id": "4e5278c2859b46fa85b4357b3691d665",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {},
+        "total_ms": 0.0,
+        "outcome": "refuse",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 0,
+        "model_calls": 0,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 0,
+          "output": 0,
+          "total": 0
+        },
+        "estimated_cost": null
+      }
+    },
+    {
+      "id": "P1-IND-028",
+      "expected_behavior": "refuse",
+      "actual_result_type": "refuse",
+      "review_verdict": "refuse_pass",
+      "review_note": "缺少确定出入口总数所需项目条件，拒答正确。",
+      "candidate_complete": true,
+      "candidate_missing": [],
+      "final_evidence_complete": false,
+      "final_missing": [
+        [
+          "cn.beijing.db11t995@2025",
+          "10.2.1"
+        ]
+      ],
+      "scope_violations": [],
+      "citation_legal": true,
+      "request_id": "748ce8c6da214050a89caa8703ee748a",
+      "metrics": {
+        "request_id": "748ce8c6da214050a89caa8703ee748a",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 79.0,
+          "rerank": 8734.0,
+          "grader": 9094.0
+        },
+        "total_ms": 18625.0,
+        "outcome": "refuse",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 1,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 1948,
+          "output": 1136,
+          "total": 3084
+        },
+        "estimated_cost": null
+      }
+    },
+    {
+      "id": "P1-IND-029",
+      "expected_behavior": "refuse",
+      "actual_result_type": "refuse",
+      "review_verdict": "refuse_pass",
+      "review_note": "规范不能给出具体项目2035年实际客流及列车数，拒答正确。",
+      "candidate_complete": true,
+      "candidate_missing": [],
+      "final_evidence_complete": true,
+      "final_missing": [],
+      "scope_violations": [],
+      "citation_legal": true,
+      "request_id": "6cf8e67870bf4286a3dc02fe73e193dd",
+      "metrics": {
+        "request_id": "6cf8e67870bf4286a3dc02fe73e193dd",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 109.0,
+          "rerank": 13313.0,
+          "grader": 6437.0
+        },
+        "total_ms": 20890.0,
+        "outcome": "refuse",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 1,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 1882,
+          "output": 682,
+          "total": 2564
+        },
+        "estimated_cost": null
+      }
+    },
+    {
+      "id": "P1-IND-030",
+      "expected_behavior": "refuse",
+      "actual_result_type": "refuse",
+      "review_verdict": "refuse_pass",
+      "review_note": "规范不能提供当天实测浓度，拒答正确。",
+      "candidate_complete": true,
+      "candidate_missing": [],
+      "final_evidence_complete": true,
+      "final_missing": [],
+      "scope_violations": [],
+      "citation_legal": true,
+      "request_id": "a6731cdb55f744138be852f26cdb9672",
+      "metrics": {
+        "request_id": "a6731cdb55f744138be852f26cdb9672",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 16.0,
+          "rerank": 4906.0,
+          "grader": 5312.0
+        },
+        "total_ms": 10281.0,
+        "outcome": "refuse",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 1,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 1745,
+          "output": 483,
+          "total": 2228
+        },
+        "estimated_cost": null
+      }
+    }
+  ]
+}
