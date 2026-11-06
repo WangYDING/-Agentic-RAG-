@@ -14,6 +14,7 @@ from src.spec_catalog import SpecCatalog, SpecCatalogError
 DEFAULT_CATALOG = "data/spec_catalog.v1.json"
 DEFAULT_ROOT = ".rag_knowledge_base"
 OCR_PARSER_VERSION = "rapidocr-page-artifact-v1-clause-spacing"
+OCR_TABLE_PARSER_VERSION = "rapidocr-page-artifact-v2-reviewed-tables"
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -73,7 +74,11 @@ def main(argv: list[str] | None = None) -> int:
                 raise SpecCatalogError(f"{spec.business_id} OCR validation SHA-256 mismatch")
             document, pages = load_verified_ocr_pages(artifact, source_pdf=pdf_path)
             ingestion_hash = spec.ocr_manifest_sha256
-            parser_version = OCR_PARSER_VERSION
+            parser_version = (
+                OCR_TABLE_PARSER_VERSION
+                if any(page.tables for page in pages)
+                else OCR_PARSER_VERSION
+            )
         else:
             raise SpecCatalogError(f"{spec.business_id} is not ready for ingestion")
         built.append(

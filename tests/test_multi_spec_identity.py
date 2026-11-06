@@ -87,6 +87,66 @@ def test_verified_ocr_identity_propagates_to_pages_and_chunks(tmp_path):
     assert chunk_identity(chunks[0]) == ("cn.example", "2025", 0)
 
 
+def test_verified_ocr_table_preserves_row_column_value_mapping(tmp_path):
+    artifact = _ocr_fixture(tmp_path)
+    page_path = artifact / "pages" / "0001.json"
+    record = json.loads(page_path.read_text(encoding="utf-8"))
+    cells = [
+        ["车辆类型", "100km/h及以下", "120km/h", "140km/h", "160km/h"],
+        ["密闭性车体", "—", "—", "<0.35", "<0.29"],
+        ["非密闭性车体", "≤0.5", "≤0.4", "≤0.27", "—"],
+    ]
+    record["tables"] = [
+        {
+            "table_id": "表3.0.4",
+            "title": "车辆断面与隧道净断面面积之比",
+            "bbox": [0, 0, 100, 100],
+            "headers": cells[:1],
+            "rows": cells[1:],
+            "cells": cells,
+        }
+    ]
+    page_path.write_bytes(canonical_json_bytes(record))
+    manifest_path = artifact / "manifest.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    manifest["pages"][0]["sha256"] = _sha256(page_path)
+    manifest_path.write_bytes(canonical_json_bytes(manifest))
+
+    document, pages = load_verified_ocr_pages(artifact)
+    chunks = split_pages_with_ref(document, pages)
+    table = next(chunk for chunk in chunks if chunk["content_type"] == "table")
+
+    assert "表头: 车辆类型 | 100km/h及以下 | 120km/h | 140km/h | 160km/h" in table["text"]
+    assert "第1行: 密闭性车体 | — | — | <0.35 | <0.29" in table["text"]
+    assert table["extra"]["table"]["rows"][0][3:] == ["<0.35", "<0.29"]
+
+
+def test_verified_ocr_table_rejects_shifted_or_non_rectangular_cells(tmp_path):
+    artifact = _ocr_fixture(tmp_path)
+    page_path = artifact / "pages" / "0001.json"
+    record = json.loads(page_path.read_text(encoding="utf-8"))
+    record["tables"] = [
+        {
+            "table_id": "表3.0.4",
+            "title": "车辆断面与隧道净断面面积之比",
+            "headers": [["车辆类型", "140km/h", "160km/h"]],
+            "rows": [["密闭性车体", "<0.35"]],
+            "cells": [
+                ["车辆类型", "140km/h", "160km/h"],
+                ["密闭性车体", "<0.35"],
+            ],
+        }
+    ]
+    page_path.write_bytes(canonical_json_bytes(record))
+    manifest_path = artifact / "manifest.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    manifest["pages"][0]["sha256"] = _sha256(page_path)
+    manifest_path.write_bytes(canonical_json_bytes(manifest))
+
+    with pytest.raises(OcrArtifactError, match="rectangular strings"):
+        load_verified_ocr_pages(artifact)
+
+
 def test_table_chunk_keeps_spec_identity():
     document = DocumentMetadata("doc", "doc.pdf", 1, "cn.example", "2025")
     table_metadata = TableMetadata(

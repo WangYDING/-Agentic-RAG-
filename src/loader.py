@@ -158,10 +158,12 @@ def load_verified_ocr_pages(
             (artifact_dir / entry["path"]).read_text(encoding="utf-8")
         )
         text = record["text"]
+        tables = _load_reviewed_ocr_tables(record, document)
         pages.append(
             Page(
                 text=text,
                 raw_text=text,
+                tables=tables,
                 metadata=PageMetadata(
                     document_id=document.document_id,
                     source=document.source,
@@ -174,6 +176,43 @@ def load_verified_ocr_pages(
             )
         )
     return document, pages
+
+
+def _load_reviewed_ocr_tables(record: dict, document: DocumentMetadata) -> list[Table]:
+    tables = []
+    for payload in record.get("tables", []):
+        cells = payload.get("cells")
+        headers = payload.get("headers")
+        rows = payload.get("rows")
+        if not all(isinstance(value, list) for value in (cells, headers, rows)):
+            raise OcrArtifactError("reviewed OCR table structure is invalid")
+        widths = {len(row) for row in cells if isinstance(row, list)}
+        if not cells or len(widths) != 1 or any(
+            not isinstance(cell, str) for row in cells for cell in row
+        ):
+            raise OcrArtifactError("reviewed OCR table cells must be rectangular strings")
+        if cells != [*headers, *rows]:
+            raise OcrArtifactError("reviewed OCR table headers/rows do not match cells")
+        metadata = TableMetadata(
+            document_id=document.document_id,
+            source=document.source,
+            page_number=record["page_number"],
+            table_id=payload.get("table_id"),
+            title=payload.get("title"),
+            bbox=tuple(payload["bbox"]) if payload.get("bbox") else None,
+            spec_id=document.spec_id,
+            edition_id=document.edition_id,
+        )
+        tables.append(
+            Table(
+                metadata=metadata,
+                headers=headers,
+                rows=rows,
+                cells=cells,
+                retrieval_text=build_table_retrieval_text(metadata, headers, rows),
+            )
+        )
+    return tables
 
 
 def extract_page_text(page) -> str:
