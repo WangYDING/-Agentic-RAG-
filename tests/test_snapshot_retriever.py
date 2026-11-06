@@ -117,6 +117,30 @@ def test_exact_article_lookup_is_applied_inside_each_selected_document():
     }
 
 
+def test_ambiguous_parallel_query_keeps_original_and_records_fallback_reason():
+    facade, _ = _facade()
+    scoped = facade.for_scope(QueryScope.all_documents())
+    query = "三份规范对区间、车站和车辆基地分别有哪些特殊内容？"
+
+    scoped.retrieve(query, top_k=1)
+
+    assert scoped.calls[0]["focused_queries"] == []
+    assert scoped.calls[0]["decomposition_reason"] == "parallel_target_not_uniquely_parsed"
+    assert [run["query"] for run in scoped.calls[0]["query_runs"]] == [query]
+
+
+def test_only_successful_focused_queries_receive_bounded_candidate_expansion():
+    facade, _ = _facade()
+    scoped = facade.for_scope(QueryScope.all_documents())
+    query = "三份规范对适用范围或线路最高运行速度分别怎样规定？"
+
+    scoped.retrieve(query, top_k=10)
+
+    runs = scoped.calls[0]["query_runs"]
+    assert runs[0]["top_k"] == 10
+    assert [run["top_k"] for run in runs[1:]] == [15, 15]
+
+
 def test_neighbor_expansion_cannot_cross_scope_or_document():
     facade, _ = _facade()
     scoped = facade.for_scope(

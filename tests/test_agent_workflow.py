@@ -581,6 +581,52 @@ class AgentWorkflowTest(unittest.TestCase):
             )
         )
 
+    def test_fresh_air_intent_requires_air_semantics_and_matching_scene(self):
+        matcher = AgentWorkflow._matches_focused_intent
+
+        self.assertFalse(
+            matcher(
+                {"text": "车站公共区冲洗用水量为2L/m²。"},
+                "车站公共区 人员 新风量 新鲜空气量 乘客 工作人员 每小时",
+            )
+        )
+        self.assertFalse(
+            matcher(
+                {"text": "地下车站设备管理用房的楼梯间应满足疏散要求。"},
+                "设备管理用房 人员 新风量 新鲜空气量 乘客 工作人员 每小时",
+            )
+        )
+        self.assertTrue(
+            matcher(
+                {"text": "区间隧道每个乘客的新鲜空气量不应少于12.6m³。"},
+                "区间 人员 新风量 新鲜空气量 乘客 工作人员 每小时",
+            )
+        )
+        self.assertTrue(
+            matcher(
+                {"text": "每个乘客每小时的新鲜空气量不应少于30m³。"},
+                "车站公共区 人员 新风量 新鲜空气量 乘客 工作人员 每小时",
+            )
+        )
+        self.assertTrue(
+            matcher(
+                {"text": "设备与管理用房内每个工作人员的新风量不应少于30m³。"},
+                "设备管理用房 人员 新风量 新鲜空气量 乘客 工作人员 每小时",
+            )
+        )
+        self.assertFalse(
+            matcher(
+                {"text": "列车运行交路应根据各设计年限客流量确定。"},
+                "GB50157-2013设计年限",
+            )
+        )
+        self.assertTrue(
+            matcher(
+                {"text": "设计年限应分为初期、近期、远期。"},
+                "GB50157-2013设计年限",
+            )
+        )
+
     def test_target_selection_does_not_fill_unused_slots_with_duplicate_intent(self):
         workflow = AgentWorkflow(
             FakeRetriever(), FakeReranker(), FakeGrader([]), FakeGenerator()
@@ -614,6 +660,86 @@ class AgentWorkflowTest(unittest.TestCase):
         )
 
         self.assertEqual([item["article_id"] for item in selected], ["3.0.21", "3.0.19"])
+
+    def test_target_selection_does_not_impose_equal_document_quota(self):
+        workflow = AgentWorkflow(
+            FakeRetriever(), FakeReranker(), FakeGrader([]), FakeGenerator()
+        )
+        queries = ["区间人员新风量", "公共区人员新风量", "设备用房人员新风量"]
+        candidates = [
+            {
+                "text": text,
+                "source": f"{spec_id}.pdf",
+                "spec_id": spec_id,
+                "edition_id": "2025",
+                "chunk_id": index,
+                "article_id": article,
+                "document_query_ranks": ranks,
+            }
+            for index, (spec_id, article, text, ranks) in enumerate(
+                (
+                    ("cn.a", "1.0.1", "一条覆盖全部场景", {query: 1 for query in queries}),
+                    ("cn.b", "2.0.1", "区间要求", {queries[0]: 1}),
+                    ("cn.b", "2.0.2", "公共区要求", {queries[1]: 1}),
+                    ("cn.b", "2.0.3", "设备用房要求", {queries[2]: 1}),
+                )
+            )
+        ]
+
+        selected = workflow._select_scope_target_coverage(
+            candidates,
+            queries,
+            ("cn.a@2025", "cn.b@2025"),
+            top_n=4,
+            score_cache={},
+            preferred=[],
+        )
+
+        self.assertEqual(
+            {item["article_id"] for item in selected},
+            {"1.0.1", "2.0.1", "2.0.2", "2.0.3"},
+        )
+
+    def test_explicit_spec_target_is_not_copied_to_other_specifications(self):
+        workflow = AgentWorkflow(
+            FakeRetriever(), FakeReranker(), FakeGrader([]), FakeGenerator()
+        )
+        design_a = "GB 55033-2022 设计年限"
+        design_b = "GB 50157-2013 设计年限"
+        capacity_a = "GB 55033-2022 运能"
+        candidates = [
+            {
+                "text": text,
+                "source": f"{spec_id}.pdf",
+                "spec_id": spec_id,
+                "edition_id": edition,
+                "standard_code": code,
+                "chunk_id": index,
+                "article_id": article,
+                "document_query_ranks": ranks,
+            }
+            for index, (spec_id, edition, code, article, text, ranks) in enumerate(
+                (
+                    ("cn.a", "2022", "GB 55033-2022", "2.1.5", "设计年限应分为初期、近期、远期，并有运能要求", {design_a: 1, capacity_a: 1}),
+                    ("cn.b", "2013", "GB 50157-2013", "1.0.8", "设计年限应分为初期、近期、远期", {design_b: 1}),
+                    ("cn.b", "2013", "GB 50157-2013", "3.3.4", "列车运能计算", {capacity_a: 1}),
+                )
+            )
+        ]
+
+        selected = workflow._select_scope_target_coverage(
+            candidates,
+            [design_a, design_b, capacity_a],
+            ("cn.a@2022", "cn.b@2013"),
+            top_n=3,
+            score_cache={},
+            preferred=[],
+        )
+
+        self.assertEqual(
+            {(item["spec_id"], item["article_id"]) for item in selected},
+            {("cn.a", "2.1.5"), ("cn.b", "1.0.8")},
+        )
 
     def test_scope_balance_keeps_best_evidence_from_each_compared_document(self):
         candidates = [

@@ -255,15 +255,41 @@ class AgentWorkflow:
                 candidates = self._expand_complete_article_groups(
                     candidates, request_retriever
                 )
-                reranked = self._rerank_with_cache(
-                    state.original_query,
-                    candidates,
-                    top_n=state.evidence_limit,
-                    score_cache=score_cache,
-                )
-                reranked = self._preserve_focused_evidence(
-                    reranked, focused, top_n=state.evidence_limit
-                )
+                retry_targets = decompose_retrieval_targets(state.original_query)
+                if len(state.query_scope) > 1 and len(retry_targets) > 1:
+                    reranked = self._select_scope_target_coverage(
+                        candidates,
+                        focused_query_variants(retry_targets),
+                        state.query_scope,
+                        top_n=state.evidence_limit,
+                        score_cache=score_cache,
+                        preferred=focused,
+                    )
+                    state.trace.append(
+                        {
+                            "step": "retry_scope_target_preference",
+                            "selected": [
+                                {
+                                    "business_id": (
+                                        f"{item.get('spec_id')}@{item.get('edition_id')}"
+                                    ),
+                                    "article_id": item.get("article_id"),
+                                    "chunk_id": item.get("chunk_id"),
+                                }
+                                for item in reranked
+                            ],
+                        }
+                    )
+                else:
+                    reranked = self._rerank_with_cache(
+                        state.original_query,
+                        candidates,
+                        top_n=state.evidence_limit,
+                        score_cache=score_cache,
+                    )
+                    reranked = self._preserve_focused_evidence(
+                        reranked, focused, top_n=state.evidence_limit
+                    )
                 retention = select_retained_article_groups(
                     parsed_requirements
                     or parse_evidence_requirements(
@@ -652,7 +678,11 @@ class AgentWorkflow:
         del score_cache
         selected = []
         seen = set()
-        per_document_limit = max(1, top_n // len(business_ids))
+        # A fixed equal quota loses evidence when one specification needs several
+        # distinct clauses while another covers all sub-requirements in one clause.
+        # The global evidence limit remains the bound; article de-duplication below
+        # prevents a verbose document from filling slots with the same provision.
+        per_document_limit = top_n
         selected_articles_by_document: dict[str, set[str]] = {
             business_id: set() for business_id in business_ids
         }
@@ -667,6 +697,12 @@ class AgentWorkflow:
             selected_articles = selected_articles_by_document[business_id]
             selected_for_document = 0
             for focused_query in focused_queries:
+                if len(selected) >= top_n:
+                    return selected
+                if not self._focused_query_applies_to_business_id(
+                    focused_query, business_id, candidates
+                ):
+                    continue
                 ranked = sorted(
                     (
                         candidate
@@ -709,6 +745,10 @@ class AgentWorkflow:
                 if len(selected) >= top_n:
                     return selected
                 if (business_id, focused_query) in fulfilled_targets:
+                    continue
+                if not self._focused_query_applies_to_business_id(
+                    focused_query, business_id, candidates
+                ):
                     continue
                 ranked = sorted(
                     (
@@ -822,6 +862,28 @@ class AgentWorkflow:
         )
 
     @staticmethod
+    def _focused_query_applies_to_business_id(
+        focused_query: str, business_id: str, candidates: list[dict]
+    ) -> bool:
+        normalized_query = re.sub(r"[^A-Z0-9]", "", focused_query.upper())
+        codes_by_business: dict[str, set[str]] = {}
+        for candidate in candidates:
+            candidate_business_id = (
+                f"{candidate.get('spec_id')}@{candidate.get('edition_id')}"
+            )
+            code = re.sub(
+                r"[^A-Z0-9]", "", str(candidate.get("standard_code", "")).upper()
+            )
+            if code:
+                codes_by_business.setdefault(candidate_business_id, set()).add(code)
+        mentioned = {
+            candidate_business_id
+            for candidate_business_id, codes in codes_by_business.items()
+            if any(code in normalized_query for code in codes)
+        }
+        return not mentioned or business_id in mentioned
+
+    @staticmethod
     def _matches_focused_intent(candidate: dict, focused_query: str) -> bool:
         if "本标准适用于" in focused_query:
             text = str(candidate.get("text", ""))
@@ -842,6 +904,28 @@ class AgentWorkflow:
                 re.search(r"车辆基地|基地", text)
                 and re.search(r"防洪|防淹|内涝", text)
             )
+        if "设计年限" in focused_query:
+            return bool(
+                re.search(r"设计年限应", text)
+                or all(term in text for term in ("初期", "近期", "远期"))
+            )
+        if "运能" in focused_query:
+            return "运能" in text
+        if "人员 新风量" in focused_query:
+            if not re.search(r"新风|新鲜空气", text):
+                return False
+            if "区间" in focused_query:
+                return "区间" in text
+            if "车站公共区" in focused_query:
+                return bool(
+                    re.search(r"车站公共区|公共区", text)
+                    or re.search(r"每个乘客.{0,20}(?:新风|新鲜空气)", text)
+                )
+            if "设备管理用房" in focused_query:
+                return bool(
+                    re.search(r"设备.{0,3}管理用房", text)
+                    and re.search(r"工作人员", text)
+                )
         return True
 
     @staticmethod

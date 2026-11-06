@@ -25,6 +25,51 @@ def candidate(spec, edition, article, chunk_id, text, *, complete=True):
 
 
 class EvidenceRequirementTest(unittest.TestCase):
+    def test_comparison_requirements_keep_shared_topic_and_predecessor_only_extra(self):
+        parsed = parse_evidence_requirements(
+            "比较 GB 55033-2022 与 GB 50157-2013 的设计年限规定，并指出前者额外提出的运能要求。",
+            [],
+            ("cn.gb55033@2022", "cn.gb50157@2013"),
+        )
+
+        requirements = {
+            (item.business_id, item.subrequirement)
+            for item in parsed.question_requirements
+        }
+        self.assertIn(("cn.gb55033@2022", "GB55033-2022设计年限"), requirements)
+        self.assertIn(("cn.gb50157@2013", "GB50157-2013设计年限"), requirements)
+        self.assertIn(("cn.gb55033@2022", "GB55033-2022运能"), requirements)
+        self.assertNotIn(("cn.gb50157@2013", "GB50157-2013运能"), requirements)
+
+    def test_parallel_scenes_expand_across_bound_scope_without_guessing_mapping(self):
+        scope = (
+            "cn.beijing.db11t995@2025",
+            "cn.gb55033@2022",
+            "cn.gb50157@2013",
+        )
+        parsed = parse_evidence_requirements(
+            "三份规范对区间、车站公共区以及设备管理用房人员新风量分别有哪些直接规定？",
+            [],
+            scope,
+        )
+
+        self.assertEqual(len(parsed.question_requirements), 9)
+        self.assertEqual(
+            {
+                (item.business_id, item.subrequirement)
+                for item in parsed.question_requirements
+            },
+            {
+                (business_id, target)
+                for business_id in scope
+                for target in (
+                    "区间人员新风量",
+                    "车站公共区人员新风量",
+                    "设备管理用房人员新风量",
+                )
+            },
+        )
+
     def test_question_requirement_is_authoritative_and_explicit_article_is_parsed(self):
         parsed = parse_evidence_requirements(
             "请说明GB 55033-2022第2.1.5条规定的设计年限要求。",
@@ -109,6 +154,103 @@ class EvidenceRequirementTest(unittest.TestCase):
 
 
 class ArticleRetentionTest(unittest.TestCase):
+    def test_distant_commentary_with_same_article_number_is_a_separate_group(self):
+        candidates = [
+            candidate(
+                "cn.db", "2025", "14.2.11", 100,
+                "人员新风量：区间、公共区和设备管理用房分别规定。",
+            ),
+            candidate(
+                "cn.db", "2025", "14.2.11", 300,
+                "条文说明：介绍人员新风量标准的编制背景。",
+            ),
+            candidate(
+                "cn.db", "2025", "14.2.11", 301,
+                "条文说明续页。",
+            ),
+        ]
+        parsed = parse_evidence_requirements(
+            "DB-2025的区间人员新风量有什么要求？",
+            [],
+            ("cn.db@2025",),
+        )
+
+        decision = select_retained_article_groups(
+            parsed,
+            candidates,
+            reranked=candidates,
+            evidence_limit=2,
+            allowed_business_ids=("cn.db@2025",),
+        )
+
+        self.assertEqual(decision.retained_groups[0].chunk_ids, (100,))
+    def test_direct_design_year_phrase_excludes_scattered_design_and_year_terms(self):
+        candidates = [
+            candidate(
+                "cn.gb50157", "2013", "1.0.8", 8,
+                "地铁工程的设计年限应分为初期、近期、远期。",
+            ),
+            candidate(
+                "cn.gb50157", "2013", "3.2.2", 32,
+                "系统设计能力应满足相应年限设计运输能力的需要。",
+            ),
+            candidate(
+                "cn.gb50157", "2013", "11.1.6", 116,
+                "结构构件应按设计使用年限100年进行耐久性设计。",
+            ),
+        ]
+        parsed = parse_evidence_requirements(
+            "比较GB 55033-2022与GB 50157-2013的设计年限规定，并指出前者运能要求。",
+            [],
+            ("cn.gb55033@2022", "cn.gb50157@2013"),
+        )
+
+        decision = select_retained_article_groups(
+            parsed,
+            candidates,
+            reranked=candidates,
+            evidence_limit=3,
+            allowed_business_ids=("cn.gb50157@2013",),
+        )
+
+        self.assertEqual(
+            {group.article_id for group in decision.retained_groups},
+            {"1.0.8"},
+        )
+
+    def test_fresh_air_synonyms_select_distinct_scene_articles(self):
+        candidates = [
+            candidate(
+                "cn.gb50157", "2013", "13.2.4", 4,
+                "区间隧道内每个乘客每小时需供应的新鲜空气量不应少于12.6m³。",
+            ),
+            candidate(
+                "cn.gb50157", "2013", "13.2.17", 17,
+                "车站公共区每个乘客每小时需供应的新鲜空气量不应少于30m³。",
+            ),
+            candidate(
+                "cn.gb50157", "2013", "13.2.33", 33,
+                "设备与管理用房内每个工作人员每小时需供应的新鲜空气量不应少于30m³。",
+            ),
+        ]
+        parsed = parse_evidence_requirements(
+            "三份规范对区间、车站公共区以及设备管理用房人员新风量分别有哪些直接规定？",
+            [],
+            ("cn.gb50157@2013",),
+        )
+
+        decision = select_retained_article_groups(
+            parsed,
+            candidates,
+            reranked=list(reversed(candidates)),
+            evidence_limit=3,
+            allowed_business_ids=("cn.gb50157@2013",),
+        )
+
+        self.assertEqual(
+            {group.article_id for group in decision.retained_groups},
+            {"13.2.4", "13.2.17", "13.2.33"},
+        )
     def test_specific_design_year_terms_exclude_capacity_article_competitor(self):
         candidates = [
             candidate(

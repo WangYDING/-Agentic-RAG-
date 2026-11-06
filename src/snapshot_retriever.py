@@ -11,7 +11,7 @@ from src.query_scope import (
     versions_from_catalog,
     versions_from_snapshot,
 )
-from src.query_decomposition import decompose_retrieval_targets, focused_query_variants
+from src.query_decomposition import decompose_retrieval_plan, focused_query_variants
 from src.retrieval_fusion import chunk_identity, reciprocal_rank_fusion
 from src.retriever import Retriever
 
@@ -79,11 +79,16 @@ class ScopedSnapshotRetriever:
         }
 
     def retrieve(self, query: str, top_k: int = 10) -> list[dict]:
-        focused_queries = focused_query_variants(decompose_retrieval_targets(query))
+        decomposition = decompose_retrieval_plan(query)
+        focused_queries = focused_query_variants(list(decomposition.targets))
         query_runs = []
         all_rankings = []
         for retrieval_query in [query, *focused_queries]:
-            run_top_k = top_k
+            run_top_k = (
+                top_k
+                if retrieval_query == query
+                else min(max(top_k, 15), top_k * 2)
+            )
             fused, per_document = self._retrieve_once(retrieval_query, run_top_k)
             all_rankings.append(fused)
             query_runs.append(
@@ -124,6 +129,7 @@ class ScopedSnapshotRetriever:
                 "snapshot_id": self.scope.snapshot_id,
                 "scope": list(self.scope.business_ids),
                 "focused_queries": focused_queries,
+                "decomposition_reason": decomposition.reason,
                 "query_runs": query_runs,
                 "fused_candidates": len(fused),
             }

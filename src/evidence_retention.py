@@ -5,6 +5,7 @@ from enum import StrEnum
 import re
 from typing import Iterable
 
+from src.query_decomposition import decompose_retrieval_plan
 from src.retrieval_fusion import chunk_identity
 
 
@@ -82,12 +83,20 @@ def parse_evidence_requirements(
     grader_missing: Iterable[str],
     allowed_business_ids: tuple[str, ...],
 ) -> ParsedRequirements:
+    decomposition = decompose_retrieval_plan(question)
+    question_parts = list(decomposition.targets) or _split_requirements(question)
+    collective_scope = bool(
+        decomposition.targets
+        and re.search(r"(?:两份|三份|各份|各规范|分别|各自)", question)
+    )
     question_requirements = tuple(
         requirement
-        for part in _split_requirements(question)
+        for part in question_parts
         if part.strip()
-        for requirement in _parse_text_requirements(
-            part, RequirementSource.QUESTION, allowed_business_ids
+        for requirement in _question_target_requirements(
+            part,
+            allowed_business_ids,
+            expand_unscoped=collective_scope,
         )
     )
     grader_requirements = []
@@ -156,7 +165,7 @@ def select_retained_article_groups(
                 )
             )
             continue
-        (business_id, article_id), group = eligible[0]
+        (business_id, article_id, _segment_start), group = eligible[0]
         if not all(item.get("article_group_complete", True) for item in group):
             fallbacks.append(
                 SelectionFallback(
@@ -234,6 +243,30 @@ def _parse_text_requirements(text, source, allowed_business_ids):
     ]
 
 
+def _question_target_requirements(
+    text: str,
+    allowed_business_ids: tuple[str, ...],
+    *,
+    expand_unscoped: bool,
+):
+    parsed = _parse_text_requirements(
+        text, RequirementSource.QUESTION, allowed_business_ids
+    )
+    if not expand_unscoped or any(item.business_id for item in parsed):
+        return parsed
+    return [
+        EvidenceRequirement(
+            business_id=business_id,
+            article_id=parsed[0].article_id,
+            subrequirement=text.strip(),
+            source=RequirementSource.QUESTION,
+            authoritative=True,
+            status="scope_expanded",
+        )
+        for business_id in allowed_business_ids
+    ]
+
+
 def _find_business_ids(text: str, allowed_business_ids: tuple[str, ...]):
     normalized = re.sub(r"[^A-Z0-9]", "", text.upper())
     matches = []
@@ -254,6 +287,7 @@ def _split_requirements(text: str):
 
 
 def _meaningful_terms(text: str):
+    text = _canonical_retrieval_text(text)
     cleaned = _NOISE.sub("", text)
     cleaned = re.sub(r"[A-Z]{0,4}\s*\d+(?:[\s/.-]*\d+)*", "", cleaned, flags=re.I)
     cleaned = re.sub(r"[^\w\u4e00-\u9fff]", "", cleaned)
@@ -266,12 +300,42 @@ def _meaningful_terms(text: str):
 def _directly_covers(group: list[dict], requirement: EvidenceRequirement):
     if requirement.article_id:
         return True
+    group_text = " ".join(str(item.get("text", "")) for item in group)
+    canonical_requirement = _canonical_retrieval_text(requirement.subrequirement)
+    canonical_group = _canonical_retrieval_text(group_text)
+    if "设计年限" in canonical_requirement:
+        return "设计年限" in canonical_group
+    if "人员新风量" in requirement.subrequirement:
+        scene = canonical_requirement.split("人员新风量", 1)[0]
+        scene = re.sub(
+            r"(?:GB|DB)\s*\d*(?:/T)?\s*\d*(?:-\d{4})?",
+            "",
+            scene,
+            flags=re.I,
+        )
+        scene = re.sub(r"[^\w\u4e00-\u9fff]", "", scene).lstrip("的")
+        return bool(
+            scene
+            and scene in re.sub(r"\s+", "", canonical_group)
+            and "人员新风量" in canonical_group
+        )
+    if "运能" in canonical_requirement:
+        return "运能" in canonical_group
     required = _meaningful_terms(requirement.subrequirement)
     if not required:
         return False
-    present = _meaningful_terms(" ".join(str(item.get("text", "")) for item in group))
+    present = _meaningful_terms(group_text)
     overlap = required & present
     return len(overlap) >= 2 and len(overlap) / len(required) >= 0.45
+
+
+def _canonical_retrieval_text(text: str) -> str:
+    return (
+        text.replace("设备与管理用房", "设备管理用房")
+        .replace("新鲜空气量", "人员新风量")
+        .replace("工作人员", "人员")
+        .replace("乘客", "人员")
+    )
 
 
 def _business_id(candidate: dict):
@@ -279,12 +343,31 @@ def _business_id(candidate: dict):
 
 
 def _group_articles(candidates: list[dict]):
-    groups: dict[tuple[str, str], list[dict]] = {}
+    article_candidates: dict[tuple[str, str], list[dict]] = {}
     for item in candidates:
         article = item.get("article_id")
         if not article:
             continue
-        groups.setdefault((_business_id(item), str(article)), []).append(item)
-    for group in groups.values():
-        group.sort(key=lambda item: (item.get("chunk_id") is None, item.get("chunk_id")))
+        article_candidates.setdefault(
+            (_business_id(item), str(article)), []
+        ).append(item)
+    groups: dict[tuple[str, str, object], list[dict]] = {}
+    for (business_id, article_id), items in article_candidates.items():
+        items.sort(key=lambda item: (item.get("chunk_id") is None, item.get("chunk_id")))
+        segment: list[dict] = []
+        previous_chunk_id = None
+        for item in items:
+            chunk_id = item.get("chunk_id")
+            if (
+                segment
+                and isinstance(previous_chunk_id, int)
+                and isinstance(chunk_id, int)
+                and chunk_id != previous_chunk_id + 1
+            ):
+                groups[(business_id, article_id, segment[0].get("chunk_id"))] = segment
+                segment = []
+            segment.append(item)
+            previous_chunk_id = chunk_id
+        if segment:
+            groups[(business_id, article_id, segment[0].get("chunk_id"))] = segment
     return groups
