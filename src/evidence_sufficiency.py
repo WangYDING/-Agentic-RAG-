@@ -44,8 +44,21 @@ class EvidenceSufficiencyGrader:
         evidences: list[Evidence],
         *,
         budget: CallBudget | None = None,
+        scope_business_ids: tuple[str, ...] = (),
     ) -> SufficiencyDecision:
         available_ids = {evidence.evidence_id for evidence in evidences}
+        scope_rules = ""
+        scope_context = ""
+        if scope_business_ids:
+            scope_rules = """
+5. 跨规范问题询问“各规范有哪些明确要求”时，只需逐份陈述证据实际给出的要求；不得推定每份规范都必须分别覆盖问题中的每个并列主题。某规范对某主题没有直接证据时，可以审慎表述“给定证据未找到直接规定”，不能把这个模型自行添加的交叉组合列为缺失要求。
+6. 问题明确要求“没有直接规定时说明”或“未找到时说明”时，允许基于给定证据回答“给定证据未找到直接规定”；不得要求额外证明规范全文不存在，也不得把这项审慎说明判为证据缺失。
+"""
+            scope_context = (
+                "\n本次已绑定查询范围（仅用于识别用户所选规范，不是事实证据）：\n"
+                + ", ".join(scope_business_ids)
+                + "\n"
+            )
         prompt = f"""判断下面的证据是否足以完整回答用户问题。
 
 规则：
@@ -58,6 +71,7 @@ class EvidenceSufficiencyGrader:
 7. sufficient 表示可以仅凭证据完整、确定地回答全部问题。
 8. supported_evidence_ids 只能使用实际提供的证据编号。
 9. 仅输出 JSON，不要输出 Markdown。
+{scope_rules}
 
 JSON 格式：
 {{
@@ -69,6 +83,7 @@ JSON 格式：
 
 用户问题：
 {question}
+{scope_context}
 
 证据：
 {build_evidence_context(evidences)}

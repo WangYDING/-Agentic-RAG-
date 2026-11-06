@@ -16,6 +16,7 @@ from src.query_scope import (
     QueryScopeClarificationRequired,
     QueryScopeError,
 )
+from src.query_decomposition import decompose_retrieval_targets, focused_query_variants
 
 
 REFUSAL_MESSAGE = "当前规范及已检索证据不足以完整回答该问题。"
@@ -40,6 +41,7 @@ class AgentState:
     request_id: str = field(default_factory=lambda: uuid4().hex)
     index_version_id: str | None = None
     query_scope: tuple[str, ...] = ()
+    evidence_limit: int = 3
 
 
 @dataclass(frozen=True)
@@ -131,6 +133,18 @@ class AgentWorkflow:
                         "scope": list(state.query_scope),
                     }
                 )
+                targets = decompose_retrieval_targets(query)
+                if len(state.query_scope) > 1 and len(targets) > 1:
+                    focused_target_count = len(focused_query_variants(targets))
+                    state.evidence_limit = min(
+                        8,
+                        max(
+                            self.evidence_top_n,
+                            len(state.query_scope) * focused_target_count,
+                        ),
+                    )
+                else:
+                    state.evidence_limit = self.evidence_top_n
             response = self._run(state, query, budget, request_retriever)
         except QueryScopeClarificationRequired as exc:
             response = self._scope_clarification(state, str(exc))
@@ -248,7 +262,7 @@ class AgentWorkflow:
                     state.original_query,
                     candidates,
                     coverage_requirements,
-                    top_n=self.evidence_top_n,
+                    top_n=state.evidence_limit,
                     score_cache=score_cache,
                     preferred=focused,
                     protected=protected,
@@ -258,16 +272,30 @@ class AgentWorkflow:
                 reranked = self._rerank_with_cache(
                     state.original_query,
                     candidates,
-                    top_n=self.evidence_top_n,
+                    top_n=state.evidence_limit,
                     score_cache=score_cache,
                 )
                 reranked = self._preserve_focused_evidence(
-                    reranked, focused, top_n=self.evidence_top_n
+                    reranked, focused, top_n=state.evidence_limit
+                )
+            targets = decompose_retrieval_targets(state.original_query)
+            if len(state.query_scope) > 1 and len(targets) > 1:
+                reranked = self._select_scope_target_coverage(
+                    candidates,
+                    focused_query_variants(targets),
+                    state.query_scope,
+                    top_n=state.evidence_limit,
+                    score_cache=score_cache,
+                    preferred=reranked,
                 )
         evidences = build_evidence_list(reranked)
         with self._stage("grader"):
             decision = self._call_with_budget(
-                self.grader.grade, state.original_query, evidences, budget=budget
+                self.grader.grade,
+                state.original_query,
+                evidences,
+                budget=budget,
+                scope_business_ids=state.query_scope,
             )
         state.evidences = evidences
         state.sufficiency_decision = decision.decision
@@ -461,6 +489,134 @@ class AgentWorkflow:
             *supplemental,
         ]
 
+    def _select_scope_target_coverage(
+        self,
+        candidates: list[dict],
+        focused_queries: list[str],
+        business_ids: tuple[str, ...],
+        *,
+        top_n: int,
+        score_cache: dict[tuple, float],
+        preferred: list[dict],
+    ) -> list[dict]:
+        del score_cache
+        selected = []
+        seen = set()
+        per_document_limit = max(1, top_n // len(business_ids))
+        selected_articles_by_document: dict[str, set[str]] = {
+            business_id: set() for business_id in business_ids
+        }
+        fulfilled_targets: set[tuple[str, str]] = set()
+        for business_id in business_ids:
+            scoped = [
+                candidate
+                for candidate in candidates
+                if f"{candidate.get('spec_id')}@{candidate.get('edition_id')}"
+                == business_id
+            ]
+            selected_articles = selected_articles_by_document[business_id]
+            selected_for_document = 0
+            for focused_query in focused_queries:
+                ranked = sorted(
+                    (
+                        candidate
+                        for candidate in scoped
+                        if focused_query in candidate.get("document_query_ranks", {})
+                        and self._matches_focused_intent(candidate, focused_query)
+                    ),
+                    key=lambda candidate: (
+                        candidate["document_query_ranks"][focused_query],
+                        -(candidate.get("rrf_score") or 0.0),
+                    ),
+                )
+                candidate = next(
+                    (
+                        item
+                        for item in ranked
+                        if chunk_identity(item) not in seen
+                        and not (
+                            item.get("article_id")
+                            and item.get("article_id") in selected_articles
+                        )
+                    ),
+                    None,
+                )
+                if candidate is None:
+                    continue
+                identity = chunk_identity(candidate)
+                article_id = candidate.get("article_id")
+                seen.add(identity)
+                if article_id:
+                    selected_articles.add(article_id)
+                selected.append(candidate)
+                fulfilled_targets.add((business_id, focused_query))
+                selected_for_document += 1
+                if selected_for_document >= per_document_limit:
+                    break
+        for focused_query in focused_queries:
+            for business_id in business_ids:
+                if len(selected) >= top_n:
+                    return selected
+                if (business_id, focused_query) in fulfilled_targets:
+                    continue
+                ranked = sorted(
+                    (
+                        candidate
+                        for candidate in candidates
+                        if f"{candidate.get('spec_id')}@{candidate.get('edition_id')}"
+                        == business_id
+                        and focused_query in candidate.get("document_query_ranks", {})
+                        and self._matches_focused_intent(candidate, focused_query)
+                    ),
+                    key=lambda candidate: candidate["document_query_ranks"][focused_query],
+                )
+                candidate = next(
+                    (
+                        item
+                        for item in ranked
+                        if chunk_identity(item) not in seen
+                        and not (
+                            item.get("article_id")
+                            and item.get("article_id")
+                            in selected_articles_by_document[business_id]
+                        )
+                    ),
+                    None,
+                )
+                if candidate is None:
+                    continue
+                seen.add(chunk_identity(candidate))
+                if candidate.get("article_id"):
+                    selected_articles_by_document[business_id].add(
+                        candidate["article_id"]
+                    )
+                selected.append(candidate)
+                fulfilled_targets.add((business_id, focused_query))
+        return selected or preferred[:top_n]
+
+    @staticmethod
+    def _matches_focused_intent(candidate: dict, focused_query: str) -> bool:
+        if "本标准适用于" in focused_query:
+            text = str(candidate.get("text", ""))
+            return bool(re.search(r"(?:本标准|本规范)适用于|必须执行本规范", text))
+        text = str(candidate.get("text", ""))
+        if "最高运行速度" in focused_query:
+            return bool(
+                "最高运行速度" in text
+                and re.search(r"最高运行速度.{0,12}(?:应|不应|不得|可|按)", text)
+                and not re.search(r"maximum running speed|速度效率", text, re.I)
+            )
+        if "防止自然灾害" in focused_query:
+            return bool(re.search(r"防内涝|防止自然灾害|自然灾害侵害", text))
+        if "穿越水域" in focused_query:
+            return bool(re.search(r"河流|湖泊|水域|防淹门|防水淹", text))
+        if "车辆基地" in focused_query:
+            return bool(
+                re.search(r"车辆基地|基地", text)
+                and re.search(r"防洪|防淹|内涝", text)
+            )
+        return True
+
     @staticmethod
     def _coverage_queries(requirements: list[str]) -> list[str]:
         queries = []
@@ -511,6 +667,7 @@ class AgentWorkflow:
                 evidences=state.evidences,
                 chat_history=[],
                 budget=budget,
+                scope_business_ids=state.query_scope,
             )
         state.trace.append({"step": "answer"})
         state.citation_validation = validate_citations(answer, state.evidences)
@@ -611,7 +768,16 @@ class AgentWorkflow:
 
     @staticmethod
     def _call_with_budget(method, *args, budget: CallBudget, **kwargs):
-        if "budget" in inspect.signature(method).parameters:
+        parameters = inspect.signature(method).parameters
+        accepts_kwargs = any(
+            parameter.kind is inspect.Parameter.VAR_KEYWORD
+            for parameter in parameters.values()
+        )
+        if "scope_business_ids" in kwargs and not (
+            "scope_business_ids" in parameters or accepts_kwargs
+        ):
+            kwargs.pop("scope_business_ids")
+        if "budget" in parameters:
             kwargs["budget"] = budget
         return method(*args, **kwargs)
 

@@ -114,6 +114,46 @@ class EvidenceSufficiencyGraderTest(unittest.TestCase):
         )
         self.assertIn("问题明确要求的事实、数值、条件或对象", prompt)
 
+    def test_cross_spec_question_does_not_require_every_topic_from_every_spec(self):
+        completions = FakeCompletions({
+            "decision": "sufficient",
+            "supported_evidence_ids": ["E1"],
+            "missing_requirements": [],
+            "reason": "可按规范陈述已有直接规定，不补造交叉组合。",
+        })
+        client = SimpleNamespace(chat=SimpleNamespace(completions=completions))
+
+        result = EvidenceSufficiencyGrader(client=client, model="test").grade(
+            "关于穿越水域防淹和车辆基地防淹，各规范有哪些明确要求？",
+            [self.evidence],
+            scope_business_ids=("cn.a@2025", "cn.b@2022", "cn.c@2013"),
+        )
+
+        prompt = completions.calls[0]["messages"][1]["content"]
+        self.assertEqual(result.decision, "sufficient")
+        self.assertIn("不得推定每份规范都必须分别覆盖", prompt)
+        self.assertIn("不能把这个模型自行添加的交叉组合列为缺失要求", prompt)
+
+    def test_explicit_absence_reporting_does_not_require_proving_full_text_absence(self):
+        completions = FakeCompletions({
+            "decision": "sufficient",
+            "supported_evidence_ids": ["E1"],
+            "missing_requirements": [],
+            "reason": "可以审慎报告给定证据未找到直接规定。",
+        })
+        client = SimpleNamespace(chat=SimpleNamespace(completions=completions))
+
+        result = EvidenceSufficiencyGrader(client=client, model="test").grade(
+            "比较三份规范；没有直接规定的文档也要明确说明。",
+            [self.evidence],
+            scope_business_ids=("cn.a@2025", "cn.b@2022", "cn.c@2013"),
+        )
+
+        prompt = completions.calls[0]["messages"][1]["content"]
+        self.assertEqual(result.decision, "sufficient")
+        self.assertIn("不得要求额外证明规范全文不存在", prompt)
+        self.assertIn("cn.c@2013", prompt)
+
     def test_rejects_unknown_evidence_id(self):
         content = json.dumps({
             "decision": "sufficient",

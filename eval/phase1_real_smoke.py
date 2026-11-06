@@ -83,7 +83,7 @@ def main(argv: list[str] | None = None) -> int:
         request_logger.setLevel(previous_level)
 
     payload = {
-        "run_type": "phase1_slice3_scoped_real_smoke",
+        "run_type": "phase1_scoped_real_agent_evaluation",
         "snapshot_id": args.snapshot_id,
         "generation_model": config.generation_model,
         "questions": results,

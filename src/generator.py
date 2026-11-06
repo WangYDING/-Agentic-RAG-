@@ -34,8 +34,21 @@ class Generator:
         chat_history: list[dict] = None,
         *,
         budget: CallBudget | None = None,
+        scope_business_ids: tuple[str, ...] = (),
     ) -> str:
         context = build_evidence_context(evidences)
+        scope_instructions = ""
+        scope_context = ""
+        if scope_business_ids:
+            scope_instructions = """
+11. 跨规范问题中，不要假定每份规范都覆盖每个并列主题；按规范分别陈述已有直接规定。某规范对某主题没有对应片段时，只能说“给定证据未找到直接规定”，不得据此推断规范全文不存在规定
+12. 对跨规范、多子要求问题，完整覆盖优先于分点数量限制；应逐份规范核对每个有直接证据的子要求，不得为了简洁而遗漏适用证据中直接回答问题的条文
+"""
+            scope_context = (
+                "\n本次已绑定查询范围（用于逐份组织答案，不代表这些规范都有直接证据）：\n"
+                + ", ".join(scope_business_ids)
+                + "\n"
+            )
 
         history_text = ""
         if chat_history:
@@ -64,6 +77,7 @@ class Generator:
 8. 若信息不足，明确说明：“给定片段未提供完整信息”
 9. 若问题依赖上下文，请结合历史问题理解指代
 10. 引用只能使用参考证据中真实存在的编号，不得编造 [E4]、[E99] 等不存在的编号
+{scope_instructions}
 
 【输出风格要求】
 - 如果用户问“有什么要求”，先概括总体要求，再列最关键的2~3点
@@ -80,6 +94,7 @@ class Generator:
 
 用户当前问题：
 {query}
+{scope_context}
 
 参考片段：
 {context}

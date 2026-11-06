@@ -80,7 +80,7 @@ class FakeGrader:
         self.decisions = list(decisions)
         self.calls = []
 
-    def grade(self, query, evidences, *, budget=None):
+    def grade(self, query, evidences, *, budget=None, scope_business_ids=()):
         if budget is not None:
             budget.consume()
         self.calls.append((query, list(evidences)))
@@ -99,7 +99,9 @@ class FakeGenerator:
         self.calls = []
         self.answer = answer
 
-    def generate_answer(self, query, evidences, chat_history, *, budget=None):
+    def generate_answer(
+        self, query, evidences, chat_history, *, budget=None, scope_business_ids=()
+    ):
         if budget is not None:
             budget.consume()
         self.calls.append((query, list(evidences), list(chat_history)))
@@ -490,6 +492,116 @@ class AgentWorkflowTest(unittest.TestCase):
             [item["chunk_id"] for item in expected],
         )
         self.assertEqual([len(call[1]) for call in cached_reranker.score_calls], [3, 1])
+
+    def test_multi_scope_target_selection_keeps_two_distinct_articles_per_document(self):
+        workflow = AgentWorkflow(
+            FakeRetriever(), FakeReranker(), FakeGrader([]), FakeGenerator()
+        )
+        candidates = []
+        for spec_index, (spec_id, edition_id) in enumerate(
+            (("cn.a", "2025"), ("cn.b", "2022"), ("cn.c", "2013"))
+        ):
+            for local_index, article in enumerate(("1.0.1", "2.0.1", "9.9.9")):
+                candidates.append(
+                    {
+                        "text": f"{spec_id}-{article}",
+                        "source": f"{spec_id}.pdf",
+                        "spec_id": spec_id,
+                        "edition_id": edition_id,
+                        "chunk_id": spec_index * 10 + local_index,
+                        "article_id": article,
+                        "focused_best_rank": local_index + 1,
+                        "focused_rank_sum": local_index + 1,
+                        "document_query_ranks": {
+                            "target-a": 1 if local_index == 0 else local_index + 2,
+                            "target-b": 1 if local_index == 1 else local_index + 2,
+                        },
+                    }
+                )
+
+        selected = workflow._select_scope_target_coverage(
+            candidates,
+            ["target-a", "target-b"],
+            ("cn.a@2025", "cn.b@2022", "cn.c@2013"),
+            top_n=6,
+            score_cache={},
+            preferred=[],
+        )
+
+        self.assertEqual(len(selected), 6)
+        self.assertEqual(
+            {(item["spec_id"], item["article_id"]) for item in selected},
+            {
+                ("cn.a", "1.0.1"),
+                ("cn.a", "2.0.1"),
+                ("cn.b", "1.0.1"),
+                ("cn.b", "2.0.1"),
+                ("cn.c", "1.0.1"),
+                ("cn.c", "2.0.1"),
+            },
+        )
+
+    def test_focused_intent_rejects_definitions_and_unrelated_flood_evidence(self):
+        matcher = AgentWorkflow._matches_focused_intent
+
+        self.assertFalse(
+            matcher(
+                {"text": "2.0.5 最高运行速度 maximum running speed 列车正常运营的最高速度。"},
+                "线路最高运行速度",
+            )
+        )
+        self.assertTrue(
+            matcher(
+                {"text": "4.2.4 设计最高运行速度应根据线路功能定位经比选确定。"},
+                "线路最高运行速度",
+            )
+        )
+        self.assertFalse(
+            matcher(
+                {"text": "车站出入口的防淹措施应满足当地防洪排涝要求。"},
+                "车辆基地防洪防淹",
+            )
+        )
+        self.assertTrue(
+            matcher(
+                {"text": "车辆基地布局应满足防洪、防淹要求。"},
+                "车辆基地防洪防淹",
+            )
+        )
+
+    def test_target_selection_does_not_fill_unused_slots_with_duplicate_intent(self):
+        workflow = AgentWorkflow(
+            FakeRetriever(), FakeReranker(), FakeGrader([]), FakeGenerator()
+        )
+        candidates = [
+            {
+                "text": text,
+                "source": "spec.pdf",
+                "spec_id": "cn.a",
+                "edition_id": "2025",
+                "chunk_id": index,
+                "article_id": article,
+                "document_query_ranks": {query: rank},
+            }
+            for index, (article, text, query, rank) in enumerate(
+                (
+                    ("3.0.21", "下穿水域两端设置防淹门。", "地下工程穿越水域时的防淹", 1),
+                    ("3.0.19", "工程应进行防内涝和防洪水设计。", "防止自然灾害 防内涝 防洪 防淹", 1),
+                    ("30.8.7", "河道附近另设防淹设施。", "地下工程穿越水域时的防淹", 2),
+                )
+            )
+        ]
+
+        selected = workflow._select_scope_target_coverage(
+            candidates,
+            ["地下工程穿越水域时的防淹", "防止自然灾害 防内涝 防洪 防淹"],
+            ("cn.a@2025",),
+            top_n=6,
+            score_cache={},
+            preferred=[],
+        )
+
+        self.assertEqual([item["article_id"] for item in selected], ["3.0.21", "3.0.19"])
 
 
 if __name__ == "__main__":

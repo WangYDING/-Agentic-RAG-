@@ -67,7 +67,9 @@ def run_retrieval_check(
                 "behavior": "retrieve",
                 "scope": list(scoped.scope.business_ids),
                 "candidate_count": len(candidates),
-                "per_document_candidates": scoped.calls[-1]["documents"],
+                "per_document_candidates": scoped.calls[-1]["query_runs"][0]["documents"],
+                "focused_queries": scoped.calls[-1]["focused_queries"],
+                "query_runs": scoped.calls[-1]["query_runs"],
                 "expected_article_hits": hits,
                 "all_expected_articles_recalled": all(
                     set(articles).issubset(actual_articles.get(business_id, []))

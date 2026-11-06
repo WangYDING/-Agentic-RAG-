@@ -1,0 +1,142 @@
+{
+  "run_type": "phase1_scoped_real_agent_evaluation",
+  "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+  "generation_model": "deepseek-flash",
+  "questions": [
+    {
+      "id": "P1-Q012",
+      "question": "三份规范是否直接规定全自动运行列车功能？有规定时列出功能和条文，没有时明确说明未找到直接规定。",
+      "requested_scope": {
+        "spec_ids": [
+          "cn.beijing.db11t995",
+          "cn.gb55033",
+          "cn.gb50157"
+        ],
+        "edition_ids": [
+          "2025",
+          "2022",
+          "2013"
+        ]
+      },
+      "request_id": "2b20fe18b5db4a2ba29fdc521dcb634b",
+      "result_type": "answer",
+      "answer": "核心结论：DB11/T 995-2025 直接、较完整地规定了全自动运行列车功能；GB 55033-2022 有涉及全自动运行系统及列车运行监控、应急控制的相关规定；GB 50157-2013 在给定证据中未找到直接规定。\n\n### 1. DB11/T 995-2025：有直接规定\n**条文 18.4.5** 规定全自动运行线路除满足第18.4.4条功能外，还应满足以下功能要求 [E1]：\n1. 远程和本地休眠、唤醒功能；\n2. 跳跃、自动对位调整功能；\n3. 蠕动运行模式、远程限速运行功能；\n4. 配合车门与站台屏蔽门实现故障对位隔离功能；\n5. 站台自动发车功能；\n6. 清客功能；\n7. 全自动折返功能；\n8. 全自动进出车辆基地功能；\n9. 全自动洗车功能；\n10. 具备机械编组功能的线路，ATO系统应具备FAM模式下控制列车进行自动联挂、解编的功能 [E1]。\n\n**条文 5.7.1** 规定列车应适应全自动运行需要，支持实现全自动运行模式（FAM）运行功能、唤醒功能、休眠功能、远程控制功能、站台屏蔽门车门对位隔离功能、障碍物检测功能、乘客服务功能等 [E2]。\n\n### 2. GB 55033-2022：有直接相关系统及列车运行功能规定\n**条文 6.3.9** 规定全自动运行系统应能实现信号、通信、防灾报警等机电系统设备及车辆的协同控制；控制中心或车站有人值班室应能监控全自动运行列车的运行状态，应能实现列车停车及对车门、站台屏蔽门的应急控制 [E3]。\n\n该条文属于全自动运行系统层面的规定，涉及车辆协同控制、列车运行状态监控、列车停车及车门/站台屏蔽门应急控制等功能 [E3]，但给定片段未给出更细化的全自动运行列车功能清单。\n\n### 3. GB 50157-2013：给定证据未找到直接规定\n在给定参考片段中，未找到 GB 50157-2013 对全自动运行列车功能的直接规定。",
+      "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+      "bound_scope": [
+        "cn.beijing.db11t995@2025",
+        "cn.gb50157@2013",
+        "cn.gb55033@2022"
+      ],
+      "retry_count": 0,
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "text": "18.4.5\n全自动运行线路除满足本标准第18.4.4 条的功能外，还应满足下列要求：\n1\n远程和本地休眠、唤醒功能；\n2\n跳跃、自动对位调整功能；\n3\n蠕动运行模式、远程限速运行功能；\n4\n配合车门与站台屏蔽门实现故障对位隔离功能；\n5\n站台自动发车功能；\n6\n清客功能；\n7\n全自动折返功能；\n8\n全自动进出车辆基地功能；\n9\n全自动洗车功能；\n10\n具备机械编组功能的线路，ATO系统应具备FAM模式下控制列车进行自动联挂、解编的功能。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 158,
+          "page_end": 158,
+          "chunk_id": 1669,
+          "content_type": "text",
+          "chapter_id": "18",
+          "chapter_title": "信号",
+          "article_id": "18.4.5",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第18.4.5条",
+          "score": 21.68325760901967,
+          "rerank_score": 0.9875118732452393,
+          "metadata": {},
+          "spec_id": "cn.beijing.db11t995",
+          "edition_id": "2025",
+          "standard_code": "DB11/T 995-2025",
+          "spec_title": "城市轨道交通工程设计标准",
+          "pdf_page_start": 158,
+          "pdf_page_end": 158,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E2",
+          "text": "5.7.1\n列车应适应全自动运行需要，支持实现全自动运行模式（FAM）模式运行功能、唤醒功能、休眠\n功能、远程控制功能、站台屏蔽门车门对位隔离功能、障碍物检测功能、乘客服务功能等。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 39,
+          "page_end": 39,
+          "chunk_id": 392,
+          "content_type": "text",
+          "chapter_id": "5",
+          "chapter_title": "车辆",
+          "article_id": "5.7.1",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第5.7.1条",
+          "score": 0.6891833543777466,
+          "rerank_score": 0.9720473289489746,
+          "metadata": {},
+          "spec_id": "cn.beijing.db11t995",
+          "edition_id": "2025",
+          "standard_code": "DB11/T 995-2025",
+          "spec_title": "城市轨道交通工程设计标准",
+          "pdf_page_start": 39,
+          "pdf_page_end": 39,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E3",
+          "text": "6.3.9 全自动运行系统应符合下列规定：\n1 全自动运行系统建设应与线路、站场配置及运行管理模\n式相互协调。全自动运行系统应能实现信号、通信、防灾报警等\n机电系统设备及车辆的协同控制；\n2控制中心或车站有人值班室应能监控全自动运行列车的\n运行状态，应能实现列车停车及对车门、站台屏蔽门的应急\n控制。",
+          "source": "GB55033-2022_城市轨道交通工程项目规范.pdf",
+          "page_start": 32,
+          "page_end": 32,
+          "chunk_id": 203,
+          "content_type": "text",
+          "chapter_id": "6",
+          "chapter_title": "给水、排水系统…",
+          "article_id": "6.3.9",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第6.3.9条",
+          "score": 0.7099312543869019,
+          "rerank_score": 0.9648503661155701,
+          "metadata": {},
+          "spec_id": "cn.gb55033",
+          "edition_id": "2022",
+          "standard_code": "GB 55033-2022",
+          "spec_title": "城市轨道交通工程项目规范",
+          "pdf_page_start": 32,
+          "pdf_page_end": 32,
+          "printed_page_start": null,
+          "printed_page_end": null
+        }
+      ],
+      "request_metrics": {
+        "request_id": "2b20fe18b5db4a2ba29fdc521dcb634b",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 47.0,
+          "rerank": 3000.0,
+          "grader": 13156.0,
+          "generation": 8094.0
+        },
+        "total_ms": 25687.0,
+        "outcome": "answer",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 0,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 2153,
+          "output": 3226,
+          "total": 5379
+        },
+        "estimated_cost": null
+      }
+    }
+  ]
+}

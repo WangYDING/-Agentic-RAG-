@@ -11,6 +11,7 @@ from src.query_scope import (
     versions_from_catalog,
     versions_from_snapshot,
 )
+from src.query_decomposition import decompose_retrieval_targets, focused_query_variants
 from src.retrieval_fusion import chunk_identity, reciprocal_rank_fusion
 from src.retriever import Retriever
 
@@ -78,6 +79,58 @@ class ScopedSnapshotRetriever:
         }
 
     def retrieve(self, query: str, top_k: int = 10) -> list[dict]:
+        focused_queries = focused_query_variants(decompose_retrieval_targets(query))
+        query_runs = []
+        all_rankings = []
+        for retrieval_query in [query, *focused_queries]:
+            run_top_k = top_k
+            fused, per_document = self._retrieve_once(retrieval_query, run_top_k)
+            all_rankings.append(fused)
+            query_runs.append(
+                {
+                    "query": retrieval_query,
+                    "top_k": run_top_k,
+                    "documents": per_document,
+                    "fused_candidates": len(fused),
+                }
+            )
+        fused = reciprocal_rank_fusion(*all_rankings, top_k=None)
+        query_ranks: dict[tuple[object, ...], dict[str, int]] = {}
+        document_query_ranks: dict[tuple[object, ...], dict[str, int]] = {}
+        for run, ranking in zip(query_runs, all_rankings, strict=True):
+            document_positions: dict[str, int] = {}
+            for rank, item in enumerate(ranking, start=1):
+                query_ranks.setdefault(chunk_identity(item), {})[run["query"]] = rank
+                business_id = f"{item.get('spec_id')}@{item.get('edition_id')}"
+                document_positions[business_id] = document_positions.get(business_id, 0) + 1
+                document_query_ranks.setdefault(chunk_identity(item), {})[
+                    run["query"]
+                ] = document_positions[business_id]
+        for item in fused:
+            ranks = query_ranks.get(chunk_identity(item), {})
+            focused_ranks = [
+                rank for focused in focused_queries if (rank := ranks.get(focused)) is not None
+            ]
+            item["retrieval_query_ranks"] = ranks
+            item["document_query_ranks"] = document_query_ranks.get(
+                chunk_identity(item), {}
+            )
+            item["focused_best_rank"] = min(focused_ranks) if focused_ranks else None
+            item["focused_rank_sum"] = sum(focused_ranks) if focused_ranks else None
+        self._assert_in_scope(fused)
+        self.calls.append(
+            {
+                "query": query,
+                "snapshot_id": self.scope.snapshot_id,
+                "scope": list(self.scope.business_ids),
+                "focused_queries": focused_queries,
+                "query_runs": query_runs,
+                "fused_candidates": len(fused),
+            }
+        )
+        return fused
+
+    def _retrieve_once(self, query: str, top_k: int) -> tuple[list[dict], list[dict]]:
         ranked_lists = []
         per_document = []
         requested_articles = set(re.findall(r"(?<!\d)(\d+(?:\.\d+){2,})(?!\d)", query))
@@ -105,16 +158,7 @@ class ScopedSnapshotRetriever:
             )
         fused = reciprocal_rank_fusion(*ranked_lists, top_k=None)
         self._assert_in_scope(fused)
-        self.calls.append(
-            {
-                "query": query,
-                "snapshot_id": self.scope.snapshot_id,
-                "scope": list(self.scope.business_ids),
-                "documents": per_document,
-                "fused_candidates": len(fused),
-            }
-        )
-        return fused
+        return fused, per_document
 
     def expand_neighbors(self, results: list[dict]) -> list[dict]:
         self._assert_in_scope(results)
