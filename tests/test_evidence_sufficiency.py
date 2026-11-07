@@ -160,6 +160,36 @@ class EvidenceSufficiencyGraderTest(unittest.TestCase):
         self.assertEqual(result.decision, "sufficient")
         self.assertIn("不得推定每份规范都必须分别覆盖", prompt)
         self.assertIn("不能把这个模型自行添加的交叉组合列为缺失要求", prompt)
+        self.assertIn("每份文档 × 每个主题", prompt)
+        self.assertIn("作为答案内容，而不是 missing_requirement", prompt)
+        self.assertIn("不得为了形成对称比较", prompt)
+
+    def test_qualitative_requirement_does_not_invent_a_numeric_limit(self):
+        evidence = Evidence(
+            "E1",
+            "疏散平台宽度按设备安装后的最小有效净宽控制，并应保证行车安全。",
+            "spec.pdf",
+            42,
+            42,
+            622,
+            article_id="6.2.2",
+        )
+        completions = FakeCompletions({
+            "decision": "sufficient",
+            "supported_evidence_ids": ["E1"],
+            "missing_requirements": [],
+            "reason": "问题未询问数值，可按证据陈述定性控制要求。",
+        })
+        client = SimpleNamespace(chat=SimpleNamespace(completions=completions))
+
+        result = EvidenceSufficiencyGrader(client=client, model="test").grade(
+            "疏散平台宽度有什么要求？", [evidence]
+        )
+
+        prompt = completions.calls[0]["messages"][1]["content"]
+        self.assertEqual(result.decision, "sufficient")
+        self.assertIn("不得把“没有具体数值”另列为缺失", prompt)
+        self.assertIn("明确问“数值、多少、限值是多少”", prompt)
 
     def test_explicit_absence_reporting_does_not_require_proving_full_text_absence(self):
         completions = FakeCompletions({

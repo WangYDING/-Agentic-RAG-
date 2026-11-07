@@ -1,0 +1,193 @@
+{
+  "run_type": "phase1_scoped_real_agent_evaluation",
+  "snapshot_id": "65b3ccfc96a372e54b1c7ecc5ba7f622788d71beafee4206a0298ed10a9fb859",
+  "generation_model": "deepseek-flash",
+  "questions": [
+    {
+      "id": "P1-IND-017",
+      "question": "DB11/T 995-2025 与 GB 55033-2022 对区间纵向疏散平台的宽度、高差和间隙分别怎样规定？",
+      "requested_scope": {
+        "spec_ids": [
+          "cn.beijing.db11t995",
+          "cn.gb55033"
+        ],
+        "edition_ids": [
+          "2025",
+          "2022"
+        ]
+      },
+      "request_id": "14171fb17019400dadec548aafa25982",
+      "result_type": "answer",
+      "answer": "核心结论：两份规范均未给出平台宽度的具体数值；高差均要求低于车厢地板面150mm～200mm；间隙仅 GB 55033-2022 明确曲线地段不应大于300mm，DB11/T 995-2025 未给出间隙具体数值。\n\n**DB11/T 995-2025**\n- 宽度：规定纵向辅助疏散平台的最小宽度要求为设备安装后的最小有效净宽，但给定片段未提供具体宽度数值 [E1]。\n- 高差：直线段和曲线地段纵向疏散平台距轨道中心线高度宜统一按低于轨道中心线处的车厢地板面高度150mm～200mm确定 [E1]。\n- 间隙：要求与设备限界之间的间隙既要保证行车安全，又要方便车内乘客下到平台，但未给出间隙具体数值 [E1]。\n\n**GB 55033-2022**\n- 宽度：给定证据未找到区间纵向疏散平台宽度的直接规定。\n- 高差：直线地段和曲线地段纵向疏散平台距轨道中心线高度应统一按低于车厢地板面高度150mm～200mm确定 [E2]。\n- 间隙：区间内纵向疏散平台应在设备限界外侧设置；车辆静止状态下，车辆轮廓距离疏散平台间隙，曲线地段不应大于300mm [E2]。直线地段间隙未给出直接规定。",
+      "snapshot_id": "65b3ccfc96a372e54b1c7ecc5ba7f622788d71beafee4206a0298ed10a9fb859",
+      "bound_scope": [
+        "cn.beijing.db11t995@2025",
+        "cn.gb55033@2022"
+      ],
+      "retry_count": 0,
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "text": "6.2.2\n纵向辅助疏散平台平时供维修人员行走，在紧急情况下可作为疏散乘客的辅助通道，其设置位置\n主要从方便行走、方便上下行线之间的沟通联络、方便区间与车站的衔接以及疏散人流的组织考虑。\n纵向辅助疏散平台的最小宽度要求为设备安装后的最小有效净宽，主要考虑了人员行走的最小有效\n宽度及各种结构断面的形状影响；本次修订缩小了疏散平台板至车厢地板面的高差，方便车内乘客下到\n平台，直线段和曲线地段纵向疏散平台距轨道中心线高度宜统一按低于轨道中心线处的车厢地板面高度\n150mm～200mm 确定。与设备限界之间的间隙既要保证行车安全，又要方便车内乘客下到平台。总结\n北京近年新建线的设计实践提出了统一规定。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 286,
+          "page_end": 286,
+          "chunk_id": 2880,
+          "content_type": "text",
+          "chapter_id": "6",
+          "chapter_title": "限界",
+          "article_id": "6.2.2",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第6.2.2条",
+          "score": 31.37056169055174,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.beijing.db11t995",
+          "edition_id": "2025",
+          "standard_code": "DB11/T 995-2025",
+          "spec_title": "城市轨道交通工程设计标准",
+          "pdf_page_start": 286,
+          "pdf_page_end": 286,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E2",
+          "text": "3.0.10\n区间内的纵向疏散平台应在设备限界外侧设置，直线地\n段和曲线地段纵向疏散平台距轨道中心线高度应统一按低于车厢\n地板面高度150mm～200mm确定。在车辆静止状态下，车辆轮\n廓距离疏散平台间隙，曲线地段不应大于300mm。",
+          "source": "GB55033-2022_城市轨道交通工程项目规范.pdf",
+          "page_start": 17,
+          "page_end": 17,
+          "chunk_id": 92,
+          "content_type": "text",
+          "chapter_id": "3",
+          "chapter_title": null,
+          "article_id": "3.0.10",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第3.0.10条",
+          "score": 0.6955916881561279,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.gb55033",
+          "edition_id": "2022",
+          "standard_code": "GB 55033-2022",
+          "spec_title": "城市轨道交通工程项目规范",
+          "pdf_page_start": 17,
+          "pdf_page_end": 17,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E3",
+          "text": "30.7.8\n地下区间纵向疏散平台的侧墙上应设置疏散指示标志和与疏散出入口的距离标识，不应侵占疏\n散平台宽度，间距不宜大于15m，高度宜设在平台上方2m 内。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 236,
+          "page_end": 236,
+          "chunk_id": 2556,
+          "content_type": "text",
+          "chapter_id": "30",
+          "chapter_title": "防灾",
+          "article_id": "30.7.8",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第30.7.8条",
+          "score": 0.6811973452568054,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.beijing.db11t995",
+          "edition_id": "2025",
+          "standard_code": "DB11/T 995-2025",
+          "spec_title": "城市轨道交通工程设计标准",
+          "pdf_page_start": 236,
+          "pdf_page_end": 236,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E4",
+          "text": "5.4.5 车站楼梯和通道的宽度应符合下列规定：\n1 天桥和通道宽度不应小于2.4m；\n2 单向公共区人行楼梯宽度不应小于1.8m；\n3 双向公共区人行楼梯宽度不应小于2.4m;\n4 消防专用楼梯宽度不应小于1.2m，站台至轨行区的工作\n梯（兼疏散梯）宽度不应小于1.1m，区间风井疏散梯宽度不应\n小于1.8m。",
+          "source": "GB55033-2022_城市轨道交通工程项目规范.pdf",
+          "page_start": 25,
+          "page_end": 25,
+          "chunk_id": 149,
+          "content_type": "text",
+          "chapter_id": "5",
+          "chapter_title": null,
+          "article_id": "5.4.5",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第5.4.5条",
+          "score": 0.5729204416275024,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.gb55033",
+          "edition_id": "2022",
+          "standard_code": "GB 55033-2022",
+          "spec_title": "城市轨道交通工程项目规范",
+          "pdf_page_start": 25,
+          "pdf_page_end": 25,
+          "printed_page_start": null,
+          "printed_page_end": null
+        }
+      ],
+      "trace": [
+        {
+          "step": "bind_scope",
+          "snapshot_id": "65b3ccfc96a372e54b1c7ecc5ba7f622788d71beafee4206a0298ed10a9fb859",
+          "scope": [
+            "cn.beijing.db11t995@2025",
+            "cn.gb55033@2022"
+          ]
+        },
+        {
+          "step": "retrieve",
+          "query": "DB11/T 995-2025 与 GB 55033-2022 对区间纵向疏散平台的宽度、高差和间隙分别怎样规定？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "sufficient",
+          "missing_requirements": [],
+          "retry_count": 0
+        },
+        {
+          "step": "answer"
+        },
+        {
+          "step": "citation_validation",
+          "valid": true
+        }
+      ],
+      "request_metrics": {
+        "request_id": "14171fb17019400dadec548aafa25982",
+        "app_version": "0.1.0",
+        "index_version": "65b3ccfc96a372e54b1c7ecc5ba7f622788d71beafee4206a0298ed10a9fb859",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 78.0,
+          "rerank": 3234.0,
+          "grader": 25781.0,
+          "generation": 8860.0
+        },
+        "total_ms": 38922.0,
+        "outcome": "answer",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 0,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 2721,
+          "output": 4608,
+          "total": 7329
+        },
+        "estimated_cost": null
+      }
+    }
+  ]
+}
