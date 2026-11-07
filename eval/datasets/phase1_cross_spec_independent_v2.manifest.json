@@ -30,5 +30,8 @@
   },
   "source_review": "eval/reviews/phase1_cross_spec_independent_v2_source_review.json",
   "quality_gate": "eval/datasets/phase1_cross_spec_independent_v2.quality_gate.json",
-  "first_run_status": "not_run"
+  "first_run_status": "completed_failed_gate",
+  "first_run_result": "eval/reports/phase1_cross_spec_independent_v2_first_run_20261107.json",
+  "first_run_answer_review": "eval/reports/phase1_cross_spec_independent_v2_first_run_20261107.answer_review.json",
+  "demoted_to_seen_regression": true
 }
