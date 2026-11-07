@@ -1,0 +1,82 @@
+{
+  "run_type": "phase1_scoped_real_agent_evaluation",
+  "snapshot_id": "65b3ccfc96a372e54b1c7ecc5ba7f622788d71beafee4206a0298ed10a9fb859",
+  "generation_model": "deepseek-flash",
+  "questions": [
+    {
+      "id": "P1-IND-013",
+      "question": "三份规范对区间、车站公共区以及设备管理用房人员新风量分别有哪些直接规定？请区分使用场景。",
+      "requested_scope": {
+        "spec_ids": [
+          "cn.beijing.db11t995",
+          "cn.gb55033",
+          "cn.gb50157"
+        ],
+        "edition_ids": [
+          "2025",
+          "2022",
+          "2013"
+        ]
+      },
+      "request_id": "237b5736b8d84a1caecfd7f0ff7f6233",
+      "result_type": "error",
+      "answer": "证据判定服务调用超时。",
+      "snapshot_id": "65b3ccfc96a372e54b1c7ecc5ba7f622788d71beafee4206a0298ed10a9fb859",
+      "bound_scope": [
+        "cn.beijing.db11t995@2025",
+        "cn.gb50157@2013",
+        "cn.gb55033@2022"
+      ],
+      "retry_count": 0,
+      "evidence": [],
+      "trace": [
+        {
+          "step": "bind_scope",
+          "snapshot_id": "65b3ccfc96a372e54b1c7ecc5ba7f622788d71beafee4206a0298ed10a9fb859",
+          "scope": [
+            "cn.beijing.db11t995@2025",
+            "cn.gb50157@2013",
+            "cn.gb55033@2022"
+          ]
+        },
+        {
+          "step": "retrieve",
+          "query": "三份规范对区间、车站公共区以及设备管理用房人员新风量分别有哪些直接规定？请区分使用场景。",
+          "retry_count": 0
+        },
+        {
+          "step": "error",
+          "error_code": "MODEL_TIMEOUT"
+        }
+      ],
+      "request_metrics": {
+        "request_id": "237b5736b8d84a1caecfd7f0ff7f6233",
+        "app_version": "0.1.0",
+        "index_version": "65b3ccfc96a372e54b1c7ecc5ba7f622788d71beafee4206a0298ed10a9fb859",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 156.0,
+          "rerank": 6578.0,
+          "grader": 61094.0
+        },
+        "total_ms": 69109.0,
+        "outcome": "error",
+        "error_code": "MODEL_TIMEOUT",
+        "retryable": true,
+        "retrieval_retries": 0,
+        "model_calls": 2,
+        "model_retries": 1,
+        "token_usage": {
+          "input": 0,
+          "output": 0,
+          "total": 0
+        },
+        "estimated_cost": null
+      }
+    }
+  ]
+}

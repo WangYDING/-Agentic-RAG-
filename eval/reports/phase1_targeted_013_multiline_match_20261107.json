@@ -1,0 +1,498 @@
+{
+  "run_type": "phase1_scoped_real_agent_evaluation",
+  "snapshot_id": "65b3ccfc96a372e54b1c7ecc5ba7f622788d71beafee4206a0298ed10a9fb859",
+  "generation_model": "deepseek-flash",
+  "questions": [
+    {
+      "id": "P1-IND-013",
+      "question": "三份规范对区间、车站公共区以及设备管理用房人员新风量分别有哪些直接规定？请区分使用场景。",
+      "requested_scope": {
+        "spec_ids": [
+          "cn.beijing.db11t995",
+          "cn.gb55033",
+          "cn.gb50157"
+        ],
+        "edition_ids": [
+          "2025",
+          "2022",
+          "2013"
+        ]
+      },
+      "request_id": "f5a41771390d4463ab77913478779972",
+      "result_type": "answer",
+      "answer": "核心结论：DB 11/T 995-2025对区间、地下车站公共区及设备管理用房均有直接定量规定；GB 50157-2013对区间和设备管理用房有直接规定，并另有按开/闭式运行的人员新风量条款但片段未明确其对应公共区；GB 55033-2022片段仅见按开/闭式运行的人员新风量条款，未明确对应区间、公共区或设备管理用房。\n\n1. **DB 11/T 995-2025**\n\n   - **区间隧道**：每个乘客每小时需供应的新鲜空气量不应少于20m³[E1]。\n   - **地下车站公共区**：空调系统每个乘客每小时需供应的新鲜空气量不应少于20m³[E1]。\n   - **地下车站设备及管理用房**：每个工作人员每小时需供应的新鲜空气量不应少于30m³[E1]。\n\n2. **GB 50157-2013**\n\n   - **区间隧道**：每个乘客每小时需供应的新鲜空气量不应少于12.6m³[E2]。\n   - **地下车站设备与管理用房**：每个工作人员每小时需供应的新鲜空气量不应少于30m³，且空调系统新风量不应少于总风量的10%[E3]。\n   - **车站公共区**：给定证据未找到明确以“车站公共区”为适用对象的直接规定。另有条文规定采用通风系统开式运行时每个乘客每小时不应少于30m³、闭式运行时不应少于12.6m³且系统新风量不应少于总送风量的10%[E4]，但该片段未明确其适用于车站公共区，故不应直接等同于公共区规定。\n\n3. **GB 55033-2022**\n\n   - 给定证据仅见：采用通风方式且系统为开式运行时，每个乘客每小时需供应的新鲜空气量不应少于30m³；系统为闭式运行时，每个乘客每小时不应少于12.6m³，且新鲜空气供应量不应少于总送风量的10%[E5]。\n   - 该条文片段未明确对应**区间、车站公共区或设备管理用房**，因此不能按上述三类场景直接归类；对区间、公共区、设备管理用房分别的直接规定，给定证据未找到直接规定。",
+      "snapshot_id": "65b3ccfc96a372e54b1c7ecc5ba7f622788d71beafee4206a0298ed10a9fb859",
+      "bound_scope": [
+        "cn.beijing.db11t995@2025",
+        "cn.gb50157@2013",
+        "cn.gb55033@2022"
+      ],
+      "retry_count": 1,
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "text": "14.2.11\n人员新风量应符合下列规定：\n1\n区间隧道内每个乘客每小时需供应的新鲜空气量不应少于20m³；\n2\n地下车站公共区空调系统每个乘客每小时需供应的新鲜空气量不应少于20m³；\n3\n地下车站设备及管理用房内每个工作人员每小时需供应的新鲜空气量不应少于30m³。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 116,
+          "page_end": 116,
+          "chunk_id": 1126,
+          "content_type": "text",
+          "chapter_id": "14",
+          "chapter_title": "通风空调与供暖",
+          "article_id": "14.2.11",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第14.2.11条",
+          "score": 0.6927275061607361,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.beijing.db11t995",
+          "edition_id": "2025",
+          "standard_code": "DB11/T 995-2025",
+          "spec_title": "城市轨道交通工程设计标准",
+          "pdf_page_start": 116,
+          "pdf_page_end": 116,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E2",
+          "text": "13.2.4 区间隧道内每个乘客每小时需供应的新鲜空气量不应少\n于12.6m³。",
+          "source": "GB50157-2013_地铁设计规范.pdf",
+          "page_start": 140,
+          "page_end": 140,
+          "chunk_id": 793,
+          "content_type": "text",
+          "chapter_id": "13",
+          "chapter_title": null,
+          "article_id": "13.2.4",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第13.2.4条",
+          "score": 0.7108808159828186,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.gb50157",
+          "edition_id": "2013",
+          "standard_code": "GB 50157-2013",
+          "spec_title": "地铁设计规范",
+          "pdf_page_start": 140,
+          "pdf_page_end": 140,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E3",
+          "text": "13.2.33 地下车站设备与管理用房内每个工作人员每小时需供\n应的新鲜空气量不应少于30m³，且空调系统新风量不应少于总\n风量的10%。",
+          "source": "GB50157-2013_地铁设计规范.pdf",
+          "page_start": 143,
+          "page_end": 143,
+          "chunk_id": 823,
+          "content_type": "text",
+          "chapter_id": "13",
+          "chapter_title": null,
+          "article_id": "13.2.33",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第13.2.33条",
+          "score": 0.6697675585746765,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.gb50157",
+          "edition_id": "2013",
+          "standard_code": "GB 50157-2013",
+          "spec_title": "地铁设计规范",
+          "pdf_page_start": 143,
+          "pdf_page_end": 143,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E4",
+          "text": "13.2.17 当采用通风系统开式运行时，每个乘客每小时需供应\n的新鲜空气量不应少于30m³；当采用闭式运行时，其新鲜空气\n量不应少于12.6m³，且系统的新风量不应少于总送风量\n的10%。",
+          "source": "GB50157-2013_地铁设计规范.pdf",
+          "page_start": 141,
+          "page_end": 141,
+          "chunk_id": 807,
+          "content_type": "text",
+          "chapter_id": "13",
+          "chapter_title": null,
+          "article_id": "13.2.17",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第13.2.17条",
+          "score": 0.7085497379302979,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.gb50157",
+          "edition_id": "2013",
+          "standard_code": "GB 50157-2013",
+          "spec_title": "地铁设计规范",
+          "pdf_page_start": 141,
+          "pdf_page_end": 141,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E5",
+          "text": "6.4.9 当采用通风方式且系统为开式运行时，每个乘客每小时\n需供应的新鲜空气量不应少于30m³；当系统为闭式运行时，每\n个乘客每小时需供应的新鲜空气量不应少于12.6m³，且新鲜空\n气供应量不应少于总送风量的10%。",
+          "source": "GB55033-2022_城市轨道交通工程项目规范.pdf",
+          "page_start": 34,
+          "page_end": 34,
+          "chunk_id": 219,
+          "content_type": "text",
+          "chapter_id": "6",
+          "chapter_title": "给水、排水系统…",
+          "article_id": "6.4.9",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第6.4.9条",
+          "score": 0.71282958984375,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.gb55033",
+          "edition_id": "2022",
+          "standard_code": "GB 55033-2022",
+          "spec_title": "城市轨道交通工程项目规范",
+          "pdf_page_start": 34,
+          "pdf_page_end": 34,
+          "printed_page_start": null,
+          "printed_page_end": null
+        }
+      ],
+      "trace": [
+        {
+          "step": "bind_scope",
+          "snapshot_id": "65b3ccfc96a372e54b1c7ecc5ba7f622788d71beafee4206a0298ed10a9fb859",
+          "scope": [
+            "cn.beijing.db11t995@2025",
+            "cn.gb50157@2013",
+            "cn.gb55033@2022"
+          ]
+        },
+        {
+          "step": "retrieve",
+          "query": "三份规范对区间、车站公共区以及设备管理用房人员新风量分别有哪些直接规定？请区分使用场景。",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "GB 50157-2013 对“车站公共区”人员新风量的直接规定（E3未明确适用对象为车站公共区）",
+            "GB 55033-2022 对“区间”人员新风量的直接规定",
+            "GB 55033-2022 对“车站公共区”人员新风量的直接规定",
+            "GB 55033-2022 对“设备管理用房”人员新风量的直接规定"
+          ],
+          "retry_count": 0
+        },
+        {
+          "step": "parse_evidence_requirements",
+          "question_requirements": [
+            {
+              "business_id": "cn.beijing.db11t995@2025",
+              "article_id": null,
+              "subrequirement": "区间人员新风量",
+              "source": "question",
+              "authoritative": true,
+              "status": "scope_expanded",
+              "reason": null
+            },
+            {
+              "business_id": "cn.gb50157@2013",
+              "article_id": null,
+              "subrequirement": "区间人员新风量",
+              "source": "question",
+              "authoritative": true,
+              "status": "scope_expanded",
+              "reason": null
+            },
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": null,
+              "subrequirement": "区间人员新风量",
+              "source": "question",
+              "authoritative": true,
+              "status": "scope_expanded",
+              "reason": null
+            },
+            {
+              "business_id": "cn.beijing.db11t995@2025",
+              "article_id": null,
+              "subrequirement": "车站公共区人员新风量",
+              "source": "question",
+              "authoritative": true,
+              "status": "scope_expanded",
+              "reason": null
+            },
+            {
+              "business_id": "cn.gb50157@2013",
+              "article_id": null,
+              "subrequirement": "车站公共区人员新风量",
+              "source": "question",
+              "authoritative": true,
+              "status": "scope_expanded",
+              "reason": null
+            },
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": null,
+              "subrequirement": "车站公共区人员新风量",
+              "source": "question",
+              "authoritative": true,
+              "status": "scope_expanded",
+              "reason": null
+            },
+            {
+              "business_id": "cn.beijing.db11t995@2025",
+              "article_id": null,
+              "subrequirement": "设备管理用房人员新风量",
+              "source": "question",
+              "authoritative": true,
+              "status": "scope_expanded",
+              "reason": null
+            },
+            {
+              "business_id": "cn.gb50157@2013",
+              "article_id": null,
+              "subrequirement": "设备管理用房人员新风量",
+              "source": "question",
+              "authoritative": true,
+              "status": "scope_expanded",
+              "reason": null
+            },
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": null,
+              "subrequirement": "设备管理用房人员新风量",
+              "source": "question",
+              "authoritative": true,
+              "status": "scope_expanded",
+              "reason": null
+            }
+          ],
+          "grader_requirements": [
+            {
+              "business_id": "cn.gb50157@2013",
+              "article_id": null,
+              "subrequirement": "GB 50157-2013 对“车站公共区”人员新风量的直接规定（E3未明确适用对象为车站公共区）",
+              "source": "grader",
+              "authoritative": true,
+              "status": "mapped_to_question",
+              "reason": null
+            },
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": null,
+              "subrequirement": "GB 55033-2022 对“区间”人员新风量的直接规定",
+              "source": "grader",
+              "authoritative": true,
+              "status": "mapped_to_question",
+              "reason": null
+            },
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": null,
+              "subrequirement": "GB 55033-2022 对“车站公共区”人员新风量的直接规定",
+              "source": "grader",
+              "authoritative": true,
+              "status": "mapped_to_question",
+              "reason": null
+            },
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": null,
+              "subrequirement": "GB 55033-2022 对“设备管理用房”人员新风量的直接规定",
+              "source": "grader",
+              "authoritative": true,
+              "status": "mapped_to_question",
+              "reason": null
+            }
+          ]
+        },
+        {
+          "step": "retry",
+          "retry_count": 1,
+          "missing_requirements": [
+            "GB 50157-2013 对“车站公共区”人员新风量的直接规定（E3未明确适用对象为车站公共区）",
+            "GB 55033-2022 对“区间”人员新风量的直接规定",
+            "GB 55033-2022 对“车站公共区”人员新风量的直接规定",
+            "GB 55033-2022 对“设备管理用房”人员新风量的直接规定"
+          ]
+        },
+        {
+          "step": "retrieve",
+          "query": "GB 50157-2013 对“车站公共区”人员新风量的直接规定（E3未明确适用对象为车站公共区）；GB 55033-2022 对“区间”人员新风量的直接规定；GB 55033-2022 对“车站公共区”人员新风量的直接规定；GB 55033-2022 对“设备管理用房”人员新风量的直接规定",
+          "retry_count": 1
+        },
+        {
+          "step": "retry_scope_target_preference",
+          "selected": [
+            {
+              "business_id": "cn.beijing.db11t995@2025",
+              "article_id": "14.2.11",
+              "chunk_id": 1126
+            },
+            {
+              "business_id": "cn.gb50157@2013",
+              "article_id": "13.2.4",
+              "chunk_id": 793
+            },
+            {
+              "business_id": "cn.gb50157@2013",
+              "article_id": "13.2.17",
+              "chunk_id": 807
+            },
+            {
+              "business_id": "cn.gb50157@2013",
+              "article_id": "13.2.33",
+              "chunk_id": 823
+            },
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": "6.4.9",
+              "chunk_id": 219
+            }
+          ]
+        },
+        {
+          "step": "retain_article_groups",
+          "evidence_limit": 8,
+          "retained_groups": [
+            {
+              "business_id": "cn.beijing.db11t995@2025",
+              "article_id": "14.2.11",
+              "chunk_ids": [
+                1126
+              ],
+              "basis": "unique_direct_coverage",
+              "covered_text": "区间人员新风量"
+            },
+            {
+              "business_id": "cn.gb50157@2013",
+              "article_id": "13.2.4",
+              "chunk_ids": [
+                793
+              ],
+              "basis": "unique_direct_coverage",
+              "covered_text": "区间人员新风量"
+            },
+            {
+              "business_id": "cn.gb50157@2013",
+              "article_id": "13.2.33",
+              "chunk_ids": [
+                823
+              ],
+              "basis": "unique_direct_coverage",
+              "covered_text": "设备管理用房人员新风量"
+            }
+          ],
+          "fallbacks": [
+            {
+              "subrequirement": "区间人员新风量",
+              "reason": "no_direct_coverage",
+              "candidate_articles": []
+            },
+            {
+              "subrequirement": "车站公共区人员新风量",
+              "reason": "not_unique",
+              "candidate_articles": [
+                "14.2.11",
+                "14.2.11"
+              ]
+            },
+            {
+              "subrequirement": "车站公共区人员新风量",
+              "reason": "no_direct_coverage",
+              "candidate_articles": []
+            },
+            {
+              "subrequirement": "车站公共区人员新风量",
+              "reason": "no_direct_coverage",
+              "candidate_articles": []
+            },
+            {
+              "subrequirement": "设备管理用房人员新风量",
+              "reason": "no_direct_coverage",
+              "candidate_articles": []
+            },
+            {
+              "subrequirement": "设备管理用房人员新风量",
+              "reason": "no_direct_coverage",
+              "candidate_articles": []
+            },
+            {
+              "subrequirement": "GB 50157-2013 对“车站公共区”人员新风量的直接规定（E3未明确适用对象为车站公共区）",
+              "reason": "no_direct_coverage",
+              "candidate_articles": []
+            },
+            {
+              "subrequirement": "GB 55033-2022 对“区间”人员新风量的直接规定",
+              "reason": "no_direct_coverage",
+              "candidate_articles": []
+            },
+            {
+              "subrequirement": "GB 55033-2022 对“车站公共区”人员新风量的直接规定",
+              "reason": "no_direct_coverage",
+              "candidate_articles": []
+            },
+            {
+              "subrequirement": "GB 55033-2022 对“设备管理用房”人员新风量的直接规定",
+              "reason": "no_direct_coverage",
+              "candidate_articles": []
+            }
+          ]
+        },
+        {
+          "step": "verify_final_evidence_context",
+          "complete": true,
+          "within_scope": true,
+          "incomplete_groups": [],
+          "out_of_scope": []
+        },
+        {
+          "step": "grade",
+          "decision": "sufficient",
+          "missing_requirements": [],
+          "retry_count": 1
+        },
+        {
+          "step": "answer"
+        },
+        {
+          "step": "citation_validation",
+          "valid": true
+        }
+      ],
+      "request_metrics": {
+        "request_id": "f5a41771390d4463ab77913478779972",
+        "app_version": "0.1.0",
+        "index_version": "65b3ccfc96a372e54b1c7ecc5ba7f622788d71beafee4206a0298ed10a9fb859",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 344.0,
+          "rerank": 15094.0,
+          "grader": 38812.0,
+          "generation": 15235.0
+        },
+        "total_ms": 70719.0,
+        "outcome": "answer",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 1,
+        "model_calls": 3,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 3671,
+          "output": 7028,
+          "total": 10699
+        },
+        "estimated_cost": null
+      }
+    }
+  ]
+}

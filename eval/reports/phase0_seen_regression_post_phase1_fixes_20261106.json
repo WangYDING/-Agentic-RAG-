@@ -1,0 +1,4864 @@
+{
+  "report_schema_version": 2,
+  "provenance": {
+    "schema_version": 1,
+    "captured_at": "2026-11-06T14:56:52.612119+00:00",
+    "git_commit": "5d1e7cf08f27cbfa182f7a790fa39f004a62422b",
+    "git_dirty": true,
+    "uv_lock_sha256": "9a754f29cd24fa85de1db0c1398df9b21d9b5c32cd1e6be49678fd8e83f677e2",
+    "dataset_sha256": "587910a62f860aa396590b25c97a90c6378f236b2de549f0b6b0b0bcfa5b62c0",
+    "pdf_sha256": "e5ca2388ad68ed7b21b6092e66c12a73c74c17de8b532bef91c5b2ea57be78f7",
+    "configuration": {
+      "embedding_model": "BAAI/bge-small-zh-v1.5",
+      "embedding_revision": null,
+      "reranker_model": "BAAI/bge-reranker-base",
+      "generation_model": "deepseek-flash",
+      "retrieval_top_k": 10,
+      "evidence_top_n": 3,
+      "request_timeout_seconds": 30.0,
+      "max_network_retries": 1,
+      "total_timeout_seconds": 90.0,
+      "max_model_calls": 6,
+      "input_cost_per_million": null,
+      "output_cost_per_million": null,
+      "index_auto_build": false,
+      "index_lock_timeout_seconds": 30.0,
+      "api_endpoint_sha256": "ede47230ac9ca7d26f3cfe67de26982cce152929ba545e7ebcbcb7c00211178b"
+    },
+    "configuration_sha256": "25e10b218f11d5c033d2fa58d1c469ad690b7d737b2f9b2e2580d53d5c83b0d1",
+    "index_manifest": {
+      "schema_version": 3,
+      "source": "城市轨道交通工程设计标准.pdf",
+      "document_id": "e32b2a73134e8548ffbd374f14a52b27aaee9c2d7d2e482b802e756fb0c5fca2",
+      "version_id": "a1445f985213104ec683f9cc26146f5aa40f5766384ea527ae64e19bc903f5b9",
+      "checksum_sha256": "e5ca2388ad68ed7b21b6092e66c12a73c74c17de8b532bef91c5b2ea57be78f7",
+      "chunk_size": 300,
+      "overlap": 50,
+      "embedding_model": "BAAI/bge-small-zh-v1.5",
+      "embedding_revision": null,
+      "parser_version": "pymupdf-structured-v2-superscript",
+      "embedding_dim": 512,
+      "chunk_count": 3701,
+      "index_file": "index.faiss",
+      "metadata_file": "metadata.json",
+      "index_sha256": "6e70f528c811828feab5f4ffb17a6e906237525a7542535b9d446d6203f25ee9",
+      "metadata_sha256": "7bdcba78567d26417a096271f095b999b7500ecc8566abe997ea7505e94c8c29"
+    },
+    "prompt_source_sha256": {
+      "src/generator.py": "b7c342f98aa424de7dd21364069533aa0fa6647dab9e774d2392b5cf832b8ba5",
+      "src/evidence_sufficiency.py": "b6c267aa4571945602b9133cdab9e5f7a2af911960325403e9b97187968fe7f0",
+      "src/query_rewriter.py": "d9c0ff24cd09d733604a793f699653a46cfd10d8fd9625efec640e3fdd95de16"
+    },
+    "runtime_source_sha256": {
+      "src/agent_workflow.py": "f5a2fe93e92875dc2cda297a70a1c1af66e04d8c91b6252076a902be7991c565",
+      "src/application.py": "5ab811c31937c4c98e7f429c5d086aa1de550ce9d20937e28fc265ccba41ad5c",
+      "src/bm25_retriever.py": "41175a0f83cef59da552f7f3b5e85b9c3ff0f6535bb1fee14dd73125594feb2b",
+      "src/chat_memory.py": "e7eb6507d2d853c5ecfc7f31583515f201824e796e6b17badc4104c9ba28e490",
+      "src/config.py": "18798879a21a8457d6d29ce60b484b944598617cd3d8fd816b0af5396fc7cd7f",
+      "src/document_schema.py": "f3c37014349440103edda71e16afbd093ea641ccc2e00da7702e0565c2713faf",
+      "src/embedder.py": "155055fbabd7371f6a9b78d61daf20ad818ac4ce4dbd03ca58314a9bb50d2376",
+      "src/evidence.py": "b49ce1a4b95c5ffea60665d35f47908515930662dfe4bc7010679b6d93632608",
+      "src/evidence_retention.py": "a164cd1144c38436f6557b4f53a9b4413f3f86037c5e8e6649328390d8707988",
+      "src/evidence_sufficiency.py": "b6c267aa4571945602b9133cdab9e5f7a2af911960325403e9b97187968fe7f0",
+      "src/generator.py": "b7c342f98aa424de7dd21364069533aa0fa6647dab9e774d2392b5cf832b8ba5",
+      "src/health_cli.py": "ad7dd5f8e19a667cb94a9de3ec1482ebebb3057b7b1afd1137358e7f641fde15",
+      "src/hybrid_retriever.py": "3780cf8d94bff14a67133e9e72a0c7b420e38d789ed224f440e6d851b787704a",
+      "src/index_cli.py": "840aae7f2124c3acb90bd2e88e528370e0adb6c9a5432599e5951e3e148d94fd",
+      "src/index_manager.py": "3c44831f5855630efd001916d0d6e51d8c3f38db6fe77b6fdaef351fa5e91cc8",
+      "src/knowledge_base.py": "3ec59bbfc90bc629ea617044dedbd950fc29e883c89173eac8c6b75cce71a6d6",
+      "src/knowledge_base_cli.py": "08e0074aad4a481681fe74c48f63edaed3cd3fc293f7d14b23ea2d24fceb556b",
+      "src/loader.py": "c26c998659aecb9be946144f1ad71e46d31f91128a13fb823ce6d90230d65943",
+      "src/model_cli.py": "9e7081084a1f207fd3479f07e5292cd29058b88df35ad7b86dbdeb6561f50cd7",
+      "src/observability.py": "41278de595cccfd1d62c7fe092341cf7c2834decd67401d88d22e7c9e5f8f8e1",
+      "src/ocr_artifacts.py": "e587b0488ad70b442dd8bad97b3e0c7bb4aa9eefa23ebf04c6871b938b206397",
+      "src/ocr_cli.py": "e031032400276ab95880d543f2df9bbcc7fc024d83f3940893414ea70b81843f",
+      "src/ocr_table_derivation.py": "6c0e8ff97905b18a1da8e51b5581e9d395d315e114ea31d0075daf8eea5a267b",
+      "src/presentation.py": "a2832024399406e9a521b932ced451162c472ad08c37a914f00f2049bd87a43c",
+      "src/query_decomposition.py": "31ff34423c958cb18c2c0aa2752c9e78a7e16cfb94bfdcfb07606572c290689a",
+      "src/query_rewriter.py": "d9c0ff24cd09d733604a793f699653a46cfd10d8fd9625efec640e3fdd95de16",
+      "src/query_scope.py": "e80b6cf11631ed038262ee08f310b6c1a372f118dd3c32568073697e649bad1a",
+      "src/rag_service.py": "0ab79be8821ca04050c17fdd58be1a3578ac6b015899ef95cc27c6fe39826c7f",
+      "src/reliability.py": "ceaeac5642249356c82ebd6e49f0249a26927e859683d5a1155dae8728c7a2f7",
+      "src/reranker.py": "1a43434f779f49fb078115f3b0dddd2d9c6838312d5594aa528c752b23b8ae78",
+      "src/results.py": "dfdac9b35ad394857412f6f25d42dc8ac8e6b18eec1a09b6d8929497b7c6d13f",
+      "src/retrieval_fusion.py": "0449e1e27ecbc0a22066eaae0763da01e114491a643a2b134d20bc0ef7bd321e",
+      "src/retriever.py": "4f8a420a1e282e94b1571ad53a81b6987c7eedc0f6f970db1370bdbebcdce760",
+      "src/snapshot_retriever.py": "0bd6842c5b9fa4b116343e1d37ecebf3c4bf00d2c6c4f6bf299cab987ab4cc8e",
+      "src/spec_catalog.py": "1db0fd3b90d211469e9d4b05f95e293dfcc12f3f7b75aa8f045b0ba7825812bb",
+      "src/splitter.py": "0d15fff9cda7a12d539927e9ed37f60e96c53197fa677567e4edec7af13ffce4",
+      "src/vector_store.py": "a9525fe137d14af087a2c13a6bc9806a995cbdd33a40b767db9b70d1fde4d9a8",
+      "src/web_launcher.py": "4895316604e7f70acbe5aab8be31dcd0fbf876c87b05a382288208b654b738c3",
+      "eval/__init__.py": "adf57529570e1ef094cdb288f04b68682b71bb47920a61069cf3aaa60404fd19",
+      "eval/audit_phase1_independent_v1.py": "2ca7a27f8eff3c0e02f7a08c435156633c1fdf4e5ccd7240c6dbcf2083c95f95",
+      "eval/build_phase1_independent_review_v1.py": "f26a6289909bc81bf2be03bd7057939698e632a93afdb0146bbdbaf34506fdc1",
+      "eval/build_phase1_independent_v1.py": "983dabc29b2539f610b5ded6193ec8f89b4afb628e962c751366c4a89d1a143b",
+      "eval/build_sufficiency_dataset.py": "5c01f16c63bf7d541e87155f227bfe42dd3a6167fb4f33284ffbbd776f0bdfe0",
+      "eval/curate_candidates.py": "5da7af6aa84dd7ad9ae20782e4554396137c78943d37de0a5146bc16b3b66b12",
+      "eval/dataset_manifest.py": "96fd489a3746e44a20ec1f3fb7f3a0e12bbd41810d2587a794d90e8c1ed9af74",
+      "eval/diagnose_phase1_evidence_selection.py": "65383d000041f26b4e04c0b784be4615119bb4fab3a017b124ec33d20ee37125",
+      "eval/finalize_candidate_review.py": "7008018647c888bbccb8c3abcc70939f29b1e2b84d516491fc108cab7f47b241",
+      "eval/metrics.py": "d5e509c06c32ed31d01c859df1dab8604fa1480382e1a3d770bed37b3f3bb0dd",
+      "eval/phase1_real_smoke.py": "1bba2be29a4d10fa39f41d5afcfbdcbdbb8405fdd195685e8efb03f8da6114fd",
+      "eval/phase1_scope_retrieval.py": "2778367547e34d4e86ca484fc31179ddecffdbd7191da78118c202165903541b",
+      "eval/phase1_slice4_diagnose.py": "05929216eedfcb3ef070de06bb70a5ca41777952f69a1bc8cb0004423066461e",
+      "eval/provenance.py": "719f40e976c39fe1ae2d595428b9ca6e264e5d99e3bdb67b4bb00fdfad84afb3",
+      "eval/report.py": "3b0071bb967d2e21c2ed2e07a05ade582874b4478dd93bb0f739db25476943be",
+      "eval/review.py": "ff50e2c9a5d4b6d9a8ce60bba640235a84834c0ad764881cb2db2ac82127c8ea",
+      "eval/run_agent_test.py": "cc5002e0e28a39c05aadcf9bc6fcb3226de92847c09ac8ddc717a9527357edef",
+      "eval/run_phase1_independent_v1.py": "1db0a53be93f6c23c5d51f3622b0ce02b2eae25c78a05dcf6c203f374c67391a",
+      "eval/run_retrieval.py": "b83dcfe19a3f1a65b88b2db6a3225afcccc216d6aa8da78735dc1d24533bbb9c",
+      "eval/run_score_diagnostic.py": "46ddf49d30112bbbffa524a64f2b431647711fe75b94261dbb8282fcb3c6e36d",
+      "eval/run_sufficiency.py": "0d39cf4073f2ed6f51d797c4a0231031f036cb6e8a01588bea7c97363695bd33",
+      "eval/schema.py": "7cb95d69ef3432058b6a0adeebd9f4e93313588434cb5f9d8fa37cb893676e1d",
+      "eval/summarize_phase1_seen_regression.py": "3327369e60e20739dfbf0d8791e55c574eb089544b381c4f52c883ad98ecd38a",
+      "eval/validate_phase1_independent_v1.py": "f79e18e29688cb5f91e4cada2f6ea569f3523d60ced49b54dd4b9416927d90ed"
+    },
+    "prompt_hash_scope": "whole source files; changes outside prompts also invalidate hashes",
+    "model_revisions": {
+      "embedding": null,
+      "reranker": null,
+      "generation": null
+    },
+    "environment": {
+      "python": "3.12.16",
+      "platform": "Windows-10-10.0.19044-SP0",
+      "packages": {
+        "numpy": "2.5.4",
+        "scipy": "1.18.1",
+        "scikit-learn": "1.9.1",
+        "faiss-cpu": "1.15.1",
+        "openai": "1.109.1",
+        "pymupdf": "1.28.2",
+        "sentence-transformers": "5.7.0"
+      }
+    },
+    "release_dependencies": {
+      "real_deployment_latency_baseline": "pending",
+      "real_model_usage_cost_baseline": "pending"
+    },
+    "dataset_manifest": {
+      "schema_version": 1,
+      "dataset_id": "test_v1",
+      "version": "legacy-1",
+      "role": "historical",
+      "status": "historical",
+      "data_file": "test_v1.jsonl",
+      "sha256": "587910a62f860aa396590b25c97a90c6378f236b2de549f0b6b0b0bcfa5b62c0",
+      "count": 20,
+      "type_distribution": {
+        "ordinary_single_turn_answerable": 6,
+        "hard_numeric": 2,
+        "hard_table": 1,
+        "hard_table_numeric": 1,
+        "multi_evidence": 3,
+        "agent_challenge": 3,
+        "hard_negative_unanswerable": 4
+      },
+      "frozen_at": null,
+      "acceptance_criteria": null,
+      "used_for_tuning": null,
+      "notes": "Historical inventory only. No retrospective freeze or human approval asserted."
+    },
+    "index_version_id": "a1445f985213104ec683f9cc26146f5aa40f5766384ea527ae64e19bc903f5b9",
+    "runtime_workflow": {
+      "retrieval_top_k": 10,
+      "evidence_top_n": 3,
+      "max_model_calls": 6,
+      "total_timeout_seconds": 90.0,
+      "max_retries": 1
+    },
+    "retrieval_constants": {
+      "rrf_k": 60,
+      "bounded_retrieval_retries": 1
+    }
+  },
+  "evidence_top_n": 3,
+  "dataset_path": "eval/datasets/test_v1.jsonl",
+  "pdf_path": "data/raw/城市轨道交通工程设计标准.pdf",
+  "index_dir": ".rag_index",
+  "model": "deepseek-flash",
+  "dataset": {
+    "count": 20,
+    "type_distribution": {
+      "ordinary_single_turn_answerable": 6,
+      "hard_numeric": 2,
+      "hard_table": 1,
+      "hard_table_numeric": 1,
+      "multi_evidence": 3,
+      "agent_challenge": 3,
+      "hard_negative_unanswerable": 4
+    },
+    "answerable": 16,
+    "unanswerable": 4
+  },
+  "category_counts": {
+    "agent_challenge": {
+      "count": 3,
+      "answer": 3,
+      "refuse": 0,
+      "error": 0
+    },
+    "hard_negative_unanswerable": {
+      "count": 4,
+      "answer": 0,
+      "refuse": 4,
+      "error": 0
+    },
+    "hard_numeric": {
+      "count": 2,
+      "answer": 2,
+      "refuse": 0,
+      "error": 0
+    },
+    "hard_table": {
+      "count": 1,
+      "answer": 1,
+      "refuse": 0,
+      "error": 0
+    },
+    "hard_table_numeric": {
+      "count": 1,
+      "answer": 1,
+      "refuse": 0,
+      "error": 0
+    },
+    "multi_evidence": {
+      "count": 3,
+      "answer": 1,
+      "refuse": 2,
+      "error": 0
+    },
+    "ordinary_single_turn_answerable": {
+      "count": 6,
+      "answer": 6,
+      "refuse": 0,
+      "error": 0
+    }
+  },
+  "initial_rank_metrics": {
+    "recall@1": 0.6875,
+    "hitrate@1": 0.875,
+    "recall@3": 0.78125,
+    "hitrate@3": 0.875,
+    "recall@5": 0.8125,
+    "hitrate@5": 0.875,
+    "recall@10": 0.8125,
+    "hitrate@10": 0.875,
+    "mrr@10": 0.875,
+    "count": 16
+  },
+  "retrieval_evidence": {
+    "initial_hit_rate_at_n": 0.875,
+    "initial_recall_at_n": 0.7727272727272727,
+    "initial_recall_at_10": 0.8181818181818182,
+    "final_hit_rate_at_n": 0.875,
+    "final_recall_at_n": 0.7727272727272727,
+    "multi_evidence_complete_at_n": 3,
+    "multi_evidence_count": 6
+  },
+  "agent_decision": {
+    "first_sufficient": 13,
+    "first_insufficient_retry": 7,
+    "retry_sufficient": 1,
+    "retry_still_insufficient": 6,
+    "final_answer": 14,
+    "final_error": 0,
+    "final_refuse": 6,
+    "correct_unanswerable_refusal": 4,
+    "false_accept": 0,
+    "false_refusal": 2,
+    "false_accept_rate": 0.0,
+    "false_refusal_rate": 0.125
+  },
+  "citation_validation": {
+    "answered": 14,
+    "valid": 14,
+    "invalid_ids": []
+  },
+  "finished_at": "2026-11-06T15:00:29.313971+00:00",
+  "human_review_status": "pending",
+  "release_decision": "blocked_pending_human_review_and_real_deployment_baselines",
+  "cases": [
+    {
+      "id": "FINAL-CAND-ORD-001",
+      "measurements": {
+        "wall_time_ms": 6436.999999918044,
+        "stage_timings_ms": {
+          "retrieval": 31.0,
+          "rerank": 1000.0,
+          "grader": 2438.0,
+          "generation": 2968.0
+        },
+        "token_usage": {
+          "input": 1611,
+          "output": 582,
+          "total": 2193
+        },
+        "estimated_cost": null,
+        "model_calls": 2,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [
+            0
+          ],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 1,
+        "metric_eligible": true
+      },
+      "category": "ordinary_single_turn_answerable",
+      "question": "通风空调与供暖系统在列车阻塞、区间火灾和车站火灾时分别应具备什么功能？",
+      "expected_answerability": true,
+      "gold_answer": "列车阻塞在区间隧道内时，应对阻塞处进行有效通风；列车在区间隧道发生火灾时，以及车站内发生火灾时，均应具备防烟、排烟及通风功能。",
+      "required_requirements": [],
+      "key_answer_points": [],
+      "numeric_expectations": [],
+      "request_id": "3e2c7b43b7944cf4809ab248fde970db",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 114,
+          "article": "14.1.3",
+          "table": null
+        }
+      ],
+      "final_action": "answer",
+      "retry_count": 0,
+      "rewritten_query": null,
+      "final_answer_or_refusal": "通风空调与供暖系统应分别满足列车阻塞、区间火灾和车站火灾工况下的通风与防排烟功能要求 [E1]。\n\n1. **列车阻塞在区间隧道内时**：应对阻塞处进行有效通风 [E1]。  \n2. **列车在区间隧道发生火灾事故时**：应具备防烟排烟及通风功能 [E1]。  \n3. **车站内发生火灾事故时**：应具备防烟排烟及通风功能 [E1]。",
+      "first_grade": {
+        "step": "grade",
+        "decision": "sufficient",
+        "missing_requirements": [],
+        "retry_count": 0
+      },
+      "second_grade": null,
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "通风空调与供暖系统在列车阻塞、区间火灾和车站火灾时分别应具备什么功能？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "sufficient",
+          "missing_requirements": [],
+          "retry_count": 0
+        },
+        {
+          "step": "answer"
+        },
+        {
+          "step": "citation_validation",
+          "valid": true
+        }
+      ],
+      "initial_candidate_count": 14,
+      "retry_candidate_count": null,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_evidence_refs": [
+        {
+          "text": "14.1.3\n通风空调与供暖系统应具有下列功能：\n1\n正常运行时，内部空气环境应在规定标准范围内；\n2\n当列车阻塞在区间隧道内时，应对阻塞处进行有效通风；\n3\n当列车在区间隧道发生火灾事故时，应具备防烟排烟及通风功能；\n4\n当车站内发生火灾事故时，应具备防烟排烟及通风功能。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 114,
+          "page_end": 114,
+          "article_id": "14.1.3",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 1103,
+          "score": 0.8681716918945312,
+          "rrf_score": null,
+          "rerank_score": 0.9996309280395508,
+          "display_ref": "第14.1.3条"
+        },
+        {
+          "text": "14.1.2\n通风空调与供暖系统应保证城市轨道交通内部环境的空气质量、温度、湿度、气流组织、气流\n速度和噪声等满足人员的生理及心理条件要求和设备正常运转的需要。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 114,
+          "page_end": 114,
+          "article_id": "14.1.2",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 1102,
+          "score": 0.7096630930900574,
+          "rrf_score": null,
+          "rerank_score": 0.9906999468803406,
+          "display_ref": "第14.1.2条"
+        },
+        {
+          "text": "21.3.4\n执行防灾和阻塞模式应具备下列功能：\n1\n接收车站自动或手动火灾模式指令，执行车站防排烟模式；\n2\n接收列车区间停车位置、火灾部位信息，执行隧道防排烟模式；\n3\n接收列车区间阻塞信息，执行阻塞通风模式；\n4\n监控车站疏散指示系统和应急照明系统；\n5\n监视各排水泵房危险水位；\n6\n监视易倒灌通道和低洼位置的积水位。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 181,
+          "page_end": 181,
+          "article_id": "21.3.4",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 1926,
+          "score": 0.7172632217407227,
+          "rrf_score": null,
+          "rerank_score": 0.9682874083518982,
+          "display_ref": "第21.3.4条"
+        }
+      ],
+      "citation_validation": {
+        "valid": true,
+        "cited_ids": [
+          "E1"
+        ],
+        "available_ids": [
+          "E1",
+          "E2",
+          "E3"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "FINAL-CAND-ORD-002",
+      "measurements": {
+        "wall_time_ms": 9500.0,
+        "stage_timings_ms": {
+          "retrieval": 16.0,
+          "rerank": 1391.0,
+          "grader": 3375.0,
+          "generation": 4718.0
+        },
+        "token_usage": {
+          "input": 1907,
+          "output": 1129,
+          "total": 3036
+        },
+        "estimated_cost": null,
+        "model_calls": 2,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [
+            0
+          ],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 1,
+        "metric_eligible": true
+      },
+      "category": "ordinary_single_turn_answerable",
+      "question": "给排水管道能否穿过变电所、通信信号机房或控制室？必须穿越变形缝时应怎样处理？",
+      "expected_answerability": true,
+      "gold_answer": "给排水管道不应穿过变电所、通信信号机房、控制室、配电室等电气房间；不宜穿越变形缝，必须穿越时应采取变形补偿措施。",
+      "required_requirements": [],
+      "key_answer_points": [],
+      "numeric_expectations": [],
+      "request_id": "7cf8ac78c633438daafe7488c59feb39",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 121,
+          "article": "15.1.5",
+          "table": null
+        }
+      ],
+      "final_action": "answer",
+      "retry_count": 0,
+      "rewritten_query": null,
+      "final_answer_or_refusal": "**核心结论：** 给排水管道不应穿过变电所、通信信号机房、控制室等电气房间；变形缝不宜穿越，必须穿越时应采取变形补偿措施。[E1]\n\n1. **电气房间：** 给排水管道不应穿过变电所、通信信号机房、控制室、配电室等电气房间。[E1]\n\n2. **变形缝处理：** 给排水管道不宜穿越变形缝；当必须穿越时，应设置补偿管道伸缩及剪切变形的装置。[E1][E2] 其中，给水管道的伸缩补偿器装置应根据管道长度、管材线胀系数、环境温度和管内温度变化等因素设计确定。[E2]",
+      "first_grade": {
+        "step": "grade",
+        "decision": "sufficient",
+        "missing_requirements": [],
+        "retry_count": 0
+      },
+      "second_grade": null,
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "给排水管道能否穿过变电所、通信信号机房或控制室？必须穿越变形缝时应怎样处理？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "sufficient",
+          "missing_requirements": [],
+          "retry_count": 0
+        },
+        {
+          "step": "answer"
+        },
+        {
+          "step": "citation_validation",
+          "valid": true
+        }
+      ],
+      "initial_candidate_count": 19,
+      "retry_candidate_count": null,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_evidence_refs": [
+        {
+          "text": "15.1.5\n给排水管道应符合下列规定：\n1\n不应穿过变电所、通信信号机房、控制室、配电室等电气房间；\n2\n不宜穿越变形缝；当必须穿越变形缝时，应采取变形补偿措施；\n3\n室外给排水管道宜敷设在冰冻线以下；\n4\n应采取防止杂散电流腐蚀的措施；\n5\n应喷涂色环、符号及箭头等标记；\n6\n管道保温设置应符合本标准第30.3.7 条的规定，保温材料应符合本标准第14.1 节的相关规定。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 121,
+          "page_end": 121,
+          "article_id": "15.1.5",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 1201,
+          "score": 0.718641996383667,
+          "rrf_score": null,
+          "rerank_score": 0.9996440410614014,
+          "display_ref": "第15.1.5条"
+        },
+        {
+          "text": "15.1.5\n第2 款\n给排水管道不要穿越结构伸缩缝、变形缝及沉降缝，当必须穿越时，要设置补偿管道\n伸缩及剪切变形的装置。给水管道的伸缩补偿器装置，根据管道长度、管材的线胀系数、环境温度和管\n内温度变化等因素设计确定。\n第3 款\n室外给排水管道的覆土深度，除应考虑车辆荷载、管道材质和管道交叉等因素外，还要考\n虑冻土深度的影响。北京地区冬季较寒冷，冻土层深度约为0.8m～1.0m，一般来说，给排水管道敷设\n在冻土层以下，管顶最小覆土深度不小于土壤冰冻线以下0.15m。当管道受地形或其他条件影响，布置\n确实有困难时，生活排水接户管道埋深不得高于土壤冰冻线以上0.15m，当生活排水接户管采用排水塑",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 342,
+          "page_end": 342,
+          "article_id": "15.1.5",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 3270,
+          "score": 24.241810137658874,
+          "rrf_score": null,
+          "rerank_score": 0.9957491159439087,
+          "display_ref": "第15.1.5条"
+        },
+        {
+          "text": "30.2.56\n车站变形缝应符合下列规定：\n1\n变形缝构造基层应采用不燃烧材料；\n2\n电线、电缆穿越变形缝时，应在穿越处加设不燃材料制作的套管或采取其他防变形措施，其空\n隙应采用防火封堵材料封堵。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 226,
+          "page_end": 226,
+          "article_id": "30.2.56",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2452,
+          "score": 16.287315134976147,
+          "rrf_score": null,
+          "rerank_score": 0.9382614493370056,
+          "display_ref": "第30.2.56条"
+        }
+      ],
+      "citation_validation": {
+        "valid": true,
+        "cited_ids": [
+          "E1",
+          "E2"
+        ],
+        "available_ids": [
+          "E1",
+          "E2",
+          "E3"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "FINAL-CAND-ORD-003",
+      "measurements": {
+        "wall_time_ms": 6765.999999828637,
+        "stage_timings_ms": {
+          "retrieval": 16.0,
+          "rerank": 484.0,
+          "grader": 2860.0,
+          "generation": 3406.0
+        },
+        "token_usage": {
+          "input": 1435,
+          "output": 877,
+          "total": 2312
+        },
+        "estimated_cost": null,
+        "model_calls": 2,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [
+            0
+          ],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 1,
+        "metric_eligible": true
+      },
+      "category": "ordinary_single_turn_answerable",
+      "question": "集中式供电和分散式供电对中压供电网络电压等级分别有什么要求？",
+      "expected_answerability": true,
+      "gold_answer": "集中式供电的中压供电网络电压等级应为35kV；分散式供电的中压供电网络电压等级应与北京电力部门的电网电压等级保持一致。",
+      "required_requirements": [],
+      "key_answer_points": [],
+      "numeric_expectations": [],
+      "request_id": "19c9b2e5f2574e71985ed533ec1af76a",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 127,
+          "article": "16.2.2",
+          "table": null
+        }
+      ],
+      "final_action": "answer",
+      "retry_count": 0,
+      "rewritten_query": null,
+      "final_answer_or_refusal": "核心结论：集中式供电中压供电网络电压等级应为35 kV；分散式供电中压供电网络电压等级应与北京电力部门电网电压等级保持一致，参考片段中以10 kV电压制式说明。\n\n1. **集中式供电**：中压供电网络电压等级应为35 kV。[E1]\n2. **分散式供电**：中压供电网络电压等级应与北京电力部门的电网电压等级保持一致；相关条文说明分散式供电采用与城市电网电压等级相同的10 kV电压制式。[E1][E2]",
+      "first_grade": {
+        "step": "grade",
+        "decision": "sufficient",
+        "missing_requirements": [],
+        "retry_count": 0
+      },
+      "second_grade": null,
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "集中式供电和分散式供电对中压供电网络电压等级分别有什么要求？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "sufficient",
+          "missing_requirements": [],
+          "retry_count": 0
+        },
+        {
+          "step": "answer"
+        },
+        {
+          "step": "citation_validation",
+          "valid": true
+        }
+      ],
+      "initial_candidate_count": 14,
+      "retry_candidate_count": null,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_evidence_refs": [
+        {
+          "text": "16.2.2\n采用集中式供电，高压电压等级应为110 kV，中压供电网络电压等级应为35kV；采用分散式供\n电，中压供电网络的电压等级应与北京电力部门的电网电压等级保持一致。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 127,
+          "page_end": 127,
+          "article_id": "16.2.2",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 1250,
+          "score": 0.8170807361602783,
+          "rrf_score": null,
+          "rerank_score": 0.9996097683906555,
+          "display_ref": "第16.2.2条"
+        },
+        {
+          "text": "16.2.5\n分散式供电采用了与城市电网电压等级相同的10kV 电压制式。10kV 线路供电负荷力矩较小，\n若相邻电源开闭所电源引自城市电网同一座变电所，当该变电所退出时，将影响线路供电系统的供电能\n力和电压质量，因此做出此规定。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 347,
+          "page_end": 347,
+          "article_id": "16.2.5",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 3313,
+          "score": 0.7341464757919312,
+          "rrf_score": null,
+          "rerank_score": 0.9955748319625854,
+          "display_ref": "第16.2.5条"
+        },
+        {
+          "text": "16.2.11\n中压供电网络供电分区划分应发挥中压电压等级的供电能力，并应按照建设、运营综合经济的\n合理性统筹考虑。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 128,
+          "page_end": 128,
+          "article_id": "16.2.11",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 1260,
+          "score": 0.7522986531257629,
+          "rrf_score": null,
+          "rerank_score": 0.9951280355453491,
+          "display_ref": "第16.2.11条"
+        }
+      ],
+      "citation_validation": {
+        "valid": true,
+        "cited_ids": [
+          "E1",
+          "E2"
+        ],
+        "available_ids": [
+          "E1",
+          "E2",
+          "E3"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "FINAL-CAND-ORD-004",
+      "measurements": {
+        "wall_time_ms": 7077.99999974668,
+        "stage_timings_ms": {
+          "retrieval": 16.0,
+          "rerank": 796.0,
+          "grader": 2282.0,
+          "generation": 3984.0
+        },
+        "token_usage": {
+          "input": 1573,
+          "output": 697,
+          "total": 2270
+        },
+        "estimated_cost": null,
+        "model_calls": 2,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [
+            0
+          ],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 1,
+        "metric_eligible": true
+      },
+      "category": "ordinary_single_turn_answerable",
+      "question": "乘客信息系统显示多类信息时，优先级应怎样排列和处理？",
+      "expected_answerability": true,
+      "gold_answer": "信息优先级从高到低依次为紧急灾害辅助信息、列车服务信息、乘客引导信息、站务及公共信息、公益信息。高优先级信息应优先显示，可打断低优先级信息；同级信息先到先发。",
+      "required_requirements": [],
+      "key_answer_points": [],
+      "numeric_expectations": [],
+      "request_id": "14881a72e7414e2f84f02b3d79124733",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 187,
+          "article": "23.3.3",
+          "table": null
+        }
+      ],
+      "final_action": "answer",
+      "retry_count": 0,
+      "rewritten_query": null,
+      "final_answer_or_refusal": "核心结论：乘客信息系统显示多类信息时，优先级宜按“紧急灾害辅助信息→列车服务信息→乘客引导信息→站务及公共信息→公益信息”顺序递减，其中紧急灾害辅助信息应具有最高优先级别 [E1]。\n\n1. **排列要求**：信息类型应按上述顺序由高至低排列，紧急灾害辅助信息应最高 [E1]。\n2. **显示处理**：高优先级信息应优先发送显示；同等优先级信息应采用先到先发原则；高优先级信息可打断低优先级信息 [E1]。",
+      "first_grade": {
+        "step": "grade",
+        "decision": "sufficient",
+        "missing_requirements": [],
+        "retry_count": 0
+      },
+      "second_grade": null,
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "乘客信息系统显示多类信息时，优先级应怎样排列和处理？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "sufficient",
+          "missing_requirements": [],
+          "retry_count": 0
+        },
+        {
+          "step": "answer"
+        },
+        {
+          "step": "citation_validation",
+          "valid": true
+        }
+      ],
+      "initial_candidate_count": 14,
+      "retry_candidate_count": null,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_evidence_refs": [
+        {
+          "text": "23.3.3\n乘客信息系统信息显示的优先级应符合下列规定：\n1\n信息类型宜按紧急灾害辅助信息、列车服务信息、乘客引导信息、站务及公共信息、公益信息\n顺序递减，紧急灾害辅助信息应具有最高优先级别；\n2\n信息级别应由高至低，高优先级别的信息应优先发送显示，同等优先级别的信息应采用先到先\n发的原则，高优先级别的信息可打断低优先级别的信息。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 187,
+          "page_end": 187,
+          "article_id": "23.3.3",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2017,
+          "score": 0.793825089931488,
+          "rrf_score": null,
+          "rerank_score": 0.998490571975708,
+          "display_ref": "第23.3.3条"
+        },
+        {
+          "text": "23.3.2\n乘客信息系统信息类型应符合下列要求：\n1\n列车时刻表、列车异常通告、下班列车到站等列车服务信息；\n2\n服务通告、换乘指示、疏散指示、动态指示、地面交通指示等乘客引导信息；\n3\n火灾、自然灾害、事故灾害、人身意外等紧急灾害辅助信息；\n4\n日期时钟、安全防范提示、票务信息、天气预报、新闻、其他公共交通信息等站务及公共服务\n信息；\n5\n视频、图片、文字等公益信息。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 187,
+          "page_end": 187,
+          "article_id": "23.3.2",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2016,
+          "score": 0.6830843091011047,
+          "rrf_score": null,
+          "rerank_score": 0.9724469184875488,
+          "display_ref": "第23.3.2条"
+        },
+        {
+          "text": "23.1.4\n乘客信息系统宜采用多样化终端显示设备向乘客提供信息服务。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 187,
+          "page_end": 187,
+          "article_id": "23.1.4",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2008,
+          "score": 0.701302707195282,
+          "rrf_score": null,
+          "rerank_score": 0.8600139021873474,
+          "display_ref": "第23.1.4条"
+        }
+      ],
+      "citation_validation": {
+        "valid": true,
+        "cited_ids": [
+          "E1"
+        ],
+        "available_ids": [
+          "E1",
+          "E2",
+          "E3"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "FINAL-CAND-ORD-005",
+      "measurements": {
+        "wall_time_ms": 12125.0,
+        "stage_timings_ms": {
+          "retrieval": 16.0,
+          "rerank": 1031.0,
+          "grader": 3875.0,
+          "generation": 7203.0
+        },
+        "token_usage": {
+          "input": 1651,
+          "output": 1473,
+          "total": 3124
+        },
+        "estimated_cost": null,
+        "model_calls": 2,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [
+            0
+          ],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 1,
+        "metric_eligible": true
+      },
+      "category": "ordinary_single_turn_answerable",
+      "question": "站台屏蔽门具有哪三级控制方式，各级控制的优先权怎样排列？",
+      "expected_answerability": true,
+      "gold_answer": "站台屏蔽门应具有系统级、站台级和手动操作三级控制方式；其中手动操作优先权最高，系统级最低，站台级介于二者之间。",
+      "required_requirements": [],
+      "key_answer_points": [],
+      "numeric_expectations": [],
+      "request_id": "3331b516f7a24f269cce88f0ed3cfb95",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 169,
+          "article": "19.1.8",
+          "table": null
+        }
+      ],
+      "final_action": "answer",
+      "retry_count": 0,
+      "rewritten_query": null,
+      "final_answer_or_refusal": "站台屏蔽门应具有系统级、站台级和手动操作三级控制方式，其中手动操作优先权最高，系统级最低 [E1]。\n\n1. 按控制方式层级，优先权由高到低为：手动操作—站台级—系统级；站台级居中 [E1]。\n2. 另一处条文按具体控制主体规定，控制优先权从低到高为：信号系统控制—就地控制盘控制—综合后备盘开门控制，且各级控制应相互独立、互不影响 [E2]。\n3. 给定片段对“三级控制”的命名与具体控制主体表述不完全一致，实际应用时应按项目采用的条文体系核对 [E1][E2]。",
+      "first_grade": {
+        "step": "grade",
+        "decision": "sufficient",
+        "missing_requirements": [],
+        "retry_count": 0
+      },
+      "second_grade": null,
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "站台屏蔽门具有哪三级控制方式，各级控制的优先权怎样排列？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "sufficient",
+          "missing_requirements": [],
+          "retry_count": 0
+        },
+        {
+          "step": "answer"
+        },
+        {
+          "step": "citation_validation",
+          "valid": true
+        }
+      ],
+      "initial_candidate_count": 15,
+      "retry_candidate_count": null,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_evidence_refs": [
+        {
+          "text": "19.1.8\n站台屏蔽门的控制应具有系统级、站台级和手动操作三级控制方式，手动操作优先权最高，系\n统级最低。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 169,
+          "page_end": 169,
+          "article_id": "19.1.8",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 1770,
+          "score": 0.8642101883888245,
+          "rrf_score": null,
+          "rerank_score": 0.9994365572929382,
+          "display_ref": "第19.1.8条"
+        },
+        {
+          "text": "19.1.34\n运行与控制应符合下列规定：\n1\n站台屏蔽门控制系统宜由中央控制盘、就地控制盘、门控器、局域网和接口模块组成；\n2\n站台屏蔽门的控制优先权从低到高，应分为下列三级，各级控制应相互独立，相互间没有影响；\n1）信号系统对站台屏蔽门进行开关控制；\n2）就地控制盘对站台屏蔽门进行开关控制；\n3）综合后备盘对站台屏蔽门进行开门控制。\n3\n站台屏蔽门的控制及监视应分别设置，关键命令及响应应通过硬线传输；\n4\n站台屏蔽门监视系统应以车站为单位独立设置，并应采用开放的通信协议；\n5\n站台屏蔽门中央控制盘应能记录并存储运行状态及故障信息，且重要的状态及故障信息应上传\n至车站综合控制室和控制中心进行",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 171,
+          "page_end": 171,
+          "article_id": "19.1.34",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 1800,
+          "score": 0.7520105838775635,
+          "rrf_score": null,
+          "rerank_score": 0.9969522953033447,
+          "display_ref": "第19.1.34条"
+        },
+        {
+          "text": "正常开关；\n2\n全高站台屏蔽门应采用一控一驱方式，半高站台屏蔽门宜采用一控两驱方式。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 171,
+          "page_end": 171,
+          "article_id": "19.1.33",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 1799,
+          "score": 0.7145904302597046,
+          "rrf_score": null,
+          "rerank_score": 0.9844568371772766,
+          "display_ref": "第19.1.33条"
+        }
+      ],
+      "citation_validation": {
+        "valid": true,
+        "cited_ids": [
+          "E1",
+          "E2"
+        ],
+        "available_ids": [
+          "E1",
+          "E2",
+          "E3"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "FINAL-CAND-ORD-006",
+      "measurements": {
+        "wall_time_ms": 6797.00000025332,
+        "stage_timings_ms": {
+          "retrieval": 16.0,
+          "rerank": 562.0,
+          "grader": 1938.0,
+          "generation": 4281.0
+        },
+        "token_usage": {
+          "input": 1439,
+          "output": 658,
+          "total": 2097
+        },
+        "estimated_cost": null,
+        "model_calls": 2,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [
+            0
+          ],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 1,
+        "metric_eligible": true
+      },
+      "category": "ordinary_single_turn_answerable",
+      "question": "环境与设备监控系统至少应监控哪些设备系统？",
+      "expected_answerability": true,
+      "gold_answer": "环境与设备监控系统至少应对通风空调、给水排水、照明、自动扶梯及电梯、站台屏蔽门和人防门等设备系统进行监控。",
+      "required_requirements": [],
+      "key_answer_points": [],
+      "numeric_expectations": [],
+      "request_id": "efa34d45f35a460d9e99726c91e384b1",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 180,
+          "article": "21.1.6",
+          "table": null
+        }
+      ],
+      "final_action": "answer",
+      "retry_count": 0,
+      "rewritten_query": null,
+      "final_answer_or_refusal": "环境与设备监控系统应至少监控通风空调与供暖、给排水、动力照明、自动扶梯与电梯、应急电源及不间断电源、轨行区人防门与防淹门等系统设备 [E1]。\n\n具体至少包括：\n1. 通风、空调与供暖系统；\n2. 给水与排水系统；\n3. 动力照明系统；\n4. 自动扶梯、电梯设备；\n5. 应急电源及不间断电源系统；\n6. 轨行区人防门、防淹门 [E1]。",
+      "first_grade": {
+        "step": "grade",
+        "decision": "sufficient",
+        "missing_requirements": [],
+        "retry_count": 0
+      },
+      "second_grade": null,
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "环境与设备监控系统至少应监控哪些设备系统？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "sufficient",
+          "missing_requirements": [],
+          "retry_count": 0
+        },
+        {
+          "step": "answer"
+        },
+        {
+          "step": "citation_validation",
+          "valid": true
+        }
+      ],
+      "initial_candidate_count": 15,
+      "retry_candidate_count": null,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_evidence_refs": [
+        {
+          "text": "21.1.6\n环境与设备监控系统应至少包括以下系统设备的监控：\n1\n通风、空调与供暖系统；\n2\n给水与排水系统；\n3\n动力照明系统；\n4\n自动扶梯、电梯设备；\n5\n应急电源及不间断电源系统；\n6\n轨行区人防门、防淹门。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 180,
+          "page_end": 180,
+          "article_id": "21.1.6",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 1912,
+          "score": 0.8235601186752319,
+          "rrf_score": null,
+          "rerank_score": 0.9999186992645264,
+          "display_ref": "第21.1.6条"
+        },
+        {
+          "text": "21.1.2\n环境与设备监控系统的监控范围应包括车站、区间风井、区间变电所、区间隧道，车辆基地、\n控制中心大楼环境与设备监控系统根据运营需求可独立管理，不纳入正线系统。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 180,
+          "page_end": 180,
+          "article_id": "21.1.2",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 1908,
+          "score": 0.7932704091072083,
+          "rrf_score": null,
+          "rerank_score": 0.9991207718849182,
+          "display_ref": "第21.1.2条"
+        },
+        {
+          "text": "21.2.1\n环境与设备监控系统设备应选择高可靠性、容错性、可维护性的工业级控制设备。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 180,
+          "page_end": 180,
+          "article_id": "21.2.1",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 1914,
+          "score": 0.7790874242782593,
+          "rrf_score": null,
+          "rerank_score": 0.9982147216796875,
+          "display_ref": "第21.2.1条"
+        }
+      ],
+      "citation_validation": {
+        "valid": true,
+        "cited_ids": [
+          "E1"
+        ],
+        "available_ids": [
+          "E1",
+          "E2",
+          "E3"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "FINAL-CAND-HARD-001",
+      "measurements": {
+        "wall_time_ms": 5186.999999918044,
+        "stage_timings_ms": {
+          "retrieval": 16.0,
+          "rerank": 687.0,
+          "grader": 1828.0,
+          "generation": 2641.0
+        },
+        "token_usage": {
+          "input": 1365,
+          "output": 558,
+          "total": 1923
+        },
+        "estimated_cost": null,
+        "model_calls": 2,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [
+            0
+          ],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 1,
+        "metric_eligible": true
+      },
+      "category": "hard_numeric",
+      "question": "使用非封闭型和封闭型站台屏蔽门时，区间隧道内部夏季最高温度分别不得超过多少？",
+      "expected_answerability": true,
+      "gold_answer": "非封闭型站台屏蔽门时不得高于35℃；封闭型站台屏蔽门时不得高于40℃。",
+      "required_requirements": [],
+      "key_answer_points": [],
+      "numeric_expectations": [],
+      "request_id": "3e1dfe343a9d43c6bc275ff7095aa46c",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 115,
+          "article": "14.2.5",
+          "table": null
+        }
+      ],
+      "final_action": "answer",
+      "retry_count": 0,
+      "rewritten_query": null,
+      "final_answer_or_refusal": "核心结论：区间隧道内部夏季最高温度，设置非封闭型站台屏蔽门时不得高于35℃，设置封闭型站台屏蔽门时不得高于40℃[E1]。\n\n- 非封闭型站台屏蔽门：不得高于35℃[E1]。\n- 封闭型站台屏蔽门：不得高于40℃[E1]。",
+      "first_grade": {
+        "step": "grade",
+        "decision": "sufficient",
+        "missing_requirements": [],
+        "retry_count": 0
+      },
+      "second_grade": null,
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "使用非封闭型和封闭型站台屏蔽门时，区间隧道内部夏季最高温度分别不得超过多少？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "sufficient",
+          "missing_requirements": [],
+          "retry_count": 0
+        },
+        {
+          "step": "answer"
+        },
+        {
+          "step": "citation_validation",
+          "valid": true
+        }
+      ],
+      "initial_candidate_count": 16,
+      "retry_candidate_count": null,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_evidence_refs": [
+        {
+          "text": "14.2.5\n区间隧道内部夏季的最高温度应符合下列规定：\n1\n车站设置非封闭型站台屏蔽门时，不得高于35℃；\n2\n车站设置封闭站台屏蔽门时，不得高于40℃。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 115,
+          "page_end": 115,
+          "article_id": "14.2.5",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 1117,
+          "score": 0.8951921463012695,
+          "rrf_score": null,
+          "rerank_score": 0.99982750415802,
+          "display_ref": "第14.2.5条"
+        },
+        {
+          "text": "14.2.5\n区间隧道内部夏季的最高温度的确定。本标准车辆章节已明确规定列车车厢均设置空调设施，\n因此本节未对非空调车情况进行规定。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 338,
+          "page_end": 338,
+          "article_id": "14.2.5",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 3228,
+          "score": 0.6971017122268677,
+          "rrf_score": null,
+          "rerank_score": 0.9979967474937439,
+          "display_ref": "第14.2.5条"
+        },
+        {
+          "text": "14.2.6\n区间隧道内部冬季的平均温度应低于12℃，但最低温度不应低于5℃。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 115,
+          "page_end": 115,
+          "article_id": "14.2.6",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 1118,
+          "score": 0.6703978776931763,
+          "rrf_score": null,
+          "rerank_score": 0.9964219331741333,
+          "display_ref": "第14.2.6条"
+        }
+      ],
+      "citation_validation": {
+        "valid": true,
+        "cited_ids": [
+          "E1"
+        ],
+        "available_ids": [
+          "E1",
+          "E2",
+          "E3"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "FINAL-CAND-HARD-002",
+      "measurements": {
+        "wall_time_ms": 7765.999999828637,
+        "stage_timings_ms": {
+          "retrieval": 16.0,
+          "rerank": 1828.0,
+          "grader": 2906.0,
+          "generation": 3016.0
+        },
+        "token_usage": {
+          "input": 2839,
+          "output": 771,
+          "total": 3610
+        },
+        "estimated_cost": null,
+        "model_calls": 2,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 1,
+        "metric_eligible": true
+      },
+      "category": "hard_table",
+      "question": "地下车站通信设备室在冬季和夏季的设计温度、夏季相对湿度以及最小通风换气次数分别是多少？",
+      "expected_answerability": true,
+      "gold_answer": "冬季设计温度16℃，夏季设计温度27℃，夏季相对湿度40%～60%，最小通风换气次数6次/h。",
+      "required_requirements": [],
+      "key_answer_points": [],
+      "numeric_expectations": [],
+      "request_id": "6b0e2e795e594224aad8d25bc76797ca",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 115,
+          "article": "14.2.10",
+          "table": "表14.2.10"
+        }
+      ],
+      "final_action": "answer",
+      "retry_count": 0,
+      "rewritten_query": null,
+      "final_answer_or_refusal": "地下车站通信设备室冬季设计温度为16℃，夏季设计温度为27℃，夏季相对湿度为40%～60%，最小通风换气次数为6次/h [E2]。\n\n- 冬季计算温度：16℃；夏季计算温度：27℃ [E2]。\n- 夏季相对湿度：40%～60%；最小通风换气次数：6次/h [E2]。",
+      "first_grade": {
+        "step": "grade",
+        "decision": "sufficient",
+        "missing_requirements": [],
+        "retry_count": 0
+      },
+      "second_grade": null,
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "地下车站通信设备室在冬季和夏季的设计温度、夏季相对湿度以及最小通风换气次数分别是多少？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "sufficient",
+          "missing_requirements": [],
+          "retry_count": 0
+        },
+        {
+          "step": "answer"
+        },
+        {
+          "step": "citation_validation",
+          "valid": true
+        }
+      ],
+      "initial_candidate_count": 13,
+      "retry_candidate_count": null,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [],
+        "gold_count": 1,
+        "hit": false,
+        "complete": false
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [],
+        "gold_count": 1,
+        "hit": false,
+        "complete": false
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [],
+        "gold_count": 1,
+        "hit": false,
+        "complete": false
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [],
+        "gold_count": 1,
+        "hit": false,
+        "complete": false
+      },
+      "final_evidence_refs": [
+        {
+          "text": "14.2.10\n地下车站设备及管理用房的室内设计温度、相对湿度和换气次数应符合表14.2.10 的规定：\n表14.2.10\n地下车站设备及管理用房设计温度、相对湿度与换气次数\n房间名称\n冬季\n夏季\n最小通风换气次\n数\n计算温度\n（℃）\n计算温度\n（℃）\n相对湿度\n（%）\n（次/h）\n站长室、站务室、值班室、休息室、更衣室、修理间、清扫员室、公\n共安全室、会议交接班室\n18\n27\n＜65\n6\n车站综合控制室、广播室、变电所控制室、人防集中信号显示室、售\n票室、票务室\n18\n27\n40～60\n6\n通信设备室、通信电源室、信号设备室、信号电源室、公安通信设备\n室、民用通信设备室、弱电整合房间、站台屏",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 115,
+          "page_end": 115,
+          "article_id": "14.2.10",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 1122,
+          "score": 0.7931281328201294,
+          "rrf_score": null,
+          "rerank_score": 0.9996864795684814,
+          "display_ref": "第14.2.10条"
+        },
+        {
+          "text": "表格 页码: 115\n表号: 表14.2.10\n表题: 地下车站设备及管理用房设计温度、相对湿度与换气次数\n表头: 房间名称 | 冬季 | 夏季 | 最小通风换气次\n数 | 计算温度\n（℃） | 计算温度\n（℃） | 相对湿度\n（%） | （次/h） | 站长室、站务室、值班室、休息室、更衣室、修理间、清扫员室、公\n共安全室、会议交接班室 | 18 | 27 | ＜65 | 6\n第1行: 车站综合控制室、广播室、变电所控制室、人防集中信号显示室、售\n票室、票务室 | 18 | 27 | 40～60 | 6\n第2行: 通信设备室、通信电源室、信号设备室、信号电源室、公安通信设备\n室、民用通信设备室、弱电整合房间、站台屏蔽门设备室、综合监控\n设备室、车票分类/编码室、自动售检票设备室、配电室（内设蓄电池）、\n通风空调（环控）电控室 | 16 | 27 | 40～60 | 6\n第3行: 蓄电池室、UPS 设备室 | 16 | 27 | — | 6\n第4行: 机械室、配电室（内无蓄电池） | 16 | 36 | — | 4\n第5行: 降压变电所、牵引变电所 | — | 36 | — | 按排除余热计算\n风量\n第6行: 盥洗室 | 12 | — | — | 4（排风）\n第7行: 厕所 | 12 | — | 15（排风）\n第8行: 污水泵房 | ＞5 | — | — | 10（排风）\n第9行: 制冷机房 | ＞5 | — | — | 6\n第10行: 消防泵房、废水泵房 | >5 | — | — | 6（排风）\n第11行: 通风空调机房 | — | — | — | 6\n第12行: 清扫工具间、储藏室、车站用品间 | — | — | — | 4（排风）\n第13行: 气瓶室 | — | — | — | 6（排风）",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 115,
+          "page_end": 115,
+          "article_id": null,
+          "table_id": "表14.2.10",
+          "content_type": "table",
+          "chunk_id": 1125,
+          "score": 0.778747022151947,
+          "rrf_score": null,
+          "rerank_score": 0.9994633793830872,
+          "display_ref": "表14.2.10"
+        },
+        {
+          "text": "14.2.7\n地下车站公共区夏季空调室内空气设计温度和相对湿度应符合下列规定：\n1\n站厅公共区夏季空调室内空气设计温度应为30℃，相对湿度应控制在40%～70%之间；\n2\n站台公共区夏季空调室内空气设计温度应为28℃，相对湿度应控制在40%～70%之间。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 115,
+          "page_end": 115,
+          "article_id": "14.2.7",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 1119,
+          "score": 0.7345714569091797,
+          "rrf_score": null,
+          "rerank_score": 0.998847484588623,
+          "display_ref": "第14.2.7条"
+        }
+      ],
+      "citation_validation": {
+        "valid": true,
+        "cited_ids": [
+          "E2"
+        ],
+        "available_ids": [
+          "E1",
+          "E2",
+          "E3"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "FINAL-CAND-HARD-003",
+      "measurements": {
+        "wall_time_ms": 4672.00000025332,
+        "stage_timings_ms": {
+          "retrieval": 16.0,
+          "rerank": 1203.0,
+          "grader": 1531.0,
+          "generation": 1922.0
+        },
+        "token_usage": {
+          "input": 1703,
+          "output": 433,
+          "total": 2136
+        },
+        "estimated_cost": null,
+        "model_calls": 2,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 1,
+        "metric_eligible": true
+      },
+      "category": "hard_table_numeric",
+      "question": "标称电压为1500V的直流牵引供电系统，长期最高电压、5分钟最高电压和最低电压分别是多少？",
+      "expected_answerability": true,
+      "gold_answer": "长期最高电压1800V，5分钟最高电压1950V，最低电压1000V。",
+      "required_requirements": [],
+      "key_answer_points": [],
+      "numeric_expectations": [],
+      "request_id": "ab66e5ea832043bbaac810804d2e90ca",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 128,
+          "article": "16.3.1",
+          "table": "表16.3.1"
+        }
+      ],
+      "final_action": "answer",
+      "retry_count": 0,
+      "rewritten_query": null,
+      "final_answer_or_refusal": "标称电压为1500V的直流牵引供电系统：长期最高电压为1800V，5min最高电压为1950V，最低电压为1000V。[E1][E2]\n\n- 长期最高电压：1800V [E1][E2]\n- 5min最高电压：1950V [E1][E2]\n- 最低电压：1000V [E1][E2]",
+      "first_grade": {
+        "step": "grade",
+        "decision": "sufficient",
+        "missing_requirements": [],
+        "retry_count": 0
+      },
+      "second_grade": null,
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "标称电压为1500V的直流牵引供电系统，长期最高电压、5分钟最高电压和最低电压分别是多少？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "sufficient",
+          "missing_requirements": [],
+          "retry_count": 0
+        },
+        {
+          "step": "answer"
+        },
+        {
+          "step": "citation_validation",
+          "valid": true
+        }
+      ],
+      "initial_candidate_count": 16,
+      "retry_candidate_count": null,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [],
+        "gold_count": 1,
+        "hit": false,
+        "complete": false
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [],
+        "gold_count": 1,
+        "hit": false,
+        "complete": false
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [],
+        "gold_count": 1,
+        "hit": false,
+        "complete": false
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [],
+        "gold_count": 1,
+        "hit": false,
+        "complete": false
+      },
+      "final_evidence_refs": [
+        {
+          "text": "16.3.1\n牵引供电系统标称电压及波动范围应符合表16.3.1 的规定。\n表16.3.1\n直流牵引供电系统电压及其波动范围（V）\n标称值\n最高值（长期）\n最高值（5min）\n最低值\n750\n900\n1000\n500\n1500\n1800\n1950\n1000",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 128,
+          "page_end": 128,
+          "article_id": "16.3.1",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 1265,
+          "score": 0.7918142676353455,
+          "rrf_score": null,
+          "rerank_score": 0.997340977191925,
+          "display_ref": "第16.3.1条"
+        },
+        {
+          "text": "表格 页码: 128\n表号: 表16.3.1\n表题: 直流牵引供电系统电压及其波动范围（V）\n表头: 标称值 | 最高值（长期） | 最高值（5min） | 最低值 | 750 | 900 | 1000 | 500\n第1行: 1500 | 1800 | 1950 | 1000",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 128,
+          "page_end": 128,
+          "article_id": null,
+          "table_id": "表16.3.1",
+          "content_type": "table",
+          "chunk_id": 1277,
+          "score": 0.7986153364181519,
+          "rrf_score": null,
+          "rerank_score": 0.9924505352973938,
+          "display_ref": "表16.3.1"
+        },
+        {
+          "text": "16.8.3\n电压制式的选择宜符合以下规定：\n1\n低压配电系统电压当采用交流制式时宜采用220/380V；\n2\n低压配电系统电压当采用直流制式时宜采用220V 或375V；\n3\n在干燥场所安全特低电压照明不宜超过交流36V 或直流120V，在潮湿场所安全特低电压照\n明应采用交流24V 或直流60V。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 137,
+          "page_end": 137,
+          "article_id": "16.8.3",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 1411,
+          "score": 38.005131822054985,
+          "rrf_score": null,
+          "rerank_score": 0.6717101335525513,
+          "display_ref": "第16.8.3条"
+        }
+      ],
+      "citation_validation": {
+        "valid": true,
+        "cited_ids": [
+          "E1",
+          "E2"
+        ],
+        "available_ids": [
+          "E1",
+          "E2",
+          "E3"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "FINAL-CAND-HARD-004",
+      "measurements": {
+        "wall_time_ms": 7436.999999918044,
+        "stage_timings_ms": {
+          "retrieval": 31.0,
+          "rerank": 1016.0,
+          "grader": 2890.0,
+          "generation": 3500.0
+        },
+        "token_usage": {
+          "input": 1705,
+          "output": 893,
+          "total": 2598
+        },
+        "estimated_cost": null,
+        "model_calls": 2,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [
+            0
+          ],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 1,
+        "metric_eligible": true
+      },
+      "category": "hard_numeric",
+      "question": "地下车站重要设备用房及其他场所的备用照明照度和持续时间分别有什么要求？",
+      "expected_answerability": true,
+      "gold_answer": "地下车站重要设备用房的备用照明照度应与正常照明相同，持续供电时间不应小于120分钟；其他场所的备用照明照度不应低于正常照明照度的10%，持续供电时间不应小于60分钟。",
+      "required_requirements": [],
+      "key_answer_points": [],
+      "numeric_expectations": [],
+      "request_id": "8d1a5981984d4f99a473d2a45a122563",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 234,
+          "article": "30.5.11",
+          "table": null
+        }
+      ],
+      "final_action": "answer",
+      "retry_count": 0,
+      "rewritten_query": null,
+      "final_answer_or_refusal": "地下车站备用照明应区分两类场所，分别执行不同的照度和火灾时应急电源连续供电时间要求。[E1]\n\n1. **重要设备用房及火灾时仍需正常工作的其他场所**：备用照明照度不应低于正常照明照度；备用照明应急电源火灾时连续供电时间不应少于 **120min**。所列场所包括车站综合控制室、消防控制室、消防水泵房、喷淋水泵房、气瓶室、站长室、低压配电室、专用通信机房、防烟与排烟机房等。[E1]\n\n2. **其余设置备用照明的场所**：备用照明照度不应低于正常照明照度的 **10%**；备用照明应急电源火灾时连续供电时间不应少于 **60min**。[E1]",
+      "first_grade": {
+        "step": "grade",
+        "decision": "sufficient",
+        "missing_requirements": [],
+        "retry_count": 0
+      },
+      "second_grade": null,
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "地下车站重要设备用房及其他场所的备用照明照度和持续时间分别有什么要求？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "sufficient",
+          "missing_requirements": [],
+          "retry_count": 0
+        },
+        {
+          "step": "answer"
+        },
+        {
+          "step": "citation_validation",
+          "valid": true
+        }
+      ],
+      "initial_candidate_count": 16,
+      "retry_candidate_count": null,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_evidence_refs": [
+        {
+          "text": "30.5.11\n地下车站、地下区间及上盖开发车辆基地备用照明的设置应满足以下要求：\n1\n车站综合控制室、消防控制室、消防水泵房、喷淋水泵房、气瓶室、站长室、低压配电室、专\n用通信机房、防烟与排烟机房以及发生火灾时仍需正常工作的其他场所备用照明照度不应低于正常照明\n照度，备用照明的应急电源火灾时连续供电时间不应少于120min；\n2\n其余设置备用照明场所照度不应低于正常照明照度的10%，备用照明的应急电源火灾时连续供\n电时间不应少于60min。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 234,
+          "page_end": 234,
+          "article_id": "30.5.11",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2534,
+          "score": 0.7688430547714233,
+          "rrf_score": null,
+          "rerank_score": 0.998488187789917,
+          "display_ref": "第30.5.11条"
+        },
+        {
+          "text": "10.9.5\n地下车站照度标准应符合国家标准《城市轨道交通照明》GB/T 16275 的规定。地上车站应选用\n防潮、防尘、抗风的灯具，线路轨道区上部不应设置照明器。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 69,
+          "page_end": 69,
+          "article_id": "10.9.5",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 687,
+          "score": 0.6715933680534363,
+          "rrf_score": null,
+          "rerank_score": 0.979317307472229,
+          "display_ref": "第10.9.5条"
+        },
+        {
+          "text": "30.5.8\n由于城市轨道交通属于人员密集场所，需要在公共区设置安全照明及疏散照明。根据《城市轨\n道交通工程项目规范》GB 55033-2022,6.1.11 条地下车站及区间的应急照明应具备应急电源。为了简\n化系统设置，本标准提出车站公共区疏散照明宜兼做安全照明，地面的最低水平照度不低于5 lx，平均\n照度不低于正常照明照度的10%的要求。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 393,
+          "page_end": 393,
+          "article_id": "30.5.8",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 3686,
+          "score": 0.6600409150123596,
+          "rrf_score": null,
+          "rerank_score": 0.9739166498184204,
+          "display_ref": "第30.5.8条"
+        }
+      ],
+      "citation_validation": {
+        "valid": true,
+        "cited_ids": [
+          "E1"
+        ],
+        "available_ids": [
+          "E1",
+          "E2",
+          "E3"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "FINAL-CAND-MULTI-001",
+      "measurements": {
+        "wall_time_ms": 5328.999999910593,
+        "stage_timings_ms": {
+          "retrieval": 32.0,
+          "rerank": 1125.0,
+          "grader": 2265.0,
+          "generation": 1907.0
+        },
+        "token_usage": {
+          "input": 1885,
+          "output": 478,
+          "total": 2363
+        },
+        "estimated_cost": null,
+        "model_calls": 2,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          true,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 2,
+        "metric_eligible": true
+      },
+      "category": "multi_evidence",
+      "question": "每名工作人员每班生活用水量按多少计算？若按规范的生活排水比例估算，对应每人每班生活排水量是多少？",
+      "expected_answerability": true,
+      "gold_answer": "生活用水量按40L/人·班计算；生活排水按生活用水量的95%计算，因此对应排水量为38L/人·班。",
+      "required_requirements": [],
+      "key_answer_points": [],
+      "numeric_expectations": [],
+      "request_id": "00e8805e20f24650828518b269446a4f",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 121,
+          "article": "15.2.1",
+          "table": null
+        },
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 122,
+          "article": "15.3.1",
+          "table": null
+        }
+      ],
+      "final_action": "answer",
+      "retry_count": 0,
+      "rewritten_query": null,
+      "final_answer_or_refusal": "每名工作人员每班生活用水量应按 **40 L/人·班** 计算[E1]；按生活排水量取生活用水量的 **95%** 估算[E2]，对应每人每班生活排水量约为 **38 L/人·班**（40×95%）。",
+      "first_grade": {
+        "step": "grade",
+        "decision": "sufficient",
+        "missing_requirements": [],
+        "retry_count": 0
+      },
+      "second_grade": null,
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "每名工作人员每班生活用水量按多少计算？若按规范的生活排水比例估算，对应每人每班生活排水量是多少？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "sufficient",
+          "missing_requirements": [],
+          "retry_count": 0
+        },
+        {
+          "step": "answer"
+        },
+        {
+          "step": "citation_validation",
+          "valid": true
+        }
+      ],
+      "initial_candidate_count": 15,
+      "retry_candidate_count": null,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [
+          0,
+          1
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": true
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [
+          0,
+          1
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": true
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [
+          0,
+          1
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": true
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [
+          0,
+          1
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": true
+      },
+      "final_evidence_refs": [
+        {
+          "text": "15.2.1\n用水量定额应采用下列标准：\n1\n工作人员生活用水量为40L/人·班，小时变化系数为1.2～1.5；\n2\n车站公共区及出入口通道冲洗用水量为2L/m²·次，每天按冲洗1 次，每次用水量按冲洗1h 计\n算；\n3\n车站公共卫生间用水量按器具小时用水量计算；\n4\n生产用水量按工艺要求确定。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 121,
+          "page_end": 121,
+          "article_id": "15.2.1",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 1204,
+          "score": 0.742974042892456,
+          "rrf_score": null,
+          "rerank_score": 0.9970894455909729,
+          "display_ref": "第15.2.1条"
+        },
+        {
+          "text": "15.3.1\n排水量定额应符合下列规定：\n1\n生活排水系统定额应按生活用水量的95%计算；\n2\n生产排水量应按工艺要求确定；\n3\n冲洗和消防的废水排水量应与用水量相同；\n4\n地上车站屋面排水管道的排水设计重现期应按北京地区10 年一遇的暴雨强度计算，设计降雨历\n时应按5min 计算，屋面雨水工程与溢流设施的总排水能力不应小于50 年重现期的雨水量；\n5\n地下车站敞开出入口、敞开风井及隧道洞口的雨水泵房、排水沟及排水管渠的雨水排水能力按\n照不应小于北京地区100 年一遇的暴雨强度计算，高架区间的雨水排水系统设计重现期按照不应小于50\n年一遇的暴雨强度计算，设计降雨历时应按计算确定；\n6\n北京地区",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 122,
+          "page_end": 122,
+          "article_id": "15.3.1",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 1212,
+          "score": 0.6402039527893066,
+          "rrf_score": null,
+          "rerank_score": 0.9651757478713989,
+          "display_ref": "第15.3.1条"
+        },
+        {
+          "text": "15.4.1\n用（排）水量定额应符合下列规定：\n1\n生产、生活给排水系统用（排）水量定额应符合国家标准《建筑给水排水设计标准》GB 50015\n及《民用建筑节水设计标准》DB11/ 2076 的规定；\n2\n生产工艺用（排）水量应按工艺要求确定。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 124,
+          "page_end": 124,
+          "article_id": "15.4.1",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 1227,
+          "score": 0.6855729222297668,
+          "rrf_score": null,
+          "rerank_score": 0.8118331432342529,
+          "display_ref": "第15.4.1条"
+        }
+      ],
+      "citation_validation": {
+        "valid": true,
+        "cited_ids": [
+          "E1",
+          "E2"
+        ],
+        "available_ids": [
+          "E1",
+          "E2",
+          "E3"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "FINAL-CAND-MULTI-002",
+      "measurements": {
+        "wall_time_ms": 8171.000000089407,
+        "stage_timings_ms": {
+          "retrieval": 46.0,
+          "rerank": 2532.0,
+          "grader": 5593.0
+        },
+        "token_usage": {
+          "input": 1642,
+          "output": 667,
+          "total": 2309
+        },
+        "estimated_cost": null,
+        "model_calls": 2,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [
+            1
+          ],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 2,
+        "metric_eligible": true
+      },
+      "category": "multi_evidence",
+      "question": "自动售检票设备需要连续工作多久，车站系统至少应支持查询多长时间的运营数据？",
+      "expected_answerability": true,
+      "gold_answer": "自动售检票系统设备应能连续24小时不间断工作；车站系统应能查询至少90天的运营数据。",
+      "required_requirements": [],
+      "key_answer_points": [],
+      "numeric_expectations": [],
+      "request_id": "e588d8e721d242af979ec47f37e3d13b",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 189,
+          "article": "24.1.12",
+          "table": null
+        },
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 190,
+          "article": "24.4.2",
+          "table": null
+        }
+      ],
+      "final_action": "refuse",
+      "retry_count": 1,
+      "rewritten_query": "自动售检票设备需要连续工作多久",
+      "final_answer_or_refusal": "当前规范及已检索证据不足以完整回答该问题。 缺少的信息：自动售检票设备需要连续工作多久。",
+      "first_grade": {
+        "step": "grade",
+        "decision": "insufficient",
+        "missing_requirements": [
+          "自动售检票设备需要连续工作多久"
+        ],
+        "retry_count": 0
+      },
+      "second_grade": {
+        "step": "grade",
+        "decision": "insufficient",
+        "missing_requirements": [
+          "自动售检票设备需要连续工作多久"
+        ],
+        "retry_count": 1
+      },
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "自动售检票设备需要连续工作多久，车站系统至少应支持查询多长时间的运营数据？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "自动售检票设备需要连续工作多久"
+          ],
+          "retry_count": 0
+        },
+        {
+          "step": "parse_evidence_requirements",
+          "question_requirements": [
+            {
+              "business_id": null,
+              "article_id": null,
+              "subrequirement": "自动售检票设备需要连续工作多久，车站系统至少应支持查询多长时间的运营数据？",
+              "source": "question",
+              "authoritative": true,
+              "status": "missing_version",
+              "reason": "specification_version_not_explicit"
+            }
+          ],
+          "grader_requirements": [
+            {
+              "business_id": null,
+              "article_id": null,
+              "subrequirement": "自动售检票设备需要连续工作多久",
+              "source": "grader",
+              "authoritative": true,
+              "status": "mapped_to_question",
+              "reason": null
+            }
+          ]
+        },
+        {
+          "step": "retry",
+          "retry_count": 1,
+          "missing_requirements": [
+            "自动售检票设备需要连续工作多久"
+          ]
+        },
+        {
+          "step": "retrieve",
+          "query": "自动售检票设备需要连续工作多久",
+          "retry_count": 1
+        },
+        {
+          "step": "retain_article_groups",
+          "evidence_limit": 3,
+          "retained_groups": [],
+          "fallbacks": [
+            {
+              "subrequirement": "自动售检票设备需要连续工作多久，车站系统至少应支持查询多长时间的运营数据？",
+              "reason": "missing_version",
+              "candidate_articles": []
+            },
+            {
+              "subrequirement": "自动售检票设备需要连续工作多久",
+              "reason": "missing_version",
+              "candidate_articles": []
+            }
+          ]
+        },
+        {
+          "step": "verify_final_evidence_context",
+          "complete": true,
+          "within_scope": true,
+          "incomplete_groups": [],
+          "out_of_scope": []
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "自动售检票设备需要连续工作多久"
+          ],
+          "retry_count": 1
+        },
+        {
+          "step": "refuse",
+          "missing_requirements": [
+            "自动售检票设备需要连续工作多久"
+          ]
+        }
+      ],
+      "initial_candidate_count": 16,
+      "retry_candidate_count": 14,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [
+          1
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": false
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [
+          1
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": false
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [
+          1
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": false
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [
+          1
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": false
+      },
+      "final_evidence_refs": [
+        {
+          "text": "24.4.2\n车站系统应具备下列功能：\n1\n实时监控车站设备、网络状态、数据传输情况，实现车站系统运营、票务、收益及维修的管理\n功能；\n2\n对SAM 卡进行监控、管理；\n3\n接受中心系统车票调配指令，管理车站内车票流通；\n4\n接收时钟信号完成时钟同步；\n5\n应能查询至少90d 的运营数据。应具备数据恢复功能，在恢复通信后上传或转发相应的数据；\n6\n向车站售检票终端设备下达紧急模式等控制命令，并将操作信息上传中心系统；紧急模式的触\n发应采取抗干扰设计：设置测试紧急模式时，信息不上传；\n7\n当车站为站区站时，可监视所辖车站的客流、票务等与运营相关的数据并能根据统计生成相关\n报表；可接受中心系统的车",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 190,
+          "page_end": 190,
+          "article_id": "24.4.2",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2058,
+          "score": 29.60476802920353,
+          "rrf_score": null,
+          "rerank_score": 0.8137858510017395,
+          "display_ref": "第24.4.2条"
+        },
+        {
+          "text": "24.8.2\n自动售检票系统应具备时钟同步功能，超过参数设置的差异应修正并记录。\n24.9\n车站售检票终端设备",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 192,
+          "page_end": 192,
+          "article_id": "24.8.2",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2087,
+          "score": 0.7612805962562561,
+          "rrf_score": null,
+          "rerank_score": 0.4855791926383972,
+          "display_ref": "第24.8.2条"
+        },
+        {
+          "text": "24.5.1\n自动售检票系统应为一级负荷，备用电源宜采用不间断电源。线路中心不间断电源供电时间应\n为2h，车站不间断电源供电时间应为1h。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 191,
+          "page_end": 191,
+          "article_id": "24.5.1",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2072,
+          "score": 0.7061734795570374,
+          "rrf_score": null,
+          "rerank_score": 0.8666695356369019,
+          "display_ref": "第24.5.1条"
+        }
+      ],
+      "citation_validation": null
+    },
+    {
+      "id": "FINAL-CAND-MULTI-003",
+      "measurements": {
+        "wall_time_ms": 13438.000000081956,
+        "stage_timings_ms": {
+          "retrieval": 47.0,
+          "rerank": 4109.0,
+          "grader": 9282.0
+        },
+        "token_usage": {
+          "input": 1388,
+          "output": 1169,
+          "total": 2557
+        },
+        "estimated_cost": null,
+        "model_calls": 2,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          true,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [
+            1
+          ],
+          [],
+          [],
+          [],
+          [
+            0
+          ],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 2,
+        "metric_eligible": true
+      },
+      "category": "multi_evidence",
+      "question": "地下车站主体的耐火等级是什么？其消防应急照明集中电源蓄电池组在寿命周期内至少应持续供电多久？",
+      "expected_answerability": true,
+      "gold_answer": "地下车站主体耐火等级应为一级；集中电源蓄电池组在寿命周期内持续供电时间不应小于90分钟。",
+      "required_requirements": [],
+      "key_answer_points": [],
+      "numeric_expectations": [],
+      "request_id": "5b3eab335ff24c388493cfeaa9e84d81",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 218,
+          "article": "30.2.1",
+          "table": null
+        },
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 234,
+          "article": "30.5.9",
+          "table": null
+        }
+      ],
+      "final_action": "refuse",
+      "retry_count": 1,
+      "rewritten_query": "地下车站主体（非与相邻建筑物合建情形）的耐火等级",
+      "final_answer_or_refusal": "当前规范及已检索证据不足以完整回答该问题。 缺少的信息：地下车站主体的耐火等级。",
+      "first_grade": {
+        "step": "grade",
+        "decision": "insufficient",
+        "missing_requirements": [
+          "地下车站主体（非与相邻建筑物合建情形）的耐火等级"
+        ],
+        "retry_count": 0
+      },
+      "second_grade": {
+        "step": "grade",
+        "decision": "insufficient",
+        "missing_requirements": [
+          "地下车站主体的耐火等级"
+        ],
+        "retry_count": 1
+      },
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "地下车站主体的耐火等级是什么？其消防应急照明集中电源蓄电池组在寿命周期内至少应持续供电多久？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "地下车站主体（非与相邻建筑物合建情形）的耐火等级"
+          ],
+          "retry_count": 0
+        },
+        {
+          "step": "parse_evidence_requirements",
+          "question_requirements": [
+            {
+              "business_id": null,
+              "article_id": null,
+              "subrequirement": "地下车站主体的耐火等级是什么？其消防应急照明集中电源蓄电池组在寿命周期内至少应持续供电多久？",
+              "source": "question",
+              "authoritative": true,
+              "status": "missing_version",
+              "reason": "specification_version_not_explicit"
+            }
+          ],
+          "grader_requirements": [
+            {
+              "business_id": null,
+              "article_id": null,
+              "subrequirement": "地下车站主体（非与相邻建筑物合建情形）的耐火等级",
+              "source": "grader",
+              "authoritative": true,
+              "status": "mapped_to_question",
+              "reason": null
+            }
+          ]
+        },
+        {
+          "step": "retry",
+          "retry_count": 1,
+          "missing_requirements": [
+            "地下车站主体（非与相邻建筑物合建情形）的耐火等级"
+          ]
+        },
+        {
+          "step": "retrieve",
+          "query": "地下车站主体（非与相邻建筑物合建情形）的耐火等级",
+          "retry_count": 1
+        },
+        {
+          "step": "retain_article_groups",
+          "evidence_limit": 3,
+          "retained_groups": [],
+          "fallbacks": [
+            {
+              "subrequirement": "地下车站主体的耐火等级是什么？其消防应急照明集中电源蓄电池组在寿命周期内至少应持续供电多久？",
+              "reason": "missing_version",
+              "candidate_articles": []
+            },
+            {
+              "subrequirement": "地下车站主体（非与相邻建筑物合建情形）的耐火等级",
+              "reason": "missing_version",
+              "candidate_articles": []
+            }
+          ]
+        },
+        {
+          "step": "verify_final_evidence_context",
+          "complete": true,
+          "within_scope": true,
+          "incomplete_groups": [],
+          "out_of_scope": []
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "地下车站主体的耐火等级"
+          ],
+          "retry_count": 1
+        },
+        {
+          "step": "refuse",
+          "missing_requirements": [
+            "地下车站主体的耐火等级"
+          ]
+        }
+      ],
+      "initial_candidate_count": 17,
+      "retry_candidate_count": 16,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [
+          1
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": false
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [
+          0,
+          1
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": true
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [
+          1
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": false
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [
+          0,
+          1
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": true
+      },
+      "final_evidence_refs": [
+        {
+          "text": "30.5.9\n地下车站应设置集中电源集中控制型消防应急照明和疏散指示系统，集中控制器蓄电池组寿命\n周期内持续供电时间不小于180 分钟；集中电源蓄电池组寿命周期内持续供电时间不小于90 分钟。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 234,
+          "page_end": 234,
+          "article_id": "30.5.9",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2532,
+          "score": 0.8376705646514893,
+          "rrf_score": null,
+          "rerank_score": 0.9995728135108948,
+          "display_ref": "第30.5.9条"
+        },
+        {
+          "text": "30.5.10\n地上车站及车辆基地应设置集中电源集中控制型消防应急照明和疏散指示系统，集中控制器蓄\n电池组寿命周期内持续供电时间不小于180 分钟；集中电源蓄电池组寿命周期内持续供电时间不小于60\n分钟。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 234,
+          "page_end": 234,
+          "article_id": "30.5.10",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2533,
+          "score": 0.8074918985366821,
+          "rrf_score": null,
+          "rerank_score": 0.9990285634994507,
+          "display_ref": "第30.5.10条"
+        },
+        {
+          "text": "30.2.3\n车站主体或附属与相邻建筑物结合时，合建的地下部分耐火等级不应低于一级，地上部分耐火\n等级不应低于二级。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 218,
+          "page_end": 218,
+          "article_id": "30.2.3",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2377,
+          "score": 0.8207888007164001,
+          "rrf_score": null,
+          "rerank_score": 0.999371349811554,
+          "display_ref": "第30.2.3条"
+        }
+      ],
+      "citation_validation": null
+    },
+    {
+      "id": "FINAL-CAND-AGENT-001",
+      "measurements": {
+        "wall_time_ms": 36797.00000025332,
+        "stage_timings_ms": {
+          "retrieval": 48.0,
+          "rerank": 3733.0,
+          "grader": 26016.0,
+          "generation": 7000.0
+        },
+        "token_usage": {
+          "input": 2443,
+          "output": 4718,
+          "total": 7161
+        },
+        "estimated_cost": null,
+        "model_calls": 3,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [
+            0
+          ],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 2,
+        "metric_eligible": true
+      },
+      "category": "agent_challenge",
+      "question": "全自动运行列车长时间休眠后应具备什么唤醒能力，运行中应具备哪些安全监测能力？",
+      "expected_answerability": true,
+      "gold_answer": "全自动运行列车应能在连续休眠5天后自动唤醒；运行中应具备走行部在线检测和障碍物检测能力，并可根据需要设置脱轨检测，同时应将监测信息上传至控制中心。",
+      "required_requirements": [],
+      "key_answer_points": [],
+      "numeric_expectations": [],
+      "request_id": "5a5907c9f909454987fe5529409348d2",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 39,
+          "article": "5.7.2",
+          "table": null
+        },
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 39,
+          "article": "5.7.3",
+          "table": null
+        }
+      ],
+      "final_action": "answer",
+      "retry_count": 1,
+      "rewritten_query": "运行中应具备的完整安全监测能力清单（证据仅提及障碍物检测功能，且以“等”表示未穷尽列举）",
+      "final_answer_or_refusal": "全自动运行列车应至少具备休眠5天后可唤醒能力，并在线路运行及站台作业环节具备障碍物检测、间隙探测等安全监测与防护能力。\n\n1. **长时间休眠后的唤醒能力**：列车蓄电池容量应至少支持列车休眠5天后可唤醒 [E1]。\n\n2. **运行中的障碍物检测能力**：全自动运行系统的车辆应具备防止与障碍物发生碰撞的线路检测功能；按障碍物检测设备不同，分为触碰时的被动障碍物检测和触碰前的主动障碍物检测两种方式，相关条款主要对被动障碍物防护联动功能提出要求 [E2]。\n\n3. **站台及发车安全监测能力**：发车安全防护应包括对站台门控箱、间隙探测等的防护；清客站台应在清客完成、门关闭并按压清客确认按钮后才允许列车移动；站台乘降作业后应联动间隙探测设备检测，待其反馈一定时间的无障碍物状态信息后才允许列车移动 [E2][E3]。\n\n给定片段未提供更多唤醒方式及运行监测细项。",
+      "first_grade": {
+        "step": "grade",
+        "decision": "insufficient",
+        "missing_requirements": [
+          "运行中应具备的完整安全监测能力清单（证据仅提及障碍物检测功能，且以“等”表示未穷尽列举）"
+        ],
+        "retry_count": 0
+      },
+      "second_grade": {
+        "step": "grade",
+        "decision": "sufficient",
+        "missing_requirements": [],
+        "retry_count": 1
+      },
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "全自动运行列车长时间休眠后应具备什么唤醒能力，运行中应具备哪些安全监测能力？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "运行中应具备的完整安全监测能力清单（证据仅提及障碍物检测功能，且以“等”表示未穷尽列举）"
+          ],
+          "retry_count": 0
+        },
+        {
+          "step": "parse_evidence_requirements",
+          "question_requirements": [
+            {
+              "business_id": null,
+              "article_id": null,
+              "subrequirement": "全自动运行列车长时间休眠后应具备什么唤醒能力，运行中应具备哪些安全监测能力？",
+              "source": "question",
+              "authoritative": true,
+              "status": "missing_version",
+              "reason": "specification_version_not_explicit"
+            }
+          ],
+          "grader_requirements": [
+            {
+              "business_id": null,
+              "article_id": null,
+              "subrequirement": "运行中应具备的完整安全监测能力清单（证据仅提及障碍物检测功能，且以“等”表示未穷尽列举）",
+              "source": "grader",
+              "authoritative": true,
+              "status": "mapped_to_question",
+              "reason": null
+            }
+          ]
+        },
+        {
+          "step": "retry",
+          "retry_count": 1,
+          "missing_requirements": [
+            "运行中应具备的完整安全监测能力清单（证据仅提及障碍物检测功能，且以“等”表示未穷尽列举）"
+          ]
+        },
+        {
+          "step": "retrieve",
+          "query": "运行中应具备的完整安全监测能力清单（证据仅提及障碍物检测功能，且以“等”表示未穷尽列举）",
+          "retry_count": 1
+        },
+        {
+          "step": "retain_article_groups",
+          "evidence_limit": 3,
+          "retained_groups": [],
+          "fallbacks": [
+            {
+              "subrequirement": "全自动运行列车长时间休眠后应具备什么唤醒能力，运行中应具备哪些安全监测能力？",
+              "reason": "missing_version",
+              "candidate_articles": []
+            },
+            {
+              "subrequirement": "运行中应具备的完整安全监测能力清单（证据仅提及障碍物检测功能，且以“等”表示未穷尽列举）",
+              "reason": "missing_version",
+              "candidate_articles": []
+            }
+          ]
+        },
+        {
+          "step": "verify_final_evidence_context",
+          "complete": true,
+          "within_scope": true,
+          "incomplete_groups": [],
+          "out_of_scope": []
+        },
+        {
+          "step": "grade",
+          "decision": "sufficient",
+          "missing_requirements": [],
+          "retry_count": 1
+        },
+        {
+          "step": "answer"
+        },
+        {
+          "step": "citation_validation",
+          "valid": true
+        }
+      ],
+      "initial_candidate_count": 17,
+      "retry_candidate_count": 17,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": false
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": false
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": false
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": false
+      },
+      "final_evidence_refs": [
+        {
+          "text": "5.7.2\n列车蓄电池容量除满足本标准第5.5.4 条第5 款的规定外，还应至少支持列车休眠5 天后可唤醒。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 39,
+          "page_end": 39,
+          "article_id": "5.7.2",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 393,
+          "score": 0.6538618803024292,
+          "rrf_score": null,
+          "rerank_score": 0.9727855324745178,
+          "display_ref": "第5.7.2条"
+        },
+        {
+          "text": "18.3.8\n第3 款\n根据GB/T32588.1《轨道交通市域铁路和城轨交通运输管理和指令控制系统第1 部\n分：系统原理和基本概念》要求全自动运行系统的车辆应具备防止与障碍物发生碰撞的线路检测功能，\n根据障碍物检测设备不同分为与列车前方的障碍物触碰时（被动障碍物检测）和与列车前方的障碍物触\n碰前（主动障碍物检测）两种检测方式。此条款主要对被动障碍物防护联动功能提出要求。\n第4 款\n全自动运行发车安全防护功能还应包括对站台门控箱、间隙探测等的防护，清客站台应在\n清客完成门关闭后，按压清客确认按钮，才允许列车移动；站台乘降作业后，应联动间隙探测设备检测，\n待间隙探测设备反馈一定时间的无障碍物状态",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 358,
+          "page_end": 358,
+          "article_id": "18.3.8",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 3424,
+          "score": 0.6666630506515503,
+          "rrf_score": null,
+          "rerank_score": 0.9237090349197388,
+          "display_ref": "第18.3.8条"
+        },
+        {
+          "text": "，才允许列车移动；站台乘降作业后，应联动间隙探测设备检测，\n待间隙探测设备反馈一定时间的无障碍物状态信息后，才允许列车移动。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 358,
+          "page_end": 358,
+          "article_id": "18.3.8",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 3425,
+          "score": 0.0,
+          "rrf_score": null,
+          "rerank_score": 0.19276063144207,
+          "display_ref": "第18.3.8条"
+        }
+      ],
+      "citation_validation": {
+        "valid": true,
+        "cited_ids": [
+          "E1",
+          "E2",
+          "E3"
+        ],
+        "available_ids": [
+          "E1",
+          "E2",
+          "E3"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "FINAL-CAND-AGENT-002",
+      "measurements": {
+        "wall_time_ms": 15108.99999924004,
+        "stage_timings_ms": {
+          "retrieval": 31.0,
+          "rerank": 641.0,
+          "grader": 10125.0,
+          "generation": 4312.0
+        },
+        "token_usage": {
+          "input": 1669,
+          "output": 2174,
+          "total": 3843
+        },
+        "estimated_cost": null,
+        "model_calls": 2,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          true,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [
+            1
+          ],
+          [],
+          [
+            0
+          ],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 2,
+        "metric_eligible": true
+      },
+      "category": "agent_challenge",
+      "question": "火灾模式下由哪个系统发布控制指令、哪个系统优先执行，自动售检票、门禁、站台屏蔽门、自动扶梯和电梯是否都应纳入消防联动？",
+      "expected_answerability": true,
+      "gold_answer": "火灾自动报警系统应发布火灾模式控制指令，环境与设备监控系统应优先执行；自动售检票、门禁、站台屏蔽门、自动扶梯和电梯均应纳入消防联动。",
+      "required_requirements": [],
+      "key_answer_points": [],
+      "numeric_expectations": [],
+      "request_id": "5f856055fb454b66913e07f4acccb4cc",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 180,
+          "article": "21.1.4",
+          "table": null
+        },
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 184,
+          "article": "22.4.1",
+          "table": null
+        }
+      ],
+      "final_action": "answer",
+      "retry_count": 0,
+      "rewritten_query": null,
+      "final_answer_or_refusal": "火灾模式下应由火灾自动报警系统发布火灾模式指令，由环境与设备监控系统优先执行火灾控制程序 [E3]；自动售检票系统、门禁系统、站台屏蔽门、自动扶梯和电梯均应纳入消防联动控制 [E1]。\n\n- **指令发布与执行**：针对防排烟系统与通风系统共用的设备，火灾工况由火灾自动报警系统发布火灾模式指令，环境与设备监控系统优先执行火灾控制程序 [E3]。\n- **纳入消防联动范围**：消防联动控制系统应实现自动售检票系统、门禁系统、站台屏蔽门、自动扶梯、电梯等设备系统在火灾情况下的消防联动控制 [E1]。",
+      "first_grade": {
+        "step": "grade",
+        "decision": "sufficient",
+        "missing_requirements": [],
+        "retry_count": 0
+      },
+      "second_grade": null,
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "火灾模式下由哪个系统发布控制指令、哪个系统优先执行，自动售检票、门禁、站台屏蔽门、自动扶梯和电梯是否都应纳入消防联动？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "sufficient",
+          "missing_requirements": [],
+          "retry_count": 0
+        },
+        {
+          "step": "answer"
+        },
+        {
+          "step": "citation_validation",
+          "valid": true
+        }
+      ],
+      "initial_candidate_count": 15,
+      "retry_candidate_count": null,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [
+          0,
+          1
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": true
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [
+          0,
+          1
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": true
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [
+          0,
+          1
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": true
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [
+          0,
+          1
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": true
+      },
+      "final_evidence_refs": [
+        {
+          "text": "22.4\n消防联动控制\n22.4.1\n消防联动控制系统应实现消火栓系统、水喷淋系统、自动灭火系统、防烟排烟系统、消防电源、\n集中电源集中控制型消防应急照明和疏散指示系统、消防广播系统、自动售检票系统、门禁系统、站台\n屏蔽门及防火卷帘、防火门、电动挡烟垂帘、自动扶梯、电梯等设备系统在火灾情况下的消防联动控制。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 184,
+          "page_end": 184,
+          "article_id": "22.4.1",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 1963,
+          "score": 0.7543960809707642,
+          "rrf_score": null,
+          "rerank_score": 0.9990310668945312,
+          "display_ref": "第22.4.1条"
+        },
+        {
+          "text": "22.4.8\n火灾自动报警系统对电梯、自动扶梯的联动控制应符合下列规定：\n1\n应发送火灾指令，联动电梯运行至疏散层；\n2\n消防控制室在收到电梯完成消防动作信号后，应切断非消防电梯电源；在确认非疏散自动扶梯\n完成消防动作后，应切断自动扶梯电源；\n3\n不应直接控制自动扶梯的启停。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 184,
+          "page_end": 184,
+          "article_id": "22.4.8",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 1970,
+          "score": 0.7749381065368652,
+          "rrf_score": null,
+          "rerank_score": 0.9962188601493835,
+          "display_ref": "第22.4.8条"
+        },
+        {
+          "text": "21.1.4\n防排烟系统与通风系统共用的设备应由环境与设备监控系统统一监控，火灾工况由火灾自动报\n警系统发布火灾模式指令，由环境与设备监控系统优先执行火灾控制程序。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 180,
+          "page_end": 180,
+          "article_id": "21.1.4",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 1910,
+          "score": 0.7178217172622681,
+          "rrf_score": null,
+          "rerank_score": 0.9955154061317444,
+          "display_ref": "第21.1.4条"
+        }
+      ],
+      "citation_validation": {
+        "valid": true,
+        "cited_ids": [
+          "E1",
+          "E3"
+        ],
+        "available_ids": [
+          "E1",
+          "E2",
+          "E3"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "FINAL-CAND-AGENT-003",
+      "measurements": {
+        "wall_time_ms": 6578.000000678003,
+        "stage_timings_ms": {
+          "retrieval": 31.0,
+          "rerank": 1094.0,
+          "grader": 3000.0,
+          "generation": 2453.0
+        },
+        "token_usage": {
+          "input": 1357,
+          "output": 586,
+          "total": 1943
+        },
+        "estimated_cost": null,
+        "model_calls": 2,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          true,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [
+            1
+          ],
+          [
+            0
+          ],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 2,
+        "metric_eligible": true
+      },
+      "category": "agent_challenge",
+      "question": "站台屏蔽门遇到障碍物时应具备什么保护能力，单樘门故障时对整侧系统和滑动门自动开启有什么限制？",
+      "expected_answerability": true,
+      "gold_answer": "站台屏蔽门应具备障碍物检测及保护能力；单樘门故障不应导致整侧站台屏蔽门不能正常工作，且不应自动开启滑动门。",
+      "required_requirements": [],
+      "key_answer_points": [],
+      "numeric_expectations": [],
+      "request_id": "92b88e518b3741b992a8ce6d038ac516",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 169,
+          "article": "19.1.7",
+          "table": null
+        },
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 169,
+          "article": "19.1.9",
+          "table": null
+        }
+      ],
+      "final_action": "answer",
+      "retry_count": 0,
+      "rewritten_query": null,
+      "final_answer_or_refusal": "站台屏蔽门关门时应具备障碍物探测功能；单个站台屏蔽门故障不得引发整侧故障，且正常运营条件下任何故障均不得造成滑动门自动开启。\n\n1. **障碍物保护能力**：站台屏蔽门应设置必要的安全装置，关门时应具备对障碍物的探测功能 [E2]。\n2. **单樘门故障限制**：单个站台屏蔽门的故障不应引发整侧站台屏蔽门故障 [E1]。\n3. **滑动门自动开启限制**：正常运营条件下，站台屏蔽门任何故障都不应造成滑动门自动开启 [E1]。",
+      "first_grade": {
+        "step": "grade",
+        "decision": "sufficient",
+        "missing_requirements": [],
+        "retry_count": 0
+      },
+      "second_grade": null,
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "站台屏蔽门遇到障碍物时应具备什么保护能力，单樘门故障时对整侧系统和滑动门自动开启有什么限制？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "sufficient",
+          "missing_requirements": [],
+          "retry_count": 0
+        },
+        {
+          "step": "answer"
+        },
+        {
+          "step": "citation_validation",
+          "valid": true
+        }
+      ],
+      "initial_candidate_count": 15,
+      "retry_candidate_count": null,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [
+          0,
+          1
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": true
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [
+          0,
+          1
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": true
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [
+          0,
+          1
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": true
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [
+          0,
+          1
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": true
+      },
+      "final_evidence_refs": [
+        {
+          "text": "19.1.9\n单个站台屏蔽门的故障不应引发整侧站台屏蔽门的故障。正常运营条件下，站台屏蔽门任何故\n障都不应造成滑动门的自动开启。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 169,
+          "page_end": 169,
+          "article_id": "19.1.9",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 1771,
+          "score": 0.8190323114395142,
+          "rrf_score": null,
+          "rerank_score": 0.9988541603088379,
+          "display_ref": "第19.1.9条"
+        },
+        {
+          "text": "19.1.7\n站台屏蔽门应设置必要的安全装置，关门时应具备对障碍物的探测功能。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 169,
+          "page_end": 169,
+          "article_id": "19.1.7",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 1769,
+          "score": 0.7866281270980835,
+          "rrf_score": null,
+          "rerank_score": 0.9737589359283447,
+          "display_ref": "第19.1.7条"
+        },
+        {
+          "text": "19.1.10\n站台屏蔽门电气控制设备的防护等级应与车站环境条件相适应，地上车站站台设备的防护等级\n不宜小于IP54。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 169,
+          "page_end": 169,
+          "article_id": "19.1.10",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 1772,
+          "score": 0.7283859252929688,
+          "rrf_score": null,
+          "rerank_score": 0.9585996866226196,
+          "display_ref": "第19.1.10条"
+        }
+      ],
+      "citation_validation": {
+        "valid": true,
+        "cited_ids": [
+          "E1",
+          "E2"
+        ],
+        "available_ids": [
+          "E1",
+          "E2",
+          "E3"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "FINAL-CAND-UA-001",
+      "measurements": {
+        "wall_time_ms": 9015.999999828637,
+        "stage_timings_ms": {
+          "retrieval": 63.0,
+          "rerank": 3483.0,
+          "grader": 5470.0
+        },
+        "token_usage": {
+          "input": 1405,
+          "output": 626,
+          "total": 2031
+        },
+        "estimated_cost": null,
+        "model_calls": 2,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 0,
+        "metric_eligible": false
+      },
+      "category": "hard_negative_unanswerable",
+      "question": "目前北京各条轨道交通线路分别采用750V还是1500V牵引供电，采用两种制式的线路各有多少条？",
+      "expected_answerability": false,
+      "gold_answer": "当前规范只规定750V和1500V直流牵引供电系统的技术参数，不包含当前各线路实际采用的制式或线路数量。",
+      "required_requirements": [],
+      "key_answer_points": [],
+      "numeric_expectations": [],
+      "request_id": "0dee84053f3f42168ce0f2d3c549f484",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [],
+      "final_action": "refuse",
+      "retry_count": 1,
+      "rewritten_query": "北京各条轨道交通线路分别采用750V还是1500V牵引供电；采用750V牵引供电的线路数量；采用1500V牵引供电的线路数量",
+      "final_answer_or_refusal": "当前规范及已检索证据不足以完整回答该问题。 缺少的信息：北京各条轨道交通线路分别采用750V还是1500V牵引供电的线路制式信息；采用750V牵引供电的线路数量；采用1500V牵引供电的线路数量。",
+      "first_grade": {
+        "step": "grade",
+        "decision": "insufficient",
+        "missing_requirements": [
+          "北京各条轨道交通线路分别采用750V还是1500V牵引供电",
+          "采用750V牵引供电的线路数量",
+          "采用1500V牵引供电的线路数量"
+        ],
+        "retry_count": 0
+      },
+      "second_grade": {
+        "step": "grade",
+        "decision": "insufficient",
+        "missing_requirements": [
+          "北京各条轨道交通线路分别采用750V还是1500V牵引供电的线路制式信息",
+          "采用750V牵引供电的线路数量",
+          "采用1500V牵引供电的线路数量"
+        ],
+        "retry_count": 1
+      },
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "目前北京各条轨道交通线路分别采用750V还是1500V牵引供电，采用两种制式的线路各有多少条？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "北京各条轨道交通线路分别采用750V还是1500V牵引供电",
+            "采用750V牵引供电的线路数量",
+            "采用1500V牵引供电的线路数量"
+          ],
+          "retry_count": 0
+        },
+        {
+          "step": "parse_evidence_requirements",
+          "question_requirements": [
+            {
+              "business_id": null,
+              "article_id": null,
+              "subrequirement": "目前北京各条轨道交通线路分别采用750V还是1500V牵引供电，采用两种制式的线路各有多少条？",
+              "source": "question",
+              "authoritative": true,
+              "status": "missing_version",
+              "reason": "specification_version_not_explicit"
+            }
+          ],
+          "grader_requirements": [
+            {
+              "business_id": null,
+              "article_id": null,
+              "subrequirement": "北京各条轨道交通线路分别采用750V还是1500V牵引供电",
+              "source": "grader",
+              "authoritative": true,
+              "status": "mapped_to_question",
+              "reason": null
+            },
+            {
+              "business_id": null,
+              "article_id": null,
+              "subrequirement": "采用750V牵引供电的线路数量",
+              "source": "grader",
+              "authoritative": true,
+              "status": "mapped_to_question",
+              "reason": null
+            },
+            {
+              "business_id": null,
+              "article_id": null,
+              "subrequirement": "采用1500V牵引供电的线路数量",
+              "source": "grader",
+              "authoritative": true,
+              "status": "mapped_to_question",
+              "reason": null
+            }
+          ]
+        },
+        {
+          "step": "retry",
+          "retry_count": 1,
+          "missing_requirements": [
+            "北京各条轨道交通线路分别采用750V还是1500V牵引供电",
+            "采用750V牵引供电的线路数量",
+            "采用1500V牵引供电的线路数量"
+          ]
+        },
+        {
+          "step": "retrieve",
+          "query": "北京各条轨道交通线路分别采用750V还是1500V牵引供电；采用750V牵引供电的线路数量；采用1500V牵引供电的线路数量",
+          "retry_count": 1
+        },
+        {
+          "step": "retain_article_groups",
+          "evidence_limit": 3,
+          "retained_groups": [],
+          "fallbacks": [
+            {
+              "subrequirement": "目前北京各条轨道交通线路分别采用750V还是1500V牵引供电，采用两种制式的线路各有多少条？",
+              "reason": "missing_version",
+              "candidate_articles": []
+            },
+            {
+              "subrequirement": "北京各条轨道交通线路分别采用750V还是1500V牵引供电",
+              "reason": "missing_version",
+              "candidate_articles": []
+            },
+            {
+              "subrequirement": "采用750V牵引供电的线路数量",
+              "reason": "missing_version",
+              "candidate_articles": []
+            },
+            {
+              "subrequirement": "采用1500V牵引供电的线路数量",
+              "reason": "missing_version",
+              "candidate_articles": []
+            }
+          ]
+        },
+        {
+          "step": "verify_final_evidence_context",
+          "complete": true,
+          "within_scope": true,
+          "incomplete_groups": [],
+          "out_of_scope": []
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "北京各条轨道交通线路分别采用750V还是1500V牵引供电的线路制式信息",
+            "采用750V牵引供电的线路数量",
+            "采用1500V牵引供电的线路数量"
+          ],
+          "retry_count": 1
+        },
+        {
+          "step": "refuse",
+          "missing_requirements": [
+            "北京各条轨道交通线路分别采用750V还是1500V牵引供电的线路制式信息",
+            "采用750V牵引供电的线路数量",
+            "采用1500V牵引供电的线路数量"
+          ]
+        }
+      ],
+      "initial_candidate_count": 19,
+      "retry_candidate_count": 20,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [],
+        "gold_count": 0,
+        "hit": false,
+        "complete": null
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [],
+        "gold_count": 0,
+        "hit": false,
+        "complete": null
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [],
+        "gold_count": 0,
+        "hit": false,
+        "complete": null
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [],
+        "gold_count": 0,
+        "hit": false,
+        "complete": null
+      },
+      "final_evidence_refs": [
+        {
+          "text": "28.2.4\n各线路应选择两条不同物理路由以自愈光环网的方式接入北京轨道交通指挥中心，并符合接入\n指挥中心骨干光缆环网的统一规划。\n28.3\n控制中心的管理",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 212,
+          "page_end": 212,
+          "article_id": "28.2.4",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2323,
+          "score": 0.6439527273178101,
+          "rrf_score": null,
+          "rerank_score": 0.9205114841461182,
+          "display_ref": "第28.2.4条"
+        },
+        {
+          "text": "4.3.1\n双线线路、右侧行车是我国城市轨道交通的统一制式。上、下行方向的划分与既有北京轨道交通\n的划分一致，以后的线路均应按上述规定进行划分，以保持线网的一致性，便于调度指挥。斜向线路、\nL 型、U 型线路参照上述标准根据实际情况确定。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 282,
+          "page_end": 282,
+          "article_id": "4.3.1",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2841,
+          "score": 21.784691384708683,
+          "rrf_score": null,
+          "rerank_score": 0.7562691569328308,
+          "display_ref": "第4.3.1条"
+        },
+        {
+          "text": "16.3.3\n牵引变电所的数量及其在线路上的分布应经计算分析比选后确定，车辆基地应设牵引变电所。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 128,
+          "page_end": 128,
+          "article_id": "16.3.3",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 1267,
+          "score": 42.292525127019225,
+          "rrf_score": null,
+          "rerank_score": 0.7312327027320862,
+          "display_ref": "第16.3.3条"
+        }
+      ],
+      "citation_validation": null
+    },
+    {
+      "id": "FINAL-CAND-UA-002",
+      "measurements": {
+        "wall_time_ms": 8280.99999949336,
+        "stage_timings_ms": {
+          "retrieval": 32.0,
+          "rerank": 2358.0,
+          "grader": 5891.0
+        },
+        "token_usage": {
+          "input": 1322,
+          "output": 636,
+          "total": 1958
+        },
+        "estimated_cost": null,
+        "model_calls": 2,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 0,
+        "metric_eligible": false
+      },
+      "category": "hard_negative_unanswerable",
+      "question": "北京现有车站使用的自动售检票终端主要是哪几个品牌，过去一年故障率最低的是哪一种？",
+      "expected_answerability": false,
+      "gold_answer": "当前规范规定自动售检票终端的组成、功能和可靠性要求，但不提供设备品牌、采购情况或实际故障率。",
+      "required_requirements": [],
+      "key_answer_points": [],
+      "numeric_expectations": [],
+      "request_id": "0416cc2693344fe19b1a36375fc2ddba",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [],
+      "final_action": "refuse",
+      "retry_count": 1,
+      "rewritten_query": "北京现有车站使用的自动售检票终端主要品牌；过去一年故障率最低的自动售检票终端品牌或种类",
+      "final_answer_or_refusal": "当前规范及已检索证据不足以完整回答该问题。 缺少的信息：北京现有车站使用的自动售检票终端主要品牌；过去一年各品牌自动售检票终端的故障率数据及故障率最低的品牌。",
+      "first_grade": {
+        "step": "grade",
+        "decision": "insufficient",
+        "missing_requirements": [
+          "北京现有车站使用的自动售检票终端主要品牌",
+          "过去一年故障率最低的自动售检票终端品牌或种类"
+        ],
+        "retry_count": 0
+      },
+      "second_grade": {
+        "step": "grade",
+        "decision": "insufficient",
+        "missing_requirements": [
+          "北京现有车站使用的自动售检票终端主要品牌",
+          "过去一年各品牌自动售检票终端的故障率数据及故障率最低的品牌"
+        ],
+        "retry_count": 1
+      },
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "北京现有车站使用的自动售检票终端主要是哪几个品牌，过去一年故障率最低的是哪一种？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "北京现有车站使用的自动售检票终端主要品牌",
+            "过去一年故障率最低的自动售检票终端品牌或种类"
+          ],
+          "retry_count": 0
+        },
+        {
+          "step": "parse_evidence_requirements",
+          "question_requirements": [
+            {
+              "business_id": null,
+              "article_id": null,
+              "subrequirement": "北京现有车站使用的自动售检票终端主要是哪几个品牌，过去一年故障率最低的是哪一种？",
+              "source": "question",
+              "authoritative": true,
+              "status": "missing_version",
+              "reason": "specification_version_not_explicit"
+            }
+          ],
+          "grader_requirements": [
+            {
+              "business_id": null,
+              "article_id": null,
+              "subrequirement": "北京现有车站使用的自动售检票终端主要品牌",
+              "source": "grader",
+              "authoritative": true,
+              "status": "mapped_to_question",
+              "reason": null
+            },
+            {
+              "business_id": null,
+              "article_id": null,
+              "subrequirement": "过去一年故障率最低的自动售检票终端品牌或种类",
+              "source": "grader",
+              "authoritative": true,
+              "status": "mapped_to_question",
+              "reason": null
+            }
+          ]
+        },
+        {
+          "step": "retry",
+          "retry_count": 1,
+          "missing_requirements": [
+            "北京现有车站使用的自动售检票终端主要品牌",
+            "过去一年故障率最低的自动售检票终端品牌或种类"
+          ]
+        },
+        {
+          "step": "retrieve",
+          "query": "北京现有车站使用的自动售检票终端主要品牌；过去一年故障率最低的自动售检票终端品牌或种类",
+          "retry_count": 1
+        },
+        {
+          "step": "retain_article_groups",
+          "evidence_limit": 3,
+          "retained_groups": [],
+          "fallbacks": [
+            {
+              "subrequirement": "北京现有车站使用的自动售检票终端主要是哪几个品牌，过去一年故障率最低的是哪一种？",
+              "reason": "missing_version",
+              "candidate_articles": []
+            },
+            {
+              "subrequirement": "北京现有车站使用的自动售检票终端主要品牌",
+              "reason": "missing_version",
+              "candidate_articles": []
+            },
+            {
+              "subrequirement": "过去一年故障率最低的自动售检票终端品牌或种类",
+              "reason": "missing_version",
+              "candidate_articles": []
+            }
+          ]
+        },
+        {
+          "step": "verify_final_evidence_context",
+          "complete": true,
+          "within_scope": true,
+          "incomplete_groups": [],
+          "out_of_scope": []
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "北京现有车站使用的自动售检票终端主要品牌",
+            "过去一年各品牌自动售检票终端的故障率数据及故障率最低的品牌"
+          ],
+          "retry_count": 1
+        },
+        {
+          "step": "refuse",
+          "missing_requirements": [
+            "北京现有车站使用的自动售检票终端主要品牌",
+            "过去一年各品牌自动售检票终端的故障率数据及故障率最低的品牌"
+          ]
+        }
+      ],
+      "initial_candidate_count": 15,
+      "retry_candidate_count": 14,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [],
+        "gold_count": 0,
+        "hit": false,
+        "complete": null
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [],
+        "gold_count": 0,
+        "hit": false,
+        "complete": null
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [],
+        "gold_count": 0,
+        "hit": false,
+        "complete": null
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [],
+        "gold_count": 0,
+        "hit": false,
+        "complete": null
+      },
+      "final_evidence_refs": [
+        {
+          "text": "24.3.1\n自动售检票系统主要由AFC 中心系统、车站系统、维修系统、培训系统、车站售检票终端设备、",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 189,
+          "page_end": 189,
+          "article_id": "24.3.1",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2051,
+          "score": 0.7108727693557739,
+          "rrf_score": null,
+          "rerank_score": 0.9619739651679993,
+          "display_ref": "第24.3.1条"
+        },
+        {
+          "text": "24.1.11\n线网车站售检票终端设备应具有统一的乘客服务界面，工作站宜具有统一的工作界面。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 189,
+          "page_end": 189,
+          "article_id": "24.1.11",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2039,
+          "score": 0.6759182214736938,
+          "rrf_score": null,
+          "rerank_score": 0.9067440032958984,
+          "display_ref": "第24.1.11条"
+        },
+        {
+          "text": "24.3.4\n车站售检票终端设备宜由自动售票机、互联网自动售票机、半自动售票机、自动检票机、自助\n补票机和便携式检验票机等构成。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 190,
+          "page_end": 190,
+          "article_id": "24.3.4",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2055,
+          "score": 0.7584583163261414,
+          "rrf_score": null,
+          "rerank_score": 0.9757811427116394,
+          "display_ref": "第24.3.4条"
+        }
+      ],
+      "citation_validation": null
+    },
+    {
+      "id": "FINAL-CAND-UA-003",
+      "measurements": {
+        "wall_time_ms": 13031.000000424683,
+        "stage_timings_ms": {
+          "retrieval": 31.0,
+          "rerank": 7204.0,
+          "grader": 5796.0
+        },
+        "token_usage": {
+          "input": 1836,
+          "output": 629,
+          "total": 2465
+        },
+        "estimated_cost": null,
+        "model_calls": 2,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 0,
+        "metric_eligible": false
+      },
+      "category": "hard_negative_unanswerable",
+      "question": "车站公共区疏散照明最低照度是多少，国贸站最近一次实测照度是否达到要求？",
+      "expected_answerability": false,
+      "gold_answer": "规范可以回答车站公共区疏散照明地面最低水平照度不应低于5.0lx，但不包含国贸站的实测照度，无法判断其是否达标。",
+      "required_requirements": [],
+      "key_answer_points": [],
+      "numeric_expectations": [],
+      "request_id": "9bce46be4df94487bc1b0b9585b358b3",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [],
+      "final_action": "refuse",
+      "retry_count": 1,
+      "rewritten_query": "国贸站最近一次实测照度数据；国贸站最近一次实测照度是否达到要求",
+      "final_answer_or_refusal": "当前规范及已检索证据不足以完整回答该问题。 缺少的信息：国贸站最近一次实测照度数据；国贸站最近一次实测照度是否达到要求的判定依据。",
+      "first_grade": {
+        "step": "grade",
+        "decision": "insufficient",
+        "missing_requirements": [
+          "国贸站最近一次实测照度数据",
+          "国贸站最近一次实测照度是否达到要求"
+        ],
+        "retry_count": 0
+      },
+      "second_grade": {
+        "step": "grade",
+        "decision": "insufficient",
+        "missing_requirements": [
+          "国贸站最近一次实测照度数据",
+          "国贸站最近一次实测照度是否达到要求的判定依据"
+        ],
+        "retry_count": 1
+      },
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "车站公共区疏散照明最低照度是多少，国贸站最近一次实测照度是否达到要求？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "国贸站最近一次实测照度数据",
+            "国贸站最近一次实测照度是否达到要求"
+          ],
+          "retry_count": 0
+        },
+        {
+          "step": "parse_evidence_requirements",
+          "question_requirements": [
+            {
+              "business_id": null,
+              "article_id": null,
+              "subrequirement": "车站公共区疏散照明最低照度是多少，国贸站最近一次实测照度是否达到要求？",
+              "source": "question",
+              "authoritative": true,
+              "status": "missing_version",
+              "reason": "specification_version_not_explicit"
+            }
+          ],
+          "grader_requirements": [
+            {
+              "business_id": null,
+              "article_id": null,
+              "subrequirement": "国贸站最近一次实测照度数据",
+              "source": "grader",
+              "authoritative": true,
+              "status": "mapped_to_question",
+              "reason": null
+            },
+            {
+              "business_id": null,
+              "article_id": null,
+              "subrequirement": "国贸站最近一次实测照度是否达到要求",
+              "source": "grader",
+              "authoritative": true,
+              "status": "mapped_to_question",
+              "reason": null
+            }
+          ]
+        },
+        {
+          "step": "retry",
+          "retry_count": 1,
+          "missing_requirements": [
+            "国贸站最近一次实测照度数据",
+            "国贸站最近一次实测照度是否达到要求"
+          ]
+        },
+        {
+          "step": "retrieve",
+          "query": "国贸站最近一次实测照度数据；国贸站最近一次实测照度是否达到要求",
+          "retry_count": 1
+        },
+        {
+          "step": "retain_article_groups",
+          "evidence_limit": 3,
+          "retained_groups": [],
+          "fallbacks": [
+            {
+              "subrequirement": "车站公共区疏散照明最低照度是多少，国贸站最近一次实测照度是否达到要求？",
+              "reason": "missing_version",
+              "candidate_articles": []
+            },
+            {
+              "subrequirement": "国贸站最近一次实测照度数据",
+              "reason": "missing_version",
+              "candidate_articles": []
+            },
+            {
+              "subrequirement": "国贸站最近一次实测照度是否达到要求",
+              "reason": "missing_version",
+              "candidate_articles": []
+            }
+          ]
+        },
+        {
+          "step": "verify_final_evidence_context",
+          "complete": true,
+          "within_scope": true,
+          "incomplete_groups": [],
+          "out_of_scope": []
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "国贸站最近一次实测照度数据",
+            "国贸站最近一次实测照度是否达到要求的判定依据"
+          ],
+          "retry_count": 1
+        },
+        {
+          "step": "refuse",
+          "missing_requirements": [
+            "国贸站最近一次实测照度数据",
+            "国贸站最近一次实测照度是否达到要求的判定依据"
+          ]
+        }
+      ],
+      "initial_candidate_count": 16,
+      "retry_candidate_count": 20,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [],
+        "gold_count": 0,
+        "hit": false,
+        "complete": null
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [],
+        "gold_count": 0,
+        "hit": false,
+        "complete": null
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [],
+        "gold_count": 0,
+        "hit": false,
+        "complete": null
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [],
+        "gold_count": 0,
+        "hit": false,
+        "complete": null
+      },
+      "final_evidence_refs": [
+        {
+          "text": "30.5.8\n由于城市轨道交通属于人员密集场所，需要在公共区设置安全照明及疏散照明。根据《城市轨\n道交通工程项目规范》GB 55033-2022,6.1.11 条地下车站及区间的应急照明应具备应急电源。为了简\n化系统设置，本标准提出车站公共区疏散照明宜兼做安全照明，地面的最低水平照度不低于5 lx，平均\n照度不低于正常照明照度的10%的要求。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 393,
+          "page_end": 393,
+          "article_id": "30.5.8",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 3686,
+          "score": 0.7411061525344849,
+          "rrf_score": null,
+          "rerank_score": 0.998688280582428,
+          "display_ref": "第30.5.8条"
+        },
+        {
+          "text": "30.2.80\n车站公共区的站台、站厅乘客疏散路线和疏散通道的地面上、自动扶梯起点侧面、人行楼梯起\n步的3 阶踏步立面处应设置蓄光型疏散标志，在地面上宜沿疏散路线的中心线布置，并保持视觉连续性，\n间距不应超过1.2m。除本标准另有规定外，蓄光型疏散标志的设置要求应符合《消防安全疏散标志设置\n标准》DB11/T 1024 的规定。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 229,
+          "page_end": 229,
+          "article_id": "30.2.80",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2479,
+          "score": 0.6773508191108704,
+          "rrf_score": null,
+          "rerank_score": 0.9863018989562988,
+          "display_ref": "第30.2.80条"
+        },
+        {
+          "text": "30.5.8\n车站公共区疏散照明宜兼做安全照明，地面的最低水平照度不应低于5.0 lx，平均照度不低于正\n常照明照度的10%；疏散的楼梯间、前室或合用前室、避难走道，厅/台楼扶梯处最低水平照度不应低\n于10.0 lx；区间隧道道床面、具备消防疏散使用的区间风井疏散走道地面的最低水平照度不应低于3.0\nlx ；其余场所疏散照明地面的最低水平照度不应低于1.0 lx。控制中心控制大厅地面的最低水平照度不\n应低于3.0 lx，其他区域参照GB 55037、GB 51348、GB/T 16275 的相关规定。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 234,
+          "page_end": 234,
+          "article_id": "30.5.8",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2531,
+          "score": 20.59040902167029,
+          "rrf_score": null,
+          "rerank_score": 0.26403337717056274,
+          "display_ref": "第30.5.8条"
+        }
+      ],
+      "citation_validation": null
+    },
+    {
+      "id": "FINAL-CAND-UA-004",
+      "measurements": {
+        "wall_time_ms": 9656.999999657273,
+        "stage_timings_ms": {
+          "retrieval": 31.0,
+          "rerank": 4876.0,
+          "grader": 4750.0
+        },
+        "token_usage": {
+          "input": 1320,
+          "output": 427,
+          "total": 1747
+        },
+        "estimated_cost": null,
+        "model_calls": 2,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 0,
+        "metric_eligible": false
+      },
+      "category": "hard_negative_unanswerable",
+      "question": "明年北京计划优先升级哪些车站的乘客信息系统，升级预算和完成时间分别是多少？",
+      "expected_answerability": false,
+      "gold_answer": "当前规范规定乘客信息系统的结构、功能和信息优先级，但不包含未来项目名单、预算或实施时间。",
+      "required_requirements": [],
+      "key_answer_points": [],
+      "numeric_expectations": [],
+      "request_id": "cdcc631fdd7b4d4fa01be18dfadc4823",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [],
+      "final_action": "refuse",
+      "retry_count": 1,
+      "rewritten_query": "明年北京计划优先升级乘客信息系统的具体车站；升级预算；完成时间",
+      "final_answer_or_refusal": "当前规范及已检索证据不足以完整回答该问题。 缺少的信息：明年北京计划优先升级乘客信息系统的车站；升级预算；完成时间。",
+      "first_grade": {
+        "step": "grade",
+        "decision": "insufficient",
+        "missing_requirements": [
+          "明年北京计划优先升级乘客信息系统的具体车站",
+          "升级预算",
+          "完成时间"
+        ],
+        "retry_count": 0
+      },
+      "second_grade": {
+        "step": "grade",
+        "decision": "insufficient",
+        "missing_requirements": [
+          "明年北京计划优先升级乘客信息系统的车站",
+          "升级预算",
+          "完成时间"
+        ],
+        "retry_count": 1
+      },
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "明年北京计划优先升级哪些车站的乘客信息系统，升级预算和完成时间分别是多少？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "明年北京计划优先升级乘客信息系统的具体车站",
+            "升级预算",
+            "完成时间"
+          ],
+          "retry_count": 0
+        },
+        {
+          "step": "parse_evidence_requirements",
+          "question_requirements": [
+            {
+              "business_id": null,
+              "article_id": null,
+              "subrequirement": "明年北京计划优先升级哪些车站的乘客信息系统，升级预算和完成时间分别是多少？",
+              "source": "question",
+              "authoritative": true,
+              "status": "missing_version",
+              "reason": "specification_version_not_explicit"
+            }
+          ],
+          "grader_requirements": [
+            {
+              "business_id": null,
+              "article_id": null,
+              "subrequirement": "明年北京计划优先升级乘客信息系统的具体车站",
+              "source": "grader",
+              "authoritative": true,
+              "status": "mapped_to_question",
+              "reason": null
+            },
+            {
+              "business_id": null,
+              "article_id": null,
+              "subrequirement": "升级预算",
+              "source": "grader",
+              "authoritative": true,
+              "status": "mapped_to_question",
+              "reason": null
+            },
+            {
+              "business_id": null,
+              "article_id": null,
+              "subrequirement": "完成时间",
+              "source": "grader",
+              "authoritative": true,
+              "status": "mapped_to_question",
+              "reason": null
+            }
+          ]
+        },
+        {
+          "step": "retry",
+          "retry_count": 1,
+          "missing_requirements": [
+            "明年北京计划优先升级乘客信息系统的具体车站",
+            "升级预算",
+            "完成时间"
+          ]
+        },
+        {
+          "step": "retrieve",
+          "query": "明年北京计划优先升级乘客信息系统的具体车站；升级预算；完成时间",
+          "retry_count": 1
+        },
+        {
+          "step": "retain_article_groups",
+          "evidence_limit": 3,
+          "retained_groups": [],
+          "fallbacks": [
+            {
+              "subrequirement": "明年北京计划优先升级哪些车站的乘客信息系统，升级预算和完成时间分别是多少？",
+              "reason": "missing_version",
+              "candidate_articles": []
+            },
+            {
+              "subrequirement": "明年北京计划优先升级乘客信息系统的具体车站",
+              "reason": "missing_version",
+              "candidate_articles": []
+            },
+            {
+              "subrequirement": "升级预算",
+              "reason": "missing_version",
+              "candidate_articles": []
+            },
+            {
+              "subrequirement": "完成时间",
+              "reason": "missing_version",
+              "candidate_articles": []
+            }
+          ]
+        },
+        {
+          "step": "verify_final_evidence_context",
+          "complete": true,
+          "within_scope": true,
+          "incomplete_groups": [],
+          "out_of_scope": []
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "明年北京计划优先升级乘客信息系统的车站",
+            "升级预算",
+            "完成时间"
+          ],
+          "retry_count": 1
+        },
+        {
+          "step": "refuse",
+          "missing_requirements": [
+            "明年北京计划优先升级乘客信息系统的车站",
+            "升级预算",
+            "完成时间"
+          ]
+        }
+      ],
+      "initial_candidate_count": 19,
+      "retry_candidate_count": 18,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [],
+        "gold_count": 0,
+        "hit": false,
+        "complete": null
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [],
+        "gold_count": 0,
+        "hit": false,
+        "complete": null
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [],
+        "gold_count": 0,
+        "hit": false,
+        "complete": null
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [],
+        "gold_count": 0,
+        "hit": false,
+        "complete": null
+      },
+      "final_evidence_refs": [
+        {
+          "text": "23.5.1\n乘客信息系统负荷等级宜为二级，并应配置UPS 电源，后备时间不应少于1h。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 188,
+          "page_end": 188,
+          "article_id": "23.5.1",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2025,
+          "score": 15.131380580987361,
+          "rrf_score": null,
+          "rerank_score": 0.7477655410766602,
+          "display_ref": "第23.5.1条"
+        },
+        {
+          "text": "23.2.2\n乘客信息系统车站终端应考虑设置在站厅付费区、站厅非付费区、上行站台、下行站台以及车\n辆客室内，宜在出入口及通道、换乘通道内设置。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 187,
+          "page_end": 187,
+          "article_id": "23.2.2",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2013,
+          "score": 0.6593226194381714,
+          "rrf_score": null,
+          "rerank_score": 0.7319939732551575,
+          "display_ref": "第23.2.2条"
+        },
+        {
+          "text": "23.1.5\n换乘车站乘客信息系统根据车站换乘方式，宜按系统共享原则设置相应的系统。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 187,
+          "page_end": 187,
+          "article_id": "23.1.5",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2009,
+          "score": 0.69733065366745,
+          "rrf_score": null,
+          "rerank_score": 0.8953287601470947,
+          "display_ref": "第23.1.5条"
+        }
+      ],
+      "citation_validation": null
+    }
+  ],
+  "input_integrity_at_finish": {
+    "dataset_unchanged": true,
+    "pdf_unchanged": true
+  }
+}

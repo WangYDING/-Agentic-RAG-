@@ -1,0 +1,249 @@
+{
+  "run_type": "phase1_scoped_real_agent_evaluation",
+  "snapshot_id": "65b3ccfc96a372e54b1c7ecc5ba7f622788d71beafee4206a0298ed10a9fb859",
+  "generation_model": "deepseek-flash",
+  "questions": [
+    {
+      "id": "P1-IND-013",
+      "question": "三份规范对区间、车站公共区以及设备管理用房人员新风量分别有哪些直接规定？请区分使用场景。",
+      "requested_scope": {
+        "spec_ids": [
+          "cn.beijing.db11t995",
+          "cn.gb55033",
+          "cn.gb50157"
+        ],
+        "edition_ids": [
+          "2025",
+          "2022",
+          "2013"
+        ]
+      },
+      "request_id": "b08ccb8e12bc4cc4b9042d7e97672bd1",
+      "result_type": "answer",
+      "answer": "核心结论：三份规范中，仅 DB11/T 995-2025 对区间、地下车站公共区、设备及管理用房三类场景均有直接人员新风量规定；GB 50157-2013 直接规定了区间和设备与管理用房；GB 55033-2022 仅见采用空调时乘客新风量通用条文，未明确对应区间或车站公共区场景。\n\n**1. DB11/T 995-2025**\n- 区间隧道：每个乘客每小时新鲜空气量不应少于20m³。[E1]\n- 地下车站公共区：空调系统每个乘客每小时新鲜空气量不应少于20m³。[E1]\n- 地下车站设备及管理用房：每个工作人员每小时新鲜空气量不应少于30m³。[E1]\n\n**2. GB 50157-2013**\n- 区间隧道：每个乘客每小时新鲜空气量不应少于12.6m³。[E2]\n- 地下车站公共区：给定证据未找到直接规定。\n- 地下车站设备与管理用房：每个工作人员每小时新鲜空气量不应少于30m³，且空调系统新风量不应少于总风量的10%。[E3]\n\n**3. GB 55033-2022**\n- 仅见“当采用空调时，每个乘客每小时需供应的新鲜空气量不应少于12.6m³，且新鲜空气供应量不应少于总送风量的10%”的规定。[E4]\n- 该条文片段未明确其适用于区间还是车站公共区，故不能据此分别认定区间或公共区的对应要求；设备管理用房人员新风量在给定证据中未找到直接规定。",
+      "snapshot_id": "65b3ccfc96a372e54b1c7ecc5ba7f622788d71beafee4206a0298ed10a9fb859",
+      "bound_scope": [
+        "cn.beijing.db11t995@2025",
+        "cn.gb50157@2013",
+        "cn.gb55033@2022"
+      ],
+      "retry_count": 0,
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "text": "14.2.11\n人员新风量应符合下列规定：\n1\n区间隧道内每个乘客每小时需供应的新鲜空气量不应少于20m³；\n2\n地下车站公共区空调系统每个乘客每小时需供应的新鲜空气量不应少于20m³；\n3\n地下车站设备及管理用房内每个工作人员每小时需供应的新鲜空气量不应少于30m³。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 116,
+          "page_end": 116,
+          "chunk_id": 1126,
+          "content_type": "text",
+          "chapter_id": "14",
+          "chapter_title": "通风空调与供暖",
+          "article_id": "14.2.11",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第14.2.11条",
+          "score": 0.6927275061607361,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.beijing.db11t995",
+          "edition_id": "2025",
+          "standard_code": "DB11/T 995-2025",
+          "spec_title": "城市轨道交通工程设计标准",
+          "pdf_page_start": 116,
+          "pdf_page_end": 116,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E2",
+          "text": "13.2.4 区间隧道内每个乘客每小时需供应的新鲜空气量不应少\n于12.6m³。",
+          "source": "GB50157-2013_地铁设计规范.pdf",
+          "page_start": 140,
+          "page_end": 140,
+          "chunk_id": 793,
+          "content_type": "text",
+          "chapter_id": "13",
+          "chapter_title": null,
+          "article_id": "13.2.4",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第13.2.4条",
+          "score": 0.7108808159828186,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.gb50157",
+          "edition_id": "2013",
+          "standard_code": "GB 50157-2013",
+          "spec_title": "地铁设计规范",
+          "pdf_page_start": 140,
+          "pdf_page_end": 140,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E3",
+          "text": "13.2.33 地下车站设备与管理用房内每个工作人员每小时需供\n应的新鲜空气量不应少于30m³，且空调系统新风量不应少于总\n风量的10%。",
+          "source": "GB50157-2013_地铁设计规范.pdf",
+          "page_start": 143,
+          "page_end": 143,
+          "chunk_id": 823,
+          "content_type": "text",
+          "chapter_id": "13",
+          "chapter_title": null,
+          "article_id": "13.2.33",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第13.2.33条",
+          "score": 0.6697675585746765,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.gb50157",
+          "edition_id": "2013",
+          "standard_code": "GB 50157-2013",
+          "spec_title": "地铁设计规范",
+          "pdf_page_start": 143,
+          "pdf_page_end": 143,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E4",
+          "text": "6.4.10当采用空调时，每个乘客每小时需供应的新鲜空气量不\n应少于12.6m³，且新鲜空气供应量不应少于总送风量的10%。",
+          "source": "GB55033-2022_城市轨道交通工程项目规范.pdf",
+          "page_start": 34,
+          "page_end": 34,
+          "chunk_id": 220,
+          "content_type": "text",
+          "chapter_id": "6",
+          "chapter_title": "给水、排水系统…",
+          "article_id": "6.4.10",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第6.4.10条",
+          "score": 0.7182967662811279,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.gb55033",
+          "edition_id": "2022",
+          "standard_code": "GB 55033-2022",
+          "spec_title": "城市轨道交通工程项目规范",
+          "pdf_page_start": 34,
+          "pdf_page_end": 34,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E5",
+          "text": "气进行交换获得，部分新鲜空气有时得不到充分利用等不利因素，本次修编将隧道内及车站公共区每人\n的新风量标准保持20m³／（h•人），并取消了10%最小新风比的要求。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 339,
+          "page_end": 339,
+          "chunk_id": 3233,
+          "content_type": "text",
+          "chapter_id": "14",
+          "chapter_title": "通风空调与供暖",
+          "article_id": "14.2.11",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第14.2.11条",
+          "score": 0.719688892364502,
+          "rerank_score": 0.9699743986129761,
+          "metadata": {},
+          "spec_id": "cn.beijing.db11t995",
+          "edition_id": "2025",
+          "standard_code": "DB11/T 995-2025",
+          "spec_title": "城市轨道交通工程设计标准",
+          "pdf_page_start": 339,
+          "pdf_page_end": 339,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E6",
+          "text": "14.2.11\n人员新风量标准。根据国家标准《地铁设计规范》GB 50157 的条文说明，乘客最小新风量标\n准参照商场、博物馆、体育馆等建筑的最少新风量标准制定。国家标准《民用建筑供暖通风与空气调节\n设计规范》GB 50736—2012 为每人每小时15m³～19m³。另外，国家标准《公共场所卫生指标及限值要\n求》GB 37488-2019 的强制性条款要求，对于没有睡眠和休憩需求的公共场所，室内新风量不应小于\n20 m³／（h•人）。因此本标准的乘客最小新风量标准相应提高。第二，本标准2013 年版要求地下车站\n公共区新风量不应少于总送风量的10%，该规定源于国内早期的设计技术措施（如199",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 338,
+          "page_end": 338,
+          "chunk_id": 3231,
+          "content_type": "text",
+          "chapter_id": "14",
+          "chapter_title": "通风空调与供暖",
+          "article_id": "14.2.11",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第14.2.11条",
+          "score": 0.6849188804626465,
+          "rerank_score": 0.9531784653663635,
+          "metadata": {},
+          "spec_id": "cn.beijing.db11t995",
+          "edition_id": "2025",
+          "standard_code": "DB11/T 995-2025",
+          "spec_title": "城市轨道交通工程设计标准",
+          "pdf_page_start": 338,
+          "pdf_page_end": 338,
+          "printed_page_start": null,
+          "printed_page_end": null
+        }
+      ],
+      "trace": [
+        {
+          "step": "bind_scope",
+          "snapshot_id": "65b3ccfc96a372e54b1c7ecc5ba7f622788d71beafee4206a0298ed10a9fb859",
+          "scope": [
+            "cn.beijing.db11t995@2025",
+            "cn.gb50157@2013",
+            "cn.gb55033@2022"
+          ]
+        },
+        {
+          "step": "retrieve",
+          "query": "三份规范对区间、车站公共区以及设备管理用房人员新风量分别有哪些直接规定？请区分使用场景。",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "sufficient",
+          "missing_requirements": [],
+          "retry_count": 0
+        },
+        {
+          "step": "answer"
+        },
+        {
+          "step": "citation_validation",
+          "valid": true
+        }
+      ],
+      "request_metrics": {
+        "request_id": "b08ccb8e12bc4cc4b9042d7e97672bd1",
+        "app_version": "0.1.0",
+        "index_version": "65b3ccfc96a372e54b1c7ecc5ba7f622788d71beafee4206a0298ed10a9fb859",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 141.0,
+          "rerank": 6344.0,
+          "grader": 52859.0,
+          "generation": 15859.0
+        },
+        "total_ms": 76453.0,
+        "outcome": "answer",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 0,
+        "model_calls": 3,
+        "model_retries": 1,
+        "token_usage": {
+          "input": 2812,
+          "output": 4896,
+          "total": 7708
+        },
+        "estimated_cost": null
+      }
+    }
+  ]
+}
