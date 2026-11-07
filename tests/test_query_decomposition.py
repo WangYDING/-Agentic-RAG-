@@ -5,6 +5,17 @@ from src.query_decomposition import (
 )
 
 
+def test_splits_parallel_question_joined_by_comma_and_you():
+    plan = decompose_retrieval_plan(
+        "全自动运行列车应具备哪些功能，限界坐标系又应如何建立？"
+    )
+
+    assert plan.targets == (
+        "全自动运行列车应具备哪些功能",
+        "限界坐标系应如何建立",
+    )
+
+
 def test_splits_scope_and_speed_without_document_names():
     query = "三份规范对适用范围或线路最高运行速度分别怎样规定？仅陈述各文档明确给出的内容。"
     assert decompose_retrieval_targets(query) == ["适用范围", "线路最高运行速度"]

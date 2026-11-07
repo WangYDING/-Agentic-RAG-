@@ -146,13 +146,13 @@ def select_retained_article_groups(
     fallbacks: list[SelectionFallback] = []
 
     for requirement in _authoritative_requirements(parsed):
-        if not requirement.business_id:
+        if not requirement.business_id and allowed_business_ids:
             fallbacks.append(SelectionFallback(requirement.subrequirement, "missing_version"))
             continue
         eligible = [
             (key, group)
             for key, group in groups.items()
-            if key[0] == requirement.business_id
+            if (not requirement.business_id or key[0] == requirement.business_id)
             and (not requirement.article_id or key[1] == requirement.article_id)
             and _directly_covers(group, requirement)
         ]
@@ -252,7 +252,11 @@ def _question_target_requirements(
     parsed = _parse_text_requirements(
         text, RequirementSource.QUESTION, allowed_business_ids
     )
-    if not expand_unscoped or any(item.business_id for item in parsed):
+    if (
+        not expand_unscoped
+        or not allowed_business_ids
+        or any(item.business_id for item in parsed)
+    ):
         return parsed
     return [
         EvidenceRequirement(
@@ -303,6 +307,18 @@ def _directly_covers(group: list[dict], requirement: EvidenceRequirement):
     group_text = " ".join(str(item.get("text", "")) for item in group)
     canonical_requirement = _canonical_retrieval_text(requirement.subrequirement)
     canonical_group = _canonical_retrieval_text(group_text)
+    if "安全联锁" in canonical_requirement:
+        return "安全联锁" in canonical_group
+    if "前后端照明" in canonical_requirement or "信号装置" in canonical_requirement:
+        return bool(
+            "前照灯" in canonical_group
+            and re.search(r"(?:尾端|防护灯|红色灯)", canonical_group)
+        )
+    if "全自动运行列车" in canonical_requirement and "功能" in canonical_requirement:
+        return bool(
+            re.search(r"列车应.{0,20}全自动运行", canonical_group)
+            and re.search(r"FAM|唤醒|休眠|远程控制", canonical_group, re.I)
+        )
     if "设计年限" in canonical_requirement:
         return "设计年限" in canonical_group
     if "人员新风量" in requirement.subrequirement:

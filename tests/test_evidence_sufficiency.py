@@ -83,6 +83,33 @@ class EvidenceSufficiencyGraderTest(unittest.TestCase):
         self.assertIn("不得自行增加数值指标、性能参数或验收条件", prompt)
         self.assertIn("适用证据没有为某对象规定额外指标", prompt)
 
+    def test_applicable_enumeration_can_cover_a_broader_category_name(self):
+        evidence = Evidence(
+            "E1",
+            "司机室前端应设前照灯；列车尾端应设红色防护灯；侧壁可设车门状态指示灯。",
+            "spec.pdf",
+            39,
+            39,
+            569,
+            article_id="5.6.9",
+        )
+        completions = FakeCompletions({
+            "decision": "sufficient",
+            "supported_evidence_ids": ["E1"],
+            "missing_requirements": [],
+            "reason": "适用条文已逐项展开照明和信号装置。",
+        })
+        client = SimpleNamespace(chat=SimpleNamespace(completions=completions))
+
+        result = EvidenceSufficiencyGrader(client=client, model="test").grade(
+            "车辆前后端照明、信号装置有哪些要求？", [evidence]
+        )
+
+        prompt = completions.calls[0]["messages"][1]["content"]
+        self.assertEqual(result.decision, "sufficient")
+        self.assertIn("不得再要求一个名称完全相同", prompt)
+        self.assertIn("明确列出的具体对象若未在证据中出现", prompt)
+
     def test_explicit_project_condition_still_requires_support(self):
         evidence = Evidence(
             "E1",

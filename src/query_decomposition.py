@@ -41,9 +41,11 @@ def decompose_retrieval_plan(
     target = _target_span(text)
     for pattern in _TAIL_PATTERNS:
         target = re.sub(pattern, "", target)
+    parallel_target = re.sub(r"，(?=[^，]{2,30}又)", "；", target)
+    parallel_target = re.sub(r"又(?=应?(?:如何|哪些|什么))", "", parallel_target)
     parts = [
         part.strip("，,；;：:的要求规定内容")
-        for part in re.split(r"(?:以及|以及对|并且|同时|或|与)", target)
+        for part in re.split(r"(?:以及|以及对|并且|同时|或|与)|[；;]", parallel_target)
     ]
     focused = []
     for part in parts:

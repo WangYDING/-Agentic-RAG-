@@ -70,7 +70,8 @@ class EvidenceSufficiencyGrader:
 6. missing_requirements 只能列出问题明确要求、但证据无法回答的内容，不能写入模型自行推定的要求。
 7. sufficient 表示可以仅凭证据完整、确定地回答全部问题。
 8. supported_evidence_ids 只能使用实际提供的证据编号。
-9. 仅输出 JSON，不要输出 Markdown。
+9. 问题使用上位类别名称、适用条文以具体对象逐项展开时，应按条文的实际枚举判断覆盖。例如条文以“前照灯、尾端防护灯、侧壁状态指示灯”展开车辆照明和信号装置，不得再要求一个名称完全相同的独立“信号装置”。但问题明确列出的具体对象若未在证据中出现，仍应判为 insufficient。
+10. 仅输出 JSON，不要输出 Markdown。
 {scope_rules}
 
 JSON 格式：

@@ -428,6 +428,98 @@ class ArticleRetentionTest(unittest.TestCase):
         self.assertEqual(decision.selected[0]["article_id"], "2.1.5")
         self.assertNotIn("8.8.8", {group.article_id for group in decision.retained_groups})
 
+    def test_legacy_single_document_parallel_requirements_survive_empty_scope(self):
+        parsed = parse_evidence_requirements(
+            "客室车门安全联锁与车辆前后端照明、信号装置分别有哪些要求？",
+            [],
+            (),
+        )
+
+        self.assertEqual(
+            [item.subrequirement for item in parsed.question_requirements],
+            ["客室车门安全联锁", "车辆前后端照明、信号装置"],
+        )
+        self.assertTrue(all(item.business_id is None for item in parsed.question_requirements))
+
+    def test_legacy_single_document_can_retain_unique_unscoped_articles(self):
+        candidates = [
+            candidate("", "", "5.6.8", 1, "客室车门安全联锁要求。"),
+            candidate("", "", "5.6.9", 2, "车辆前端应设前照灯，尾端应设红色防护灯。"),
+            candidate("", "", "9.9.9", 3, "无关要求。"),
+        ]
+        parsed = parse_evidence_requirements(
+            "客室车门安全联锁与车辆前后端照明、信号装置分别有哪些要求？",
+            [],
+            (),
+        )
+
+        decision = select_retained_article_groups(
+            parsed,
+            candidates,
+            reranked=[candidates[2], candidates[0], candidates[1]],
+            evidence_limit=3,
+            allowed_business_ids=(),
+        )
+
+        self.assertEqual(
+            {group.article_id for group in decision.retained_groups},
+            {"5.6.8", "5.6.9"},
+        )
+        self.assertNotIn("missing_version", {item.reason for item in decision.fallbacks})
+
+    def test_direct_coverage_distinguishes_interlock_from_emergency_lighting(self):
+        candidates = [
+            candidate("", "", "5.6.8", 1, "客室车门系统应有安全联锁。"),
+            candidate("", "", "5.5.4", 2, "蓄电池应满足应急照明和紧急开闭车门。"),
+            candidate("", "", "5.6.9", 3, "前端应设前照灯，尾端应设红色防护灯。"),
+        ]
+        parsed = parse_evidence_requirements(
+            "客室车门安全联锁与车辆前后端照明、信号装置分别有哪些要求？",
+            [],
+            (),
+        )
+
+        decision = select_retained_article_groups(
+            parsed,
+            candidates,
+            reranked=list(reversed(candidates)),
+            evidence_limit=3,
+            allowed_business_ids=(),
+        )
+
+        self.assertEqual(
+            {group.article_id for group in decision.retained_groups},
+            {"5.6.8", "5.6.9"},
+        )
+
+    def test_direct_coverage_distinguishes_train_features_from_signal_system(self):
+        candidates = [
+            candidate(
+                "", "", "5.7.1", 1,
+                "列车应适应全自动运行需要，支持FAM模式、唤醒、休眠和远程控制功能。",
+            ),
+            candidate(
+                "", "", "18.4.5", 2,
+                "全自动运行线路信号系统应具备自动折返和远程限速功能。",
+            ),
+        ]
+        parsed = parse_evidence_requirements(
+            "全自动运行列车应具备哪些功能，限界坐标系又应如何建立？",
+            [],
+            (),
+        )
+
+        decision = select_retained_article_groups(
+            parsed,
+            candidates,
+            reranked=list(reversed(candidates)),
+            evidence_limit=2,
+            allowed_business_ids=(),
+        )
+
+        self.assertIn("5.7.1", {group.article_id for group in decision.retained_groups})
+        self.assertNotIn("18.4.5", {group.article_id for group in decision.retained_groups})
+
 
 if __name__ == "__main__":
     unittest.main()
