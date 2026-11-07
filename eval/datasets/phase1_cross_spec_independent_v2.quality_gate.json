@@ -1,0 +1,39 @@
+{
+  "gate_id": "phase1-cross-spec-v2-gate-1",
+  "frozen_before_first_run": true,
+  "denominators": {
+    "total": 27,
+    "answerable": 24,
+    "clarify_scope": 1,
+    "unanswerable": 2
+  },
+  "hard_requirements": {
+    "service_errors": 0,
+    "scope_or_version_violations": 0,
+    "illegal_citations": 0,
+    "false_accepts": 0,
+    "critical_numeric_unit_or_condition_errors": 0,
+    "unsupported_material_claims": 0,
+    "clarification_without_retrieval_or_model_calls": "1/1"
+  },
+  "quality_thresholds": {
+    "correct_final_behavior_min": "26/27",
+    "false_refusals_max": "2/24",
+    "complete_supported_answers_min": "22/24",
+    "candidate_required_article_coverage_min": "23/24",
+    "final_required_article_coverage_min": "22/24",
+    "generated_answer_citation_legality": "100%"
+  },
+  "cost_reporting": {
+    "hard_limit": false,
+    "required": [
+      "total_and_per-question_latency",
+      "p50_and_p95_latency",
+      "total_and_per-question_tokens",
+      "model_calls_and_retries",
+      "single_spec_and_cross_spec_breakdown"
+    ]
+  },
+  "service_error_rule": "Retain the sample as an error. Any service error makes the acceptance result unable to determine; do not delete or replace the sample.",
+  "post_run_rule": "After the first candidate run this dataset becomes a seen regression set. Any subsequent independent acceptance requires a new reviewed and frozen dataset."
+}

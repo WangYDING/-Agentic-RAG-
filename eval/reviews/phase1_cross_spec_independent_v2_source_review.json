@@ -1,0 +1,29 @@
+{
+  "dataset_id": "phase1-cross-spec-independent-v2",
+  "reviewed_at": "2026-11-07",
+  "reviewer": "Codex (AI; user-authorized PDF content reviewer)",
+  "review_scope": [
+    "question wording and independence from the prior 30-question set",
+    "answerability and requested scope",
+    "standard and edition identity",
+    "article and PDF page",
+    "required answer points",
+    "numeric values, units and applicability conditions"
+  ],
+  "method": "Checked the frozen catalog and snapshot identities, matched every source reference to the reviewed ingestion text, and visually checked representative rendered official PDF pages across all three documents. Candidate-system answers were not requested or inspected before this record and the quality gate were frozen.",
+  "limitations": "AI content review, not a licensed engineering-domain sign-off. The provider-side model revisions are not available. GB 55033-2022 and GB 50157-2013 use the already reviewed OCR artifacts bound to the frozen snapshot.",
+  "summary": {
+    "questions": 27,
+    "approved": 27,
+    "returned": 0,
+    "source_references": 33,
+    "candidate_answers_seen_before_freeze": false
+  },
+  "questions": [
+    {"ids":"P1-V2-001..007","status":"approved","documents":["cn.beijing.db11t995@2025"],"notes":"New DB11 clauses and answer points not used by the prior Phase 1 independent set; checked numbers, inequalities and conditions."},
+    {"ids":"P1-V2-008..010","status":"approved","documents":["cn.gb50157@2013"],"notes":"Checked timetable, noise test conditions and auxiliary-power quality limits."},
+    {"ids":"P1-V2-011..018","status":"approved","documents":["cn.gb55033@2022"],"notes":"Checked passenger-density, vehicle ventilation, access dimensions, waterproofing, depot access, investigation ratio and concrete strength clauses."},
+    {"ids":"P1-V2-019..024","status":"approved","documents":["cn.beijing.db11t995@2025","cn.gb55033@2022","cn.gb50157@2013"],"notes":"Cross-spec comparisons bind shared predicates only to specifications with direct source evidence and preserve differing applicability conditions."},
+    {"ids":"P1-V2-025..027","status":"approved","documents":["scope contract and frozen catalog"],"notes":"One ambiguous-scope clarification and two project-fact/measurement insufficiency controls; no fabricated project facts are acceptable."}
+  ]
+}
