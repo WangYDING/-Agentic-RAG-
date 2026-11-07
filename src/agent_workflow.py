@@ -687,6 +687,7 @@ class AgentWorkflow:
             business_id: set() for business_id in business_ids
         }
         fulfilled_targets: set[tuple[str, str]] = set()
+        broad_coverage_documents: set[str] = set()
         for business_id in business_ids:
             scoped = [
                 candidate
@@ -699,6 +700,8 @@ class AgentWorkflow:
             for focused_query in focused_queries:
                 if len(selected) >= top_n:
                     return selected
+                if (business_id, focused_query) in fulfilled_targets:
+                    continue
                 if not self._focused_query_applies_to_business_id(
                     focused_query, business_id, candidates
                 ):
@@ -736,7 +739,21 @@ class AgentWorkflow:
                 if article_id:
                     selected_articles.add(article_id)
                 selected.append(candidate)
-                fulfilled_targets.add((business_id, focused_query))
+                covered_queries = []
+                for covered_query in focused_queries:
+                    if (
+                        self._focused_query_applies_to_business_id(
+                            covered_query, business_id, candidates
+                        )
+                        and covered_query
+                        in candidate.get("document_query_ranks", {})
+                        and self._matches_focused_intent(candidate, covered_query)
+                    ):
+                        fulfilled_targets.add((business_id, covered_query))
+                        if self._focused_overlap_score(candidate, covered_query) > 0:
+                            covered_queries.append(covered_query)
+                if len(covered_queries) > 1:
+                    broad_coverage_documents.add(business_id)
                 selected_for_document += 1
                 if selected_for_document >= per_document_limit:
                     break
@@ -744,7 +761,7 @@ class AgentWorkflow:
             for business_id in business_ids:
                 if len(selected) >= top_n:
                     return selected
-                if (business_id, focused_query) in fulfilled_targets:
+                if business_id in broad_coverage_documents:
                     continue
                 if not self._focused_query_applies_to_business_id(
                     focused_query, business_id, candidates
@@ -786,7 +803,35 @@ class AgentWorkflow:
                     )
                 selected.append(candidate)
                 fulfilled_targets.add((business_id, focused_query))
-        return selected or preferred[:top_n]
+        for candidate in preferred:
+            if len(selected) >= top_n:
+                break
+            identity = chunk_identity(candidate)
+            if identity in seen:
+                continue
+            business_id = f"{candidate.get('spec_id')}@{candidate.get('edition_id')}"
+            if business_id not in business_ids:
+                continue
+            article_id = candidate.get("article_id")
+            if (
+                article_id
+                and article_id in selected_articles_by_document[business_id]
+            ):
+                continue
+            if not any(
+                focused_query in candidate.get("document_query_ranks", {})
+                and self._matches_focused_intent(candidate, focused_query)
+                for focused_query in focused_queries
+                if self._focused_query_applies_to_business_id(
+                    focused_query, business_id, candidates
+                )
+            ):
+                continue
+            seen.add(identity)
+            if article_id:
+                selected_articles_by_document[business_id].add(article_id)
+            selected.append(candidate)
+        return selected
 
     def _select_scope_balance(
         self,
@@ -919,7 +964,12 @@ class AgentWorkflow:
             if "车站公共区" in focused_query:
                 return bool(
                     re.search(r"车站公共区|公共区", text)
-                    or re.search(r"每个乘客.{0,20}(?:新风|新鲜空气)", text)
+                    or (
+                        "区间" not in text
+                        and re.search(
+                        r"每个乘客[\s\S]{0,30}(?:新风|新鲜空气)", text
+                        )
+                    )
                 )
             if "设备管理用房" in focused_query:
                 return bool(

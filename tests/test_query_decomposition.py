@@ -16,6 +16,15 @@ def test_splits_parallel_question_joined_by_comma_and_you():
     )
 
 
+def test_binds_shared_predicate_to_both_named_specifications():
+    assert decompose_retrieval_targets(
+        "DB11/T 995-2025 与 GB 55033-2022 对通信后备供电时间有什么直接要求？"
+    ) == [
+        "DB11/T995-2025通信后备供电时间",
+        "GB55033-2022通信后备供电时间",
+    ]
+
+
 def test_splits_scope_and_speed_without_document_names():
     query = "三份规范对适用范围或线路最高运行速度分别怎样规定？仅陈述各文档明确给出的内容。"
     assert decompose_retrieval_targets(query) == ["适用范围", "线路最高运行速度"]

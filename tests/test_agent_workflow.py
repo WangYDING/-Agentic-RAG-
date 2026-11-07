@@ -610,6 +610,12 @@ class AgentWorkflowTest(unittest.TestCase):
         )
         self.assertTrue(
             matcher(
+                {"text": "每个乘客每小时需供应\n的新鲜空气量不应少于30m³。"},
+                "车站公共区 人员 新风量 新鲜空气量 乘客 工作人员 每小时",
+            )
+        )
+        self.assertTrue(
+            matcher(
                 {"text": "设备与管理用房内每个工作人员的新风量不应少于30m³。"},
                 "设备管理用房 人员 新风量 新鲜空气量 乘客 工作人员 每小时",
             )
@@ -660,6 +666,78 @@ class AgentWorkflowTest(unittest.TestCase):
         )
 
         self.assertEqual([item["article_id"] for item in selected], ["3.0.21", "3.0.19"])
+
+    def test_target_selection_fills_remaining_limit_from_preferred_distinct_articles(self):
+        workflow = AgentWorkflow(
+            FakeRetriever(), FakeReranker(), FakeGrader([]), FakeGenerator()
+        )
+        query = "车站公共区 人员 新风量 新鲜空气量 乘客 工作人员 每小时"
+        candidates = [
+            {
+                "text": text,
+                "source": "spec.pdf",
+                "spec_id": "cn.a",
+                "edition_id": "2025",
+                "chunk_id": index,
+                "article_id": article,
+                "document_query_ranks": ({query: rank} if rank else {}),
+            }
+            for index, (article, text, rank) in enumerate(
+                (
+                    ("1.0.1", "车站公共区每个乘客的新鲜空气量要求。", 1),
+                    ("1.0.2", "采用通风时每个乘客的新鲜空气量要求。", 2),
+                    ("1.0.3", "采用空调时每个乘客的新鲜空气量要求。", 3),
+                )
+            )
+        ]
+
+        selected = workflow._select_scope_target_coverage(
+            candidates,
+            [query],
+            ("cn.a@2025",),
+            top_n=3,
+            score_cache={},
+            preferred=candidates,
+        )
+
+        self.assertEqual(
+            [item["article_id"] for item in selected],
+            ["1.0.1", "1.0.2", "1.0.3"],
+        )
+
+    def test_target_selection_can_keep_two_distinct_clauses_for_one_target(self):
+        workflow = AgentWorkflow(
+            FakeRetriever(), FakeReranker(), FakeGrader([]), FakeGenerator()
+        )
+        query = "车站公共区 人员 新风量 新鲜空气量 乘客 工作人员 每小时"
+        candidates = [
+            {
+                "text": text,
+                "source": "spec.pdf",
+                "spec_id": "cn.a",
+                "edition_id": "2025",
+                "chunk_id": index,
+                "article_id": article,
+                "document_query_ranks": {query: index + 1},
+            }
+            for index, (article, text) in enumerate(
+                (
+                    ("1.0.1", "采用通风时每个乘客的新鲜空气量要求。"),
+                    ("1.0.2", "采用空调时每个乘客的新鲜空气量要求。"),
+                )
+            )
+        ]
+
+        selected = workflow._select_scope_target_coverage(
+            candidates,
+            [query],
+            ("cn.a@2025",),
+            top_n=2,
+            score_cache={},
+            preferred=[],
+        )
+
+        self.assertEqual([item["article_id"] for item in selected], ["1.0.1", "1.0.2"])
 
     def test_target_selection_does_not_impose_equal_document_quota(self):
         workflow = AgentWorkflow(

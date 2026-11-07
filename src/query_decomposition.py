@@ -100,7 +100,22 @@ def _comparison_targets(text: str, max_targets: int) -> list[str]:
         re.I,
     )
     if not match:
-        return []
+        shared_match = re.search(
+            rf"({_SPECIFICATION})与({_SPECIFICATION})对(.+)$",
+            text,
+            re.I,
+        )
+        if not shared_match:
+            return []
+        first, second, shared = shared_match.groups()
+        shared = re.sub(
+            r"(?:分别)?(?:有|是|为)?(?:什么|哪些|怎样|如何)?(?:直接)?(?:规定|要求)?$",
+            "",
+            shared,
+        ).strip("，,：:的")
+        if not shared:
+            return []
+        return [f"{first}{shared}", f"{second}{shared}"][:max_targets]
     first, second, shared, extra = match.groups()
     shared = re.sub(r"(?:的)?规定$", "", shared).strip("，,：:")
     extra = re.sub(r"^(?:额外)?(?:提出)?的?", "", extra)
