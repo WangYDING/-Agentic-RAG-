@@ -32,4 +32,6 @@ def test_cross_spec_prompt_prioritizes_complete_direct_requirements():
     prompt = completions.calls[0]["messages"][1]["content"]
     assert "完整覆盖优先于分点数量限制" in prompt
     assert "不得为了简洁而遗漏" in prompt
+    assert "不受“2～3点”" in prompt
+    assert "明显行列粘连" in prompt
     assert "cn.c@2013" in prompt

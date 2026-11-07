@@ -156,6 +156,7 @@ def select_retained_article_groups(
             and (not requirement.article_id or key[1] == requirement.article_id)
             and _directly_covers(group, requirement)
         ]
+        eligible = _prefer_normative_article_groups(eligible)
         if len(eligible) != 1:
             fallbacks.append(
                 SelectionFallback(
@@ -206,6 +207,37 @@ def select_retained_article_groups(
             seen.add(identity)
             selected.append(item)
     return RetentionDecision(tuple(selected), tuple(retained), tuple(fallbacks))
+
+
+def _prefer_normative_article_groups(eligible):
+    """Prefer the normative occurrence when an article is repeated in commentary.
+
+    Chinese engineering standards commonly repeat an article number in a later
+    "条文说明" section.  Both occurrences may directly match the question, but
+    the earlier occurrence is the enforceable clause and normally contains the
+    table or enumerated limits.  This only resolves duplicates of the exact same
+    specification version and article; competing articles remain ambiguous.
+    """
+    by_article = {}
+    for key, group in eligible:
+        by_article.setdefault(key[:2], []).append((key, group))
+    preferred = []
+    for duplicates in by_article.values():
+        if len(duplicates) == 1:
+            preferred.extend(duplicates)
+            continue
+        with_pages = [
+            item for item in duplicates
+            if all(candidate.get("pdf_page_start") is not None for candidate in item[1])
+        ]
+        if len(with_pages) != len(duplicates):
+            preferred.extend(duplicates)
+            continue
+        preferred.append(min(
+            duplicates,
+            key=lambda item: min(candidate["pdf_page_start"] for candidate in item[1]),
+        ))
+    return preferred
 
 
 def _authoritative_requirements(parsed: ParsedRequirements):

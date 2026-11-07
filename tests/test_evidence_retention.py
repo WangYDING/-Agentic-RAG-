@@ -8,7 +8,7 @@ from src.evidence_retention import (
 )
 
 
-def candidate(spec, edition, article, chunk_id, text, *, complete=True):
+def candidate(spec, edition, article, chunk_id, text, *, complete=True, page=None):
     return {
         "spec_id": spec,
         "edition_id": edition,
@@ -21,10 +21,38 @@ def candidate(spec, edition, article, chunk_id, text, *, complete=True):
         "text": text,
         "source": f"{spec}.pdf",
         "article_group_complete": complete,
+        "pdf_page_start": page,
     }
 
 
 class EvidenceRequirementTest(unittest.TestCase):
+    def test_repeated_article_prefers_earlier_normative_clause_over_commentary(self):
+        normative = candidate(
+            "cn.beijing.db11t995", "2025", "6.2.2", 405,
+            "疏散平台宽度为600、800、1000mm，高度950mm，间隙50mm。",
+            page=40,
+        )
+        commentary = candidate(
+            "cn.beijing.db11t995", "2025", "6.2.2", 2880,
+            "条文说明：疏散平台宽度、高差和间隙需要兼顾安全与疏散。",
+            page=286,
+        )
+        parsed = parse_evidence_requirements(
+            "DB11/T 995-2025对疏散平台宽度、高差和间隙怎样规定？",
+            [],
+            ("cn.beijing.db11t995@2025",),
+        )
+
+        decision = select_retained_article_groups(
+            parsed,
+            [normative, commentary],
+            reranked=[commentary, normative],
+            evidence_limit=2,
+            allowed_business_ids=("cn.beijing.db11t995@2025",),
+        )
+
+        self.assertEqual(decision.selected[0]["chunk_id"], 405)
+        self.assertEqual(decision.retained_groups[0].chunk_ids, (405,))
     def test_comparison_requirements_keep_shared_topic_and_predecessor_only_extra(self):
         parsed = parse_evidence_requirements(
             "比较 GB 55033-2022 与 GB 50157-2013 的设计年限规定，并指出前者额外提出的运能要求。",
