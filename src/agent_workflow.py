@@ -688,6 +688,7 @@ class AgentWorkflow:
         }
         fulfilled_targets: set[tuple[str, str]] = set()
         broad_coverage_documents: set[str] = set()
+        normative_occurrences = self._normative_article_occurrences(candidates)
         for business_id in business_ids:
             scoped = [
                 candidate
@@ -714,6 +715,9 @@ class AgentWorkflow:
                         and self._matches_focused_intent(candidate, focused_query)
                     ),
                     key=lambda candidate: (
+                        self._normative_occurrence_priority(
+                            candidate, normative_occurrences
+                        ),
                         -self._focused_overlap_score(candidate, focused_query),
                         candidate["document_query_ranks"][focused_query],
                         -(candidate.get("rrf_score") or 0.0),
@@ -777,6 +781,9 @@ class AgentWorkflow:
                         and self._matches_focused_intent(candidate, focused_query)
                     ),
                     key=lambda candidate: (
+                        self._normative_occurrence_priority(
+                            candidate, normative_occurrences
+                        ),
                         -self._focused_overlap_score(candidate, focused_query),
                         candidate["document_query_ranks"][focused_query],
                     ),
@@ -832,6 +839,29 @@ class AgentWorkflow:
                 selected_articles_by_document[business_id].add(article_id)
             selected.append(candidate)
         return selected
+
+    @staticmethod
+    def _normative_article_occurrences(candidates: list[dict]) -> dict[tuple[str, str], int]:
+        earliest: dict[tuple[str, str], int] = {}
+        for candidate in candidates:
+            article_id = candidate.get("article_id")
+            page = candidate.get("pdf_page_start")
+            if not article_id or page is None:
+                continue
+            business_id = f"{candidate.get('spec_id')}@{candidate.get('edition_id')}"
+            key = (business_id, str(article_id))
+            earliest[key] = min(earliest.get(key, page), page)
+        return earliest
+
+    @staticmethod
+    def _normative_occurrence_priority(candidate: dict, earliest: dict[tuple[str, str], int]) -> int:
+        article_id = candidate.get("article_id")
+        page = candidate.get("pdf_page_start")
+        if not article_id or page is None:
+            return 0
+        business_id = f"{candidate.get('spec_id')}@{candidate.get('edition_id')}"
+        first_page = earliest.get((business_id, str(article_id)))
+        return int(first_page is not None and page > first_page)
 
     def _select_scope_balance(
         self,

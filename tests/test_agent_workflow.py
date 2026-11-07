@@ -819,6 +819,33 @@ class AgentWorkflowTest(unittest.TestCase):
             {("cn.a", "2.1.5"), ("cn.b", "1.0.8")},
         )
 
+    def test_scope_target_selection_prefers_normative_article_occurrence(self):
+        workflow = AgentWorkflow(
+            FakeRetriever(), FakeReranker(), FakeGrader([]), FakeGenerator()
+        )
+        target = "DB11/T 995-2025 疏散平台宽度、高差和间隙"
+        candidates = [
+            {
+                "text": "条文说明：疏散平台宽度、高差和间隙应兼顾安全。",
+                "source": "spec.pdf", "spec_id": "cn.a", "edition_id": "2025",
+                "chunk_id": 2880, "article_id": "6.2.2", "pdf_page_start": 286,
+                "document_query_ranks": {target: 1},
+            },
+            {
+                "text": "疏散平台宽度600、800、1000mm，高度950mm，间隙50mm。",
+                "source": "spec.pdf", "spec_id": "cn.a", "edition_id": "2025",
+                "chunk_id": 405, "article_id": "6.2.2", "pdf_page_start": 40,
+                "document_query_ranks": {target: 2},
+            },
+        ]
+
+        selected = workflow._select_scope_target_coverage(
+            candidates, [target], ("cn.a@2025",), top_n=2,
+            score_cache={}, preferred=candidates,
+        )
+
+        self.assertEqual(selected[0]["chunk_id"], 405)
+
     def test_scope_balance_keeps_best_evidence_from_each_compared_document(self):
         candidates = [
             {
