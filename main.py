@@ -43,6 +43,10 @@ if __name__ == "__main__":
             print("已退出。")
             break
 
+        if not query:
+            print("请输入有效问题。")
+            continue
+
         response = service.answer(
             query=query,
             memory=memory,
