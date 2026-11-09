@@ -38,6 +38,16 @@ def decompose_retrieval_plan(
     if scene_plan is not None:
         return scene_plan
 
+    measurement_plan = _measurement_condition_targets(text, max_targets)
+    if measurement_plan is not None:
+        return measurement_plan
+
+    # This is one shared comparison requirement plus a boundary qualification,
+    # not independent targets to be copied across every document. Leaving it
+    # unsplit lets the workflow reserve direct evidence for every named scope.
+    if re.search(r"^比较(?:两份|三份|各份)?规范对.+直接规定[，,](?:并)?说明", text):
+        return RetrievalDecomposition(())
+
     target = _target_span(text)
     for pattern in _TAIL_PATTERNS:
         target = re.sub(pattern, "", target)
@@ -60,6 +70,16 @@ def decompose_retrieval_plan(
 def focused_query_variants(targets: list[str]) -> list[str]:
     variants = []
     for target in targets:
+        if "车辆外部运行噪声" in target:
+            if "测试条件" in target:
+                variants.append(
+                    "列车 车外 连续等效噪声 测量 运行速度 测点 "
+                    "距轨道中心 距轨面高度"
+                )
+                continue
+            if "限值" in target:
+                variants.append("列车 车外 连续等效噪声 不应大于")
+                continue
         if "人员新风量" in target:
             scene = target.replace("人员新风量", "").strip()
             variants.append(
@@ -80,6 +100,26 @@ def focused_query_variants(targets: list[str]) -> list[str]:
                 variants.append(core)
         variants.append(target)
     return variants
+
+
+def _measurement_condition_targets(
+    text: str, max_targets: int
+) -> RetrievalDecomposition | None:
+    match = re.search(
+        r"(.+?)(?:在)?(?:什么|哪些)(?:测试|测量)(?:条件|工况)下(?:适用|测得|测量)"
+        r"[，,；;](?:其|该)?(?:具体)?限值(?:是|为)?(?:多少|什么)",
+        text,
+    )
+    if not match:
+        return None
+    subject = match.group(1).strip("，,：:的")
+    subject = re.sub(r"应$", "", subject)
+    subject = re.sub(r"限值$", "", subject)
+    if len(subject) < 4:
+        return RetrievalDecomposition((), "measurement_target_not_uniquely_parsed")
+    return RetrievalDecomposition(
+        tuple((f"{subject}测试条件", f"{subject}限值")[:max_targets])
+    )
 
 
 def _target_span(text: str) -> str:

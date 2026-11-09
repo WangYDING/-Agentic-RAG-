@@ -846,6 +846,52 @@ class AgentWorkflowTest(unittest.TestCase):
 
         self.assertEqual(selected[0]["chunk_id"], 405)
 
+    def test_scope_target_selection_prefers_direct_rule_over_commentary_restatement(self):
+        workflow = AgentWorkflow(
+            FakeRetriever(), FakeReranker(), FakeGrader([]), FakeGenerator()
+        )
+        target = "DB11/T 995-2025 列车纵向冲击率上限"
+        candidates = [
+            {
+                "text": "18.4.7 第3款 在保证列车舒适度，即纵向冲击率不大于0.75m/s³的前提下，停车精度应满足要求。",
+                "source": "spec.pdf", "spec_id": "cn.db11", "edition_id": "2025",
+                "chunk_id": 3431, "article_id": "18.4.7", "pdf_page_start": 359,
+                "document_query_ranks": {target: 1},
+            },
+            {
+                "text": "5.4.7 列车纵向冲击率不应大于0.75m/s³。",
+                "source": "spec.pdf", "spec_id": "cn.db11", "edition_id": "2025",
+                "chunk_id": 363, "article_id": "5.4.7", "pdf_page_start": 37,
+                "document_query_ranks": {target: 2},
+            },
+        ]
+
+        selected = workflow._select_scope_target_coverage(
+            candidates, [target], ("cn.db11@2025",), top_n=1,
+            score_cache={}, preferred=candidates,
+        )
+
+        self.assertEqual(selected[0]["article_id"], "5.4.7")
+
+    def test_scope_target_selection_keeps_commentary_when_it_is_only_direct_match(self):
+        workflow = AgentWorkflow(
+            FakeRetriever(), FakeReranker(), FakeGrader([]), FakeGenerator()
+        )
+        target = "停车精度与纵向冲击率前提"
+        candidates = [{
+            "text": "18.4.7 第3款 在冲击率不大于0.75m/s³的前提下，停车精度为±0.3m。",
+            "source": "spec.pdf", "spec_id": "cn.db11", "edition_id": "2025",
+            "chunk_id": 3431, "article_id": "18.4.7", "pdf_page_start": 359,
+            "document_query_ranks": {target: 1},
+        }]
+
+        selected = workflow._select_scope_target_coverage(
+            candidates, [target], ("cn.db11@2025",), top_n=1,
+            score_cache={}, preferred=candidates,
+        )
+
+        self.assertEqual(selected[0]["article_id"], "18.4.7")
+
     def test_scope_balance_keeps_best_evidence_from_each_compared_document(self):
         candidates = [
             {
@@ -894,6 +940,74 @@ class AgentWorkflowTest(unittest.TestCase):
         self.assertTrue(AgentWorkflow._requests_per_scope_answer("三份规范分别有什么规定？"))
         self.assertTrue(AgentWorkflow._requests_per_scope_answer("比较两份规范的要求"))
         self.assertFalse(AgentWorkflow._requests_per_scope_answer("城市轨道交通有什么要求？"))
+
+    def test_scope_balance_keeps_direct_lifetime_clause_for_each_spec(self):
+        candidates = [
+            {
+                "text": text, "source": f"{spec_id}.pdf", "spec_id": spec_id,
+                "edition_id": edition, "chunk_id": index, "article_id": article,
+                "pdf_page_start": page,
+            }
+            for index, (spec_id, edition, article, page, text) in enumerate((
+                ("cn.a", "2025", "3.0.13", 29, "3.0.13 主体结构设计工作年限不低于100年，可更换构件不低于50年。"),
+                ("cn.a", "2025", "12.4.7", 120, "主体结构侧墙按100%和50%的刚度包络设计。"),
+                ("cn.b", "2022", "5.1.3", 22, "5.1.3 主体和重要结构设计工作年限不小于100年，其他结构50年。"),
+                ("cn.c", "2013", "1.0.12", 21, "1.0.12 主体及影响运营安全的结构设计使用年限不低于100年。"),
+            ))
+        ]
+        workflow = AgentWorkflow(
+            FakeRetriever(), FakeReranker(), FakeGrader([]), FakeGenerator()
+        )
+        query = "比较三份规范对主体结构或重要结构设计年限的直接规定，并说明50年条款的适用边界。"
+
+        selected = workflow._select_scope_balance(
+            query, candidates, ("cn.a@2025", "cn.b@2022", "cn.c@2013"),
+            top_n=6, score_cache={}, preferred=candidates,
+        )
+
+        self.assertEqual(
+            {(item["spec_id"], item["article_id"]) for item in selected[:3]},
+            {("cn.a", "3.0.13"), ("cn.b", "5.1.3"), ("cn.c", "1.0.12")},
+        )
+        self.assertLessEqual(len(selected), 6)
+
+    def test_scope_balance_uses_remaining_slots_for_distinct_articles_per_spec(self):
+        query = "比较三份规范对主体结构设计年限的直接规定，并说明50年边界。"
+        candidates = [
+            {
+                "text": text, "source": f"{spec}.pdf", "spec_id": spec,
+                "edition_id": edition, "chunk_id": index, "article_id": article,
+            }
+            for index, (spec, edition, article, text) in enumerate((
+                ("cn.a", "2025", "12.1.2", "主体结构设计年限100年，其他结构50年。"),
+                ("cn.a", "2025", "3.0.13", "主体结构及可更换构件的设计工作年限边界。"),
+                ("cn.b", "2022", "5.1.3", "主体和重要结构100年，其他结构50年。"),
+                ("cn.b", "2022", "2.1.5", "工程初期近期远期设计年限。"),
+                ("cn.c", "2013", "11.1.6", "主体结构和可更换次要构件耐久性年限。"),
+                ("cn.c", "2013", "1.0.12", "主体及严重影响运营安全结构不低于100年。"),
+            ))
+        ]
+        workflow = AgentWorkflow(
+            FakeRetriever(), FakeReranker(), FakeGrader([]), FakeGenerator()
+        )
+
+        selected = workflow._select_scope_balance(
+            query, candidates, ("cn.a@2025", "cn.b@2022", "cn.c@2013"),
+            top_n=6, score_cache={}, preferred=candidates,
+        )
+
+        selected_pairs = {(item["spec_id"], item["article_id"]) for item in selected}
+        self.assertIn(("cn.a", "3.0.13"), selected_pairs)
+        self.assertIn(("cn.c", "1.0.12"), selected_pairs)
+        self.assertEqual(len(selected), 6)
+
+    def test_scope_balance_uses_direct_provision_subject_not_boundary_tail(self):
+        query = "比较三份规范对主体结构或重要结构设计年限的直接规定，并说明50年条款的适用边界。"
+
+        self.assertEqual(
+            AgentWorkflow._scope_balance_focus_query(query),
+            "主体结构或重要结构设计年限",
+        )
 
     def test_multi_scope_per_spec_request_uses_current_limit_above_top3(self):
         workflow = AgentWorkflow(

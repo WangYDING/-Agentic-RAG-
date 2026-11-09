@@ -98,3 +98,46 @@ def test_ambiguous_parallel_scenes_fall_back_without_inventing_mapping():
 
     assert plan.targets == ()
     assert plan.reason == "parallel_target_not_uniquely_parsed"
+
+
+def test_splits_measurement_conditions_and_limit_without_adding_values():
+    plan = decompose_retrieval_plan(
+        "GB 50157-2013 的车辆外部运行噪声限值在什么测试条件下适用，限值是多少？"
+    )
+
+    assert plan.targets == (
+        "GB50157-2013的车辆外部运行噪声测试条件",
+        "GB50157-2013的车辆外部运行噪声限值",
+    )
+    assert not any("80" in target or "7.5" in target for target in plan.targets)
+
+
+def test_splits_paraphrased_measurement_question():
+    plan = decompose_retrieval_plan(
+        "车辆外部运行噪声应在哪些测量工况下测得，其具体限值为多少？"
+    )
+
+    assert plan.targets == (
+        "车辆外部运行噪声测试条件",
+        "车辆外部运行噪声限值",
+    )
+
+
+def test_expands_external_vehicle_noise_with_measurement_terms_not_gold_values():
+    variants = focused_query_variants(
+        ["车辆外部运行噪声测试条件", "车辆外部运行噪声限值"]
+    )
+
+    assert variants == [
+        "列车 车外 连续等效噪声 测量 运行速度 测点 距轨道中心 距轨面高度",
+        "列车 车外 连续等效噪声 不应大于",
+    ]
+    assert "80" not in " ".join(variants)
+
+
+def test_keeps_shared_multi_spec_comparison_as_one_scope_balancing_need():
+    plan = decompose_retrieval_plan(
+        "比较三份规范对主体结构或重要结构设计年限的直接规定，并说明50年条款的适用边界。"
+    )
+
+    assert plan.targets == ()

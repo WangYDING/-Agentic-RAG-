@@ -715,6 +715,7 @@ class AgentWorkflow:
                         and self._matches_focused_intent(candidate, focused_query)
                     ),
                     key=lambda candidate: (
+                        self._commentary_context_priority(candidate),
                         self._normative_occurrence_priority(
                             candidate, normative_occurrences
                         ),
@@ -781,6 +782,7 @@ class AgentWorkflow:
                         and self._matches_focused_intent(candidate, focused_query)
                     ),
                     key=lambda candidate: (
+                        self._commentary_context_priority(candidate),
                         self._normative_occurrence_priority(
                             candidate, normative_occurrences
                         ),
@@ -863,6 +865,24 @@ class AgentWorkflow:
         first_page = earliest.get((business_id, str(article_id)))
         return int(first_page is not None and page > first_page)
 
+    @staticmethod
+    def _commentary_context_priority(candidate: dict) -> int:
+        """Prefer a direct provision over a commentary paragraph repeating it.
+
+        Commentary remains eligible evidence.  This tie-breaker only affects the
+        initial evidence choice when both candidates already match the same
+        focused retrieval target.
+        """
+        text = str(candidate.get("text") or "").strip()
+        article_id = re.escape(str(candidate.get("article_id") or ""))
+        if article_id:
+            text = re.sub(rf"^{article_id}\s*", "", text, count=1)
+        return int(
+            bool(
+                re.match(r"^(?:条文说明|本条(?:文)?|第\s*[一二三四五六七八九十百\d]+\s*款)", text)
+            )
+        )
+
     def _select_scope_balance(
         self,
         query: str,
@@ -874,14 +894,19 @@ class AgentWorkflow:
         preferred: list[dict],
     ) -> list[dict]:
         """Keep the best available evidence for every explicitly compared scope."""
+        focus_query = self._scope_balance_focus_query(query)
         ranked = self._rerank_with_cache(
-            query, candidates, top_n=len(candidates), score_cache=score_cache
+            focus_query, candidates, top_n=len(candidates), score_cache=score_cache
         )
         rank_positions = {
             chunk_identity(candidate): index for index, candidate in enumerate(ranked)
         }
         selected = []
         seen = set()
+        selected_articles: dict[str, set[str]] = {
+            business_id: set() for business_id in business_ids
+        }
+        normative_occurrences = self._normative_article_occurrences(candidates)
         for business_id in business_ids:
             scoped = (
                 item
@@ -893,7 +918,11 @@ class AgentWorkflow:
             candidate = min(
                 scoped,
                 key=lambda item: (
-                    -self._focused_overlap_score(item, query),
+                    self._commentary_context_priority(item),
+                    self._normative_occurrence_priority(
+                        item, normative_occurrences
+                    ),
+                    -self._focused_overlap_score(item, focus_query),
                     rank_positions[chunk_identity(item)],
                 ),
                 default=None,
@@ -901,6 +930,35 @@ class AgentWorkflow:
             if candidate is not None and len(selected) < top_n:
                 seen.add(chunk_identity(candidate))
                 selected.append(candidate)
+                if candidate.get("article_id"):
+                    selected_articles[business_id].add(candidate["article_id"])
+        # A comparison request commonly needs both the principal rule and its
+        # boundary clause. Before allowing repeated chunks from one provision,
+        # give every explicit scope one chance to contribute a second distinct
+        # article within the existing request evidence limit.
+        for business_id in business_ids:
+            if len(selected) >= top_n:
+                break
+            candidate = next(
+                (
+                    item
+                    for item in ranked
+                    if f"{item.get('spec_id')}@{item.get('edition_id')}"
+                    == business_id
+                    and chunk_identity(item) not in seen
+                    and (
+                        not item.get("article_id")
+                        or item.get("article_id")
+                        not in selected_articles[business_id]
+                    )
+                ),
+                None,
+            )
+            if candidate is not None:
+                seen.add(chunk_identity(candidate))
+                selected.append(candidate)
+                if candidate.get("article_id"):
+                    selected_articles[business_id].add(candidate["article_id"])
         for candidate in [*preferred, *ranked]:
             if len(selected) >= top_n:
                 break
@@ -909,6 +967,11 @@ class AgentWorkflow:
                 seen.add(identity)
                 selected.append(candidate)
         return selected
+
+    @staticmethod
+    def _scope_balance_focus_query(query: str) -> str:
+        match = re.search(r"对(.+?)的直接规定", query)
+        return match.group(1) if match else query
 
     @staticmethod
     def _requests_per_scope_answer(query: str) -> bool:

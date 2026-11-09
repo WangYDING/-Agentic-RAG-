@@ -1,11 +1,24 @@
 {
   "schema_version": 1,
   "dataset_id": "phase1-cross-spec-independent-v2",
-  "status": "frozen_before_first_candidate_run",
+  "version": "1.0-first-run-demoted",
+  "role": "development",
+  "data_format": "phase1_scope",
+  "status": "demoted",
+  "original_freeze_status": "frozen_before_first_candidate_run",
+  "data_file": "phase1_cross_spec_independent_v2.jsonl",
+  "sha256": "6532a7f0a67aaa793ee165378db1f5c6e105b8740adf1a18e5010f0b658541f7",
   "frozen_at": "2026-11-07T12:40:00+08:00",
   "dataset_path": "eval/datasets/phase1_cross_spec_independent_v2.jsonl",
   "dataset_sha256": "6532a7f0a67aaa793ee165378db1f5c6e105b8740adf1a18e5010f0b658541f7",
   "count": 27,
+  "type_distribution": {
+    "clarify_scope": 1,
+    "cross_spec_numeric": 6,
+    "evidence_insufficient": 2,
+    "single_spec_conditions": 1,
+    "single_spec_numeric": 17
+  },
   "distribution": {
     "answerable": 24,
     "clarify_scope": 1,

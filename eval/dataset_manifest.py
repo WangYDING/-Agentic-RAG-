@@ -47,6 +47,23 @@ def validate_manifest(path):
             if item["expected_decision"] not in {"sufficient", "insufficient"} or not isinstance(item["evidence"], list):
                 raise ValueError("invalid sufficiency evidence bundle")
         distribution = dict(Counter(x["case_type"] for x in examples))
+    elif data_format == "phase1_scope":
+        examples = [
+            json.loads(line)
+            for line in data_path.read_text(encoding="utf-8").splitlines()
+            if line.strip()
+        ]
+        ids = [item.get("id") for item in examples]
+        if any(not item_id for item_id in ids) or len(ids) != len(set(ids)):
+            raise ValueError("invalid or duplicate phase1 scope IDs")
+        for item in examples:
+            if not isinstance(item.get("requested_scope"), dict):
+                raise ValueError("phase1 scope case missing requested_scope")
+            if item.get("expected_behavior") not in {
+                "answer", "clarify_scope", "evidence_insufficient", "refuse"
+            }:
+                raise ValueError("invalid phase1 expected behavior")
+        distribution = dict(Counter(x["category"] for x in examples))
     else:
         raise ValueError("unknown dataset data_format")
     if len(examples) != manifest["count"]:
