@@ -119,8 +119,11 @@ JSON 格式：
                 decision = self._normalize_distributed_performance_requirements(
                     question, evidences, decision
                 )
-                return self._normalize_non_cartesian_enumeration(
+                decision = self._normalize_non_cartesian_enumeration(
                     question, evidences, decision
+                )
+                return self._normalize_cross_spec_asymmetry(
+                    question, evidences, decision, scope_business_ids
                 )
             except (AttributeError, IndexError, TypeError, ValueError, json.JSONDecodeError) as exc:
                 last_error = exc
@@ -205,6 +208,44 @@ JSON 格式：
             [evidence.evidence_id for evidence in evidences],
             [],
             "问题询问条文实际规定，不要求场景与对象的全组合；完整条文已覆盖全部场景词和对象词。",
+        )
+
+    @staticmethod
+    def _normalize_cross_spec_asymmetry(
+        question: str,
+        evidences: list[Evidence],
+        decision: SufficiencyDecision,
+        scope_business_ids: tuple[str, ...],
+    ) -> SufficiencyDecision:
+        """Allow a cautious asymmetric comparison when every scope has related evidence."""
+        if (
+            decision.decision != "insufficient"
+            or len(scope_business_ids) < 2
+            or not re.search(r"(?:比较|差异|不同)", question)
+            or re.search(r"(?:每份|各份|均需|必须).{0,8}(?:逐项|每项|全部)", question)
+        ):
+            return decision
+        query_terms = {
+            question[index : index + 2]
+            for index in range(max(0, len(question) - 1))
+            if re.fullmatch(r"[\u4e00-\u9fff]{2}", question[index : index + 2])
+        }
+        supporting = []
+        for business_id in scope_business_ids:
+            scoped = [
+                evidence
+                for evidence in evidences
+                if f"{evidence.spec_id}@{evidence.edition_id}" == business_id
+                and sum(term in evidence.text for term in query_terms) >= 2
+            ]
+            if not scoped:
+                return decision
+            supporting.extend(item.evidence_id for item in scoped)
+        return SufficiencyDecision(
+            "sufficient",
+            list(dict.fromkeys(supporting)),
+            [],
+            "每个绑定规范均有相关适用证据；比较应按实际规定非对称陈述，不要求每份规范覆盖全部组合。",
         )
 
     @staticmethod

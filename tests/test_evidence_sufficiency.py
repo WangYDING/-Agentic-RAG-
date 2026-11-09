@@ -183,6 +183,60 @@ class EvidenceSufficiencyGraderTest(unittest.TestCase):
 
         self.assertEqual(normalized.decision, "insufficient")
 
+    def test_cross_spec_comparison_allows_supported_asymmetry(self):
+        decision = EvidenceSufficiencyGrader._parse(
+            json.dumps({
+                "decision": "insufficient",
+                "supported_evidence_ids": ["E1", "E2"],
+                "missing_requirements": ["DB11机械通风客室风量"],
+                "reason": "模型要求形成对称矩阵。",
+            }),
+            {"E1", "E2"},
+        )
+        evidences = [
+            Evidence(
+                "E1", "客室空调新风12，紧急通风8，司机室新风30。",
+                "a.pdf", 1, 1, 1, spec_id="cn.a", edition_id="2025",
+            ),
+            Evidence(
+                "E2", "客室机械通风20，空调新风10，司机室新风30。",
+                "b.pdf", 1, 1, 2, spec_id="cn.b", edition_id="2022",
+            ),
+        ]
+
+        normalized = EvidenceSufficiencyGrader._normalize_cross_spec_asymmetry(
+            "比较两份规范对客室机械通风、空调新风和司机室新风的数值差异",
+            evidences,
+            decision,
+            ("cn.a@2025", "cn.b@2022"),
+        )
+
+        self.assertEqual(normalized.decision, "sufficient")
+
+    def test_cross_spec_comparison_with_unrepresented_scope_remains_insufficient(self):
+        decision = EvidenceSufficiencyGrader._parse(
+            json.dumps({
+                "decision": "insufficient",
+                "supported_evidence_ids": ["E1"],
+                "missing_requirements": ["第二份规范的全部相关规定"],
+                "reason": "第二份规范没有相关证据。",
+            }),
+            {"E1"},
+        )
+        evidences = [Evidence(
+            "E1", "客室空调新风12。", "a.pdf", 1, 1, 1,
+            spec_id="cn.a", edition_id="2025",
+        )]
+
+        normalized = EvidenceSufficiencyGrader._normalize_cross_spec_asymmetry(
+            "比较两份规范的客室新风差异",
+            evidences,
+            decision,
+            ("cn.a@2025", "cn.b@2022"),
+        )
+
+        self.assertEqual(normalized.decision, "insufficient")
+
     def test_applicable_enumeration_can_cover_a_broader_category_name(self):
         evidence = Evidence(
             "E1",
