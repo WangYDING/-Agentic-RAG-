@@ -354,24 +354,40 @@ class AgentWorkflowTest(unittest.TestCase):
         self.assertEqual(len(selected), 3)
 
     def test_two_insufficient_grades_refuse_without_generator(self):
-        response = self.build([("insufficient", ["cost"]), ("insufficient", ["project cost"])]).run("question")
+        response = self.build([
+            ("insufficient", ["cost"]),
+            ("insufficient", ["project cost"]),
+            ("insufficient", ["confirmed project cost"]),
+        ]).run("question")
 
         self.assertEqual(response.state.retry_count, 1)
         self.assertEqual(response.state.final_action, "refuse")
         self.assertEqual(response.result_type, "refuse")
         self.assertTrue(response.answer.startswith(REFUSAL_MESSAGE))
-        self.assertIn("project cost", response.answer)
+        self.assertIn("confirmed project cost", response.answer)
         self.assertEqual(self.generator.calls, [])
         self.assertEqual(len(self.retriever.calls), 2)
-        self.assertEqual(len(self.grader.calls), 2)
+        self.assertEqual(len(self.grader.calls), 3)
         self.assertEqual(
             [item["step"] for item in response.state.trace],
             [
                 "retrieve", "grade", "parse_evidence_requirements", "retry",
                 "retrieve", "retain_article_groups", "verify_final_evidence_context",
-                "grade", "refuse",
+                "grade", "confirm_grade", "refuse",
             ],
         )
+
+    def test_confirmation_grade_recovers_stochastic_false_refusal(self):
+        response = self.build([
+            ("insufficient", ["facet"]),
+            ("insufficient", ["invented metric"]),
+            ("sufficient", []),
+        ]).run("question")
+
+        self.assertEqual(response.result_type, "answer")
+        self.assertEqual(len(self.grader.calls), 3)
+        self.assertIn("confirm_grade", [item["step"] for item in response.state.trace])
+        self.assertEqual(len(self.generator.calls), 1)
 
     def test_invalid_citation_is_blocked_as_error(self):
         workflow = self.build([("sufficient", [])])

@@ -214,6 +214,24 @@ class AgentWorkflow:
         )
         if second_decision.decision == "sufficient":
             return self._answer(state, budget)
+        with self._stage("grader"):
+            confirmation = self._call_with_budget(
+                self.grader.grade,
+                state.original_query,
+                state.evidences,
+                budget=budget,
+                scope_business_ids=state.query_scope,
+            )
+        state.trace.append(
+            {
+                "step": "confirm_grade",
+                "decision": confirmation.decision,
+                "missing_requirements": list(confirmation.missing_requirements),
+            }
+        )
+        state.missing_requirements = list(confirmation.missing_requirements)
+        if confirmation.decision == "sufficient":
+            return self._answer(state, budget)
         return self._refuse(state)
 
     def _retrieve_rerank_grade(
