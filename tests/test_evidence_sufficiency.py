@@ -131,6 +131,58 @@ class EvidenceSufficiencyGraderTest(unittest.TestCase):
 
         self.assertEqual(normalized.decision, "insufficient")
 
+    def test_open_provisions_query_does_not_require_cartesian_product(self):
+        decision = EvidenceSufficiencyGrader._parse(
+            json.dumps({
+                "decision": "insufficient",
+                "supported_evidence_ids": ["E1"],
+                "missing_requirements": ["机械通风时司机室人均风量的规定"],
+                "reason": "模型构造了场景对象全组合。",
+            }),
+            {"E1"},
+        )
+        evidence = Evidence(
+            "E1",
+            (
+                "客室及司机室应根据需要设置通风、空调设施，并应符合下列规定："
+                "机械通风时客室人均供风量不应少于20m³/h；"
+                "空调时客室人均新风量不应少于10m³/h，司机室不应少于30m³/h。"
+            ),
+            "spec.pdf", 20, 20, 1,
+        )
+
+        normalized = EvidenceSufficiencyGrader._normalize_non_cartesian_enumeration(
+            "对车辆机械通风、空调时客室及司机室人均风量有什么规定？",
+            [evidence],
+            decision,
+        )
+
+        self.assertEqual(normalized.decision, "sufficient")
+
+    def test_explicit_per_combination_query_keeps_missing_combination(self):
+        decision = EvidenceSufficiencyGrader._parse(
+            json.dumps({
+                "decision": "insufficient",
+                "supported_evidence_ids": ["E1"],
+                "missing_requirements": ["机械通风时司机室人均风量"],
+                "reason": "明确要求的组合缺失。",
+            }),
+            {"E1"},
+        )
+        evidence = Evidence(
+            "E1",
+            "客室及司机室通风、空调应符合下列规定：机械通风时客室20；空调时客室10、司机室30。",
+            "spec.pdf", 20, 20, 1,
+        )
+
+        normalized = EvidenceSufficiencyGrader._normalize_non_cartesian_enumeration(
+            "机械通风、空调时客室及司机室各组合的风量分别是多少？",
+            [evidence],
+            decision,
+        )
+
+        self.assertEqual(normalized.decision, "insufficient")
+
     def test_applicable_enumeration_can_cover_a_broader_category_name(self):
         evidence = Evidence(
             "E1",

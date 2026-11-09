@@ -116,7 +116,10 @@ JSON 格式：
             try:
                 content = response.choices[0].message.content
                 decision = self._parse(content, available_ids)
-                return self._normalize_distributed_performance_requirements(
+                decision = self._normalize_distributed_performance_requirements(
+                    question, evidences, decision
+                )
+                return self._normalize_non_cartesian_enumeration(
                     question, evidences, decision
                 )
             except (AttributeError, IndexError, TypeError, ValueError, json.JSONDecodeError) as exc:
@@ -169,6 +172,39 @@ JSON 格式：
             list(dict.fromkeys(supporting)),
             [],
             "共享的‘性能’限定不逐项生成额外指标；证据已给出各并列对象的规范要求。",
+        )
+
+    @staticmethod
+    def _normalize_non_cartesian_enumeration(
+        question: str,
+        evidences: list[Evidence],
+        decision: SufficiencyDecision,
+    ) -> SufficiencyDecision:
+        """Do not invent a scenario-by-object matrix for an open provisions query."""
+        if (
+            decision.decision != "insufficient"
+            or "有什么规定" not in question
+            or "分别" in question
+            or not decision.missing_requirements
+        ):
+            return decision
+        match = re.search(
+            r"(?:对)?(?:车辆)?([^、，]{2,12})、([^时]{2,12})时([^及]{2,12})及([^人]{2,12})人均[^？?]*有什么规定",
+            question,
+        )
+        if not match:
+            return decision
+        terms = [term.strip() for term in match.groups()]
+        context = "\n".join(evidence.text for evidence in evidences)
+        if not all(term and term in context for term in terms):
+            return decision
+        if not re.search(r"(?:符合下列规定|下列规定)", context):
+            return decision
+        return SufficiencyDecision(
+            "sufficient",
+            [evidence.evidence_id for evidence in evidences],
+            [],
+            "问题询问条文实际规定，不要求场景与对象的全组合；完整条文已覆盖全部场景词和对象词。",
         )
 
     @staticmethod
