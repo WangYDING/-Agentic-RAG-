@@ -122,8 +122,11 @@ JSON 格式：
                 decision = self._normalize_non_cartesian_enumeration(
                     question, evidences, decision
                 )
-                return self._normalize_cross_spec_asymmetry(
+                decision = self._normalize_cross_spec_asymmetry(
                     question, evidences, decision, scope_business_ids
+                )
+                return self._normalize_unasked_numeric_detail(
+                    question, evidences, decision
                 )
             except (AttributeError, IndexError, TypeError, ValueError, json.JSONDecodeError) as exc:
                 last_error = exc
@@ -246,6 +249,37 @@ JSON 格式：
             list(dict.fromkeys(supporting)),
             [],
             "每个绑定规范均有相关适用证据；比较应按实际规定非对称陈述，不要求每份规范覆盖全部组合。",
+        )
+
+    @staticmethod
+    def _normalize_unasked_numeric_detail(
+        question: str,
+        evidences: list[Evidence],
+        decision: SufficiencyDecision,
+    ) -> SufficiencyDecision:
+        """Reject model-added metrics when an open requirements query has the rule."""
+        if (
+            decision.decision != "insufficient"
+            or not re.search(r"有哪些.+要求", question)
+            or re.search(r"(?:多少|数值|限值|具体尺寸|具体净距)", question)
+        ):
+            return decision
+        context = "\n".join(evidence.text for evidence in evidences)
+        if not re.search(r"(?:符合下列规定|应符合下列规定)", context):
+            return decision
+        added_metric = re.compile(
+            r"(?:证据仅.{0,80}(?:未给出|没有)|未给出|没有).{0,30}"
+            r"(?:数值|指标|性能|净距|尺寸)"
+        )
+        if not decision.missing_requirements or not all(
+            added_metric.search(item) for item in decision.missing_requirements
+        ):
+            return decision
+        return SufficiencyDecision(
+            "sufficient",
+            [evidence.evidence_id for evidence in evidences],
+            [],
+            "问题只问现有要求，完整条文已给出适用规定；不得追加条文未规定的数值或性能指标。",
         )
 
     @staticmethod

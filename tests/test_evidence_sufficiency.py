@@ -237,6 +237,53 @@ class EvidenceSufficiencyGraderTest(unittest.TestCase):
 
         self.assertEqual(normalized.decision, "insufficient")
 
+    def test_open_requirements_query_does_not_require_unstated_numeric_gap(self):
+        decision = EvidenceSufficiencyGrader._parse(
+            json.dumps({
+                "decision": "insufficient",
+                "supported_evidence_ids": ["E1"],
+                "missing_requirements": [
+                    "车库大门净距要求（证据仅规定大门高度按接触网限界确定，未给出净距数值）"
+                ],
+                "reason": "模型增加了数值要求。",
+            }),
+            {"E1"},
+        )
+        evidence = Evidence(
+            "E1",
+            "建筑限界应符合下列规定：车库大门高度应按接触网安装高度限界确定。",
+            "spec.pdf", 42, 42, 1,
+        )
+
+        normalized = EvidenceSufficiencyGrader._normalize_unasked_numeric_detail(
+            "库内平台、车库大门和信号设备有哪些净距要求？",
+            [evidence],
+            decision,
+        )
+
+        self.assertEqual(normalized.decision, "sufficient")
+
+    def test_explicit_numeric_question_is_not_normalized(self):
+        decision = EvidenceSufficiencyGrader._parse(
+            json.dumps({
+                "decision": "insufficient",
+                "supported_evidence_ids": ["E1"],
+                "missing_requirements": ["车库大门未给出具体净距数值"],
+                "reason": "明确询问的数值缺失。",
+            }),
+            {"E1"},
+        )
+        evidence = Evidence(
+            "E1", "建筑限界应符合下列规定：大门高度按接触网限界确定。",
+            "spec.pdf", 42, 42, 1,
+        )
+
+        normalized = EvidenceSufficiencyGrader._normalize_unasked_numeric_detail(
+            "车库大门的具体净距数值和限值是多少？", [evidence], decision
+        )
+
+        self.assertEqual(normalized.decision, "insufficient")
+
     def test_applicable_enumeration_can_cover_a_broader_category_name(self):
         evidence = Evidence(
             "E1",
