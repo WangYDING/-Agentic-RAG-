@@ -105,6 +105,8 @@ class FakeGenerator:
         if budget is not None:
             budget.consume()
         self.calls.append((query, list(evidences), list(chat_history)))
+        if isinstance(self.answer, list):
+            return self.answer.pop(0)
         return self.answer
 
 
@@ -399,6 +401,18 @@ class AgentWorkflowTest(unittest.TestCase):
         self.assertEqual(response.error_code, "INVALID_CITATION")
         self.assertEqual(response.state.final_action, "error")
         self.assertNotIn("answer [E99]", response.answer)
+        self.assertEqual(len(workflow.generator.calls), 2)
+
+    def test_invalid_citation_gets_one_generation_retry(self):
+        workflow = self.build([("sufficient", [])])
+        workflow.generator.answer = ["answer [E99]", "corrected [E1]"]
+
+        response = workflow.run("question")
+
+        self.assertEqual(response.result_type, "answer")
+        self.assertEqual(response.answer, "corrected [E1]")
+        self.assertEqual(len(workflow.generator.calls), 2)
+        self.assertIn("citation_retry", [item["step"] for item in response.state.trace])
 
     def test_retry_limit_cannot_exceed_one(self):
         with self.assertRaisesRegex(ValueError, "max_retries=1"):

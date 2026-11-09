@@ -1227,6 +1227,24 @@ class AgentWorkflow:
         state.citation_validation = validate_citations(answer, state.evidences)
         state.trace.append({"step": "citation_validation", "valid": state.citation_validation.valid})
         if not state.citation_validation.valid:
+            with self._stage("generation"):
+                answer = self._call_with_budget(
+                    self.generator.generate_answer,
+                    query=state.original_query,
+                    evidences=state.evidences,
+                    chat_history=[],
+                    budget=budget,
+                    scope_business_ids=state.query_scope,
+                )
+            state.trace.append({"step": "citation_retry"})
+            state.citation_validation = validate_citations(answer, state.evidences)
+            state.trace.append(
+                {
+                    "step": "citation_validation",
+                    "valid": state.citation_validation.valid,
+                }
+            )
+        if not state.citation_validation.valid:
             state.final_action = "error"
             state.trace.append({
                 "step": "error",
