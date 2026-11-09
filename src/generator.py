@@ -1,3 +1,5 @@
+import re
+
 from openai import OpenAI
 
 from src.evidence import Evidence, build_evidence_context
@@ -127,4 +129,33 @@ class Generator:
             raise InvalidModelResponseError("missing completion content") from exc
         if not isinstance(content, str) or not content.strip():
             raise InvalidModelResponseError("empty completion content")
-        return content.strip()
+        return self._preserve_open_list_parallel_requirements(
+            query, evidences, content.strip()
+        )
+
+    @staticmethod
+    def _preserve_open_list_parallel_requirements(
+        query: str, evidences: list[Evidence], answer: str
+    ) -> str:
+        """Append omitted, directly quoted parallel rules for open enumerations."""
+        if not re.search(r"等(?:结构|措施|要求|项目|内容)", query):
+            return answer
+        supplements = []
+        for evidence in evidences:
+            text = " ".join(str(evidence.text).split())
+            for clause in re.split(r"[；。]", text):
+                clause = clause.strip(" ；。")
+                if len(clause) < 10 or not re.search(r"(?:不应|不得|应|宜|可)", clause):
+                    continue
+                subject = re.split(r"(?:不应|不得|应|宜|可)", clause, maxsplit=1)[0]
+                subject = re.sub(r"^\d+(?:\.\d+)+\s*", "", subject)
+                anchors = [
+                    item.strip("的结构防水等级")
+                    for item in re.split(r"[、，,]", subject)
+                    if len(item.strip("的结构防水等级")) >= 4
+                ]
+                if anchors and not any(anchor in answer for anchor in anchors):
+                    supplements.append(f"同条文还规定：{clause} [{evidence.evidence_id}]。")
+        if not supplements:
+            return answer
+        return answer.rstrip() + "\n\n" + "\n".join(dict.fromkeys(supplements))
