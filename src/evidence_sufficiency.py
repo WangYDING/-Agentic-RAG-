@@ -1,4 +1,5 @@
 import json
+import re
 from dataclasses import dataclass
 
 from openai import OpenAI
@@ -114,7 +115,10 @@ JSON 格式：
             active_budget.record_usage(response)
             try:
                 content = response.choices[0].message.content
-                return self._parse(content, available_ids)
+                decision = self._parse(content, available_ids)
+                return self._normalize_distributed_performance_requirements(
+                    question, evidences, decision
+                )
             except (AttributeError, IndexError, TypeError, ValueError, json.JSONDecodeError) as exc:
                 last_error = exc
                 if correction_attempt == 0:
@@ -129,6 +133,43 @@ JSON 格式：
                         {"role": "user", "content": "上一响应不符合 JSON 结构或字段约束。请仅按规定结构重新输出一次。"},
                     ]
         raise InvalidModelResponseError(str(last_error)) from last_error
+
+    @staticmethod
+    def _normalize_distributed_performance_requirements(
+        question: str,
+        evidences: list[Evidence],
+        decision: SufficiencyDecision,
+    ) -> SufficiencyDecision:
+        """Do not distribute a shared performance qualifier to every list item."""
+        if (
+            decision.decision != "insufficient"
+            or "有哪些配置与性能要求" not in question
+            or not decision.missing_requirements
+            or not all(item.endswith("的性能要求") for item in decision.missing_requirements)
+        ):
+            return decision
+        supporting = []
+        for missing in decision.missing_requirements:
+            subject = missing.removesuffix("的性能要求")
+            bigrams = {
+                subject[index : index + 2]
+                for index in range(max(0, len(subject) - 1))
+            }
+            matches = [
+                evidence
+                for evidence in evidences
+                if sum(bigram in evidence.text for bigram in bigrams) >= 2
+                and re.search(r"(?:应|不应|不得|可|宜)", evidence.text)
+            ]
+            if not matches:
+                return decision
+            supporting.extend(item.evidence_id for item in matches)
+        return SufficiencyDecision(
+            "sufficient",
+            list(dict.fromkeys(supporting)),
+            [],
+            "共享的‘性能’限定不逐项生成额外指标；证据已给出各并列对象的规范要求。",
+        )
 
     @staticmethod
     def _parse(content: str, available_ids: set[str]) -> SufficiencyDecision:

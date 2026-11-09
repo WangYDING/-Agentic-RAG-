@@ -83,6 +83,54 @@ class EvidenceSufficiencyGraderTest(unittest.TestCase):
         self.assertIn("不得自行增加数值指标、性能参数或验收条件", prompt)
         self.assertIn("适用证据没有为某对象规定额外指标", prompt)
 
+    def test_shared_performance_qualifier_is_not_distributed_to_every_list_item(self):
+        evidence = Evidence(
+            "E1",
+            (
+                "司机室前端应装设可远近光变换的前照灯，照度不应小于2 lx。"
+                "列车尾端应设有红色防护灯。"
+                "车辆侧壁可设置显示车门开闭、制动缸缓解等指示灯。"
+            ),
+            "spec.pdf", 39, 39, 569, article_id="5.6.9",
+        )
+        completions = FakeCompletions({
+            "decision": "insufficient",
+            "supported_evidence_ids": ["E1"],
+            "missing_requirements": ["列车尾灯的性能要求", "车辆侧壁指示灯的性能要求"],
+            "reason": "模型把共享限定分配到了每个对象。",
+        })
+        client = SimpleNamespace(chat=SimpleNamespace(completions=completions))
+
+        result = EvidenceSufficiencyGrader(client=client, model="test").grade(
+            "司机室前照灯、列车尾灯和车辆侧壁指示灯有哪些配置与性能要求？",
+            [evidence],
+        )
+
+        self.assertEqual(result.decision, "sufficient")
+        self.assertEqual(result.missing_requirements, [])
+
+    def test_explicit_missing_object_requirement_remains_insufficient(self):
+        decision = EvidenceSufficiencyGrader._parse(
+            json.dumps({
+                "decision": "insufficient",
+                "supported_evidence_ids": ["E1"],
+                "missing_requirements": ["列车尾灯的性能要求"],
+                "reason": "证据没有列车尾灯。",
+            }),
+            {"E1"},
+        )
+        evidence = Evidence(
+            "E1", "司机室前端应装设前照灯。", "spec.pdf", 39, 39, 569
+        )
+
+        normalized = EvidenceSufficiencyGrader._normalize_distributed_performance_requirements(
+            "司机室前照灯和列车尾灯有哪些配置与性能要求？",
+            [evidence],
+            decision,
+        )
+
+        self.assertEqual(normalized.decision, "insufficient")
+
     def test_applicable_enumeration_can_cover_a_broader_category_name(self):
         evidence = Evidence(
             "E1",
