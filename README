@@ -1,396 +1,86 @@
-# 面向城市轨道交通工程规范的可追溯 Agentic RAG 问答与条文核验系统
+# 城市轨道交通工程规范查询 RAG
 
-工程规范问答不同于普通 FAQ：答案不仅要相关，还要能定位到具体页码、条文或表格，并在证据不完整时停止作答。固定窗口可能破坏条文边界，表格中的数值关系也容易丢失；高相关检索结果还可能只覆盖问题的一部分，直接交给大模型仍会产生不完整回答。
+本项目面向工程规范的**可追溯查询**：用户指定规范及版本，系统检索相关条文或表格，在证据足以覆盖问题时生成带出处的答案；证据不足时说明缺口并拒答。当前工作范围是查询，不包含设计文件合规审查。
 
-本项目围绕《城市轨道交通工程设计标准》构建可追溯 RAG：从 page/article/table-aware ingestion、持久化索引和 Hybrid Retrieval 出发，通过 CrossEncoder 获得 Top Evidence，再由 Evidence Sufficiency Grader 判断证据能否完整回答问题。证据不足时，系统最多进行一次由缺失信息驱动的 targeted retry；第二次仍不足则拒答，而不是用模型自身知识补齐。
+## 当前状态（2026-11-09）
 
-项目重点不是堆叠组件，而是通过 benchmark 和 failure analysis 推动架构演化：先定位 Dense candidate recall 瓶颈，再验证 BM25 与 Dense 的互补性，最后用 evidence sufficiency 区分“相关”与“足够回答”。
+- 阶段 0 的单 PDF 查询入口继续可用。阶段 1 已实现三份规范的版本化目录、经核验的 OCR 派生文本、多文档知识库快照、限定范围的检索和带规范版本、条文、PDF 页码的引用。
+- 当前开发基线的运行代码为 `dad052705e11068e8da1b24090742222de666c38`，知识库快照为 `65b3ccfc96a372e54b1c7ecc5ba7f622788d71beafee4206a0298ed10a9fb859`。本 README 是后续文档更新，不改变该被测代码。
+- 已见题完整回归**限制通过**：阶段 0 的 20 题为 16 回答、4 正确拒答；阶段 1 旧 30 题与已见 27 题分别 30/30、27/27 正常完成，范围越界和非法引用均为 0。30 题曾有一轮模型服务超时，固定版本的下一轮整套运行正常完成。
+- 两次独立验收均未通过预先冻结的质量门槛。最新一次新 27 题首次运行的完整答案和最终必要条文覆盖均为 `21/24`，低于 `22/24`。修复后的 27 题已经是已见回归，不能替代新题质量结论。
+- 已知问题：`P1-V2-015` 的答案会附带多余相邻条文，并使用不准确的“同条文”措辞；模型服务仍可能波动。当前基线不标为独立质量验收通过版。
 
-### 结果速览
+详细结果：[阶段 1 已见回归收尾](docs/PHASE1_FOUR_REPAIRS_AND_SEEN_REGRESSION_CLOSEOUT_2026-11-09.md)、[第二次独立验收](docs/PHASE1_INDEPENDENT_V2_ACCEPTANCE_2026-11-07.md)、[首次独立验收](docs/PHASE1_INDEPENDENT_ACCEPTANCE_2026-11-06.md)。下一步是建设面向整个 RAG 系统的评测集；开发/回归题与首次运行前冻结的新题应分别报告。历史单规范实验和架构演进保留在 `docs/` 与 `eval/reports/`，不作为当前版本的独立成绩。
 
-| 阶段 | 结果 |
-|---|---:|
-| Dense baseline Recall@10（dev） | 0.8873 |
-| Hybrid RRF Recall@10（dev） | 0.9608 |
-| Hybrid + Reranker MRR@10（dev） | 0.8922 |
-| 相比 Dense50 的 rerank latency（dev） | 约降低 64% |
-| Hard-negative 正确拒答（held-out） | 4 / 4 |
-| Answerable false refusal（held-out） | 2 / 16（12.5%） |
-| Generated answers citation validation（held-out） | 14 / 14 |
+## 文档与能力边界
 
-`dev` 指标用于架构开发与选择；held-out `test_v1` 在系统和数据冻结后仅运行一次，未用于后续调参。
+当前知识库快照包含：
 
-## 核心能力
+| 规范版本 | 文档 | 摄取方式 |
+| --- | --- | --- |
+| `cn.beijing.db11t995@2025` | DB11/T 995-2025《城市轨道交通工程设计标准》 | 原生 PDF 解析 |
+| `cn.gb55033@2022` | GB 55033-2022《城市轨道交通工程项目规范》 | 经核验 OCR；表 3.0.4 有审校过的行列结构 |
+| `cn.gb50157@2013` | GB 50157-2013《地铁设计规范》 | 经核验 OCR |
 
-- **结构化摄取**：保留页码、章节、条文、表格及文本偏移，支持 article-aware / table-aware chunks。
-- **持久化索引**：FAISS 索引配套 manifest、checksum 和 schema version。
-- **Hybrid Retrieval**：Dense Top10 与 BM25 Top10 合并、稳定 chunk identity 去重，再由 BGE CrossEncoder 重排。
-- **Evidence / Citation**：上下文携带稳定 Evidence ID 与 provenance，并校验引用编号和来源。
-- **Evidence Sufficiency**：只依据 question 与 supplied evidence 判断是否覆盖全部必要子要求。
-- **Bounded Agent**：`max_retries = 1`，由 `missing_requirements` 驱动有限重试，随后 answer 或 refuse。
-- **分层评测**：覆盖 retrieval、hard-negative refusal、evidence sufficiency 和冻结后的 held-out Agent test。
+目录记录官方来源、PDF 哈希、版本及适用限制。**检索命中不等于条文对具体项目适用**：例如 GB 50157-2013 有部分强制性条文被 GB 55033-2022 废止，冲突时需遵循后者；项目地点、线路和版本条件仍需核验。系统不会把“给定证据未找到直接规定”表述成“整份规范不存在规定”。
 
-## 系统架构
+实现包括：
 
-```mermaid
-flowchart TD
-    PDF["工程规范 PDF"] --> INGEST["Structured Ingestion<br/>page / article / table aware"]
-    INGEST --> CHUNKS["Structured Chunks<br/>provenance + metadata"]
-    CHUNKS --> INDEX["Persistent FAISS Index<br/>manifest + checksum"]
-    QUERY["User Query"] --> DENSE["Dense Top10"]
-    QUERY --> BM25["BM25 Top10"]
-    INDEX --> DENSE
-    INDEX --> BM25
-    DENSE --> UNION["Union / Dedup<br/>RRF metadata"]
-    BM25 --> UNION
-    UNION --> RERANK["CrossEncoder Rerank"]
-    RERANK --> TOP3["Top3 Evidence"]
-    TOP3 --> GRADE{"Evidence sufficient?"}
-    GRADE -->|sufficient| GENERATE["Generate Answer"]
-    GENERATE --> CITE["Citation Validate"]
-    CITE --> RETURN["Return"]
-    GRADE -->|insufficient| RETRY{"retry_count < 1?"}
-    RETRY -->|yes| REWRITE["Targeted Rewrite<br/>from missing_requirements"]
-    REWRITE --> RETRIEVE2["Retrieve + Merge + Rerank"]
-    RETRIEVE2 --> GRADE2{"Grade Again"}
-    GRADE2 -->|sufficient| GENERATE
-    GRADE2 -->|insufficient| REFUSE["Refuse"]
-```
+- Dense、BM25 和条文号检索，候选融合与 CrossEncoder 重排；多要求问题可在绑定的规范范围内分项检索。
+- 按规范、版本、条文保留证据身份；跨片段条文在请求证据上限内整体检查。一次针对缺失要求的补检，随后由证据充分性判断决定回答或拒答。
+- 知识库整组快照校验、原子发布、重启加载及回滚。单次请求绑定一个快照和查询范围，防止混用版本。
+- CLI/Web 共用 `answer`、`refuse`、`error` 展示契约和引用校验。引用编号及来源合法不自动证明答案事实正确，答案仍需内容审核。
 
-Agent workflow 没有自由 planner、无限循环或 Multi-Agent。状态记录 query、rewrite、retry count、evidence、sufficiency decision、missing requirements、final action 和结构化 trace。
+## 安装与运行
 
-> 当前边界：`src/agent_workflow.py` 实现上述 bounded Agent；`agent_demo.py` 与 Streamlit 入口均复用同一套 Hybrid Agent 编排。`main.py` 保留为基础 RAG CLI 演示入口。
-
-## 为什么不是普通 RAG
-
-### 1. 初始 baseline
-
-```text
-PDF → PyMuPDF → fixed-size chunks → BGE Dense → FAISS
-    → CrossEncoder → LLM
-```
-
-这一版本可以运行，但固定窗口可能跨越条文，表格语义容易丢失，来源 metadata 不足以支持可靠引用，也没有正式 benchmark、evidence sufficiency 或拒答机制。只要检索返回内容，系统就倾向于继续生成。
-
-### 2. Structured Ingestion
-
-摄取层随后改为 page-aware、chapter/article-aware 和 table-aware 解析，并为 chunk 保存 document、page、article、table、content type 与字符位置等 provenance。当前索引约包含 3,701 个 chunks，使用 schema v2 的 manifest/checksum 验证并持久化到 FAISS。
-
-这一步解决的是证据单元和可追溯性问题，而不是直接追求更高的单项检索分数。
-
-### 3. Retrieval Enhancement
-
-34 道 single-turn development retrieval cases 展示了架构演化的原因：
-
-| Dev 配置 | Recall@10 | MRR@10 | 平均 rerank latency |
-|---|---:|---:|---:|
-| Dense Top10 | 0.8873 | 0.7993 | - |
-| Dense Top10 + CrossEncoder | 0.8873 | 0.8676 | - |
-| Dense Top20 + CrossEncoder | 0.9461 | 0.8824 | 约 9.80s |
-| Dense Top50 + CrossEncoder | 0.9657 | 0.8922 | 约 17.84s |
-| BM25 Top10 | 0.9510 | 0.7888 | - |
-| Dense10 + BM25-10 RRF Top10 | 0.9608 | 0.8336 | - |
-| Hybrid union + CrossEncoder | 0.9510 | 0.8922 | 约 6.35s |
-
-CrossEncoder 将 Dense Top10 的 MRR@10 从 `0.7993` 提升到 `0.8676`，但 Recall@10 保持 `0.8873`：重排只能调整 candidate pool 内部顺序，不能补回未被 Dense 召回的证据。
-
-扩大 Dense pool 可以改善 recall，但成本增长明显。BM25 对条文编号、专有术语和精确数值形成了互补召回。最终 Hybrid 方案平均使用 `15.38` 个去重候选，在 MRR@10 上达到 Dense50 + CrossEncoder 的 `0.8922`，rerank latency 约降低 64%；其 Recall@10 为 `0.9510`，略低于 Dense50 的 `0.9657`，因此不能表述为全面超过 Dense50。
-
-## 为什么需要 Evidence Sufficiency
-
-CrossEncoder 判断 query 与 evidence 的相关性，而不是 evidence 是否覆盖问题的全部要求。扩展 hard-negative development benchmark 后，出现明显分数重叠：
-
-- Answerable Top1 rerank score 最低值：`0.959680`
-- Unanswerable Top1 rerank score 最高值：`0.999148`
-- 仅用 Top1 score 区分 answerability 的 AUROC：`0.8529`
-- 3 道 `partial_support` 的 Top1 分数全部高于 `0.994`
-
-“高度相关”仍可能只支持一半问题。单一 relevance threshold 会在 false accept 与 false refusal 之间产生明显冲突。
-
-因此项目增加 Evidence Sufficiency Grader。它只接收 question 与 supplied evidence，将问题拆成必要子要求；任一必要要求缺证据即返回 `insufficient`，并输出 `supported_evidence_ids`、`missing_requirements` 和 reason。19 道 sufficiency development set 包含 8 道 sufficient 与 11 道 insufficient：
-
-| Accuracy | FAR | FRR |
-|---:|---:|---:|
-| 1.0000 | 0.0000 | 0.0000 |
-
-这是小规模 development set 的结果，用于验证设计可行性，不代表生产环境能够 100% 泛化。
-
-## Bounded Agent Workflow
-
-Agent 的作用不是增加一个名称，而是根据 evidence state 做有限决策：
-
-1. Hybrid retrieve、dedup、CrossEncoder rerank，选择 Top3 evidence。
-2. Grader 判定 `sufficient` 时生成答案并校验引用。
-3. 判定 `insufficient` 时，将 `missing_requirements` 加入检索目标，最多 retry 一次。
-4. retry evidence 与原 evidence 按稳定 chunk identity 合并、去重并重新重排。
-5. 第二次仍 `insufficient` 时直接拒答，不调用 generator 生成事实答案。
-
-约束被显式写入状态机：`max_retries = 1`，无无限循环、无 Multi-Agent、无 memory planner、无任意工具调用。trace 只记录步骤与结构化决策，不暴露模型内部推理过程。
-
-## Final Held-out Evaluation
-
-开发集实验完成后，系统与测试数据被冻结，再运行 `test_v1` held-out evaluation。测试集包含 20 题：16 道 answerable 与 4 道 hard-negative unanswerable。
-
-### Agent decision
-
-| 指标 | 结果 |
-|---|---:|
-| 首轮 sufficient | 13 |
-| 首轮 insufficient / retry | 7 |
-| retry 后 sufficient | 1 |
-| retry 后仍 insufficient | 6 |
-| final answer | 14 |
-| final refuse | 6 |
-| False Accept | 0 |
-| False Refusal | 2 |
-| Hard-negative 正确拒答 | 4 / 4 |
-
-14 个 generated answers 的 citation validation 全部通过。这里的 citation validation 仅验证 Evidence ID、来源与 provenance 是否可解析合法，不等同于答案事实正确性。
-
-### Retrieval / evidence
-
-| 指标 | 结果 |
-|---|---:|
-| Initial HitRate@3 | 0.8750 |
-| Initial Recall@3 | 0.7727 |
-| Initial Recall@10 | 0.8182 |
-| Multi-evidence Top3 完整覆盖 | 1 / 3 |
-
-### Held-out failure cases
-
-- `MULTI-003`：缺少“地下车站主体耐火等级”证据，retry 后仍不足，最终错误拒答。
-- `AGENT-001`：缺少完整的运行安全监测能力证据，targeted retry 未补齐，最终错误拒答。
-- `MULTI-002`：grader 判为 sufficient，但 evidence 未覆盖“设备连续工作 24 小时”，生成答案明确缺少该部分，属于 evidence completeness 判断错误。
-
-测试结果之后没有修改系统逻辑、Prompt、retrieval 参数或 `test_v1` 数据。
-
-## Failure Analysis 与局限
-
-- **Multi-evidence recall 仍是主要瓶颈**：held-out test 的 Top3 完整覆盖仅 `1/3`，命中部分证据不代表可以完整回答。
-- **Targeted retry 能力有限**：Final test 共触发 7 次 retry。4 道 hard-negative 在第二轮仍证据不足并正确拒答；3 道 answerable retry case 中，1 道补齐证据后恢复回答，2 道因证据仍不足而错误拒答。对应 hard-negative false accept 为 `0/4`，answerable false refusal 为 `2/16（12.5%）`。
-- **Sufficiency 仍会误判**：development set 表现良好，但 held-out 的 `MULTI-002` 暴露了对部分支持证据的 false sufficient 风险。
-- **表格评测仍有结构边界**：正文条文 chunk 与 canonical table chunk 可能分别召回；同时要求 article/table 的 gold matcher 可能低估实际 coverage，text/table duplication 也会占用候选位。
-- **复杂版面不是 v1 重点**：公式、复杂图形、扫描件 OCR 与跨页复杂表格仍需要专门解析能力。
-- **知识范围有限**：当前核心实验基于单一城市轨道交通工程规范，尚未验证多规范版本冲突、跨文档引用与权限过滤。
-
-## Evaluation Design
-
-| Dataset | 用途 |
-|---|---|
-| `dev_v0` | 40 题开发集，其中34题用于 single-turn retrieval baseline 与 failure analysis |
-| `refusal_dev_v0` | 15 道 hard-negative，覆盖 missing fact、项目外部信息、当前/未来信息与 partial support |
-| `sufficiency_dev_v0` | 19 个固定 Top3 evidence bundles，用于验证 sufficient / insufficient 判定 |
-| `test_v1` | 冻结后的20题 held-out Agent test；系统冻结后运行，不用于调参或筛题 |
-
-评测报告保存在 `eval/reports/`。`test_v1` 运行后没有根据结果修改系统逻辑或测试数据。
-
-## 可复现安装与验证
-
-第一阶段只承诺 Windows 上的 Python `3.12`；本地验证使用 `Python 3.12.16`。`pyproject.toml` 声明允许范围，`uv.lock` 固定完整依赖版本。以下 uv 流程是唯一推荐安装方式。
-
-### 1. 按锁文件创建环境
-
-以下命令以 PowerShell 为例；它不会复用当前 Anaconda 环境：
+支持 Windows、Python 3.12。建议从仓库根目录使用锁文件创建环境：
 
 ```powershell
-# 首次安装 uv；已经能运行 uv 时可直接使用 uv 命令
 py -m pip install --user uv
-
-# 安装项目验证过的 Python 版本，并严格按 uv.lock 创建 .venv
-py -m uv python install 3.12
-py -m uv sync --locked --extra dev --python 3.12
-```
-
-不要用未带 `--locked` 的同步结果作为第一阶段验收依据。更新依赖声明后，先显式运行 `py -m uv lock --python 3.12`，审阅并提交新的 `uv.lock`，再重新执行锁定安装和测试。
-
-### 2. 三类测试
-
-默认验收只运行离线单元测试，不读取 API 密钥、不下载模型，也不调用收费服务：
-
-```powershell
-# 离线单元测试：状态转移、引用、指标、去重和配置校验
-.\.venv\Scripts\python.exe -m pytest -m "not integration and not model"
-
-# 本地集成测试：真实/临时 PDF 解析、FAISS 索引保存与加载
-.\.venv\Scripts\python.exe -m pytest -m integration
-
-# 真实模型 smoke test：首次运行会下载 BGE embedding 模型，必须显式执行
-.\.venv\Scripts\python.exe -m pytest -m model
-```
-
-完整 integration 结果需要 `data/raw/城市轨道交通工程设计标准.pdf`；该文件缺失时，与真实 PDF 相关的用例会明确显示为跳过，临时 PDF/FAISS 用例仍会执行。`model` 测试可能需要联网、磁盘空间和模型缓存，不属于默认 CI。
-
-真实 Agent/Grader 评测还需要有效的 OpenAI-compatible API 配置并可能产生费用。先复制配置文件并填写本地密钥（不要提交）：
-
-```powershell
+uv python install 3.12
+uv sync --locked --extra dev --python 3.12
 Copy-Item .env.example .env
 ```
 
-```dotenv
-DEEPSEEK_API_KEY=your-api-key
-DEEPSEEK_BASE_URL=your-openai-compatible-base-url
-DEEPSEEK_MODEL=your-available-model-identifier
-```
+在本地 `.env` 填入可用的 `DEEPSEEK_API_KEY`、`DEEPSEEK_BASE_URL` 和模型名；不要提交密钥。首次运行会加载或下载 embedding、reranker 模型；真实问答会调用配置的模型服务并产生费用。`.env.example` 中的默认超时为单次 30 秒、总计 90 秒；上述收尾回归使用的是显式固定的 **60/180 秒**，复现实验时须使用报告中的配置。
 
-应用配置统一由 `src/config.py` 管理，覆盖顺序为：**显式参数 → 环境变量 / `.env` → 默认值**。
+### 多规范查询
 
-| 配置 | 环境变量 | 默认值 / 要求 |
-|---|---|---|
-| PDF 路径 | `RAG_PDF_PATH` | `data/raw/城市轨道交通工程设计标准.pdf` |
-| 索引目录 | `RAG_INDEX_DIR` | `.rag_index` |
-| Embedding 模型 | `RAG_EMBEDDING_MODEL` | `BAAI/bge-small-zh-v1.5` |
-| Embedding revision | `RAG_EMBEDDING_REVISION` | 可选；生产环境建议固定可用 revision |
-| Reranker 模型 | `RAG_RERANKER_MODEL` | `BAAI/bge-reranker-base` |
-| 生成/判定/改写模型 | `DEEPSEEK_MODEL` | `deepseek-chat` |
-| API 地址 | `DEEPSEEK_BASE_URL` | 完整 Agent 必填 |
-| API 密钥 | `DEEPSEEK_API_KEY` | 完整 Agent 必填；错误信息不会输出密钥 |
-| 每路检索候选数 | `RAG_RETRIEVAL_TOP_K` | `10` |
-| 最终证据数 | `RAG_EVIDENCE_TOP_N` | `3` |
-| 单次模型调用超时（秒） | `RAG_REQUEST_TIMEOUT_SECONDS` | `30` |
-| 暂时性网络错误重试次数 | `RAG_MAX_NETWORK_RETRIES` | `1` |
-| 一次问答总时限（秒） | `RAG_TOTAL_TIMEOUT_SECONDS` | `90` |
-| 一次问答模型调用上限 | `RAG_MAX_MODEL_CALLS` | `6` |
-| 是否允许问答入口首次自动构建索引 | `RAG_INDEX_AUTO_BUILD` | `true`；生产式部署建议设为 `false` |
-| 同文档构建锁等待时间（秒） | `RAG_INDEX_LOCK_TIMEOUT_SECONDS` | `30` |
-| 模型缓存目录 | `RAG_MODEL_CACHE_DIR` | `.model_cache`；容器内为 `/models` |
-| 输入 token 单价（每百万） | `RAG_INPUT_COST_PER_MILLION` | 可选；与输出单价同时配置后记录估算费用 |
-| 输出 token 单价（每百万） | `RAG_OUTPUT_COST_PER_MILLION` | 可选；仅为估算，不作为账单 |
-
-`.env` 只在 CLI/Web 入口加载一次；`src` 中的配置、模型和业务模块不会在导入时自行读取 `.env`。
-
-例如 sufficiency 评测入口为 `eval/run_sufficiency.py`，完整 Agent 入口为 `eval/run_agent_test.py`；运行前用 `--help` 查看必填数据集和输出参数。冻结的 `test_v1` 是一次性 held-out 记录，不应在日常 CI 中反复运行或用于调参。
-
-### 3. 静态检查与打包
+先校验已有的知识库快照；首次使用或目录、摄取产物变化时再构建：
 
 ```powershell
-.\.venv\Scripts\ruff.exe check .
-.\.venv\Scripts\python.exe -m build
+uv run --locked engineering-rag-kb check --root .rag_knowledge_base
+uv run --locked engineering-rag-kb build --catalog data/spec_catalog.v1.json --root .rag_knowledge_base
 ```
 
-GitHub Actions 配置在 `.github/workflows/ci.yml`，使用 Windows + Python 3.12，严格按锁文件安装，然后运行 Ruff、离线测试并构建 sdist/wheel。自动检查不注入 API 密钥，也不会运行 integration 或 model 标记。
-
-### 4. 实际验证记录
-
-本地验证日期：`2026-10-30`；平台：Windows；Python：`3.12.16`；uv：`0.13.6`。
-
-| 检查 | 结果 |
-|---|---|
-| `uv sync --locked --extra dev --python 3.12` | 成功，按锁文件安装 89 个包 |
-| Ruff | 通过 |
-| 离线单元测试 | `55 passed` |
-| 本地 integration | `9 passed, 5 subtests passed` |
-| sdist / wheel 构建 | 成功 |
-
-本次干净环境使用 `NumPy 2.5.4`、`SciPy 1.18.1`、`scikit-learn 1.9.1` 与 `FAISS 1.15.1`，未复现此前的缺包或 NumPy/SciPy 兼容错误，因此没有为了猜测性兼容问题降级 NumPy。远端 GitHub Actions 已在 `phase-1-reproducible-baseline` 分支完成首次验证：[Reproducible baseline #1](https://github.com/WangYDING/-Agentic-RAG-/actions/runs/40997691755) 全部通过。
-
-第二阶段本地验证同样在 `2026-10-30` 完成：Ruff 通过；离线测试 `59 passed`；integration `9 passed, 5 subtests passed`；wheel 安装到仓库外的全新临时环境后，包导入、CLI/Web 帮助和配置错误契约均通过。真实模型与收费 API 未在本阶段调用。
-
-第三阶段“可靠输出”于 `2026-10-30` 完成本地与远端验收：Ruff 通过；离线测试 `80 passed`；integration `9 passed, 5 subtests passed`；sdist 与 wheel 构建成功。故障注入覆盖合法答案、两轮证据不足、无引用、未知引用、来源/页码缺失、Grader 空响应/非法 JSON/矛盾字段、超时、限流、认证失败和调用预算耗尽，未调用真实模型或收费 API。[GitHub Actions 第 8 次运行](https://github.com/WangYDING/-Agentic-RAG-/actions/runs/41027041784) 在 Windows / Python 3.12 上全部通过。
-
-第四阶段“索引可靠性”于 `2026-10-30` 完成本地与远端验收：Ruff 通过；离线测试 `83 passed`；integration `21 passed, 5 subtests passed`；sdist 与 wheel 构建成功。故障测试覆盖半成品写入、发布前失败、锁超时、活动指针损坏、metadata 哈希异常、文档错配、重启加载和新版本缓存令牌切换；未调用真实模型或收费 API。[GitHub Actions 第 10 次运行](https://github.com/WangYDING/-Agentic-RAG-/actions/runs/41028835048) 在锁定的 Windows / Python 3.12 环境全部通过，包括安装后索引 CLI 帮助检查。
-
-第五阶段部署方式、持久卷、健康检查、日志排障和索引恢复步骤见 [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md)。本机可验证项与因缺少 Docker/API 配置未执行的真实演练见 [`docs/DEPLOYMENT_VALIDATION.md`](docs/DEPLOYMENT_VALIDATION.md)。
-
-第五阶段本地可执行部分于 `2026-10-30` 验证：Ruff 通过；离线测试 `88 passed`；integration `23 passed`；sdist、wheel 及仓库外全新环境安装通过。当前机器没有 Docker 命令和 API 配置，因此真实镜像启动、容器重启、真实问答及冷/热启动数据尚未冒充为完成项。
-
-### 可靠输出契约
-
-完整 Agent 的 CLI 与 Web 使用同一套三态结果：
-
-| 状态 | 含义 | 对外行为 |
-|---|---|---|
-| `answer` | 证据充分且引用校验通过 | 展示答案和被引用证据 |
-| `refuse` | 一次补充检索后仍缺少必要证据 | 明确说明缺失要求，不调用 Generator |
-| `error` | 模型、索引、预算或输出校验失败 | 隐藏候选答案，显示安全提示、错误代码、请求编号和是否可重试 |
-
-引用校验只保证编号和 provenance 合法，不代表答案事实正确。模型 SDK 自带重试已关闭；应用只对超时、限流、连接问题和部分服务端错误做有限重试，认证和参数错误不重试。Grader 非法响应最多纠正一次，业务补充检索仍最多一次，两者共同受总调用次数和总时限约束。
-
-## 安装后的正式启动方式
-
-默认文档路径为 `data/raw/城市轨道交通工程设计标准.pdf`。首次运行 CLI 或 Web 时，`RAGService.from_pdf()` 会通过 `IndexManager` 构建索引；后续在 PDF checksum、chunk 参数和 embedding model 一致时加载 `.rag_index/` 中的持久化索引。
+`build` 会计算本地索引并发布新活动快照，耗时取决于模型和机器配置；构建后记录输出的快照 ID。旧快照可用 `engineering-rag-kb rollback <snapshot_id> --root .rag_knowledge_base` 恢复。已归档的快照 ID 只有在本机保有对应产物时才能加载，不能仅凭 Git 提交号重建相同运行环境。
 
 ```powershell
-# 完整 Agent CLI：Hybrid + Grader + bounded retry/refusal
-.\.venv\Scripts\engineering-rag.exe --help
-.\.venv\Scripts\engineering-rag.exe --question "车站发生火灾时消防联动如何执行？"
+# 查询全部三份规范
+uv run --locked engineering-rag --knowledge-base-root .rag_knowledge_base --all-specs --question "三份规范对标准轨距分别有哪些规定？"
 
-# Web UI：完整 Hybrid Agent + Sufficiency Grader + bounded retry/refusal
-.\.venv\Scripts\engineering-rag-web.exe
-
-# 源码仓库中的基础 RAG CLI：Dense + CrossEncoder + generation + citation
-.\.venv\Scripts\python.exe main.py
+# 指定一份或多份精确版本；--spec-version 可重复
+uv run --locked engineering-rag --knowledge-base-root .rag_knowledge_base --spec-version cn.gb55033@2022 --question "第 2.1.5 条规定了什么？"
 ```
 
-前两个正式入口都调用 `src.application.build_agent_workflow(config)`，因此 Web/CLI 使用完全相同的配置和完整 Agent 编排。它们会加载或下载真实模型；生成、query rewrite 与 sufficiency grader 还需要上面的 API 配置。`main.py` 仅保留源码仓库中的基础 Dense RAG 演示，不代表完整 Hybrid Agent。
+可加 `--expected-snapshot <snapshot_id>` 固定查询所用快照。未选择范围时要求澄清；不存在或未发布的版本会报范围错误，不会静默回退。Web 入口为 `uv run --locked engineering-rag-web`。
 
-wheel 验收会安装到另一个临时环境，并从源码目录之外验证包导入、三个安装入口的 `--help` 命令和缺少 API 配置时的错误提示；这个过程不下载模型、不调用 API。
-
-## 索引构建、检查与版本切换
-
-索引采用内容寻址版本，不再覆盖活动目录：
-
-```text
-.rag_index/
-└── <document_name>_<document_id>/
-    ├── active.json
-    ├── build.lock
-    └── versions/
-        └── <version_id>/
-            ├── index.faiss
-            ├── metadata.json
-            └── manifest.json
-```
-
-`document_id` 由规范化绝对路径确定，避免不同目录中的同名 PDF 相互覆盖；`version_id` 由 PDF 内容哈希、切分参数、embedding 模型/revision 和解析版本共同确定。manifest 保存两个产物的 SHA-256、向量维度和数量。
+### 原单 PDF 入口
 
 ```powershell
-# 构建缺失版本；已存在且有效时直接复用
-engineering-rag-index build --pdf data/raw/城市轨道交通工程设计标准.pdf
-
-# 重新校验并确保确定性版本已发布；有效的内容寻址版本不会重复计算
-engineering-rag-index rebuild --pdf data/raw/城市轨道交通工程设计标准.pdf
-
-# 只校验当前请求对应的已发布版本，不下载 embedding 模型、不自动构建
-engineering-rag-index check --pdf data/raw/城市轨道交通工程设计标准.pdf
+uv run --locked engineering-rag --pdf data/raw/城市轨道交通工程设计标准.pdf --question "车站出入口有哪些要求？"
 ```
 
-构建过程先在 `versions/` 下的同文件系统临时目录写入全部产物并自校验，再发布完整版本目录，最后原子替换 `active.json`。同一文档的构建使用跨 Windows/Linux 文件锁；等待超时会明确返回“正在构建”。构建失败保留上一活动指针和全部旧版本。
+不传 `--knowledge-base-root` 时走原单文档路径；其索引和多文档快照分别管理。
 
-加载只接受与当前 PDF 和构建配置完全匹配的版本。活动指针损坏但目标版本完整时可以修复指针；目标版本产物损坏时明确报错，不会回退到不匹配的旧文档。Web 缓存键包含活动 `version_id`，发布后下一次脚本运行会装载新快照；单次问答持有一个固定的内存快照，并在结果中记录 `index_version`。
+## 验证与项目结构
 
-## 项目结构
-
-```text
-src/
-├── config.py / application.py   # 统一配置与完整 Agent 应用工厂
-├── loader.py / splitter.py       # 结构化 PDF 解析与切分
-├── index_manager.py              # 持久索引、manifest 与 checksum
-├── index_cli.py                  # 显式 build/rebuild/check 命令
-├── retriever.py / reranker.py    # Dense retrieval 与 CrossEncoder
-├── bm25_retriever.py             # 正式 BM25 检索组件
-├── hybrid_retriever.py           # Dense + BM25 运行时融合
-├── retrieval_fusion.py           # 稳定 chunk identity 与等权 RRF
-├── evidence.py                   # Evidence、provenance 与强制 citation gate
-├── evidence_sufficiency.py       # 结构化 evidence sufficiency grader
-├── agent_workflow.py             # max_retries=1 的 bounded Agent 状态机
-├── reliability.py / results.py   # 调用预算、故障分类与三态结果契约
-├── presentation.py               # CLI/Web 共用的安全结果与 trace 格式化
-└── web_launcher.py               # 安装后 Web 启动入口
-
-eval/
-├── datasets/                     # dev、refusal、sufficiency、held-out 数据集
-├── reports/                      # 正式实验与逐题报告
-└── run_*.py                      # 数据读取、评测执行、指标与报告；复用 src 组件
-
-tests/                            # ingestion、index、retrieval、evidence、grader、Agent 测试
-data/raw/                         # 原始工程规范 PDF
-docs/                             # 项目审计与演进背景
+```powershell
+uv run --locked ruff check .
+uv run --locked pytest -m "not integration and not model"
+uv run --locked pytest -m integration
 ```
 
-## 技术栈
+默认离线测试不调用生成模型；`integration` 需要本地 PDF/索引依赖，真实模型测试和完整 Agent 评测必须显式执行。评测数据与原始结果位于 `eval/`，工程决策、失败记录和部署说明位于 `docs/`。主要代码位于 `src/`：`knowledge_base.py` 管理快照，`query_scope.py` 绑定范围，`snapshot_retriever.py` 检索多文档，`agent_workflow.py` 编排证据选择、补检、充分性判断和生成；CLI 入口为 `agent_demo.py`，Web 入口为 `app.py`。
 
-Python、PyMuPDF、Sentence Transformers、`BAAI/bge-small-zh-v1.5`、FAISS、BM25、`BAAI/bge-reranker-base` CrossEncoder、DeepSeek OpenAI-compatible API、Streamlit、pytest。
-
-## 设计原则
-
-这个项目的核心取舍是：先通过 evidence 和 evaluation 明确失败发生在哪里，再增加最小必要机制。Hybrid Retrieval 解决候选互补，CrossEncoder 解决候选排序，Evidence Sufficiency 解决“相关但不足”，bounded Agent 则把 retry 与 refusal 变成可观察、可终止的状态决策。
+`main.py` 保留早期基础 RAG 演示；多规范功能请使用上述正式入口。部署和健康检查方式见 [部署说明](docs/DEPLOYMENT.md)。
