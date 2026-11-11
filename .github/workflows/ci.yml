@@ -32,7 +32,21 @@ jobs:
         run: uv run --locked python -m pytest -m "not integration and not model"
 
       - name: Validate evaluation datasets without model calls
-        run: uv run --locked python -m eval.dataset_manifest "eval/datasets/*.manifest.json"
+        # Explicit seen-only inventory; never discover new independent candidates.
+        run: >-
+          uv run --locked python -m eval.dataset_manifest
+          eval/datasets/dev_v0.manifest.json
+          eval/datasets/dev_v0_retrieval.manifest.json
+          eval/datasets/independent_v2_draft.manifest.json
+          eval/datasets/phase0_seen_regression_20.manifest.json
+          eval/datasets/phase0_seen_regression_evidence_selection.manifest.json
+          eval/datasets/phase0_seen_regression_grader.manifest.json
+          eval/datasets/phase0_seen_regression_ind012.manifest.json
+          eval/datasets/phase1_cross_spec_independent_v2.manifest.json
+          eval/datasets/refusal_dev_v0.manifest.json
+          eval/datasets/regression_v1_draft.manifest.json
+          eval/datasets/sufficiency_dev_v0.manifest.json
+          eval/datasets/test_v1.manifest.json
 
       - name: Build source and wheel distributions
         run: uv run --locked python -m build

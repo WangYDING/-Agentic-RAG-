@@ -2,7 +2,7 @@
 import hashlib
 import json
 import re
-from collections import Counter, defaultdict
+from collections import Counter
 from pathlib import Path
 
 from eval.contract_v1 import make_rag_input, validate_rag_input, validate_test_case
