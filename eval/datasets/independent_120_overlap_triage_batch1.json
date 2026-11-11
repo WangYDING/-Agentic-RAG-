@@ -1,0 +1,671 @@
+{
+  "warning": "Lexical similarity cannot establish semantic novelty; review fact, value, table row and conditions manually.",
+  "cases": [
+    {
+      "case_id": "I120-C001",
+      "fact_group_id": "cn.beijing.db11t995@2025:3.0.3",
+      "lexical_neighbors": [
+        {
+          "score": 0.445,
+          "source_file": "phase1_cross_spec_independent_v2.jsonl",
+          "id": "P1-V2-002",
+          "question": "DB11/T 995-2025 对新轮直径和最大磨耗后车轮直径有什么要求？"
+        },
+        {
+          "score": 0.402,
+          "source_file": "phase1_query_examples_v0.jsonl",
+          "id": "P1-Q017",
+          "question": "DB11/T 995-2025 第 6.1.1 条规定了什么？"
+        },
+        {
+          "score": 0.361,
+          "source_file": "phase1_cross_spec_independent_v1.jsonl",
+          "id": "P1-IND-009",
+          "question": "DB11/T 995-2025 对专用通信录音录像保存时间有哪些明确下限？"
+        },
+        {
+          "score": 0.359,
+          "source_file": "phase1_cross_spec_independent_v2.jsonl",
+          "id": "P1-V2-003",
+          "question": "DB11/T 995-2025 规定轮对内侧距及允许偏差是多少？"
+        },
+        {
+          "score": 0.359,
+          "source_file": "phase1_query_examples_v0.jsonl",
+          "id": "P1-Q001",
+          "question": "在 DB11/T 995-2025 中，客室车门安全联锁有哪些要求？"
+        }
+      ],
+      "decision": "pending_human_semantic_review"
+    },
+    {
+      "case_id": "I120-C002",
+      "fact_group_id": "cn.beijing.db11t995@2025:9.1.2",
+      "lexical_neighbors": [
+        {
+          "score": 0.383,
+          "source_file": "phase1_query_examples_v0.jsonl",
+          "id": "P1-Q017",
+          "question": "DB11/T 995-2025 第 6.1.1 条规定了什么？"
+        },
+        {
+          "score": 0.343,
+          "source_file": "phase1_cross_spec_independent_v2.jsonl",
+          "id": "P1-V2-003",
+          "question": "DB11/T 995-2025 规定轮对内侧距及允许偏差是多少？"
+        },
+        {
+          "score": 0.343,
+          "source_file": "phase1_query_examples_v0.jsonl",
+          "id": "P1-Q001",
+          "question": "在 DB11/T 995-2025 中，客室车门安全联锁有哪些要求？"
+        },
+        {
+          "score": 0.33,
+          "source_file": "phase1_query_examples_v0.jsonl",
+          "id": "P1-Q005",
+          "question": "在 DB11/T 995-2025 中，限界坐标系的 Y 轴和 Z 轴如何建立？"
+        },
+        {
+          "score": 0.313,
+          "source_file": "phase1_cross_spec_independent_v1.jsonl",
+          "id": "P1-IND-009",
+          "question": "DB11/T 995-2025 对专用通信录音录像保存时间有哪些明确下限？"
+        }
+      ],
+      "decision": "pending_human_semantic_review"
+    },
+    {
+      "case_id": "I120-C003",
+      "fact_group_id": "cn.beijing.db11t995@2025:16.1.4",
+      "lexical_neighbors": [
+        {
+          "score": 0.368,
+          "source_file": "phase1_query_examples_v0.jsonl",
+          "id": "P1-Q017",
+          "question": "DB11/T 995-2025 第 6.1.1 条规定了什么？"
+        },
+        {
+          "score": 0.329,
+          "source_file": "phase1_cross_spec_independent_v2.jsonl",
+          "id": "P1-V2-003",
+          "question": "DB11/T 995-2025 规定轮对内侧距及允许偏差是多少？"
+        },
+        {
+          "score": 0.329,
+          "source_file": "phase1_query_examples_v0.jsonl",
+          "id": "P1-Q001",
+          "question": "在 DB11/T 995-2025 中，客室车门安全联锁有哪些要求？"
+        },
+        {
+          "score": 0.316,
+          "source_file": "phase1_query_examples_v0.jsonl",
+          "id": "P1-Q005",
+          "question": "在 DB11/T 995-2025 中，限界坐标系的 Y 轴和 Z 轴如何建立？"
+        },
+        {
+          "score": 0.3,
+          "source_file": "phase1_cross_spec_independent_v1.jsonl",
+          "id": "P1-IND-009",
+          "question": "DB11/T 995-2025 对专用通信录音录像保存时间有哪些明确下限？"
+        }
+      ],
+      "decision": "pending_human_semantic_review"
+    },
+    {
+      "case_id": "I120-C004",
+      "fact_group_id": "cn.beijing.db11t995@2025:29.1.1",
+      "lexical_neighbors": [
+        {
+          "score": 0.445,
+          "source_file": "phase1_cross_spec_independent_v2.jsonl",
+          "id": "P1-V2-006",
+          "question": "DB11/T 995-2025 对车辆客室、紧急通风和司机室的新风量分别如何规定？"
+        },
+        {
+          "score": 0.408,
+          "source_file": "phase1_query_examples_v0.jsonl",
+          "id": "P1-Q017",
+          "question": "DB11/T 995-2025 第 6.1.1 条规定了什么？"
+        },
+        {
+          "score": 0.38,
+          "source_file": "phase1_cross_spec_independent_v2.jsonl",
+          "id": "P1-V2-005",
+          "question": "DB11/T 995-2025 对密封性列车动态密封指数和120km/h车辆压降时间如何规定？"
+        },
+        {
+          "score": 0.367,
+          "source_file": "phase1_cross_spec_independent_v1.jsonl",
+          "id": "P1-IND-009",
+          "question": "DB11/T 995-2025 对专用通信录音录像保存时间有哪些明确下限？"
+        },
+        {
+          "score": 0.366,
+          "source_file": "phase1_cross_spec_independent_v2.jsonl",
+          "id": "P1-V2-001",
+          "question": "仅依据 DB11/T 995-2025，主体结构、主要支撑结构和可更换构件的设计工作年限分别如何规定？"
+        }
+      ],
+      "decision": "pending_human_semantic_review"
+    },
+    {
+      "case_id": "I120-C005",
+      "fact_group_id": "cn.beijing.db11t995@2025:8.1.5",
+      "lexical_neighbors": [
+        {
+          "score": 0.42,
+          "source_file": "phase1_cross_spec_independent_v2.jsonl",
+          "id": "P1-V2-002",
+          "question": "DB11/T 995-2025 对新轮直径和最大磨耗后车轮直径有什么要求？"
+        },
+        {
+          "score": 0.408,
+          "source_file": "phase1_query_examples_v0.jsonl",
+          "id": "P1-Q017",
+          "question": "DB11/T 995-2025 第 6.1.1 条规定了什么？"
+        },
+        {
+          "score": 0.367,
+          "source_file": "phase1_cross_spec_independent_v1.jsonl",
+          "id": "P1-IND-009",
+          "question": "DB11/T 995-2025 对专用通信录音录像保存时间有哪些明确下限？"
+        },
+        {
+          "score": 0.365,
+          "source_file": "phase1_cross_spec_independent_v2.jsonl",
+          "id": "P1-V2-003",
+          "question": "DB11/T 995-2025 规定轮对内侧距及允许偏差是多少？"
+        },
+        {
+          "score": 0.365,
+          "source_file": "phase1_query_examples_v0.jsonl",
+          "id": "P1-Q001",
+          "question": "在 DB11/T 995-2025 中，客室车门安全联锁有哪些要求？"
+        }
+      ],
+      "decision": "pending_human_semantic_review"
+    },
+    {
+      "case_id": "I120-C006",
+      "fact_group_id": "cn.beijing.db11t995@2025:14.1.4",
+      "lexical_neighbors": [
+        {
+          "score": 0.383,
+          "source_file": "phase1_query_examples_v0.jsonl",
+          "id": "P1-Q017",
+          "question": "DB11/T 995-2025 第 6.1.1 条规定了什么？"
+        },
+        {
+          "score": 0.343,
+          "source_file": "phase1_cross_spec_independent_v2.jsonl",
+          "id": "P1-V2-003",
+          "question": "DB11/T 995-2025 规定轮对内侧距及允许偏差是多少？"
+        },
+        {
+          "score": 0.343,
+          "source_file": "phase1_query_examples_v0.jsonl",
+          "id": "P1-Q001",
+          "question": "在 DB11/T 995-2025 中，客室车门安全联锁有哪些要求？"
+        },
+        {
+          "score": 0.33,
+          "source_file": "phase1_query_examples_v0.jsonl",
+          "id": "P1-Q005",
+          "question": "在 DB11/T 995-2025 中，限界坐标系的 Y 轴和 Z 轴如何建立？"
+        },
+        {
+          "score": 0.313,
+          "source_file": "phase1_cross_spec_independent_v1.jsonl",
+          "id": "P1-IND-009",
+          "question": "DB11/T 995-2025 对专用通信录音录像保存时间有哪些明确下限？"
+        }
+      ],
+      "decision": "pending_human_semantic_review"
+    },
+    {
+      "case_id": "I120-C007",
+      "fact_group_id": "cn.gb55033@2022:6.1.7",
+      "lexical_neighbors": [
+        {
+          "score": 0.225,
+          "source_file": "phase1_cross_spec_independent_v1.jsonl",
+          "id": "P1-IND-030",
+          "question": "仅依据 GB 55033-2022，某地下车站今天实测的二氧化碳日平均浓度是多少，是否合格？"
+        },
+        {
+          "score": 0.224,
+          "source_file": "phase1_cross_spec_independent_v2.jsonl",
+          "id": "P1-V2-016",
+          "question": "GB 55033-2022 对车辆基地连接外界道路的出入口数量有什么要求？"
+        },
+        {
+          "score": 0.221,
+          "source_file": "phase1_cross_spec_independent_v1.jsonl",
+          "id": "P1-IND-002",
+          "question": "GB 55033-2022 对轨道交通工程安全保护区的外扩范围分别如何规定？"
+        },
+        {
+          "score": 0.221,
+          "source_file": "phase1_cross_spec_independent_v2.jsonl",
+          "id": "P1-V2-014",
+          "question": "GB 55033-2022 对无障碍专用检票通道的数量和净宽有什么最低要求？"
+        },
+        {
+          "score": 0.219,
+          "source_file": "phase1_cross_spec_independent_v1.jsonl",
+          "id": "P1-IND-020",
+          "question": "DB11/T 995-2025 与 GB 55033-2022 对通信后备供电时间有什么直接要求？"
+        }
+      ],
+      "decision": "pending_human_semantic_review"
+    },
+    {
+      "case_id": "I120-C008",
+      "fact_group_id": "cn.gb55033@2022:5.3.4",
+      "lexical_neighbors": [
+        {
+          "score": 0.327,
+          "source_file": "phase1_cross_spec_independent_v1.jsonl",
+          "id": "P1-IND-002",
+          "question": "GB 55033-2022 对轨道交通工程安全保护区的外扩范围分别如何规定？"
+        },
+        {
+          "score": 0.286,
+          "source_file": "phase1_cross_spec_independent_v2.jsonl",
+          "id": "P1-V2-013",
+          "question": "GB 55033-2022 对车站天桥、通道、单向和双向公共区楼梯以及几类疏散梯的最小宽度如何规定？"
+        },
+        {
+          "score": 0.286,
+          "source_file": "phase1_cross_spec_independent_v2.jsonl",
+          "id": "P1-V2-018",
+          "question": "GB 55033-2022 对无砟轨道在隧道/U形结构与高架/地面地段的混凝土强度等级分别如何规定？"
+        },
+        {
+          "score": 0.277,
+          "source_file": "phase1_cross_spec_independent_v2.jsonl",
+          "id": "P1-V2-016",
+          "question": "GB 55033-2022 对车辆基地连接外界道路的出入口数量有什么要求？"
+        },
+        {
+          "score": 0.273,
+          "source_file": "phase1_cross_spec_independent_v2.jsonl",
+          "id": "P1-V2-014",
+          "question": "GB 55033-2022 对无障碍专用检票通道的数量和净宽有什么最低要求？"
+        }
+      ],
+      "decision": "pending_human_semantic_review"
+    },
+    {
+      "case_id": "I120-C009",
+      "fact_group_id": "cn.gb55033@2022:5.3.11",
+      "lexical_neighbors": [
+        {
+          "score": 0.374,
+          "source_file": "phase1_cross_spec_independent_v1.jsonl",
+          "id": "P1-IND-017",
+          "question": "DB11/T 995-2025 与 GB 55033-2022 对区间纵向疏散平台的宽度、高差和间隙分别怎样规定？"
+        },
+        {
+          "score": 0.367,
+          "source_file": "independent_v2_draft.jsonl",
+          "id": "IND-004",
+          "question": "直线地段单线矩形隧道中，A型车、B1型车和B2型车在左右侧不同疏散平台条件下的建筑限界宽度分别是多少？"
+        },
+        {
+          "score": 0.323,
+          "source_file": "phase1_cross_spec_independent_v2.jsonl",
+          "id": "P1-V2-007",
+          "question": "DB11/T 995-2025 对直线车站站台高度、站台边缘至轨道中心线距离和屏蔽门间隙怎样规定？"
+        },
+        {
+          "score": 0.305,
+          "source_file": "dev_v0.jsonl",
+          "id": "HARD-002",
+          "question": "马蹄形隧道在轨顶以上3.6m高度处，侧墙有管线、没有管线以及困难地段时，建筑限界与设备限界之间分别至少应留出多少空间？"
+        },
+        {
+          "score": 0.305,
+          "source_file": "dev_v0_retrieval.jsonl",
+          "id": "HARD-002",
+          "question": "马蹄形隧道在轨顶以上3.6m高度处，侧墙有管线、没有管线以及困难地段时，建筑限界与设备限界之间分别至少应留出多少空间？"
+        }
+      ],
+      "decision": "pending_human_semantic_review"
+    },
+    {
+      "case_id": "I120-C010",
+      "fact_group_id": "cn.gb55033@2022:6.2.5",
+      "lexical_neighbors": [
+        {
+          "score": 0.406,
+          "source_file": "phase1_cross_spec_independent_v2.jsonl",
+          "id": "P1-V2-016",
+          "question": "GB 55033-2022 对车辆基地连接外界道路的出入口数量有什么要求？"
+        },
+        {
+          "score": 0.367,
+          "source_file": "phase1_cross_spec_independent_v1.jsonl",
+          "id": "P1-IND-005",
+          "question": "GB 55033-2022 对通风开式、闭式运行和空调方式的人均新鲜空气量分别有什么要求？"
+        },
+        {
+          "score": 0.367,
+          "source_file": "phase1_cross_spec_independent_v2.jsonl",
+          "id": "P1-V2-017",
+          "question": "GB 55033-2022 对隧道详勘取样和原位测试勘探孔占勘探点总数的比例有什么要求？"
+        },
+        {
+          "score": 0.339,
+          "source_file": "phase1_cross_spec_independent_v2.jsonl",
+          "id": "P1-V2-014",
+          "question": "GB 55033-2022 对无障碍专用检票通道的数量和净宽有什么最低要求？"
+        },
+        {
+          "score": 0.334,
+          "source_file": "phase1_cross_spec_independent_v1.jsonl",
+          "id": "P1-IND-018",
+          "question": "DB11/T 995-2025 与 GB 55033-2022 对车站出入口数量和周边协调分别提出了什么要求？"
+        }
+      ],
+      "decision": "pending_human_semantic_review"
+    },
+    {
+      "case_id": "I120-C011",
+      "fact_group_id": "cn.gb55033@2022:6.3.8",
+      "lexical_neighbors": [
+        {
+          "score": 0.247,
+          "source_file": "phase1_cross_spec_independent_v2.jsonl",
+          "id": "P1-V2-015",
+          "question": "GB 55033-2022 如何划分地下车站主体、出入口、机电设备集中区段与区间隧道等结构的防水等级？"
+        },
+        {
+          "score": 0.247,
+          "source_file": "phase1_four_repairs_targeted_seen.jsonl",
+          "id": "P1-V2-015",
+          "question": "GB 55033-2022 如何划分地下车站主体、出入口、机电设备集中区段与区间隧道等结构的防水等级？"
+        },
+        {
+          "score": 0.238,
+          "source_file": "phase1_cross_spec_independent_v2.jsonl",
+          "id": "P1-V2-016",
+          "question": "GB 55033-2022 对车辆基地连接外界道路的出入口数量有什么要求？"
+        },
+        {
+          "score": 0.235,
+          "source_file": "phase1_cross_spec_independent_v1.jsonl",
+          "id": "P1-IND-002",
+          "question": "GB 55033-2022 对轨道交通工程安全保护区的外扩范围分别如何规定？"
+        },
+        {
+          "score": 0.235,
+          "source_file": "phase1_cross_spec_independent_v2.jsonl",
+          "id": "P1-V2-014",
+          "question": "GB 55033-2022 对无障碍专用检票通道的数量和净宽有什么最低要求？"
+        }
+      ],
+      "decision": "pending_human_semantic_review"
+    },
+    {
+      "case_id": "I120-C012",
+      "fact_group_id": "cn.gb55033@2022:4.3.4",
+      "lexical_neighbors": [
+        {
+          "score": 0.359,
+          "source_file": "phase1_cross_spec_independent_v1.jsonl",
+          "id": "P1-IND-002",
+          "question": "GB 55033-2022 对轨道交通工程安全保护区的外扩范围分别如何规定？"
+        },
+        {
+          "score": 0.313,
+          "source_file": "phase1_cross_spec_independent_v2.jsonl",
+          "id": "P1-V2-013",
+          "question": "GB 55033-2022 对车站天桥、通道、单向和双向公共区楼梯以及几类疏散梯的最小宽度如何规定？"
+        },
+        {
+          "score": 0.313,
+          "source_file": "phase1_cross_spec_independent_v2.jsonl",
+          "id": "P1-V2-018",
+          "question": "GB 55033-2022 对无砟轨道在隧道/U形结构与高架/地面地段的混凝土强度等级分别如何规定？"
+        },
+        {
+          "score": 0.304,
+          "source_file": "phase1_cross_spec_independent_v2.jsonl",
+          "id": "P1-V2-016",
+          "question": "GB 55033-2022 对车辆基地连接外界道路的出入口数量有什么要求？"
+        },
+        {
+          "score": 0.299,
+          "source_file": "phase1_cross_spec_independent_v2.jsonl",
+          "id": "P1-V2-014",
+          "question": "GB 55033-2022 对无障碍专用检票通道的数量和净宽有什么最低要求？"
+        }
+      ],
+      "decision": "pending_human_semantic_review"
+    },
+    {
+      "case_id": "I120-C013",
+      "fact_group_id": "cn.gb50157@2013:8.1.5",
+      "lexical_neighbors": [
+        {
+          "score": 0.387,
+          "source_file": "phase1_cross_spec_independent_v2.jsonl",
+          "id": "P1-V2-008",
+          "question": "GB 50157-2013 对初期和远期高峰、平峰列车运行间隔分别有什么要求？"
+        },
+        {
+          "score": 0.333,
+          "source_file": "phase1_cross_spec_independent_v1.jsonl",
+          "id": "P1-IND-007",
+          "question": "GB 50157-2013 对车站公共厕所及管理人员厕所的关系怎样规定？"
+        },
+        {
+          "score": 0.309,
+          "source_file": "phase1_cross_spec_independent_v2.jsonl",
+          "id": "P1-V2-021",
+          "question": "DB11/T 995-2025 与 GB 50157-2013 对轮对内侧距的规定是否相同？"
+        },
+        {
+          "score": 0.304,
+          "source_file": "phase1_cross_spec_independent_v1.jsonl",
+          "id": "P1-IND-023",
+          "question": "GB 50157-2013 对无砟道床混凝土强度、耐久年限和伸缩缝间距有哪些定量要求？"
+        },
+        {
+          "score": 0.3,
+          "source_file": "phase1_cross_spec_independent_v2.jsonl",
+          "id": "P1-V2-020",
+          "question": "DB11/T 995-2025 与 GB 50157-2013 对车辆车体结构设计寿命是否一致？"
+        }
+      ],
+      "decision": "pending_human_semantic_review"
+    },
+    {
+      "case_id": "I120-C014",
+      "fact_group_id": "cn.gb50157@2013:15.1.3",
+      "lexical_neighbors": [
+        {
+          "score": 0.329,
+          "source_file": "phase1_cross_spec_independent_v1.jsonl",
+          "id": "P1-IND-006",
+          "question": "仅依据 GB 50157-2013，地铁工程初期、近期和远期设计年限如何确定？"
+        },
+        {
+          "score": 0.329,
+          "source_file": "phase1_query_examples_v0.jsonl",
+          "id": "P1-Q007",
+          "question": "仅依据 GB 50157-2013，地铁车辆客室车门安全联锁有哪些设计要求？"
+        },
+        {
+          "score": 0.274,
+          "source_file": "phase1_cross_spec_independent_v1.jsonl",
+          "id": "P1-IND-007",
+          "question": "GB 50157-2013 对车站公共厕所及管理人员厕所的关系怎样规定？"
+        },
+        {
+          "score": 0.27,
+          "source_file": "phase1_cross_spec_independent_v1.jsonl",
+          "id": "P1-IND-011",
+          "question": "比较 GB 55033-2022 与 GB 50157-2013 的设计年限规定，并指出前者额外提出的运能要求。"
+        },
+        {
+          "score": 0.265,
+          "source_file": "phase1_cross_spec_independent_v2.jsonl",
+          "id": "P1-V2-008",
+          "question": "GB 50157-2013 对初期和远期高峰、平峰列车运行间隔分别有什么要求？"
+        }
+      ],
+      "decision": "pending_human_semantic_review"
+    },
+    {
+      "case_id": "I120-C015",
+      "fact_group_id": "cn.gb50157@2013:25.1.7",
+      "lexical_neighbors": [
+        {
+          "score": 0.337,
+          "source_file": "phase1_cross_spec_independent_v1.jsonl",
+          "id": "P1-IND-015",
+          "question": "GB 55033-2022 与 GB 50157-2013 对自动扶梯连续运行强度怎样规定？后者还增加了什么制动载荷条件？"
+        },
+        {
+          "score": 0.315,
+          "source_file": "phase1_cross_spec_independent_v2.jsonl",
+          "id": "P1-V2-008",
+          "question": "GB 50157-2013 对初期和远期高峰、平峰列车运行间隔分别有什么要求？"
+        },
+        {
+          "score": 0.296,
+          "source_file": "phase1_cross_spec_independent_v1.jsonl",
+          "id": "P1-IND-007",
+          "question": "GB 50157-2013 对车站公共厕所及管理人员厕所的关系怎样规定？"
+        },
+        {
+          "score": 0.282,
+          "source_file": "phase1_cross_spec_independent_v2.jsonl",
+          "id": "P1-V2-010",
+          "question": "GB 50157-2013 对辅助电源交流输出的波形畸变、电压波动、相间不平衡和频率有什么限值？"
+        },
+        {
+          "score": 0.274,
+          "source_file": "phase1_cross_spec_independent_v2.jsonl",
+          "id": "P1-V2-021",
+          "question": "DB11/T 995-2025 与 GB 50157-2013 对轮对内侧距的规定是否相同？"
+        }
+      ],
+      "decision": "pending_human_semantic_review"
+    },
+    {
+      "case_id": "I120-C016",
+      "fact_group_id": "cn.gb50157@2013:23.1.2",
+      "lexical_neighbors": [
+        {
+          "score": 0.313,
+          "source_file": "phase1_cross_spec_independent_v1.jsonl",
+          "id": "P1-IND-007",
+          "question": "GB 50157-2013 对车站公共厕所及管理人员厕所的关系怎样规定？"
+        },
+        {
+          "score": 0.303,
+          "source_file": "phase1_cross_spec_independent_v2.jsonl",
+          "id": "P1-V2-008",
+          "question": "GB 50157-2013 对初期和远期高峰、平峰列车运行间隔分别有什么要求？"
+        },
+        {
+          "score": 0.29,
+          "source_file": "phase1_cross_spec_independent_v2.jsonl",
+          "id": "P1-V2-021",
+          "question": "DB11/T 995-2025 与 GB 50157-2013 对轮对内侧距的规定是否相同？"
+        },
+        {
+          "score": 0.286,
+          "source_file": "phase1_cross_spec_independent_v1.jsonl",
+          "id": "P1-IND-023",
+          "question": "GB 50157-2013 对无砟道床混凝土强度、耐久年限和伸缩缝间距有哪些定量要求？"
+        },
+        {
+          "score": 0.282,
+          "source_file": "phase1_cross_spec_independent_v2.jsonl",
+          "id": "P1-V2-020",
+          "question": "DB11/T 995-2025 与 GB 50157-2013 对车辆车体结构设计寿命是否一致？"
+        }
+      ],
+      "decision": "pending_human_semantic_review"
+    },
+    {
+      "case_id": "I120-C017",
+      "fact_group_id": "cn.gb50157@2013:17.1.3",
+      "lexical_neighbors": [
+        {
+          "score": 0.274,
+          "source_file": "phase1_cross_spec_independent_v1.jsonl",
+          "id": "P1-IND-007",
+          "question": "GB 50157-2013 对车站公共厕所及管理人员厕所的关系怎样规定？"
+        },
+        {
+          "score": 0.269,
+          "source_file": "phase1_cross_spec_independent_v1.jsonl",
+          "id": "P1-IND-006",
+          "question": "仅依据 GB 50157-2013，地铁工程初期、近期和远期设计年限如何确定？"
+        },
+        {
+          "score": 0.269,
+          "source_file": "phase1_query_examples_v0.jsonl",
+          "id": "P1-Q007",
+          "question": "仅依据 GB 50157-2013，地铁车辆客室车门安全联锁有哪些设计要求？"
+        },
+        {
+          "score": 0.265,
+          "source_file": "phase1_cross_spec_independent_v2.jsonl",
+          "id": "P1-V2-008",
+          "question": "GB 50157-2013 对初期和远期高峰、平峰列车运行间隔分别有什么要求？"
+        },
+        {
+          "score": 0.254,
+          "source_file": "phase1_cross_spec_independent_v2.jsonl",
+          "id": "P1-V2-009",
+          "question": "GB 50157-2013 的车辆外部运行噪声限值在什么测试条件下适用，限值是多少？"
+        }
+      ],
+      "decision": "pending_human_semantic_review"
+    },
+    {
+      "case_id": "I120-C018",
+      "fact_group_id": "cn.gb50157@2013:7.1.4",
+      "lexical_neighbors": [
+        {
+          "score": 0.359,
+          "source_file": "phase1_cross_spec_independent_v2.jsonl",
+          "id": "P1-V2-008",
+          "question": "GB 50157-2013 对初期和远期高峰、平峰列车运行间隔分别有什么要求？"
+        },
+        {
+          "score": 0.309,
+          "source_file": "phase1_cross_spec_independent_v1.jsonl",
+          "id": "P1-IND-007",
+          "question": "GB 50157-2013 对车站公共厕所及管理人员厕所的关系怎样规定？"
+        },
+        {
+          "score": 0.286,
+          "source_file": "phase1_cross_spec_independent_v2.jsonl",
+          "id": "P1-V2-021",
+          "question": "DB11/T 995-2025 与 GB 50157-2013 对轮对内侧距的规定是否相同？"
+        },
+        {
+          "score": 0.282,
+          "source_file": "phase1_cross_spec_independent_v1.jsonl",
+          "id": "P1-IND-023",
+          "question": "GB 50157-2013 对无砟道床混凝土强度、耐久年限和伸缩缝间距有哪些定量要求？"
+        },
+        {
+          "score": 0.278,
+          "source_file": "phase1_cross_spec_independent_v2.jsonl",
+          "id": "P1-V2-020",
+          "question": "DB11/T 995-2025 与 GB 50157-2013 对车辆车体结构设计寿命是否一致？"
+        }
+      ],
+      "decision": "pending_human_semantic_review"
+    }
+  ]
+}

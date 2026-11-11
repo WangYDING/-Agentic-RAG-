@@ -1,0 +1,822 @@
+{
+  "schema_version": "rag-eval.test-case.v2",
+  "public_input_version": "rag-eval.rag-input.v1",
+  "source_sha256": "521ce94f3b44395d3e8a85f298630eba9e0efad7d83445224c4d96071f6a425c",
+  "output_sha256": "41c916a1125f8a2c9231aa923294708dfe6d4d997a90b613ef5bacca635727c1",
+  "cases": 120,
+  "resolved_23_case_ids": [
+    "I120-R007",
+    "I120-R008",
+    "I120-R009",
+    "I120-R010",
+    "I120-R011",
+    "I120-R012",
+    "I120-R013",
+    "I120-R014",
+    "I120-R015",
+    "I120-R016",
+    "I120-R017",
+    "I120-R018",
+    "I120-R019",
+    "I120-R020",
+    "I120-Q011",
+    "I120-Q012",
+    "I120-Q013",
+    "I120-Q014",
+    "I120-Q015",
+    "I120-Q016",
+    "I120-Q017",
+    "I120-Q018",
+    "I120-Q019"
+  ],
+  "renewed_human_review_required_case_ids": [
+    "I120-C007",
+    "I120-C008",
+    "I120-C009",
+    "I120-N001",
+    "I120-N002",
+    "I120-N003",
+    "I120-N004",
+    "I120-N005",
+    "I120-N006",
+    "I120-N007",
+    "I120-N008",
+    "I120-N009",
+    "I120-N010",
+    "I120-N011",
+    "I120-N012",
+    "I120-N013",
+    "I120-N014",
+    "I120-N015",
+    "I120-N016",
+    "I120-N017",
+    "I120-Q011",
+    "I120-Q012",
+    "I120-Q013",
+    "I120-Q014",
+    "I120-Q015",
+    "I120-Q016",
+    "I120-Q017",
+    "I120-Q018",
+    "I120-Q019",
+    "I120-R007",
+    "I120-R008",
+    "I120-R009",
+    "I120-R010",
+    "I120-R011",
+    "I120-R012",
+    "I120-R013",
+    "I120-R014",
+    "I120-R015",
+    "I120-R016",
+    "I120-R017",
+    "I120-R018",
+    "I120-R019",
+    "I120-R020",
+    "I120-T001",
+    "I120-T002",
+    "I120-T003",
+    "I120-T004",
+    "I120-T005",
+    "I120-T006",
+    "I120-T007",
+    "I120-T008",
+    "I120-T009",
+    "I120-T010",
+    "I120-T011",
+    "I120-T012",
+    "I120-T013",
+    "I120-T014",
+    "I120-T015"
+  ],
+  "additional_human_review_required_case_ids": [],
+  "remaining_behavior_adjudication_case_ids": [],
+  "interface_gap_for_this_round": null,
+  "decisions": [
+    {
+      "case_id": "I120-R007",
+      "original_reason": "需该项目供电设计或测算数据；负荷等级规定不能推出峰值。",
+      "source_references": [
+        {
+          "document_id": "cn.beijing.db11t995",
+          "document_version": "2025",
+          "pdf_page": 128,
+          "article": "16.3.4",
+          "source_excerpt": "最大牵引负荷应根据客流控制期高峰小时的列车编组、行车交路、旅行速度、车辆特性及线路条件等进行计算确定。"
+        }
+      ],
+      "scored_now": {
+        "missing_facts": [
+          {
+            "fact_id": "M1",
+            "description": "该项目高峰小时牵引负荷计算所需线路、车辆与运营参数及计算结果"
+          }
+        ],
+        "allowed_explanation": [
+          "必须说明缺少项目资料，不能据规范前提判定该项目的具体结果。",
+          "可选说明对应规范前提，但不得把规范要求当成项目实际情况。",
+          "禁止无依据断言：该项目牵引负荷峰值为某个 MW 数值"
+        ],
+        "supported_premise_required": false
+      },
+      "diagnostic_only": {
+        "supported_source_references": [
+          {
+            "document_id": "cn.beijing.db11t995",
+            "document_version": "2025",
+            "pdf_page": 128,
+            "article": "16.3.4",
+            "source_excerpt": "最大牵引负荷应根据客流控制期高峰小时的列车编组、行车交路、旅行速度、车辆特性及线路条件等进行计算确定。"
+          }
+        ]
+      },
+      "change": "具体化缺失事实及禁止断言；支持前提仅可选说明；待人工审核"
+    },
+    {
+      "case_id": "I120-R008",
+      "original_reason": "需洪水位、积水位、冻胀及高程基准等项目数据。",
+      "source_references": [
+        {
+          "document_id": "cn.beijing.db11t995",
+          "document_version": "2025",
+          "pdf_page": 55,
+          "article": "9.1.2",
+          "source_excerpt": "路肩高程应根据路基所在区域的洪水频率、洪水位或地表积水水位及冻胀因素等综合确定，应满 足水、温度稳定性的要求。 北京市规划和自然资源委"
+        }
+      ],
+      "scored_now": {
+        "missing_facts": [
+          {
+            "fact_id": "M1",
+            "description": "该路基设计洪水位、积水位、冻胀条件、设计高程及采用的高程基准"
+          }
+        ],
+        "allowed_explanation": [
+          "必须说明缺少项目资料，不能据规范前提判定该项目的具体结果。",
+          "可选说明对应规范前提，但不得把规范要求当成项目实际情况。",
+          "禁止无依据断言：该路肩最终设计高程为某个米数"
+        ],
+        "supported_premise_required": false
+      },
+      "diagnostic_only": {
+        "supported_source_references": [
+          {
+            "document_id": "cn.beijing.db11t995",
+            "document_version": "2025",
+            "pdf_page": 55,
+            "article": "9.1.2",
+            "source_excerpt": "路肩高程应根据路基所在区域的洪水频率、洪水位或地表积水水位及冻胀因素等综合确定，应满 足水、温度稳定性的要求。 北京市规划和自然资源委"
+          }
+        ]
+      },
+      "change": "具体化缺失事实及禁止断言；支持前提仅可选说明；待人工审核"
+    },
+    {
+      "case_id": "I120-R009",
+      "original_reason": "需轨道形式、实测沉降及适用条件。",
+      "source_references": [
+        {
+          "document_id": "cn.gb55033",
+          "document_version": "2022",
+          "pdf_page": 24,
+          "article": "5.3.11",
+          "source_excerpt": "路基工程工后沉降量应符合下列规定： 1 有砟轨道线路不应大于200mm，路桥过渡段不应大于 100mm，沉降速率不应大于50mm/年； 2 无砟轨道线路，不应超过扣件允许的调高量，且路桥或 路隧交界处不应大于10mm，过渡段沉降造成的路基和桥梁或隧 道的折角不应大于1/1000。"
+        }
+      ],
+      "scored_now": {
+        "missing_facts": [
+          {
+            "fact_id": "M1",
+            "description": "该线路轨道形式、适用过渡段和实测工后沉降及沉降速率"
+          }
+        ],
+        "allowed_explanation": [
+          "必须说明缺少项目资料，不能据规范前提判定该项目的具体结果。",
+          "可选说明对应规范前提，但不得把规范要求当成项目实际情况。",
+          "禁止无依据断言：该线路路桥过渡段已经合格"
+        ],
+        "supported_premise_required": false
+      },
+      "diagnostic_only": {
+        "supported_source_references": [
+          {
+            "document_id": "cn.gb55033",
+            "document_version": "2022",
+            "pdf_page": 24,
+            "article": "5.3.11",
+            "source_excerpt": "路基工程工后沉降量应符合下列规定： 1 有砟轨道线路不应大于200mm，路桥过渡段不应大于 100mm，沉降速率不应大于50mm/年； 2 无砟轨道线路，不应超过扣件允许的调高量，且路桥或 路隧交界处不应大于10mm，过渡段沉降造成的路基和桥梁或隧 道的折角不应大于1/1000。"
+          }
+        ]
+      },
+      "change": "具体化缺失事实及禁止断言；支持前提仅可选说明；待人工审核"
+    },
+    {
+      "case_id": "I120-R010",
+      "original_reason": "需配电装置长度及通道布置尺寸。",
+      "source_references": [
+        {
+          "document_id": "cn.gb55033",
+          "document_version": "2022",
+          "pdf_page": 28,
+          "article": "6.1.7",
+          "source_excerpt": "当变电所配电装置的长度大于6m时，其柜（屏）后通 道应设2个出口；低压电气装置后面通道的出口之间距离不应大 于15m。"
+        }
+      ],
+      "scored_now": {
+        "missing_facts": [
+          {
+            "fact_id": "M1",
+            "description": "该配电装置长度与柜后通道布置、出口实况"
+          }
+        ],
+        "allowed_explanation": [
+          "必须说明缺少项目资料，不能据规范前提判定该项目的具体结果。",
+          "可选说明对应规范前提，但不得把规范要求当成项目实际情况。",
+          "禁止无依据断言：现有一个出口符合规范"
+        ],
+        "supported_premise_required": false
+      },
+      "diagnostic_only": {
+        "supported_source_references": [
+          {
+            "document_id": "cn.gb55033",
+            "document_version": "2022",
+            "pdf_page": 28,
+            "article": "6.1.7",
+            "source_excerpt": "当变电所配电装置的长度大于6m时，其柜（屏）后通 道应设2个出口；低压电气装置后面通道的出口之间距离不应大 于15m。"
+          }
+        ]
+      },
+      "change": "具体化缺失事实及禁止断言；支持前提仅可选说明；待人工审核"
+    },
+    {
+      "case_id": "I120-R011",
+      "original_reason": "需车辆类型、运行状态、设计/测量间隙。",
+      "source_references": [
+        {
+          "document_id": "cn.gb55033",
+          "document_version": "2022",
+          "pdf_page": 17,
+          "article": "3.0.9",
+          "source_excerpt": "直线车站的站台屏蔽门与车辆车体轮廓最宽处的间隙应 符合表3.0.9的规定。 表3.0.9直线车站的站台屏蔽门与车辆车体轮廓最宽处的间隙(mm) 类别 停站 越行 地铁 ≤130 140 轻轨 ≤130 直线电机车辆 130 市域快轨 ≤130 150 跨座式单轨 130 有轨电车 ≤130 中低速磁浮 ≤110 AGT自动导向 ≤110"
+        }
+      ],
+      "scored_now": {
+        "missing_facts": [
+          {
+            "fact_id": "M1",
+            "description": "该项目车辆类型、运行条件及屏蔽门至车体设计或实测间隙"
+          }
+        ],
+        "allowed_explanation": [
+          "必须说明缺少项目资料，不能据规范前提判定该项目的具体结果。",
+          "可选说明对应规范前提，但不得把规范要求当成项目实际情况。",
+          "禁止无依据断言：该项目现状间隙合格"
+        ],
+        "supported_premise_required": false
+      },
+      "diagnostic_only": {
+        "supported_source_references": [
+          {
+            "document_id": "cn.gb55033",
+            "document_version": "2022",
+            "pdf_page": 17,
+            "article": "3.0.9",
+            "source_excerpt": "直线车站的站台屏蔽门与车辆车体轮廓最宽处的间隙应 符合表3.0.9的规定。 表3.0.9直线车站的站台屏蔽门与车辆车体轮廓最宽处的间隙(mm) 类别 停站 越行 地铁 ≤130 140 轻轨 ≤130 直线电机车辆 130 市域快轨 ≤130 150 跨座式单轨 130 有轨电车 ≤130 中低速磁浮 ≤110 AGT自动导向 ≤110"
+          }
+        ]
+      },
+      "change": "具体化缺失事实及禁止断言；支持前提仅可选说明；待人工审核"
+    },
+    {
+      "case_id": "I120-R012",
+      "original_reason": "需具体结构、设计和现场参数；规范条件本身不证明项目合格。",
+      "source_references": [
+        {
+          "document_id": "cn.beijing.db11t995",
+          "document_version": "2025",
+          "pdf_page": 106,
+          "article": "13.1.4",
+          "source_excerpt": "地下工程防水等级应符合下列规定： 1 地下工程的工程防水类别、工程防水使用环境类别划分应符合国家标准《建筑与市政工程防水 北京市规划和自然资源委 通用规范》GB 55030 的相关规定； 北京市规划和自然资源委 2 车站、人行通道和机电设备集中区段的防水等级应为一级；区间隧道及联络通道、风道等结构 的防水等级，当位于Ⅰ类防水使用环境时应为一级，位于Ⅱ类防水使用环境时应为二级。"
+        }
+      ],
+      "scored_now": {
+        "missing_facts": [
+          {
+            "fact_id": "M1",
+            "description": "该站出入口结构、防水设计与相关现场或验收资料"
+          }
+        ],
+        "allowed_explanation": [
+          "必须说明缺少项目资料，不能据规范前提判定该项目的具体结果。",
+          "可选说明对应规范前提，但不得把规范要求当成项目实际情况。",
+          "禁止无依据断言：该站出入口防水设计已满足规范"
+        ],
+        "supported_premise_required": false
+      },
+      "diagnostic_only": {
+        "supported_source_references": [
+          {
+            "document_id": "cn.beijing.db11t995",
+            "document_version": "2025",
+            "pdf_page": 106,
+            "article": "13.1.4",
+            "source_excerpt": "地下工程防水等级应符合下列规定： 1 地下工程的工程防水类别、工程防水使用环境类别划分应符合国家标准《建筑与市政工程防水 北京市规划和自然资源委 通用规范》GB 55030 的相关规定； 北京市规划和自然资源委 2 车站、人行通道和机电设备集中区段的防水等级应为一级；区间隧道及联络通道、风道等结构 的防水等级，当位于Ⅰ类防水使用环境时应为一级，位于Ⅱ类防水使用环境时应为二级。"
+          }
+        ]
+      },
+      "change": "具体化缺失事实及禁止断言；支持前提仅可选说明；待人工审核"
+    },
+    {
+      "case_id": "I120-R013",
+      "original_reason": "规范支持限值，但缺甲线路轨道及实测沉降，不能作具体合格判定。",
+      "source_references": [
+        {
+          "document_id": "cn.gb55033",
+          "document_version": "2022",
+          "pdf_page": 24,
+          "article": "5.3.11",
+          "source_excerpt": "路基工程工后沉降量应符合下列规定： 1 有砟轨道线路不应大于200mm，路桥过渡段不应大于 100mm，沉降速率不应大于50mm/年； 2 无砟轨道线路，不应超过扣件允许的调高量，且路桥或 路隧交界处不应大于10mm，过渡段沉降造成的路基和桥梁或隧 道的折角不应大于1/1000。"
+        }
+      ],
+      "scored_now": {
+        "missing_facts": [
+          {
+            "fact_id": "M1",
+            "description": "甲线路轨道类型、对应路桥过渡段实测沉降与沉降速率"
+          }
+        ],
+        "allowed_explanation": [
+          "必须说明缺少项目资料，不能据规范前提判定该项目的具体结果。",
+          "可选说明对应规范前提，但不得把规范要求当成项目实际情况。",
+          "禁止无依据断言：甲线路工后沉降合格"
+        ],
+        "supported_premise_required": false
+      },
+      "diagnostic_only": {
+        "supported_source_references": [
+          {
+            "document_id": "cn.gb55033",
+            "document_version": "2022",
+            "pdf_page": 24,
+            "article": "5.3.11",
+            "source_excerpt": "路基工程工后沉降量应符合下列规定： 1 有砟轨道线路不应大于200mm，路桥过渡段不应大于 100mm，沉降速率不应大于50mm/年； 2 无砟轨道线路，不应超过扣件允许的调高量，且路桥或 路隧交界处不应大于10mm，过渡段沉降造成的路基和桥梁或隧 道的折角不应大于1/1000。"
+          }
+        ]
+      },
+      "change": "具体化缺失事实及禁止断言；支持前提仅可选说明；待人工审核"
+    },
+    {
+      "case_id": "I120-R014",
+      "original_reason": "规范支持车挡设计能力要求，不支持乙线设备实际性能或验收结论。",
+      "source_references": [
+        {
+          "document_id": "cn.gb55033",
+          "document_version": "2022",
+          "pdf_page": 23,
+          "article": "5.3.4",
+          "source_excerpt": "轨道尽端应设置车挡。设在钢轮钢轨系统正线、配线及 试车线、牵出线的车挡应能承受列车以25km/h速度撞击时的冲 击荷载。 19"
+        }
+      ],
+      "scored_now": {
+        "missing_facts": [
+          {
+            "fact_id": "M1",
+            "description": "乙线车挡设备耐撞参数与验收资料"
+          }
+        ],
+        "allowed_explanation": [
+          "必须说明缺少项目资料，不能据规范前提判定该项目的具体结果。",
+          "可选说明对应规范前提，但不得把规范要求当成项目实际情况。",
+          "禁止无依据断言：乙线现用车挡合格"
+        ],
+        "supported_premise_required": false
+      },
+      "diagnostic_only": {
+        "supported_source_references": [
+          {
+            "document_id": "cn.gb55033",
+            "document_version": "2022",
+            "pdf_page": 23,
+            "article": "5.3.4",
+            "source_excerpt": "轨道尽端应设置车挡。设在钢轮钢轨系统正线、配线及 试车线、牵出线的车挡应能承受列车以25km/h速度撞击时的冲 击荷载。 19"
+          }
+        ]
+      },
+      "change": "具体化缺失事实及禁止断言；支持前提仅可选说明；待人工审核"
+    },
+    {
+      "case_id": "I120-R015",
+      "original_reason": "规范支持绝缘要求，不证明丙站工程已验收。",
+      "source_references": [
+        {
+          "document_id": "cn.gb55033",
+          "document_version": "2022",
+          "pdf_page": 31,
+          "article": "6.2.5",
+          "source_excerpt": "当光缆引入室内时，应做绝缘接头，室内外金属护层及 金属加强芯应断开，并应彼此绝缘。"
+        }
+      ],
+      "scored_now": {
+        "missing_facts": [
+          {
+            "fact_id": "M1",
+            "description": "丙站光缆绝缘测试和施工验收记录"
+          }
+        ],
+        "allowed_explanation": [
+          "必须说明缺少项目资料，不能据规范前提判定该项目的具体结果。",
+          "可选说明对应规范前提，但不得把规范要求当成项目实际情况。",
+          "禁止无依据断言：丙站光缆已通过验收"
+        ],
+        "supported_premise_required": false
+      },
+      "diagnostic_only": {
+        "supported_source_references": [
+          {
+            "document_id": "cn.gb55033",
+            "document_version": "2022",
+            "pdf_page": 31,
+            "article": "6.2.5",
+            "source_excerpt": "当光缆引入室内时，应做绝缘接头，室内外金属护层及 金属加强芯应断开，并应彼此绝缘。"
+          }
+        ]
+      },
+      "change": "具体化缺失事实及禁止断言；支持前提仅可选说明；待人工审核"
+    },
+    {
+      "case_id": "I120-R016",
+      "original_reason": "规范支持确定依据，缺现场水文及设计/实测高程，不能判定。",
+      "source_references": [
+        {
+          "document_id": "cn.beijing.db11t995",
+          "document_version": "2025",
+          "pdf_page": 55,
+          "article": "9.1.2",
+          "source_excerpt": "路肩高程应根据路基所在区域的洪水频率、洪水位或地表积水水位及冻胀因素等综合确定，应满 足水、温度稳定性的要求。 北京市规划和自然资源委"
+        }
+      ],
+      "scored_now": {
+        "missing_facts": [
+          {
+            "fact_id": "M1",
+            "description": "丁区间水文与冻胀资料、设计和实测路肩高程"
+          }
+        ],
+        "allowed_explanation": [
+          "必须说明缺少项目资料，不能据规范前提判定该项目的具体结果。",
+          "可选说明对应规范前提，但不得把规范要求当成项目实际情况。",
+          "禁止无依据断言：丁区间既有路肩高程合格"
+        ],
+        "supported_premise_required": false
+      },
+      "diagnostic_only": {
+        "supported_source_references": [
+          {
+            "document_id": "cn.beijing.db11t995",
+            "document_version": "2025",
+            "pdf_page": 55,
+            "article": "9.1.2",
+            "source_excerpt": "路肩高程应根据路基所在区域的洪水频率、洪水位或地表积水水位及冻胀因素等综合确定，应满 足水、温度稳定性的要求。 北京市规划和自然资源委"
+          }
+        ]
+      },
+      "change": "具体化缺失事实及禁止断言；支持前提仅可选说明；待人工审核"
+    },
+    {
+      "case_id": "I120-R017",
+      "original_reason": "规范支持优先顺序，不证明戊站实际设施布局。",
+      "source_references": [
+        {
+          "document_id": "cn.beijing.db11t995",
+          "document_version": "2025",
+          "pdf_page": 216,
+          "article": "29.1.1",
+          "source_excerpt": "车站交通接驳设施宜按照步行、非机动车、公交车、出租车（含小汽车）临停、小汽车停车的 北京市规划和自然资源委 优先顺序进行设计。"
+        }
+      ],
+      "scored_now": {
+        "missing_facts": [
+          {
+            "fact_id": "M1",
+            "description": "戊站实际接驳设施布局图及对应验收资料"
+          }
+        ],
+        "allowed_explanation": [
+          "必须说明缺少项目资料，不能据规范前提判定该项目的具体结果。",
+          "可选说明对应规范前提，但不得把规范要求当成项目实际情况。",
+          "禁止无依据断言：戊站接驳布局符合要求"
+        ],
+        "supported_premise_required": false
+      },
+      "diagnostic_only": {
+        "supported_source_references": [
+          {
+            "document_id": "cn.beijing.db11t995",
+            "document_version": "2025",
+            "pdf_page": 216,
+            "article": "29.1.1",
+            "source_excerpt": "车站交通接驳设施宜按照步行、非机动车、公交车、出租车（含小汽车）临停、小汽车停车的 北京市规划和自然资源委 优先顺序进行设计。"
+          }
+        ]
+      },
+      "change": "具体化缺失事实及禁止断言；支持前提仅可选说明；待人工审核"
+    },
+    {
+      "case_id": "I120-R018",
+      "original_reason": "规范支持设计要求，不证明己站设施安装或性能。",
+      "source_references": [
+        {
+          "document_id": "cn.gb50157",
+          "document_version": "2013",
+          "pdf_page": 249,
+          "article": "25.1.7",
+          "source_excerpt": "自动扶梯和自动人行道机坑内应采用重力流排水。无重 力流排水条件时，应在机坑外设集水坑和配备排水设施。自动扶 梯应配置油水分离设备。 Ⅱ主要技术要求及参数"
+        }
+      ],
+      "scored_now": {
+        "missing_facts": [
+          {
+            "fact_id": "M1",
+            "description": "己站机坑排水、油水分离设施的竣工与性能资料"
+          }
+        ],
+        "allowed_explanation": [
+          "必须说明缺少项目资料，不能据规范前提判定该项目的具体结果。",
+          "可选说明对应规范前提，但不得把规范要求当成项目实际情况。",
+          "禁止无依据断言：己站排水及油水分离设施合格"
+        ],
+        "supported_premise_required": false
+      },
+      "diagnostic_only": {
+        "supported_source_references": [
+          {
+            "document_id": "cn.gb50157",
+            "document_version": "2013",
+            "pdf_page": 249,
+            "article": "25.1.7",
+            "source_excerpt": "自动扶梯和自动人行道机坑内应采用重力流排水。无重 力流排水条件时，应在机坑外设集水坑和配备排水设施。自动扶 梯应配置油水分离设备。 Ⅱ主要技术要求及参数"
+          }
+        ]
+      },
+      "change": "具体化缺失事实及禁止断言；支持前提仅可选说明；待人工审核"
+    },
+    {
+      "case_id": "I120-R019",
+      "original_reason": "规范列出可选形式，不确定庚线路选择。",
+      "source_references": [
+        {
+          "document_id": "cn.gb50157",
+          "document_version": "2013",
+          "pdf_page": 159,
+          "article": "15.1.3",
+          "source_excerpt": "地铁外部电源方案应根据城市轨道交通线网规划、城市 电网现状及规划、城市规划进行设计，可采用集中式供电、分散 式供电或混合式供电。"
+        }
+      ],
+      "scored_now": {
+        "missing_facts": [
+          {
+            "fact_id": "M1",
+            "description": "庚线路最终供电设计文件或实际供电方案"
+          }
+        ],
+        "allowed_explanation": [
+          "必须说明缺少项目资料，不能据规范前提判定该项目的具体结果。",
+          "可选说明对应规范前提，但不得把规范要求当成项目实际情况。",
+          "禁止无依据断言：庚线路最终采用混合式供电"
+        ],
+        "supported_premise_required": false
+      },
+      "diagnostic_only": {
+        "supported_source_references": [
+          {
+            "document_id": "cn.gb50157",
+            "document_version": "2013",
+            "pdf_page": 159,
+            "article": "15.1.3",
+            "source_excerpt": "地铁外部电源方案应根据城市轨道交通线网规划、城市 电网现状及规划、城市规划进行设计，可采用集中式供电、分散 式供电或混合式供电。"
+          }
+        ]
+      },
+      "change": "具体化缺失事实及禁止断言；支持前提仅可选说明；待人工审核"
+    },
+    {
+      "case_id": "I120-R020",
+      "original_reason": "规范支持负荷等级，不足以判定辛线路的具体配置。",
+      "source_references": [
+        {
+          "document_id": "cn.beijing.db11t995",
+          "document_version": "2025",
+          "pdf_page": 127,
+          "article": "16.1.4",
+          "source_excerpt": "牵引用电负荷应为一级负荷；动力照明等用电负荷应分为一级负荷、二级负荷和三级负荷。"
+        }
+      ],
+      "scored_now": {
+        "missing_facts": [
+          {
+            "fact_id": "M1",
+            "description": "辛线路实际负荷设计及供电配置、验收资料"
+          }
+        ],
+        "allowed_explanation": [
+          "必须说明缺少项目资料，不能据规范前提判定该项目的具体结果。",
+          "可选说明对应规范前提，但不得把规范要求当成项目实际情况。",
+          "禁止无依据断言：辛线路供电配置已经合规"
+        ],
+        "supported_premise_required": false
+      },
+      "diagnostic_only": {
+        "supported_source_references": [
+          {
+            "document_id": "cn.beijing.db11t995",
+            "document_version": "2025",
+            "pdf_page": 127,
+            "article": "16.1.4",
+            "source_excerpt": "牵引用电负荷应为一级负荷；动力照明等用电负荷应分为一级负荷、二级负荷和三级负荷。"
+          }
+        ]
+      },
+      "change": "具体化缺失事实及禁止断言；支持前提仅可选说明；待人工审核"
+    },
+    {
+      "case_id": "I120-Q011",
+      "original_reason": "表29.1.3按区域、车站类型给出不同区间；缺车站区域与类型。",
+      "scored_now": {
+        "required_fields": [
+          "车站所在区域",
+          "车站类型"
+        ],
+        "acceptable_clarification": "可合并提问或分开提问；须问清决定适用行列/条件的字段，不能直接指定单一数值。"
+      },
+      "diagnostic_only": {
+        "ambiguity_source_pages": [
+          216
+        ],
+        "future_branches": [],
+        "branch_evidence_complete": false
+      },
+      "change": "澄清字段具体化；分支证据仅诊断且尚不完整；待人工审核"
+    },
+    {
+      "case_id": "I120-Q012",
+      "original_reason": "表4.1.5区分A/B型及无司机室/单司机室，车体基本长度不同。",
+      "scored_now": {
+        "required_fields": [
+          "车辆类型（A 型或 B 型）",
+          "车体是否设司机室及司机室配置"
+        ],
+        "acceptable_clarification": "可合并提问或分开提问；须问清决定适用行列/条件的字段，不能直接指定单一数值。"
+      },
+      "diagnostic_only": {
+        "ambiguity_source_pages": [
+          35
+        ],
+        "future_branches": [],
+        "branch_evidence_complete": false
+      },
+      "change": "澄清字段具体化；分支证据仅诊断且尚不完整；待人工审核"
+    },
+    {
+      "case_id": "I120-Q013",
+      "original_reason": "表15.2.16屏正面至墙与屏背面至墙不同，屏正面还有人员值守表注。",
+      "scored_now": {
+        "required_fields": [
+          "屏正面还是屏背面至墙",
+          "若为屏正面：是否有人值守"
+        ],
+        "acceptable_clarification": "可合并提问或分开提问；须问清决定适用行列/条件的字段，不能直接指定单一数值。"
+      },
+      "diagnostic_only": {
+        "ambiguity_source_pages": [
+          163
+        ],
+        "future_branches": [],
+        "branch_evidence_complete": false
+      },
+      "change": "澄清字段具体化；分支证据仅诊断且尚不完整；待人工审核"
+    },
+    {
+      "case_id": "I120-Q014",
+      "original_reason": "表27.3.14按停车库、列检库、月检库等车库种类给不同数值，部分格有括号及表注。",
+      "scored_now": {
+        "required_fields": [
+          "车库种类（停车库、列检库、月检库等）",
+          "适用的表注或括号标示条件"
+        ],
+        "acceptable_clarification": "可合并提问或分开提问；须问清决定适用行列/条件的字段，不能直接指定单一数值。"
+      },
+      "diagnostic_only": {
+        "ambiguity_source_pages": [
+          268
+        ],
+        "future_branches": [],
+        "branch_evidence_complete": false
+      },
+      "change": "澄清字段具体化；分支证据仅诊断且尚不完整；待人工审核"
+    },
+    {
+      "case_id": "I120-Q015",
+      "original_reason": "19.1.2按是否集中空调/每层封闭建筑面积超过2000m²、是否超过3000m²分级；需项目条件。",
+      "scored_now": {
+        "required_fields": [
+          "是否采用集中空调",
+          "每层封闭建筑面积及相应分级适用条件"
+        ],
+        "acceptable_clarification": "可合并提问或分开提问；须问清决定适用行列/条件的字段，不能直接指定单一数值。"
+      },
+      "diagnostic_only": {
+        "ambiguity_source_pages": [
+          211
+        ],
+        "future_branches": [],
+        "branch_evidence_complete": false
+      },
+      "change": "澄清字段具体化；分支证据仅诊断且尚不完整；待人工审核"
+    },
+    {
+      "case_id": "I120-Q016",
+      "original_reason": "表3.0.7区分车辆制式、速度等级和地铁车门形式；缺这些条件且表的某些格留空。",
+      "scored_now": {
+        "required_fields": [
+          "车辆制式",
+          "速度等级",
+          "若为地铁：车门形式"
+        ],
+        "acceptable_clarification": "可合并提问或分开提问；须问清决定适用行列/条件的字段，不能直接指定单一数值。"
+      },
+      "diagnostic_only": {
+        "ambiguity_source_pages": [
+          16
+        ],
+        "future_branches": [],
+        "branch_evidence_complete": false
+      },
+      "change": "澄清字段具体化；分支证据仅诊断且尚不完整；待人工审核"
+    },
+    {
+      "case_id": "I120-Q017",
+      "original_reason": "表8.2.7按道床形式、正线/配线及曲线半径或坡度给不同组数/范围。",
+      "scored_now": {
+        "required_fields": [
+          "道床形式",
+          "正线还是配线",
+          "曲线半径或坡度所属条件"
+        ],
+        "acceptable_clarification": "可合并提问或分开提问；须问清决定适用行列/条件的字段，不能直接指定单一数值。"
+      },
+      "diagnostic_only": {
+        "ambiguity_source_pages": [
+          51
+        ],
+        "future_branches": [],
+        "branch_evidence_complete": false
+      },
+      "change": "澄清字段具体化；分支证据仅诊断且尚不完整；待人工审核"
+    },
+    {
+      "case_id": "I120-Q018",
+      "original_reason": "表10.5.9-2按氯化物环境及混凝土等级给60/55mm，续表10.5.9-1和表10.5.9-3还有其他环境与表注，缺环境及材料条件。",
+      "scored_now": {
+        "required_fields": [
+          "所处环境类别及适用表",
+          "混凝土强度等级等材料条件"
+        ],
+        "acceptable_clarification": "可合并提问或分开提问；须问清决定适用行列/条件的字段，不能直接指定单一数值。"
+      },
+      "diagnostic_only": {
+        "ambiguity_source_pages": [
+          99,
+          100
+        ],
+        "future_branches": [],
+        "branch_evidence_complete": false
+      },
+      "change": "澄清字段具体化；分支证据仅诊断且尚不完整；待人工审核"
+    },
+    {
+      "case_id": "I120-Q019",
+      "original_reason": "表15.4.3跨页，电力与控制电缆、通道/电缆沟及水平/垂直布置对应不同值或空白格。",
+      "scored_now": {
+        "required_fields": [
+          "电缆类型（电力或控制）",
+          "通道或电缆沟布置",
+          "水平还是垂直间距及所指支架位置"
+        ],
+        "acceptable_clarification": "可合并提问或分开提问；须问清决定适用行列/条件的字段，不能直接指定单一数值。"
+      },
+      "diagnostic_only": {
+        "ambiguity_source_pages": [
+          168,
+          169
+        ],
+        "future_branches": [],
+        "branch_evidence_complete": false
+      },
+      "change": "澄清字段具体化；分支证据仅诊断且尚不完整；待人工审核"
+    }
+  ],
+  "validation": "120 schema, fact/evidence ID links and public input validation passed; 23 behavior annotations checked",
+  "rag_invoked": false,
+  "independent_run_started": false
+}

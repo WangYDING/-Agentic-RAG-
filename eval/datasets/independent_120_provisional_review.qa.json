@@ -1,0 +1,51 @@
+{
+  "selected_count": 120,
+  "candidate_count": 150,
+  "excluded": {
+    "I120-C012": "prior P1-Q008 covers GB 55033 passenger-door interlock",
+    "I120-M001": "prior REG-001 covers operating organization and capacity",
+    "I120-M014": "duplicates C016 access-control functionality",
+    "I120-M015": "two unrelated topics; poor multi-evidence question",
+    "I120-M013": "reuses GB 50157 article 16.1.2 in X009; replace with distinct M019",
+    "I120-Q001": "same table and fact family as selected T010",
+    "I120-Q002": "same article and fact family as selected C009",
+    "I120-Q003": "same table and fact family as selected T006",
+    "I120-Q004": "same table and fact family as selected T009",
+    "I120-Q005": "ambiguous object even after normal clarification",
+    "I120-Q006": "prior P1-V2-001 used DB11 design-life fact",
+    "I120-Q008": "same edition-only mechanism as Q007",
+    "I120-Q009": "same edition-only mechanism as Q007",
+    "I120-Q010": "public all-documents scope may change; redundant scope mechanism",
+    "I120-C020": "reserve direct question; direct category already at quota",
+    "I120-C021": "reserve direct question; direct category already at quota",
+    "I120-C022": "reserve direct question; direct category already at quota",
+    "I120-C023": "reserve direct question; direct category already at quota",
+    "I120-N023": "reserve numeric question; numeric category already at quota",
+    "I120-N024": "reserve numeric question; numeric category already at quota",
+    "I120-N025": "reserve numeric question; numeric category already at quota",
+    "I120-N026": "reserve numeric question; numeric category already at quota",
+    "I120-X021": "reserve cross-spec question; cross-spec category already at quota",
+    "I120-X022": "reserve alternative overlapping C019; cross-spec category at quota",
+    "I120-X023": "reserve alternative overlapping X012; cross-spec category at quota",
+    "I120-X024": "reserve cross-spec question; cross-spec category already at quota",
+    "I120-M020": "reserve alternative overlapping N023; multi-evidence category at quota",
+    "I120-M021": "reserve alternative overlapping X024; multi-evidence category at quota",
+    "I120-M022": "reserve alternative overlapping M019; multi-evidence category at quota",
+    "I120-M023": "reserve alternative overlapping C014; multi-evidence category at quota"
+  },
+  "location_check_count": 206,
+  "duplicate_locations_within_selected": [],
+  "source_text_checks": {
+    "article_present": 206,
+    "checked_refs": 206,
+    "non_table_quote_prefix_matches": 161,
+    "non_table_quote_prefix_misses": [],
+    "table_refs_requiring_visual_review": 45
+  },
+  "remaining_review": [
+    "Verify every full source page and exact quote; table row, column, continuation and notes.",
+    "Review historical question-answer facts, not just article numbers or lexical similarity.",
+    "Adjudicate refusal behavior and project-data assumptions; verify the frozen public scope policy.",
+    "Record actual human reviewer decisions and equivalent evidence alternatives before freeze."
+  ]
+}

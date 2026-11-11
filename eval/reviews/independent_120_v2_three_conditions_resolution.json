@@ -1,0 +1,141 @@
+{
+  "input": "datasets\\independent_120_v2_source_revised_pending_review.jsonl",
+  "input_sha256": "e9df6b6c59e9ab805fdc4674f06fc60dd2189759623b3b044ff2211dafe24ce2",
+  "output": "datasets\\independent_120_v2_conditions_pending_review.jsonl",
+  "output_sha256": "4d41868eaabdb4bfc34c8af6efe0e8ab258f9a284b91927dc72c4a2b743bc52b",
+  "reviewer": "Codex AI",
+  "reviewer_type": "ai",
+  "human_approved": false,
+  "pdf_sha256": {
+    "cn.beijing.db11t995": "e5ca2388ad68ed7b21b6092e66c12a73c74c17de8b532bef91c5b2ea57be78f7",
+    "cn.gb55033": "907ffd92c569f79f163121904cccce69bc20905f9563854960bd184ca76f6fef",
+    "cn.gb50157": "a1130f89afba11f00fdb3353375aa1c424b4eb44d462ee6bd1de2835c235dab3"
+  },
+  "case_decisions": {
+    "I120-R012": {
+      "pages": {
+        "cn.beijing.db11t995": [
+          66,
+          106,
+          112,
+          236
+        ]
+      },
+      "result": "13.1.4第2项未单列出入口；10.5.7和30.8.3涉及出入口防淹/排水；13.7.12为顶管法隧道的条件性防水规定，均不证明所有出入口防水等级或具体工程合格。",
+      "scoring": "refuse；须指出缺少工程事实；13.1.4的准确范围为可选说明。",
+      "expected_action": "refuse",
+      "changed_fields": {
+        "reason_for_refusal_or_clarification": {
+          "before": "需具体结构、设计和现场参数；规范条件本身不证明项目合格。",
+          "after": "13.1.4第2项列车站、人行通道及机电设备集中区段，未单列“出入口”；现有题干也没有该站出入口结构与防水设计等工程资料，无法判断其防水设计是否符合规范。10.5.7、30.8.3针对出入口防淹或排水，不等同于证明该项目整体防水设计合格。"
+        },
+        "supported_source_references": {
+          "before": [
+            {
+              "document_id": "cn.beijing.db11t995",
+              "document_version": "2025",
+              "pdf_page": 106,
+              "article": "13.1.4",
+              "source_excerpt": "地下工程防水等级应符合下列规定： 1 地下工程的工程防水类别、工程防水使用环境类别划分应符合国家标准《建筑与市政工程防水 北京市规划和自然资源委 通用规范》GB 55030 的相关规定； 北京市规划和自然资源委 2 车站、人行通道和机电设备集中区段的防水等级应为一级；区间隧道及联络通道、风道等结构 的防水等级，当位于Ⅰ类防水使用环境时应为一级，位于Ⅱ类防水使用环境时应为二级。"
+            }
+          ],
+          "after": [
+            {
+              "document_id": "cn.beijing.db11t995",
+              "document_version": "2025",
+              "pdf_page": 106,
+              "article": "13.1.4",
+              "source_excerpt": "13.1.4第2项：车站、人行通道和机电设备集中区段的防水等级应为一级。"
+            }
+          ]
+        },
+        "refusal_annotation_v2": {
+          "before": {
+            "supported_facts": [
+              {
+                "fact_id": "S1",
+                "description": "可选说明的规范前提：地下工程防水等级应符合下列规定： 1 地下工程的工程防水类别、工程防水使用环境类别划分应符合国家标准《建筑与市政工程防水 北京市规划和自然资源委 通用规范》GB 55030 的相关规定； 北京市规划和自然资源委 2 车站、人行通道和机电设备集中区段的防水等级应为一级；区间隧道及联络通道、风道等结构 的防水等级，当位于Ⅰ类防水使用环境时应为一级，位于Ⅱ类防水使用环境时应为二级。"
+              }
+            ],
+            "missing_facts": [
+              {
+                "fact_id": "M1",
+                "description": "该站出入口结构、防水设计与相关现场或验收资料"
+              }
+            ],
+            "allowed_explanation": [
+              "必须说明缺少项目资料，不能据规范前提判定该项目的具体结果。",
+              "可选说明对应规范前提，但不得把规范要求当成项目实际情况。",
+              "禁止无依据断言：该站出入口防水设计已满足规范"
+            ]
+          },
+          "after": {
+            "supported_facts": [
+              {
+                "fact_id": "S1",
+                "description": "可选的规范前提：DB11/T 995-2025第13.1.4条第2项规定车站、人行通道和机电设备集中区段防水等级为一级；原文未单列出入口。仅在答复提及时核对其原文范围，不要求必须复述。"
+              }
+            ],
+            "missing_facts": [
+              {
+                "fact_id": "M1",
+                "description": "该站出入口的具体结构与适用部位、建筑和设备图纸、防水设计及用于判断是否满足规范的相关工程资料"
+              }
+            ],
+            "allowed_explanation": [
+              "应说明缺少该站出入口的具体工程和防水设计资料，无法判定其是否符合规范；可合理拒绝作出合格结论。",
+              "可选说明13.1.4所列车站、人行通道及机电设备集中区段的等级；不得据此断言所有出入口被该条明确单列或已满足规范。",
+              "禁止无依据断言：该站出入口防水设计已满足规范，或所有出入口在13.1.4中明确规定为一级；不得把10.5.7、30.8.3的防淹要求当作该工程防水设计合格的证明。"
+            ]
+          }
+        }
+      },
+      "human_review": "pending"
+    },
+    "I120-Q015": {
+      "pages": {
+        "cn.gb50157": [
+          211
+        ]
+      },
+      "result": "19.1.2有>3000m²一级、集中空调或>2000m²且≤3000m²二级；无集中空调且各层≤2000m²时该条未给等级。",
+      "scoring": "clarify；询问集中空调和各层封闭建筑面积。未来无对应等级分支仅诊断，不能补造。",
+      "expected_action": "clarify",
+      "changed_fields": {
+        "reason_for_refusal_or_clarification": {
+          "before": "19.1.2按是否集中空调/每层封闭建筑面积超过2000m²、是否超过3000m²分级；需项目条件。",
+          "after": "GB 50157-2013第19.1.2条：地面或高架车站采用集中空调，或每层封闭建筑面积>2000m²且≤3000m²时为二级；面积>3000m²时为一级。题干未给集中空调和各层封闭建筑面积，本轮应先澄清，不指定项目等级。若补充后确认未用集中空调且各层面积均≤2000m²，所引条文没有该分支的等级，应明确无法由该条判定，不能补造等级。后续分支仅作诊断，不要求本轮评分时完成分支证据链。"
+        },
+        "clarification_annotation_v2": {
+          "before": {
+            "required_fields": [
+              "是否采用集中空调",
+              "每层封闭建筑面积及相应分级适用条件"
+            ],
+            "branches": []
+          },
+          "after": {
+            "required_fields": [
+              "该地面或高架车站是否采用集中空调",
+              "每层封闭建筑面积分别是多少平方米，是否存在超过2000m²或超过3000m²的楼层"
+            ],
+            "branches": []
+          }
+        }
+      },
+      "human_review": "pending"
+    },
+    "I120-T003": {
+      "pages": {
+        "cn.beijing.db11t995": [
+          173
+        ]
+      },
+      "result": "表19.2.13仅列H<10m及H>10m；H=10m无行，不插值外推；现题只问两个严格区间。",
+      "scoring": "answer；本轮题干未问H=10m；当前标注无须修改，若改问等于10m须说明原表不能直接回答。",
+      "expected_action": "answer",
+      "changed_fields": {},
+      "human_review": "pending"
+    }
+  }
+}

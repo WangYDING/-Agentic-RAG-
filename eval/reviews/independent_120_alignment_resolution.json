@@ -1,0 +1,1565 @@
+{
+  "source_sha256": "1e45a6c493f61a1d1bc550220a8c32d9def1b8fae64cfee4bbd8408ab3826f43",
+  "staging_sha256": "2b3059cf5ae631f99e3cff5d533b848d1c80c60c47284e1e35525b18d45f2378",
+  "schema": "rag-eval.test-case.v1",
+  "total_records": 77,
+  "unique_affected_cases": 74,
+  "record_decisions": {
+    "resolved_metadata": 18,
+    "pending_semantic_adjudication": 58,
+    "resolved_offline_policy": 1
+  },
+  "resolved_case_ids": [
+    "I120-C001",
+    "I120-C002",
+    "I120-C003",
+    "I120-C004",
+    "I120-C005",
+    "I120-C006",
+    "I120-C007",
+    "I120-C008",
+    "I120-C009",
+    "I120-C010",
+    "I120-C011",
+    "I120-C013",
+    "I120-C014",
+    "I120-C015",
+    "I120-C016",
+    "I120-C017",
+    "I120-C018",
+    "I120-C019",
+    "I120-Q007"
+  ],
+  "pending_adjudication_case_ids": [
+    "I120-C007",
+    "I120-C008",
+    "I120-C009",
+    "I120-N001",
+    "I120-N002",
+    "I120-N003",
+    "I120-N004",
+    "I120-N005",
+    "I120-N006",
+    "I120-N007",
+    "I120-N008",
+    "I120-N009",
+    "I120-N010",
+    "I120-N011",
+    "I120-N012",
+    "I120-N013",
+    "I120-N014",
+    "I120-N015",
+    "I120-N016",
+    "I120-N017",
+    "I120-Q011",
+    "I120-Q012",
+    "I120-Q013",
+    "I120-Q014",
+    "I120-Q015",
+    "I120-Q016",
+    "I120-Q017",
+    "I120-Q018",
+    "I120-Q019",
+    "I120-R007",
+    "I120-R008",
+    "I120-R009",
+    "I120-R010",
+    "I120-R011",
+    "I120-R012",
+    "I120-R013",
+    "I120-R014",
+    "I120-R015",
+    "I120-R016",
+    "I120-R017",
+    "I120-R018",
+    "I120-R019",
+    "I120-R020",
+    "I120-T001",
+    "I120-T002",
+    "I120-T003",
+    "I120-T004",
+    "I120-T005",
+    "I120-T006",
+    "I120-T007",
+    "I120-T008",
+    "I120-T009",
+    "I120-T010",
+    "I120-T011",
+    "I120-T012",
+    "I120-T013",
+    "I120-T014",
+    "I120-T015"
+  ],
+  "requires_re_review_case_ids": [
+    "I120-C007",
+    "I120-C008",
+    "I120-C009",
+    "I120-N001",
+    "I120-N002",
+    "I120-N003",
+    "I120-N004",
+    "I120-N005",
+    "I120-N006",
+    "I120-N007",
+    "I120-N008",
+    "I120-N009",
+    "I120-N010",
+    "I120-N011",
+    "I120-N012",
+    "I120-N013",
+    "I120-N014",
+    "I120-N015",
+    "I120-N016",
+    "I120-N017",
+    "I120-Q011",
+    "I120-Q012",
+    "I120-Q013",
+    "I120-Q014",
+    "I120-Q015",
+    "I120-Q016",
+    "I120-Q017",
+    "I120-Q018",
+    "I120-Q019",
+    "I120-R007",
+    "I120-R008",
+    "I120-R009",
+    "I120-R010",
+    "I120-R011",
+    "I120-R012",
+    "I120-R013",
+    "I120-R014",
+    "I120-R015",
+    "I120-R016",
+    "I120-R017",
+    "I120-R018",
+    "I120-R019",
+    "I120-R020",
+    "I120-T001",
+    "I120-T002",
+    "I120-T003",
+    "I120-T004",
+    "I120-T005",
+    "I120-T006",
+    "I120-T007",
+    "I120-T008",
+    "I120-T009",
+    "I120-T010",
+    "I120-T011",
+    "I120-T012",
+    "I120-T013",
+    "I120-T014",
+    "I120-T015"
+  ],
+  "issues": [
+    {
+      "case_id": "I120-C001",
+      "code": "OVERLAP_STATUS_CONFLICT",
+      "decision": "resolved_metadata"
+    },
+    {
+      "case_id": "I120-C002",
+      "code": "OVERLAP_STATUS_CONFLICT",
+      "decision": "resolved_metadata"
+    },
+    {
+      "case_id": "I120-C003",
+      "code": "OVERLAP_STATUS_CONFLICT",
+      "decision": "resolved_metadata"
+    },
+    {
+      "case_id": "I120-C004",
+      "code": "OVERLAP_STATUS_CONFLICT",
+      "decision": "resolved_metadata"
+    },
+    {
+      "case_id": "I120-C005",
+      "code": "OVERLAP_STATUS_CONFLICT",
+      "decision": "resolved_metadata"
+    },
+    {
+      "case_id": "I120-C006",
+      "code": "OVERLAP_STATUS_CONFLICT",
+      "decision": "resolved_metadata"
+    },
+    {
+      "case_id": "I120-C007",
+      "code": "NUMERIC_FACT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-C007",
+      "code": "OVERLAP_STATUS_CONFLICT",
+      "decision": "resolved_metadata"
+    },
+    {
+      "case_id": "I120-C008",
+      "code": "NUMERIC_FACT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-C008",
+      "code": "OVERLAP_STATUS_CONFLICT",
+      "decision": "resolved_metadata"
+    },
+    {
+      "case_id": "I120-C009",
+      "code": "NUMERIC_FACT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-C009",
+      "code": "OVERLAP_STATUS_CONFLICT",
+      "decision": "resolved_metadata"
+    },
+    {
+      "case_id": "I120-C010",
+      "code": "OVERLAP_STATUS_CONFLICT",
+      "decision": "resolved_metadata"
+    },
+    {
+      "case_id": "I120-C011",
+      "code": "OVERLAP_STATUS_CONFLICT",
+      "decision": "resolved_metadata"
+    },
+    {
+      "case_id": "I120-C013",
+      "code": "OVERLAP_STATUS_CONFLICT",
+      "decision": "resolved_metadata"
+    },
+    {
+      "case_id": "I120-C014",
+      "code": "OVERLAP_STATUS_CONFLICT",
+      "decision": "resolved_metadata"
+    },
+    {
+      "case_id": "I120-C015",
+      "code": "OVERLAP_STATUS_CONFLICT",
+      "decision": "resolved_metadata"
+    },
+    {
+      "case_id": "I120-C016",
+      "code": "OVERLAP_STATUS_CONFLICT",
+      "decision": "resolved_metadata"
+    },
+    {
+      "case_id": "I120-C017",
+      "code": "OVERLAP_STATUS_CONFLICT",
+      "decision": "resolved_metadata"
+    },
+    {
+      "case_id": "I120-C018",
+      "code": "OVERLAP_STATUS_CONFLICT",
+      "decision": "resolved_metadata"
+    },
+    {
+      "case_id": "I120-C019",
+      "code": "OVERLAP_STATUS_CONFLICT",
+      "decision": "resolved_metadata"
+    },
+    {
+      "case_id": "I120-N001",
+      "code": "NUMERIC_FACT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N002",
+      "code": "NUMERIC_FACT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N003",
+      "code": "NUMERIC_FACT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N004",
+      "code": "NUMERIC_FACT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N005",
+      "code": "NUMERIC_FACT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N006",
+      "code": "NUMERIC_FACT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N007",
+      "code": "NUMERIC_FACT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N008",
+      "code": "NUMERIC_FACT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N009",
+      "code": "NUMERIC_FACT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N010",
+      "code": "NUMERIC_FACT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N011",
+      "code": "NUMERIC_FACT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N012",
+      "code": "NUMERIC_FACT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N013",
+      "code": "NUMERIC_FACT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N014",
+      "code": "NUMERIC_FACT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N015",
+      "code": "NUMERIC_FACT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N016",
+      "code": "NUMERIC_FACT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N017",
+      "code": "NUMERIC_FACT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T001",
+      "code": "NUMERIC_FACT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T002",
+      "code": "NUMERIC_FACT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T003",
+      "code": "NUMERIC_FACT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T004",
+      "code": "NUMERIC_FACT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T005",
+      "code": "NUMERIC_FACT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T006",
+      "code": "NUMERIC_FACT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T007",
+      "code": "NUMERIC_FACT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T008",
+      "code": "NUMERIC_FACT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T009",
+      "code": "NUMERIC_FACT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T010",
+      "code": "NUMERIC_FACT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T011",
+      "code": "NUMERIC_FACT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T012",
+      "code": "NUMERIC_FACT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T013",
+      "code": "NUMERIC_FACT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T014",
+      "code": "NUMERIC_FACT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T015",
+      "code": "NUMERIC_FACT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-R007",
+      "code": "PARTIAL_SUPPORT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-R008",
+      "code": "PARTIAL_SUPPORT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-R009",
+      "code": "PARTIAL_SUPPORT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-R010",
+      "code": "PARTIAL_SUPPORT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-R011",
+      "code": "PARTIAL_SUPPORT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-R012",
+      "code": "PARTIAL_SUPPORT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-R013",
+      "code": "PARTIAL_SUPPORT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-R014",
+      "code": "PARTIAL_SUPPORT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-R015",
+      "code": "PARTIAL_SUPPORT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-R016",
+      "code": "PARTIAL_SUPPORT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-R017",
+      "code": "PARTIAL_SUPPORT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-R018",
+      "code": "PARTIAL_SUPPORT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-R019",
+      "code": "PARTIAL_SUPPORT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-R020",
+      "code": "PARTIAL_SUPPORT_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-Q007",
+      "code": "SCOPE_BEHAVIOR",
+      "decision": "resolved_offline_policy"
+    },
+    {
+      "case_id": "I120-Q011",
+      "code": "CLARIFICATION_EVIDENCE_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-Q012",
+      "code": "CLARIFICATION_EVIDENCE_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-Q013",
+      "code": "CLARIFICATION_EVIDENCE_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-Q014",
+      "code": "CLARIFICATION_EVIDENCE_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-Q015",
+      "code": "CLARIFICATION_EVIDENCE_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-Q016",
+      "code": "CLARIFICATION_EVIDENCE_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-Q017",
+      "code": "CLARIFICATION_EVIDENCE_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-Q018",
+      "code": "CLARIFICATION_EVIDENCE_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-Q019",
+      "code": "CLARIFICATION_EVIDENCE_MAPPING",
+      "decision": "pending_semantic_adjudication"
+    }
+  ],
+  "numeric_fact_link_candidates": [
+    {
+      "case_id": "I120-C007",
+      "constraint_index": 1,
+      "constraint": {
+        "value": "6",
+        "unit": "m",
+        "comparison": ">",
+        "condition": "变电所配电装置长度；触发柜后通道2个出口"
+      },
+      "candidate_fact_ids": [
+        "F1"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-C007",
+      "constraint_index": 2,
+      "constraint": {
+        "value": "2",
+        "unit": "个",
+        "comparison": "=",
+        "condition": "配电装置长度大于6m时柜（屏）后通道出口"
+      },
+      "candidate_fact_ids": [
+        "F2"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-C007",
+      "constraint_index": 3,
+      "constraint": {
+        "value": "15",
+        "unit": "m",
+        "comparison": "<=",
+        "condition": "低压电气装置后面通道的出口间距"
+      },
+      "candidate_fact_ids": [
+        "F3"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-C008",
+      "constraint_index": 1,
+      "constraint": {
+        "value": "25",
+        "unit": "km/h",
+        "comparison": "design_impact_speed",
+        "condition": "钢轮钢轨系统正线、配线、试车线及牵出线的车挡"
+      },
+      "candidate_fact_ids": [
+        "F2"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-C009",
+      "constraint_index": 1,
+      "constraint": {
+        "value": "200",
+        "unit": "mm",
+        "comparison": "<=",
+        "condition": "有砟轨道线路工后沉降"
+      },
+      "candidate_fact_ids": [
+        "F1"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-C009",
+      "constraint_index": 2,
+      "constraint": {
+        "value": "100",
+        "unit": "mm",
+        "comparison": "<=",
+        "condition": "有砟轨道路桥过渡段"
+      },
+      "candidate_fact_ids": [
+        "F2"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-C009",
+      "constraint_index": 3,
+      "constraint": {
+        "value": "50",
+        "unit": "mm/年",
+        "comparison": "<=",
+        "condition": "有砟轨道沉降速率"
+      },
+      "candidate_fact_ids": [
+        "F3"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N001",
+      "constraint_index": 1,
+      "constraint": {
+        "value": "4",
+        "unit": "%",
+        "comparison": ">=",
+        "condition": "有砟路拱"
+      },
+      "candidate_fact_ids": [
+        "F1",
+        "F2"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N001",
+      "constraint_index": 2,
+      "constraint": {
+        "value": "4",
+        "unit": "%",
+        "comparison": "宜为",
+        "condition": "无砟支承层外侧"
+      },
+      "candidate_fact_ids": [
+        "F1",
+        "F2"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N002",
+      "constraint_index": 1,
+      "constraint": {
+        "value": "0.9",
+        "unit": "无量纲",
+        "comparison": ">=",
+        "condition": "外部电源引入点"
+      },
+      "candidate_fact_ids": [
+        "F1"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N003",
+      "constraint_index": 1,
+      "constraint": {
+        "value": "20",
+        "unit": "%名义速度",
+        "comparison": "<=",
+        "condition": "扶梯及人行道节能运行"
+      },
+      "candidate_fact_ids": [
+        "F1"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N004",
+      "constraint_index": 1,
+      "constraint": {
+        "value": "30",
+        "unit": "°",
+        "comparison": "不应大于",
+        "condition": "自动扶梯"
+      },
+      "candidate_fact_ids": [
+        "F1"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N004",
+      "constraint_index": 2,
+      "constraint": {
+        "value": "6",
+        "unit": "°",
+        "comparison": "不宜大于",
+        "condition": "自动人行道"
+      },
+      "candidate_fact_ids": [
+        "F2"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N005",
+      "constraint_index": 1,
+      "constraint": {
+        "value": "30",
+        "unit": "年",
+        "comparison": ">=",
+        "condition": "吊杆索"
+      },
+      "candidate_fact_ids": [
+        "F1"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N005",
+      "constraint_index": 2,
+      "constraint": {
+        "value": "15",
+        "unit": "年",
+        "comparison": ">=",
+        "condition": "排水系统"
+      },
+      "candidate_fact_ids": [
+        "F2"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N005",
+      "constraint_index": 3,
+      "constraint": {
+        "value": "60",
+        "unit": "年",
+        "comparison": ">=",
+        "condition": "球形钢支座"
+      },
+      "candidate_fact_ids": [
+        "F3"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N006",
+      "constraint_index": 1,
+      "constraint": {
+        "value": "0.3",
+        "unit": "m",
+        "comparison": ">=",
+        "condition": "无砟基床表层"
+      },
+      "candidate_fact_ids": [
+        "F1"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N006",
+      "constraint_index": 2,
+      "constraint": {
+        "value": "1.5",
+        "unit": "m",
+        "comparison": ">=",
+        "condition": "无砟基床底层"
+      },
+      "candidate_fact_ids": [
+        "F2"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N007",
+      "constraint_index": 1,
+      "constraint": {
+        "value": "3",
+        "unit": "块",
+        "comparison": ">=",
+        "condition": "名义速度0.5m/s上下各"
+      },
+      "candidate_fact_ids": [
+        "F1"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N007",
+      "constraint_index": 2,
+      "constraint": {
+        "value": "4",
+        "unit": "块",
+        "comparison": ">=",
+        "condition": "名义速度0.65m/s上下各"
+      },
+      "candidate_fact_ids": [
+        "F2"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N008",
+      "constraint_index": 1,
+      "constraint": {
+        "value": "1.1",
+        "unit": "倍",
+        "comparison": ">=",
+        "condition": "车辆最高运行速度/线路设计最高运行速度"
+      },
+      "candidate_fact_ids": [
+        "F1"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N009",
+      "constraint_index": 1,
+      "constraint": {
+        "value": "1.80",
+        "unit": "m",
+        "comparison": ">=",
+        "condition": "车门有效净高"
+      },
+      "candidate_fact_ids": [
+        "F1"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N009",
+      "constraint_index": 2,
+      "constraint": {
+        "value": "1.90",
+        "unit": "m",
+        "comparison": ">=",
+        "condition": "立席处距地板净高"
+      },
+      "candidate_fact_ids": [
+        "F2"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N010",
+      "constraint_index": 1,
+      "constraint": {
+        "value": "0.4",
+        "unit": "m/s²",
+        "comparison": "<=",
+        "condition": "正线曲线"
+      },
+      "candidate_fact_ids": [
+        "F1"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N010",
+      "constraint_index": 2,
+      "constraint": {
+        "value": "0.3",
+        "unit": "m/s²",
+        "comparison": "<=",
+        "condition": "车站内曲线"
+      },
+      "candidate_fact_ids": [
+        "F2"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N010",
+      "constraint_index": 3,
+      "constraint": {
+        "value": "15",
+        "unit": "mm",
+        "comparison": "<=",
+        "condition": "车站内曲线超高"
+      },
+      "candidate_fact_ids": [
+        "F3"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N011",
+      "constraint_index": 1,
+      "constraint": {
+        "value": "5",
+        "unit": "m",
+        "comparison": ">=",
+        "condition": "有轨电车岛式站台"
+      },
+      "candidate_fact_ids": [
+        "F1"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N011",
+      "constraint_index": 2,
+      "constraint": {
+        "value": "3",
+        "unit": "m",
+        "comparison": ">=",
+        "condition": "有轨电车侧式站台"
+      },
+      "candidate_fact_ids": [
+        "F2"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N012",
+      "constraint_index": 1,
+      "constraint": {
+        "value": "80～120",
+        "unit": "mm",
+        "comparison": "闭区间",
+        "condition": "车辆基地检修高平台与安全栅栏"
+      },
+      "candidate_fact_ids": [],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N013",
+      "constraint_index": 1,
+      "constraint": {
+        "value": "0.6",
+        "unit": "m",
+        "comparison": ">=",
+        "condition": "路肩埋设备"
+      },
+      "candidate_fact_ids": [
+        "F1"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N013",
+      "constraint_index": 2,
+      "constraint": {
+        "value": "0.4",
+        "unit": "m",
+        "comparison": ">=",
+        "condition": "路肩无埋设设备"
+      },
+      "candidate_fact_ids": [
+        "F2"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N014",
+      "constraint_index": 1,
+      "constraint": {
+        "value": "0.5",
+        "unit": "m",
+        "comparison": ">=",
+        "condition": "基床表层"
+      },
+      "candidate_fact_ids": [
+        "F1"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N014",
+      "constraint_index": 2,
+      "constraint": {
+        "value": "1.5",
+        "unit": "m",
+        "comparison": ">=",
+        "condition": "基床底层"
+      },
+      "candidate_fact_ids": [
+        "F2"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N015",
+      "constraint_index": 1,
+      "constraint": {
+        "value": "80",
+        "unit": "℃",
+        "comparison": "<=",
+        "condition": "防水混凝土环境温度"
+      },
+      "candidate_fact_ids": [
+        "F1"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N015",
+      "constraint_index": 2,
+      "constraint": {
+        "value": "4×10^-12",
+        "unit": "m²/s",
+        "comparison": "不宜大于",
+        "condition": "侵蚀性地层防水混凝土"
+      },
+      "candidate_fact_ids": [
+        "F2"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N015",
+      "constraint_index": 3,
+      "constraint": {
+        "value": "3×10^-12",
+        "unit": "m²/s",
+        "comparison": "不宜大于",
+        "condition": "侵蚀性地层装配式结构"
+      },
+      "candidate_fact_ids": [
+        "F3"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N016",
+      "constraint_index": 1,
+      "constraint": {
+        "value": "220/380",
+        "unit": "V",
+        "comparison": "采用",
+        "condition": "低压配电"
+      },
+      "candidate_fact_ids": [],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N017",
+      "constraint_index": 1,
+      "constraint": {
+        "value": "C15",
+        "unit": "强度等级",
+        "comparison": ">=",
+        "condition": "底板垫层"
+      },
+      "candidate_fact_ids": [
+        "F1"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N017",
+      "constraint_index": 2,
+      "constraint": {
+        "value": "100",
+        "unit": "mm",
+        "comparison": ">=",
+        "condition": "一般底板垫层"
+      },
+      "candidate_fact_ids": [
+        "F2"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-N017",
+      "constraint_index": 3,
+      "constraint": {
+        "value": "150",
+        "unit": "mm",
+        "comparison": ">=",
+        "condition": "软弱土层底板垫层"
+      },
+      "candidate_fact_ids": [
+        "F3"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T001",
+      "constraint_index": 1,
+      "constraint": {
+        "value": "560",
+        "unit": "mm",
+        "comparison": "=",
+        "condition": "现浇式、一般或中等减振、指定隧道形式"
+      },
+      "candidate_fact_ids": [
+        "F1"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T001",
+      "constraint_index": 2,
+      "constraint": {
+        "value": "750",
+        "unit": "mm",
+        "comparison": "=",
+        "condition": "现浇式、高等或特殊减振、指定隧道形式"
+      },
+      "candidate_fact_ids": [
+        "F2"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T002",
+      "constraint_index": 1,
+      "constraint": {
+        "value": "50",
+        "unit": "人",
+        "comparison": "<",
+        "condition": "瓶颈等待人数良好"
+      },
+      "candidate_fact_ids": [
+        "F1",
+        "F2"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T002",
+      "constraint_index": 2,
+      "constraint": {
+        "value": "50～200",
+        "unit": "人",
+        "comparison": "区间",
+        "condition": "一般"
+      },
+      "candidate_fact_ids": [
+        "F2"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T002",
+      "constraint_index": 3,
+      "constraint": {
+        "value": "200",
+        "unit": "人",
+        "comparison": ">",
+        "condition": "差"
+      },
+      "candidate_fact_ids": [
+        "F2",
+        "F3"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T003",
+      "constraint_index": 1,
+      "constraint": {
+        "value": "2600",
+        "unit": "mm",
+        "comparison": ">=",
+        "condition": "提升高度H<10m，上导轨"
+      },
+      "candidate_fact_ids": [
+        "F1"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T003",
+      "constraint_index": 2,
+      "constraint": {
+        "value": "3600",
+        "unit": "mm",
+        "comparison": ">=",
+        "condition": "H≥10m，上导轨"
+      },
+      "candidate_fact_ids": [
+        "F2"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T004",
+      "constraint_index": 1,
+      "constraint": {
+        "value": "3.0",
+        "unit": "m",
+        "comparison": ">=",
+        "condition": "月检库车体与侧墙通道"
+      },
+      "candidate_fact_ids": [
+        "F1"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T004",
+      "constraint_index": 2,
+      "constraint": {
+        "value": "3.5",
+        "unit": "m",
+        "comparison": ">=",
+        "condition": "临修库车体与侧墙通道"
+      },
+      "candidate_fact_ids": [
+        "F2"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T005",
+      "constraint_index": 1,
+      "constraint": {
+        "value": "30",
+        "unit": "m",
+        "comparison": "<=",
+        "condition": "公交车停靠站一般"
+      },
+      "candidate_fact_ids": [
+        "F1"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T005",
+      "constraint_index": 2,
+      "constraint": {
+        "value": "50",
+        "unit": "m",
+        "comparison": "<=",
+        "condition": "公交车停靠站条件受限"
+      },
+      "candidate_fact_ids": [
+        "F1"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T005",
+      "constraint_index": 3,
+      "constraint": {
+        "value": "100",
+        "unit": "m",
+        "comparison": "<=",
+        "condition": "公交换乘场站"
+      },
+      "candidate_fact_ids": [
+        "F2"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T006",
+      "constraint_index": 1,
+      "constraint": {
+        "value": "300",
+        "unit": "mm",
+        "comparison": "最小",
+        "condition": "市域快轨，非顶部授电且无设备，上部和侧面"
+      },
+      "candidate_fact_ids": [
+        "F1"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T006",
+      "constraint_index": 2,
+      "constraint": {
+        "value": "200",
+        "unit": "mm",
+        "comparison": "最小",
+        "condition": "地铁，同一前提"
+      },
+      "candidate_fact_ids": [
+        "F2"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T007",
+      "constraint_index": 1,
+      "constraint": {
+        "value": "100",
+        "unit": "mm",
+        "comparison": "最小",
+        "condition": "跨座式单轨、中低速磁浮、AGT自动导向，下部且无设备"
+      },
+      "candidate_fact_ids": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T008",
+      "constraint_index": 1,
+      "constraint": {
+        "value": "150",
+        "unit": "mm",
+        "comparison": "安全间隙",
+        "condition": "市域快轨140km/h，双线间无建构筑物"
+      },
+      "candidate_fact_ids": [
+        "F1"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T008",
+      "constraint_index": 2,
+      "constraint": {
+        "value": "200",
+        "unit": "mm",
+        "comparison": "安全间隙",
+        "condition": "市域快轨160km/h，同一前提"
+      },
+      "candidate_fact_ids": [
+        "F2"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T009",
+      "constraint_index": 1,
+      "constraint": {
+        "value": "50",
+        "unit": "mm",
+        "comparison": "<=",
+        "condition": "地铁空车静止"
+      },
+      "candidate_fact_ids": [
+        "F1"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T009",
+      "constraint_index": 2,
+      "constraint": {
+        "value": "30",
+        "unit": "mm",
+        "comparison": "<=",
+        "condition": "中低速磁浮悬浮静止"
+      },
+      "candidate_fact_ids": [
+        "F2"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T010",
+      "constraint_index": 1,
+      "constraint": {
+        "value": "130",
+        "unit": "mm",
+        "comparison": "<=",
+        "condition": "市域快轨直线站台停站"
+      },
+      "candidate_fact_ids": [
+        "F1"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T010",
+      "constraint_index": 2,
+      "constraint": {
+        "value": "150",
+        "unit": "mm",
+        "comparison": "表列值",
+        "condition": "市域快轨直线站台越行"
+      },
+      "candidate_fact_ids": [
+        "F2"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T011",
+      "constraint_index": 1,
+      "constraint": {
+        "value": "0.5",
+        "unit": "m",
+        "comparison": "=",
+        "condition": "R≤600m路基面外侧加宽"
+      },
+      "candidate_fact_ids": [
+        "F1"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T011",
+      "constraint_index": 2,
+      "constraint": {
+        "value": "0.4",
+        "unit": "m",
+        "comparison": "=",
+        "condition": "600m<R≤800m路基面外侧加宽"
+      },
+      "candidate_fact_ids": [
+        "F2"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T012",
+      "constraint_index": 1,
+      "constraint": {
+        "value": "0.2",
+        "unit": "mm",
+        "comparison": "最大允许",
+        "condition": "盾构隧道管片"
+      },
+      "candidate_fact_ids": [
+        "F1"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T012",
+      "constraint_index": 2,
+      "constraint": {
+        "value": "0.3",
+        "unit": "mm",
+        "comparison": "最大允许",
+        "condition": "其他钢筋混凝土结构的水中环境"
+      },
+      "candidate_fact_ids": [
+        "F2"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T013",
+      "constraint_index": 1,
+      "constraint": {
+        "value": "P8",
+        "unit": "抗渗等级",
+        "comparison": "设计等级",
+        "condition": "埋深h<20m现浇结构"
+      },
+      "candidate_fact_ids": [
+        "F1"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T013",
+      "constraint_index": 2,
+      "constraint": {
+        "value": "P10",
+        "unit": "抗渗等级",
+        "comparison": "设计等级",
+        "condition": "h<20m装配式结构"
+      },
+      "candidate_fact_ids": [
+        "F2"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T014",
+      "constraint_index": 1,
+      "constraint": {
+        "value": "60",
+        "unit": "万km",
+        "comparison": "指标",
+        "condition": "车辆架修走行里程"
+      },
+      "candidate_fact_ids": [
+        "F1"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T014",
+      "constraint_index": 2,
+      "constraint": {
+        "value": "5",
+        "unit": "年",
+        "comparison": "指标",
+        "condition": "架修时间间隔"
+      },
+      "candidate_fact_ids": [
+        "F2"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T014",
+      "constraint_index": 3,
+      "constraint": {
+        "value": "20",
+        "unit": "d",
+        "comparison": "指标",
+        "condition": "架修检修时间；表注"
+      },
+      "candidate_fact_ids": [
+        "F3"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T015",
+      "constraint_index": 1,
+      "constraint": {
+        "value": "55",
+        "unit": "dBA",
+        "comparison": "限值",
+        "condition": "1类声环境敏感点昼间"
+      },
+      "candidate_fact_ids": [
+        "F1"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    },
+    {
+      "case_id": "I120-T015",
+      "constraint_index": 2,
+      "constraint": {
+        "value": "45",
+        "unit": "dBA",
+        "comparison": "限值",
+        "condition": "1类声环境敏感点夜间"
+      },
+      "candidate_fact_ids": [
+        "F2"
+      ],
+      "allocation_status": "needs_semantic_adjudication"
+    }
+  ],
+  "interface_gaps": [
+    "v1 numeric scoring reads necessary_facts[].numeric only; top-level numeric_constraints may express multiple values, comparison directions and distinct conditions. A lossless multi-constraint-per-fact rubric is needed or explicit per-case allocation and renewed approval.",
+    "v1 refusal and clarification cases with empty necessary_facts/evidence_groups cannot score supported premise or competing branch evidence. Need typed, non-gold-leaking behavior premise/branch annotations and a scoring rule before mapping these references."
+  ],
+  "scope_check": {
+    "case_id": "I120-Q007",
+    "result": "clarify",
+    "frozen_interface_still_unverified": true
+  },
+  "all_cases_schema_valid": true,
+  "all_public_inputs_valid": true,
+  "rag_invoked": false,
+  "formal_run_started": false
+}
