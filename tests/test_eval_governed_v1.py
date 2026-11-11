@@ -176,6 +176,12 @@ def test_invalid_precheck_blocks_before_adapter(frozen):
 def test_formal_role_dirty_environment_and_ai_approval_rejected(frozen):
     formal = copy.deepcopy(frozen["freeze"])
     formal["purpose"] = "independent"
+    # Make the dirty-source negative case explicit even in a clean checkout.
+    source = read_json(formal["bindings"]["rag_source"]["path"])
+    source["git_dirty"] = True
+    dirty_source = frozen["directory"] / "synthetic-dirty-source.json"
+    write_json(dirty_source, source)
+    formal["bindings"]["rag_source"] = bind(dirty_source)
     checked = precheck(formal)
     codes = {r["code"] for r in checked["reasons"]}
     assert {"FREEZE_APPROVAL", "DIRTY_SOURCE", "ENVIRONMENT_UNVERIFIED", "DATASET_INVALID"} <= codes
