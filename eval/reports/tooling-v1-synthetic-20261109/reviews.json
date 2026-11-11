@@ -1,0 +1,228 @@
+[
+  {
+    "behavior_review": {
+      "appropriate": true,
+      "reason": "fixture"
+    },
+    "case_id": "SYN-ANSWER",
+    "claim_reviews": [
+      {
+        "claim_id": "C1",
+        "evidence_ids": [
+          "EV-1"
+        ],
+        "reason": "fixture",
+        "support": "supported",
+        "text": "间距为2米"
+      }
+    ],
+    "fact_reviews": [
+      {
+        "answer_covered": true,
+        "context_supported": true,
+        "correct": true,
+        "evidence_ids": [
+          "EV-1"
+        ],
+        "fact_id": "F1",
+        "final_evidence_supported": null,
+        "numeric_conditions_correct": null,
+        "reason": "fixture"
+      }
+    ],
+    "reviewer": {
+      "identity": "synthetic-fixture",
+      "reviewed_at": "2026-11-09T00:00:00Z",
+      "reviewer_type": "ai",
+      "rubric_version": "v1"
+    },
+    "schema_version": "rag-eval.review.v1"
+  },
+  {
+    "behavior_review": {
+      "appropriate": true,
+      "reason": "fixture"
+    },
+    "case_id": "SYN-REFUSE",
+    "claim_reviews": [],
+    "fact_reviews": [],
+    "reviewer": {
+      "identity": "synthetic-fixture",
+      "reviewed_at": "2026-11-09T00:00:00Z",
+      "reviewer_type": "ai",
+      "rubric_version": "v1"
+    },
+    "schema_version": "rag-eval.review.v1"
+  },
+  {
+    "behavior_review": {
+      "appropriate": true,
+      "reason": "fixture"
+    },
+    "case_id": "SYN-CLARIFY",
+    "claim_reviews": [],
+    "fact_reviews": [],
+    "reviewer": {
+      "identity": "synthetic-fixture",
+      "reviewed_at": "2026-11-09T00:00:00Z",
+      "reviewer_type": "ai",
+      "rubric_version": "v1"
+    },
+    "schema_version": "rag-eval.review.v1"
+  },
+  {
+    "behavior_review": {
+      "appropriate": false,
+      "reason": "service error is not task success"
+    },
+    "case_id": "SYN-ERROR",
+    "claim_reviews": [],
+    "fact_reviews": [
+      {
+        "answer_covered": null,
+        "context_supported": null,
+        "correct": null,
+        "evidence_ids": [],
+        "fact_id": "F1",
+        "final_evidence_supported": null,
+        "numeric_conditions_correct": null,
+        "reason": "not reviewed after service error"
+      }
+    ],
+    "reviewer": {
+      "identity": "synthetic-fixture",
+      "reviewed_at": "2026-11-09T00:00:00Z",
+      "reviewer_type": "ai",
+      "rubric_version": "v1"
+    },
+    "schema_version": "rag-eval.review.v1"
+  },
+  {
+    "behavior_review": {
+      "appropriate": true,
+      "reason": "fixture"
+    },
+    "case_id": "SYN-EQUIVALENT",
+    "claim_reviews": [
+      {
+        "claim_id": "C1",
+        "evidence_ids": [
+          "EV-B1",
+          "EV-B2"
+        ],
+        "reason": "fixture",
+        "support": "supported",
+        "text": "B1与B2共同支持"
+      }
+    ],
+    "fact_reviews": [
+      {
+        "answer_covered": true,
+        "context_supported": true,
+        "correct": true,
+        "evidence_ids": [
+          "EV-B1",
+          "EV-B2"
+        ],
+        "fact_id": "F1",
+        "final_evidence_supported": null,
+        "numeric_conditions_correct": null,
+        "reason": "AND scheme B"
+      }
+    ],
+    "reviewer": {
+      "identity": "synthetic-fixture",
+      "reviewed_at": "2026-11-09T00:00:00Z",
+      "reviewer_type": "ai",
+      "rubric_version": "v1"
+    },
+    "schema_version": "rag-eval.review.v1"
+  },
+  {
+    "behavior_review": {
+      "appropriate": true,
+      "reason": "fixture"
+    },
+    "case_id": "SYN-COMPOSITE",
+    "claim_reviews": [
+      {
+        "claim_id": "C1",
+        "evidence_ids": [
+          "EV-LOW",
+          "EV-HIGH"
+        ],
+        "reason": "fixture",
+        "support": "supported",
+        "text": "下限10，上限20"
+      }
+    ],
+    "fact_reviews": [
+      {
+        "answer_covered": true,
+        "context_supported": true,
+        "correct": true,
+        "evidence_ids": [
+          "EV-LOW"
+        ],
+        "fact_id": "LOW",
+        "final_evidence_supported": null,
+        "numeric_conditions_correct": null,
+        "reason": "fixture"
+      },
+      {
+        "answer_covered": true,
+        "context_supported": true,
+        "correct": true,
+        "evidence_ids": [
+          "EV-HIGH"
+        ],
+        "fact_id": "HIGH",
+        "final_evidence_supported": null,
+        "numeric_conditions_correct": null,
+        "reason": "fixture"
+      }
+    ],
+    "reviewer": {
+      "identity": "synthetic-fixture",
+      "reviewed_at": "2026-11-09T00:00:00Z",
+      "reviewer_type": "ai",
+      "rubric_version": "v1"
+    },
+    "schema_version": "rag-eval.review.v1"
+  },
+  {
+    "behavior_review": {
+      "appropriate": null,
+      "reason": "unreviewed"
+    },
+    "case_id": "SYN-MISSING-OBS",
+    "claim_reviews": [
+      {
+        "claim_id": "C1",
+        "evidence_ids": [],
+        "reason": "unreviewed",
+        "support": null,
+        "text": "缺测字段保持为空"
+      }
+    ],
+    "fact_reviews": [
+      {
+        "answer_covered": null,
+        "context_supported": null,
+        "correct": null,
+        "evidence_ids": [],
+        "fact_id": "F1",
+        "final_evidence_supported": null,
+        "numeric_conditions_correct": null,
+        "reason": "unreviewed"
+      }
+    ],
+    "reviewer": {
+      "identity": "synthetic-fixture",
+      "reviewed_at": null,
+      "reviewer_type": "ai",
+      "rubric_version": "v1"
+    },
+    "schema_version": "rag-eval.review.v1"
+  }
+]

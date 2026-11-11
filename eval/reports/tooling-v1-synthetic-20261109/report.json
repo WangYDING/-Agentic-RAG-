@@ -1,0 +1,5218 @@
+{
+  "acceptance": "not_started",
+  "case_quality": {
+    "SYN-ANSWER": {
+      "citation_legal": true,
+      "complete_correct_answer": null,
+      "evidence_support": null,
+      "final_fact_complete": null,
+      "generator_fact_complete": true,
+      "task_success": null
+    },
+    "SYN-CLARIFY": {
+      "citation_legal": null,
+      "complete_correct_answer": false,
+      "evidence_support": null,
+      "final_fact_complete": null,
+      "generator_fact_complete": null,
+      "task_success": true
+    },
+    "SYN-COMPOSITE": {
+      "citation_legal": false,
+      "complete_correct_answer": false,
+      "evidence_support": null,
+      "final_fact_complete": null,
+      "generator_fact_complete": true,
+      "task_success": false
+    },
+    "SYN-EQUIVALENT": {
+      "citation_legal": false,
+      "complete_correct_answer": false,
+      "evidence_support": null,
+      "final_fact_complete": null,
+      "generator_fact_complete": true,
+      "task_success": false
+    },
+    "SYN-ERROR": {
+      "citation_legal": null,
+      "complete_correct_answer": false,
+      "evidence_support": null,
+      "final_fact_complete": null,
+      "generator_fact_complete": null,
+      "task_success": false
+    },
+    "SYN-MISSING-OBS": {
+      "citation_legal": false,
+      "complete_correct_answer": false,
+      "evidence_support": null,
+      "final_fact_complete": null,
+      "generator_fact_complete": null,
+      "task_success": false
+    },
+    "SYN-REFUSE": {
+      "citation_legal": null,
+      "complete_correct_answer": false,
+      "evidence_support": null,
+      "final_fact_complete": null,
+      "generator_fact_complete": null,
+      "task_success": true
+    }
+  },
+  "conclusion": "not_applicable",
+  "confusion_matrix": {
+    "answer": {
+      "answer": 4,
+      "clarify": 0,
+      "error": 1,
+      "refuse": 0
+    },
+    "clarify": {
+      "answer": 0,
+      "clarify": 1,
+      "error": 0,
+      "refuse": 0
+    },
+    "refuse": {
+      "answer": 0,
+      "clarify": 0,
+      "error": 0,
+      "refuse": 1
+    }
+  },
+  "execution_mode": "offline_fixture",
+  "generator_invocation_observation": {
+    "known_invoked_case_ids": [
+      "SYN-ANSWER",
+      "SYN-COMPOSITE",
+      "SYN-EQUIVALENT",
+      "SYN-MISSING-OBS"
+    ],
+    "note": "Context metric denominator is conditional on observed generator calls; unknown invocation is separately disclosed.",
+    "unknown_case_ids": []
+  },
+  "grouped_metrics": {
+    "expected:answer": {
+      "citation_legal": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": true,
+          "SYN-COMPOSITE": false,
+          "SYN-EQUIVALENT": false,
+          "SYN-MISSING-OBS": false
+        },
+        "confirmed_lower_bound": 0.25,
+        "denominator": 4,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 1,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-MISSING-OBS"
+        ],
+        "observed_denominator": 4,
+        "observed_rate": 0.25,
+        "rate": 0.25
+      },
+      "clarify_action_correct": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "complete_correct_answer": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": null,
+          "SYN-COMPOSITE": false,
+          "SYN-EQUIVALENT": false,
+          "SYN-ERROR": false,
+          "SYN-MISSING-OBS": false
+        },
+        "confirmed_lower_bound": 0.0,
+        "denominator": 5,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SYN-ANSWER"
+        ],
+        "numerator": 0,
+        "observed_case_ids": [
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "observed_denominator": 4,
+        "observed_rate": 0.0,
+        "rate": null
+      },
+      "evidence_support": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": null,
+          "SYN-COMPOSITE": null,
+          "SYN-EQUIVALENT": null,
+          "SYN-MISSING-OBS": null
+        },
+        "confirmed_lower_bound": 0.0,
+        "denominator": 4,
+        "kind": "macro",
+        "missing_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-MISSING-OBS"
+        ],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "false_accept": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "false_refuse": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": false,
+          "SYN-COMPOSITE": false,
+          "SYN-EQUIVALENT": false,
+          "SYN-ERROR": false,
+          "SYN-MISSING-OBS": false
+        },
+        "confirmed_lower_bound": 0.0,
+        "denominator": 5,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "observed_denominator": 5,
+        "observed_rate": 0.0,
+        "rate": 0.0
+      },
+      "final_fact_complete": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": null,
+          "SYN-COMPOSITE": null,
+          "SYN-EQUIVALENT": null,
+          "SYN-ERROR": null,
+          "SYN-MISSING-OBS": null
+        },
+        "confirmed_lower_bound": 0.0,
+        "denominator": 5,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "final_position_complete_diagnostic": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": true,
+          "SYN-COMPOSITE": true,
+          "SYN-EQUIVALENT": true,
+          "SYN-ERROR": null,
+          "SYN-MISSING-OBS": null
+        },
+        "confirmed_lower_bound": 0.6,
+        "denominator": 5,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "numerator": 3,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT"
+        ],
+        "observed_denominator": 3,
+        "observed_rate": 1.0,
+        "rate": null
+      },
+      "generator_fact_complete": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": true,
+          "SYN-COMPOSITE": true,
+          "SYN-EQUIVALENT": true,
+          "SYN-MISSING-OBS": null
+        },
+        "confirmed_lower_bound": 0.75,
+        "denominator": 4,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SYN-MISSING-OBS"
+        ],
+        "numerator": 3,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT"
+        ],
+        "observed_denominator": 3,
+        "observed_rate": 1.0,
+        "rate": null
+      },
+      "generator_position_complete_diagnostic": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": true,
+          "SYN-COMPOSITE": true,
+          "SYN-EQUIVALENT": true,
+          "SYN-MISSING-OBS": false
+        },
+        "confirmed_lower_bound": 0.75,
+        "denominator": 4,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 3,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-MISSING-OBS"
+        ],
+        "observed_denominator": 4,
+        "observed_rate": 0.75,
+        "rate": 0.75
+      },
+      "initial_candidates.hitrate@1": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": true,
+          "SYN-COMPOSITE": true,
+          "SYN-EQUIVALENT": false,
+          "SYN-ERROR": null,
+          "SYN-MISSING-OBS": null
+        },
+        "confirmed_lower_bound": 0.4,
+        "denominator": 5,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT"
+        ],
+        "observed_denominator": 3,
+        "observed_rate": 0.6666666666666666,
+        "rate": null
+      },
+      "initial_candidates.hitrate@10": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": true,
+          "SYN-COMPOSITE": true,
+          "SYN-EQUIVALENT": true,
+          "SYN-ERROR": null,
+          "SYN-MISSING-OBS": null
+        },
+        "confirmed_lower_bound": 0.6,
+        "denominator": 5,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "numerator": 3,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT"
+        ],
+        "observed_denominator": 3,
+        "observed_rate": 1.0,
+        "rate": null
+      },
+      "initial_candidates.hitrate@3": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": true,
+          "SYN-COMPOSITE": true,
+          "SYN-EQUIVALENT": true,
+          "SYN-ERROR": null,
+          "SYN-MISSING-OBS": null
+        },
+        "confirmed_lower_bound": 0.6,
+        "denominator": 5,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "numerator": 3,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT"
+        ],
+        "observed_denominator": 3,
+        "observed_rate": 1.0,
+        "rate": null
+      },
+      "initial_candidates.hitrate@5": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": true,
+          "SYN-COMPOSITE": true,
+          "SYN-EQUIVALENT": true,
+          "SYN-ERROR": null,
+          "SYN-MISSING-OBS": null
+        },
+        "confirmed_lower_bound": 0.6,
+        "denominator": 5,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "numerator": 3,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT"
+        ],
+        "observed_denominator": 3,
+        "observed_rate": 1.0,
+        "rate": null
+      },
+      "initial_candidates.mrr@10": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": 1.0,
+          "SYN-COMPOSITE": 1.0,
+          "SYN-EQUIVALENT": 1.0,
+          "SYN-ERROR": null,
+          "SYN-MISSING-OBS": null
+        },
+        "confirmed_lower_bound": 0.6,
+        "denominator": 5,
+        "kind": "macro",
+        "missing_case_ids": [
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "numerator": 3.0,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT"
+        ],
+        "observed_denominator": 3,
+        "observed_rate": 1.0,
+        "rate": null
+      },
+      "initial_candidates.recall@1": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": 1.0,
+          "SYN-COMPOSITE": 0.5,
+          "SYN-EQUIVALENT": 0.0,
+          "SYN-ERROR": null,
+          "SYN-MISSING-OBS": null
+        },
+        "confirmed_lower_bound": 0.3,
+        "denominator": 5,
+        "kind": "macro",
+        "missing_case_ids": [
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "numerator": 1.5,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT"
+        ],
+        "observed_denominator": 3,
+        "observed_rate": 0.5,
+        "rate": null
+      },
+      "initial_candidates.recall@10": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": 1.0,
+          "SYN-COMPOSITE": 0.5,
+          "SYN-EQUIVALENT": 1.0,
+          "SYN-ERROR": null,
+          "SYN-MISSING-OBS": null
+        },
+        "confirmed_lower_bound": 0.5,
+        "denominator": 5,
+        "kind": "macro",
+        "missing_case_ids": [
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "numerator": 2.5,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT"
+        ],
+        "observed_denominator": 3,
+        "observed_rate": 0.8333333333333334,
+        "rate": null
+      },
+      "initial_candidates.recall@3": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": 1.0,
+          "SYN-COMPOSITE": 0.5,
+          "SYN-EQUIVALENT": 1.0,
+          "SYN-ERROR": null,
+          "SYN-MISSING-OBS": null
+        },
+        "confirmed_lower_bound": 0.5,
+        "denominator": 5,
+        "kind": "macro",
+        "missing_case_ids": [
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "numerator": 2.5,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT"
+        ],
+        "observed_denominator": 3,
+        "observed_rate": 0.8333333333333334,
+        "rate": null
+      },
+      "initial_candidates.recall@5": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": 1.0,
+          "SYN-COMPOSITE": 0.5,
+          "SYN-EQUIVALENT": 1.0,
+          "SYN-ERROR": null,
+          "SYN-MISSING-OBS": null
+        },
+        "confirmed_lower_bound": 0.5,
+        "denominator": 5,
+        "kind": "macro",
+        "missing_case_ids": [
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "numerator": 2.5,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT"
+        ],
+        "observed_denominator": 3,
+        "observed_rate": 0.8333333333333334,
+        "rate": null
+      },
+      "initial_candidates.recall_micro@1": {
+        "applicable_case_ids": [
+          "SYN-ANSWER/1",
+          "SYN-COMPOSITE/1",
+          "SYN-COMPOSITE/2",
+          "SYN-EQUIVALENT/1",
+          "SYN-ERROR/1",
+          "SYN-MISSING-OBS/1"
+        ],
+        "case_values": {
+          "SYN-ANSWER/1": true,
+          "SYN-COMPOSITE/1": true,
+          "SYN-COMPOSITE/2": false,
+          "SYN-EQUIVALENT/1": false,
+          "SYN-ERROR/1": null,
+          "SYN-MISSING-OBS/1": null
+        },
+        "confirmed_lower_bound": 0.3333333333333333,
+        "denominator": 6,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SYN-ERROR/1",
+          "SYN-MISSING-OBS/1"
+        ],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SYN-ANSWER/1",
+          "SYN-COMPOSITE/1",
+          "SYN-COMPOSITE/2",
+          "SYN-EQUIVALENT/1"
+        ],
+        "observed_denominator": 4,
+        "observed_rate": 0.5,
+        "rate": null,
+        "unit": "case/fact-group"
+      },
+      "initial_candidates.recall_micro@10": {
+        "applicable_case_ids": [
+          "SYN-ANSWER/1",
+          "SYN-COMPOSITE/1",
+          "SYN-COMPOSITE/2",
+          "SYN-EQUIVALENT/1",
+          "SYN-ERROR/1",
+          "SYN-MISSING-OBS/1"
+        ],
+        "case_values": {
+          "SYN-ANSWER/1": true,
+          "SYN-COMPOSITE/1": true,
+          "SYN-COMPOSITE/2": false,
+          "SYN-EQUIVALENT/1": true,
+          "SYN-ERROR/1": null,
+          "SYN-MISSING-OBS/1": null
+        },
+        "confirmed_lower_bound": 0.5,
+        "denominator": 6,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SYN-ERROR/1",
+          "SYN-MISSING-OBS/1"
+        ],
+        "numerator": 3,
+        "observed_case_ids": [
+          "SYN-ANSWER/1",
+          "SYN-COMPOSITE/1",
+          "SYN-COMPOSITE/2",
+          "SYN-EQUIVALENT/1"
+        ],
+        "observed_denominator": 4,
+        "observed_rate": 0.75,
+        "rate": null,
+        "unit": "case/fact-group"
+      },
+      "initial_candidates.recall_micro@3": {
+        "applicable_case_ids": [
+          "SYN-ANSWER/1",
+          "SYN-COMPOSITE/1",
+          "SYN-COMPOSITE/2",
+          "SYN-EQUIVALENT/1",
+          "SYN-ERROR/1",
+          "SYN-MISSING-OBS/1"
+        ],
+        "case_values": {
+          "SYN-ANSWER/1": true,
+          "SYN-COMPOSITE/1": true,
+          "SYN-COMPOSITE/2": false,
+          "SYN-EQUIVALENT/1": true,
+          "SYN-ERROR/1": null,
+          "SYN-MISSING-OBS/1": null
+        },
+        "confirmed_lower_bound": 0.5,
+        "denominator": 6,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SYN-ERROR/1",
+          "SYN-MISSING-OBS/1"
+        ],
+        "numerator": 3,
+        "observed_case_ids": [
+          "SYN-ANSWER/1",
+          "SYN-COMPOSITE/1",
+          "SYN-COMPOSITE/2",
+          "SYN-EQUIVALENT/1"
+        ],
+        "observed_denominator": 4,
+        "observed_rate": 0.75,
+        "rate": null,
+        "unit": "case/fact-group"
+      },
+      "initial_candidates.recall_micro@5": {
+        "applicable_case_ids": [
+          "SYN-ANSWER/1",
+          "SYN-COMPOSITE/1",
+          "SYN-COMPOSITE/2",
+          "SYN-EQUIVALENT/1",
+          "SYN-ERROR/1",
+          "SYN-MISSING-OBS/1"
+        ],
+        "case_values": {
+          "SYN-ANSWER/1": true,
+          "SYN-COMPOSITE/1": true,
+          "SYN-COMPOSITE/2": false,
+          "SYN-EQUIVALENT/1": true,
+          "SYN-ERROR/1": null,
+          "SYN-MISSING-OBS/1": null
+        },
+        "confirmed_lower_bound": 0.5,
+        "denominator": 6,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SYN-ERROR/1",
+          "SYN-MISSING-OBS/1"
+        ],
+        "numerator": 3,
+        "observed_case_ids": [
+          "SYN-ANSWER/1",
+          "SYN-COMPOSITE/1",
+          "SYN-COMPOSITE/2",
+          "SYN-EQUIVALENT/1"
+        ],
+        "observed_denominator": 4,
+        "observed_rate": 0.75,
+        "rate": null,
+        "unit": "case/fact-group"
+      },
+      "initial_reranked.hitrate@1": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": true,
+          "SYN-COMPOSITE": true,
+          "SYN-EQUIVALENT": false,
+          "SYN-ERROR": null,
+          "SYN-MISSING-OBS": null
+        },
+        "confirmed_lower_bound": 0.4,
+        "denominator": 5,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT"
+        ],
+        "observed_denominator": 3,
+        "observed_rate": 0.6666666666666666,
+        "rate": null
+      },
+      "initial_reranked.hitrate@10": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": true,
+          "SYN-COMPOSITE": true,
+          "SYN-EQUIVALENT": true,
+          "SYN-ERROR": null,
+          "SYN-MISSING-OBS": null
+        },
+        "confirmed_lower_bound": 0.6,
+        "denominator": 5,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "numerator": 3,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT"
+        ],
+        "observed_denominator": 3,
+        "observed_rate": 1.0,
+        "rate": null
+      },
+      "initial_reranked.hitrate@3": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": true,
+          "SYN-COMPOSITE": true,
+          "SYN-EQUIVALENT": true,
+          "SYN-ERROR": null,
+          "SYN-MISSING-OBS": null
+        },
+        "confirmed_lower_bound": 0.6,
+        "denominator": 5,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "numerator": 3,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT"
+        ],
+        "observed_denominator": 3,
+        "observed_rate": 1.0,
+        "rate": null
+      },
+      "initial_reranked.hitrate@5": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": true,
+          "SYN-COMPOSITE": true,
+          "SYN-EQUIVALENT": true,
+          "SYN-ERROR": null,
+          "SYN-MISSING-OBS": null
+        },
+        "confirmed_lower_bound": 0.6,
+        "denominator": 5,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "numerator": 3,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT"
+        ],
+        "observed_denominator": 3,
+        "observed_rate": 1.0,
+        "rate": null
+      },
+      "initial_reranked.mrr@10": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": 1.0,
+          "SYN-COMPOSITE": 1.0,
+          "SYN-EQUIVALENT": 1.0,
+          "SYN-ERROR": null,
+          "SYN-MISSING-OBS": null
+        },
+        "confirmed_lower_bound": 0.6,
+        "denominator": 5,
+        "kind": "macro",
+        "missing_case_ids": [
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "numerator": 3.0,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT"
+        ],
+        "observed_denominator": 3,
+        "observed_rate": 1.0,
+        "rate": null
+      },
+      "initial_reranked.recall@1": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": 1.0,
+          "SYN-COMPOSITE": 0.5,
+          "SYN-EQUIVALENT": 0.0,
+          "SYN-ERROR": null,
+          "SYN-MISSING-OBS": null
+        },
+        "confirmed_lower_bound": 0.3,
+        "denominator": 5,
+        "kind": "macro",
+        "missing_case_ids": [
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "numerator": 1.5,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT"
+        ],
+        "observed_denominator": 3,
+        "observed_rate": 0.5,
+        "rate": null
+      },
+      "initial_reranked.recall@10": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": 1.0,
+          "SYN-COMPOSITE": 0.5,
+          "SYN-EQUIVALENT": 1.0,
+          "SYN-ERROR": null,
+          "SYN-MISSING-OBS": null
+        },
+        "confirmed_lower_bound": 0.5,
+        "denominator": 5,
+        "kind": "macro",
+        "missing_case_ids": [
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "numerator": 2.5,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT"
+        ],
+        "observed_denominator": 3,
+        "observed_rate": 0.8333333333333334,
+        "rate": null
+      },
+      "initial_reranked.recall@3": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": 1.0,
+          "SYN-COMPOSITE": 0.5,
+          "SYN-EQUIVALENT": 1.0,
+          "SYN-ERROR": null,
+          "SYN-MISSING-OBS": null
+        },
+        "confirmed_lower_bound": 0.5,
+        "denominator": 5,
+        "kind": "macro",
+        "missing_case_ids": [
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "numerator": 2.5,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT"
+        ],
+        "observed_denominator": 3,
+        "observed_rate": 0.8333333333333334,
+        "rate": null
+      },
+      "initial_reranked.recall@5": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": 1.0,
+          "SYN-COMPOSITE": 0.5,
+          "SYN-EQUIVALENT": 1.0,
+          "SYN-ERROR": null,
+          "SYN-MISSING-OBS": null
+        },
+        "confirmed_lower_bound": 0.5,
+        "denominator": 5,
+        "kind": "macro",
+        "missing_case_ids": [
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "numerator": 2.5,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT"
+        ],
+        "observed_denominator": 3,
+        "observed_rate": 0.8333333333333334,
+        "rate": null
+      },
+      "initial_reranked.recall_micro@1": {
+        "applicable_case_ids": [
+          "SYN-ANSWER/1",
+          "SYN-COMPOSITE/1",
+          "SYN-COMPOSITE/2",
+          "SYN-EQUIVALENT/1",
+          "SYN-ERROR/1",
+          "SYN-MISSING-OBS/1"
+        ],
+        "case_values": {
+          "SYN-ANSWER/1": true,
+          "SYN-COMPOSITE/1": true,
+          "SYN-COMPOSITE/2": false,
+          "SYN-EQUIVALENT/1": false,
+          "SYN-ERROR/1": null,
+          "SYN-MISSING-OBS/1": null
+        },
+        "confirmed_lower_bound": 0.3333333333333333,
+        "denominator": 6,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SYN-ERROR/1",
+          "SYN-MISSING-OBS/1"
+        ],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SYN-ANSWER/1",
+          "SYN-COMPOSITE/1",
+          "SYN-COMPOSITE/2",
+          "SYN-EQUIVALENT/1"
+        ],
+        "observed_denominator": 4,
+        "observed_rate": 0.5,
+        "rate": null,
+        "unit": "case/fact-group"
+      },
+      "initial_reranked.recall_micro@10": {
+        "applicable_case_ids": [
+          "SYN-ANSWER/1",
+          "SYN-COMPOSITE/1",
+          "SYN-COMPOSITE/2",
+          "SYN-EQUIVALENT/1",
+          "SYN-ERROR/1",
+          "SYN-MISSING-OBS/1"
+        ],
+        "case_values": {
+          "SYN-ANSWER/1": true,
+          "SYN-COMPOSITE/1": true,
+          "SYN-COMPOSITE/2": false,
+          "SYN-EQUIVALENT/1": true,
+          "SYN-ERROR/1": null,
+          "SYN-MISSING-OBS/1": null
+        },
+        "confirmed_lower_bound": 0.5,
+        "denominator": 6,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SYN-ERROR/1",
+          "SYN-MISSING-OBS/1"
+        ],
+        "numerator": 3,
+        "observed_case_ids": [
+          "SYN-ANSWER/1",
+          "SYN-COMPOSITE/1",
+          "SYN-COMPOSITE/2",
+          "SYN-EQUIVALENT/1"
+        ],
+        "observed_denominator": 4,
+        "observed_rate": 0.75,
+        "rate": null,
+        "unit": "case/fact-group"
+      },
+      "initial_reranked.recall_micro@3": {
+        "applicable_case_ids": [
+          "SYN-ANSWER/1",
+          "SYN-COMPOSITE/1",
+          "SYN-COMPOSITE/2",
+          "SYN-EQUIVALENT/1",
+          "SYN-ERROR/1",
+          "SYN-MISSING-OBS/1"
+        ],
+        "case_values": {
+          "SYN-ANSWER/1": true,
+          "SYN-COMPOSITE/1": true,
+          "SYN-COMPOSITE/2": false,
+          "SYN-EQUIVALENT/1": true,
+          "SYN-ERROR/1": null,
+          "SYN-MISSING-OBS/1": null
+        },
+        "confirmed_lower_bound": 0.5,
+        "denominator": 6,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SYN-ERROR/1",
+          "SYN-MISSING-OBS/1"
+        ],
+        "numerator": 3,
+        "observed_case_ids": [
+          "SYN-ANSWER/1",
+          "SYN-COMPOSITE/1",
+          "SYN-COMPOSITE/2",
+          "SYN-EQUIVALENT/1"
+        ],
+        "observed_denominator": 4,
+        "observed_rate": 0.75,
+        "rate": null,
+        "unit": "case/fact-group"
+      },
+      "initial_reranked.recall_micro@5": {
+        "applicable_case_ids": [
+          "SYN-ANSWER/1",
+          "SYN-COMPOSITE/1",
+          "SYN-COMPOSITE/2",
+          "SYN-EQUIVALENT/1",
+          "SYN-ERROR/1",
+          "SYN-MISSING-OBS/1"
+        ],
+        "case_values": {
+          "SYN-ANSWER/1": true,
+          "SYN-COMPOSITE/1": true,
+          "SYN-COMPOSITE/2": false,
+          "SYN-EQUIVALENT/1": true,
+          "SYN-ERROR/1": null,
+          "SYN-MISSING-OBS/1": null
+        },
+        "confirmed_lower_bound": 0.5,
+        "denominator": 6,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SYN-ERROR/1",
+          "SYN-MISSING-OBS/1"
+        ],
+        "numerator": 3,
+        "observed_case_ids": [
+          "SYN-ANSWER/1",
+          "SYN-COMPOSITE/1",
+          "SYN-COMPOSITE/2",
+          "SYN-EQUIVALENT/1"
+        ],
+        "observed_denominator": 4,
+        "observed_rate": 0.75,
+        "rate": null,
+        "unit": "case/fact-group"
+      },
+      "service_error": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": false,
+          "SYN-COMPOSITE": false,
+          "SYN-EQUIVALENT": false,
+          "SYN-ERROR": true,
+          "SYN-MISSING-OBS": false
+        },
+        "confirmed_lower_bound": 0.2,
+        "denominator": 5,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 1,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "observed_denominator": 5,
+        "observed_rate": 0.2,
+        "rate": 0.2
+      },
+      "task_success": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": null,
+          "SYN-COMPOSITE": false,
+          "SYN-EQUIVALENT": false,
+          "SYN-ERROR": false,
+          "SYN-MISSING-OBS": false
+        },
+        "confirmed_lower_bound": 0.0,
+        "denominator": 5,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SYN-ANSWER"
+        ],
+        "numerator": 0,
+        "observed_case_ids": [
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "observed_denominator": 4,
+        "observed_rate": 0.0,
+        "rate": null
+      }
+    },
+    "expected:clarify": {
+      "citation_legal": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "clarify_action_correct": {
+        "applicable_case_ids": [
+          "SYN-CLARIFY"
+        ],
+        "case_values": {
+          "SYN-CLARIFY": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 1,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 1,
+        "observed_case_ids": [
+          "SYN-CLARIFY"
+        ],
+        "observed_denominator": 1,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "complete_correct_answer": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "evidence_support": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "false_accept": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "false_refuse": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "final_fact_complete": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "final_position_complete_diagnostic": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "generator_fact_complete": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "generator_position_complete_diagnostic": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "initial_candidates.hitrate@1": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "initial_candidates.hitrate@10": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "initial_candidates.hitrate@3": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "initial_candidates.hitrate@5": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "initial_candidates.mrr@10": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "initial_candidates.recall@1": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "initial_candidates.recall@10": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "initial_candidates.recall@3": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "initial_candidates.recall@5": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "initial_candidates.recall_micro@1": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null,
+        "unit": "case/fact-group"
+      },
+      "initial_candidates.recall_micro@10": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null,
+        "unit": "case/fact-group"
+      },
+      "initial_candidates.recall_micro@3": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null,
+        "unit": "case/fact-group"
+      },
+      "initial_candidates.recall_micro@5": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null,
+        "unit": "case/fact-group"
+      },
+      "initial_reranked.hitrate@1": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "initial_reranked.hitrate@10": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "initial_reranked.hitrate@3": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "initial_reranked.hitrate@5": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "initial_reranked.mrr@10": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "initial_reranked.recall@1": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "initial_reranked.recall@10": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "initial_reranked.recall@3": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "initial_reranked.recall@5": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "initial_reranked.recall_micro@1": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null,
+        "unit": "case/fact-group"
+      },
+      "initial_reranked.recall_micro@10": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null,
+        "unit": "case/fact-group"
+      },
+      "initial_reranked.recall_micro@3": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null,
+        "unit": "case/fact-group"
+      },
+      "initial_reranked.recall_micro@5": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null,
+        "unit": "case/fact-group"
+      },
+      "service_error": {
+        "applicable_case_ids": [
+          "SYN-CLARIFY"
+        ],
+        "case_values": {
+          "SYN-CLARIFY": false
+        },
+        "confirmed_lower_bound": 0.0,
+        "denominator": 1,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [
+          "SYN-CLARIFY"
+        ],
+        "observed_denominator": 1,
+        "observed_rate": 0.0,
+        "rate": 0.0
+      },
+      "task_success": {
+        "applicable_case_ids": [
+          "SYN-CLARIFY"
+        ],
+        "case_values": {
+          "SYN-CLARIFY": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 1,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 1,
+        "observed_case_ids": [
+          "SYN-CLARIFY"
+        ],
+        "observed_denominator": 1,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      }
+    },
+    "expected:refuse": {
+      "citation_legal": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "clarify_action_correct": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "complete_correct_answer": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "evidence_support": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "false_accept": {
+        "applicable_case_ids": [
+          "SYN-REFUSE"
+        ],
+        "case_values": {
+          "SYN-REFUSE": false
+        },
+        "confirmed_lower_bound": 0.0,
+        "denominator": 1,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [
+          "SYN-REFUSE"
+        ],
+        "observed_denominator": 1,
+        "observed_rate": 0.0,
+        "rate": 0.0
+      },
+      "false_refuse": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "final_fact_complete": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "final_position_complete_diagnostic": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "generator_fact_complete": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "generator_position_complete_diagnostic": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "initial_candidates.hitrate@1": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "initial_candidates.hitrate@10": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "initial_candidates.hitrate@3": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "initial_candidates.hitrate@5": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "initial_candidates.mrr@10": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "initial_candidates.recall@1": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "initial_candidates.recall@10": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "initial_candidates.recall@3": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "initial_candidates.recall@5": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "initial_candidates.recall_micro@1": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null,
+        "unit": "case/fact-group"
+      },
+      "initial_candidates.recall_micro@10": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null,
+        "unit": "case/fact-group"
+      },
+      "initial_candidates.recall_micro@3": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null,
+        "unit": "case/fact-group"
+      },
+      "initial_candidates.recall_micro@5": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null,
+        "unit": "case/fact-group"
+      },
+      "initial_reranked.hitrate@1": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "initial_reranked.hitrate@10": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "initial_reranked.hitrate@3": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "initial_reranked.hitrate@5": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "initial_reranked.mrr@10": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "initial_reranked.recall@1": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "initial_reranked.recall@10": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "initial_reranked.recall@3": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "initial_reranked.recall@5": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "initial_reranked.recall_micro@1": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null,
+        "unit": "case/fact-group"
+      },
+      "initial_reranked.recall_micro@10": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null,
+        "unit": "case/fact-group"
+      },
+      "initial_reranked.recall_micro@3": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null,
+        "unit": "case/fact-group"
+      },
+      "initial_reranked.recall_micro@5": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null,
+        "unit": "case/fact-group"
+      },
+      "service_error": {
+        "applicable_case_ids": [
+          "SYN-REFUSE"
+        ],
+        "case_values": {
+          "SYN-REFUSE": false
+        },
+        "confirmed_lower_bound": 0.0,
+        "denominator": 1,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [
+          "SYN-REFUSE"
+        ],
+        "observed_denominator": 1,
+        "observed_rate": 0.0,
+        "rate": 0.0
+      },
+      "task_success": {
+        "applicable_case_ids": [
+          "SYN-REFUSE"
+        ],
+        "case_values": {
+          "SYN-REFUSE": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 1,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 1,
+        "observed_case_ids": [
+          "SYN-REFUSE"
+        ],
+        "observed_denominator": 1,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      }
+    },
+    "type:unspecified": {
+      "citation_legal": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": true,
+          "SYN-COMPOSITE": false,
+          "SYN-EQUIVALENT": false,
+          "SYN-MISSING-OBS": false
+        },
+        "confirmed_lower_bound": 0.25,
+        "denominator": 4,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 1,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-MISSING-OBS"
+        ],
+        "observed_denominator": 4,
+        "observed_rate": 0.25,
+        "rate": 0.25
+      },
+      "clarify_action_correct": {
+        "applicable_case_ids": [
+          "SYN-CLARIFY"
+        ],
+        "case_values": {
+          "SYN-CLARIFY": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 1,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 1,
+        "observed_case_ids": [
+          "SYN-CLARIFY"
+        ],
+        "observed_denominator": 1,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "complete_correct_answer": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": null,
+          "SYN-COMPOSITE": false,
+          "SYN-EQUIVALENT": false,
+          "SYN-ERROR": false,
+          "SYN-MISSING-OBS": false
+        },
+        "confirmed_lower_bound": 0.0,
+        "denominator": 5,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SYN-ANSWER"
+        ],
+        "numerator": 0,
+        "observed_case_ids": [
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "observed_denominator": 4,
+        "observed_rate": 0.0,
+        "rate": null
+      },
+      "evidence_support": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": null,
+          "SYN-COMPOSITE": null,
+          "SYN-EQUIVALENT": null,
+          "SYN-MISSING-OBS": null
+        },
+        "confirmed_lower_bound": 0.0,
+        "denominator": 4,
+        "kind": "macro",
+        "missing_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-MISSING-OBS"
+        ],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "false_accept": {
+        "applicable_case_ids": [
+          "SYN-REFUSE"
+        ],
+        "case_values": {
+          "SYN-REFUSE": false
+        },
+        "confirmed_lower_bound": 0.0,
+        "denominator": 1,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [
+          "SYN-REFUSE"
+        ],
+        "observed_denominator": 1,
+        "observed_rate": 0.0,
+        "rate": 0.0
+      },
+      "false_refuse": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": false,
+          "SYN-COMPOSITE": false,
+          "SYN-EQUIVALENT": false,
+          "SYN-ERROR": false,
+          "SYN-MISSING-OBS": false
+        },
+        "confirmed_lower_bound": 0.0,
+        "denominator": 5,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "observed_denominator": 5,
+        "observed_rate": 0.0,
+        "rate": 0.0
+      },
+      "final_fact_complete": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": null,
+          "SYN-COMPOSITE": null,
+          "SYN-EQUIVALENT": null,
+          "SYN-ERROR": null,
+          "SYN-MISSING-OBS": null
+        },
+        "confirmed_lower_bound": 0.0,
+        "denominator": 5,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "final_position_complete_diagnostic": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": true,
+          "SYN-COMPOSITE": true,
+          "SYN-EQUIVALENT": true,
+          "SYN-ERROR": null,
+          "SYN-MISSING-OBS": null
+        },
+        "confirmed_lower_bound": 0.6,
+        "denominator": 5,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "numerator": 3,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT"
+        ],
+        "observed_denominator": 3,
+        "observed_rate": 1.0,
+        "rate": null
+      },
+      "generator_fact_complete": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": true,
+          "SYN-COMPOSITE": true,
+          "SYN-EQUIVALENT": true,
+          "SYN-MISSING-OBS": null
+        },
+        "confirmed_lower_bound": 0.75,
+        "denominator": 4,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SYN-MISSING-OBS"
+        ],
+        "numerator": 3,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT"
+        ],
+        "observed_denominator": 3,
+        "observed_rate": 1.0,
+        "rate": null
+      },
+      "generator_position_complete_diagnostic": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": true,
+          "SYN-COMPOSITE": true,
+          "SYN-EQUIVALENT": true,
+          "SYN-MISSING-OBS": false
+        },
+        "confirmed_lower_bound": 0.75,
+        "denominator": 4,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 3,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-MISSING-OBS"
+        ],
+        "observed_denominator": 4,
+        "observed_rate": 0.75,
+        "rate": 0.75
+      },
+      "initial_candidates.hitrate@1": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": true,
+          "SYN-COMPOSITE": true,
+          "SYN-EQUIVALENT": false,
+          "SYN-ERROR": null,
+          "SYN-MISSING-OBS": null
+        },
+        "confirmed_lower_bound": 0.4,
+        "denominator": 5,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT"
+        ],
+        "observed_denominator": 3,
+        "observed_rate": 0.6666666666666666,
+        "rate": null
+      },
+      "initial_candidates.hitrate@10": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": true,
+          "SYN-COMPOSITE": true,
+          "SYN-EQUIVALENT": true,
+          "SYN-ERROR": null,
+          "SYN-MISSING-OBS": null
+        },
+        "confirmed_lower_bound": 0.6,
+        "denominator": 5,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "numerator": 3,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT"
+        ],
+        "observed_denominator": 3,
+        "observed_rate": 1.0,
+        "rate": null
+      },
+      "initial_candidates.hitrate@3": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": true,
+          "SYN-COMPOSITE": true,
+          "SYN-EQUIVALENT": true,
+          "SYN-ERROR": null,
+          "SYN-MISSING-OBS": null
+        },
+        "confirmed_lower_bound": 0.6,
+        "denominator": 5,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "numerator": 3,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT"
+        ],
+        "observed_denominator": 3,
+        "observed_rate": 1.0,
+        "rate": null
+      },
+      "initial_candidates.hitrate@5": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": true,
+          "SYN-COMPOSITE": true,
+          "SYN-EQUIVALENT": true,
+          "SYN-ERROR": null,
+          "SYN-MISSING-OBS": null
+        },
+        "confirmed_lower_bound": 0.6,
+        "denominator": 5,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "numerator": 3,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT"
+        ],
+        "observed_denominator": 3,
+        "observed_rate": 1.0,
+        "rate": null
+      },
+      "initial_candidates.mrr@10": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": 1.0,
+          "SYN-COMPOSITE": 1.0,
+          "SYN-EQUIVALENT": 1.0,
+          "SYN-ERROR": null,
+          "SYN-MISSING-OBS": null
+        },
+        "confirmed_lower_bound": 0.6,
+        "denominator": 5,
+        "kind": "macro",
+        "missing_case_ids": [
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "numerator": 3.0,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT"
+        ],
+        "observed_denominator": 3,
+        "observed_rate": 1.0,
+        "rate": null
+      },
+      "initial_candidates.recall@1": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": 1.0,
+          "SYN-COMPOSITE": 0.5,
+          "SYN-EQUIVALENT": 0.0,
+          "SYN-ERROR": null,
+          "SYN-MISSING-OBS": null
+        },
+        "confirmed_lower_bound": 0.3,
+        "denominator": 5,
+        "kind": "macro",
+        "missing_case_ids": [
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "numerator": 1.5,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT"
+        ],
+        "observed_denominator": 3,
+        "observed_rate": 0.5,
+        "rate": null
+      },
+      "initial_candidates.recall@10": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": 1.0,
+          "SYN-COMPOSITE": 0.5,
+          "SYN-EQUIVALENT": 1.0,
+          "SYN-ERROR": null,
+          "SYN-MISSING-OBS": null
+        },
+        "confirmed_lower_bound": 0.5,
+        "denominator": 5,
+        "kind": "macro",
+        "missing_case_ids": [
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "numerator": 2.5,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT"
+        ],
+        "observed_denominator": 3,
+        "observed_rate": 0.8333333333333334,
+        "rate": null
+      },
+      "initial_candidates.recall@3": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": 1.0,
+          "SYN-COMPOSITE": 0.5,
+          "SYN-EQUIVALENT": 1.0,
+          "SYN-ERROR": null,
+          "SYN-MISSING-OBS": null
+        },
+        "confirmed_lower_bound": 0.5,
+        "denominator": 5,
+        "kind": "macro",
+        "missing_case_ids": [
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "numerator": 2.5,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT"
+        ],
+        "observed_denominator": 3,
+        "observed_rate": 0.8333333333333334,
+        "rate": null
+      },
+      "initial_candidates.recall@5": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": 1.0,
+          "SYN-COMPOSITE": 0.5,
+          "SYN-EQUIVALENT": 1.0,
+          "SYN-ERROR": null,
+          "SYN-MISSING-OBS": null
+        },
+        "confirmed_lower_bound": 0.5,
+        "denominator": 5,
+        "kind": "macro",
+        "missing_case_ids": [
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "numerator": 2.5,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT"
+        ],
+        "observed_denominator": 3,
+        "observed_rate": 0.8333333333333334,
+        "rate": null
+      },
+      "initial_candidates.recall_micro@1": {
+        "applicable_case_ids": [
+          "SYN-ANSWER/1",
+          "SYN-COMPOSITE/1",
+          "SYN-COMPOSITE/2",
+          "SYN-EQUIVALENT/1",
+          "SYN-ERROR/1",
+          "SYN-MISSING-OBS/1"
+        ],
+        "case_values": {
+          "SYN-ANSWER/1": true,
+          "SYN-COMPOSITE/1": true,
+          "SYN-COMPOSITE/2": false,
+          "SYN-EQUIVALENT/1": false,
+          "SYN-ERROR/1": null,
+          "SYN-MISSING-OBS/1": null
+        },
+        "confirmed_lower_bound": 0.3333333333333333,
+        "denominator": 6,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SYN-ERROR/1",
+          "SYN-MISSING-OBS/1"
+        ],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SYN-ANSWER/1",
+          "SYN-COMPOSITE/1",
+          "SYN-COMPOSITE/2",
+          "SYN-EQUIVALENT/1"
+        ],
+        "observed_denominator": 4,
+        "observed_rate": 0.5,
+        "rate": null,
+        "unit": "case/fact-group"
+      },
+      "initial_candidates.recall_micro@10": {
+        "applicable_case_ids": [
+          "SYN-ANSWER/1",
+          "SYN-COMPOSITE/1",
+          "SYN-COMPOSITE/2",
+          "SYN-EQUIVALENT/1",
+          "SYN-ERROR/1",
+          "SYN-MISSING-OBS/1"
+        ],
+        "case_values": {
+          "SYN-ANSWER/1": true,
+          "SYN-COMPOSITE/1": true,
+          "SYN-COMPOSITE/2": false,
+          "SYN-EQUIVALENT/1": true,
+          "SYN-ERROR/1": null,
+          "SYN-MISSING-OBS/1": null
+        },
+        "confirmed_lower_bound": 0.5,
+        "denominator": 6,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SYN-ERROR/1",
+          "SYN-MISSING-OBS/1"
+        ],
+        "numerator": 3,
+        "observed_case_ids": [
+          "SYN-ANSWER/1",
+          "SYN-COMPOSITE/1",
+          "SYN-COMPOSITE/2",
+          "SYN-EQUIVALENT/1"
+        ],
+        "observed_denominator": 4,
+        "observed_rate": 0.75,
+        "rate": null,
+        "unit": "case/fact-group"
+      },
+      "initial_candidates.recall_micro@3": {
+        "applicable_case_ids": [
+          "SYN-ANSWER/1",
+          "SYN-COMPOSITE/1",
+          "SYN-COMPOSITE/2",
+          "SYN-EQUIVALENT/1",
+          "SYN-ERROR/1",
+          "SYN-MISSING-OBS/1"
+        ],
+        "case_values": {
+          "SYN-ANSWER/1": true,
+          "SYN-COMPOSITE/1": true,
+          "SYN-COMPOSITE/2": false,
+          "SYN-EQUIVALENT/1": true,
+          "SYN-ERROR/1": null,
+          "SYN-MISSING-OBS/1": null
+        },
+        "confirmed_lower_bound": 0.5,
+        "denominator": 6,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SYN-ERROR/1",
+          "SYN-MISSING-OBS/1"
+        ],
+        "numerator": 3,
+        "observed_case_ids": [
+          "SYN-ANSWER/1",
+          "SYN-COMPOSITE/1",
+          "SYN-COMPOSITE/2",
+          "SYN-EQUIVALENT/1"
+        ],
+        "observed_denominator": 4,
+        "observed_rate": 0.75,
+        "rate": null,
+        "unit": "case/fact-group"
+      },
+      "initial_candidates.recall_micro@5": {
+        "applicable_case_ids": [
+          "SYN-ANSWER/1",
+          "SYN-COMPOSITE/1",
+          "SYN-COMPOSITE/2",
+          "SYN-EQUIVALENT/1",
+          "SYN-ERROR/1",
+          "SYN-MISSING-OBS/1"
+        ],
+        "case_values": {
+          "SYN-ANSWER/1": true,
+          "SYN-COMPOSITE/1": true,
+          "SYN-COMPOSITE/2": false,
+          "SYN-EQUIVALENT/1": true,
+          "SYN-ERROR/1": null,
+          "SYN-MISSING-OBS/1": null
+        },
+        "confirmed_lower_bound": 0.5,
+        "denominator": 6,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SYN-ERROR/1",
+          "SYN-MISSING-OBS/1"
+        ],
+        "numerator": 3,
+        "observed_case_ids": [
+          "SYN-ANSWER/1",
+          "SYN-COMPOSITE/1",
+          "SYN-COMPOSITE/2",
+          "SYN-EQUIVALENT/1"
+        ],
+        "observed_denominator": 4,
+        "observed_rate": 0.75,
+        "rate": null,
+        "unit": "case/fact-group"
+      },
+      "initial_reranked.hitrate@1": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": true,
+          "SYN-COMPOSITE": true,
+          "SYN-EQUIVALENT": false,
+          "SYN-ERROR": null,
+          "SYN-MISSING-OBS": null
+        },
+        "confirmed_lower_bound": 0.4,
+        "denominator": 5,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT"
+        ],
+        "observed_denominator": 3,
+        "observed_rate": 0.6666666666666666,
+        "rate": null
+      },
+      "initial_reranked.hitrate@10": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": true,
+          "SYN-COMPOSITE": true,
+          "SYN-EQUIVALENT": true,
+          "SYN-ERROR": null,
+          "SYN-MISSING-OBS": null
+        },
+        "confirmed_lower_bound": 0.6,
+        "denominator": 5,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "numerator": 3,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT"
+        ],
+        "observed_denominator": 3,
+        "observed_rate": 1.0,
+        "rate": null
+      },
+      "initial_reranked.hitrate@3": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": true,
+          "SYN-COMPOSITE": true,
+          "SYN-EQUIVALENT": true,
+          "SYN-ERROR": null,
+          "SYN-MISSING-OBS": null
+        },
+        "confirmed_lower_bound": 0.6,
+        "denominator": 5,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "numerator": 3,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT"
+        ],
+        "observed_denominator": 3,
+        "observed_rate": 1.0,
+        "rate": null
+      },
+      "initial_reranked.hitrate@5": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": true,
+          "SYN-COMPOSITE": true,
+          "SYN-EQUIVALENT": true,
+          "SYN-ERROR": null,
+          "SYN-MISSING-OBS": null
+        },
+        "confirmed_lower_bound": 0.6,
+        "denominator": 5,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "numerator": 3,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT"
+        ],
+        "observed_denominator": 3,
+        "observed_rate": 1.0,
+        "rate": null
+      },
+      "initial_reranked.mrr@10": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": 1.0,
+          "SYN-COMPOSITE": 1.0,
+          "SYN-EQUIVALENT": 1.0,
+          "SYN-ERROR": null,
+          "SYN-MISSING-OBS": null
+        },
+        "confirmed_lower_bound": 0.6,
+        "denominator": 5,
+        "kind": "macro",
+        "missing_case_ids": [
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "numerator": 3.0,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT"
+        ],
+        "observed_denominator": 3,
+        "observed_rate": 1.0,
+        "rate": null
+      },
+      "initial_reranked.recall@1": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": 1.0,
+          "SYN-COMPOSITE": 0.5,
+          "SYN-EQUIVALENT": 0.0,
+          "SYN-ERROR": null,
+          "SYN-MISSING-OBS": null
+        },
+        "confirmed_lower_bound": 0.3,
+        "denominator": 5,
+        "kind": "macro",
+        "missing_case_ids": [
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "numerator": 1.5,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT"
+        ],
+        "observed_denominator": 3,
+        "observed_rate": 0.5,
+        "rate": null
+      },
+      "initial_reranked.recall@10": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": 1.0,
+          "SYN-COMPOSITE": 0.5,
+          "SYN-EQUIVALENT": 1.0,
+          "SYN-ERROR": null,
+          "SYN-MISSING-OBS": null
+        },
+        "confirmed_lower_bound": 0.5,
+        "denominator": 5,
+        "kind": "macro",
+        "missing_case_ids": [
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "numerator": 2.5,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT"
+        ],
+        "observed_denominator": 3,
+        "observed_rate": 0.8333333333333334,
+        "rate": null
+      },
+      "initial_reranked.recall@3": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": 1.0,
+          "SYN-COMPOSITE": 0.5,
+          "SYN-EQUIVALENT": 1.0,
+          "SYN-ERROR": null,
+          "SYN-MISSING-OBS": null
+        },
+        "confirmed_lower_bound": 0.5,
+        "denominator": 5,
+        "kind": "macro",
+        "missing_case_ids": [
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "numerator": 2.5,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT"
+        ],
+        "observed_denominator": 3,
+        "observed_rate": 0.8333333333333334,
+        "rate": null
+      },
+      "initial_reranked.recall@5": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "case_values": {
+          "SYN-ANSWER": 1.0,
+          "SYN-COMPOSITE": 0.5,
+          "SYN-EQUIVALENT": 1.0,
+          "SYN-ERROR": null,
+          "SYN-MISSING-OBS": null
+        },
+        "confirmed_lower_bound": 0.5,
+        "denominator": 5,
+        "kind": "macro",
+        "missing_case_ids": [
+          "SYN-ERROR",
+          "SYN-MISSING-OBS"
+        ],
+        "numerator": 2.5,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT"
+        ],
+        "observed_denominator": 3,
+        "observed_rate": 0.8333333333333334,
+        "rate": null
+      },
+      "initial_reranked.recall_micro@1": {
+        "applicable_case_ids": [
+          "SYN-ANSWER/1",
+          "SYN-COMPOSITE/1",
+          "SYN-COMPOSITE/2",
+          "SYN-EQUIVALENT/1",
+          "SYN-ERROR/1",
+          "SYN-MISSING-OBS/1"
+        ],
+        "case_values": {
+          "SYN-ANSWER/1": true,
+          "SYN-COMPOSITE/1": true,
+          "SYN-COMPOSITE/2": false,
+          "SYN-EQUIVALENT/1": false,
+          "SYN-ERROR/1": null,
+          "SYN-MISSING-OBS/1": null
+        },
+        "confirmed_lower_bound": 0.3333333333333333,
+        "denominator": 6,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SYN-ERROR/1",
+          "SYN-MISSING-OBS/1"
+        ],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SYN-ANSWER/1",
+          "SYN-COMPOSITE/1",
+          "SYN-COMPOSITE/2",
+          "SYN-EQUIVALENT/1"
+        ],
+        "observed_denominator": 4,
+        "observed_rate": 0.5,
+        "rate": null,
+        "unit": "case/fact-group"
+      },
+      "initial_reranked.recall_micro@10": {
+        "applicable_case_ids": [
+          "SYN-ANSWER/1",
+          "SYN-COMPOSITE/1",
+          "SYN-COMPOSITE/2",
+          "SYN-EQUIVALENT/1",
+          "SYN-ERROR/1",
+          "SYN-MISSING-OBS/1"
+        ],
+        "case_values": {
+          "SYN-ANSWER/1": true,
+          "SYN-COMPOSITE/1": true,
+          "SYN-COMPOSITE/2": false,
+          "SYN-EQUIVALENT/1": true,
+          "SYN-ERROR/1": null,
+          "SYN-MISSING-OBS/1": null
+        },
+        "confirmed_lower_bound": 0.5,
+        "denominator": 6,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SYN-ERROR/1",
+          "SYN-MISSING-OBS/1"
+        ],
+        "numerator": 3,
+        "observed_case_ids": [
+          "SYN-ANSWER/1",
+          "SYN-COMPOSITE/1",
+          "SYN-COMPOSITE/2",
+          "SYN-EQUIVALENT/1"
+        ],
+        "observed_denominator": 4,
+        "observed_rate": 0.75,
+        "rate": null,
+        "unit": "case/fact-group"
+      },
+      "initial_reranked.recall_micro@3": {
+        "applicable_case_ids": [
+          "SYN-ANSWER/1",
+          "SYN-COMPOSITE/1",
+          "SYN-COMPOSITE/2",
+          "SYN-EQUIVALENT/1",
+          "SYN-ERROR/1",
+          "SYN-MISSING-OBS/1"
+        ],
+        "case_values": {
+          "SYN-ANSWER/1": true,
+          "SYN-COMPOSITE/1": true,
+          "SYN-COMPOSITE/2": false,
+          "SYN-EQUIVALENT/1": true,
+          "SYN-ERROR/1": null,
+          "SYN-MISSING-OBS/1": null
+        },
+        "confirmed_lower_bound": 0.5,
+        "denominator": 6,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SYN-ERROR/1",
+          "SYN-MISSING-OBS/1"
+        ],
+        "numerator": 3,
+        "observed_case_ids": [
+          "SYN-ANSWER/1",
+          "SYN-COMPOSITE/1",
+          "SYN-COMPOSITE/2",
+          "SYN-EQUIVALENT/1"
+        ],
+        "observed_denominator": 4,
+        "observed_rate": 0.75,
+        "rate": null,
+        "unit": "case/fact-group"
+      },
+      "initial_reranked.recall_micro@5": {
+        "applicable_case_ids": [
+          "SYN-ANSWER/1",
+          "SYN-COMPOSITE/1",
+          "SYN-COMPOSITE/2",
+          "SYN-EQUIVALENT/1",
+          "SYN-ERROR/1",
+          "SYN-MISSING-OBS/1"
+        ],
+        "case_values": {
+          "SYN-ANSWER/1": true,
+          "SYN-COMPOSITE/1": true,
+          "SYN-COMPOSITE/2": false,
+          "SYN-EQUIVALENT/1": true,
+          "SYN-ERROR/1": null,
+          "SYN-MISSING-OBS/1": null
+        },
+        "confirmed_lower_bound": 0.5,
+        "denominator": 6,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SYN-ERROR/1",
+          "SYN-MISSING-OBS/1"
+        ],
+        "numerator": 3,
+        "observed_case_ids": [
+          "SYN-ANSWER/1",
+          "SYN-COMPOSITE/1",
+          "SYN-COMPOSITE/2",
+          "SYN-EQUIVALENT/1"
+        ],
+        "observed_denominator": 4,
+        "observed_rate": 0.75,
+        "rate": null,
+        "unit": "case/fact-group"
+      },
+      "service_error": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-CLARIFY",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS",
+          "SYN-REFUSE"
+        ],
+        "case_values": {
+          "SYN-ANSWER": false,
+          "SYN-CLARIFY": false,
+          "SYN-COMPOSITE": false,
+          "SYN-EQUIVALENT": false,
+          "SYN-ERROR": true,
+          "SYN-MISSING-OBS": false,
+          "SYN-REFUSE": false
+        },
+        "confirmed_lower_bound": 0.14285714285714285,
+        "denominator": 7,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 1,
+        "observed_case_ids": [
+          "SYN-ANSWER",
+          "SYN-CLARIFY",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS",
+          "SYN-REFUSE"
+        ],
+        "observed_denominator": 7,
+        "observed_rate": 0.14285714285714285,
+        "rate": 0.14285714285714285
+      },
+      "task_success": {
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-CLARIFY",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS",
+          "SYN-REFUSE"
+        ],
+        "case_values": {
+          "SYN-ANSWER": null,
+          "SYN-CLARIFY": true,
+          "SYN-COMPOSITE": false,
+          "SYN-EQUIVALENT": false,
+          "SYN-ERROR": false,
+          "SYN-MISSING-OBS": false,
+          "SYN-REFUSE": true
+        },
+        "confirmed_lower_bound": 0.2857142857142857,
+        "denominator": 7,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SYN-ANSWER"
+        ],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SYN-CLARIFY",
+          "SYN-COMPOSITE",
+          "SYN-EQUIVALENT",
+          "SYN-ERROR",
+          "SYN-MISSING-OBS",
+          "SYN-REFUSE"
+        ],
+        "observed_denominator": 6,
+        "observed_rate": 0.3333333333333333,
+        "rate": null
+      }
+    }
+  },
+  "metric_scoring_modes": {
+    "citation_legal": "automatic_location_or_behavior",
+    "clarify_action_correct": "automatic_location_or_behavior",
+    "complete_correct_answer": "review_required_provisional",
+    "evidence_support": "review_required_provisional",
+    "false_accept": "automatic_location_or_behavior",
+    "false_refuse": "automatic_location_or_behavior",
+    "final_fact_complete": "review_required_provisional",
+    "final_position_complete_diagnostic": "automatic_location_or_behavior",
+    "generator_fact_complete": "review_required_provisional",
+    "generator_position_complete_diagnostic": "automatic_location_or_behavior",
+    "initial_candidates.hitrate@1": "automatic_location_or_behavior",
+    "initial_candidates.hitrate@10": "automatic_location_or_behavior",
+    "initial_candidates.hitrate@3": "automatic_location_or_behavior",
+    "initial_candidates.hitrate@5": "automatic_location_or_behavior",
+    "initial_candidates.mrr@10": "automatic_location_or_behavior",
+    "initial_candidates.recall@1": "automatic_location_or_behavior",
+    "initial_candidates.recall@10": "automatic_location_or_behavior",
+    "initial_candidates.recall@3": "automatic_location_or_behavior",
+    "initial_candidates.recall@5": "automatic_location_or_behavior",
+    "initial_candidates.recall_micro@1": "automatic_location_or_behavior",
+    "initial_candidates.recall_micro@10": "automatic_location_or_behavior",
+    "initial_candidates.recall_micro@3": "automatic_location_or_behavior",
+    "initial_candidates.recall_micro@5": "automatic_location_or_behavior",
+    "initial_reranked.hitrate@1": "automatic_location_or_behavior",
+    "initial_reranked.hitrate@10": "automatic_location_or_behavior",
+    "initial_reranked.hitrate@3": "automatic_location_or_behavior",
+    "initial_reranked.hitrate@5": "automatic_location_or_behavior",
+    "initial_reranked.mrr@10": "automatic_location_or_behavior",
+    "initial_reranked.recall@1": "automatic_location_or_behavior",
+    "initial_reranked.recall@10": "automatic_location_or_behavior",
+    "initial_reranked.recall@3": "automatic_location_or_behavior",
+    "initial_reranked.recall@5": "automatic_location_or_behavior",
+    "initial_reranked.recall_micro@1": "automatic_location_or_behavior",
+    "initial_reranked.recall_micro@10": "automatic_location_or_behavior",
+    "initial_reranked.recall_micro@3": "automatic_location_or_behavior",
+    "initial_reranked.recall_micro@5": "automatic_location_or_behavior",
+    "service_error": "automatic_location_or_behavior",
+    "task_success": "review_required_provisional"
+  },
+  "metrics": {
+    "citation_legal": {
+      "applicable_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT",
+        "SYN-MISSING-OBS"
+      ],
+      "case_values": {
+        "SYN-ANSWER": true,
+        "SYN-COMPOSITE": false,
+        "SYN-EQUIVALENT": false,
+        "SYN-MISSING-OBS": false
+      },
+      "confirmed_lower_bound": 0.25,
+      "denominator": 4,
+      "kind": "rate",
+      "missing_case_ids": [],
+      "numerator": 1,
+      "observed_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT",
+        "SYN-MISSING-OBS"
+      ],
+      "observed_denominator": 4,
+      "observed_rate": 0.25,
+      "rate": 0.25
+    },
+    "clarify_action_correct": {
+      "applicable_case_ids": [
+        "SYN-CLARIFY"
+      ],
+      "case_values": {
+        "SYN-CLARIFY": true
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 1,
+      "kind": "rate",
+      "missing_case_ids": [],
+      "numerator": 1,
+      "observed_case_ids": [
+        "SYN-CLARIFY"
+      ],
+      "observed_denominator": 1,
+      "observed_rate": 1.0,
+      "rate": 1.0
+    },
+    "complete_correct_answer": {
+      "applicable_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT",
+        "SYN-ERROR",
+        "SYN-MISSING-OBS"
+      ],
+      "case_values": {
+        "SYN-ANSWER": null,
+        "SYN-COMPOSITE": false,
+        "SYN-EQUIVALENT": false,
+        "SYN-ERROR": false,
+        "SYN-MISSING-OBS": false
+      },
+      "confirmed_lower_bound": 0.0,
+      "denominator": 5,
+      "kind": "rate",
+      "missing_case_ids": [
+        "SYN-ANSWER"
+      ],
+      "numerator": 0,
+      "observed_case_ids": [
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT",
+        "SYN-ERROR",
+        "SYN-MISSING-OBS"
+      ],
+      "observed_denominator": 4,
+      "observed_rate": 0.0,
+      "rate": null
+    },
+    "evidence_support": {
+      "applicable_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT",
+        "SYN-MISSING-OBS"
+      ],
+      "case_values": {
+        "SYN-ANSWER": null,
+        "SYN-COMPOSITE": null,
+        "SYN-EQUIVALENT": null,
+        "SYN-MISSING-OBS": null
+      },
+      "confirmed_lower_bound": 0.0,
+      "denominator": 4,
+      "kind": "macro",
+      "missing_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT",
+        "SYN-MISSING-OBS"
+      ],
+      "numerator": 0,
+      "observed_case_ids": [],
+      "observed_denominator": 0,
+      "observed_rate": null,
+      "rate": null
+    },
+    "false_accept": {
+      "applicable_case_ids": [
+        "SYN-REFUSE"
+      ],
+      "case_values": {
+        "SYN-REFUSE": false
+      },
+      "confirmed_lower_bound": 0.0,
+      "denominator": 1,
+      "kind": "rate",
+      "missing_case_ids": [],
+      "numerator": 0,
+      "observed_case_ids": [
+        "SYN-REFUSE"
+      ],
+      "observed_denominator": 1,
+      "observed_rate": 0.0,
+      "rate": 0.0
+    },
+    "false_refuse": {
+      "applicable_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT",
+        "SYN-ERROR",
+        "SYN-MISSING-OBS"
+      ],
+      "case_values": {
+        "SYN-ANSWER": false,
+        "SYN-COMPOSITE": false,
+        "SYN-EQUIVALENT": false,
+        "SYN-ERROR": false,
+        "SYN-MISSING-OBS": false
+      },
+      "confirmed_lower_bound": 0.0,
+      "denominator": 5,
+      "kind": "rate",
+      "missing_case_ids": [],
+      "numerator": 0,
+      "observed_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT",
+        "SYN-ERROR",
+        "SYN-MISSING-OBS"
+      ],
+      "observed_denominator": 5,
+      "observed_rate": 0.0,
+      "rate": 0.0
+    },
+    "final_fact_complete": {
+      "applicable_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT",
+        "SYN-ERROR",
+        "SYN-MISSING-OBS"
+      ],
+      "case_values": {
+        "SYN-ANSWER": null,
+        "SYN-COMPOSITE": null,
+        "SYN-EQUIVALENT": null,
+        "SYN-ERROR": null,
+        "SYN-MISSING-OBS": null
+      },
+      "confirmed_lower_bound": 0.0,
+      "denominator": 5,
+      "kind": "rate",
+      "missing_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT",
+        "SYN-ERROR",
+        "SYN-MISSING-OBS"
+      ],
+      "numerator": 0,
+      "observed_case_ids": [],
+      "observed_denominator": 0,
+      "observed_rate": null,
+      "rate": null
+    },
+    "final_position_complete_diagnostic": {
+      "applicable_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT",
+        "SYN-ERROR",
+        "SYN-MISSING-OBS"
+      ],
+      "case_values": {
+        "SYN-ANSWER": true,
+        "SYN-COMPOSITE": true,
+        "SYN-EQUIVALENT": true,
+        "SYN-ERROR": null,
+        "SYN-MISSING-OBS": null
+      },
+      "confirmed_lower_bound": 0.6,
+      "denominator": 5,
+      "kind": "rate",
+      "missing_case_ids": [
+        "SYN-ERROR",
+        "SYN-MISSING-OBS"
+      ],
+      "numerator": 3,
+      "observed_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT"
+      ],
+      "observed_denominator": 3,
+      "observed_rate": 1.0,
+      "rate": null
+    },
+    "generator_fact_complete": {
+      "applicable_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT",
+        "SYN-MISSING-OBS"
+      ],
+      "case_values": {
+        "SYN-ANSWER": true,
+        "SYN-COMPOSITE": true,
+        "SYN-EQUIVALENT": true,
+        "SYN-MISSING-OBS": null
+      },
+      "confirmed_lower_bound": 0.75,
+      "denominator": 4,
+      "kind": "rate",
+      "missing_case_ids": [
+        "SYN-MISSING-OBS"
+      ],
+      "numerator": 3,
+      "observed_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT"
+      ],
+      "observed_denominator": 3,
+      "observed_rate": 1.0,
+      "rate": null
+    },
+    "generator_position_complete_diagnostic": {
+      "applicable_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT",
+        "SYN-MISSING-OBS"
+      ],
+      "case_values": {
+        "SYN-ANSWER": true,
+        "SYN-COMPOSITE": true,
+        "SYN-EQUIVALENT": true,
+        "SYN-MISSING-OBS": false
+      },
+      "confirmed_lower_bound": 0.75,
+      "denominator": 4,
+      "kind": "rate",
+      "missing_case_ids": [],
+      "numerator": 3,
+      "observed_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT",
+        "SYN-MISSING-OBS"
+      ],
+      "observed_denominator": 4,
+      "observed_rate": 0.75,
+      "rate": 0.75
+    },
+    "initial_candidates.hitrate@1": {
+      "applicable_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT",
+        "SYN-ERROR",
+        "SYN-MISSING-OBS"
+      ],
+      "case_values": {
+        "SYN-ANSWER": true,
+        "SYN-COMPOSITE": true,
+        "SYN-EQUIVALENT": false,
+        "SYN-ERROR": null,
+        "SYN-MISSING-OBS": null
+      },
+      "confirmed_lower_bound": 0.4,
+      "denominator": 5,
+      "kind": "rate",
+      "missing_case_ids": [
+        "SYN-ERROR",
+        "SYN-MISSING-OBS"
+      ],
+      "numerator": 2,
+      "observed_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT"
+      ],
+      "observed_denominator": 3,
+      "observed_rate": 0.6666666666666666,
+      "rate": null
+    },
+    "initial_candidates.hitrate@10": {
+      "applicable_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT",
+        "SYN-ERROR",
+        "SYN-MISSING-OBS"
+      ],
+      "case_values": {
+        "SYN-ANSWER": true,
+        "SYN-COMPOSITE": true,
+        "SYN-EQUIVALENT": true,
+        "SYN-ERROR": null,
+        "SYN-MISSING-OBS": null
+      },
+      "confirmed_lower_bound": 0.6,
+      "denominator": 5,
+      "kind": "rate",
+      "missing_case_ids": [
+        "SYN-ERROR",
+        "SYN-MISSING-OBS"
+      ],
+      "numerator": 3,
+      "observed_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT"
+      ],
+      "observed_denominator": 3,
+      "observed_rate": 1.0,
+      "rate": null
+    },
+    "initial_candidates.hitrate@3": {
+      "applicable_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT",
+        "SYN-ERROR",
+        "SYN-MISSING-OBS"
+      ],
+      "case_values": {
+        "SYN-ANSWER": true,
+        "SYN-COMPOSITE": true,
+        "SYN-EQUIVALENT": true,
+        "SYN-ERROR": null,
+        "SYN-MISSING-OBS": null
+      },
+      "confirmed_lower_bound": 0.6,
+      "denominator": 5,
+      "kind": "rate",
+      "missing_case_ids": [
+        "SYN-ERROR",
+        "SYN-MISSING-OBS"
+      ],
+      "numerator": 3,
+      "observed_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT"
+      ],
+      "observed_denominator": 3,
+      "observed_rate": 1.0,
+      "rate": null
+    },
+    "initial_candidates.hitrate@5": {
+      "applicable_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT",
+        "SYN-ERROR",
+        "SYN-MISSING-OBS"
+      ],
+      "case_values": {
+        "SYN-ANSWER": true,
+        "SYN-COMPOSITE": true,
+        "SYN-EQUIVALENT": true,
+        "SYN-ERROR": null,
+        "SYN-MISSING-OBS": null
+      },
+      "confirmed_lower_bound": 0.6,
+      "denominator": 5,
+      "kind": "rate",
+      "missing_case_ids": [
+        "SYN-ERROR",
+        "SYN-MISSING-OBS"
+      ],
+      "numerator": 3,
+      "observed_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT"
+      ],
+      "observed_denominator": 3,
+      "observed_rate": 1.0,
+      "rate": null
+    },
+    "initial_candidates.mrr@10": {
+      "applicable_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT",
+        "SYN-ERROR",
+        "SYN-MISSING-OBS"
+      ],
+      "case_values": {
+        "SYN-ANSWER": 1.0,
+        "SYN-COMPOSITE": 1.0,
+        "SYN-EQUIVALENT": 1.0,
+        "SYN-ERROR": null,
+        "SYN-MISSING-OBS": null
+      },
+      "confirmed_lower_bound": 0.6,
+      "denominator": 5,
+      "kind": "macro",
+      "missing_case_ids": [
+        "SYN-ERROR",
+        "SYN-MISSING-OBS"
+      ],
+      "numerator": 3.0,
+      "observed_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT"
+      ],
+      "observed_denominator": 3,
+      "observed_rate": 1.0,
+      "rate": null
+    },
+    "initial_candidates.recall@1": {
+      "applicable_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT",
+        "SYN-ERROR",
+        "SYN-MISSING-OBS"
+      ],
+      "case_values": {
+        "SYN-ANSWER": 1.0,
+        "SYN-COMPOSITE": 0.5,
+        "SYN-EQUIVALENT": 0.0,
+        "SYN-ERROR": null,
+        "SYN-MISSING-OBS": null
+      },
+      "confirmed_lower_bound": 0.3,
+      "denominator": 5,
+      "kind": "macro",
+      "missing_case_ids": [
+        "SYN-ERROR",
+        "SYN-MISSING-OBS"
+      ],
+      "numerator": 1.5,
+      "observed_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT"
+      ],
+      "observed_denominator": 3,
+      "observed_rate": 0.5,
+      "rate": null
+    },
+    "initial_candidates.recall@10": {
+      "applicable_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT",
+        "SYN-ERROR",
+        "SYN-MISSING-OBS"
+      ],
+      "case_values": {
+        "SYN-ANSWER": 1.0,
+        "SYN-COMPOSITE": 0.5,
+        "SYN-EQUIVALENT": 1.0,
+        "SYN-ERROR": null,
+        "SYN-MISSING-OBS": null
+      },
+      "confirmed_lower_bound": 0.5,
+      "denominator": 5,
+      "kind": "macro",
+      "missing_case_ids": [
+        "SYN-ERROR",
+        "SYN-MISSING-OBS"
+      ],
+      "numerator": 2.5,
+      "observed_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT"
+      ],
+      "observed_denominator": 3,
+      "observed_rate": 0.8333333333333334,
+      "rate": null
+    },
+    "initial_candidates.recall@3": {
+      "applicable_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT",
+        "SYN-ERROR",
+        "SYN-MISSING-OBS"
+      ],
+      "case_values": {
+        "SYN-ANSWER": 1.0,
+        "SYN-COMPOSITE": 0.5,
+        "SYN-EQUIVALENT": 1.0,
+        "SYN-ERROR": null,
+        "SYN-MISSING-OBS": null
+      },
+      "confirmed_lower_bound": 0.5,
+      "denominator": 5,
+      "kind": "macro",
+      "missing_case_ids": [
+        "SYN-ERROR",
+        "SYN-MISSING-OBS"
+      ],
+      "numerator": 2.5,
+      "observed_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT"
+      ],
+      "observed_denominator": 3,
+      "observed_rate": 0.8333333333333334,
+      "rate": null
+    },
+    "initial_candidates.recall@5": {
+      "applicable_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT",
+        "SYN-ERROR",
+        "SYN-MISSING-OBS"
+      ],
+      "case_values": {
+        "SYN-ANSWER": 1.0,
+        "SYN-COMPOSITE": 0.5,
+        "SYN-EQUIVALENT": 1.0,
+        "SYN-ERROR": null,
+        "SYN-MISSING-OBS": null
+      },
+      "confirmed_lower_bound": 0.5,
+      "denominator": 5,
+      "kind": "macro",
+      "missing_case_ids": [
+        "SYN-ERROR",
+        "SYN-MISSING-OBS"
+      ],
+      "numerator": 2.5,
+      "observed_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT"
+      ],
+      "observed_denominator": 3,
+      "observed_rate": 0.8333333333333334,
+      "rate": null
+    },
+    "initial_candidates.recall_micro@1": {
+      "applicable_case_ids": [
+        "SYN-ANSWER/1",
+        "SYN-COMPOSITE/1",
+        "SYN-COMPOSITE/2",
+        "SYN-EQUIVALENT/1",
+        "SYN-ERROR/1",
+        "SYN-MISSING-OBS/1"
+      ],
+      "case_values": {
+        "SYN-ANSWER/1": true,
+        "SYN-COMPOSITE/1": true,
+        "SYN-COMPOSITE/2": false,
+        "SYN-EQUIVALENT/1": false,
+        "SYN-ERROR/1": null,
+        "SYN-MISSING-OBS/1": null
+      },
+      "confirmed_lower_bound": 0.3333333333333333,
+      "denominator": 6,
+      "kind": "rate",
+      "missing_case_ids": [
+        "SYN-ERROR/1",
+        "SYN-MISSING-OBS/1"
+      ],
+      "numerator": 2,
+      "observed_case_ids": [
+        "SYN-ANSWER/1",
+        "SYN-COMPOSITE/1",
+        "SYN-COMPOSITE/2",
+        "SYN-EQUIVALENT/1"
+      ],
+      "observed_denominator": 4,
+      "observed_rate": 0.5,
+      "rate": null,
+      "unit": "case/fact-group"
+    },
+    "initial_candidates.recall_micro@10": {
+      "applicable_case_ids": [
+        "SYN-ANSWER/1",
+        "SYN-COMPOSITE/1",
+        "SYN-COMPOSITE/2",
+        "SYN-EQUIVALENT/1",
+        "SYN-ERROR/1",
+        "SYN-MISSING-OBS/1"
+      ],
+      "case_values": {
+        "SYN-ANSWER/1": true,
+        "SYN-COMPOSITE/1": true,
+        "SYN-COMPOSITE/2": false,
+        "SYN-EQUIVALENT/1": true,
+        "SYN-ERROR/1": null,
+        "SYN-MISSING-OBS/1": null
+      },
+      "confirmed_lower_bound": 0.5,
+      "denominator": 6,
+      "kind": "rate",
+      "missing_case_ids": [
+        "SYN-ERROR/1",
+        "SYN-MISSING-OBS/1"
+      ],
+      "numerator": 3,
+      "observed_case_ids": [
+        "SYN-ANSWER/1",
+        "SYN-COMPOSITE/1",
+        "SYN-COMPOSITE/2",
+        "SYN-EQUIVALENT/1"
+      ],
+      "observed_denominator": 4,
+      "observed_rate": 0.75,
+      "rate": null,
+      "unit": "case/fact-group"
+    },
+    "initial_candidates.recall_micro@3": {
+      "applicable_case_ids": [
+        "SYN-ANSWER/1",
+        "SYN-COMPOSITE/1",
+        "SYN-COMPOSITE/2",
+        "SYN-EQUIVALENT/1",
+        "SYN-ERROR/1",
+        "SYN-MISSING-OBS/1"
+      ],
+      "case_values": {
+        "SYN-ANSWER/1": true,
+        "SYN-COMPOSITE/1": true,
+        "SYN-COMPOSITE/2": false,
+        "SYN-EQUIVALENT/1": true,
+        "SYN-ERROR/1": null,
+        "SYN-MISSING-OBS/1": null
+      },
+      "confirmed_lower_bound": 0.5,
+      "denominator": 6,
+      "kind": "rate",
+      "missing_case_ids": [
+        "SYN-ERROR/1",
+        "SYN-MISSING-OBS/1"
+      ],
+      "numerator": 3,
+      "observed_case_ids": [
+        "SYN-ANSWER/1",
+        "SYN-COMPOSITE/1",
+        "SYN-COMPOSITE/2",
+        "SYN-EQUIVALENT/1"
+      ],
+      "observed_denominator": 4,
+      "observed_rate": 0.75,
+      "rate": null,
+      "unit": "case/fact-group"
+    },
+    "initial_candidates.recall_micro@5": {
+      "applicable_case_ids": [
+        "SYN-ANSWER/1",
+        "SYN-COMPOSITE/1",
+        "SYN-COMPOSITE/2",
+        "SYN-EQUIVALENT/1",
+        "SYN-ERROR/1",
+        "SYN-MISSING-OBS/1"
+      ],
+      "case_values": {
+        "SYN-ANSWER/1": true,
+        "SYN-COMPOSITE/1": true,
+        "SYN-COMPOSITE/2": false,
+        "SYN-EQUIVALENT/1": true,
+        "SYN-ERROR/1": null,
+        "SYN-MISSING-OBS/1": null
+      },
+      "confirmed_lower_bound": 0.5,
+      "denominator": 6,
+      "kind": "rate",
+      "missing_case_ids": [
+        "SYN-ERROR/1",
+        "SYN-MISSING-OBS/1"
+      ],
+      "numerator": 3,
+      "observed_case_ids": [
+        "SYN-ANSWER/1",
+        "SYN-COMPOSITE/1",
+        "SYN-COMPOSITE/2",
+        "SYN-EQUIVALENT/1"
+      ],
+      "observed_denominator": 4,
+      "observed_rate": 0.75,
+      "rate": null,
+      "unit": "case/fact-group"
+    },
+    "initial_reranked.hitrate@1": {
+      "applicable_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT",
+        "SYN-ERROR",
+        "SYN-MISSING-OBS"
+      ],
+      "case_values": {
+        "SYN-ANSWER": true,
+        "SYN-COMPOSITE": true,
+        "SYN-EQUIVALENT": false,
+        "SYN-ERROR": null,
+        "SYN-MISSING-OBS": null
+      },
+      "confirmed_lower_bound": 0.4,
+      "denominator": 5,
+      "kind": "rate",
+      "missing_case_ids": [
+        "SYN-ERROR",
+        "SYN-MISSING-OBS"
+      ],
+      "numerator": 2,
+      "observed_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT"
+      ],
+      "observed_denominator": 3,
+      "observed_rate": 0.6666666666666666,
+      "rate": null
+    },
+    "initial_reranked.hitrate@10": {
+      "applicable_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT",
+        "SYN-ERROR",
+        "SYN-MISSING-OBS"
+      ],
+      "case_values": {
+        "SYN-ANSWER": true,
+        "SYN-COMPOSITE": true,
+        "SYN-EQUIVALENT": true,
+        "SYN-ERROR": null,
+        "SYN-MISSING-OBS": null
+      },
+      "confirmed_lower_bound": 0.6,
+      "denominator": 5,
+      "kind": "rate",
+      "missing_case_ids": [
+        "SYN-ERROR",
+        "SYN-MISSING-OBS"
+      ],
+      "numerator": 3,
+      "observed_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT"
+      ],
+      "observed_denominator": 3,
+      "observed_rate": 1.0,
+      "rate": null
+    },
+    "initial_reranked.hitrate@3": {
+      "applicable_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT",
+        "SYN-ERROR",
+        "SYN-MISSING-OBS"
+      ],
+      "case_values": {
+        "SYN-ANSWER": true,
+        "SYN-COMPOSITE": true,
+        "SYN-EQUIVALENT": true,
+        "SYN-ERROR": null,
+        "SYN-MISSING-OBS": null
+      },
+      "confirmed_lower_bound": 0.6,
+      "denominator": 5,
+      "kind": "rate",
+      "missing_case_ids": [
+        "SYN-ERROR",
+        "SYN-MISSING-OBS"
+      ],
+      "numerator": 3,
+      "observed_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT"
+      ],
+      "observed_denominator": 3,
+      "observed_rate": 1.0,
+      "rate": null
+    },
+    "initial_reranked.hitrate@5": {
+      "applicable_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT",
+        "SYN-ERROR",
+        "SYN-MISSING-OBS"
+      ],
+      "case_values": {
+        "SYN-ANSWER": true,
+        "SYN-COMPOSITE": true,
+        "SYN-EQUIVALENT": true,
+        "SYN-ERROR": null,
+        "SYN-MISSING-OBS": null
+      },
+      "confirmed_lower_bound": 0.6,
+      "denominator": 5,
+      "kind": "rate",
+      "missing_case_ids": [
+        "SYN-ERROR",
+        "SYN-MISSING-OBS"
+      ],
+      "numerator": 3,
+      "observed_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT"
+      ],
+      "observed_denominator": 3,
+      "observed_rate": 1.0,
+      "rate": null
+    },
+    "initial_reranked.mrr@10": {
+      "applicable_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT",
+        "SYN-ERROR",
+        "SYN-MISSING-OBS"
+      ],
+      "case_values": {
+        "SYN-ANSWER": 1.0,
+        "SYN-COMPOSITE": 1.0,
+        "SYN-EQUIVALENT": 1.0,
+        "SYN-ERROR": null,
+        "SYN-MISSING-OBS": null
+      },
+      "confirmed_lower_bound": 0.6,
+      "denominator": 5,
+      "kind": "macro",
+      "missing_case_ids": [
+        "SYN-ERROR",
+        "SYN-MISSING-OBS"
+      ],
+      "numerator": 3.0,
+      "observed_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT"
+      ],
+      "observed_denominator": 3,
+      "observed_rate": 1.0,
+      "rate": null
+    },
+    "initial_reranked.recall@1": {
+      "applicable_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT",
+        "SYN-ERROR",
+        "SYN-MISSING-OBS"
+      ],
+      "case_values": {
+        "SYN-ANSWER": 1.0,
+        "SYN-COMPOSITE": 0.5,
+        "SYN-EQUIVALENT": 0.0,
+        "SYN-ERROR": null,
+        "SYN-MISSING-OBS": null
+      },
+      "confirmed_lower_bound": 0.3,
+      "denominator": 5,
+      "kind": "macro",
+      "missing_case_ids": [
+        "SYN-ERROR",
+        "SYN-MISSING-OBS"
+      ],
+      "numerator": 1.5,
+      "observed_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT"
+      ],
+      "observed_denominator": 3,
+      "observed_rate": 0.5,
+      "rate": null
+    },
+    "initial_reranked.recall@10": {
+      "applicable_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT",
+        "SYN-ERROR",
+        "SYN-MISSING-OBS"
+      ],
+      "case_values": {
+        "SYN-ANSWER": 1.0,
+        "SYN-COMPOSITE": 0.5,
+        "SYN-EQUIVALENT": 1.0,
+        "SYN-ERROR": null,
+        "SYN-MISSING-OBS": null
+      },
+      "confirmed_lower_bound": 0.5,
+      "denominator": 5,
+      "kind": "macro",
+      "missing_case_ids": [
+        "SYN-ERROR",
+        "SYN-MISSING-OBS"
+      ],
+      "numerator": 2.5,
+      "observed_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT"
+      ],
+      "observed_denominator": 3,
+      "observed_rate": 0.8333333333333334,
+      "rate": null
+    },
+    "initial_reranked.recall@3": {
+      "applicable_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT",
+        "SYN-ERROR",
+        "SYN-MISSING-OBS"
+      ],
+      "case_values": {
+        "SYN-ANSWER": 1.0,
+        "SYN-COMPOSITE": 0.5,
+        "SYN-EQUIVALENT": 1.0,
+        "SYN-ERROR": null,
+        "SYN-MISSING-OBS": null
+      },
+      "confirmed_lower_bound": 0.5,
+      "denominator": 5,
+      "kind": "macro",
+      "missing_case_ids": [
+        "SYN-ERROR",
+        "SYN-MISSING-OBS"
+      ],
+      "numerator": 2.5,
+      "observed_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT"
+      ],
+      "observed_denominator": 3,
+      "observed_rate": 0.8333333333333334,
+      "rate": null
+    },
+    "initial_reranked.recall@5": {
+      "applicable_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT",
+        "SYN-ERROR",
+        "SYN-MISSING-OBS"
+      ],
+      "case_values": {
+        "SYN-ANSWER": 1.0,
+        "SYN-COMPOSITE": 0.5,
+        "SYN-EQUIVALENT": 1.0,
+        "SYN-ERROR": null,
+        "SYN-MISSING-OBS": null
+      },
+      "confirmed_lower_bound": 0.5,
+      "denominator": 5,
+      "kind": "macro",
+      "missing_case_ids": [
+        "SYN-ERROR",
+        "SYN-MISSING-OBS"
+      ],
+      "numerator": 2.5,
+      "observed_case_ids": [
+        "SYN-ANSWER",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT"
+      ],
+      "observed_denominator": 3,
+      "observed_rate": 0.8333333333333334,
+      "rate": null
+    },
+    "initial_reranked.recall_micro@1": {
+      "applicable_case_ids": [
+        "SYN-ANSWER/1",
+        "SYN-COMPOSITE/1",
+        "SYN-COMPOSITE/2",
+        "SYN-EQUIVALENT/1",
+        "SYN-ERROR/1",
+        "SYN-MISSING-OBS/1"
+      ],
+      "case_values": {
+        "SYN-ANSWER/1": true,
+        "SYN-COMPOSITE/1": true,
+        "SYN-COMPOSITE/2": false,
+        "SYN-EQUIVALENT/1": false,
+        "SYN-ERROR/1": null,
+        "SYN-MISSING-OBS/1": null
+      },
+      "confirmed_lower_bound": 0.3333333333333333,
+      "denominator": 6,
+      "kind": "rate",
+      "missing_case_ids": [
+        "SYN-ERROR/1",
+        "SYN-MISSING-OBS/1"
+      ],
+      "numerator": 2,
+      "observed_case_ids": [
+        "SYN-ANSWER/1",
+        "SYN-COMPOSITE/1",
+        "SYN-COMPOSITE/2",
+        "SYN-EQUIVALENT/1"
+      ],
+      "observed_denominator": 4,
+      "observed_rate": 0.5,
+      "rate": null,
+      "unit": "case/fact-group"
+    },
+    "initial_reranked.recall_micro@10": {
+      "applicable_case_ids": [
+        "SYN-ANSWER/1",
+        "SYN-COMPOSITE/1",
+        "SYN-COMPOSITE/2",
+        "SYN-EQUIVALENT/1",
+        "SYN-ERROR/1",
+        "SYN-MISSING-OBS/1"
+      ],
+      "case_values": {
+        "SYN-ANSWER/1": true,
+        "SYN-COMPOSITE/1": true,
+        "SYN-COMPOSITE/2": false,
+        "SYN-EQUIVALENT/1": true,
+        "SYN-ERROR/1": null,
+        "SYN-MISSING-OBS/1": null
+      },
+      "confirmed_lower_bound": 0.5,
+      "denominator": 6,
+      "kind": "rate",
+      "missing_case_ids": [
+        "SYN-ERROR/1",
+        "SYN-MISSING-OBS/1"
+      ],
+      "numerator": 3,
+      "observed_case_ids": [
+        "SYN-ANSWER/1",
+        "SYN-COMPOSITE/1",
+        "SYN-COMPOSITE/2",
+        "SYN-EQUIVALENT/1"
+      ],
+      "observed_denominator": 4,
+      "observed_rate": 0.75,
+      "rate": null,
+      "unit": "case/fact-group"
+    },
+    "initial_reranked.recall_micro@3": {
+      "applicable_case_ids": [
+        "SYN-ANSWER/1",
+        "SYN-COMPOSITE/1",
+        "SYN-COMPOSITE/2",
+        "SYN-EQUIVALENT/1",
+        "SYN-ERROR/1",
+        "SYN-MISSING-OBS/1"
+      ],
+      "case_values": {
+        "SYN-ANSWER/1": true,
+        "SYN-COMPOSITE/1": true,
+        "SYN-COMPOSITE/2": false,
+        "SYN-EQUIVALENT/1": true,
+        "SYN-ERROR/1": null,
+        "SYN-MISSING-OBS/1": null
+      },
+      "confirmed_lower_bound": 0.5,
+      "denominator": 6,
+      "kind": "rate",
+      "missing_case_ids": [
+        "SYN-ERROR/1",
+        "SYN-MISSING-OBS/1"
+      ],
+      "numerator": 3,
+      "observed_case_ids": [
+        "SYN-ANSWER/1",
+        "SYN-COMPOSITE/1",
+        "SYN-COMPOSITE/2",
+        "SYN-EQUIVALENT/1"
+      ],
+      "observed_denominator": 4,
+      "observed_rate": 0.75,
+      "rate": null,
+      "unit": "case/fact-group"
+    },
+    "initial_reranked.recall_micro@5": {
+      "applicable_case_ids": [
+        "SYN-ANSWER/1",
+        "SYN-COMPOSITE/1",
+        "SYN-COMPOSITE/2",
+        "SYN-EQUIVALENT/1",
+        "SYN-ERROR/1",
+        "SYN-MISSING-OBS/1"
+      ],
+      "case_values": {
+        "SYN-ANSWER/1": true,
+        "SYN-COMPOSITE/1": true,
+        "SYN-COMPOSITE/2": false,
+        "SYN-EQUIVALENT/1": true,
+        "SYN-ERROR/1": null,
+        "SYN-MISSING-OBS/1": null
+      },
+      "confirmed_lower_bound": 0.5,
+      "denominator": 6,
+      "kind": "rate",
+      "missing_case_ids": [
+        "SYN-ERROR/1",
+        "SYN-MISSING-OBS/1"
+      ],
+      "numerator": 3,
+      "observed_case_ids": [
+        "SYN-ANSWER/1",
+        "SYN-COMPOSITE/1",
+        "SYN-COMPOSITE/2",
+        "SYN-EQUIVALENT/1"
+      ],
+      "observed_denominator": 4,
+      "observed_rate": 0.75,
+      "rate": null,
+      "unit": "case/fact-group"
+    },
+    "service_error": {
+      "applicable_case_ids": [
+        "SYN-ANSWER",
+        "SYN-CLARIFY",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT",
+        "SYN-ERROR",
+        "SYN-MISSING-OBS",
+        "SYN-REFUSE"
+      ],
+      "case_values": {
+        "SYN-ANSWER": false,
+        "SYN-CLARIFY": false,
+        "SYN-COMPOSITE": false,
+        "SYN-EQUIVALENT": false,
+        "SYN-ERROR": true,
+        "SYN-MISSING-OBS": false,
+        "SYN-REFUSE": false
+      },
+      "confirmed_lower_bound": 0.14285714285714285,
+      "denominator": 7,
+      "kind": "rate",
+      "missing_case_ids": [],
+      "numerator": 1,
+      "observed_case_ids": [
+        "SYN-ANSWER",
+        "SYN-CLARIFY",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT",
+        "SYN-ERROR",
+        "SYN-MISSING-OBS",
+        "SYN-REFUSE"
+      ],
+      "observed_denominator": 7,
+      "observed_rate": 0.14285714285714285,
+      "rate": 0.14285714285714285
+    },
+    "task_success": {
+      "applicable_case_ids": [
+        "SYN-ANSWER",
+        "SYN-CLARIFY",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT",
+        "SYN-ERROR",
+        "SYN-MISSING-OBS",
+        "SYN-REFUSE"
+      ],
+      "case_values": {
+        "SYN-ANSWER": null,
+        "SYN-CLARIFY": true,
+        "SYN-COMPOSITE": false,
+        "SYN-EQUIVALENT": false,
+        "SYN-ERROR": false,
+        "SYN-MISSING-OBS": false,
+        "SYN-REFUSE": true
+      },
+      "confirmed_lower_bound": 0.2857142857142857,
+      "denominator": 7,
+      "kind": "rate",
+      "missing_case_ids": [
+        "SYN-ANSWER"
+      ],
+      "numerator": 2,
+      "observed_case_ids": [
+        "SYN-CLARIFY",
+        "SYN-COMPOSITE",
+        "SYN-EQUIVALENT",
+        "SYN-ERROR",
+        "SYN-MISSING-OBS",
+        "SYN-REFUSE"
+      ],
+      "observed_denominator": 6,
+      "observed_rate": 0.3333333333333333,
+      "rate": null
+    }
+  },
+  "notice": "Offline fixture/tool validation only; not real RAG evaluation or independent acceptance.",
+  "performance": {
+    "all": {
+      "actual_actions": {
+        "answer": 4,
+        "clarify": 1,
+        "error": 1,
+        "refuse": 1
+      },
+      "case_ids": [
+        "SYN-ANSWER",
+        "SYN-REFUSE",
+        "SYN-CLARIFY",
+        "SYN-ERROR",
+        "SYN-EQUIVALENT",
+        "SYN-COMPOSITE",
+        "SYN-MISSING-OBS"
+      ],
+      "input_tokens": {
+        "observed_count": 1,
+        "observed_fraction": 0.14285714285714285,
+        "observed_sum": 20,
+        "p50": 20,
+        "p95": 20,
+        "total_count": 7
+      },
+      "latency_ms": {
+        "observed_count": 6,
+        "observed_fraction": 0.8571428571428571,
+        "observed_sum": 1046,
+        "p50": 12,
+        "p95": 1000,
+        "total_count": 7
+      },
+      "model_calls": {
+        "observed_count": 5,
+        "observed_fraction": 0.7142857142857143,
+        "observed_sum": 3,
+        "p50": 1,
+        "p95": 1,
+        "total_count": 7
+      },
+      "output_tokens": {
+        "observed_count": 1,
+        "observed_fraction": 0.14285714285714285,
+        "observed_sum": 8,
+        "p50": 8,
+        "p95": 8,
+        "total_count": 7
+      }
+    },
+    "expected:answer": {
+      "actual_actions": {
+        "answer": 4,
+        "error": 1
+      },
+      "case_ids": [
+        "SYN-ANSWER",
+        "SYN-ERROR",
+        "SYN-EQUIVALENT",
+        "SYN-COMPOSITE",
+        "SYN-MISSING-OBS"
+      ],
+      "input_tokens": {
+        "observed_count": 1,
+        "observed_fraction": 0.2,
+        "observed_sum": 20,
+        "p50": 20,
+        "p95": 20,
+        "total_count": 5
+      },
+      "latency_ms": {
+        "observed_count": 4,
+        "observed_fraction": 0.8,
+        "observed_sum": 1041,
+        "p50": 14,
+        "p95": 1000,
+        "total_count": 5
+      },
+      "model_calls": {
+        "observed_count": 3,
+        "observed_fraction": 0.6,
+        "observed_sum": 3,
+        "p50": 1,
+        "p95": 1,
+        "total_count": 5
+      },
+      "output_tokens": {
+        "observed_count": 1,
+        "observed_fraction": 0.2,
+        "observed_sum": 8,
+        "p50": 8,
+        "p95": 8,
+        "total_count": 5
+      }
+    },
+    "expected:clarify": {
+      "actual_actions": {
+        "clarify": 1
+      },
+      "case_ids": [
+        "SYN-CLARIFY"
+      ],
+      "input_tokens": {
+        "observed_count": 0,
+        "observed_fraction": 0.0,
+        "observed_sum": null,
+        "p50": null,
+        "p95": null,
+        "total_count": 1
+      },
+      "latency_ms": {
+        "observed_count": 1,
+        "observed_fraction": 1.0,
+        "observed_sum": 2,
+        "p50": 2,
+        "p95": 2,
+        "total_count": 1
+      },
+      "model_calls": {
+        "observed_count": 1,
+        "observed_fraction": 1.0,
+        "observed_sum": 0,
+        "p50": 0,
+        "p95": 0,
+        "total_count": 1
+      },
+      "output_tokens": {
+        "observed_count": 0,
+        "observed_fraction": 0.0,
+        "observed_sum": null,
+        "p50": null,
+        "p95": null,
+        "total_count": 1
+      }
+    },
+    "expected:refuse": {
+      "actual_actions": {
+        "refuse": 1
+      },
+      "case_ids": [
+        "SYN-REFUSE"
+      ],
+      "input_tokens": {
+        "observed_count": 0,
+        "observed_fraction": 0.0,
+        "observed_sum": null,
+        "p50": null,
+        "p95": null,
+        "total_count": 1
+      },
+      "latency_ms": {
+        "observed_count": 1,
+        "observed_fraction": 1.0,
+        "observed_sum": 3,
+        "p50": 3,
+        "p95": 3,
+        "total_count": 1
+      },
+      "model_calls": {
+        "observed_count": 1,
+        "observed_fraction": 1.0,
+        "observed_sum": 0,
+        "p50": 0,
+        "p95": 0,
+        "total_count": 1
+      },
+      "output_tokens": {
+        "observed_count": 0,
+        "observed_fraction": 0.0,
+        "observed_sum": null,
+        "p50": null,
+        "p95": null,
+        "total_count": 1
+      }
+    },
+    "outcome:answer": {
+      "actual_actions": {
+        "answer": 4
+      },
+      "case_ids": [
+        "SYN-ANSWER",
+        "SYN-EQUIVALENT",
+        "SYN-COMPOSITE",
+        "SYN-MISSING-OBS"
+      ],
+      "input_tokens": {
+        "observed_count": 1,
+        "observed_fraction": 0.25,
+        "observed_sum": 20,
+        "p50": 20,
+        "p95": 20,
+        "total_count": 4
+      },
+      "latency_ms": {
+        "observed_count": 3,
+        "observed_fraction": 0.75,
+        "observed_sum": 41,
+        "p50": 14,
+        "p95": 15,
+        "total_count": 4
+      },
+      "model_calls": {
+        "observed_count": 3,
+        "observed_fraction": 0.75,
+        "observed_sum": 3,
+        "p50": 1,
+        "p95": 1,
+        "total_count": 4
+      },
+      "output_tokens": {
+        "observed_count": 1,
+        "observed_fraction": 0.25,
+        "observed_sum": 8,
+        "p50": 8,
+        "p95": 8,
+        "total_count": 4
+      }
+    },
+    "outcome:clarify": {
+      "actual_actions": {
+        "clarify": 1
+      },
+      "case_ids": [
+        "SYN-CLARIFY"
+      ],
+      "input_tokens": {
+        "observed_count": 0,
+        "observed_fraction": 0.0,
+        "observed_sum": null,
+        "p50": null,
+        "p95": null,
+        "total_count": 1
+      },
+      "latency_ms": {
+        "observed_count": 1,
+        "observed_fraction": 1.0,
+        "observed_sum": 2,
+        "p50": 2,
+        "p95": 2,
+        "total_count": 1
+      },
+      "model_calls": {
+        "observed_count": 1,
+        "observed_fraction": 1.0,
+        "observed_sum": 0,
+        "p50": 0,
+        "p95": 0,
+        "total_count": 1
+      },
+      "output_tokens": {
+        "observed_count": 0,
+        "observed_fraction": 0.0,
+        "observed_sum": null,
+        "p50": null,
+        "p95": null,
+        "total_count": 1
+      }
+    },
+    "outcome:error": {
+      "actual_actions": {
+        "error": 1
+      },
+      "case_ids": [
+        "SYN-ERROR"
+      ],
+      "input_tokens": {
+        "observed_count": 0,
+        "observed_fraction": 0.0,
+        "observed_sum": null,
+        "p50": null,
+        "p95": null,
+        "total_count": 1
+      },
+      "latency_ms": {
+        "observed_count": 1,
+        "observed_fraction": 1.0,
+        "observed_sum": 1000,
+        "p50": 1000,
+        "p95": 1000,
+        "total_count": 1
+      },
+      "model_calls": {
+        "observed_count": 0,
+        "observed_fraction": 0.0,
+        "observed_sum": null,
+        "p50": null,
+        "p95": null,
+        "total_count": 1
+      },
+      "output_tokens": {
+        "observed_count": 0,
+        "observed_fraction": 0.0,
+        "observed_sum": null,
+        "p50": null,
+        "p95": null,
+        "total_count": 1
+      }
+    },
+    "outcome:refuse": {
+      "actual_actions": {
+        "refuse": 1
+      },
+      "case_ids": [
+        "SYN-REFUSE"
+      ],
+      "input_tokens": {
+        "observed_count": 0,
+        "observed_fraction": 0.0,
+        "observed_sum": null,
+        "p50": null,
+        "p95": null,
+        "total_count": 1
+      },
+      "latency_ms": {
+        "observed_count": 1,
+        "observed_fraction": 1.0,
+        "observed_sum": 3,
+        "p50": 3,
+        "p95": 3,
+        "total_count": 1
+      },
+      "model_calls": {
+        "observed_count": 1,
+        "observed_fraction": 1.0,
+        "observed_sum": 0,
+        "p50": 0,
+        "p95": 0,
+        "total_count": 1
+      },
+      "output_tokens": {
+        "observed_count": 0,
+        "observed_fraction": 0.0,
+        "observed_sum": null,
+        "p50": null,
+        "p95": null,
+        "total_count": 1
+      }
+    },
+    "type:unspecified": {
+      "actual_actions": {
+        "answer": 4,
+        "clarify": 1,
+        "error": 1,
+        "refuse": 1
+      },
+      "case_ids": [
+        "SYN-ANSWER",
+        "SYN-REFUSE",
+        "SYN-CLARIFY",
+        "SYN-ERROR",
+        "SYN-EQUIVALENT",
+        "SYN-COMPOSITE",
+        "SYN-MISSING-OBS"
+      ],
+      "input_tokens": {
+        "observed_count": 1,
+        "observed_fraction": 0.14285714285714285,
+        "observed_sum": 20,
+        "p50": 20,
+        "p95": 20,
+        "total_count": 7
+      },
+      "latency_ms": {
+        "observed_count": 6,
+        "observed_fraction": 0.8571428571428571,
+        "observed_sum": 1046,
+        "p50": 12,
+        "p95": 1000,
+        "total_count": 7
+      },
+      "model_calls": {
+        "observed_count": 5,
+        "observed_fraction": 0.7142857142857143,
+        "observed_sum": 3,
+        "p50": 1,
+        "p95": 1,
+        "total_count": 7
+      },
+      "output_tokens": {
+        "observed_count": 1,
+        "observed_fraction": 0.14285714285714285,
+        "observed_sum": 8,
+        "p50": 8,
+        "p95": 8,
+        "total_count": 7
+      }
+    }
+  },
+  "review_progress": {
+    "ai_reviewed_case_ids": [
+      "SYN-ANSWER",
+      "SYN-REFUSE",
+      "SYN-CLARIFY",
+      "SYN-ERROR",
+      "SYN-EQUIVALENT",
+      "SYN-COMPOSITE"
+    ],
+    "human_approval_complete": false,
+    "human_confirmed_task_success_lower_bound": 0.0,
+    "human_reviewed_case_ids": [],
+    "pending_quality_case_ids": [
+      "SYN-ANSWER"
+    ]
+  },
+  "run_id": "tooling-v1-synthetic-20261109",
+  "schema_version": "rag-eval.report.v1",
+  "scorer_version": "rag-eval.scorer.v1",
+  "scoring_note": "Semantic scores may include disclosed AI reviews; no acceptance without human approval and frozen thresholds."
+}

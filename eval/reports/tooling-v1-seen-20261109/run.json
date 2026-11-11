@@ -1,0 +1,1153 @@
+{
+  "artifacts": {
+    "dataset_sha256": "76cac7d0ab21047bd608d50ed2d92d2cf37c8eb1695551e9e3d7d7923a0cbf51",
+    "results_hash_mode": "canonical-json-sha256",
+    "results_sha256": "eea4e0bf336dc8d5caf779eb7a7685c73fc64e433ebeabac9c4ac5f82c2bae90"
+  },
+  "completed_at": "2026-11-09T16:07:23.687595+00:00",
+  "environment": {
+    "installed_version_mismatches": [],
+    "lock_sha256": "f49e2e26127c55d7f61a7a13661c74e36c95418d5f1ce1c9cecea4ced3b076f0",
+    "note": "Platform markers/extras not resolved by this inventory; a complete locked sync remains a separate check.",
+    "packages": [
+      {
+        "installed": "6.3.0",
+        "locked_versions": [
+          "6.3.0"
+        ],
+        "name": "altair",
+        "status": "matches"
+      },
+      {
+        "installed": "0.0.5",
+        "locked_versions": [
+          "0.0.5"
+        ],
+        "name": "annotated-doc",
+        "status": "matches"
+      },
+      {
+        "installed": "0.8.0",
+        "locked_versions": [
+          "0.8.0"
+        ],
+        "name": "annotated-types",
+        "status": "matches"
+      },
+      {
+        "installed": "4.15.1",
+        "locked_versions": [
+          "4.15.1"
+        ],
+        "name": "anyio",
+        "status": "matches"
+      },
+      {
+        "installed": "26.1.0",
+        "locked_versions": [
+          "26.1.0"
+        ],
+        "name": "attrs",
+        "status": "matches"
+      },
+      {
+        "installed": "1.6.1",
+        "locked_versions": [
+          "1.6.1"
+        ],
+        "name": "build",
+        "status": "matches"
+      },
+      {
+        "installed": "2026.10.23",
+        "locked_versions": [
+          "2026.10.23"
+        ],
+        "name": "certifi",
+        "status": "matches"
+      },
+      {
+        "installed": "3.5.2",
+        "locked_versions": [
+          "3.5.2"
+        ],
+        "name": "charset-normalizer",
+        "status": "matches"
+      },
+      {
+        "installed": "8.5.0",
+        "locked_versions": [
+          "8.5.0"
+        ],
+        "name": "click",
+        "status": "matches"
+      },
+      {
+        "installed": "3.1.2",
+        "locked_versions": [
+          "3.1.2"
+        ],
+        "name": "cloudpickle",
+        "status": "matches"
+      },
+      {
+        "installed": "0.4.6",
+        "locked_versions": [
+          "0.4.6"
+        ],
+        "name": "colorama",
+        "status": "matches"
+      },
+      {
+        "installed": "6.12.0",
+        "locked_versions": [
+          "6.12.0"
+        ],
+        "name": "colorlog",
+        "status": "matches"
+      },
+      {
+        "installed": null,
+        "locked_versions": [
+          "13.4.4"
+        ],
+        "name": "cuda-bindings",
+        "status": "not_installed_or_platform_excluded"
+      },
+      {
+        "installed": null,
+        "locked_versions": [
+          "1.8.5"
+        ],
+        "name": "cuda-pathfinder",
+        "status": "not_installed_or_platform_excluded"
+      },
+      {
+        "installed": null,
+        "locked_versions": [
+          "13.2.2"
+        ],
+        "name": "cuda-toolkit",
+        "status": "not_installed_or_platform_excluded"
+      },
+      {
+        "installed": "1.9.0",
+        "locked_versions": [
+          "1.9.0"
+        ],
+        "name": "distro",
+        "status": "matches"
+      },
+      {
+        "installed": "0.1.0",
+        "locked_versions": [
+          "0.1.0"
+        ],
+        "name": "engineering-spec-rag",
+        "status": "matches"
+      },
+      {
+        "installed": "1.15.1",
+        "locked_versions": [
+          "1.15.1"
+        ],
+        "name": "faiss-cpu",
+        "status": "matches"
+      },
+      {
+        "installed": "4.2.4",
+        "locked_versions": [
+          "4.2.4"
+        ],
+        "name": "filelock",
+        "status": "matches"
+      },
+      {
+        "installed": "25.12.19",
+        "locked_versions": [
+          "25.12.19"
+        ],
+        "name": "flatbuffers",
+        "status": "matches"
+      },
+      {
+        "installed": "2026.9.0",
+        "locked_versions": [
+          "2026.9.0"
+        ],
+        "name": "fsspec",
+        "status": "matches"
+      },
+      {
+        "installed": "0.16.0",
+        "locked_versions": [
+          "0.16.0"
+        ],
+        "name": "h11",
+        "status": "matches"
+      },
+      {
+        "installed": "1.7.1",
+        "locked_versions": [
+          "1.7.1"
+        ],
+        "name": "hf-xet",
+        "status": "matches"
+      },
+      {
+        "installed": "1.0.9",
+        "locked_versions": [
+          "1.0.9"
+        ],
+        "name": "httpcore",
+        "status": "matches"
+      },
+      {
+        "installed": "2.16.0",
+        "locked_versions": [
+          "2.16.0"
+        ],
+        "name": "httpcore2",
+        "status": "matches"
+      },
+      {
+        "installed": "0.28.1",
+        "locked_versions": [
+          "0.28.1"
+        ],
+        "name": "httpx",
+        "status": "matches"
+      },
+      {
+        "installed": "2.16.0",
+        "locked_versions": [
+          "2.16.0"
+        ],
+        "name": "httpx2",
+        "status": "matches"
+      },
+      {
+        "installed": null,
+        "locked_versions": [
+          "1.0"
+        ],
+        "name": "httpx2-jsfetch",
+        "status": "not_installed_or_platform_excluded"
+      },
+      {
+        "installed": "2.4.0",
+        "locked_versions": [
+          "2.4.0"
+        ],
+        "name": "huggingface-hub",
+        "status": "matches"
+      },
+      {
+        "installed": "3.20",
+        "locked_versions": [
+          "3.20"
+        ],
+        "name": "idna",
+        "status": "matches"
+      },
+      {
+        "installed": "2.3.1",
+        "locked_versions": [
+          "2.3.1"
+        ],
+        "name": "iniconfig",
+        "status": "matches"
+      },
+      {
+        "installed": "2.2.0",
+        "locked_versions": [
+          "2.2.0"
+        ],
+        "name": "itsdangerous",
+        "status": "matches"
+      },
+      {
+        "installed": "0.42.1",
+        "locked_versions": [
+          "0.42.1"
+        ],
+        "name": "jieba",
+        "status": "matches"
+      },
+      {
+        "installed": "3.1.6",
+        "locked_versions": [
+          "3.1.6"
+        ],
+        "name": "jinja2",
+        "status": "matches"
+      },
+      {
+        "installed": "0.18.0",
+        "locked_versions": [
+          "0.18.0"
+        ],
+        "name": "jiter",
+        "status": "matches"
+      },
+      {
+        "installed": "1.6.0",
+        "locked_versions": [
+          "1.6.0"
+        ],
+        "name": "joblib",
+        "status": "matches"
+      },
+      {
+        "installed": "4.26.0",
+        "locked_versions": [
+          "4.26.0"
+        ],
+        "name": "jsonschema",
+        "status": "matches"
+      },
+      {
+        "installed": "2025.9.1",
+        "locked_versions": [
+          "2025.9.1"
+        ],
+        "name": "jsonschema-specifications",
+        "status": "matches"
+      },
+      {
+        "installed": "4.2.0",
+        "locked_versions": [
+          "4.2.0"
+        ],
+        "name": "markdown-it-py",
+        "status": "matches"
+      },
+      {
+        "installed": "3.0.4",
+        "locked_versions": [
+          "3.0.4"
+        ],
+        "name": "markupsafe",
+        "status": "matches"
+      },
+      {
+        "installed": "0.1.2",
+        "locked_versions": [
+          "0.1.2"
+        ],
+        "name": "mdurl",
+        "status": "matches"
+      },
+      {
+        "installed": "1.3.0",
+        "locked_versions": [
+          "1.3.0"
+        ],
+        "name": "mpmath",
+        "status": "matches"
+      },
+      {
+        "installed": "2.28.0",
+        "locked_versions": [
+          "2.28.0"
+        ],
+        "name": "narwhals",
+        "status": "matches"
+      },
+      {
+        "installed": "3.7",
+        "locked_versions": [
+          "3.7"
+        ],
+        "name": "networkx",
+        "status": "matches"
+      },
+      {
+        "installed": "2.5.4",
+        "locked_versions": [
+          "2.5.4"
+        ],
+        "name": "numpy",
+        "status": "matches"
+      },
+      {
+        "installed": null,
+        "locked_versions": [
+          "13.4.1.3"
+        ],
+        "name": "nvidia-cublas",
+        "status": "not_installed_or_platform_excluded"
+      },
+      {
+        "installed": null,
+        "locked_versions": [
+          "13.3.4.3.1"
+        ],
+        "name": "nvidia-cuda-cccl",
+        "status": "not_installed_or_platform_excluded"
+      },
+      {
+        "installed": null,
+        "locked_versions": [
+          "13.2.86"
+        ],
+        "name": "nvidia-cuda-cupti",
+        "status": "not_installed_or_platform_excluded"
+      },
+      {
+        "installed": null,
+        "locked_versions": [
+          "13.2.86"
+        ],
+        "name": "nvidia-cuda-nvrtc",
+        "status": "not_installed_or_platform_excluded"
+      },
+      {
+        "installed": null,
+        "locked_versions": [
+          "13.2.86"
+        ],
+        "name": "nvidia-cuda-runtime",
+        "status": "not_installed_or_platform_excluded"
+      },
+      {
+        "installed": null,
+        "locked_versions": [
+          "9.26.0.51"
+        ],
+        "name": "nvidia-cudnn-cu13",
+        "status": "not_installed_or_platform_excluded"
+      },
+      {
+        "installed": null,
+        "locked_versions": [
+          "12.2.0.57"
+        ],
+        "name": "nvidia-cufft",
+        "status": "not_installed_or_platform_excluded"
+      },
+      {
+        "installed": null,
+        "locked_versions": [
+          "1.17.1.22"
+        ],
+        "name": "nvidia-cufile",
+        "status": "not_installed_or_platform_excluded"
+      },
+      {
+        "installed": null,
+        "locked_versions": [
+          "12.2.0.11"
+        ],
+        "name": "nvidia-cusolver",
+        "status": "not_installed_or_platform_excluded"
+      },
+      {
+        "installed": null,
+        "locked_versions": [
+          "12.7.10.12"
+        ],
+        "name": "nvidia-cusparse",
+        "status": "not_installed_or_platform_excluded"
+      },
+      {
+        "installed": null,
+        "locked_versions": [
+          "0.8.1"
+        ],
+        "name": "nvidia-cusparselt-cu13",
+        "status": "not_installed_or_platform_excluded"
+      },
+      {
+        "installed": null,
+        "locked_versions": [
+          "2.30.7"
+        ],
+        "name": "nvidia-nccl-cu13",
+        "status": "not_installed_or_platform_excluded"
+      },
+      {
+        "installed": null,
+        "locked_versions": [
+          "13.4.92"
+        ],
+        "name": "nvidia-nvjitlink",
+        "status": "not_installed_or_platform_excluded"
+      },
+      {
+        "installed": null,
+        "locked_versions": [
+          "3.7.2"
+        ],
+        "name": "nvidia-nvshmem-cu13",
+        "status": "not_installed_or_platform_excluded"
+      },
+      {
+        "installed": null,
+        "locked_versions": [
+          "13.2.86"
+        ],
+        "name": "nvidia-nvtx",
+        "status": "not_installed_or_platform_excluded"
+      },
+      {
+        "installed": "2.4.0",
+        "locked_versions": [
+          "2.4.0"
+        ],
+        "name": "omegaconf",
+        "status": "matches"
+      },
+      {
+        "installed": "1.31.1",
+        "locked_versions": [
+          "1.31.1"
+        ],
+        "name": "onnxruntime",
+        "status": "matches"
+      },
+      {
+        "installed": "1.109.1",
+        "locked_versions": [
+          "1.109.1"
+        ],
+        "name": "openai",
+        "status": "matches"
+      },
+      {
+        "installed": "5.0.0.93",
+        "locked_versions": [
+          "5.0.0.93"
+        ],
+        "name": "opencv-python-headless",
+        "status": "matches"
+      },
+      {
+        "installed": "26.3",
+        "locked_versions": [
+          "26.3"
+        ],
+        "name": "packaging",
+        "status": "matches"
+      },
+      {
+        "installed": "3.1.0",
+        "locked_versions": [
+          "3.1.0"
+        ],
+        "name": "pandas",
+        "status": "matches"
+      },
+      {
+        "installed": "13.0.0",
+        "locked_versions": [
+          "13.0.0"
+        ],
+        "name": "pillow",
+        "status": "matches"
+      },
+      {
+        "installed": "1.7.0",
+        "locked_versions": [
+          "1.7.0"
+        ],
+        "name": "pluggy",
+        "status": "matches"
+      },
+      {
+        "installed": "7.36.2",
+        "locked_versions": [
+          "7.36.2"
+        ],
+        "name": "protobuf",
+        "status": "matches"
+      },
+      {
+        "installed": "26.0.0",
+        "locked_versions": [
+          "26.0.0"
+        ],
+        "name": "pyarrow",
+        "status": "matches"
+      },
+      {
+        "installed": "1.4.0",
+        "locked_versions": [
+          "1.4.0"
+        ],
+        "name": "pyclipper",
+        "status": "matches"
+      },
+      {
+        "installed": "2.14.2",
+        "locked_versions": [
+          "2.14.2"
+        ],
+        "name": "pydantic",
+        "status": "matches"
+      },
+      {
+        "installed": "2.50.2",
+        "locked_versions": [
+          "2.50.2"
+        ],
+        "name": "pydantic-core",
+        "status": "matches"
+      },
+      {
+        "installed": "0.9.3",
+        "locked_versions": [
+          "0.9.3"
+        ],
+        "name": "pydeck",
+        "status": "matches"
+      },
+      {
+        "installed": "2.21.0",
+        "locked_versions": [
+          "2.21.0"
+        ],
+        "name": "pygments",
+        "status": "matches"
+      },
+      {
+        "installed": "1.28.2",
+        "locked_versions": [
+          "1.28.2"
+        ],
+        "name": "pymupdf",
+        "status": "matches"
+      },
+      {
+        "installed": "1.3.3",
+        "locked_versions": [
+          "1.3.3"
+        ],
+        "name": "pyproject-hooks",
+        "status": "matches"
+      },
+      {
+        "installed": "9.2.0",
+        "locked_versions": [
+          "9.2.0"
+        ],
+        "name": "pytest",
+        "status": "matches"
+      },
+      {
+        "installed": "3.0.0",
+        "locked_versions": [
+          "3.0.0"
+        ],
+        "name": "python-dateutil",
+        "status": "matches"
+      },
+      {
+        "installed": "1.2.4",
+        "locked_versions": [
+          "1.2.4"
+        ],
+        "name": "python-dotenv",
+        "status": "matches"
+      },
+      {
+        "installed": "0.0.32",
+        "locked_versions": [
+          "0.0.32"
+        ],
+        "name": "python-multipart",
+        "status": "matches"
+      },
+      {
+        "installed": "6.0.3",
+        "locked_versions": [
+          "6.0.3"
+        ],
+        "name": "pyyaml",
+        "status": "matches"
+      },
+      {
+        "installed": "0.2.2",
+        "locked_versions": [
+          "0.2.2"
+        ],
+        "name": "rank-bm25",
+        "status": "matches"
+      },
+      {
+        "installed": "3.10.0",
+        "locked_versions": [
+          "3.10.0"
+        ],
+        "name": "rapidocr",
+        "status": "matches"
+      },
+      {
+        "installed": "0.37.0",
+        "locked_versions": [
+          "0.37.0"
+        ],
+        "name": "referencing",
+        "status": "matches"
+      },
+      {
+        "installed": "2026.9.29",
+        "locked_versions": [
+          "2026.9.29"
+        ],
+        "name": "regex",
+        "status": "matches"
+      },
+      {
+        "installed": "2.34.2",
+        "locked_versions": [
+          "2.34.2"
+        ],
+        "name": "requests",
+        "status": "matches"
+      },
+      {
+        "installed": "15.0.0",
+        "locked_versions": [
+          "15.0.0"
+        ],
+        "name": "rich",
+        "status": "matches"
+      },
+      {
+        "installed": "2026.9.1",
+        "locked_versions": [
+          "2026.9.1"
+        ],
+        "name": "rpds-py",
+        "status": "matches"
+      },
+      {
+        "installed": "0.17.3",
+        "locked_versions": [
+          "0.17.3"
+        ],
+        "name": "ruff",
+        "status": "matches"
+      },
+      {
+        "installed": "0.8.0",
+        "locked_versions": [
+          "0.8.0"
+        ],
+        "name": "safetensors",
+        "status": "matches"
+      },
+      {
+        "installed": "1.9.1",
+        "locked_versions": [
+          "1.9.1"
+        ],
+        "name": "scikit-learn",
+        "status": "matches"
+      },
+      {
+        "installed": "1.18.1",
+        "locked_versions": [
+          "1.18.1"
+        ],
+        "name": "scipy",
+        "status": "matches"
+      },
+      {
+        "installed": "5.7.0",
+        "locked_versions": [
+          "5.7.0"
+        ],
+        "name": "sentence-transformers",
+        "status": "matches"
+      },
+      {
+        "installed": "84.2.1",
+        "locked_versions": [
+          "84.2.1"
+        ],
+        "name": "setuptools",
+        "status": "matches"
+      },
+      {
+        "installed": "2.2.0",
+        "locked_versions": [
+          "2.2.0"
+        ],
+        "name": "shapely",
+        "status": "matches"
+      },
+      {
+        "installed": "1.5.4",
+        "locked_versions": [
+          "1.5.4"
+        ],
+        "name": "shellingham",
+        "status": "matches"
+      },
+      {
+        "installed": "1.17.0",
+        "locked_versions": [
+          "1.17.0"
+        ],
+        "name": "six",
+        "status": "matches"
+      },
+      {
+        "installed": "1.3.1",
+        "locked_versions": [
+          "1.3.1"
+        ],
+        "name": "sniffio",
+        "status": "matches"
+      },
+      {
+        "installed": "1.10.0",
+        "locked_versions": [
+          "1.10.0"
+        ],
+        "name": "starlette",
+        "status": "matches"
+      },
+      {
+        "installed": "1.66.1",
+        "locked_versions": [
+          "1.66.1"
+        ],
+        "name": "streamlit",
+        "status": "matches"
+      },
+      {
+        "installed": "1.14.0",
+        "locked_versions": [
+          "1.14.0"
+        ],
+        "name": "sympy",
+        "status": "matches"
+      },
+      {
+        "installed": "3.7.0",
+        "locked_versions": [
+          "3.7.0"
+        ],
+        "name": "threadpoolctl",
+        "status": "matches"
+      },
+      {
+        "installed": "0.23.3",
+        "locked_versions": [
+          "0.23.3"
+        ],
+        "name": "tokenizers",
+        "status": "matches"
+      },
+      {
+        "installed": "2.15.0",
+        "locked_versions": [
+          "2.15.0"
+        ],
+        "name": "torch",
+        "status": "matches"
+      },
+      {
+        "installed": "4.70.1",
+        "locked_versions": [
+          "4.70.1"
+        ],
+        "name": "tqdm",
+        "status": "matches"
+      },
+      {
+        "installed": "5.22.0",
+        "locked_versions": [
+          "5.22.0"
+        ],
+        "name": "transformers",
+        "status": "matches"
+      },
+      {
+        "installed": null,
+        "locked_versions": [
+          "3.9.0"
+        ],
+        "name": "triton",
+        "status": "not_installed_or_platform_excluded"
+      },
+      {
+        "installed": "0.10.5",
+        "locked_versions": [
+          "0.10.5"
+        ],
+        "name": "truststore",
+        "status": "matches"
+      },
+      {
+        "installed": "0.27.3",
+        "locked_versions": [
+          "0.27.3"
+        ],
+        "name": "typer",
+        "status": "matches"
+      },
+      {
+        "installed": "4.16.0",
+        "locked_versions": [
+          "4.16.0"
+        ],
+        "name": "typing-extensions",
+        "status": "matches"
+      },
+      {
+        "installed": "0.4.4",
+        "locked_versions": [
+          "0.4.4"
+        ],
+        "name": "typing-inspection",
+        "status": "matches"
+      },
+      {
+        "installed": "2026.6",
+        "locked_versions": [
+          "2026.6"
+        ],
+        "name": "tzdata",
+        "status": "matches"
+      },
+      {
+        "installed": "2.8.0",
+        "locked_versions": [
+          "2.8.0"
+        ],
+        "name": "urllib3",
+        "status": "matches"
+      },
+      {
+        "installed": "0.54.0",
+        "locked_versions": [
+          "0.54.0"
+        ],
+        "name": "uvicorn",
+        "status": "matches"
+      },
+      {
+        "installed": "6.0.0",
+        "locked_versions": [
+          "6.0.0"
+        ],
+        "name": "watchdog",
+        "status": "matches"
+      },
+      {
+        "installed": "17.3",
+        "locked_versions": [
+          "17.3"
+        ],
+        "name": "websockets",
+        "status": "matches"
+      }
+    ],
+    "python": "3.12.16",
+    "python_executable": "E:\\Agentic-RAG-phase0-candidate\\.venv\\Scripts\\python.exe"
+  },
+  "evaluation_snapshot": {
+    "code_commit": "dad052705e11068e8da1b24090742222de666c38",
+    "rubric_version": "7c4e6f08f38a70ecbad340b239318a117063b588b617a2ea77c6119862f98c2b",
+    "source": {
+      "branch": "codex/evaluation-contract-v1",
+      "directories": [
+        "eval",
+        "tests"
+      ],
+      "git_commit": "dad052705e11068e8da1b24090742222de666c38",
+      "git_dirty": true,
+      "git_status": "A  docs/EVALUATION_INTERFACE_V1.md\nA  docs/EVALUATION_METRICS_CONTRACT_V1.md\nA  eval/adapter_v1.py\nA  eval/contract_v1.py\nA  eval/examples/synthetic_contract_v1.json\nA  eval/fingerprints_v1.py\nA  eval/offline_workflow_v1.py\nA  eval/pipeline_v1.py\nA  eval/scoring_v1.py\nA  eval/validate_contract.py\nA  tests/test_eval_contract_v1.py\nA  tests/test_eval_pipeline_v1.py\n?? eval/reports/tooling-v1-seen-20261109-seen-input.json\n?? eval/reports/tooling-v1-synthetic-20261109/\n?? tmp/",
+      "root": "E:\\-Agentic-RAG--main\\evaluation-worktree",
+      "source_hashes": {
+        "eval/__init__.py": "6015b91ad58f76ddcd5dc9132006740925a44b8e3bc15b1acf571f9c7ff23bdc",
+        "eval/adapter_v1.py": "1a5fb4cd241cab8588d52f4168e78ab0413887b41e176eb1ad82498743111208",
+        "eval/audit_phase1_independent_v1.py": "f6319fad3d5b4419c81542a4d3b2fbb0e59e30e93c27d1d90bb3fdcd92dfa92d",
+        "eval/build_phase1_independent_review_v1.py": "69bcbdade99662c66ed132fbb5e74dc2d1196178c73a55f258a7510a9c8495e7",
+        "eval/build_phase1_independent_v1.py": "36edfd3e362a29a2ce50f87eb4ec3a836dd66a8eb85f88045940b499e042bf70",
+        "eval/build_sufficiency_dataset.py": "783182d24ce654aba1b0a631befa9d92066f7ff448d63e86986b08a08d0e72bd",
+        "eval/contract_v1.py": "afb2271adce76e0886334ba3d656bd4335d2d2acad3e8b029dc20c31e949c266",
+        "eval/curate_candidates.py": "3244dae375a3fca60e2e64179d7389109c3dd7047deeab37087ad1f78c70b25e",
+        "eval/dataset_manifest.py": "5cd55619bd34e1ce04b9b0ac7652fbc9aa1d35fe587bbf5cc4b4431d09415d10",
+        "eval/diagnose_phase1_evidence_selection.py": "49c40a4dc0e81e1c558c7c2bb1e8c4ab259176da9809ef5ae0ea2f9d37954b21",
+        "eval/finalize_candidate_review.py": "e32e31f28dda63aac7ab40b97fe6940e82bd620a449c2d4ca41d8563837ef79f",
+        "eval/fingerprints_v1.py": "6a76c76a21b8a56adc6f2c5ea77df847f3864bed85572b21d21aecab4006bfb1",
+        "eval/metrics.py": "88e552934a5568086fc75849ff94a4083c1186a7b3d12cae2a7cecb50fddbae6",
+        "eval/offline_workflow_v1.py": "b527a1afb5c16a4ae2c42a9e08dc0beccf8642837fae484073f2260a1faaeecb",
+        "eval/phase1_real_smoke.py": "088fa55a1a4a7bea225ba5ef3238fc32fd743a291d5195a664b228eba4cbb3ad",
+        "eval/phase1_scope_retrieval.py": "0d527be965d4c8454387c6e5ceb58a6bd93d814983ce2f95f7f7dcdc32c5e2bb",
+        "eval/phase1_slice4_diagnose.py": "f3d1f1b7f7196cd0fff260632ad0af8e405c5b6b5cd4f9b199a3e4a5e8d5f6fd",
+        "eval/pipeline_v1.py": "4b020a6d0608b926a0c6355b02de22974a29b04ea2d51d141585cf761cd94f1e",
+        "eval/provenance.py": "9adb49e2a230e48671918b23081a3e3c582c665a080a41a6f25cde952418ebf5",
+        "eval/report.py": "4bce6763f27e05485c1a3e5501d974d2e0b06c8403931e2250507d41d29151f1",
+        "eval/review.py": "f1dc11237c4ea587ff5ae2021736e50b9af76584e47b54a8c30eeb25c840bbe0",
+        "eval/run_agent_test.py": "8defe476c558271055580012b1a5dcf4c4eba5449aeb9da678f6bbfd37d1b1c6",
+        "eval/run_phase1_independent_v1.py": "04e30c65d5910a40983b76f85f062de12ea6494d452346c6490665f8f2ae2a0b",
+        "eval/run_retrieval.py": "8eacc650fbeec7fdbbec1ccb34f544d6cdec082db19301c146d84a4689343238",
+        "eval/run_score_diagnostic.py": "da2124d1eb60f9139b7cc1189b95e7ef7a306e38d4a246301146e37f65846d76",
+        "eval/run_sufficiency.py": "07837ace0eaabefdf02eb7a44137654afe987f9a115b5ea94b978819412de754",
+        "eval/schema.py": "b6f8ae2f010b3acc8da1febdd69cac370f26c34dc531a489519bc9e7365b47d3",
+        "eval/scoring_v1.py": "1be62696a58bfcdc5ea995ba8e2067a4c01c018c80b4feb1f1b602c70726e1ef",
+        "eval/summarize_phase1_seen_regression.py": "3863cd4fc6db42c45b3bf4a0ce662788ce4b068472c4c8d8cf03037951028847",
+        "eval/validate_contract.py": "64e6575c96e9a264ead59521d5533bfa9647db520cae0fc19de8648d8d36f60a",
+        "eval/validate_phase1_independent_v1.py": "b630b0dd82a5eb44e1823d2dcd8c43f221fd76b1220fe2ab55a78798c5231bc8",
+        "pyproject.toml": "0b0278aea632b8e707c90fb79404812b632c00945ed354035945bfe9b40f3066",
+        "tests/test_agent_demo.py": "efa6f46023a86f6c0606afd5cf2558057b49e61eaaeccd71e289175259bd94e8",
+        "tests/test_agent_workflow.py": "bbf0e037441bfe447fde6248206b68659a99fc5cfafbe258843e36b4192bc787",
+        "tests/test_application.py": "72f40f905040ff6cb4312f7e3388c4ab1cdf082209e155184b4b6a135452cb26",
+        "tests/test_baseline_components.py": "8f07012ce80f57dfe41ed441d6c6e309e64ea1116deab716a5c9d05e1ed6b8a8",
+        "tests/test_bm25_retriever.py": "3e121ca267a8a603923341d05f8b4f51417af3b05e03f37285bcaeef41eacf5d",
+        "tests/test_config.py": "9320a86b761793651b8d68efedbf6a2a7105b432adac554cdcb4b5d1facca7bf",
+        "tests/test_eval_contract_v1.py": "98ee55234d9ec754569415717b941c0b99473a60f7a8deb9ef3d77916f4c96d9",
+        "tests/test_eval_governance.py": "1c71005ed95d48747c617e4e66e260c7ca66f8032fb5d837f531f273934f9e8d",
+        "tests/test_eval_metrics.py": "cecd29aaef3c119c18238f28786464c926116702c2b535c8e929c4c7be9d8cc3",
+        "tests/test_eval_pipeline_v1.py": "7b044a17d8b8de60e7ef52b9ba462fea244e95f6c4e1c918bf8d83b7df710969",
+        "tests/test_eval_runner.py": "3cdba8c809b5ea22f229c341258e4c0ef1e65c84d4ab4ef4e5a4bd3a4b299924",
+        "tests/test_eval_schema.py": "2e192e26ff89d8a08c48612a069f341c80ab8fb0a3fffd34a7888c93b7177c7e",
+        "tests/test_evidence_citation.py": "9fb4b9f41b2514ab38ab2c1ec5fd1c3ec99dca54ebac3af7c962deaf4820feb1",
+        "tests/test_evidence_retention.py": "18bde0f9215495415f1bc1da733f37a216421ee541af3eace85a2dbc7892eeb1",
+        "tests/test_evidence_sufficiency.py": "ea6b45e9b83e0f51c3573bb34e4af8bb063264a1bccd7309a82e14f8b5eb1f04",
+        "tests/test_generator_prompt.py": "44073f65571a1d03c4549ac8a60ea616946cfd43ae8c776a720441106ed00921",
+        "tests/test_health_and_models.py": "bb97f283ef2c7aa070b6265945b7723b8666fc6602807078200d10eed0162c04",
+        "tests/test_hybrid_retriever.py": "f8974359c5ee3c7450bbec4dffa2625337686748069e9ee42603c2ec8c140986",
+        "tests/test_index_cli.py": "92f2b72e7fd6e6df55ba3464727e00c10aa341edc89bc95af7280b9c09ae9378",
+        "tests/test_index_manager.py": "ba1905cf75f0cd291a65fc271605786df2759404a6c76bae79a18de83bda7491",
+        "tests/test_ingestion_metadata.py": "7312c10e0f491abef668858bffa6f452485742dab9dbae5fd9b7dd381a1239ad",
+        "tests/test_knowledge_base.py": "cdf3fe049f26ac98490b7dcf6e309a327ec1aaceb1353ffa493e21de51de8511",
+        "tests/test_model_smoke.py": "64d265a1be46d37ff1a9e39a89848d0834d499b3b1ba463c3198cf44518a810b",
+        "tests/test_multi_spec_identity.py": "7099b54697f98450da8f319e799b8fc72aa6f86b2e2f895563dc5818aab2f118",
+        "tests/test_observability.py": "c26da9d80c1b91395e89e4b144532da4f7d6a3fe85627ddfc5ecb9e35c8a228a",
+        "tests/test_ocr_artifacts.py": "d658fe94a8646d20dc6ab184f72718711d6f6a81e11a6a71466bb73a5ab729ac",
+        "tests/test_pdf_superscript_ingestion.py": "9b19d4200a8b54f18162fa7504583e1f1d076e41a5d061a0f01abb74ab7a700e",
+        "tests/test_query_decomposition.py": "554caff975d8f4c780e17d7b519bbb059deb00f69a5ea5c4f89c50ee71f3eb82",
+        "tests/test_query_scope.py": "de19c6a5c9c5ed993ba3b98823237eee152f364769dad83307fde13eaece0e19",
+        "tests/test_rag_service.py": "77613881a14edfdef07ae3f1f4d01d0961f41fac4c5dee41eaf1da5d084a6de8",
+        "tests/test_real_pdf_article_provenance.py": "53d4d69d5005daedb20fb6a5befd44390008404f3564a946229cd9f22a5febdf",
+        "tests/test_reliability.py": "6dc62d105170d73cdc4bcb8dfed7a3287656de86ceaded3274c31ca6cb97ca30",
+        "tests/test_reranker.py": "a468c36e3ecffd863cd3844cf39554e73355273f8ac3132caac251819b2feacb",
+        "tests/test_rrf.py": "d348671c0b55114a8a1b625fac41e9619176b3fc18b6c6651ae36be308df2bdc",
+        "tests/test_score_diagnostic.py": "f869372bcf001fafffd1893ef843e9248b9786a98938665d2656b0a85860d7d1",
+        "tests/test_snapshot_retriever.py": "5ee2e9d34c330fa0489ca04bf685a22cc6cb83a7622536724b8ed20aa70039ec",
+        "tests/test_spec_catalog.py": "a4b09b186cc6594c5c6797bf3cfbe992f22bd5226d43a498f77772bdf31951ad",
+        "tests/test_sufficiency_eval.py": "30b813b1a05e4477ca93df1f9f3d39b2f2158bbe871e12fc9a9e166403cedc5b",
+        "tests/test_table_parsing.py": "67d28e3d82ee26a32be3adc5e1143a688afb061ffbc1e138c52562ea1826db2c",
+        "tests/test_web_launcher.py": "849ac4e12029fdbe9defc7502945276a025374c028b232dd3ca79d1926801098",
+        "uv.lock": "f49e2e26127c55d7f61a7a13661c74e36c95418d5f1ce1c9cecea4ced3b076f0"
+      },
+      "source_tree_sha256": "895a35cb6ddac33afc58af7c4a187c51e642afc161f5b711c3335763de3ddb20"
+    },
+    "testset_version": "76cac7d0ab21047bd608d50ed2d92d2cf37c8eb1695551e9e3d7d7923a0cbf51",
+    "threshold_version": null
+  },
+  "execution_mode": "offline_injected_workflow",
+  "freeze_readiness": {
+    "missing": [
+      "independent_dataset",
+      "frozen_thresholds",
+      "human_quality_approval",
+      "provider_model_revisions",
+      "formal_system_snapshot"
+    ],
+    "ready": false
+  },
+  "initialization_ms": null,
+  "inputs": {
+    "dataset": {
+      "archived_as": "input-0-tooling-v1-seen-20261109-seen-input.json",
+      "path": "E:\\-Agentic-RAG--main\\evaluation-worktree\\eval\\reports\\tooling-v1-seen-20261109-seen-input.json",
+      "sha256": "76cac7d0ab21047bd608d50ed2d92d2cf37c8eb1695551e9e3d7d7923a0cbf51"
+    },
+    "original_seen_dataset": {
+      "archived_as": "input-2-dev_v0.jsonl",
+      "path": "E:\\-Agentic-RAG--main\\evaluation-worktree\\eval\\datasets\\dev_v0.jsonl",
+      "sha256": "66d5db70750e26edca4f97b27a2adc59691899fdc008761b00a798618bdced2e"
+    },
+    "rules": {
+      "archived_as": "input-1-EVALUATION_METRICS_CONTRACT_V1.md",
+      "path": "E:\\-Agentic-RAG--main\\evaluation-worktree\\docs\\EVALUATION_METRICS_CONTRACT_V1.md",
+      "sha256": "7c4e6f08f38a70ecbad340b239318a117063b588b617a2ea77c6119862f98c2b"
+    }
+  },
+  "run_id": "tooling-v1-seen-20261109",
+  "schema_version": "rag-eval.run.v1",
+  "started_at": "2026-11-09T16:07:23.020472+00:00",
+  "system_snapshot": {
+    "config_hash": "bc040c2cab70a0bb6098f16a54aa2825382252b45841d3ed1ef55e842ba0a863",
+    "document_hashes": {},
+    "git_commit": "dad052705e11068e8da1b24090742222de666c38",
+    "git_dirty": true,
+    "index_snapshot": null,
+    "model_id": {
+      "generation": "offline-fixture-no-model"
+    },
+    "model_revisions": null,
+    "prompt_hashes": {
+      "src/evidence_sufficiency.py": "0f81da675965347fa7c44a65c4eec030d3179bd1af511274292f410888c108d6",
+      "src/generator.py": "2a0966b9466ecd19837d80c1878ef8af0698edfaec110f065afd8dba40bf2d42",
+      "src/query_rewriter.py": "9729fb0ae9483c59de809c3b4fb2fc20d185f215dfbf63ae196a8f54457cfea1"
+    },
+    "public_config": {
+      "evidence_top_n": 3,
+      "max_model_calls": 6,
+      "retrieval_top_k": 10,
+      "total_timeout_seconds": 90.0
+    },
+    "source": {
+      "branch": "codex/evaluation-contract-v1",
+      "directories": [
+        "src"
+      ],
+      "git_commit": "dad052705e11068e8da1b24090742222de666c38",
+      "git_dirty": true,
+      "git_status": "A  docs/EVALUATION_INTERFACE_V1.md\nA  docs/EVALUATION_METRICS_CONTRACT_V1.md\nA  eval/adapter_v1.py\nA  eval/contract_v1.py\nA  eval/examples/synthetic_contract_v1.json\nA  eval/fingerprints_v1.py\nA  eval/offline_workflow_v1.py\nA  eval/pipeline_v1.py\nA  eval/scoring_v1.py\nA  eval/validate_contract.py\nA  tests/test_eval_contract_v1.py\nA  tests/test_eval_pipeline_v1.py\n?? eval/reports/tooling-v1-seen-20261109-seen-input.json\n?? eval/reports/tooling-v1-synthetic-20261109/\n?? tmp/",
+      "root": "E:\\-Agentic-RAG--main\\evaluation-worktree",
+      "source_hashes": {
+        "pyproject.toml": "0b0278aea632b8e707c90fb79404812b632c00945ed354035945bfe9b40f3066",
+        "src/agent_workflow.py": "45650ba1a1655b6428e17b2259fb13ef9782874f898eadcd05ceee351dcfee3f",
+        "src/application.py": "0e189b332d3e84e99ad0fe0641a8c9e565de8f76fbe6178551c7215c86816ed6",
+        "src/bm25_retriever.py": "b47367aeab5a6a1ae9720ec6f61b0d32fe44a1e28875c77e0e551d77cb3ad3a2",
+        "src/chat_memory.py": "62189ca439520d9342db6def6a3cba1b311132213817e70a80ea44b2a8720aa1",
+        "src/config.py": "52dd49eb9cdcdcb35e05b230624d1b46cdcbf66e1bdfb7b241f14cc07b2679a0",
+        "src/document_schema.py": "3254d11e5a20addbeaaf100dbe7c95e3bd5733ab1ed698ce61393ae1cb57a566",
+        "src/embedder.py": "58c4fba75bbf138862dcadf6178aa3f7d819e680da4b830f5082e8d027d7cefc",
+        "src/evidence.py": "653a999e60a0f8ce1a4698f2696a2361b6afb0094661f638d6e8284f28d605bf",
+        "src/evidence_retention.py": "9d4c92c15c9e2c15e0660d48562e330825de72e1ebb6cc276c8bbf6b6be5e5c7",
+        "src/evidence_sufficiency.py": "0f81da675965347fa7c44a65c4eec030d3179bd1af511274292f410888c108d6",
+        "src/generator.py": "2a0966b9466ecd19837d80c1878ef8af0698edfaec110f065afd8dba40bf2d42",
+        "src/health_cli.py": "891e550d40dcf167b06d382836c118a9ce9cacfdc84129400a7cb7fafd08183f",
+        "src/hybrid_retriever.py": "c6084b412b120b85b2f7ae7f31a672ff5fa765de6daa5951226fa172170d2b50",
+        "src/index_cli.py": "9e351c805c2b87c17fb454a1abdd277447f8163998dab35571a7d0f932345785",
+        "src/index_manager.py": "40f94ed84754e213e7119ffe054dd53c0170e618a9c3ed6483fe24e213344c53",
+        "src/knowledge_base.py": "b15038fa0b149248d5575b4d53c56a39069f0d9922e5e6394eb0fafb6b2da6d1",
+        "src/knowledge_base_cli.py": "fdace30040bd47039a116deffd1820b5ea9e7c237fdea64ff3c84d3ae3d357f8",
+        "src/loader.py": "4915c12794872be9c55eb922e3e30f03ca35f99272e07efc344b1dc694780cd7",
+        "src/model_cli.py": "42d07677fb6dd24d75a3c81e5d89f6d4e98a371d58fc98666f45a40c6f20a3cf",
+        "src/observability.py": "55f0b629d1f3616c04b27170ee766b0b73163bbbe0b550077c67708ba2a935c1",
+        "src/ocr_artifacts.py": "1dec81890b8431682d7389b10cfc88db31b5ec95a4e4c3883e4e837818a753a2",
+        "src/ocr_cli.py": "81b62d57a346c8260b5935e5a823eb8d0faac75505369b594754e401c46ac8f7",
+        "src/ocr_table_derivation.py": "7843de2d588935d526b80f423573d2239b6dc78fbff64cc29ad073c32f6a5264",
+        "src/presentation.py": "78194185ca921a406435d098637a98e3473e00d5979d39875025b7bc838bfbf6",
+        "src/query_decomposition.py": "b8d628837ae20ff4b1792be6fb4fbc667e85e0d83765e18f715d43b69da3746e",
+        "src/query_rewriter.py": "9729fb0ae9483c59de809c3b4fb2fc20d185f215dfbf63ae196a8f54457cfea1",
+        "src/query_scope.py": "767fd8da5c1148af594a34ffc95bb2ec0771b428383f8067ddf2e019e91943c9",
+        "src/rag_service.py": "11f59483f2cd1170f1ae80645de99643af9434c03806ee40eb3d5482d684dfe5",
+        "src/reliability.py": "fac340f7bfd4ad5335ed7f24bf2142331a7e66b108da93a6aa82a71bf70355bc",
+        "src/reranker.py": "ed1a3c34f135f76e4837d0ced026d2b0d17686f40569e145aec1daf3f32b3ef1",
+        "src/results.py": "19416b5b908ce53a388d590489c7a34647372c62374c4e9402095ef63f1acfbe",
+        "src/retrieval_fusion.py": "0b808f45c228c7de0c1e2900c9db02dfc69e0775f8643521c5c2a119505a9c5f",
+        "src/retriever.py": "018f5d106de4e7efd76c0f4c6dc830e7841ec35a7401b63be951d52f55f17508",
+        "src/snapshot_retriever.py": "2b312567edfb3fa3ad265f1f2cad98de50911b6e886a3f47cd3a4923f2945a8e",
+        "src/spec_catalog.py": "4322cd2e3771b2075c4280777f963e23b7a4c031b1dab3cf239136c4359bca83",
+        "src/splitter.py": "754a4200f43bec29ddf3d7cc247f5594971a7d366ae9b1736ca699ef64347874",
+        "src/vector_store.py": "6fa8b4d6cbbdd266b46c668cf3b308305e9642467197f8ab0bcd756fb0dd2efc",
+        "src/web_launcher.py": "97216e320ff16cadcad1413879a620ee49acf855965ff8911ef063874cf96025",
+        "uv.lock": "f49e2e26127c55d7f61a7a13661c74e36c95418d5f1ce1c9cecea4ced3b076f0"
+      },
+      "source_tree_sha256": "a8312554ac8ccc1590b49849664e2264c433478f2b5467c2d811a8d76981a462"
+    }
+  }
+}

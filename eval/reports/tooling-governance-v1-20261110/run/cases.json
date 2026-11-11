@@ -1,0 +1,90 @@
+[
+  {
+    "case_id": "SEM-001",
+    "dataset_role": "historical",
+    "evidence_groups": [
+      {
+        "alternatives": [
+          {
+            "all_of": [
+              {
+                "article": "4.3.1",
+                "document_id": "LEGACY-FIXTURE",
+                "document_version": "synthetic-edition-not-verified",
+                "evidence_id": "legacy-gold-0",
+                "page": 32,
+                "table": null
+              }
+            ],
+            "scheme_id": "legacy-provisional-and"
+          }
+        ],
+        "fact_id": "F1"
+      }
+    ],
+    "expected_action": "answer",
+    "migration_notice": "Seen dev data; provisional fact decomposition and fixture edition; not approved gold or independent data.",
+    "necessary_facts": [
+      {
+        "description": "列车应采用双线、右侧行车。南向北和西向东为上行，北向南和东向西为下行；环线外环为上行、内环为下行。",
+        "fact_id": "F1"
+      }
+    ],
+    "query_scope": {
+      "edition_ids": [
+        "synthetic-edition-not-verified"
+      ],
+      "spec_ids": [
+        "LEGACY-FIXTURE"
+      ]
+    },
+    "question": "城市轨道交通线路在不同方向上，怎样划分上行和下行？",
+    "question_type": "semantic_article",
+    "reference_answer": "列车应采用双线、右侧行车。南向北和西向东为上行，北向南和东向西为下行；环线外环为上行、内环为下行。",
+    "schema_version": "rag-eval.test-case.v1"
+  },
+  {
+    "case_id": "SEM-002",
+    "dataset_role": "historical",
+    "evidence_groups": [
+      {
+        "alternatives": [
+          {
+            "all_of": [
+              {
+                "article": "7.2.1",
+                "document_id": "LEGACY-FIXTURE",
+                "document_version": "synthetic-edition-not-verified",
+                "evidence_id": "legacy-gold-0",
+                "page": 45,
+                "table": null
+              }
+            ],
+            "scheme_id": "legacy-provisional-and"
+          }
+        ],
+        "fact_id": "F1"
+      }
+    ],
+    "expected_action": "answer",
+    "migration_notice": "Seen dev data; provisional fact decomposition and fixture edition; not approved gold or independent data.",
+    "necessary_facts": [
+      {
+        "description": "站台宜设在直线上；设在曲线上时，站台有效长度范围内，A 型车的曲线半径不应小于 1500m，B 型车不应小于 1000m。",
+        "fact_id": "F1"
+      }
+    ],
+    "query_scope": {
+      "edition_ids": [
+        "synthetic-edition-not-verified"
+      ],
+      "spec_ids": [
+        "LEGACY-FIXTURE"
+      ]
+    },
+    "question": "站台不得不设在曲线上时，A 型车和 B 型车对曲线半径分别有什么要求？",
+    "question_type": "semantic_article",
+    "reference_answer": "站台宜设在直线上；设在曲线上时，站台有效长度范围内，A 型车的曲线半径不应小于 1500m，B 型车不应小于 1000m。",
+    "schema_version": "rag-eval.test-case.v1"
+  }
+]

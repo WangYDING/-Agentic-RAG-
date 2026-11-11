@@ -1,0 +1,10 @@
+{
+  "assessment_overwrite_blocked": true,
+  "base_bundle_sha256": "ae3dd95be2991f24f6e0843299543ae3108627b311e705c29075ce36599d465e",
+  "dispute_and_adjudication_replayed": true,
+  "formal_acceptance_started": false,
+  "negative_prechecks_blocked": true,
+  "notice": "OFFLINE REHEARSAL ONLY. All human-role signatures and failure labels are synthetic fixtures; no actual human approval or real quality finding.",
+  "original_assessment": "inconclusive",
+  "synthetic_failure_assessment": "fail"
+}

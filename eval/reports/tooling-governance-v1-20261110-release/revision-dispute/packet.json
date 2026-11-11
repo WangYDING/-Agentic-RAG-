@@ -1,0 +1,21 @@
+{
+  "actor": {
+    "at": "2026-11-10T04:03:07.985046+00:00",
+    "identity": "SYNTHETIC-AI-ROLE-NOT-A-REAL-REVIEWER",
+    "type": "ai"
+  },
+  "adjudications": [],
+  "base_bundle_sha256": "fc901e554aa1eddead36643c821c64cea5bb33532f996bbc34ef5da6f4b92b69",
+  "changes": [],
+  "disputes": [
+    {
+      "case_id": "SEM-001",
+      "dispute_id": "SYN-D1",
+      "field": "/fact_reviews/0/correct",
+      "reason": "SYNTHETIC conflict fixture; not actual human review",
+      "review_sha256": "0417960ce5b05b84898b9a056bb5f982a1287b457bad8a46b33aac889420f988"
+    }
+  ],
+  "parent_state_sha256": "a168547689ebdcb5aaafb665683999f5625556a2435d228fbc2a0750e2dce9c6",
+  "schema_version": "rag-eval.review-change.v1"
+}

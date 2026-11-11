@@ -1,0 +1,33 @@
+{
+  "case_approvals": [
+    {
+      "case_id": "SEM-001",
+      "facts_sha256": "436b645d1bd1626d4385163546b6497034378972f6dec370343f284cba4d1191",
+      "reviewer": {
+        "at": "2026-11-10T03:49:52.244567+00:00",
+        "identity": "SYNTHETIC-AI-ROLE-NOT-A-REAL-REVIEWER",
+        "type": "ai"
+      },
+      "schemes_sha256": "73e61b2be2fc0f6c4da3469c35fabf4e86403e3acfd39a2aa1bc1bb2c2516ae3",
+      "status": "approved"
+    },
+    {
+      "case_id": "SEM-002",
+      "facts_sha256": "834067cce4678199544cafea82d739b764e6792d2105145cfb48eccea04a3385",
+      "reviewer": {
+        "at": "2026-11-10T03:49:52.244567+00:00",
+        "identity": "SYNTHETIC-AI-ROLE-NOT-A-REAL-REVIEWER",
+        "type": "ai"
+      },
+      "schemes_sha256": "485968e5d727e871d6ff069cefc23794b7ea3321ccfaeeaf7548ff7cb90ab377",
+      "status": "approved"
+    }
+  ],
+  "count": 2,
+  "dataset_id": "old-dev-rehearsal",
+  "notice": "SYNTHETIC approval records only, NOT actual annotation approval",
+  "role": "historical",
+  "sha256": "76cac7d0ab21047bd608d50ed2d92d2cf37c8eb1695551e9e3d7d7923a0cbf51",
+  "status": "frozen",
+  "used_for_tuning": true
+}

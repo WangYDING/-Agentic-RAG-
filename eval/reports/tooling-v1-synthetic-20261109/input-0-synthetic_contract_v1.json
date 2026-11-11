@@ -1,0 +1,945 @@
+{
+  "notice": "SYNTHETIC EXAMPLE ONLY — NOT AN INDEPENDENT TEST SET AND NOT A REAL RAG RESULT",
+  "test_cases": [
+    {
+      "schema_version": "rag-eval.test-case.v1",
+      "case_id": "SYN-ANSWER",
+      "dataset_role": "synthetic",
+      "question": "合成规范中设备间距是多少？",
+      "query_scope": {
+        "spec_ids": [
+          "SYN-SPEC"
+        ],
+        "edition_ids": [
+          "v1"
+        ]
+      },
+      "expected_action": "answer",
+      "reference_answer": "间距为2米。",
+      "necessary_facts": [
+        {
+          "fact_id": "F1",
+          "description": "设备间距为2米",
+          "numeric": {
+            "value": "2",
+            "unit": "m",
+            "conditions": []
+          }
+        }
+      ],
+      "evidence_groups": [
+        {
+          "fact_id": "F1",
+          "alternatives": [
+            {
+              "scheme_id": "A",
+              "all_of": [
+                {
+                  "evidence_id": "EV-1",
+                  "document_id": "SYN-SPEC",
+                  "document_version": "v1",
+                  "page": 1,
+                  "article": "1.1"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "schema_version": "rag-eval.test-case.v1",
+      "case_id": "SYN-REFUSE",
+      "dataset_role": "synthetic",
+      "question": "请给出不在指定范围内的价格。",
+      "query_scope": {
+        "spec_ids": [
+          "SYN-SPEC"
+        ],
+        "edition_ids": [
+          "v1"
+        ]
+      },
+      "expected_action": "refuse",
+      "reference_answer": null,
+      "necessary_facts": [],
+      "evidence_groups": []
+    },
+    {
+      "schema_version": "rag-eval.test-case.v1",
+      "case_id": "SYN-CLARIFY",
+      "dataset_role": "synthetic",
+      "question": "这个限值是多少？",
+      "query_scope": {},
+      "expected_action": "clarify",
+      "reference_answer": null,
+      "necessary_facts": [],
+      "evidence_groups": []
+    },
+    {
+      "schema_version": "rag-eval.test-case.v1",
+      "case_id": "SYN-ERROR",
+      "dataset_role": "synthetic",
+      "question": "用于模拟服务错误的问题。",
+      "query_scope": {
+        "spec_ids": [
+          "SYN-SPEC"
+        ],
+        "edition_ids": [
+          "v1"
+        ]
+      },
+      "expected_action": "answer",
+      "reference_answer": "仅用于错误路径。",
+      "necessary_facts": [
+        {
+          "fact_id": "F1",
+          "description": "错误路径仍保留gold"
+        }
+      ],
+      "evidence_groups": [
+        {
+          "fact_id": "F1",
+          "alternatives": [
+            {
+              "scheme_id": "A",
+              "all_of": [
+                {
+                  "evidence_id": "EV-ERR",
+                  "document_id": "SYN-SPEC",
+                  "document_version": "v1",
+                  "page": 2,
+                  "locator": "error-fixture"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "schema_version": "rag-eval.test-case.v1",
+      "case_id": "SYN-EQUIVALENT",
+      "dataset_role": "synthetic",
+      "question": "合成条款允许哪一种等价证据？",
+      "query_scope": {
+        "spec_ids": [
+          "SYN-SPEC"
+        ],
+        "edition_ids": [
+          "v1"
+        ]
+      },
+      "expected_action": "answer",
+      "reference_answer": "A，或B1与B2组合，均可支持该事实。",
+      "necessary_facts": [
+        {
+          "fact_id": "F1",
+          "description": "存在两套预先固定的等价证据方案"
+        }
+      ],
+      "evidence_groups": [
+        {
+          "fact_id": "F1",
+          "alternatives": [
+            {
+              "scheme_id": "A",
+              "all_of": [
+                {
+                  "evidence_id": "EV-A",
+                  "document_id": "SYN-SPEC",
+                  "document_version": "v1",
+                  "page": 3,
+                  "article": "3.1"
+                }
+              ]
+            },
+            {
+              "scheme_id": "B",
+              "all_of": [
+                {
+                  "evidence_id": "EV-B1",
+                  "document_id": "SYN-SPEC",
+                  "document_version": "v1",
+                  "page": 4,
+                  "article": "4.1"
+                },
+                {
+                  "evidence_id": "EV-B2",
+                  "document_id": "SYN-SPEC",
+                  "document_version": "v1",
+                  "page": 5,
+                  "table": "T-1"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "schema_version": "rag-eval.test-case.v1",
+      "case_id": "SYN-COMPOSITE",
+      "dataset_role": "synthetic",
+      "question": "合成条件的上下限分别是什么？",
+      "query_scope": {
+        "spec_ids": [
+          "SYN-SPEC"
+        ],
+        "edition_ids": [
+          "v1"
+        ]
+      },
+      "expected_action": "answer",
+      "reference_answer": "下限10，上限20。",
+      "necessary_facts": [
+        {
+          "fact_id": "LOW",
+          "description": "下限为10"
+        },
+        {
+          "fact_id": "HIGH",
+          "description": "上限为20"
+        }
+      ],
+      "evidence_groups": [
+        {
+          "fact_id": "LOW",
+          "alternatives": [
+            {
+              "scheme_id": "LOW-A",
+              "all_of": [
+                {
+                  "evidence_id": "EV-LOW",
+                  "document_id": "SYN-SPEC",
+                  "document_version": "v1",
+                  "page": 6,
+                  "article": "6.1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fact_id": "HIGH",
+          "alternatives": [
+            {
+              "scheme_id": "HIGH-A",
+              "all_of": [
+                {
+                  "evidence_id": "EV-HIGH",
+                  "document_id": "SYN-SPEC",
+                  "document_version": "v1",
+                  "page": 7,
+                  "article": "7.1"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "schema_version": "rag-eval.test-case.v1",
+      "case_id": "SYN-MISSING-OBS",
+      "dataset_role": "synthetic",
+      "question": "用于模拟缺失可观测字段的问题。",
+      "query_scope": {
+        "spec_ids": [
+          "SYN-SPEC"
+        ],
+        "edition_ids": [
+          "v1"
+        ]
+      },
+      "expected_action": "answer",
+      "reference_answer": "答案存在，但部分阶段与用量不可观测。",
+      "necessary_facts": [
+        {
+          "fact_id": "F1",
+          "description": "缺测必须保持null"
+        }
+      ],
+      "evidence_groups": [
+        {
+          "fact_id": "F1",
+          "alternatives": [
+            {
+              "scheme_id": "A",
+              "all_of": [
+                {
+                  "evidence_id": "EV-M",
+                  "document_id": "SYN-SPEC",
+                  "document_version": "v1",
+                  "page": 8,
+                  "locator": "missing-observation"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "rag_inputs": [
+    {
+      "schema_version": "rag-eval.rag-input.v1",
+      "case_id": "SYN-ANSWER",
+      "question": "合成规范中设备间距是多少？",
+      "query_scope": {
+        "spec_ids": [
+          "SYN-SPEC"
+        ],
+        "edition_ids": [
+          "v1"
+        ]
+      }
+    },
+    {
+      "schema_version": "rag-eval.rag-input.v1",
+      "case_id": "SYN-REFUSE",
+      "question": "请给出不在指定范围内的价格。",
+      "query_scope": {
+        "spec_ids": [
+          "SYN-SPEC"
+        ],
+        "edition_ids": [
+          "v1"
+        ]
+      }
+    },
+    {
+      "schema_version": "rag-eval.rag-input.v1",
+      "case_id": "SYN-CLARIFY",
+      "question": "这个限值是多少？",
+      "query_scope": {}
+    },
+    {
+      "schema_version": "rag-eval.rag-input.v1",
+      "case_id": "SYN-ERROR",
+      "question": "用于模拟服务错误的问题。",
+      "query_scope": {
+        "spec_ids": [
+          "SYN-SPEC"
+        ],
+        "edition_ids": [
+          "v1"
+        ]
+      }
+    },
+    {
+      "schema_version": "rag-eval.rag-input.v1",
+      "case_id": "SYN-EQUIVALENT",
+      "question": "合成条款允许哪一种等价证据？",
+      "query_scope": {
+        "spec_ids": [
+          "SYN-SPEC"
+        ],
+        "edition_ids": [
+          "v1"
+        ]
+      }
+    },
+    {
+      "schema_version": "rag-eval.rag-input.v1",
+      "case_id": "SYN-COMPOSITE",
+      "question": "合成条件的上下限分别是什么？",
+      "query_scope": {
+        "spec_ids": [
+          "SYN-SPEC"
+        ],
+        "edition_ids": [
+          "v1"
+        ]
+      }
+    },
+    {
+      "schema_version": "rag-eval.rag-input.v1",
+      "case_id": "SYN-MISSING-OBS",
+      "question": "用于模拟缺失可观测字段的问题。",
+      "query_scope": {
+        "spec_ids": [
+          "SYN-SPEC"
+        ],
+        "edition_ids": [
+          "v1"
+        ]
+      }
+    }
+  ],
+  "observations": [
+    {
+      "schema_version": "rag-eval.observation.v1",
+      "case_id": "SYN-ANSWER",
+      "actual_action": "answer",
+      "answer_text": "间距为2米。[C1]",
+      "error": null,
+      "initial_candidates": [
+        {
+          "evidence_id": "EV-1",
+          "document_id": "SYN-SPEC",
+          "document_version": "v1",
+          "page": 1,
+          "article": "1.1"
+        }
+      ],
+      "reranked_results": [
+        {
+          "evidence_id": "EV-1",
+          "document_id": "SYN-SPEC",
+          "document_version": "v1",
+          "page": 1,
+          "article": "1.1"
+        }
+      ],
+      "final_decision_evidence": [
+        {
+          "evidence_id": "EV-1",
+          "document_id": "SYN-SPEC",
+          "document_version": "v1",
+          "page": 1,
+          "article": "1.1"
+        }
+      ],
+      "generator_invoked": true,
+      "generator_context": [
+        {
+          "evidence_id": "EV-1",
+          "document_id": "SYN-SPEC",
+          "document_version": "v1",
+          "page": 1,
+          "article": "1.1"
+        }
+      ],
+      "citations": [
+        {
+          "citation_id": "C1",
+          "evidence_id": "EV-1",
+          "parse_valid": true,
+          "scope_valid": true
+        }
+      ],
+      "measurements": {
+        "latency_ms": 12,
+        "model_calls": 1,
+        "input_tokens": 20,
+        "output_tokens": 8
+      },
+      "actual_scope": null,
+      "retrieval_rounds": null
+    },
+    {
+      "schema_version": "rag-eval.observation.v1",
+      "case_id": "SYN-REFUSE",
+      "actual_action": "refuse",
+      "answer_text": "指定范围内没有价格信息。",
+      "error": null,
+      "initial_candidates": [],
+      "reranked_results": [],
+      "final_decision_evidence": [],
+      "generator_invoked": false,
+      "generator_context": null,
+      "citations": [],
+      "measurements": {
+        "latency_ms": 3,
+        "model_calls": 0,
+        "input_tokens": null,
+        "output_tokens": null
+      },
+      "actual_scope": null,
+      "retrieval_rounds": null
+    },
+    {
+      "schema_version": "rag-eval.observation.v1",
+      "case_id": "SYN-CLARIFY",
+      "actual_action": "clarify",
+      "answer_text": "请说明要查询哪一种对象的限值。",
+      "error": null,
+      "initial_candidates": null,
+      "reranked_results": null,
+      "final_decision_evidence": [],
+      "generator_invoked": false,
+      "generator_context": null,
+      "citations": [],
+      "measurements": {
+        "latency_ms": 2,
+        "model_calls": 0,
+        "input_tokens": null,
+        "output_tokens": null
+      },
+      "actual_scope": null,
+      "retrieval_rounds": null
+    },
+    {
+      "schema_version": "rag-eval.observation.v1",
+      "case_id": "SYN-ERROR",
+      "actual_action": "error",
+      "answer_text": null,
+      "error": {
+        "code": "SYNTHETIC_TIMEOUT",
+        "message": "fixture only"
+      },
+      "initial_candidates": null,
+      "reranked_results": null,
+      "final_decision_evidence": null,
+      "generator_invoked": false,
+      "generator_context": null,
+      "citations": [],
+      "measurements": {
+        "latency_ms": 1000,
+        "model_calls": null,
+        "input_tokens": null,
+        "output_tokens": null
+      },
+      "actual_scope": null,
+      "retrieval_rounds": null
+    },
+    {
+      "schema_version": "rag-eval.observation.v1",
+      "case_id": "SYN-EQUIVALENT",
+      "actual_action": "answer",
+      "answer_text": "组合证据B1与B2共同支持该事实。",
+      "error": null,
+      "initial_candidates": [
+        {
+          "evidence_id": "EV-B1",
+          "document_id": "SYN-SPEC",
+          "document_version": "v1",
+          "page": 4,
+          "article": "4.1"
+        },
+        {
+          "evidence_id": "EV-B2",
+          "document_id": "SYN-SPEC",
+          "document_version": "v1",
+          "page": 5,
+          "table": "T-1"
+        }
+      ],
+      "reranked_results": [
+        {
+          "evidence_id": "EV-B1",
+          "document_id": "SYN-SPEC",
+          "document_version": "v1",
+          "page": 4,
+          "article": "4.1"
+        },
+        {
+          "evidence_id": "EV-B2",
+          "document_id": "SYN-SPEC",
+          "document_version": "v1",
+          "page": 5,
+          "table": "T-1"
+        }
+      ],
+      "final_decision_evidence": [
+        {
+          "evidence_id": "EV-B1",
+          "document_id": "SYN-SPEC",
+          "document_version": "v1",
+          "page": 4,
+          "article": "4.1"
+        },
+        {
+          "evidence_id": "EV-B2",
+          "document_id": "SYN-SPEC",
+          "document_version": "v1",
+          "page": 5,
+          "table": "T-1"
+        }
+      ],
+      "generator_invoked": true,
+      "generator_context": [
+        {
+          "evidence_id": "EV-B1",
+          "document_id": "SYN-SPEC",
+          "document_version": "v1",
+          "page": 4,
+          "article": "4.1"
+        },
+        {
+          "evidence_id": "EV-B2",
+          "document_id": "SYN-SPEC",
+          "document_version": "v1",
+          "page": 5,
+          "table": "T-1"
+        }
+      ],
+      "citations": [],
+      "measurements": {
+        "latency_ms": 14,
+        "model_calls": 1,
+        "input_tokens": null,
+        "output_tokens": null
+      },
+      "actual_scope": null,
+      "retrieval_rounds": null
+    },
+    {
+      "schema_version": "rag-eval.observation.v1",
+      "case_id": "SYN-COMPOSITE",
+      "actual_action": "answer",
+      "answer_text": "下限10，上限20。",
+      "error": null,
+      "initial_candidates": [
+        {
+          "evidence_id": "EV-LOW",
+          "document_id": "SYN-SPEC",
+          "document_version": "v1",
+          "page": 6,
+          "article": "6.1"
+        }
+      ],
+      "reranked_results": [
+        {
+          "evidence_id": "EV-LOW",
+          "document_id": "SYN-SPEC",
+          "document_version": "v1",
+          "page": 6,
+          "article": "6.1"
+        }
+      ],
+      "final_decision_evidence": [
+        {
+          "evidence_id": "EV-LOW",
+          "document_id": "SYN-SPEC",
+          "document_version": "v1",
+          "page": 6,
+          "article": "6.1"
+        },
+        {
+          "evidence_id": "EV-HIGH",
+          "document_id": "SYN-SPEC",
+          "document_version": "v1",
+          "page": 7,
+          "article": "7.1"
+        }
+      ],
+      "generator_invoked": true,
+      "generator_context": [
+        {
+          "evidence_id": "EV-LOW",
+          "document_id": "SYN-SPEC",
+          "document_version": "v1",
+          "page": 6,
+          "article": "6.1"
+        },
+        {
+          "evidence_id": "EV-HIGH",
+          "document_id": "SYN-SPEC",
+          "document_version": "v1",
+          "page": 7,
+          "article": "7.1"
+        }
+      ],
+      "citations": [],
+      "measurements": {
+        "latency_ms": 15,
+        "model_calls": 1,
+        "input_tokens": null,
+        "output_tokens": null
+      },
+      "actual_scope": null,
+      "retrieval_rounds": null
+    },
+    {
+      "schema_version": "rag-eval.observation.v1",
+      "case_id": "SYN-MISSING-OBS",
+      "actual_action": "answer",
+      "answer_text": "缺测字段保持为空。",
+      "error": null,
+      "initial_candidates": null,
+      "reranked_results": null,
+      "final_decision_evidence": null,
+      "generator_invoked": true,
+      "generator_context": [],
+      "citations": [],
+      "measurements": {
+        "latency_ms": null,
+        "model_calls": null,
+        "input_tokens": null,
+        "output_tokens": null
+      },
+      "actual_scope": null,
+      "retrieval_rounds": null
+    }
+  ],
+  "reviews": [
+    {
+      "schema_version": "rag-eval.review.v1",
+      "case_id": "SYN-ANSWER",
+      "reviewer": {
+        "identity": "synthetic-fixture",
+        "reviewer_type": "ai",
+        "reviewed_at": "2026-11-09T00:00:00Z",
+        "rubric_version": "v1"
+      },
+      "fact_reviews": [
+        {
+          "fact_id": "F1",
+          "context_supported": true,
+          "answer_covered": true,
+          "correct": true,
+          "evidence_ids": [
+            "EV-1"
+          ],
+          "reason": "fixture",
+          "final_evidence_supported": null,
+          "numeric_conditions_correct": null
+        }
+      ],
+      "claim_reviews": [
+        {
+          "claim_id": "C1",
+          "text": "间距为2米",
+          "support": "supported",
+          "evidence_ids": [
+            "EV-1"
+          ],
+          "reason": "fixture"
+        }
+      ],
+      "behavior_review": {
+        "appropriate": true,
+        "reason": "fixture"
+      }
+    },
+    {
+      "schema_version": "rag-eval.review.v1",
+      "case_id": "SYN-REFUSE",
+      "reviewer": {
+        "identity": "synthetic-fixture",
+        "reviewer_type": "ai",
+        "reviewed_at": "2026-11-09T00:00:00Z",
+        "rubric_version": "v1"
+      },
+      "fact_reviews": [],
+      "claim_reviews": [],
+      "behavior_review": {
+        "appropriate": true,
+        "reason": "fixture"
+      }
+    },
+    {
+      "schema_version": "rag-eval.review.v1",
+      "case_id": "SYN-CLARIFY",
+      "reviewer": {
+        "identity": "synthetic-fixture",
+        "reviewer_type": "ai",
+        "reviewed_at": "2026-11-09T00:00:00Z",
+        "rubric_version": "v1"
+      },
+      "fact_reviews": [],
+      "claim_reviews": [],
+      "behavior_review": {
+        "appropriate": true,
+        "reason": "fixture"
+      }
+    },
+    {
+      "schema_version": "rag-eval.review.v1",
+      "case_id": "SYN-ERROR",
+      "reviewer": {
+        "identity": "synthetic-fixture",
+        "reviewer_type": "ai",
+        "reviewed_at": "2026-11-09T00:00:00Z",
+        "rubric_version": "v1"
+      },
+      "fact_reviews": [
+        {
+          "fact_id": "F1",
+          "context_supported": null,
+          "answer_covered": null,
+          "correct": null,
+          "evidence_ids": [],
+          "reason": "not reviewed after service error",
+          "final_evidence_supported": null,
+          "numeric_conditions_correct": null
+        }
+      ],
+      "claim_reviews": [],
+      "behavior_review": {
+        "appropriate": false,
+        "reason": "service error is not task success"
+      }
+    },
+    {
+      "schema_version": "rag-eval.review.v1",
+      "case_id": "SYN-EQUIVALENT",
+      "reviewer": {
+        "identity": "synthetic-fixture",
+        "reviewer_type": "ai",
+        "reviewed_at": "2026-11-09T00:00:00Z",
+        "rubric_version": "v1"
+      },
+      "fact_reviews": [
+        {
+          "fact_id": "F1",
+          "context_supported": true,
+          "answer_covered": true,
+          "correct": true,
+          "evidence_ids": [
+            "EV-B1",
+            "EV-B2"
+          ],
+          "reason": "AND scheme B",
+          "final_evidence_supported": null,
+          "numeric_conditions_correct": null
+        }
+      ],
+      "claim_reviews": [
+        {
+          "claim_id": "C1",
+          "text": "B1与B2共同支持",
+          "support": "supported",
+          "evidence_ids": [
+            "EV-B1",
+            "EV-B2"
+          ],
+          "reason": "fixture"
+        }
+      ],
+      "behavior_review": {
+        "appropriate": true,
+        "reason": "fixture"
+      }
+    },
+    {
+      "schema_version": "rag-eval.review.v1",
+      "case_id": "SYN-COMPOSITE",
+      "reviewer": {
+        "identity": "synthetic-fixture",
+        "reviewer_type": "ai",
+        "reviewed_at": "2026-11-09T00:00:00Z",
+        "rubric_version": "v1"
+      },
+      "fact_reviews": [
+        {
+          "fact_id": "LOW",
+          "context_supported": true,
+          "answer_covered": true,
+          "correct": true,
+          "evidence_ids": [
+            "EV-LOW"
+          ],
+          "reason": "fixture",
+          "final_evidence_supported": null,
+          "numeric_conditions_correct": null
+        },
+        {
+          "fact_id": "HIGH",
+          "context_supported": true,
+          "answer_covered": true,
+          "correct": true,
+          "evidence_ids": [
+            "EV-HIGH"
+          ],
+          "reason": "fixture",
+          "final_evidence_supported": null,
+          "numeric_conditions_correct": null
+        }
+      ],
+      "claim_reviews": [
+        {
+          "claim_id": "C1",
+          "text": "下限10，上限20",
+          "support": "supported",
+          "evidence_ids": [
+            "EV-LOW",
+            "EV-HIGH"
+          ],
+          "reason": "fixture"
+        }
+      ],
+      "behavior_review": {
+        "appropriate": true,
+        "reason": "fixture"
+      }
+    },
+    {
+      "schema_version": "rag-eval.review.v1",
+      "case_id": "SYN-MISSING-OBS",
+      "reviewer": {
+        "identity": "synthetic-fixture",
+        "reviewer_type": "ai",
+        "reviewed_at": null,
+        "rubric_version": "v1"
+      },
+      "fact_reviews": [
+        {
+          "fact_id": "F1",
+          "context_supported": null,
+          "answer_covered": null,
+          "correct": null,
+          "evidence_ids": [],
+          "reason": "unreviewed",
+          "final_evidence_supported": null,
+          "numeric_conditions_correct": null
+        }
+      ],
+      "claim_reviews": [
+        {
+          "claim_id": "C1",
+          "text": "缺测字段保持为空",
+          "support": null,
+          "evidence_ids": [],
+          "reason": "unreviewed"
+        }
+      ],
+      "behavior_review": {
+        "appropriate": null,
+        "reason": "unreviewed"
+      }
+    }
+  ],
+  "run": {
+    "schema_version": "rag-eval.run.v1",
+    "run_id": "synthetic-offline-v1",
+    "artifacts": {
+      "dataset_sha256": "synthetic-placeholder",
+      "results_sha256": "synthetic-placeholder"
+    },
+    "system_snapshot": {
+      "git_commit": null,
+      "git_dirty": null,
+      "prompt_hashes": {},
+      "config_hash": null,
+      "model_id": null,
+      "document_hashes": {},
+      "index_snapshot": null
+    },
+    "evaluation_snapshot": {
+      "code_commit": null,
+      "testset_version": "synthetic-v1",
+      "rubric_version": "v1",
+      "threshold_version": null
+    }
+  },
+  "report": {
+    "schema_version": "rag-eval.report.v1",
+    "run_id": "synthetic-offline-v1",
+    "conclusion": "not_applicable",
+    "metrics": {
+      "illustrative_zero_denominator": {
+        "numerator": 0,
+        "denominator": 0,
+        "rate": null,
+        "applicable_case_ids": []
+      },
+      "service_error_rate": {
+        "numerator": 1,
+        "denominator": 7,
+        "rate": 0.14285714285714285,
+        "applicable_case_ids": [
+          "SYN-ANSWER",
+          "SYN-REFUSE",
+          "SYN-CLARIFY",
+          "SYN-ERROR",
+          "SYN-EQUIVALENT",
+          "SYN-COMPOSITE",
+          "SYN-MISSING-OBS"
+        ]
+      }
+    }
+  }
+}

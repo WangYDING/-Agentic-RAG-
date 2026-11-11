@@ -1,0 +1,312 @@
+{
+  "actual_model_components_constructed": false,
+  "actual_model_weights_or_provider_validated": false,
+  "configuration_scope": "defaults only, not effective deployment .env/config",
+  "imported_workflow_file": "E:\\Agentic-RAG-phase0-candidate\\src\\agent_workflow.py",
+  "interface_functions": {
+    "agent_workflow.py": [
+      "__init__",
+      "_answer",
+      "_build_retry_query",
+      "_call_with_budget",
+      "_candidates_for_requirement",
+      "_commentary_context_priority",
+      "_coverage_queries",
+      "_error",
+      "_evidence_content_identity",
+      "_expand_complete_article_groups",
+      "_expand_focused_neighbors",
+      "_focused_overlap_score",
+      "_focused_query_applies_to_business_id",
+      "_matches_focused_intent",
+      "_merge_results",
+      "_normative_article_occurrences",
+      "_normative_occurrence_priority",
+      "_preserve_focused_evidence",
+      "_refuse",
+      "_request_evidence_limit",
+      "_requests_per_scope_answer",
+      "_requirement_trace",
+      "_rerank_cache_key",
+      "_rerank_with_cache",
+      "_retention_trace",
+      "_retrieve_rerank_grade",
+      "_run",
+      "_scope_balance_focus_query",
+      "_scope_clarification",
+      "_select_requirement_coverage",
+      "_select_scope_balance",
+      "_select_scope_target_coverage",
+      "_stage",
+      "_verify_final_evidence_context",
+      "error_code",
+      "request_id",
+      "result_type",
+      "retryable",
+      "run",
+      "serialize"
+    ],
+    "application.py": [
+      "_load_component_factories",
+      "build_agent_workflow",
+      "build_multi_spec_agent_workflow",
+      "get_index_cache_token",
+      "get_knowledge_base_cache_token"
+    ],
+    "query_scope.py": [
+      "__post_init__",
+      "_unique_nonempty",
+      "all_documents",
+      "allows",
+      "business_id",
+      "business_ids",
+      "exact_versions",
+      "from_request_payload",
+      "resolve_query_scope",
+      "specifications",
+      "unspecified",
+      "versions_from_catalog",
+      "versions_from_snapshot"
+    ]
+  },
+  "knowledge_binding": {
+    "business_ids": [
+      "cn.beijing.db11t995@2025",
+      "cn.gb50157@2013",
+      "cn.gb55033@2022"
+    ],
+    "catalog_path": "E:\\Agentic-RAG-phase0-candidate\\data\\spec_catalog.v1.json",
+    "check_scope": "manifest identity and byte hashes, not FAISS semantics or model inference",
+    "embedding_models": [
+      "BAAI/bge-small-zh-v1.5"
+    ],
+    "files": [
+      {
+        "path": "E:\\Agentic-RAG-phase0-candidate\\data\\spec_catalog.v1.json",
+        "sha256": "5cdfdfab146786b449f28c636d9b3b8104260bc4d4a220d0b626cdf4f7a369b2"
+      },
+      {
+        "path": "E:\\Agentic-RAG-phase0-candidate\\.rag_knowledge_base\\active.json",
+        "sha256": "63c03d2d84c0c17ce5203fe0596149ff6aa436eb7e27024a9b887150b782e305"
+      },
+      {
+        "path": "E:\\Agentic-RAG-phase0-candidate\\.rag_knowledge_base\\snapshots\\65b3ccfc96a372e54b1c7ecc5ba7f622788d71beafee4206a0298ed10a9fb859\\manifest.json",
+        "sha256": "aefe786f01fb7b22759381daad2bc6450517a2883a08122475431051af903b56"
+      },
+      {
+        "path": "E:\\Agentic-RAG-phase0-candidate\\.rag_knowledge_base\\document_indexes\\cn.beijing.db11t995\\2025\\versions\\02c44af10491c4049b8fb5855aee31183c23edc052814590fc1cd8ff8bd2e1d4\\manifest.json",
+        "sha256": "a9b1551fdc65615d5f66a0439bc6da80d8deaee1dc3f9f23d103f6e0f1fed617"
+      },
+      {
+        "path": "E:\\Agentic-RAG-phase0-candidate\\.rag_knowledge_base\\document_indexes\\cn.beijing.db11t995\\2025\\versions\\02c44af10491c4049b8fb5855aee31183c23edc052814590fc1cd8ff8bd2e1d4\\index.faiss",
+        "sha256": "6e70f528c811828feab5f4ffb17a6e906237525a7542535b9d446d6203f25ee9"
+      },
+      {
+        "path": "E:\\Agentic-RAG-phase0-candidate\\.rag_knowledge_base\\document_indexes\\cn.beijing.db11t995\\2025\\versions\\02c44af10491c4049b8fb5855aee31183c23edc052814590fc1cd8ff8bd2e1d4\\metadata.json",
+        "sha256": "472de6f11150fb41fa4eb66cfb7082626a2cc41eb6a884d83ff62aac05109531"
+      },
+      {
+        "path": "E:\\Agentic-RAG-phase0-candidate\\data\\raw\\城市轨道交通工程设计标准.pdf",
+        "sha256": "e5ca2388ad68ed7b21b6092e66c12a73c74c17de8b532bef91c5b2ea57be78f7"
+      },
+      {
+        "path": "E:\\Agentic-RAG-phase0-candidate\\.rag_knowledge_base\\document_indexes\\cn.gb50157\\2013\\versions\\3d708f4c6be3f986e46b614b48ec3443775213802c2533518060e94ec682b5b2\\manifest.json",
+        "sha256": "3af24834bfc5882dde665f122aaffee51441b25c8d45fd4bde40cae7aefaf8e5"
+      },
+      {
+        "path": "E:\\Agentic-RAG-phase0-candidate\\.rag_knowledge_base\\document_indexes\\cn.gb50157\\2013\\versions\\3d708f4c6be3f986e46b614b48ec3443775213802c2533518060e94ec682b5b2\\index.faiss",
+        "sha256": "a57f18fbae8dfeec3c29ff985670b88f5bc162a0660ce05fcaba652d60c5d979"
+      },
+      {
+        "path": "E:\\Agentic-RAG-phase0-candidate\\.rag_knowledge_base\\document_indexes\\cn.gb50157\\2013\\versions\\3d708f4c6be3f986e46b614b48ec3443775213802c2533518060e94ec682b5b2\\metadata.json",
+        "sha256": "c1e8d6a7e5a16b53409158276dc4a2ff3c5357afafa66ed8cf5cfe50c5f2c506"
+      },
+      {
+        "path": "E:\\Agentic-RAG-phase0-candidate\\data\\raw\\GB50157-2013_地铁设计规范.pdf",
+        "sha256": "a1130f89afba11f00fdb3353375aa1c424b4eb44d462ee6bd1de2835c235dab3"
+      },
+      {
+        "path": "E:\\Agentic-RAG-phase0-candidate\\.rag_knowledge_base\\document_indexes\\cn.gb55033\\2022\\versions\\929adb6747a6f1696f6c00df2f8e501b106e55a0478bf084cfb5a36b72f619b9\\manifest.json",
+        "sha256": "6b0b1616da429c28c2689a7bdf4bf4f8c7043de6026d627d33c92f5b06053021"
+      },
+      {
+        "path": "E:\\Agentic-RAG-phase0-candidate\\.rag_knowledge_base\\document_indexes\\cn.gb55033\\2022\\versions\\929adb6747a6f1696f6c00df2f8e501b106e55a0478bf084cfb5a36b72f619b9\\index.faiss",
+        "sha256": "22c7b06183484aaf6e958e73bcee06865de8245cb6c9ab9b7b31ea9209662e7a"
+      },
+      {
+        "path": "E:\\Agentic-RAG-phase0-candidate\\.rag_knowledge_base\\document_indexes\\cn.gb55033\\2022\\versions\\929adb6747a6f1696f6c00df2f8e501b106e55a0478bf084cfb5a36b72f619b9\\metadata.json",
+        "sha256": "2fe66d0faf5d9bfcd7dee94748a7550762aefa3277f8e568d56603cec793161e"
+      },
+      {
+        "path": "E:\\Agentic-RAG-phase0-candidate\\data\\raw\\GB55033-2022_城市轨道交通工程项目规范.pdf",
+        "sha256": "907ffd92c569f79f163121904cccce69bc20905f9563854960bd184ca76f6fef"
+      }
+    ],
+    "root": "E:\\Agentic-RAG-phase0-candidate\\.rag_knowledge_base",
+    "schema_version": "rag-eval.knowledge-binding.v1",
+    "snapshot_id": "65b3ccfc96a372e54b1c7ecc5ba7f622788d71beafee4206a0298ed10a9fb859"
+  },
+  "notice": "NO-MODEL INTERFACE/SNAPSHOT PROBE, NOT REAL RAG QUALITY ACCEPTANCE",
+  "observation": {
+    "actual_action": "clarify",
+    "actual_scope": {
+      "business_ids": []
+    },
+    "answer_text": "请先选择查询范围：全部三份规范，或指定规范及版本。",
+    "case_id": "OLD-DEV-SCOPE-PROBE",
+    "citations": [],
+    "error": null,
+    "extensions": {
+      "generator_calls": [],
+      "index_snapshot": "65b3ccfc96a372e54b1c7ecc5ba7f622788d71beafee4206a0298ed10a9fb859",
+      "provider_usage": {
+        "attempt_count": 0,
+        "attempts": [],
+        "currency": null,
+        "estimated_cost": null,
+        "expected_attempt_count": 0,
+        "input_tokens": null,
+        "input_tokens_observation_ratio": null,
+        "input_tokens_observed_attempts": 0,
+        "input_tokens_observed_sum": null,
+        "inventory_complete": true,
+        "output_tokens": null,
+        "output_tokens_observation_ratio": null,
+        "output_tokens_observed_attempts": 0,
+        "output_tokens_observed_sum": null,
+        "pricing": null
+      },
+      "raw_events": [
+        {
+          "arguments": {
+            "scope": {
+              "unserializable_type": "QueryScope"
+            }
+          },
+          "completed": false,
+          "exception_type": "QueryScopeClarificationRequired",
+          "method": "for_scope",
+          "output": null
+        }
+      ],
+      "raw_final_evidence": [],
+      "raw_request_metrics": {
+        "app_version": "0.1.0",
+        "error_code": null,
+        "estimated_cost": null,
+        "index_version": "65b3ccfc96a372e54b1c7ecc5ba7f622788d71beafee4206a0298ed10a9fb859",
+        "model_calls": 0,
+        "model_retries": 0,
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "generation": "deepseek-chat",
+          "reranker": "BAAI/bge-reranker-base"
+        },
+        "outcome": "refuse",
+        "request_id": "199182c6d7674a5883b16bf453bc7bb7",
+        "retrieval_retries": 0,
+        "retryable": false,
+        "stage_timings_ms": {},
+        "token_usage": {
+          "input": 0,
+          "output": 0,
+          "total": 0
+        },
+        "total_ms": 0.0
+      },
+      "request_id": "199182c6d7674a5883b16bf453bc7bb7",
+      "trace": [
+        {
+          "message": "请先选择查询范围：全部三份规范，或指定规范及版本。",
+          "step": "clarify_scope"
+        }
+      ],
+      "usage_note": "full totals require all SDK attempts and observed response usage; legacy totals are not inferred"
+    },
+    "final_decision_evidence": [],
+    "generator_context": null,
+    "generator_invoked": false,
+    "initial_candidates": null,
+    "measurements": {
+      "input_tokens": null,
+      "latency_ms": 15.000000596046448,
+      "model_calls": 0,
+      "output_tokens": null
+    },
+    "reranked_results": null,
+    "retrieval_rounds": null,
+    "schema_version": "rag-eval.observation.v1"
+  },
+  "public_defaults": {
+    "embedding_model": "BAAI/bge-small-zh-v1.5",
+    "embedding_revision": null,
+    "evidence_top_n": 3,
+    "generation_model": "deepseek-chat",
+    "index_auto_build": true,
+    "index_lock_timeout_seconds": 30.0,
+    "input_cost_per_million": null,
+    "max_model_calls": 6,
+    "max_network_retries": 1,
+    "output_cost_per_million": null,
+    "request_timeout_seconds": 30.0,
+    "reranker_model": "BAAI/bge-reranker-base",
+    "retrieval_top_k": 10,
+    "total_timeout_seconds": 90.0
+  },
+  "rag_source": {
+    "branch": "codex/phase1-multi-spec-precision",
+    "directories": [
+      "src"
+    ],
+    "explicit_files": [],
+    "git_commit": "5c9eb711bd3ce738550658412aa06141b5f513ee",
+    "git_dirty": true,
+    "git_status": "?? eval/reports/phase1_closeout_phase0_20_20261109.json\n?? eval/reports/phase1_closeout_phase0_20_20261109.md\n?? eval/reports/phase1_closeout_phase0_20_20261109.review.json\n?? eval/reports/phase1_closeout_phase0_20_51fce0e_20261109.json\n?? eval/reports/phase1_closeout_phase0_20_51fce0e_20261109.md\n?? eval/reports/phase1_closeout_phase0_20_51fce0e_20261109.review.json\n?? eval/reports/phase1_closeout_phase0_20_a4231f3_20261109.json\n?? eval/reports/phase1_closeout_phase0_20_a4231f3_20261109.md\n?? eval/reports/phase1_closeout_phase0_20_a4231f3_20261109.review.json\n?? eval/reports/phase1_closeout_phase0_20_da96a8c_20261109.json\n?? eval/reports/phase1_closeout_phase0_20_da96a8c_20261109.md\n?? eval/reports/phase1_closeout_phase0_20_da96a8c_20261109.review.json\n?? eval/reports/phase1_closeout_phase0_20_final_20261109.json\n?? eval/reports/phase1_closeout_phase0_20_final_20261109.md\n?? eval/reports/phase1_closeout_phase0_20_final_20261109.review.json\n?? eval/reports/phase1_closeout_phase0_20_r2_20261109.json\n?? eval/reports/phase1_closeout_phase0_20_r2_20261109.md\n?? eval/reports/phase1_closeout_phase0_20_r2_20261109.review.json\n?? eval/reports/phase1_closeout_phase0_20_r3_20261109.json\n?? eval/reports/phase1_closeout_phase0_20_r3_20261109.md\n?? eval/reports/phase1_closeout_phase0_20_r3_20261109.review.json\n?? eval/reports/phase1_closeout_seen_27_20261109.json\n?? eval/reports/phase1_closeout_seen_27_final_20261109.json\n?? eval/reports/phase1_closeout_seen_27_r2_20261109.json\n?? eval/reports/phase1_closeout_seen_30_20261109.json\n?? eval/reports/phase1_closeout_seen_30_final_20261109.json\n?? eval/reports/phase1_closeout_seen_30_r2_20261109.json\n?? tmp/",
+    "root": "E:\\Agentic-RAG-phase0-candidate",
+    "source_hashes": {
+      "pyproject.toml": "0b0278aea632b8e707c90fb79404812b632c00945ed354035945bfe9b40f3066",
+      "src/agent_workflow.py": "45650ba1a1655b6428e17b2259fb13ef9782874f898eadcd05ceee351dcfee3f",
+      "src/application.py": "0e189b332d3e84e99ad0fe0641a8c9e565de8f76fbe6178551c7215c86816ed6",
+      "src/bm25_retriever.py": "b47367aeab5a6a1ae9720ec6f61b0d32fe44a1e28875c77e0e551d77cb3ad3a2",
+      "src/chat_memory.py": "62189ca439520d9342db6def6a3cba1b311132213817e70a80ea44b2a8720aa1",
+      "src/config.py": "52dd49eb9cdcdcb35e05b230624d1b46cdcbf66e1bdfb7b241f14cc07b2679a0",
+      "src/document_schema.py": "3254d11e5a20addbeaaf100dbe7c95e3bd5733ab1ed698ce61393ae1cb57a566",
+      "src/embedder.py": "58c4fba75bbf138862dcadf6178aa3f7d819e680da4b830f5082e8d027d7cefc",
+      "src/evidence.py": "653a999e60a0f8ce1a4698f2696a2361b6afb0094661f638d6e8284f28d605bf",
+      "src/evidence_retention.py": "51e96cea27b6622e07755faba87de341f34a61da20a2a3770c78173e7e483324",
+      "src/evidence_sufficiency.py": "0f81da675965347fa7c44a65c4eec030d3179bd1af511274292f410888c108d6",
+      "src/generator.py": "2a0966b9466ecd19837d80c1878ef8af0698edfaec110f065afd8dba40bf2d42",
+      "src/health_cli.py": "891e550d40dcf167b06d382836c118a9ce9cacfdc84129400a7cb7fafd08183f",
+      "src/hybrid_retriever.py": "c6084b412b120b85b2f7ae7f31a672ff5fa765de6daa5951226fa172170d2b50",
+      "src/index_cli.py": "9e351c805c2b87c17fb454a1abdd277447f8163998dab35571a7d0f932345785",
+      "src/index_manager.py": "40f94ed84754e213e7119ffe054dd53c0170e618a9c3ed6483fe24e213344c53",
+      "src/knowledge_base.py": "3ec59bbfc90bc629ea617044dedbd950fc29e883c89173eac8c6b75cce71a6d6",
+      "src/knowledge_base_cli.py": "08e0074aad4a481681fe74c48f63edaed3cd3fc293f7d14b23ea2d24fceb556b",
+      "src/loader.py": "4915c12794872be9c55eb922e3e30f03ca35f99272e07efc344b1dc694780cd7",
+      "src/model_cli.py": "42d07677fb6dd24d75a3c81e5d89f6d4e98a371d58fc98666f45a40c6f20a3cf",
+      "src/observability.py": "55f0b629d1f3616c04b27170ee766b0b73163bbbe0b550077c67708ba2a935c1",
+      "src/ocr_artifacts.py": "e587b0488ad70b442dd8bad97b3e0c7bb4aa9eefa23ebf04c6871b938b206397",
+      "src/ocr_cli.py": "e031032400276ab95880d543f2df9bbcc7fc024d83f3940893414ea70b81843f",
+      "src/ocr_table_derivation.py": "6c0e8ff97905b18a1da8e51b5581e9d395d315e114ea31d0075daf8eea5a267b",
+      "src/presentation.py": "78194185ca921a406435d098637a98e3473e00d5979d39875025b7bc838bfbf6",
+      "src/query_decomposition.py": "eeb0dbc68d301005e1a5e2edf264c4672742604e65c3d801bf133fe180281826",
+      "src/query_rewriter.py": "9729fb0ae9483c59de809c3b4fb2fc20d185f215dfbf63ae196a8f54457cfea1",
+      "src/query_scope.py": "e80b6cf11631ed038262ee08f310b6c1a372f118dd3c32568073697e649bad1a",
+      "src/rag_service.py": "11f59483f2cd1170f1ae80645de99643af9434c03806ee40eb3d5482d684dfe5",
+      "src/reliability.py": "fac340f7bfd4ad5335ed7f24bf2142331a7e66b108da93a6aa82a71bf70355bc",
+      "src/reranker.py": "ed1a3c34f135f76e4837d0ced026d2b0d17686f40569e145aec1daf3f32b3ef1",
+      "src/results.py": "19416b5b908ce53a388d590489c7a34647372c62374c4e9402095ef63f1acfbe",
+      "src/retrieval_fusion.py": "0b808f45c228c7de0c1e2900c9db02dfc69e0775f8643521c5c2a119505a9c5f",
+      "src/retriever.py": "018f5d106de4e7efd76c0f4c6dc830e7841ec35a7401b63be951d52f55f17508",
+      "src/snapshot_retriever.py": "0bd6842c5b9fa4b116343e1d37ecebf3c4bf00d2c6c4f6bf299cab987ab4cc8e",
+      "src/spec_catalog.py": "1db0fd3b90d211469e9d4b05f95e293dfcc12f3f7b75aa8f045b0ba7825812bb",
+      "src/splitter.py": "754a4200f43bec29ddf3d7cc247f5594971a7d366ae9b1736ca699ef64347874",
+      "src/vector_store.py": "6fa8b4d6cbbdd266b46c668cf3b308305e9642467197f8ab0bcd756fb0dd2efc",
+      "src/web_launcher.py": "97216e320ff16cadcad1413879a620ee49acf855965ff8911ef063874cf96025",
+      "uv.lock": "9a754f29cd24fa85de1db0c1398df9b21d9b5c32cd1e6be49678fd8e83f677e2"
+    },
+    "source_tree_sha256": "0cee5a119b19d9102fa4ce04c563e27f4098022145c5a30f87dcd2493e4a5272"
+  },
+  "real_snapshot_loaded": true,
+  "source_lock_sha256": "9a754f29cd24fa85de1db0c1398df9b21d9b5c32cd1e6be49678fd8e83f677e2"
+}

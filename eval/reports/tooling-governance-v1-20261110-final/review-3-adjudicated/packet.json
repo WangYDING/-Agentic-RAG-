@@ -1,0 +1,20 @@
+{
+  "actor": {
+    "at": "2026-11-10T03:59:14.602191+00:00",
+    "identity": "SYNTHETIC-HUMAN-ROLE-NOT-A-REAL-REVIEWER",
+    "type": "human"
+  },
+  "adjudications": [
+    {
+      "decision": "uphold",
+      "dispute_id": "SYN-DISPUTE-1",
+      "reason": "SYNTHETIC human-role adjudication only, not actual approval",
+      "review_sha256": "9940ee0b9227fec79f1f346bc6518e510aa240966c7092d64cbcff4c755027b6"
+    }
+  ],
+  "base_bundle_sha256": "ae3dd95be2991f24f6e0843299543ae3108627b311e705c29075ce36599d465e",
+  "changes": [],
+  "disputes": [],
+  "parent_state_sha256": "e8e982e967537a11e0359b3df1b8a9a9da14b2afc585024ac83ff53df026d20e",
+  "schema_version": "rag-eval.review-change.v1"
+}

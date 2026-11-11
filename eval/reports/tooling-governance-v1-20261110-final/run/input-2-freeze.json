@@ -1,0 +1,49 @@
+{
+  "approved_by": {
+    "at": "2026-11-10T03:57:11.623916+00:00",
+    "identity": "SYNTHETIC-AI-ROLE-NOT-A-REAL-REVIEWER",
+    "type": "ai"
+  },
+  "attempt_registry": "E:\\-Agentic-RAG--main\\evaluation-worktree\\eval\\reports\\tooling-governance-v1-20261110-final\\attempts",
+  "bindings": {
+    "configuration": {
+      "path": "E:\\-Agentic-RAG--main\\evaluation-worktree\\eval\\reports\\tooling-governance-v1-20261110-final\\configuration.json",
+      "sha256": "b4d9dd101d073b47e8f70df99bd11afcb44080c8a5d07b3305358141e1cf107f"
+    },
+    "dataset": {
+      "path": "E:\\-Agentic-RAG--main\\evaluation-worktree\\eval\\reports\\tooling-governance-v1-20261110-final\\old-dev-cases.json",
+      "sha256": "76cac7d0ab21047bd608d50ed2d92d2cf37c8eb1695551e9e3d7d7923a0cbf51"
+    },
+    "dataset_descriptor": {
+      "path": "E:\\-Agentic-RAG--main\\evaluation-worktree\\eval\\reports\\tooling-governance-v1-20261110-final\\dataset_descriptor.json",
+      "sha256": "287720216d31d39e598555662259ca8cee7be23d12f965cc5775508ead5a5402"
+    },
+    "environment": {
+      "path": "E:\\-Agentic-RAG--main\\evaluation-worktree\\eval\\reports\\tooling-governance-v1-20261110-final\\environment.json",
+      "sha256": "a9a6c366fafee26513597849aeccba5d91e492a652ff07e7142b1d20889cec36"
+    },
+    "evaluation_source": {
+      "path": "E:\\-Agentic-RAG--main\\evaluation-worktree\\eval\\reports\\tooling-governance-v1-20261110-final\\evaluation_source.json",
+      "sha256": "9fb4a16152719c7fc692f012b856f907634616bf9306cdd3e1a10aeed2d0a9d6"
+    },
+    "knowledge_base": {
+      "path": "E:\\-Agentic-RAG--main\\evaluation-worktree\\eval\\reports\\tooling-governance-v1-20261110-final\\knowledge_base.json",
+      "sha256": "d0a35b9ad463cb28c98e843b6d816e568d5c90c4ede18923e800ca5b4adf3636"
+    },
+    "rag_source": {
+      "path": "E:\\-Agentic-RAG--main\\evaluation-worktree\\eval\\reports\\tooling-governance-v1-20261110-final\\rag_source.json",
+      "sha256": "3910d76f18fe2fd1cc53aa86aa0843281061f1bebf6cacf301393ed09c5bccf7"
+    },
+    "rules": {
+      "path": "E:\\-Agentic-RAG--main\\evaluation-worktree\\docs\\EVALUATION_METRICS_CONTRACT_V1.md",
+      "sha256": "7c4e6f08f38a70ecbad340b239318a117063b588b617a2ea77c6119862f98c2b"
+    },
+    "thresholds": {
+      "path": "E:\\-Agentic-RAG--main\\evaluation-worktree\\eval\\reports\\tooling-governance-v1-20261110-final\\thresholds.json",
+      "sha256": "bc2445ec1f34d4aa279d3568ad8e1fdab7d5ef9d092080cbf343558bf82914f1"
+    }
+  },
+  "frozen_at": "2026-11-10T03:57:11.623916+00:00",
+  "purpose": "rehearsal",
+  "schema_version": "rag-eval.freeze.v1"
+}

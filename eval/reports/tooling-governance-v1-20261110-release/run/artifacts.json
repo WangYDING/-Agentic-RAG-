@@ -1,0 +1,24 @@
+{
+  "files": {
+    "bundle.json": "fc901e554aa1eddead36643c821c64cea5bb33532f996bbc34ef5da6f4b92b69",
+    "cases.json": "76cac7d0ab21047bd608d50ed2d92d2cf37c8eb1695551e9e3d7d7923a0cbf51",
+    "input-0-old-dev-cases.json": "76cac7d0ab21047bd608d50ed2d92d2cf37c8eb1695551e9e3d7d7923a0cbf51",
+    "input-1-EVALUATION_METRICS_CONTRACT_V1.md": "7c4e6f08f38a70ecbad340b239318a117063b588b617a2ea77c6119862f98c2b",
+    "input-2-freeze.json": "ee3a0e1077de68bb14f7d94ebfd769dc374da71cb5318ef6037fd57017001a95",
+    "input-3-configuration.json": "b4d9dd101d073b47e8f70df99bd11afcb44080c8a5d07b3305358141e1cf107f",
+    "input-4-dataset_descriptor.json": "d5f40cbf6c41f0a3855e24f69580672452c015e8409ecb86931ef39dda795910",
+    "input-5-environment.json": "a9a6c366fafee26513597849aeccba5d91e492a652ff07e7142b1d20889cec36",
+    "input-6-evaluation_source.json": "a5964b9a116c8823c28930e8d68eefd823267bfdebdd341768c9a5ddd7b48a46",
+    "input-7-knowledge_base.json": "109b13685d4ef0d3c11c5aa0651b2cfd38ef910f394a7a8f4806f6a5dac66076",
+    "input-8-rag_source.json": "4439c0546126536a3c1c713a81f8bd0a958e929604bc9cf1dc2cef842921bb23",
+    "input-9-thresholds.json": "ff71b27ef2f28e8c411ec640fb813be36eee06c7fdda11a51a3d35aca38942df",
+    "observations.json": "59cc6c66dbe523986ce7210b376134d63c183f63ada9b11833cff73099daec33",
+    "rag-inputs.json": "18277a06dbf00fabefe13402f5742ce0255a075c9178d1b98aadf7af7503750d",
+    "report.json": "9bc5160d99ef21da2b7dc97f38869d967dc2a6adce84867ceb7f5a1e77da6939",
+    "report.md": "3896980078f996a144d1762349e5acac87dfaf3d97de08d59017ae344312abd4",
+    "reviews.json": "24eaec51767b1f7759236014ec734d2c4c4f7683892cb430a66097a62eebb2d0",
+    "run.json": "cd0f9a8d70a6447e7b6b502f6700877eef0b21abb37911c5edeb297784f52bf1"
+  },
+  "hash_mode": "sha256-raw-bytes",
+  "schema_version": "rag-eval.artifacts.v1"
+}

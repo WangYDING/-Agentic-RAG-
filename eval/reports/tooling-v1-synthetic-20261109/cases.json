@@ -1,0 +1,281 @@
+[
+  {
+    "case_id": "SYN-ANSWER",
+    "dataset_role": "synthetic",
+    "evidence_groups": [
+      {
+        "alternatives": [
+          {
+            "all_of": [
+              {
+                "article": "1.1",
+                "document_id": "SYN-SPEC",
+                "document_version": "v1",
+                "evidence_id": "EV-1",
+                "page": 1
+              }
+            ],
+            "scheme_id": "A"
+          }
+        ],
+        "fact_id": "F1"
+      }
+    ],
+    "expected_action": "answer",
+    "necessary_facts": [
+      {
+        "description": "设备间距为2米",
+        "fact_id": "F1",
+        "numeric": {
+          "conditions": [],
+          "unit": "m",
+          "value": "2"
+        }
+      }
+    ],
+    "query_scope": {
+      "edition_ids": [
+        "v1"
+      ],
+      "spec_ids": [
+        "SYN-SPEC"
+      ]
+    },
+    "question": "合成规范中设备间距是多少？",
+    "reference_answer": "间距为2米。",
+    "schema_version": "rag-eval.test-case.v1"
+  },
+  {
+    "case_id": "SYN-REFUSE",
+    "dataset_role": "synthetic",
+    "evidence_groups": [],
+    "expected_action": "refuse",
+    "necessary_facts": [],
+    "query_scope": {
+      "edition_ids": [
+        "v1"
+      ],
+      "spec_ids": [
+        "SYN-SPEC"
+      ]
+    },
+    "question": "请给出不在指定范围内的价格。",
+    "reference_answer": null,
+    "schema_version": "rag-eval.test-case.v1"
+  },
+  {
+    "case_id": "SYN-CLARIFY",
+    "dataset_role": "synthetic",
+    "evidence_groups": [],
+    "expected_action": "clarify",
+    "necessary_facts": [],
+    "query_scope": {},
+    "question": "这个限值是多少？",
+    "reference_answer": null,
+    "schema_version": "rag-eval.test-case.v1"
+  },
+  {
+    "case_id": "SYN-ERROR",
+    "dataset_role": "synthetic",
+    "evidence_groups": [
+      {
+        "alternatives": [
+          {
+            "all_of": [
+              {
+                "document_id": "SYN-SPEC",
+                "document_version": "v1",
+                "evidence_id": "EV-ERR",
+                "locator": "error-fixture",
+                "page": 2
+              }
+            ],
+            "scheme_id": "A"
+          }
+        ],
+        "fact_id": "F1"
+      }
+    ],
+    "expected_action": "answer",
+    "necessary_facts": [
+      {
+        "description": "错误路径仍保留gold",
+        "fact_id": "F1"
+      }
+    ],
+    "query_scope": {
+      "edition_ids": [
+        "v1"
+      ],
+      "spec_ids": [
+        "SYN-SPEC"
+      ]
+    },
+    "question": "用于模拟服务错误的问题。",
+    "reference_answer": "仅用于错误路径。",
+    "schema_version": "rag-eval.test-case.v1"
+  },
+  {
+    "case_id": "SYN-EQUIVALENT",
+    "dataset_role": "synthetic",
+    "evidence_groups": [
+      {
+        "alternatives": [
+          {
+            "all_of": [
+              {
+                "article": "3.1",
+                "document_id": "SYN-SPEC",
+                "document_version": "v1",
+                "evidence_id": "EV-A",
+                "page": 3
+              }
+            ],
+            "scheme_id": "A"
+          },
+          {
+            "all_of": [
+              {
+                "article": "4.1",
+                "document_id": "SYN-SPEC",
+                "document_version": "v1",
+                "evidence_id": "EV-B1",
+                "page": 4
+              },
+              {
+                "document_id": "SYN-SPEC",
+                "document_version": "v1",
+                "evidence_id": "EV-B2",
+                "page": 5,
+                "table": "T-1"
+              }
+            ],
+            "scheme_id": "B"
+          }
+        ],
+        "fact_id": "F1"
+      }
+    ],
+    "expected_action": "answer",
+    "necessary_facts": [
+      {
+        "description": "存在两套预先固定的等价证据方案",
+        "fact_id": "F1"
+      }
+    ],
+    "query_scope": {
+      "edition_ids": [
+        "v1"
+      ],
+      "spec_ids": [
+        "SYN-SPEC"
+      ]
+    },
+    "question": "合成条款允许哪一种等价证据？",
+    "reference_answer": "A，或B1与B2组合，均可支持该事实。",
+    "schema_version": "rag-eval.test-case.v1"
+  },
+  {
+    "case_id": "SYN-COMPOSITE",
+    "dataset_role": "synthetic",
+    "evidence_groups": [
+      {
+        "alternatives": [
+          {
+            "all_of": [
+              {
+                "article": "6.1",
+                "document_id": "SYN-SPEC",
+                "document_version": "v1",
+                "evidence_id": "EV-LOW",
+                "page": 6
+              }
+            ],
+            "scheme_id": "LOW-A"
+          }
+        ],
+        "fact_id": "LOW"
+      },
+      {
+        "alternatives": [
+          {
+            "all_of": [
+              {
+                "article": "7.1",
+                "document_id": "SYN-SPEC",
+                "document_version": "v1",
+                "evidence_id": "EV-HIGH",
+                "page": 7
+              }
+            ],
+            "scheme_id": "HIGH-A"
+          }
+        ],
+        "fact_id": "HIGH"
+      }
+    ],
+    "expected_action": "answer",
+    "necessary_facts": [
+      {
+        "description": "下限为10",
+        "fact_id": "LOW"
+      },
+      {
+        "description": "上限为20",
+        "fact_id": "HIGH"
+      }
+    ],
+    "query_scope": {
+      "edition_ids": [
+        "v1"
+      ],
+      "spec_ids": [
+        "SYN-SPEC"
+      ]
+    },
+    "question": "合成条件的上下限分别是什么？",
+    "reference_answer": "下限10，上限20。",
+    "schema_version": "rag-eval.test-case.v1"
+  },
+  {
+    "case_id": "SYN-MISSING-OBS",
+    "dataset_role": "synthetic",
+    "evidence_groups": [
+      {
+        "alternatives": [
+          {
+            "all_of": [
+              {
+                "document_id": "SYN-SPEC",
+                "document_version": "v1",
+                "evidence_id": "EV-M",
+                "locator": "missing-observation",
+                "page": 8
+              }
+            ],
+            "scheme_id": "A"
+          }
+        ],
+        "fact_id": "F1"
+      }
+    ],
+    "expected_action": "answer",
+    "necessary_facts": [
+      {
+        "description": "缺测必须保持null",
+        "fact_id": "F1"
+      }
+    ],
+    "query_scope": {
+      "edition_ids": [
+        "v1"
+      ],
+      "spec_ids": [
+        "SYN-SPEC"
+      ]
+    },
+    "question": "用于模拟缺失可观测字段的问题。",
+    "reference_answer": "答案存在，但部分阶段与用量不可观测。",
+    "schema_version": "rag-eval.test-case.v1"
+  }
+]

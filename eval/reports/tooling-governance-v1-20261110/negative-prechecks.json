@@ -1,0 +1,74 @@
+{
+  "already_attempted": {
+    "checked_bindings": [
+      "configuration",
+      "dataset",
+      "dataset_descriptor",
+      "environment",
+      "evaluation_source",
+      "knowledge_base",
+      "rag_source",
+      "rules",
+      "thresholds"
+    ],
+    "eligible": false,
+    "freeze_sha256": "357705d52efd59810630751db4932e751b1c1e35b0396a82108329f30c3868a7",
+    "purpose": "rehearsal",
+    "reasons": [
+      {
+        "code": "ATTEMPT_ALREADY_EXISTS",
+        "detail": "single-attempt policy forbids another execution"
+      }
+    ]
+  },
+  "missing_rules": {
+    "checked_bindings": [
+      "configuration",
+      "dataset",
+      "dataset_descriptor",
+      "environment",
+      "evaluation_source",
+      "knowledge_base",
+      "rag_source",
+      "thresholds"
+    ],
+    "eligible": false,
+    "freeze_sha256": "05d10ee4fa9a9064494e13dd5ef3bf403ca146a8322427cb97d62fab0dd12a0d",
+    "purpose": "rehearsal",
+    "reasons": [
+      {
+        "code": "ATTEMPT_ALREADY_EXISTS",
+        "detail": "single-attempt policy forbids another execution"
+      },
+      {
+        "code": "MISSING_BINDING",
+        "detail": "rules"
+      }
+    ]
+  },
+  "wrong_hash": {
+    "checked_bindings": [
+      "configuration",
+      "dataset",
+      "dataset_descriptor",
+      "environment",
+      "evaluation_source",
+      "knowledge_base",
+      "rag_source",
+      "thresholds"
+    ],
+    "eligible": false,
+    "freeze_sha256": "562a13aba06418bf1d4f2b10afcf40fdc66599e2299b3383bed8d95ab3afe755",
+    "purpose": "rehearsal",
+    "reasons": [
+      {
+        "code": "ATTEMPT_ALREADY_EXISTS",
+        "detail": "single-attempt policy forbids another execution"
+      },
+      {
+        "code": "BINDING_INVALID",
+        "detail": "rules: binding hash changed: E:\\-Agentic-RAG--main\\evaluation-worktree\\docs\\EVALUATION_METRICS_CONTRACT_V1.md"
+      }
+    ]
+  }
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "adjudication": null,
+    "answer_review": {
+      "citations_support_claims": null,
+      "claims_exhaustive": null,
+      "no_contradictions": null,
+      "no_material_outside_conclusions": null
+    },
+    "behavior_review": {
+      "appropriate": null,
+      "reason": "unreviewed"
+    },
+    "case_id": "SEM-001",
+    "claim_reviews": [],
+    "fact_reviews": [
+      {
+        "answer_covered": null,
+        "context_supported": null,
+        "correct": null,
+        "evidence_ids": [],
+        "fact_id": "F1",
+        "final_evidence_supported": null,
+        "numeric_conditions_correct": null,
+        "reason": "unreviewed"
+      }
+    ],
+    "human_approved": null,
+    "reviewer": {
+      "identity": "unassigned",
+      "reviewed_at": null,
+      "reviewer_type": "human",
+      "rubric_version": "metrics-v1"
+    },
+    "schema_version": "rag-eval.review.v1"
+  },
+  {
+    "adjudication": null,
+    "answer_review": {
+      "citations_support_claims": null,
+      "claims_exhaustive": null,
+      "no_contradictions": null,
+      "no_material_outside_conclusions": null
+    },
+    "behavior_review": {
+      "appropriate": null,
+      "reason": "unreviewed"
+    },
+    "case_id": "SEM-002",
+    "claim_reviews": [],
+    "fact_reviews": [
+      {
+        "answer_covered": null,
+        "context_supported": null,
+        "correct": null,
+        "evidence_ids": [],
+        "fact_id": "F1",
+        "final_evidence_supported": null,
+        "numeric_conditions_correct": null,
+        "reason": "unreviewed"
+      }
+    ],
+    "human_approved": null,
+    "reviewer": {
+      "identity": "unassigned",
+      "reviewed_at": null,
+      "reviewer_type": "human",
+      "rubric_version": "metrics-v1"
+    },
+    "schema_version": "rag-eval.review.v1"
+  }
+]

@@ -1,0 +1,38 @@
+{
+  "allow_unavailable_model_revision": true,
+  "declared_at": "2026-11-10T03:57:10.186850+00:00",
+  "hard_failures": [
+    "invalid_citation",
+    "numeric_conditions_wrong",
+    "material_outside_conclusions",
+    "scope_violation"
+  ],
+  "on_missing_observation": "inconclusive",
+  "on_service_error": "fail",
+  "on_unreviewed": "inconclusive",
+  "policy_id": "synthetic-rehearsal-only",
+  "require_human_approval": true,
+  "required_observations": [
+    {
+      "applies_to": "all",
+      "path": "measurements.latency_ms"
+    },
+    {
+      "applies_to": "generator",
+      "path": "generator_context"
+    }
+  ],
+  "rerun_policy": {
+    "allowed": false,
+    "merge": "none",
+    "retain_all_attempts": true
+  },
+  "schema_version": "rag-eval.policy.v1",
+  "thresholds": [
+    {
+      "metric": "task_success",
+      "op": ">=",
+      "value": 1
+    }
+  ]
+}
