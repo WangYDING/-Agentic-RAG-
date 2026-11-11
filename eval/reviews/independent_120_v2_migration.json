@@ -1,0 +1,824 @@
+{
+  "protocol": "rag-eval.test-case.v2",
+  "public_input": "rag-eval.rag-input.v1",
+  "source_sha256": "2b3059cf5ae631f99e3cff5d533b848d1c80c60c47284e1e35525b18d45f2378",
+  "output_sha256": "521ce94f3b44395d3e8a85f298630eba9e0efad7d83445224c4d96071f6a425c",
+  "cases": 120,
+  "distribution": {
+    "单规范直接查询": 20,
+    "数值、单位与条件": 20,
+    "表格查询": 15,
+    "单规范多证据组合": 15,
+    "跨规范查询与比较": 20,
+    "应拒答问题": 20,
+    "应澄清问题": 10
+  },
+  "numeric_constraint_mappings": [
+    {
+      "case_id": "I120-C007",
+      "index": 1,
+      "fact_ids": [
+        "F1"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-C007",
+      "index": 2,
+      "fact_ids": [
+        "F2"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-C007",
+      "index": 3,
+      "fact_ids": [
+        "F3"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-C008",
+      "index": 1,
+      "fact_ids": [
+        "F2"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-C009",
+      "index": 1,
+      "fact_ids": [
+        "F1"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-C009",
+      "index": 2,
+      "fact_ids": [
+        "F2"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-C009",
+      "index": 3,
+      "fact_ids": [
+        "F3"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-N001",
+      "index": 1,
+      "fact_ids": [
+        "F1"
+      ],
+      "basis": "manual semantic disambiguation"
+    },
+    {
+      "case_id": "I120-N001",
+      "index": 2,
+      "fact_ids": [
+        "F2"
+      ],
+      "basis": "manual semantic disambiguation"
+    },
+    {
+      "case_id": "I120-N002",
+      "index": 1,
+      "fact_ids": [
+        "F1"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-N003",
+      "index": 1,
+      "fact_ids": [
+        "F1"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-N004",
+      "index": 1,
+      "fact_ids": [
+        "F1"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-N004",
+      "index": 2,
+      "fact_ids": [
+        "F2"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-N005",
+      "index": 1,
+      "fact_ids": [
+        "F1"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-N005",
+      "index": 2,
+      "fact_ids": [
+        "F2"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-N005",
+      "index": 3,
+      "fact_ids": [
+        "F3"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-N006",
+      "index": 1,
+      "fact_ids": [
+        "F1"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-N006",
+      "index": 2,
+      "fact_ids": [
+        "F2"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-N007",
+      "index": 1,
+      "fact_ids": [
+        "F1"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-N007",
+      "index": 2,
+      "fact_ids": [
+        "F2"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-N008",
+      "index": 1,
+      "fact_ids": [
+        "F1"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-N009",
+      "index": 1,
+      "fact_ids": [
+        "F1"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-N009",
+      "index": 2,
+      "fact_ids": [
+        "F2"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-N010",
+      "index": 1,
+      "fact_ids": [
+        "F1"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-N010",
+      "index": 2,
+      "fact_ids": [
+        "F2"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-N010",
+      "index": 3,
+      "fact_ids": [
+        "F3"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-N011",
+      "index": 1,
+      "fact_ids": [
+        "F1"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-N011",
+      "index": 2,
+      "fact_ids": [
+        "F2"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-N012",
+      "index": 1,
+      "fact_ids": [
+        "F1"
+      ],
+      "basis": "manual semantic disambiguation"
+    },
+    {
+      "case_id": "I120-N013",
+      "index": 1,
+      "fact_ids": [
+        "F1"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-N013",
+      "index": 2,
+      "fact_ids": [
+        "F2"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-N014",
+      "index": 1,
+      "fact_ids": [
+        "F1"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-N014",
+      "index": 2,
+      "fact_ids": [
+        "F2"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-N015",
+      "index": 1,
+      "fact_ids": [
+        "F1"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-N015",
+      "index": 2,
+      "fact_ids": [
+        "F2"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-N015",
+      "index": 3,
+      "fact_ids": [
+        "F3"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-N016",
+      "index": 1,
+      "fact_ids": [
+        "F1"
+      ],
+      "basis": "manual semantic disambiguation"
+    },
+    {
+      "case_id": "I120-N017",
+      "index": 1,
+      "fact_ids": [
+        "F1"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-N017",
+      "index": 2,
+      "fact_ids": [
+        "F2"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-N017",
+      "index": 3,
+      "fact_ids": [
+        "F3"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-T001",
+      "index": 1,
+      "fact_ids": [
+        "F1"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-T001",
+      "index": 2,
+      "fact_ids": [
+        "F2"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-T002",
+      "index": 1,
+      "fact_ids": [
+        "F1"
+      ],
+      "basis": "manual semantic disambiguation"
+    },
+    {
+      "case_id": "I120-T002",
+      "index": 2,
+      "fact_ids": [
+        "F2"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-T002",
+      "index": 3,
+      "fact_ids": [
+        "F3"
+      ],
+      "basis": "manual semantic disambiguation"
+    },
+    {
+      "case_id": "I120-T003",
+      "index": 1,
+      "fact_ids": [
+        "F1"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-T003",
+      "index": 2,
+      "fact_ids": [
+        "F2"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-T004",
+      "index": 1,
+      "fact_ids": [
+        "F1"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-T004",
+      "index": 2,
+      "fact_ids": [
+        "F2"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-T005",
+      "index": 1,
+      "fact_ids": [
+        "F1"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-T005",
+      "index": 2,
+      "fact_ids": [
+        "F1"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-T005",
+      "index": 3,
+      "fact_ids": [
+        "F2"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-T006",
+      "index": 1,
+      "fact_ids": [
+        "F1"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-T006",
+      "index": 2,
+      "fact_ids": [
+        "F2"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-T007",
+      "index": 1,
+      "fact_ids": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "basis": "manual semantic disambiguation"
+    },
+    {
+      "case_id": "I120-T008",
+      "index": 1,
+      "fact_ids": [
+        "F1"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-T008",
+      "index": 2,
+      "fact_ids": [
+        "F2"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-T009",
+      "index": 1,
+      "fact_ids": [
+        "F1"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-T009",
+      "index": 2,
+      "fact_ids": [
+        "F2"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-T010",
+      "index": 1,
+      "fact_ids": [
+        "F1"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-T010",
+      "index": 2,
+      "fact_ids": [
+        "F2"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-T011",
+      "index": 1,
+      "fact_ids": [
+        "F1"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-T011",
+      "index": 2,
+      "fact_ids": [
+        "F2"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-T012",
+      "index": 1,
+      "fact_ids": [
+        "F1"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-T012",
+      "index": 2,
+      "fact_ids": [
+        "F2"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-T013",
+      "index": 1,
+      "fact_ids": [
+        "F1"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-T013",
+      "index": 2,
+      "fact_ids": [
+        "F2"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-T014",
+      "index": 1,
+      "fact_ids": [
+        "F1"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-T014",
+      "index": 2,
+      "fact_ids": [
+        "F2"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-T014",
+      "index": 3,
+      "fact_ids": [
+        "F3"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-T015",
+      "index": 1,
+      "fact_ids": [
+        "F1"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    },
+    {
+      "case_id": "I120-T015",
+      "index": 2,
+      "fact_ids": [
+        "F2"
+      ],
+      "basis": "unique value in fact description; pending renewed review"
+    }
+  ],
+  "numeric_constraint_count": 72,
+  "issues": [
+    {
+      "case_id": "I120-R007",
+      "code": "SUPPORTED_PREMISE_EVIDENCE_UNSCORED",
+      "count": 1
+    },
+    {
+      "case_id": "I120-R008",
+      "code": "SUPPORTED_PREMISE_EVIDENCE_UNSCORED",
+      "count": 1
+    },
+    {
+      "case_id": "I120-R009",
+      "code": "SUPPORTED_PREMISE_EVIDENCE_UNSCORED",
+      "count": 1
+    },
+    {
+      "case_id": "I120-R010",
+      "code": "SUPPORTED_PREMISE_EVIDENCE_UNSCORED",
+      "count": 1
+    },
+    {
+      "case_id": "I120-R011",
+      "code": "SUPPORTED_PREMISE_EVIDENCE_UNSCORED",
+      "count": 1
+    },
+    {
+      "case_id": "I120-R012",
+      "code": "SUPPORTED_PREMISE_EVIDENCE_UNSCORED",
+      "count": 1
+    },
+    {
+      "case_id": "I120-R013",
+      "code": "SUPPORTED_PREMISE_EVIDENCE_UNSCORED",
+      "count": 1
+    },
+    {
+      "case_id": "I120-R014",
+      "code": "SUPPORTED_PREMISE_EVIDENCE_UNSCORED",
+      "count": 1
+    },
+    {
+      "case_id": "I120-R015",
+      "code": "SUPPORTED_PREMISE_EVIDENCE_UNSCORED",
+      "count": 1
+    },
+    {
+      "case_id": "I120-R016",
+      "code": "SUPPORTED_PREMISE_EVIDENCE_UNSCORED",
+      "count": 1
+    },
+    {
+      "case_id": "I120-R017",
+      "code": "SUPPORTED_PREMISE_EVIDENCE_UNSCORED",
+      "count": 1
+    },
+    {
+      "case_id": "I120-R018",
+      "code": "SUPPORTED_PREMISE_EVIDENCE_UNSCORED",
+      "count": 1
+    },
+    {
+      "case_id": "I120-R019",
+      "code": "SUPPORTED_PREMISE_EVIDENCE_UNSCORED",
+      "count": 1
+    },
+    {
+      "case_id": "I120-R020",
+      "code": "SUPPORTED_PREMISE_EVIDENCE_UNSCORED",
+      "count": 1
+    },
+    {
+      "case_id": "I120-Q011",
+      "code": "BRANCH_PAGES_NOT_EVIDENCE_REFS",
+      "pages": [
+        216
+      ]
+    },
+    {
+      "case_id": "I120-Q012",
+      "code": "BRANCH_PAGES_NOT_EVIDENCE_REFS",
+      "pages": [
+        35
+      ]
+    },
+    {
+      "case_id": "I120-Q013",
+      "code": "BRANCH_PAGES_NOT_EVIDENCE_REFS",
+      "pages": [
+        163
+      ]
+    },
+    {
+      "case_id": "I120-Q014",
+      "code": "BRANCH_PAGES_NOT_EVIDENCE_REFS",
+      "pages": [
+        268
+      ]
+    },
+    {
+      "case_id": "I120-Q015",
+      "code": "BRANCH_PAGES_NOT_EVIDENCE_REFS",
+      "pages": [
+        211
+      ]
+    },
+    {
+      "case_id": "I120-Q016",
+      "code": "BRANCH_PAGES_NOT_EVIDENCE_REFS",
+      "pages": [
+        16
+      ]
+    },
+    {
+      "case_id": "I120-Q017",
+      "code": "BRANCH_PAGES_NOT_EVIDENCE_REFS",
+      "pages": [
+        51
+      ]
+    },
+    {
+      "case_id": "I120-Q018",
+      "code": "BRANCH_PAGES_NOT_EVIDENCE_REFS",
+      "pages": [
+        99,
+        100
+      ]
+    },
+    {
+      "case_id": "I120-Q019",
+      "code": "BRANCH_PAGES_NOT_EVIDENCE_REFS",
+      "pages": [
+        168,
+        169
+      ]
+    }
+  ],
+  "unresolved_case_ids": [
+    "I120-Q011",
+    "I120-Q012",
+    "I120-Q013",
+    "I120-Q014",
+    "I120-Q015",
+    "I120-Q016",
+    "I120-Q017",
+    "I120-Q018",
+    "I120-Q019",
+    "I120-R007",
+    "I120-R008",
+    "I120-R009",
+    "I120-R010",
+    "I120-R011",
+    "I120-R012",
+    "I120-R013",
+    "I120-R014",
+    "I120-R015",
+    "I120-R016",
+    "I120-R017",
+    "I120-R018",
+    "I120-R019",
+    "I120-R020"
+  ],
+  "renewed_human_review_required_case_ids": [
+    "I120-C007",
+    "I120-C008",
+    "I120-C009",
+    "I120-N001",
+    "I120-N002",
+    "I120-N003",
+    "I120-N004",
+    "I120-N005",
+    "I120-N006",
+    "I120-N007",
+    "I120-N008",
+    "I120-N009",
+    "I120-N010",
+    "I120-N011",
+    "I120-N012",
+    "I120-N013",
+    "I120-N014",
+    "I120-N015",
+    "I120-N016",
+    "I120-N017",
+    "I120-Q011",
+    "I120-Q012",
+    "I120-Q013",
+    "I120-Q014",
+    "I120-Q015",
+    "I120-Q016",
+    "I120-Q017",
+    "I120-Q018",
+    "I120-Q019",
+    "I120-R007",
+    "I120-R008",
+    "I120-R009",
+    "I120-R010",
+    "I120-R011",
+    "I120-R012",
+    "I120-R013",
+    "I120-R014",
+    "I120-R015",
+    "I120-R016",
+    "I120-R017",
+    "I120-R018",
+    "I120-R019",
+    "I120-R020",
+    "I120-T001",
+    "I120-T002",
+    "I120-T003",
+    "I120-T004",
+    "I120-T005",
+    "I120-T006",
+    "I120-T007",
+    "I120-T008",
+    "I120-T009",
+    "I120-T010",
+    "I120-T011",
+    "I120-T012",
+    "I120-T013",
+    "I120-T014",
+    "I120-T015"
+  ],
+  "review_history_preserved": true,
+  "schema_valid": true,
+  "public_input_isolated": true,
+  "rag_invoked": false,
+  "independent_run_started": false
+}

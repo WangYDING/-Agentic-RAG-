@@ -1,10 +1,10 @@
-from types import SimpleNamespace
-
-import pytest
+from argparse import Namespace
 
 import agent_demo
-from src.agent_workflow import AgentResponse, AgentState, AgentWorkflow
+from src.agent_workflow import AgentResponse, AgentState
 from src.evidence import CitationValidation, Evidence
+from src.results import ApplicationResult
+from src.query_scope import QueryScopeKind
 
 
 def evidence():
@@ -36,28 +36,16 @@ def response(*, action="answer", missing=None):
             *([{"step": "retry", "missing_requirements": missing}, {"step": "refuse"}] if missing else [{"step": "answer"}, {"step": "citation_validation", "valid": True}]),
         ],
     )
-    return AgentResponse("拒答" if missing else "答案 [E1]", state)
-
-
-def test_demo_builds_existing_agent_workflow(monkeypatch):
-    sentinel = SimpleNamespace(vector_store=SimpleNamespace(chunk_records=[]))
-    monkeypatch.setenv("DEEPSEEK_API_KEY", "key")
-    monkeypatch.setenv("DEEPSEEK_BASE_URL", "https://example.test")
-    monkeypatch.setenv("DEEPSEEK_MODEL", "model")
-    monkeypatch.setattr("src.embedder.Embedder", lambda: object())
-    monkeypatch.setattr("src.index_manager.IndexManager.build_or_load", lambda self, pdf, embedder: sentinel)
-    monkeypatch.setattr("src.retriever.Retriever", lambda store, embedder: object())
-    monkeypatch.setattr("eval.bm25.BM25Retriever", lambda records: object())
-    monkeypatch.setattr("eval.run_agent_test.HybridRetriever", lambda dense, bm25: object())
-    monkeypatch.setattr("src.reranker.Reranker", lambda: object())
-    monkeypatch.setattr("src.evidence_sufficiency.EvidenceSufficiencyGrader", lambda: object())
-    monkeypatch.setattr("src.generator.Generator", lambda: object())
-    monkeypatch.setattr("src.query_rewriter.QueryRewriter", lambda: object())
-
-    workflow = agent_demo.build_agent_workflow()
-
-    assert isinstance(workflow, AgentWorkflow)
-    assert workflow.max_retries == 1
+    message = "拒答" if missing else "答案 [E1]"
+    return AgentResponse(
+        message,
+        state,
+        ApplicationResult(
+            result_type="refuse" if missing else "answer",
+            message=message,
+            missing_requirements=tuple(missing),
+        ),
+    )
 
 
 def test_sufficient_output_contains_answer_evidence_and_trace():
@@ -93,10 +81,46 @@ def test_trace_does_not_expose_reasoning_fields():
     assert "private_reasoning" not in output
 
 
-@pytest.mark.parametrize("missing", agent_demo.REQUIRED_ENV_VARS)
-def test_missing_environment_has_clear_error(missing):
-    environ = {name: "value" for name in agent_demo.REQUIRED_ENV_VARS}
-    environ[missing] = ""
+def test_error_output_is_safe_and_hides_evidence():
+    state = AgentState(
+        original_query="问题",
+        retrieval_query="问题",
+        evidences=[evidence()],
+        final_action="error",
+        trace=[{"step": "error", "error_code": "RATE_LIMITED"}],
+    )
+    result = ApplicationResult(
+        result_type="error",
+        message="模型服务当前限流。",
+        request_id="safe-request-id",
+        error_code="RATE_LIMITED",
+        retryable=True,
+    )
 
-    with pytest.raises(agent_demo.DemoConfigurationError, match=missing):
-        agent_demo.validate_environment(environ)
+    output = agent_demo.render_response(AgentResponse(result.message, state, result))
+
+    assert "### Service Error" in output
+    assert "模型服务当前限流。" in output
+    assert "request_id: safe-request-id" in output
+    assert "error_code: RATE_LIMITED" in output
+    assert "retryable: true" in output
+    assert "### Evidence" not in output
+    assert "规范证据" not in output
+
+
+def test_cli_scope_selection_supports_all_and_exact_versions():
+    all_scope = agent_demo._query_scope_from_args(
+        Namespace(all_specs=True, spec_version=[])
+    )
+    exact = agent_demo._query_scope_from_args(
+        Namespace(
+            all_specs=False,
+            spec_version=["cn.gb55033@2022", "cn.gb50157@2013"],
+        )
+    )
+
+    assert all_scope.kind is QueryScopeKind.ALL
+    assert {item.business_id for item in exact.versions} == {
+        "cn.gb55033@2022",
+        "cn.gb50157@2013",
+    }

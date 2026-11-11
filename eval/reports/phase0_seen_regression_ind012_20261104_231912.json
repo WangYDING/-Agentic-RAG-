@@ -1,0 +1,453 @@
+{
+  "report_schema_version": 2,
+  "provenance": {
+    "schema_version": 1,
+    "captured_at": "2026-11-04T15:19:13.027407+00:00",
+    "git_commit": "17b6d0d0bef632f43f1d78afdb830b4cf55b2cbc",
+    "git_dirty": true,
+    "uv_lock_sha256": "4093b9a78526c47bf7d4b46457c2c7106cb0338ac31a2fac917a93f28b302a4e",
+    "dataset_sha256": "2ad259e9fdf9c2633aa34557c8883461247046b67c164711fb54a4b33a18f785",
+    "pdf_sha256": "e5ca2388ad68ed7b21b6092e66c12a73c74c17de8b532bef91c5b2ea57be78f7",
+    "configuration": {
+      "embedding_model": "BAAI/bge-small-zh-v1.5",
+      "embedding_revision": null,
+      "reranker_model": "BAAI/bge-reranker-base",
+      "generation_model": "deepseek-flash",
+      "retrieval_top_k": 10,
+      "evidence_top_n": 3,
+      "request_timeout_seconds": 30.0,
+      "max_network_retries": 1,
+      "total_timeout_seconds": 90.0,
+      "max_model_calls": 6,
+      "input_cost_per_million": null,
+      "output_cost_per_million": null,
+      "index_auto_build": false,
+      "index_lock_timeout_seconds": 30.0,
+      "api_endpoint_sha256": "ede47230ac9ca7d26f3cfe67de26982cce152929ba545e7ebcbcb7c00211178b"
+    },
+    "configuration_sha256": "25e10b218f11d5c033d2fa58d1c469ad690b7d737b2f9b2e2580d53d5c83b0d1",
+    "index_manifest": {
+      "schema_version": 3,
+      "source": "城市轨道交通工程设计标准.pdf",
+      "document_id": "e32b2a73134e8548ffbd374f14a52b27aaee9c2d7d2e482b802e756fb0c5fca2",
+      "version_id": "a1445f985213104ec683f9cc26146f5aa40f5766384ea527ae64e19bc903f5b9",
+      "checksum_sha256": "e5ca2388ad68ed7b21b6092e66c12a73c74c17de8b532bef91c5b2ea57be78f7",
+      "chunk_size": 300,
+      "overlap": 50,
+      "embedding_model": "BAAI/bge-small-zh-v1.5",
+      "embedding_revision": null,
+      "parser_version": "pymupdf-structured-v2-superscript",
+      "embedding_dim": 512,
+      "chunk_count": 3701,
+      "index_file": "index.faiss",
+      "metadata_file": "metadata.json",
+      "index_sha256": "6e70f528c811828feab5f4ffb17a6e906237525a7542535b9d446d6203f25ee9",
+      "metadata_sha256": "7bdcba78567d26417a096271f095b999b7500ecc8566abe997ea7505e94c8c29"
+    },
+    "prompt_source_sha256": {
+      "src/generator.py": "9502e4f333d6ba3fc66d1ad66edb8e210b82f840ae5deeb7d3ca778f93252b38",
+      "src/evidence_sufficiency.py": "2f353fdf5f333eaa0cf81576f230dc21d40ee2b51cabcc6aaeffebfb108725da",
+      "src/query_rewriter.py": "d9c0ff24cd09d733604a793f699653a46cfd10d8fd9625efec640e3fdd95de16"
+    },
+    "runtime_source_sha256": {
+      "src/agent_workflow.py": "b4ebdbfc677c6de8db606068840bd41f150a138ecb6c7ce47c3c210b4f26b856",
+      "src/application.py": "7601747eac16f4bc73c2c8361e93a362670d149dabf7aee3477a201ea7d26ba0",
+      "src/bm25_retriever.py": "9292b0b700454a98c6c7eff92c4c6b39137fa8269af12c82590cd1ef8495ab82",
+      "src/chat_memory.py": "e7eb6507d2d853c5ecfc7f31583515f201824e796e6b17badc4104c9ba28e490",
+      "src/config.py": "18798879a21a8457d6d29ce60b484b944598617cd3d8fd816b0af5396fc7cd7f",
+      "src/document_schema.py": "32c001b8ca80a01add7ba60d0d6160e50af10aaddb03c2dc02d85a023a5d075c",
+      "src/embedder.py": "155055fbabd7371f6a9b78d61daf20ad818ac4ce4dbd03ca58314a9bb50d2376",
+      "src/evidence.py": "9b2d8a3fd32e4237440380b4a47c87d82f611059ab98332376c12d5b8532bbac",
+      "src/evidence_sufficiency.py": "2f353fdf5f333eaa0cf81576f230dc21d40ee2b51cabcc6aaeffebfb108725da",
+      "src/generator.py": "9502e4f333d6ba3fc66d1ad66edb8e210b82f840ae5deeb7d3ca778f93252b38",
+      "src/health_cli.py": "ad7dd5f8e19a667cb94a9de3ec1482ebebb3057b7b1afd1137358e7f641fde15",
+      "src/hybrid_retriever.py": "faddf7f42e8aa4ec82790a3fcfae927ef2930dd6a123cc4413b8e051d83454d8",
+      "src/index_cli.py": "840aae7f2124c3acb90bd2e88e528370e0adb6c9a5432599e5951e3e148d94fd",
+      "src/index_manager.py": "3c44831f5855630efd001916d0d6e51d8c3f38db6fe77b6fdaef351fa5e91cc8",
+      "src/loader.py": "c9a30f943394643f1a45588a379dcb8c4f2e3ee4f706310af888bc52d22942ed",
+      "src/model_cli.py": "9e7081084a1f207fd3479f07e5292cd29058b88df35ad7b86dbdeb6561f50cd7",
+      "src/observability.py": "41278de595cccfd1d62c7fe092341cf7c2834decd67401d88d22e7c9e5f8f8e1",
+      "src/presentation.py": "cc32314d7e80ee142f3e0cdca42d5c8a76a622d047212a9593bc293d134348ec",
+      "src/query_rewriter.py": "d9c0ff24cd09d733604a793f699653a46cfd10d8fd9625efec640e3fdd95de16",
+      "src/rag_service.py": "0ab79be8821ca04050c17fdd58be1a3578ac6b015899ef95cc27c6fe39826c7f",
+      "src/reliability.py": "ceaeac5642249356c82ebd6e49f0249a26927e859683d5a1155dae8728c7a2f7",
+      "src/reranker.py": "1a43434f779f49fb078115f3b0dddd2d9c6838312d5594aa528c752b23b8ae78",
+      "src/results.py": "dfdac9b35ad394857412f6f25d42dc8ac8e6b18eec1a09b6d8929497b7c6d13f",
+      "src/retrieval_fusion.py": "038d4db65d43e029c3a6c79e013eb65b519eca8ec3ca9e8cba0cac0b0e51e28a",
+      "src/retriever.py": "4f8a420a1e282e94b1571ad53a81b6987c7eedc0f6f970db1370bdbebcdce760",
+      "src/splitter.py": "791c4d27e62f6eec2939e482b5ab2ef077c18df1cf6df9b4afd8f9db8e42c7e0",
+      "src/vector_store.py": "a998526d75d1b3f683a78124cd6b8d3dbc6b9b67279bc0112e50c59068a1c0a9",
+      "src/web_launcher.py": "4895316604e7f70acbe5aab8be31dcd0fbf876c87b05a382288208b654b738c3",
+      "eval/__init__.py": "adf57529570e1ef094cdb288f04b68682b71bb47920a61069cf3aaa60404fd19",
+      "eval/build_sufficiency_dataset.py": "5c01f16c63bf7d541e87155f227bfe42dd3a6167fb4f33284ffbbd776f0bdfe0",
+      "eval/curate_candidates.py": "5da7af6aa84dd7ad9ae20782e4554396137c78943d37de0a5146bc16b3b66b12",
+      "eval/dataset_manifest.py": "96fd489a3746e44a20ec1f3fb7f3a0e12bbd41810d2587a794d90e8c1ed9af74",
+      "eval/finalize_candidate_review.py": "7008018647c888bbccb8c3abcc70939f29b1e2b84d516491fc108cab7f47b241",
+      "eval/metrics.py": "d5e509c06c32ed31d01c859df1dab8604fa1480382e1a3d770bed37b3f3bb0dd",
+      "eval/provenance.py": "719f40e976c39fe1ae2d595428b9ca6e264e5d99e3bdb67b4bb00fdfad84afb3",
+      "eval/report.py": "3b0071bb967d2e21c2ed2e07a05ade582874b4478dd93bb0f739db25476943be",
+      "eval/review.py": "ff50e2c9a5d4b6d9a8ce60bba640235a84834c0ad764881cb2db2ac82127c8ea",
+      "eval/run_agent_test.py": "cc5002e0e28a39c05aadcf9bc6fcb3226de92847c09ac8ddc717a9527357edef",
+      "eval/run_retrieval.py": "b83dcfe19a3f1a65b88b2db6a3225afcccc216d6aa8da78735dc1d24533bbb9c",
+      "eval/run_score_diagnostic.py": "46ddf49d30112bbbffa524a64f2b431647711fe75b94261dbb8282fcb3c6e36d",
+      "eval/run_sufficiency.py": "0d39cf4073f2ed6f51d797c4a0231031f036cb6e8a01588bea7c97363695bd33",
+      "eval/schema.py": "7cb95d69ef3432058b6a0adeebd9f4e93313588434cb5f9d8fa37cb893676e1d"
+    },
+    "prompt_hash_scope": "whole source files; changes outside prompts also invalidate hashes",
+    "model_revisions": {
+      "embedding": null,
+      "reranker": null,
+      "generation": null
+    },
+    "environment": {
+      "python": "3.12.16",
+      "platform": "Windows-10-10.0.19044-SP0",
+      "packages": {
+        "numpy": "2.5.4",
+        "scipy": "1.18.1",
+        "scikit-learn": "1.9.1",
+        "faiss-cpu": "1.15.1",
+        "openai": "1.109.1",
+        "pymupdf": "1.28.2",
+        "sentence-transformers": "5.7.0"
+      }
+    },
+    "release_dependencies": {
+      "real_deployment_latency_baseline": "pending",
+      "real_model_usage_cost_baseline": "pending"
+    },
+    "dataset_manifest": {
+      "schema_version": 1,
+      "dataset_id": "phase0_seen_regression_ind012",
+      "version": "1.0-superscript-fix",
+      "role": "development",
+      "status": "draft",
+      "data_file": "phase0_seen_regression_ind012.jsonl",
+      "sha256": "2ad259e9fdf9c2633aa34557c8883461247046b67c164711fb54a4b33a18f785",
+      "count": 1,
+      "type_distribution": {
+        "numeric_candidate": 1
+      },
+      "source_pdf_sha256": "e5ca2388ad68ed7b21b6092e66c12a73c74c17de8b532bef91c5b2ea57be78f7",
+      "frozen_at": null,
+      "used_for_tuning": true,
+      "acceptance_criteria": null,
+      "notes": "Known phase 0 case derived from frozen IND-012 after its result was inspected. The question is unchanged; the flattened 108Ω annotation was corrected to 10^8Ω after visual PDF verification. This dataset is for seen regression only and must never be reported as independent validation."
+    },
+    "index_version_id": "a1445f985213104ec683f9cc26146f5aa40f5766384ea527ae64e19bc903f5b9",
+    "runtime_workflow": {
+      "retrieval_top_k": 10,
+      "evidence_top_n": 3,
+      "max_model_calls": 6,
+      "total_timeout_seconds": 90.0,
+      "max_retries": 1
+    },
+    "retrieval_constants": {
+      "rrf_k": 60,
+      "bounded_retrieval_retries": 1
+    }
+  },
+  "evidence_top_n": 3,
+  "dataset_path": "eval/datasets/phase0_seen_regression_ind012.jsonl",
+  "pdf_path": "data/raw/城市轨道交通工程设计标准.pdf",
+  "index_dir": ".rag_index",
+  "model": "deepseek-flash",
+  "dataset": {
+    "count": 1,
+    "type_distribution": {
+      "numeric_candidate": 1
+    },
+    "answerable": 1,
+    "unanswerable": 0
+  },
+  "category_counts": {
+    "numeric_candidate": {
+      "count": 1,
+      "answer": 1,
+      "refuse": 0,
+      "error": 0
+    }
+  },
+  "initial_rank_metrics": {
+    "recall@1": 1.0,
+    "hitrate@1": 1.0,
+    "recall@3": 1.0,
+    "hitrate@3": 1.0,
+    "recall@5": 1.0,
+    "hitrate@5": 1.0,
+    "recall@10": 1.0,
+    "hitrate@10": 1.0,
+    "mrr@10": 1.0,
+    "count": 1
+  },
+  "retrieval_evidence": {
+    "initial_hit_rate_at_n": 1.0,
+    "initial_recall_at_n": 1.0,
+    "initial_recall_at_10": 1.0,
+    "final_hit_rate_at_n": 1.0,
+    "final_recall_at_n": 1.0,
+    "multi_evidence_complete_at_n": 0,
+    "multi_evidence_count": 0
+  },
+  "agent_decision": {
+    "first_sufficient": 1,
+    "first_insufficient_retry": 0,
+    "retry_sufficient": 0,
+    "retry_still_insufficient": 0,
+    "final_answer": 1,
+    "final_error": 0,
+    "final_refuse": 0,
+    "correct_unanswerable_refusal": 0,
+    "false_accept": 0,
+    "false_refusal": 0,
+    "false_accept_rate": null,
+    "false_refusal_rate": 0.0
+  },
+  "citation_validation": {
+    "answered": 1,
+    "valid": 1,
+    "invalid_ids": []
+  },
+  "finished_at": "2026-11-04T15:19:39.151244+00:00",
+  "human_review_status": "pending",
+  "release_decision": "blocked_pending_human_review_and_real_deployment_baselines",
+  "cases": [
+    {
+      "id": "IND-012",
+      "measurements": {
+        "wall_time_ms": 7218.000000342727,
+        "stage_timings_ms": {
+          "retrieval": 31.0,
+          "rerank": 1094.0,
+          "grader": 2328.0,
+          "generation": 3765.0
+        },
+        "token_usage": {
+          "input": 1626,
+          "output": 709,
+          "total": 2335
+        },
+        "estimated_cost": null,
+        "model_calls": 2,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [
+            0
+          ],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 1,
+        "metric_eligible": true
+      },
+      "category": "numeric_candidate",
+      "question": "无砟轨道扣件的弹性、刚度、动静比、绝缘和防腐要求是什么？",
+      "expected_answerability": true,
+      "gold_answer": "扣件应符合下列规定：1 无砟轨道应采用弹性扣件；2 无砟道床一般地段的扣件节点垂向静刚度宜为20 kN/mm～40 kN/mm，动静比不应大于1.4；3 单个扣件节点绝缘部件的工作电阻不应小于10⁸ Ω；4 扣件金属件表面应进行防锈防腐蚀处理，防腐层不应影响使用功能。",
+      "required_requirements": [
+        "覆盖要点：无砟轨道应采用弹性扣件",
+        "覆盖要点：无砟道床一般地段的扣件节点垂向静刚度宜为20 kN/mm～40 kN/mm，动静比不应大于1.4",
+        "覆盖要点：单个扣件节点绝缘部件的工作电阻不应小于10⁸ Ω",
+        "覆盖要点：扣件金属件表面应进行防锈防腐蚀处理，防腐层不应影响使用功能"
+      ],
+      "key_answer_points": [
+        "无砟轨道应采用弹性扣件",
+        "无砟道床一般地段的扣件节点垂向静刚度宜为20 kN/mm～40 kN/mm，动静比不应大于1.4",
+        "单个扣件节点绝缘部件的工作电阻不应小于10⁸ Ω",
+        "扣件金属件表面应进行防锈防腐蚀处理，防腐层不应影响使用功能"
+      ],
+      "numeric_expectations": [
+        {
+          "value": "20～40",
+          "unit": "kN/mm",
+          "conditions": [
+            "无砟道床一般地段扣件节点垂向静刚度"
+          ]
+        },
+        {
+          "value": "1.4",
+          "unit": "无量纲",
+          "conditions": [
+            "扣件节点动静比上限"
+          ]
+        },
+        {
+          "value": "10^8",
+          "unit": "Ω",
+          "conditions": [
+            "单个扣件节点绝缘部件工作电阻下限"
+          ]
+        }
+      ],
+      "request_id": "2e0fb6ac49f94569ada26c69f7dd6519",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 51,
+          "article": "8.3.2",
+          "table": null
+        }
+      ],
+      "final_action": "answer",
+      "retry_count": 0,
+      "rewritten_query": null,
+      "final_answer_or_refusal": "无砟轨道应采用弹性扣件，其刚度、动静比、绝缘及防腐应满足相应规定。\n\n1. **弹性与动静比**：无砟轨道应采用弹性扣件；一般地段扣件节点垂向静刚度宜为20 kN/mm～40 kN/mm，动静比不应大于1.4。无砟轨道的弹性主要靠扣件提供（无减振需求地段），动静比是保证轨道弹性的重要指标。[E1][E2]\n\n2. **绝缘要求**：单个扣件节点绝缘部件的工作电阻不应小于10⁸Ω。[E1]\n\n3. **防腐要求**：扣件金属件表面应进行防锈防腐蚀处理，且防腐层不应影响使用功能。[E1]",
+      "first_grade": {
+        "step": "grade",
+        "decision": "sufficient",
+        "missing_requirements": [],
+        "retry_count": 0
+      },
+      "second_grade": null,
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "无砟轨道扣件的弹性、刚度、动静比、绝缘和防腐要求是什么？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "sufficient",
+          "missing_requirements": [],
+          "retry_count": 0
+        },
+        {
+          "step": "answer"
+        },
+        {
+          "step": "citation_validation",
+          "valid": true
+        }
+      ],
+      "initial_candidate_count": 17,
+      "retry_candidate_count": null,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_evidence_refs": [
+        {
+          "text": "8.3.2\n扣件应符合下列规定：\n1\n无砟轨道应采用弹性扣件；\n2\n无砟道床一般地段的扣件节点垂向静刚度宜为20 kN/mm～40kN/mm，动静比不应大于1.4；\n3\n单个扣件节点绝缘部件的工作电阻不应小于10⁸Ω；\n4\n扣件金属件表面应进行防锈防腐蚀处理，防腐层不应影响使用功能；",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 51,
+          "page_end": 51,
+          "article_id": "8.3.2",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 497,
+          "score": 0.8041373491287231,
+          "rrf_score": null,
+          "rerank_score": 0.9992554783821106,
+          "display_ref": "第8.3.2条"
+        },
+        {
+          "text": "8.3.2\n城市轨道交通碎石道床地段扣件一般直接引用铁标弹条I、Ⅱ型扣件的的相关要求，因此不再对\n相关指标进行规定。无砟轨道的弹性主要靠扣件提供（无减振需求的地段），动静比是保证轨道弹性的\n重要指标，因此结合大量的工程实践经验，给出了动静比的取值。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 290,
+          "page_end": 290,
+          "article_id": "8.3.2",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2916,
+          "score": 0.7416248321533203,
+          "rrf_score": null,
+          "rerank_score": 0.9949808716773987,
+          "display_ref": "第8.3.2条"
+        },
+        {
+          "text": "8.4.5\n正线、出入线和试车线的无砟道床刚度大，有砟道床的弹性较好，为改善行车条件、保持有砟道\n床的稳定、减少维修工作量，衔接处应设置轨道弹性过渡段。\n对于库内整体道床与库外碎石道床之间的过渡段，因列车驶入车场库内线时空载且速度低，库内无\n砟道床多采用弹性分开式扣件，弹性好，从既有设计及运营状况看，库内与库外线有砟道床衔接段一般\n情况下不再进行过渡段设计。\n不同减振轨道结构之间过渡时，原则上在动态下沉量较大的减振结构地段内进行与两侧道床的弹性\n过渡。\n8.5\n无缝线路",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 291,
+          "page_end": 291,
+          "article_id": "8.4.5",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2921,
+          "score": 30.46051756117204,
+          "rrf_score": null,
+          "rerank_score": 0.9485501050949097,
+          "display_ref": "第8.4.5条"
+        }
+      ],
+      "citation_validation": {
+        "valid": true,
+        "cited_ids": [
+          "E1",
+          "E2"
+        ],
+        "available_ids": [
+          "E1",
+          "E2",
+          "E3"
+        ],
+        "errors": []
+      }
+    }
+  ],
+  "input_integrity_at_finish": {
+    "dataset_unchanged": true,
+    "pdf_unchanged": true
+  }
+}

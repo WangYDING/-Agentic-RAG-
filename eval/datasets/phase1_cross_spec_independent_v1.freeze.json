@@ -1,0 +1,16 @@
+{
+  "dataset_id": "phase1_cross_spec_independent_v1",
+  "status": "frozen_unrun",
+  "frozen_at": "2026-11-06",
+  "candidate_answers_seen_before_freeze": false,
+  "dataset_sha256": "f870154d3cc4e6dabd700e4c2b031f81ffb6604073ea1926f926e231255391de",
+  "case_count": 30,
+  "distribution": {"answer": 25, "clarify_scope": 2, "refuse": 3},
+  "source_review": "eval/reviews/phase1_cross_spec_independent_v1_source_review.json",
+  "source_review_identity": "Codex (AI; not a licensed domain expert)",
+  "quality_gate": "eval/acceptance/phase1_cross_spec_quality_gate_v1.json",
+  "quality_gate_sha256": "3403494c0b6018c600c70017836ec7301f1e4a359b240c5d49a124f0a6deacce",
+  "tested_code_commit": "72958eecbc1aa381e2cc5a2464200c4c865271bb",
+  "dataset_commit": "eec93d20a1962526cbcfa15abe49e17803c9240c",
+  "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020"
+}

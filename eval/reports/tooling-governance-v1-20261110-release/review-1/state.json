@@ -1,0 +1,128 @@
+{
+  "base_bundle_sha256": "fc901e554aa1eddead36643c821c64cea5bb33532f996bbc34ef5da6f4b92b69",
+  "changes": [
+    {
+      "actor": {
+        "at": "2026-11-10T04:02:16.780915+00:00",
+        "identity": "SYNTHETIC-AI-ROLE-NOT-A-REAL-REVIEWER",
+        "type": "ai"
+      },
+      "after_sha256": "0417960ce5b05b84898b9a056bb5f982a1287b457bad8a46b33aac889420f988",
+      "before_sha256": "7d5890e54407b465ff76fa4527f9bbe5b4e98f66987785e4f7d20069aed361b2",
+      "case_id": "SEM-001",
+      "reason": "AI-labelled synthetic rehearsal; pending actual human review"
+    },
+    {
+      "actor": {
+        "at": "2026-11-10T04:02:16.780915+00:00",
+        "identity": "SYNTHETIC-AI-ROLE-NOT-A-REAL-REVIEWER",
+        "type": "ai"
+      },
+      "after_sha256": "9aa8b76a1f63f109b6d32995fc2839e1fd01dd3fe2c24dfde2e0e6b6e501ccdf",
+      "before_sha256": "fe9fa2e482926670dd796742306adb262209eefe7d0e832c2d4182fe2ea29b18",
+      "case_id": "SEM-002",
+      "reason": "AI-labelled synthetic rehearsal; pending actual human review"
+    }
+  ],
+  "disputes": [],
+  "identity_assurance": "asserted identity; not a cryptographic or professional credential verification",
+  "packet_sha256": "9c62095275832a88c9c19c6d7995f5a5e3662db846bad761eddc99491d10c798",
+  "parent_state_sha256": "06822219f79d6d44fa00158f8998fa45c248f1f6d0766a5e5f2a7c1d334a954c",
+  "reviews": [
+    {
+      "adjudication": null,
+      "answer_review": {
+        "citations_support_claims": true,
+        "claims_exhaustive": true,
+        "no_contradictions": true,
+        "no_material_outside_conclusions": true
+      },
+      "behavior_review": {
+        "appropriate": true,
+        "reason": "synthetic label"
+      },
+      "case_id": "SEM-001",
+      "claim_reviews": [
+        {
+          "claim_id": "fixture-claim",
+          "evidence_ids": [
+            "E1"
+          ],
+          "reason": "SYNTHETIC label for testing only",
+          "support": "supported",
+          "text": "南向北和西向东为上行，北向南和东向西为下行；环线外环为上行、内环为下行。 [E1]"
+        }
+      ],
+      "fact_reviews": [
+        {
+          "answer_covered": true,
+          "context_supported": true,
+          "correct": true,
+          "evidence_ids": [
+            "E1"
+          ],
+          "fact_id": "F1",
+          "final_evidence_supported": true,
+          "numeric_conditions_correct": true,
+          "reason": "SYNTHETIC review label, not actual semantic verification"
+        }
+      ],
+      "human_approved": null,
+      "reviewer": {
+        "identity": "SYNTHETIC-AI-ROLE-NOT-A-REAL-REVIEWER",
+        "reviewed_at": "2026-11-10T04:02:16.780915+00:00",
+        "reviewer_type": "ai",
+        "rubric_version": "7c4e6f08f38a70ecbad340b239318a117063b588b617a2ea77c6119862f98c2b"
+      },
+      "schema_version": "rag-eval.review.v1"
+    },
+    {
+      "adjudication": null,
+      "answer_review": {
+        "citations_support_claims": true,
+        "claims_exhaustive": true,
+        "no_contradictions": true,
+        "no_material_outside_conclusions": true
+      },
+      "behavior_review": {
+        "appropriate": true,
+        "reason": "synthetic label"
+      },
+      "case_id": "SEM-002",
+      "claim_reviews": [
+        {
+          "claim_id": "fixture-claim",
+          "evidence_ids": [
+            "E1"
+          ],
+          "reason": "SYNTHETIC label for testing only",
+          "support": "supported",
+          "text": "站台有效长度范围内，A型车曲线半径不应小于1500m，B型车不应小于1000m。 [E1]"
+        }
+      ],
+      "fact_reviews": [
+        {
+          "answer_covered": true,
+          "context_supported": true,
+          "correct": true,
+          "evidence_ids": [
+            "E1"
+          ],
+          "fact_id": "F1",
+          "final_evidence_supported": true,
+          "numeric_conditions_correct": true,
+          "reason": "SYNTHETIC review label, not actual semantic verification"
+        }
+      ],
+      "human_approved": null,
+      "reviewer": {
+        "identity": "SYNTHETIC-AI-ROLE-NOT-A-REAL-REVIEWER",
+        "reviewed_at": "2026-11-10T04:02:16.780915+00:00",
+        "reviewer_type": "ai",
+        "rubric_version": "7c4e6f08f38a70ecbad340b239318a117063b588b617a2ea77c6119862f98c2b"
+      },
+      "schema_version": "rag-eval.review.v1"
+    }
+  ],
+  "schema_version": "rag-eval.review-state.v1"
+}

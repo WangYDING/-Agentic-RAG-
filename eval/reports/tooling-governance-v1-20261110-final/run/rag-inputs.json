@@ -1,0 +1,28 @@
+[
+  {
+    "case_id": "SEM-001",
+    "query_scope": {
+      "edition_ids": [
+        "synthetic-edition-not-verified"
+      ],
+      "spec_ids": [
+        "LEGACY-FIXTURE"
+      ]
+    },
+    "question": "城市轨道交通线路在不同方向上，怎样划分上行和下行？",
+    "schema_version": "rag-eval.rag-input.v1"
+  },
+  {
+    "case_id": "SEM-002",
+    "query_scope": {
+      "edition_ids": [
+        "synthetic-edition-not-verified"
+      ],
+      "spec_ids": [
+        "LEGACY-FIXTURE"
+      ]
+    },
+    "question": "站台不得不设在曲线上时，A 型车和 B 型车对曲线半径分别有什么要求？",
+    "schema_version": "rag-eval.rag-input.v1"
+  }
+]

@@ -1,6 +1,7 @@
 import unittest
 
 from src.evidence import (
+    Evidence,
     build_evidence_context,
     build_evidence_list,
     format_evidence_citation,
@@ -69,6 +70,23 @@ class EvidenceCitationTest(unittest.TestCase):
         self.assertEqual(validation.cited_ids, ["E1", "E2"])
         self.assertIn("UNKNOWN_EVIDENCE_ID:E2", validation.errors)
 
+    def test_validator_rejects_answer_without_any_citation(self):
+        evidences = build_evidence_list([ARTICLE_RESULT])
+
+        validation = validate_citations("这是一个没有引用的结论。", evidences)
+
+        self.assertFalse(validation.valid)
+        self.assertIn("MISSING_CITATION", validation.errors)
+
+    def test_validator_only_requires_metadata_for_cited_evidence(self):
+        unresolved = ARTICLE_RESULT.copy()
+        unresolved["page_start"] = None
+        evidences = build_evidence_list([ARTICLE_RESULT, unresolved])
+
+        validation = validate_citations("结论来自 [E1]。", evidences)
+
+        self.assertTrue(validation.valid)
+
     def test_validator_rejects_unresolved_metadata(self):
         result = ARTICLE_RESULT.copy()
         result["page_start"] = None
@@ -79,6 +97,16 @@ class EvidenceCitationTest(unittest.TestCase):
         self.assertFalse(validation.valid)
         self.assertIn("UNRESOLVED_PAGE:E1", validation.errors)
 
+    def test_validator_rejects_missing_source_on_cited_evidence(self):
+        result = ARTICLE_RESULT.copy()
+        result["source"] = ""
+        evidences = build_evidence_list([result])
+
+        validation = validate_citations("结论来自 [E1]。", evidences)
+
+        self.assertFalse(validation.valid)
+        self.assertIn("UNRESOLVED_SOURCE:E1", validation.errors)
+
     def test_format_evidence_citation_contains_resolvable_metadata(self):
         article, table = build_evidence_list([ARTICLE_RESULT, TABLE_RESULT])
 
@@ -87,6 +115,31 @@ class EvidenceCitationTest(unittest.TestCase):
             "[E1] spec.pdf - p.61 - 第10.3.3条",
         )
         self.assertIn("[E2] spec.pdf - p.61 - 第10.3.5条 - 表10.3.5", format_evidence_citation(table))
+
+    def test_multi_spec_citation_names_standard_version_article_and_pdf_page(self):
+        evidence = Evidence(
+            "E1",
+            "条文内容",
+            "scan.pdf",
+            5,
+            5,
+            1,
+            article_id="2.1.13",
+            spec_id="cn.gb55033",
+            edition_id="2022",
+            standard_code="GB 55033-2022",
+            spec_title="城市轨道交通工程项目规范",
+            pdf_page_start=5,
+            pdf_page_end=5,
+        )
+
+        citation = format_evidence_citation(evidence)
+
+        self.assertEqual(
+            citation,
+            "[E1] GB 55033-2022《城市轨道交通工程项目规范》 - 版本 2022 - "
+            "PDF 第 5 页 - 第2.1.13条",
+        )
 
 
 if __name__ == "__main__":

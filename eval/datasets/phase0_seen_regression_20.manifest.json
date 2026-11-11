@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "dataset_id": "phase0_seen_regression_20",
+  "version": "1.0-three-baseline-fixes",
+  "role": "development",
+  "status": "demoted",
+  "data_file": "independent_v2_draft.jsonl",
+  "sha256": "2791c00f07eeddd9764198bc20ad8f7ee1c6ad5965a0fbc273cad5c26f624531",
+  "count": 20,
+  "type_distribution": {
+    "multi_evidence_candidate": 3,
+    "numeric_candidate": 8,
+    "table_lookup": 1,
+    "partial_support_unanswerable": 1,
+    "article_lookup_candidate": 4,
+    "unanswerable_candidate": 3
+  },
+  "source_pdf_sha256": "e5ca2388ad68ed7b21b6092e66c12a73c74c17de8b532bef91c5b2ea57be78f7",
+  "frozen_at": null,
+  "used_for_tuning": true,
+  "acceptance_criteria": null,
+  "notes": "Seen regression use of the exposed former independent set after the superscript ingestion, Grader sufficiency, and requirement-aware evidence-selection fixes. It is permanently demoted from independent validation and must never be reported as a new independent acceptance result. The original frozen dataset and phase 0 baseline result remain unchanged."
+}

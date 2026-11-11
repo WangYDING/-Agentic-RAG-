@@ -1,0 +1,10 @@
+{
+  "documents": [
+    {
+      "edition_id": "synthetic-edition-not-verified",
+      "local_pdf_path": "data/fake-document.pdf",
+      "pdf_sha256": "b25c49af6b2f6b973b82e5ea44080fac1f41a27ada42f557395bef2dab2d7e24",
+      "spec_id": "LEGACY-FIXTURE"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "dispute_and_adjudication_verified": true,
+  "formal_acceptance_started": false,
+  "negative_prechecks_blocked": true,
+  "notice": "OFFLINE REHEARSAL ONLY: all human-role actors and failure labels are explicit synthetic test fixtures, not actual human approval or real answer-quality findings.",
+  "original_assessment": "inconclusive",
+  "overwrite_blocked": true,
+  "synthetic_failure_assessment": "fail"
+}

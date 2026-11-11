@@ -1,0 +1,125 @@
+{
+  "dataset_sha256": "2ad259e9fdf9c2633aa34557c8883461247046b67c164711fb54a4b33a18f785",
+  "report_schema_version": 2,
+  "rubric": {
+    "evidence_support": {
+      "0": "unsupported or contradictory",
+      "1": "partly supported",
+      "2": "fully supported"
+    },
+    "completeness": {
+      "0": "critical requirements missing",
+      "1": "some requirements missing",
+      "2": "all required points covered"
+    },
+    "numeric_conditions": {
+      "0": "incorrect number/unit/condition",
+      "1": "partially correct",
+      "2": "correct; null if not applicable"
+    },
+    "unsupported_facts": {
+      "0": "material outside facts",
+      "1": "minor outside facts",
+      "2": "no unsupported factual additions"
+    }
+  },
+  "instructions": "Only a human reviewer may approve. null means unreviewed or not applicable, never a passing score.",
+  "cases": [
+    {
+      "id": "IND-012",
+      "request_id": "2e0fb6ac49f94569ada26c69f7dd6519",
+      "question": "无砟轨道扣件的弹性、刚度、动静比、绝缘和防腐要求是什么？",
+      "expected_answerability": true,
+      "requirements": [
+        "覆盖要点：无砟轨道应采用弹性扣件",
+        "覆盖要点：无砟道床一般地段的扣件节点垂向静刚度宜为20 kN/mm～40 kN/mm，动静比不应大于1.4",
+        "覆盖要点：单个扣件节点绝缘部件的工作电阻不应小于10⁸ Ω",
+        "覆盖要点：扣件金属件表面应进行防锈防腐蚀处理，防腐层不应影响使用功能"
+      ],
+      "key_points": [
+        "无砟轨道应采用弹性扣件",
+        "无砟道床一般地段的扣件节点垂向静刚度宜为20 kN/mm～40 kN/mm，动静比不应大于1.4",
+        "单个扣件节点绝缘部件的工作电阻不应小于10⁸ Ω",
+        "扣件金属件表面应进行防锈防腐蚀处理，防腐层不应影响使用功能"
+      ],
+      "numeric_expectations": [
+        {
+          "value": "20～40",
+          "unit": "kN/mm",
+          "conditions": [
+            "无砟道床一般地段扣件节点垂向静刚度"
+          ]
+        },
+        {
+          "value": "1.4",
+          "unit": "无量纲",
+          "conditions": [
+            "扣件节点动静比上限"
+          ]
+        },
+        {
+          "value": "10^8",
+          "unit": "Ω",
+          "conditions": [
+            "单个扣件节点绝缘部件工作电阻下限"
+          ]
+        }
+      ],
+      "answer": "无砟轨道应采用弹性扣件，其刚度、动静比、绝缘及防腐应满足相应规定。\n\n1. **弹性与动静比**：无砟轨道应采用弹性扣件；一般地段扣件节点垂向静刚度宜为20 kN/mm～40 kN/mm，动静比不应大于1.4。无砟轨道的弹性主要靠扣件提供（无减振需求地段），动静比是保证轨道弹性的重要指标。[E1][E2]\n\n2. **绝缘要求**：单个扣件节点绝缘部件的工作电阻不应小于10⁸Ω。[E1]\n\n3. **防腐要求**：扣件金属件表面应进行防锈防腐蚀处理，且防腐层不应影响使用功能。[E1]",
+      "evidence": [
+        {
+          "text": "8.3.2\n扣件应符合下列规定：\n1\n无砟轨道应采用弹性扣件；\n2\n无砟道床一般地段的扣件节点垂向静刚度宜为20 kN/mm～40kN/mm，动静比不应大于1.4；\n3\n单个扣件节点绝缘部件的工作电阻不应小于10⁸Ω；\n4\n扣件金属件表面应进行防锈防腐蚀处理，防腐层不应影响使用功能；",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 51,
+          "page_end": 51,
+          "article_id": "8.3.2",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 497,
+          "score": 0.8041373491287231,
+          "rrf_score": null,
+          "rerank_score": 0.9992554783821106,
+          "display_ref": "第8.3.2条"
+        },
+        {
+          "text": "8.3.2\n城市轨道交通碎石道床地段扣件一般直接引用铁标弹条I、Ⅱ型扣件的的相关要求，因此不再对\n相关指标进行规定。无砟轨道的弹性主要靠扣件提供（无减振需求的地段），动静比是保证轨道弹性的\n重要指标，因此结合大量的工程实践经验，给出了动静比的取值。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 290,
+          "page_end": 290,
+          "article_id": "8.3.2",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2916,
+          "score": 0.7416248321533203,
+          "rrf_score": null,
+          "rerank_score": 0.9949808716773987,
+          "display_ref": "第8.3.2条"
+        },
+        {
+          "text": "8.4.5\n正线、出入线和试车线的无砟道床刚度大，有砟道床的弹性较好，为改善行车条件、保持有砟道\n床的稳定、减少维修工作量，衔接处应设置轨道弹性过渡段。\n对于库内整体道床与库外碎石道床之间的过渡段，因列车驶入车场库内线时空载且速度低，库内无\n砟道床多采用弹性分开式扣件，弹性好，从既有设计及运营状况看，库内与库外线有砟道床衔接段一般\n情况下不再进行过渡段设计。\n不同减振轨道结构之间过渡时，原则上在动态下沉量较大的减振结构地段内进行与两侧道床的弹性\n过渡。\n8.5\n无缝线路",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 291,
+          "page_end": 291,
+          "article_id": "8.4.5",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2921,
+          "score": 30.46051756117204,
+          "rrf_score": null,
+          "rerank_score": 0.9485501050949097,
+          "display_ref": "第8.4.5条"
+        }
+      ],
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      }
+    }
+  ]
+}

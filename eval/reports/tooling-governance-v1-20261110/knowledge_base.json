@@ -1,0 +1,43 @@
+{
+  "business_ids": [
+    "LEGACY-FIXTURE@synthetic-edition-not-verified"
+  ],
+  "catalog_path": "E:\\-Agentic-RAG--main\\evaluation-worktree\\eval\\reports\\tooling-governance-v1-20261110\\data\\catalog.json",
+  "check_scope": "manifest identity and byte hashes, not FAISS semantics or model inference",
+  "embedding_models": [
+    "offline-embedding"
+  ],
+  "files": [
+    {
+      "path": "E:\\-Agentic-RAG--main\\evaluation-worktree\\eval\\reports\\tooling-governance-v1-20261110\\data\\catalog.json",
+      "sha256": "84141a10d8fbf679e348440d1e77697db364836005b7f083d0a7dc7976d0e5e9"
+    },
+    {
+      "path": "E:\\-Agentic-RAG--main\\evaluation-worktree\\eval\\reports\\tooling-governance-v1-20261110\\knowledge\\active.json",
+      "sha256": "4971e2251eb90795de0c6ea9c22ca20386a421d2cde2fce15146d14e01209807"
+    },
+    {
+      "path": "E:\\-Agentic-RAG--main\\evaluation-worktree\\eval\\reports\\tooling-governance-v1-20261110\\knowledge\\snapshots\\743675f313e214108cc3769fd8da627cc790eeb3a85c4ae116b0932c21672be9\\manifest.json",
+      "sha256": "f37fd0a6341f164eeae0972cbe7e6634de20ede02fbdc35b0fb98adec6e52cd9"
+    },
+    {
+      "path": "E:\\-Agentic-RAG--main\\evaluation-worktree\\eval\\reports\\tooling-governance-v1-20261110\\knowledge\\documents\\fixture\\manifest.json",
+      "sha256": "0e0647d414cc48f5f8556509d7a55412ba4524fccc7355b6d2eaea780bcc6f4c"
+    },
+    {
+      "path": "E:\\-Agentic-RAG--main\\evaluation-worktree\\eval\\reports\\tooling-governance-v1-20261110\\knowledge\\documents\\fixture\\index.faiss",
+      "sha256": "6beb51c4c08b6cf7edb381fd24f388a62bd61bde670157ce1f581f78c41c3f2b"
+    },
+    {
+      "path": "E:\\-Agentic-RAG--main\\evaluation-worktree\\eval\\reports\\tooling-governance-v1-20261110\\knowledge\\documents\\fixture\\metadata.json",
+      "sha256": "27ca318630c0f01b1f2d4f128600e109a8ddc64c4985bb8ffab8cd3999817ff5"
+    },
+    {
+      "path": "E:\\-Agentic-RAG--main\\evaluation-worktree\\eval\\reports\\tooling-governance-v1-20261110\\data\\fake-document.pdf",
+      "sha256": "b25c49af6b2f6b973b82e5ea44080fac1f41a27ada42f557395bef2dab2d7e24"
+    }
+  ],
+  "root": "E:\\-Agentic-RAG--main\\evaluation-worktree\\eval\\reports\\tooling-governance-v1-20261110\\knowledge",
+  "schema_version": "rag-eval.knowledge-binding.v1",
+  "snapshot_id": "743675f313e214108cc3769fd8da627cc790eeb3a85c4ae116b0932c21672be9"
+}

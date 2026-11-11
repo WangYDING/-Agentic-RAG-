@@ -1,0 +1,138 @@
+{
+  "run_type": "phase1_scoped_real_agent_evaluation",
+  "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+  "generation_model": "deepseek-flash",
+  "questions": [
+    {
+      "id": "P1-IND-018",
+      "question": "DB11/T 995-2025 与 GB 55033-2022 对车站出入口数量和周边协调分别提出了什么要求？",
+      "requested_scope": {
+        "spec_ids": [
+          "cn.beijing.db11t995",
+          "cn.gb55033"
+        ],
+        "edition_ids": [
+          "2025",
+          "2022"
+        ]
+      },
+      "request_id": "c7d8e610a6b447038df65dffc5af4359",
+      "result_type": "refuse",
+      "answer": "当前规范及已检索证据不足以完整回答该问题。 缺少的信息：DB11/T 995-2025 对车站出入口数量的具体数量要求或控制指标；DB11/T 995-2025 对车站与周边协调的具体要求。",
+      "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+      "bound_scope": [
+        "cn.beijing.db11t995@2025",
+        "cn.gb55033@2022"
+      ],
+      "retry_count": 1,
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "text": "2.1.30 城市轨道交通工程建设应合理确定车站出入口数量、用\n地控制范围，并应与周边用地、建筑、道路相协调，保障车站出\n入口处客流顺畅，不对周边道路造成影响。",
+          "source": "GB55033-2022_城市轨道交通工程项目规范.pdf",
+          "page_start": 9,
+          "page_end": 9,
+          "chunk_id": 43,
+          "content_type": "text",
+          "chapter_id": "2",
+          "chapter_title": "2 基本规定",
+          "article_id": "2.1.30",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第2.1.30条",
+          "score": 0.6315706968307495,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.gb55033",
+          "edition_id": "2022",
+          "standard_code": "GB 55033-2022",
+          "spec_title": "城市轨道交通工程项目规范",
+          "pdf_page_start": 9,
+          "pdf_page_end": 9,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E2",
+          "text": "10.2.1\n轨道交通工程的线路一体化规划方案是轨道交通工程设计与建设实施的直接依据。线路一体化\n规划方案将车站根据站点功能定位和周边规划情况分为枢纽级、城市级、区域级、街区级四个级别。因\n此，车站分级与上位规划保持一致，采用相同的分级体系，才能保证各项规划控制指标的落地。\n为提高轨道站点的服务水平，并加强轨道站点与毗邻地块地下空间功能、连通及交通组织等方面的\n引导要求，明确了站点的出入口数量、结建率和连通率要求。其中，出入口数量包括独立地铁出入口以\n及与周边建筑一体化连通的出入口，连通率是车站与周边建筑一体化连通的出入口数量占出入口总数的\n比例，结建率是站点与用地建筑或景观结合建设附属的数量",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 294,
+          "page_end": 294,
+          "chunk_id": 2945,
+          "content_type": "text",
+          "chapter_id": "10",
+          "chapter_title": "车站建筑",
+          "article_id": "10.2.1",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第10.2.1条",
+          "score": 22.540209808608747,
+          "rerank_score": 0.9310116767883301,
+          "metadata": {},
+          "spec_id": "cn.beijing.db11t995",
+          "edition_id": "2025",
+          "standard_code": "DB11/T 995-2025",
+          "spec_title": "城市轨道交通工程设计标准",
+          "pdf_page_start": 294,
+          "pdf_page_end": 294,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E3",
+          "text": "29.1.3\n此条在《轨道交通接驳设施设计技术指南》DB11/T 1236-2015 的基础上进行修订完善，经过对\n北京已运营的300 多个轨道交通车站接驳比例调查，总结了车站交通接驳设施比例与车站所处城市区位、\n车站周边交通情况、用地情况的关系，并结合《北京城市总体规划（2016 年-2035 年）》对北京城市空\n间的结构定位及规划发展目标，对各类车站各交通接驳比例进行了规定。\n29.2\n各类接驳设施设计要求\n29.2.1～29.2.4\n规定了各类接驳设施的设计要求，其中结合非机动车中共享单车的兴起，在29.2.2 中\n提出了共享单车及私家非机动车的停放规模，以免造成资源的不足或浪费。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 375,
+          "page_end": 375,
+          "chunk_id": 3537,
+          "content_type": "text",
+          "chapter_id": "29",
+          "chapter_title": "交通衔接",
+          "article_id": "29.1.3",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第29.1.3条",
+          "score": 20.6855657602314,
+          "rerank_score": 0.6287229657173157,
+          "metadata": {},
+          "spec_id": "cn.beijing.db11t995",
+          "edition_id": "2025",
+          "standard_code": "DB11/T 995-2025",
+          "spec_title": "城市轨道交通工程设计标准",
+          "pdf_page_start": 375,
+          "pdf_page_end": 375,
+          "printed_page_start": null,
+          "printed_page_end": null
+        }
+      ],
+      "request_metrics": {
+        "request_id": "c7d8e610a6b447038df65dffc5af4359",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 62.0,
+          "rerank": 6093.0,
+          "grader": 8532.0
+        },
+        "total_ms": 15641.0,
+        "outcome": "refuse",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 1,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 2181,
+          "output": 1225,
+          "total": 3406
+        },
+        "estimated_cost": null
+      }
+    }
+  ]
+}

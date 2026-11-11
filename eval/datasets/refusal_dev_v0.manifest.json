@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "dataset_id": "refusal_dev_v0",
+  "version": "legacy-1",
+  "role": "historical",
+  "status": "historical",
+  "data_file": "refusal_dev_v0.jsonl",
+  "sha256": "b743698d075e5417fc11b465b3c8590022ac7aa3e04811ad33ec6dca419aeac7",
+  "count": 15,
+  "type_distribution": {
+    "unanswerable": 15
+  },
+  "frozen_at": null,
+  "acceptance_criteria": null,
+  "used_for_tuning": null,
+  "notes": "Historical inventory only. No retrospective freeze or human approval asserted."
+}

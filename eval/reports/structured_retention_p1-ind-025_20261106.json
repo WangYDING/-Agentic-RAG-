@@ -1,0 +1,141 @@
+{
+  "run_type": "phase1_scoped_real_agent_evaluation",
+  "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+  "generation_model": "deepseek-flash",
+  "questions": [
+    {
+      "id": "P1-IND-025",
+      "question": "请分别说明三份规范各自第6.2.3条的主题和核心要求，不要把同号条文混在一起。",
+      "requested_scope": {
+        "spec_ids": [
+          "cn.beijing.db11t995",
+          "cn.gb55033",
+          "cn.gb50157"
+        ],
+        "edition_ids": [
+          "2025",
+          "2022",
+          "2013"
+        ]
+      },
+      "request_id": "5d4f330533ff4f849b0cd250760a0466",
+      "result_type": "refuse",
+      "answer": "当前规范及已检索证据不足以完整回答该问题。 缺少的信息：DB11/T 995-2025 第6.2.3条的主题和核心要求。",
+      "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+      "bound_scope": [
+        "cn.beijing.db11t995@2025",
+        "cn.gb50157@2013",
+        "cn.gb55033@2022"
+      ],
+      "retry_count": 1,
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "text": "6.2.3\n曲线间的夹直线设计应符合下列规定：\n1 正线、联络线及车辆基地出入线上，两相邻曲线间，无\n超高的夹直线最小长度，应按表6.2.3确定；\n38",
+          "source": "GB50157-2013_地铁设计规范.pdf",
+          "page_start": 57,
+          "page_end": 57,
+          "chunk_id": 319,
+          "content_type": "text",
+          "chapter_id": "6",
+          "chapter_title": null,
+          "article_id": "6.2.3",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第6.2.3条",
+          "score": 1.0,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.gb50157",
+          "edition_id": "2013",
+          "standard_code": "GB 50157-2013",
+          "spec_title": "地铁设计规范",
+          "pdf_page_start": 57,
+          "pdf_page_end": 57,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E2",
+          "text": "表6.2.3 夹直线最小长度（m）\n正线、\n一般情况\nλ≥0.5V\n联络线、\nA型车\nB型车\n困难时最小长度λ\n出入线\n25\n20\n注：V为列车通过夹直线的运行速度（km/h)。\n2道岔缩短渡线，其曲线间夹直线可缩短为10m。",
+          "source": "GB50157-2013_地铁设计规范.pdf",
+          "page_start": 58,
+          "page_end": 58,
+          "chunk_id": 320,
+          "content_type": "text",
+          "chapter_id": "6",
+          "chapter_title": null,
+          "article_id": "6.2.3",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第6.2.3条",
+          "score": 1.0,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.gb50157",
+          "edition_id": "2013",
+          "standard_code": "GB 50157-2013",
+          "spec_title": "地铁设计规范",
+          "pdf_page_start": 58,
+          "pdf_page_end": 58,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E3",
+          "text": "6.2.3 通信电源应能实现集中监控管理，并应满足通信设备不\n间断、无瞬变供电要求；通信电源的后备供电时间不应少于2h；\n通信接地系统应满足人身安全、通信设备安全及通信设备正常工\n作要求；通信系统应采取防雷措施。",
+          "source": "GB55033-2022_城市轨道交通工程项目规范.pdf",
+          "page_start": 31,
+          "page_end": 31,
+          "chunk_id": 190,
+          "content_type": "text",
+          "chapter_id": "6",
+          "chapter_title": "给水、排水系统…",
+          "article_id": "6.2.3",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第6.2.3条",
+          "score": 1.0,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.gb55033",
+          "edition_id": "2022",
+          "standard_code": "GB 55033-2022",
+          "spec_title": "城市轨道交通工程项目规范",
+          "pdf_page_start": 31,
+          "pdf_page_end": 31,
+          "printed_page_start": null,
+          "printed_page_end": null
+        }
+      ],
+      "request_metrics": {
+        "request_id": "5d4f330533ff4f849b0cd250760a0466",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 109.0,
+          "rerank": 23140.0,
+          "grader": 5344.0
+        },
+        "total_ms": 29828.0,
+        "outcome": "refuse",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 1,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 2112,
+          "output": 662,
+          "total": 2774
+        },
+        "estimated_cost": null
+      }
+    }
+  ]
+}

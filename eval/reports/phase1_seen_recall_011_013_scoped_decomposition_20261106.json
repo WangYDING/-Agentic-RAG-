@@ -1,0 +1,631 @@
+{
+  "run_type": "phase1_scoped_real_agent_evaluation",
+  "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+  "generation_model": "deepseek-flash",
+  "questions": [
+    {
+      "id": "P1-IND-011",
+      "question": "比较 GB 55033-2022 与 GB 50157-2013 的设计年限规定，并指出前者额外提出的运能要求。",
+      "requested_scope": {
+        "spec_ids": [
+          "cn.gb55033",
+          "cn.gb50157"
+        ],
+        "edition_ids": [
+          "2022",
+          "2013"
+        ]
+      },
+      "request_id": "2d357d74082247e6a7515212930c94db",
+      "result_type": "refuse",
+      "answer": "当前规范及已检索证据不足以完整回答该问题。 缺少的信息：GB 50157-2013 关于设计年限的具体规定（如初期、近期、远期年限划分）；GB 50157-2013 中可用于与 GB 55033-2022 运能储备要求进行比较的对应运能规定，以判断何为“额外提出”。",
+      "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+      "bound_scope": [
+        "cn.gb50157@2013",
+        "cn.gb55033@2022"
+      ],
+      "retry_count": 1,
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "text": "2.1.5 城市轨道交通工程设计年限应以建成通车年为基准年，\n之后应分为初期3年、近期10年、远期25年。在设计年限内，\n设计运能应满足客流预测需求，应留有不小于10%的运能储备。",
+          "source": "GB55033-2022_城市轨道交通工程项目规范.pdf",
+          "page_start": 6,
+          "page_end": 6,
+          "chunk_id": 17,
+          "content_type": "text",
+          "chapter_id": "2",
+          "chapter_title": "2 基本规定",
+          "article_id": "2.1.5",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第2.1.5条",
+          "score": 0.6568983793258667,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.gb55033",
+          "edition_id": "2022",
+          "standard_code": "GB 55033-2022",
+          "spec_title": "城市轨道交通工程项目规范",
+          "pdf_page_start": 6,
+          "pdf_page_end": 6,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E2",
+          "text": "3.3.4 在客流断面变化较大的区段宜组织区段运行。列车运行\n交路应根据各设计年限客流量和分布特征综合确定。",
+          "source": "GB50157-2013_地铁设计规范.pdf",
+          "page_start": 32,
+          "page_end": 32,
+          "chunk_id": 160,
+          "content_type": "text",
+          "chapter_id": "3",
+          "chapter_title": "2 术语3 运营组织",
+          "article_id": "3.3.4",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第3.3.4条",
+          "score": 8.657759295859748,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.gb50157",
+          "edition_id": "2013",
+          "standard_code": "GB 50157-2013",
+          "spec_title": "地铁设计规范",
+          "pdf_page_start": 32,
+          "pdf_page_end": 32,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E3",
+          "text": "3.2.6 地铁各设计年限的列车运行间隔，应根据各设计年限预\n测客流量、列车编组及列车定员、系统服务水平、系统运输效率\n等因素综合确定。初期高峰时段列车最小运行间隔不宜大于\n5min，平峰时段最大运行间隔不应大于10min。远期高峰时段列\n车最小运行间隔不宜大于2min，平峰时段最大运行间隔不宜大\n于6min。",
+          "source": "GB50157-2013_地铁设计规范.pdf",
+          "page_start": 31,
+          "page_end": 31,
+          "chunk_id": 154,
+          "content_type": "text",
+          "chapter_id": "3",
+          "chapter_title": "2 术语3 运营组织",
+          "article_id": "3.2.6",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第3.2.6条",
+          "score": 8.570090169875595,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.gb50157",
+          "edition_id": "2013",
+          "standard_code": "GB 50157-2013",
+          "spec_title": "地铁设计规范",
+          "pdf_page_start": 31,
+          "pdf_page_end": 31,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E4",
+          "text": "1.0.15 在确定地铁系统运能时，车厢有效空余地板面积上站立\n乘客标准宜按每平方米站立5名～6名乘客计算。",
+          "source": "GB50157-2013_地铁设计规范.pdf",
+          "page_start": 21,
+          "page_end": 21,
+          "chunk_id": 70,
+          "content_type": "text",
+          "chapter_id": "1",
+          "chapter_title": null,
+          "article_id": "1.0.15",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第1.0.15条",
+          "score": 7.457381971566111,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.gb50157",
+          "edition_id": "2013",
+          "standard_code": "GB 50157-2013",
+          "spec_title": "地铁设计规范",
+          "pdf_page_start": 21,
+          "pdf_page_end": 21,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E5",
+          "text": "5.1.3 主体结构工程以及结构损坏会对运营安全有严重影响的\n结构工程设计工作年限不应小于100年，其他结构工程的设计工\n作年限不应小于50年。",
+          "source": "GB55033-2022_城市轨道交通工程项目规范.pdf",
+          "page_start": 22,
+          "page_end": 22,
+          "chunk_id": 122,
+          "content_type": "text",
+          "chapter_id": "5",
+          "chapter_title": null,
+          "article_id": "5.1.3",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第5.1.3条",
+          "score": 11.816057444011124,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.gb55033",
+          "edition_id": "2022",
+          "standard_code": "GB 55033-2022",
+          "spec_title": "城市轨道交通工程项目规范",
+          "pdf_page_start": 22,
+          "pdf_page_end": 22,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E6",
+          "text": "2.2.3 线路的敷设和封闭方式应根据线路功能定位和运能需求，\n以及沿线城市土地利用规划、自然条件、历史文化遗产保护、环\n境保护要求综合确定。",
+          "source": "GB55033-2022_城市轨道交通工程项目规范.pdf",
+          "page_start": 10,
+          "page_end": 10,
+          "chunk_id": 50,
+          "content_type": "text",
+          "chapter_id": "2",
+          "chapter_title": "2 基本规定",
+          "article_id": "2.2.3",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第2.2.3条",
+          "score": 8.838496618693632,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.gb55033",
+          "edition_id": "2022",
+          "standard_code": "GB 55033-2022",
+          "spec_title": "城市轨道交通工程项目规范",
+          "pdf_page_start": 10,
+          "pdf_page_end": 10,
+          "printed_page_start": null,
+          "printed_page_end": null
+        }
+      ],
+      "trace": [
+        {
+          "step": "bind_scope",
+          "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+          "scope": [
+            "cn.gb50157@2013",
+            "cn.gb55033@2022"
+          ]
+        },
+        {
+          "step": "retrieve",
+          "query": "比较 GB 55033-2022 与 GB 50157-2013 的设计年限规定，并指出前者额外提出的运能要求。",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "GB 50157-2013 的具体设计年限规定（如初期、近期、远期的年限划分或定义）",
+            "GB 50157-2013 对运能储备的相关规定，以确认 GB 55033-2022 的10%运能储备是否属于额外要求"
+          ],
+          "retry_count": 0
+        },
+        {
+          "step": "parse_evidence_requirements",
+          "question_requirements": [
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": null,
+              "subrequirement": "GB55033-2022设计年限",
+              "source": "question",
+              "authoritative": true,
+              "status": "parsed",
+              "reason": null
+            },
+            {
+              "business_id": "cn.gb50157@2013",
+              "article_id": null,
+              "subrequirement": "GB50157-2013设计年限",
+              "source": "question",
+              "authoritative": true,
+              "status": "parsed",
+              "reason": null
+            },
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": null,
+              "subrequirement": "GB55033-2022运能",
+              "source": "question",
+              "authoritative": true,
+              "status": "parsed",
+              "reason": null
+            }
+          ],
+          "grader_requirements": [
+            {
+              "business_id": "cn.gb50157@2013",
+              "article_id": null,
+              "subrequirement": "GB 50157-2013 的具体设计年限规定（如初期、近期、远期的年限划分或定义）",
+              "source": "grader",
+              "authoritative": true,
+              "status": "mapped_to_question",
+              "reason": null
+            },
+            {
+              "business_id": "cn.gb50157@2013",
+              "article_id": null,
+              "subrequirement": "GB 50157-2013 对运能储备的相关规定，以确认 GB 55033-2022 的10%运能储备是否属于额外要求",
+              "source": "grader",
+              "authoritative": true,
+              "status": "mapped_to_question",
+              "reason": null
+            },
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": null,
+              "subrequirement": "GB 50157-2013 对运能储备的相关规定，以确认 GB 55033-2022 的10%运能储备是否属于额外要求",
+              "source": "grader",
+              "authoritative": true,
+              "status": "mapped_to_question",
+              "reason": null
+            }
+          ]
+        },
+        {
+          "step": "retry",
+          "retry_count": 1,
+          "missing_requirements": [
+            "GB 50157-2013 的具体设计年限规定（如初期、近期、远期的年限划分或定义）",
+            "GB 50157-2013 对运能储备的相关规定，以确认 GB 55033-2022 的10%运能储备是否属于额外要求"
+          ]
+        },
+        {
+          "step": "retrieve",
+          "query": "GB 50157-2013 的具体设计年限规定（如初期、近期、远期的年限划分或定义）；GB 50157-2013 对运能储备的相关规定，以确认 GB 55033-2022 的10%运能储备是否属于额外要求",
+          "retry_count": 1
+        },
+        {
+          "step": "retry_scope_target_preference",
+          "selected": [
+            {
+              "business_id": "cn.gb50157@2013",
+              "article_id": "3.3.4",
+              "chunk_id": 160
+            },
+            {
+              "business_id": "cn.gb50157@2013",
+              "article_id": "3.2.6",
+              "chunk_id": 154
+            },
+            {
+              "business_id": "cn.gb50157@2013",
+              "article_id": "1.0.15",
+              "chunk_id": 70
+            },
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": "2.1.5",
+              "chunk_id": 17
+            },
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": "5.1.3",
+              "chunk_id": 122
+            },
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": "2.2.3",
+              "chunk_id": 50
+            }
+          ]
+        },
+        {
+          "step": "retain_article_groups",
+          "evidence_limit": 6,
+          "retained_groups": [
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": "2.1.5",
+              "chunk_ids": [
+                17
+              ],
+              "basis": "unique_direct_coverage",
+              "covered_text": "GB55033-2022设计年限"
+            }
+          ],
+          "fallbacks": [
+            {
+              "subrequirement": "GB50157-2013设计年限",
+              "reason": "not_unique",
+              "candidate_articles": [
+                "3.3.4",
+                "3.2.6",
+                "29.4.5",
+                "3.2.1",
+                "1.0.8"
+              ]
+            },
+            {
+              "subrequirement": "GB55033-2022运能",
+              "reason": "not_unique",
+              "candidate_articles": [
+                "2.1.5",
+                "2.2.3",
+                "2.2.10",
+                "2.2.9"
+              ]
+            },
+            {
+              "subrequirement": "GB 50157-2013 的具体设计年限规定（如初期、近期、远期的年限划分或定义）",
+              "reason": "not_unique",
+              "candidate_articles": [
+                "3.3.4",
+                "3.2.6",
+                "29.4.5",
+                "3.2.1",
+                "1.0.8"
+              ]
+            },
+            {
+              "subrequirement": "GB 50157-2013 对运能储备的相关规定，以确认 GB 55033-2022 的10%运能储备是否属于额外要求",
+              "reason": "not_unique",
+              "candidate_articles": [
+                "1.0.15",
+                "1.0.5",
+                "3.2.3",
+                "27.2.7"
+              ]
+            },
+            {
+              "subrequirement": "GB 50157-2013 对运能储备的相关规定，以确认 GB 55033-2022 的10%运能储备是否属于额外要求",
+              "reason": "not_unique",
+              "candidate_articles": [
+                "2.1.5",
+                "2.2.3",
+                "2.2.10",
+                "2.2.9"
+              ]
+            }
+          ]
+        },
+        {
+          "step": "verify_final_evidence_context",
+          "complete": true,
+          "within_scope": true,
+          "incomplete_groups": [],
+          "out_of_scope": []
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "GB 50157-2013 关于设计年限的具体规定（如初期、近期、远期年限划分）",
+            "GB 50157-2013 中可用于与 GB 55033-2022 运能储备要求进行比较的对应运能规定，以判断何为“额外提出”"
+          ],
+          "retry_count": 1
+        },
+        {
+          "step": "refuse",
+          "missing_requirements": [
+            "GB 50157-2013 关于设计年限的具体规定（如初期、近期、远期年限划分）",
+            "GB 50157-2013 中可用于与 GB 55033-2022 运能储备要求进行比较的对应运能规定，以判断何为“额外提出”"
+          ]
+        }
+      ],
+      "request_metrics": {
+        "request_id": "2d357d74082247e6a7515212930c94db",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 141.0,
+          "rerank": 10093.0,
+          "grader": 15172.0
+        },
+        "total_ms": 26015.0,
+        "outcome": "refuse",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 1,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 2522,
+          "output": 2342,
+          "total": 4864
+        },
+        "estimated_cost": null
+      }
+    },
+    {
+      "id": "P1-IND-013",
+      "question": "三份规范对区间、车站公共区以及设备管理用房人员新风量分别有哪些直接规定？请区分使用场景。",
+      "requested_scope": {
+        "spec_ids": [
+          "cn.beijing.db11t995",
+          "cn.gb55033",
+          "cn.gb50157"
+        ],
+        "edition_ids": [
+          "2025",
+          "2022",
+          "2013"
+        ]
+      },
+      "request_id": "a94828cdee4a43f5b95140f1f688ab5f",
+      "result_type": "answer",
+      "answer": "核心结论：三份规范中，仅 DB11/T 995-2025 在给定片段中对区间、地下车站公共区、地下车站设备及管理用房三类场景均有直接规定；GB 50157-2013 片段直接覆盖区间及设备与管理用房，公共区未见直接规定；GB 55033-2022 片段仅给出未区分场景的空调人员新风量规定。[E1][E2][E3][E4]\n\n- **DB11/T 995-2025**：区间隧道内每个乘客每小时新鲜空气量不应少于 20m³；地下车站公共区空调系统每个乘客每小时不应少于 20m³；地下车站设备及管理用房内每个工作人员每小时不应少于 30m³。[E1]\n- **GB 50157-2013**：区间隧道内每个乘客每小时新鲜空气量不应少于 12.6m³；地下车站设备与管理用房内每个工作人员每小时不应少于 30m³，且空调系统新风量不应少于总风量的 10%；对地下车站公共区，给定证据未找到直接规定。[E2][E3]\n- **GB 55033-2022**：给定片段仅规定“当采用空调时，每个乘客每小时需供应的新鲜空气量不应少于 12.6m³，且新鲜空气供应量不应少于总送风量的 10%”，未明确对应区间、车站公共区或设备管理用房；对设备管理用房人员新风量，给定证据未找到直接规定。[E4]",
+      "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+      "bound_scope": [
+        "cn.beijing.db11t995@2025",
+        "cn.gb50157@2013",
+        "cn.gb55033@2022"
+      ],
+      "retry_count": 0,
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "text": "14.2.11\n人员新风量应符合下列规定：\n1\n区间隧道内每个乘客每小时需供应的新鲜空气量不应少于20m³；\n2\n地下车站公共区空调系统每个乘客每小时需供应的新鲜空气量不应少于20m³；\n3\n地下车站设备及管理用房内每个工作人员每小时需供应的新鲜空气量不应少于30m³。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 116,
+          "page_end": 116,
+          "chunk_id": 1126,
+          "content_type": "text",
+          "chapter_id": "14",
+          "chapter_title": "通风空调与供暖",
+          "article_id": "14.2.11",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第14.2.11条",
+          "score": 0.6927275061607361,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.beijing.db11t995",
+          "edition_id": "2025",
+          "standard_code": "DB11/T 995-2025",
+          "spec_title": "城市轨道交通工程设计标准",
+          "pdf_page_start": 116,
+          "pdf_page_end": 116,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E2",
+          "text": "13.2.4 区间隧道内每个乘客每小时需供应的新鲜空气量不应少\n于12.6m³。",
+          "source": "GB50157-2013_地铁设计规范.pdf",
+          "page_start": 140,
+          "page_end": 140,
+          "chunk_id": 793,
+          "content_type": "text",
+          "chapter_id": "13",
+          "chapter_title": null,
+          "article_id": "13.2.4",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第13.2.4条",
+          "score": 0.7108808159828186,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.gb50157",
+          "edition_id": "2013",
+          "standard_code": "GB 50157-2013",
+          "spec_title": "地铁设计规范",
+          "pdf_page_start": 140,
+          "pdf_page_end": 140,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E3",
+          "text": "13.2.33 地下车站设备与管理用房内每个工作人员每小时需供\n应的新鲜空气量不应少于30m³，且空调系统新风量不应少于总\n风量的10%。",
+          "source": "GB50157-2013_地铁设计规范.pdf",
+          "page_start": 143,
+          "page_end": 143,
+          "chunk_id": 823,
+          "content_type": "text",
+          "chapter_id": "13",
+          "chapter_title": null,
+          "article_id": "13.2.33",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第13.2.33条",
+          "score": 0.6697675585746765,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.gb50157",
+          "edition_id": "2013",
+          "standard_code": "GB 50157-2013",
+          "spec_title": "地铁设计规范",
+          "pdf_page_start": 143,
+          "pdf_page_end": 143,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E4",
+          "text": "6.4.10当采用空调时，每个乘客每小时需供应的新鲜空气量不\n应少于12.6m³，且新鲜空气供应量不应少于总送风量的10%。",
+          "source": "GB55033-2022_城市轨道交通工程项目规范.pdf",
+          "page_start": 34,
+          "page_end": 34,
+          "chunk_id": 219,
+          "content_type": "text",
+          "chapter_id": "6",
+          "chapter_title": "给水、排水系统…",
+          "article_id": "6.4.10",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第6.4.10条",
+          "score": 0.7182967066764832,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.gb55033",
+          "edition_id": "2022",
+          "standard_code": "GB 55033-2022",
+          "spec_title": "城市轨道交通工程项目规范",
+          "pdf_page_start": 34,
+          "pdf_page_end": 34,
+          "printed_page_start": null,
+          "printed_page_end": null
+        }
+      ],
+      "trace": [
+        {
+          "step": "bind_scope",
+          "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+          "scope": [
+            "cn.beijing.db11t995@2025",
+            "cn.gb50157@2013",
+            "cn.gb55033@2022"
+          ]
+        },
+        {
+          "step": "retrieve",
+          "query": "三份规范对区间、车站公共区以及设备管理用房人员新风量分别有哪些直接规定？请区分使用场景。",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "sufficient",
+          "missing_requirements": [],
+          "retry_count": 0
+        },
+        {
+          "step": "answer"
+        },
+        {
+          "step": "citation_validation",
+          "valid": true
+        }
+      ],
+      "request_metrics": {
+        "request_id": "a94828cdee4a43f5b95140f1f688ab5f",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 156.0,
+          "rerank": 6250.0,
+          "grader": 19719.0,
+          "generation": 11578.0
+        },
+        "total_ms": 38610.0,
+        "outcome": "answer",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 0,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 2029,
+          "output": 4886,
+          "total": 6915
+        },
+        "estimated_cost": null
+      }
+    }
+  ]
+}

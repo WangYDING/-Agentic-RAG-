@@ -1,0 +1,34 @@
+{
+  "date": "2026-11-10",
+  "reviewer": {"identity": "Codex AI", "reviewer_type": "ai", "human_approved": false},
+  "method": "Compared selected original local PDF/OCR page text with clause location and historical question/answer inventory; lexical neighbors were manually inspected. This is preliminary content screening, not independent human approval or a visual check of all 18 PDF pages.",
+  "source_page_text_checked": ["I120-C001", "I120-C002", "I120-C003", "I120-C004", "I120-C005", "I120-C006", "I120-C007", "I120-C008", "I120-C009", "I120-C010", "I120-C011", "I120-C012", "I120-C013", "I120-C014", "I120-C015", "I120-C016", "I120-C017", "I120-C018"],
+  "decisions": {
+    "I120-C001": "retain_pending_full_page_review",
+    "I120-C002": "retain_pending_full_page_review",
+    "I120-C003": "retain_pending_full_page_review",
+    "I120-C004": "retain_pending_full_page_review",
+    "I120-C005": "retain_pending_full_page_review",
+    "I120-C006": "retain_pending_full_page_review",
+    "I120-C007": "retain_pending_full_page_review",
+    "I120-C008": "retain_pending_full_page_review",
+    "I120-C009": "retain_pending_full_page_review",
+    "I120-C010": "retain_pending_full_page_review",
+    "I120-C011": "retain_pending_full_page_review",
+    "I120-C012": "reject_seen_semantics",
+    "I120-C013": "retain_pending_full_page_review",
+    "I120-C014": "retain_pending_full_page_review",
+    "I120-C015": "retain_pending_full_page_review",
+    "I120-C016": "retain_pending_full_page_review",
+    "I120-C017": "retain_pending_full_page_review",
+    "I120-C018": "retain_pending_full_page_review"
+  },
+  "rejection_reason": {
+    "I120-C012": "Prior P1-Q008 already asks all three specifications for passenger door safety interlock, including GB 55033-2022. Asking only its start/isolated operation branch is overlapping evidence, not a fresh independent fact."
+  },
+  "important_limits": [
+    "Same article exclusion and lexical nearest-neighbor triage cannot establish semantic independence; review prior broad questions and answers for hidden overlap.",
+    "Source excerpts are truncated and may include following clauses; gold evidence quotes must be narrowed to the exact provision before freeze.",
+    "Numeric comparison directions, OCR unit fidelity, PDF visual pages and conflicts/supersession remain to be checked case by case."
+  ]
+}

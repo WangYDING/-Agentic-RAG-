@@ -1,0 +1,702 @@
+{
+  "run_type": "phase1_scoped_real_agent_evaluation",
+  "snapshot_id": "65b3ccfc96a372e54b1c7ecc5ba7f622788d71beafee4206a0298ed10a9fb859",
+  "generation_model": "deepseek-flash",
+  "questions": [
+    {
+      "id": "P1-IND-013",
+      "question": "三份规范对区间、车站公共区以及设备管理用房人员新风量分别有哪些直接规定？请区分使用场景。",
+      "requested_scope": {
+        "spec_ids": [
+          "cn.beijing.db11t995",
+          "cn.gb55033",
+          "cn.gb50157"
+        ],
+        "edition_ids": [
+          "2025",
+          "2022",
+          "2013"
+        ]
+      },
+      "request_id": "ab2dbf9fef05497dbb389f0b29476438",
+      "result_type": "error",
+      "answer": "证据判定服务调用超时。",
+      "snapshot_id": "65b3ccfc96a372e54b1c7ecc5ba7f622788d71beafee4206a0298ed10a9fb859",
+      "bound_scope": [
+        "cn.beijing.db11t995@2025",
+        "cn.gb50157@2013",
+        "cn.gb55033@2022"
+      ],
+      "retry_count": 0,
+      "evidence": [],
+      "trace": [
+        {
+          "step": "bind_scope",
+          "snapshot_id": "65b3ccfc96a372e54b1c7ecc5ba7f622788d71beafee4206a0298ed10a9fb859",
+          "scope": [
+            "cn.beijing.db11t995@2025",
+            "cn.gb50157@2013",
+            "cn.gb55033@2022"
+          ]
+        },
+        {
+          "step": "retrieve",
+          "query": "三份规范对区间、车站公共区以及设备管理用房人员新风量分别有哪些直接规定？请区分使用场景。",
+          "retry_count": 0
+        },
+        {
+          "step": "error",
+          "error_code": "MODEL_TIMEOUT"
+        }
+      ],
+      "request_metrics": {
+        "request_id": "ab2dbf9fef05497dbb389f0b29476438",
+        "app_version": "0.1.0",
+        "index_version": "65b3ccfc96a372e54b1c7ecc5ba7f622788d71beafee4206a0298ed10a9fb859",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 156.0,
+          "rerank": 6344.0,
+          "grader": 61094.0
+        },
+        "total_ms": 68813.0,
+        "outcome": "error",
+        "error_code": "MODEL_TIMEOUT",
+        "retryable": true,
+        "retrieval_retries": 0,
+        "model_calls": 2,
+        "model_retries": 1,
+        "token_usage": {
+          "input": 0,
+          "output": 0,
+          "total": 0
+        },
+        "estimated_cost": null
+      }
+    },
+    {
+      "id": "P1-IND-017",
+      "question": "DB11/T 995-2025 与 GB 55033-2022 对区间纵向疏散平台的宽度、高差和间隙分别怎样规定？",
+      "requested_scope": {
+        "spec_ids": [
+          "cn.beijing.db11t995",
+          "cn.gb55033"
+        ],
+        "edition_ids": [
+          "2025",
+          "2022"
+        ]
+      },
+      "request_id": "7af25da8e2f54f19b79a2d7d93127344",
+      "result_type": "refuse",
+      "answer": "当前规范及已检索证据不足以完整回答该问题。 缺少的信息：GB 55033-2022 对区间纵向疏散平台宽度的规定；DB11/T 995-2025 对区间纵向疏散平台宽度的具体限值或最小有效净宽数值；DB11/T 995-2025 对区间纵向疏散平台与车辆或设备限界间隙的具体限值。",
+      "snapshot_id": "65b3ccfc96a372e54b1c7ecc5ba7f622788d71beafee4206a0298ed10a9fb859",
+      "bound_scope": [
+        "cn.beijing.db11t995@2025",
+        "cn.gb55033@2022"
+      ],
+      "retry_count": 1,
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "text": "3.0.10\n区间内的纵向疏散平台应在设备限界外侧设置，直线地\n段和曲线地段纵向疏散平台距轨道中心线高度应统一按低于车厢\n地板面高度150mm～200mm确定。在车辆静止状态下，车辆轮\n廓距离疏散平台间隙，曲线地段不应大于300mm。",
+          "source": "GB55033-2022_城市轨道交通工程项目规范.pdf",
+          "page_start": 17,
+          "page_end": 17,
+          "chunk_id": 92,
+          "content_type": "text",
+          "chapter_id": "3",
+          "chapter_title": null,
+          "article_id": "3.0.10",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第3.0.10条",
+          "score": 0.6955916881561279,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.gb55033",
+          "edition_id": "2022",
+          "standard_code": "GB 55033-2022",
+          "spec_title": "城市轨道交通工程项目规范",
+          "pdf_page_start": 17,
+          "pdf_page_end": 17,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E2",
+          "text": "6.2.2\n纵向辅助疏散平台平时供维修人员行走，在紧急情况下可作为疏散乘客的辅助通道，其设置位置\n主要从方便行走、方便上下行线之间的沟通联络、方便区间与车站的衔接以及疏散人流的组织考虑。\n纵向辅助疏散平台的最小宽度要求为设备安装后的最小有效净宽，主要考虑了人员行走的最小有效\n宽度及各种结构断面的形状影响；本次修订缩小了疏散平台板至车厢地板面的高差，方便车内乘客下到\n平台，直线段和曲线地段纵向疏散平台距轨道中心线高度宜统一按低于轨道中心线处的车厢地板面高度\n150mm～200mm 确定。与设备限界之间的间隙既要保证行车安全，又要方便车内乘客下到平台。总结\n北京近年新建线的设计实践提出了统一规定。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 286,
+          "page_end": 286,
+          "chunk_id": 2880,
+          "content_type": "text",
+          "chapter_id": "6",
+          "chapter_title": "限界",
+          "article_id": "6.2.2",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第6.2.2条",
+          "score": 31.37056169055174,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.beijing.db11t995",
+          "edition_id": "2025",
+          "standard_code": "DB11/T 995-2025",
+          "spec_title": "城市轨道交通工程设计标准",
+          "pdf_page_start": 286,
+          "pdf_page_end": 286,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E3",
+          "text": "30.7.8\n地下区间纵向疏散平台的侧墙上应设置疏散指示标志和与疏散出入口的距离标识，不应侵占疏\n散平台宽度，间距不宜大于15m，高度宜设在平台上方2m 内。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 236,
+          "page_end": 236,
+          "chunk_id": 2556,
+          "content_type": "text",
+          "chapter_id": "30",
+          "chapter_title": "防灾",
+          "article_id": "30.7.8",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第30.7.8条",
+          "score": 0.6811973452568054,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.beijing.db11t995",
+          "edition_id": "2025",
+          "standard_code": "DB11/T 995-2025",
+          "spec_title": "城市轨道交通工程设计标准",
+          "pdf_page_start": 236,
+          "pdf_page_end": 236,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E4",
+          "text": "5.4.5 车站楼梯和通道的宽度应符合下列规定：\n1 天桥和通道宽度不应小于2.4m；\n2 单向公共区人行楼梯宽度不应小于1.8m；\n3 双向公共区人行楼梯宽度不应小于2.4m;\n4 消防专用楼梯宽度不应小于1.2m，站台至轨行区的工作\n梯（兼疏散梯）宽度不应小于1.1m，区间风井疏散梯宽度不应\n小于1.8m。",
+          "source": "GB55033-2022_城市轨道交通工程项目规范.pdf",
+          "page_start": 25,
+          "page_end": 25,
+          "chunk_id": 149,
+          "content_type": "text",
+          "chapter_id": "5",
+          "chapter_title": null,
+          "article_id": "5.4.5",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第5.4.5条",
+          "score": 0.5729204416275024,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.gb55033",
+          "edition_id": "2022",
+          "standard_code": "GB 55033-2022",
+          "spec_title": "城市轨道交通工程项目规范",
+          "pdf_page_start": 25,
+          "pdf_page_end": 25,
+          "printed_page_start": null,
+          "printed_page_end": null
+        }
+      ],
+      "trace": [
+        {
+          "step": "bind_scope",
+          "snapshot_id": "65b3ccfc96a372e54b1c7ecc5ba7f622788d71beafee4206a0298ed10a9fb859",
+          "scope": [
+            "cn.beijing.db11t995@2025",
+            "cn.gb55033@2022"
+          ]
+        },
+        {
+          "step": "retrieve",
+          "query": "DB11/T 995-2025 与 GB 55033-2022 对区间纵向疏散平台的宽度、高差和间隙分别怎样规定？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "GB 55033-2022 对区间纵向疏散平台宽度的规定"
+          ],
+          "retry_count": 0
+        },
+        {
+          "step": "parse_evidence_requirements",
+          "question_requirements": [
+            {
+              "business_id": "cn.beijing.db11t995@2025",
+              "article_id": null,
+              "subrequirement": "DB11/T995-2025区间纵向疏散平台的宽度、高差和间隙",
+              "source": "question",
+              "authoritative": true,
+              "status": "parsed",
+              "reason": null
+            },
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": null,
+              "subrequirement": "GB55033-2022区间纵向疏散平台的宽度、高差和间隙",
+              "source": "question",
+              "authoritative": true,
+              "status": "parsed",
+              "reason": null
+            }
+          ],
+          "grader_requirements": [
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": null,
+              "subrequirement": "GB 55033-2022 对区间纵向疏散平台宽度的规定",
+              "source": "grader",
+              "authoritative": true,
+              "status": "mapped_to_question",
+              "reason": null
+            }
+          ]
+        },
+        {
+          "step": "retry",
+          "retry_count": 1,
+          "missing_requirements": [
+            "GB 55033-2022 对区间纵向疏散平台宽度的规定"
+          ]
+        },
+        {
+          "step": "retrieve",
+          "query": "GB 55033-2022 对区间纵向疏散平台宽度的规定",
+          "retry_count": 1
+        },
+        {
+          "step": "retry_scope_target_preference",
+          "selected": [
+            {
+              "business_id": "cn.beijing.db11t995@2025",
+              "article_id": "6.2.2",
+              "chunk_id": 2880
+            },
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": "3.0.10",
+              "chunk_id": 92
+            },
+            {
+              "business_id": "cn.beijing.db11t995@2025",
+              "article_id": "30.7.8",
+              "chunk_id": 2556
+            },
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": "5.4.5",
+              "chunk_id": 149
+            }
+          ]
+        },
+        {
+          "step": "retain_article_groups",
+          "evidence_limit": 4,
+          "retained_groups": [
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": "3.0.10",
+              "chunk_ids": [
+                92
+              ],
+              "basis": "unique_direct_coverage",
+              "covered_text": "GB55033-2022区间纵向疏散平台的宽度、高差和间隙"
+            },
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": "3.0.10",
+              "chunk_ids": [
+                92
+              ],
+              "basis": "unique_direct_coverage",
+              "covered_text": "GB 55033-2022 对区间纵向疏散平台宽度的规定"
+            }
+          ],
+          "fallbacks": [
+            {
+              "subrequirement": "DB11/T995-2025区间纵向疏散平台的宽度、高差和间隙",
+              "reason": "not_unique",
+              "candidate_articles": [
+                "6.2.2",
+                "6.2.2",
+                "30.7.5",
+                "30.7.8",
+                "6.3.6"
+              ]
+            }
+          ]
+        },
+        {
+          "step": "verify_final_evidence_context",
+          "complete": true,
+          "within_scope": true,
+          "incomplete_groups": [],
+          "out_of_scope": []
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "GB 55033-2022 对区间纵向疏散平台宽度的规定",
+            "DB11/T 995-2025 对区间纵向疏散平台宽度的具体限值或最小有效净宽数值",
+            "DB11/T 995-2025 对区间纵向疏散平台与车辆或设备限界间隙的具体限值"
+          ],
+          "retry_count": 1
+        },
+        {
+          "step": "refuse",
+          "missing_requirements": [
+            "GB 55033-2022 对区间纵向疏散平台宽度的规定",
+            "DB11/T 995-2025 对区间纵向疏散平台宽度的具体限值或最小有效净宽数值",
+            "DB11/T 995-2025 对区间纵向疏散平台与车辆或设备限界间隙的具体限值"
+          ]
+        }
+      ],
+      "request_metrics": {
+        "request_id": "7af25da8e2f54f19b79a2d7d93127344",
+        "app_version": "0.1.0",
+        "index_version": "65b3ccfc96a372e54b1c7ecc5ba7f622788d71beafee4206a0298ed10a9fb859",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 109.0,
+          "rerank": 5016.0,
+          "grader": 33906.0
+        },
+        "total_ms": 39718.0,
+        "outcome": "refuse",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 1,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 2826,
+          "output": 4288,
+          "total": 7114
+        },
+        "estimated_cost": null
+      }
+    },
+    {
+      "id": "P1-IND-018",
+      "question": "DB11/T 995-2025 与 GB 55033-2022 对车站出入口数量和周边协调分别提出了什么要求？",
+      "requested_scope": {
+        "spec_ids": [
+          "cn.beijing.db11t995",
+          "cn.gb55033"
+        ],
+        "edition_ids": [
+          "2025",
+          "2022"
+        ]
+      },
+      "request_id": "720ede4359ff4bcaa5cf3a7f440fc6ef",
+      "result_type": "answer",
+      "answer": "**核心结论：GB 55033-2022 要求合理确定车站出入口数量，并应与周边用地、建筑、道路相协调；DB11/T 995-2025 强调明确出入口数量及结建率、连通率要求，并将与周边建筑一体化连通的出入口纳入数量口径，但给定片段未给出具体数量限值。**\n\n- **GB 55033-2022**：车站出入口数量应“合理确定”，并应控制用地范围；同时应与周边用地、建筑、道路相协调，保障出入口处客流顺畅，且不得对周边道路造成影响 [E1]。\n- **DB11/T 995-2025**：给定片段表明，其针对站点出入口数量、结建率和连通率提出明确要求；其中出入口数量包括独立地铁出入口以及与周边建筑一体化连通的出入口 [E2][E3]。周边协调方面，强调加强轨道站点与毗邻地块地下空间功能、连通及交通组织等方面的引导要求 [E2]。\n- **信息边界**：DB11/T 995-2025 的给定片段未提供出入口数量的具体数值指标；关于“与周边道路相协调”，给定证据未找到 DB11/T 995-2025 的直接对应规定，不应据此推断其规范全文无相关规定。",
+      "snapshot_id": "65b3ccfc96a372e54b1c7ecc5ba7f622788d71beafee4206a0298ed10a9fb859",
+      "bound_scope": [
+        "cn.beijing.db11t995@2025",
+        "cn.gb55033@2022"
+      ],
+      "retry_count": 1,
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "text": "2.1.30 城市轨道交通工程建设应合理确定车站出入口数量、用\n地控制范围，并应与周边用地、建筑、道路相协调，保障车站出\n入口处客流顺畅，不对周边道路造成影响。",
+          "source": "GB55033-2022_城市轨道交通工程项目规范.pdf",
+          "page_start": 9,
+          "page_end": 9,
+          "chunk_id": 43,
+          "content_type": "text",
+          "chapter_id": "2",
+          "chapter_title": "2 基本规定",
+          "article_id": "2.1.30",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第2.1.30条",
+          "score": 0.6315706968307495,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.gb55033",
+          "edition_id": "2022",
+          "standard_code": "GB 55033-2022",
+          "spec_title": "城市轨道交通工程项目规范",
+          "pdf_page_start": 9,
+          "pdf_page_end": 9,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E2",
+          "text": "10.2.1\n轨道交通工程的线路一体化规划方案是轨道交通工程设计与建设实施的直接依据。线路一体化\n规划方案将车站根据站点功能定位和周边规划情况分为枢纽级、城市级、区域级、街区级四个级别。因\n此，车站分级与上位规划保持一致，采用相同的分级体系，才能保证各项规划控制指标的落地。\n为提高轨道站点的服务水平，并加强轨道站点与毗邻地块地下空间功能、连通及交通组织等方面的\n引导要求，明确了站点的出入口数量、结建率和连通率要求。其中，出入口数量包括独立地铁出入口以\n及与周边建筑一体化连通的出入口，连通率是车站与周边建筑一体化连通的出入口数量占出入口总数的\n比例，结建率是站点与用地建筑或景观结合建设附属的数量",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 294,
+          "page_end": 294,
+          "chunk_id": 2945,
+          "content_type": "text",
+          "chapter_id": "10",
+          "chapter_title": "车站建筑",
+          "article_id": "10.2.1",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第10.2.1条",
+          "score": 22.540209808608747,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.beijing.db11t995",
+          "edition_id": "2025",
+          "standard_code": "DB11/T 995-2025",
+          "spec_title": "城市轨道交通工程设计标准",
+          "pdf_page_start": 294,
+          "pdf_page_end": 294,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E3",
+          "text": "与周边建筑一体化连通的出入口数量占出入口总数的\n比例，结建率是站点与用地建筑或景观结合建设附属的数量占附属总量的比例，其中风亭与建筑用地内\n的景观环境融合建设，也属于附属结建的一种类型。\n10.4\n车站平面布局\nⅠ\n公共区",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 294,
+          "page_end": 294,
+          "chunk_id": 2946,
+          "content_type": "text",
+          "chapter_id": "10",
+          "chapter_title": "车站建筑",
+          "article_id": "10.2.1",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第10.2.1条",
+          "score": 15.713673954984358,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.beijing.db11t995",
+          "edition_id": "2025",
+          "standard_code": "DB11/T 995-2025",
+          "spec_title": "城市轨道交通工程设计标准",
+          "pdf_page_start": 294,
+          "pdf_page_end": 294,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E4",
+          "text": "10.5\n车站出入口\n10.5.1\n根据车站服务的客流规模确定车站附属数量、通道宽度和自动扶梯的差异化标准，结合客流分\n布确定附属布局的服务主次和实施时序，可压缩车站规模。\n第1 款提升段按照楼扶梯并列布局原则控制土建宽度，通道段根据所处象限的高峰小时进出站客\n流规模确定通行宽度，并与提升段能力匹配。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 295,
+          "page_end": 295,
+          "chunk_id": 2952,
+          "content_type": "text",
+          "chapter_id": "10",
+          "chapter_title": "车站建筑",
+          "article_id": "10.5.1",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第10.5.1条",
+          "score": 0.6159363985061646,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.beijing.db11t995",
+          "edition_id": "2025",
+          "standard_code": "DB11/T 995-2025",
+          "spec_title": "城市轨道交通工程设计标准",
+          "pdf_page_start": 295,
+          "pdf_page_end": 295,
+          "printed_page_start": null,
+          "printed_page_end": null
+        }
+      ],
+      "trace": [
+        {
+          "step": "bind_scope",
+          "snapshot_id": "65b3ccfc96a372e54b1c7ecc5ba7f622788d71beafee4206a0298ed10a9fb859",
+          "scope": [
+            "cn.beijing.db11t995@2025",
+            "cn.gb55033@2022"
+          ]
+        },
+        {
+          "step": "retrieve",
+          "query": "DB11/T 995-2025 与 GB 55033-2022 对车站出入口数量和周边协调分别提出了什么要求？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "DB11/T 995-2025 对车站出入口数量的具体数量要求或确定规则（证据仅说明出入口数量包括独立地铁出入口和一体化连通出入口，未给出具体数量指标）"
+          ],
+          "retry_count": 0
+        },
+        {
+          "step": "parse_evidence_requirements",
+          "question_requirements": [
+            {
+              "business_id": "cn.beijing.db11t995@2025",
+              "article_id": null,
+              "subrequirement": "DB11/T995-2025车站出入口数量和周边协调分别提出了",
+              "source": "question",
+              "authoritative": true,
+              "status": "parsed",
+              "reason": null
+            },
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": null,
+              "subrequirement": "GB55033-2022车站出入口数量和周边协调分别提出了",
+              "source": "question",
+              "authoritative": true,
+              "status": "parsed",
+              "reason": null
+            }
+          ],
+          "grader_requirements": [
+            {
+              "business_id": "cn.beijing.db11t995@2025",
+              "article_id": null,
+              "subrequirement": "DB11/T 995-2025 对车站出入口数量的具体数量要求或确定规则（证据仅说明出入口数量包括独立地铁出入口和一体化连通出入口，未给出具体数量指标）",
+              "source": "grader",
+              "authoritative": true,
+              "status": "mapped_to_question",
+              "reason": null
+            }
+          ]
+        },
+        {
+          "step": "retry",
+          "retry_count": 1,
+          "missing_requirements": [
+            "DB11/T 995-2025 对车站出入口数量的具体数量要求或确定规则（证据仅说明出入口数量包括独立地铁出入口和一体化连通出入口，未给出具体数量指标）"
+          ]
+        },
+        {
+          "step": "retrieve",
+          "query": "DB11/T 995-2025 对车站出入口数量的具体数量要求或确定规则（证据仅说明出入口数量包括独立地铁出入口和一体化连通出入口，未给出具体数量指标）",
+          "retry_count": 1
+        },
+        {
+          "step": "retry_scope_target_preference",
+          "selected": [
+            {
+              "business_id": "cn.beijing.db11t995@2025",
+              "article_id": "10.2.1",
+              "chunk_id": 2945
+            },
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": "2.1.30",
+              "chunk_id": 43
+            },
+            {
+              "business_id": "cn.beijing.db11t995@2025",
+              "article_id": "10.5.1",
+              "chunk_id": 2952
+            },
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": "2.2.12",
+              "chunk_id": 59
+            }
+          ]
+        },
+        {
+          "step": "retain_article_groups",
+          "evidence_limit": 4,
+          "retained_groups": [
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": "2.1.30",
+              "chunk_ids": [
+                43
+              ],
+              "basis": "unique_direct_coverage",
+              "covered_text": "GB55033-2022车站出入口数量和周边协调分别提出了"
+            },
+            {
+              "business_id": "cn.beijing.db11t995@2025",
+              "article_id": "10.2.1",
+              "chunk_ids": [
+                2945,
+                2946
+              ],
+              "basis": "unique_direct_coverage",
+              "covered_text": "DB11/T 995-2025 对车站出入口数量的具体数量要求或确定规则（证据仅说明出入口数量包括独立地铁出入口和一体化连通出入口，未给出具体数量指标）"
+            }
+          ],
+          "fallbacks": [
+            {
+              "subrequirement": "DB11/T995-2025车站出入口数量和周边协调分别提出了",
+              "reason": "not_unique",
+              "candidate_articles": [
+                "10.2.1",
+                "10.2.1"
+              ]
+            }
+          ]
+        },
+        {
+          "step": "verify_final_evidence_context",
+          "complete": true,
+          "within_scope": true,
+          "incomplete_groups": [],
+          "out_of_scope": []
+        },
+        {
+          "step": "grade",
+          "decision": "sufficient",
+          "missing_requirements": [],
+          "retry_count": 1
+        },
+        {
+          "step": "answer"
+        },
+        {
+          "step": "citation_validation",
+          "valid": true
+        }
+      ],
+      "request_metrics": {
+        "request_id": "720ede4359ff4bcaa5cf3a7f440fc6ef",
+        "app_version": "0.1.0",
+        "index_version": "65b3ccfc96a372e54b1c7ecc5ba7f622788d71beafee4206a0298ed10a9fb859",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 172.0,
+          "rerank": 9203.0,
+          "grader": 44110.0,
+          "generation": 7578.0
+        },
+        "total_ms": 61719.0,
+        "outcome": "answer",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 1,
+        "model_calls": 4,
+        "model_retries": 1,
+        "token_usage": {
+          "input": 3961,
+          "output": 2730,
+          "total": 6691
+        },
+        "estimated_cost": null
+      }
+    }
+  ]
+}

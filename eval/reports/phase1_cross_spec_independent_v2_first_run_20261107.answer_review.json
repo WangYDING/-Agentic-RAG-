@@ -1,0 +1,54 @@
+{
+  "dataset_id": "phase1-cross-spec-independent-v2",
+  "run": "eval/reports/phase1_cross_spec_independent_v2_first_run_20261107.json",
+  "reviewer": "Codex (AI; user-authorized answer reviewer)",
+  "reviewed_at": "2026-11-07",
+  "summary": {
+    "total": 27,
+    "correct_final_behavior": 26,
+    "answerable": 24,
+    "false_refusals": 1,
+    "false_accepts": 0,
+    "complete_supported_answers": 21,
+    "candidate_required_article_coverage": 23,
+    "final_required_article_coverage": 21,
+    "scope_or_version_violations": 0,
+    "illegal_citations": 0,
+    "service_errors": 0,
+    "critical_numeric_unit_or_condition_errors": 0,
+    "unsupported_material_claims": 0,
+    "verdict": "未通过"
+  },
+  "failures": [
+    {
+      "id": "P1-V2-009",
+      "verdict": "false_refusal",
+      "cause": "candidate_recall",
+      "details": "GB 50157-2013第4.1.18条未进入候选池和最终证据，系统错误拒答。"
+    },
+    {
+      "id": "P1-V2-015",
+      "verdict": "incomplete_answer",
+      "cause": "generation",
+      "details": "第5.5.8条已进入最终证据，但答案遗漏高架桥面柔性防水层和顺畅排水系统。"
+    },
+    {
+      "id": "P1-V2-019",
+      "verdict": "incomplete_and_incorrect_answer",
+      "cause": "final_evidence_selection",
+      "details": "候选池已有三份规范的结构年限条文，最终丢失DB11第3.0.13条和GB 50157第1.0.12条，答案错误声称两份给定证据未规定。"
+    },
+    {
+      "id": "P1-V2-022",
+      "verdict": "answer_correct_evidence_chain_mismatch",
+      "cause": "final_evidence_selection",
+      "details": "0.75m/s³答案正确且由DB11第18.4.7条支持，但预标注的车辆条文第5.4.7条未进入最终证据。计入最终必要条文覆盖失败，不计为答案事实错误。"
+    }
+  ],
+  "passes": {
+    "fully_supported_answer_ids": ["P1-V2-001","P1-V2-002","P1-V2-003","P1-V2-004","P1-V2-005","P1-V2-006","P1-V2-007","P1-V2-008","P1-V2-010","P1-V2-011","P1-V2-012","P1-V2-013","P1-V2-014","P1-V2-016","P1-V2-017","P1-V2-018","P1-V2-020","P1-V2-021","P1-V2-023","P1-V2-024"],
+    "clarification_ids": ["P1-V2-025"],
+    "correct_refusal_ids": ["P1-V2-026","P1-V2-027"]
+  },
+  "review_limitations": "AI answer review against the frozen gold references and rendered/source text; not a licensed engineering-domain sign-off."
+}

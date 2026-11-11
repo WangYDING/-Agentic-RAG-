@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "dataset_id": "dev_v0_retrieval",
+  "version": "legacy-1",
+  "role": "historical",
+  "status": "historical",
+  "data_file": "dev_v0_retrieval.jsonl",
+  "sha256": "b072645db9775e495e3b5beb06c6e96046ac3ecff18cd1e59de8a1a385287b1d",
+  "count": 34,
+  "type_distribution": {
+    "semantic_article": 4,
+    "article_number": 2,
+    "numeric": 4,
+    "table_lookup": 4,
+    "terminology": 3,
+    "multi_evidence": 3,
+    "semantic_hard": 3,
+    "confusing_article": 2,
+    "numeric_hard": 2,
+    "table_hard": 2,
+    "multi_evidence_hard": 1,
+    "false_premise": 1,
+    "hard_answerable": 3
+  },
+  "frozen_at": null,
+  "acceptance_criteria": null,
+  "used_for_tuning": null,
+  "notes": "Historical inventory only. No retrospective freeze or human approval asserted."
+}

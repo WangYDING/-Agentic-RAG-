@@ -1,0 +1,4562 @@
+{
+  "acceptance": "not_started",
+  "case_quality": {
+    "SEM-001": {
+      "citation_legal": true,
+      "complete_correct_answer": null,
+      "evidence_support": null,
+      "final_fact_complete": null,
+      "generator_fact_complete": null,
+      "task_success": null
+    },
+    "SEM-002": {
+      "citation_legal": true,
+      "complete_correct_answer": null,
+      "evidence_support": null,
+      "final_fact_complete": null,
+      "generator_fact_complete": null,
+      "task_success": null
+    }
+  },
+  "conclusion": "not_applicable",
+  "confusion_matrix": {
+    "answer": {
+      "answer": 2,
+      "clarify": 0,
+      "error": 0,
+      "refuse": 0
+    },
+    "clarify": {
+      "answer": 0,
+      "clarify": 0,
+      "error": 0,
+      "refuse": 0
+    },
+    "refuse": {
+      "answer": 0,
+      "clarify": 0,
+      "error": 0,
+      "refuse": 0
+    }
+  },
+  "execution_mode": "frozen_rehearsal",
+  "generator_invocation_observation": {
+    "known_invoked_case_ids": [
+      "SEM-001",
+      "SEM-002"
+    ],
+    "note": "Context metric denominator is conditional on observed generator calls; unknown invocation is separately disclosed.",
+    "unknown_case_ids": []
+  },
+  "grouped_metrics": {
+    "expected:answer": {
+      "citation_legal": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": true,
+          "SEM-002": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "clarify_action_correct": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "complete_correct_answer": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": null,
+          "SEM-002": null
+        },
+        "confirmed_lower_bound": 0.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "evidence_support": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": null,
+          "SEM-002": null
+        },
+        "confirmed_lower_bound": 0.0,
+        "denominator": 2,
+        "kind": "macro",
+        "missing_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "false_accept": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "false_refuse": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": false,
+          "SEM-002": false
+        },
+        "confirmed_lower_bound": 0.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 0.0,
+        "rate": 0.0
+      },
+      "final_fact_complete": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": null,
+          "SEM-002": null
+        },
+        "confirmed_lower_bound": 0.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "final_position_complete_diagnostic": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": true,
+          "SEM-002": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "generator_fact_complete": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": null,
+          "SEM-002": null
+        },
+        "confirmed_lower_bound": 0.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "generator_position_complete_diagnostic": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": true,
+          "SEM-002": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "initial_candidates.hitrate@1": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": true,
+          "SEM-002": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "initial_candidates.hitrate@10": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": true,
+          "SEM-002": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "initial_candidates.hitrate@3": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": true,
+          "SEM-002": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "initial_candidates.hitrate@5": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": true,
+          "SEM-002": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "initial_candidates.mrr@10": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": 1.0,
+          "SEM-002": 1.0
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 2.0,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "initial_candidates.recall@1": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": 1.0,
+          "SEM-002": 1.0
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 2.0,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "initial_candidates.recall@10": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": 1.0,
+          "SEM-002": 1.0
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 2.0,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "initial_candidates.recall@3": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": 1.0,
+          "SEM-002": 1.0
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 2.0,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "initial_candidates.recall@5": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": 1.0,
+          "SEM-002": 1.0
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 2.0,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "initial_candidates.recall_micro@1": {
+        "applicable_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "case_values": {
+          "SEM-001/1": true,
+          "SEM-002/1": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0,
+        "unit": "case/fact-group"
+      },
+      "initial_candidates.recall_micro@10": {
+        "applicable_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "case_values": {
+          "SEM-001/1": true,
+          "SEM-002/1": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0,
+        "unit": "case/fact-group"
+      },
+      "initial_candidates.recall_micro@3": {
+        "applicable_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "case_values": {
+          "SEM-001/1": true,
+          "SEM-002/1": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0,
+        "unit": "case/fact-group"
+      },
+      "initial_candidates.recall_micro@5": {
+        "applicable_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "case_values": {
+          "SEM-001/1": true,
+          "SEM-002/1": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0,
+        "unit": "case/fact-group"
+      },
+      "initial_reranked.hitrate@1": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": true,
+          "SEM-002": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "initial_reranked.hitrate@10": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": true,
+          "SEM-002": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "initial_reranked.hitrate@3": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": true,
+          "SEM-002": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "initial_reranked.hitrate@5": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": true,
+          "SEM-002": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "initial_reranked.mrr@10": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": 1.0,
+          "SEM-002": 1.0
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 2.0,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "initial_reranked.recall@1": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": 1.0,
+          "SEM-002": 1.0
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 2.0,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "initial_reranked.recall@10": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": 1.0,
+          "SEM-002": 1.0
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 2.0,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "initial_reranked.recall@3": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": 1.0,
+          "SEM-002": 1.0
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 2.0,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "initial_reranked.recall@5": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": 1.0,
+          "SEM-002": 1.0
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 2.0,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "initial_reranked.recall_micro@1": {
+        "applicable_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "case_values": {
+          "SEM-001/1": true,
+          "SEM-002/1": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0,
+        "unit": "case/fact-group"
+      },
+      "initial_reranked.recall_micro@10": {
+        "applicable_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "case_values": {
+          "SEM-001/1": true,
+          "SEM-002/1": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0,
+        "unit": "case/fact-group"
+      },
+      "initial_reranked.recall_micro@3": {
+        "applicable_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "case_values": {
+          "SEM-001/1": true,
+          "SEM-002/1": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0,
+        "unit": "case/fact-group"
+      },
+      "initial_reranked.recall_micro@5": {
+        "applicable_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "case_values": {
+          "SEM-001/1": true,
+          "SEM-002/1": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0,
+        "unit": "case/fact-group"
+      },
+      "round:retrieve-1:candidates.hitrate@1": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": true,
+          "SEM-002": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "round:retrieve-1:candidates.hitrate@10": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": true,
+          "SEM-002": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "round:retrieve-1:candidates.hitrate@3": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": true,
+          "SEM-002": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "round:retrieve-1:candidates.hitrate@5": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": true,
+          "SEM-002": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "round:retrieve-1:candidates.mrr@10": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": 1.0,
+          "SEM-002": 1.0
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 2.0,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "round:retrieve-1:candidates.recall@1": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": 1.0,
+          "SEM-002": 1.0
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 2.0,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "round:retrieve-1:candidates.recall@10": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": 1.0,
+          "SEM-002": 1.0
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 2.0,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "round:retrieve-1:candidates.recall@3": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": 1.0,
+          "SEM-002": 1.0
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 2.0,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "round:retrieve-1:candidates.recall@5": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": 1.0,
+          "SEM-002": 1.0
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 2.0,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "round:retrieve-1:candidates.recall_micro@1": {
+        "applicable_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "case_values": {
+          "SEM-001/1": true,
+          "SEM-002/1": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0,
+        "unit": "case/fact-group"
+      },
+      "round:retrieve-1:candidates.recall_micro@10": {
+        "applicable_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "case_values": {
+          "SEM-001/1": true,
+          "SEM-002/1": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0,
+        "unit": "case/fact-group"
+      },
+      "round:retrieve-1:candidates.recall_micro@3": {
+        "applicable_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "case_values": {
+          "SEM-001/1": true,
+          "SEM-002/1": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0,
+        "unit": "case/fact-group"
+      },
+      "round:retrieve-1:candidates.recall_micro@5": {
+        "applicable_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "case_values": {
+          "SEM-001/1": true,
+          "SEM-002/1": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0,
+        "unit": "case/fact-group"
+      },
+      "round:retrieve-1:reranked.hitrate@1": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": true,
+          "SEM-002": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "round:retrieve-1:reranked.hitrate@10": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": true,
+          "SEM-002": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "round:retrieve-1:reranked.hitrate@3": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": true,
+          "SEM-002": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "round:retrieve-1:reranked.hitrate@5": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": true,
+          "SEM-002": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "round:retrieve-1:reranked.mrr@10": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": 1.0,
+          "SEM-002": 1.0
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 2.0,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "round:retrieve-1:reranked.recall@1": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": 1.0,
+          "SEM-002": 1.0
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 2.0,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "round:retrieve-1:reranked.recall@10": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": 1.0,
+          "SEM-002": 1.0
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 2.0,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "round:retrieve-1:reranked.recall@3": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": 1.0,
+          "SEM-002": 1.0
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 2.0,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "round:retrieve-1:reranked.recall@5": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": 1.0,
+          "SEM-002": 1.0
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 2.0,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "round:retrieve-1:reranked.recall_micro@1": {
+        "applicable_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "case_values": {
+          "SEM-001/1": true,
+          "SEM-002/1": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0,
+        "unit": "case/fact-group"
+      },
+      "round:retrieve-1:reranked.recall_micro@10": {
+        "applicable_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "case_values": {
+          "SEM-001/1": true,
+          "SEM-002/1": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0,
+        "unit": "case/fact-group"
+      },
+      "round:retrieve-1:reranked.recall_micro@3": {
+        "applicable_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "case_values": {
+          "SEM-001/1": true,
+          "SEM-002/1": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0,
+        "unit": "case/fact-group"
+      },
+      "round:retrieve-1:reranked.recall_micro@5": {
+        "applicable_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "case_values": {
+          "SEM-001/1": true,
+          "SEM-002/1": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0,
+        "unit": "case/fact-group"
+      },
+      "service_error": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": false,
+          "SEM-002": false
+        },
+        "confirmed_lower_bound": 0.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 0.0,
+        "rate": 0.0
+      },
+      "task_success": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": null,
+          "SEM-002": null
+        },
+        "confirmed_lower_bound": 0.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      }
+    },
+    "type:semantic_article": {
+      "citation_legal": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": true,
+          "SEM-002": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "clarify_action_correct": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "complete_correct_answer": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": null,
+          "SEM-002": null
+        },
+        "confirmed_lower_bound": 0.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "evidence_support": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": null,
+          "SEM-002": null
+        },
+        "confirmed_lower_bound": 0.0,
+        "denominator": 2,
+        "kind": "macro",
+        "missing_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "false_accept": {
+        "applicable_case_ids": [],
+        "case_values": {},
+        "confirmed_lower_bound": null,
+        "denominator": 0,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "false_refuse": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": false,
+          "SEM-002": false
+        },
+        "confirmed_lower_bound": 0.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 0.0,
+        "rate": 0.0
+      },
+      "final_fact_complete": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": null,
+          "SEM-002": null
+        },
+        "confirmed_lower_bound": 0.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "final_position_complete_diagnostic": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": true,
+          "SEM-002": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "generator_fact_complete": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": null,
+          "SEM-002": null
+        },
+        "confirmed_lower_bound": 0.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      },
+      "generator_position_complete_diagnostic": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": true,
+          "SEM-002": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "initial_candidates.hitrate@1": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": true,
+          "SEM-002": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "initial_candidates.hitrate@10": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": true,
+          "SEM-002": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "initial_candidates.hitrate@3": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": true,
+          "SEM-002": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "initial_candidates.hitrate@5": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": true,
+          "SEM-002": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "initial_candidates.mrr@10": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": 1.0,
+          "SEM-002": 1.0
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 2.0,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "initial_candidates.recall@1": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": 1.0,
+          "SEM-002": 1.0
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 2.0,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "initial_candidates.recall@10": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": 1.0,
+          "SEM-002": 1.0
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 2.0,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "initial_candidates.recall@3": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": 1.0,
+          "SEM-002": 1.0
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 2.0,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "initial_candidates.recall@5": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": 1.0,
+          "SEM-002": 1.0
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 2.0,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "initial_candidates.recall_micro@1": {
+        "applicable_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "case_values": {
+          "SEM-001/1": true,
+          "SEM-002/1": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0,
+        "unit": "case/fact-group"
+      },
+      "initial_candidates.recall_micro@10": {
+        "applicable_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "case_values": {
+          "SEM-001/1": true,
+          "SEM-002/1": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0,
+        "unit": "case/fact-group"
+      },
+      "initial_candidates.recall_micro@3": {
+        "applicable_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "case_values": {
+          "SEM-001/1": true,
+          "SEM-002/1": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0,
+        "unit": "case/fact-group"
+      },
+      "initial_candidates.recall_micro@5": {
+        "applicable_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "case_values": {
+          "SEM-001/1": true,
+          "SEM-002/1": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0,
+        "unit": "case/fact-group"
+      },
+      "initial_reranked.hitrate@1": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": true,
+          "SEM-002": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "initial_reranked.hitrate@10": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": true,
+          "SEM-002": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "initial_reranked.hitrate@3": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": true,
+          "SEM-002": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "initial_reranked.hitrate@5": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": true,
+          "SEM-002": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "initial_reranked.mrr@10": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": 1.0,
+          "SEM-002": 1.0
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 2.0,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "initial_reranked.recall@1": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": 1.0,
+          "SEM-002": 1.0
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 2.0,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "initial_reranked.recall@10": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": 1.0,
+          "SEM-002": 1.0
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 2.0,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "initial_reranked.recall@3": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": 1.0,
+          "SEM-002": 1.0
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 2.0,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "initial_reranked.recall@5": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": 1.0,
+          "SEM-002": 1.0
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 2.0,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "initial_reranked.recall_micro@1": {
+        "applicable_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "case_values": {
+          "SEM-001/1": true,
+          "SEM-002/1": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0,
+        "unit": "case/fact-group"
+      },
+      "initial_reranked.recall_micro@10": {
+        "applicable_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "case_values": {
+          "SEM-001/1": true,
+          "SEM-002/1": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0,
+        "unit": "case/fact-group"
+      },
+      "initial_reranked.recall_micro@3": {
+        "applicable_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "case_values": {
+          "SEM-001/1": true,
+          "SEM-002/1": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0,
+        "unit": "case/fact-group"
+      },
+      "initial_reranked.recall_micro@5": {
+        "applicable_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "case_values": {
+          "SEM-001/1": true,
+          "SEM-002/1": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0,
+        "unit": "case/fact-group"
+      },
+      "round:retrieve-1:candidates.hitrate@1": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": true,
+          "SEM-002": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "round:retrieve-1:candidates.hitrate@10": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": true,
+          "SEM-002": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "round:retrieve-1:candidates.hitrate@3": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": true,
+          "SEM-002": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "round:retrieve-1:candidates.hitrate@5": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": true,
+          "SEM-002": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "round:retrieve-1:candidates.mrr@10": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": 1.0,
+          "SEM-002": 1.0
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 2.0,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "round:retrieve-1:candidates.recall@1": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": 1.0,
+          "SEM-002": 1.0
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 2.0,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "round:retrieve-1:candidates.recall@10": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": 1.0,
+          "SEM-002": 1.0
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 2.0,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "round:retrieve-1:candidates.recall@3": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": 1.0,
+          "SEM-002": 1.0
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 2.0,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "round:retrieve-1:candidates.recall@5": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": 1.0,
+          "SEM-002": 1.0
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 2.0,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "round:retrieve-1:candidates.recall_micro@1": {
+        "applicable_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "case_values": {
+          "SEM-001/1": true,
+          "SEM-002/1": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0,
+        "unit": "case/fact-group"
+      },
+      "round:retrieve-1:candidates.recall_micro@10": {
+        "applicable_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "case_values": {
+          "SEM-001/1": true,
+          "SEM-002/1": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0,
+        "unit": "case/fact-group"
+      },
+      "round:retrieve-1:candidates.recall_micro@3": {
+        "applicable_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "case_values": {
+          "SEM-001/1": true,
+          "SEM-002/1": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0,
+        "unit": "case/fact-group"
+      },
+      "round:retrieve-1:candidates.recall_micro@5": {
+        "applicable_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "case_values": {
+          "SEM-001/1": true,
+          "SEM-002/1": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0,
+        "unit": "case/fact-group"
+      },
+      "round:retrieve-1:reranked.hitrate@1": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": true,
+          "SEM-002": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "round:retrieve-1:reranked.hitrate@10": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": true,
+          "SEM-002": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "round:retrieve-1:reranked.hitrate@3": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": true,
+          "SEM-002": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "round:retrieve-1:reranked.hitrate@5": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": true,
+          "SEM-002": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "round:retrieve-1:reranked.mrr@10": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": 1.0,
+          "SEM-002": 1.0
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 2.0,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "round:retrieve-1:reranked.recall@1": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": 1.0,
+          "SEM-002": 1.0
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 2.0,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "round:retrieve-1:reranked.recall@10": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": 1.0,
+          "SEM-002": 1.0
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 2.0,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "round:retrieve-1:reranked.recall@3": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": 1.0,
+          "SEM-002": 1.0
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 2.0,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "round:retrieve-1:reranked.recall@5": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": 1.0,
+          "SEM-002": 1.0
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "macro",
+        "missing_case_ids": [],
+        "numerator": 2.0,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0
+      },
+      "round:retrieve-1:reranked.recall_micro@1": {
+        "applicable_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "case_values": {
+          "SEM-001/1": true,
+          "SEM-002/1": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0,
+        "unit": "case/fact-group"
+      },
+      "round:retrieve-1:reranked.recall_micro@10": {
+        "applicable_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "case_values": {
+          "SEM-001/1": true,
+          "SEM-002/1": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0,
+        "unit": "case/fact-group"
+      },
+      "round:retrieve-1:reranked.recall_micro@3": {
+        "applicable_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "case_values": {
+          "SEM-001/1": true,
+          "SEM-002/1": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0,
+        "unit": "case/fact-group"
+      },
+      "round:retrieve-1:reranked.recall_micro@5": {
+        "applicable_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "case_values": {
+          "SEM-001/1": true,
+          "SEM-002/1": true
+        },
+        "confirmed_lower_bound": 1.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 2,
+        "observed_case_ids": [
+          "SEM-001/1",
+          "SEM-002/1"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 1.0,
+        "rate": 1.0,
+        "unit": "case/fact-group"
+      },
+      "service_error": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": false,
+          "SEM-002": false
+        },
+        "confirmed_lower_bound": 0.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [],
+        "numerator": 0,
+        "observed_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "observed_denominator": 2,
+        "observed_rate": 0.0,
+        "rate": 0.0
+      },
+      "task_success": {
+        "applicable_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "case_values": {
+          "SEM-001": null,
+          "SEM-002": null
+        },
+        "confirmed_lower_bound": 0.0,
+        "denominator": 2,
+        "kind": "rate",
+        "missing_case_ids": [
+          "SEM-001",
+          "SEM-002"
+        ],
+        "numerator": 0,
+        "observed_case_ids": [],
+        "observed_denominator": 0,
+        "observed_rate": null,
+        "rate": null
+      }
+    }
+  },
+  "metric_scoring_modes": {
+    "citation_legal": "automatic_location_or_behavior",
+    "clarify_action_correct": "automatic_location_or_behavior",
+    "complete_correct_answer": "review_required_provisional",
+    "evidence_support": "review_required_provisional",
+    "false_accept": "automatic_location_or_behavior",
+    "false_refuse": "automatic_location_or_behavior",
+    "final_fact_complete": "review_required_provisional",
+    "final_position_complete_diagnostic": "automatic_location_or_behavior",
+    "generator_fact_complete": "review_required_provisional",
+    "generator_position_complete_diagnostic": "automatic_location_or_behavior",
+    "initial_candidates.hitrate@1": "automatic_location_or_behavior",
+    "initial_candidates.hitrate@10": "automatic_location_or_behavior",
+    "initial_candidates.hitrate@3": "automatic_location_or_behavior",
+    "initial_candidates.hitrate@5": "automatic_location_or_behavior",
+    "initial_candidates.mrr@10": "automatic_location_or_behavior",
+    "initial_candidates.recall@1": "automatic_location_or_behavior",
+    "initial_candidates.recall@10": "automatic_location_or_behavior",
+    "initial_candidates.recall@3": "automatic_location_or_behavior",
+    "initial_candidates.recall@5": "automatic_location_or_behavior",
+    "initial_candidates.recall_micro@1": "automatic_location_or_behavior",
+    "initial_candidates.recall_micro@10": "automatic_location_or_behavior",
+    "initial_candidates.recall_micro@3": "automatic_location_or_behavior",
+    "initial_candidates.recall_micro@5": "automatic_location_or_behavior",
+    "initial_reranked.hitrate@1": "automatic_location_or_behavior",
+    "initial_reranked.hitrate@10": "automatic_location_or_behavior",
+    "initial_reranked.hitrate@3": "automatic_location_or_behavior",
+    "initial_reranked.hitrate@5": "automatic_location_or_behavior",
+    "initial_reranked.mrr@10": "automatic_location_or_behavior",
+    "initial_reranked.recall@1": "automatic_location_or_behavior",
+    "initial_reranked.recall@10": "automatic_location_or_behavior",
+    "initial_reranked.recall@3": "automatic_location_or_behavior",
+    "initial_reranked.recall@5": "automatic_location_or_behavior",
+    "initial_reranked.recall_micro@1": "automatic_location_or_behavior",
+    "initial_reranked.recall_micro@10": "automatic_location_or_behavior",
+    "initial_reranked.recall_micro@3": "automatic_location_or_behavior",
+    "initial_reranked.recall_micro@5": "automatic_location_or_behavior",
+    "round:retrieve-1:candidates.hitrate@1": "automatic_location_or_behavior",
+    "round:retrieve-1:candidates.hitrate@10": "automatic_location_or_behavior",
+    "round:retrieve-1:candidates.hitrate@3": "automatic_location_or_behavior",
+    "round:retrieve-1:candidates.hitrate@5": "automatic_location_or_behavior",
+    "round:retrieve-1:candidates.mrr@10": "automatic_location_or_behavior",
+    "round:retrieve-1:candidates.recall@1": "automatic_location_or_behavior",
+    "round:retrieve-1:candidates.recall@10": "automatic_location_or_behavior",
+    "round:retrieve-1:candidates.recall@3": "automatic_location_or_behavior",
+    "round:retrieve-1:candidates.recall@5": "automatic_location_or_behavior",
+    "round:retrieve-1:candidates.recall_micro@1": "automatic_location_or_behavior",
+    "round:retrieve-1:candidates.recall_micro@10": "automatic_location_or_behavior",
+    "round:retrieve-1:candidates.recall_micro@3": "automatic_location_or_behavior",
+    "round:retrieve-1:candidates.recall_micro@5": "automatic_location_or_behavior",
+    "round:retrieve-1:reranked.hitrate@1": "automatic_location_or_behavior",
+    "round:retrieve-1:reranked.hitrate@10": "automatic_location_or_behavior",
+    "round:retrieve-1:reranked.hitrate@3": "automatic_location_or_behavior",
+    "round:retrieve-1:reranked.hitrate@5": "automatic_location_or_behavior",
+    "round:retrieve-1:reranked.mrr@10": "automatic_location_or_behavior",
+    "round:retrieve-1:reranked.recall@1": "automatic_location_or_behavior",
+    "round:retrieve-1:reranked.recall@10": "automatic_location_or_behavior",
+    "round:retrieve-1:reranked.recall@3": "automatic_location_or_behavior",
+    "round:retrieve-1:reranked.recall@5": "automatic_location_or_behavior",
+    "round:retrieve-1:reranked.recall_micro@1": "automatic_location_or_behavior",
+    "round:retrieve-1:reranked.recall_micro@10": "automatic_location_or_behavior",
+    "round:retrieve-1:reranked.recall_micro@3": "automatic_location_or_behavior",
+    "round:retrieve-1:reranked.recall_micro@5": "automatic_location_or_behavior",
+    "service_error": "automatic_location_or_behavior",
+    "task_success": "review_required_provisional"
+  },
+  "metrics": {
+    "citation_legal": {
+      "applicable_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "case_values": {
+        "SEM-001": true,
+        "SEM-002": true
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "rate",
+      "missing_case_ids": [],
+      "numerator": 2,
+      "observed_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0
+    },
+    "clarify_action_correct": {
+      "applicable_case_ids": [],
+      "case_values": {},
+      "confirmed_lower_bound": null,
+      "denominator": 0,
+      "kind": "rate",
+      "missing_case_ids": [],
+      "numerator": 0,
+      "observed_case_ids": [],
+      "observed_denominator": 0,
+      "observed_rate": null,
+      "rate": null
+    },
+    "complete_correct_answer": {
+      "applicable_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "case_values": {
+        "SEM-001": null,
+        "SEM-002": null
+      },
+      "confirmed_lower_bound": 0.0,
+      "denominator": 2,
+      "kind": "rate",
+      "missing_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "numerator": 0,
+      "observed_case_ids": [],
+      "observed_denominator": 0,
+      "observed_rate": null,
+      "rate": null
+    },
+    "evidence_support": {
+      "applicable_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "case_values": {
+        "SEM-001": null,
+        "SEM-002": null
+      },
+      "confirmed_lower_bound": 0.0,
+      "denominator": 2,
+      "kind": "macro",
+      "missing_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "numerator": 0,
+      "observed_case_ids": [],
+      "observed_denominator": 0,
+      "observed_rate": null,
+      "rate": null
+    },
+    "false_accept": {
+      "applicable_case_ids": [],
+      "case_values": {},
+      "confirmed_lower_bound": null,
+      "denominator": 0,
+      "kind": "rate",
+      "missing_case_ids": [],
+      "numerator": 0,
+      "observed_case_ids": [],
+      "observed_denominator": 0,
+      "observed_rate": null,
+      "rate": null
+    },
+    "false_refuse": {
+      "applicable_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "case_values": {
+        "SEM-001": false,
+        "SEM-002": false
+      },
+      "confirmed_lower_bound": 0.0,
+      "denominator": 2,
+      "kind": "rate",
+      "missing_case_ids": [],
+      "numerator": 0,
+      "observed_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 0.0,
+      "rate": 0.0
+    },
+    "final_fact_complete": {
+      "applicable_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "case_values": {
+        "SEM-001": null,
+        "SEM-002": null
+      },
+      "confirmed_lower_bound": 0.0,
+      "denominator": 2,
+      "kind": "rate",
+      "missing_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "numerator": 0,
+      "observed_case_ids": [],
+      "observed_denominator": 0,
+      "observed_rate": null,
+      "rate": null
+    },
+    "final_position_complete_diagnostic": {
+      "applicable_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "case_values": {
+        "SEM-001": true,
+        "SEM-002": true
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "rate",
+      "missing_case_ids": [],
+      "numerator": 2,
+      "observed_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0
+    },
+    "generator_fact_complete": {
+      "applicable_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "case_values": {
+        "SEM-001": null,
+        "SEM-002": null
+      },
+      "confirmed_lower_bound": 0.0,
+      "denominator": 2,
+      "kind": "rate",
+      "missing_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "numerator": 0,
+      "observed_case_ids": [],
+      "observed_denominator": 0,
+      "observed_rate": null,
+      "rate": null
+    },
+    "generator_position_complete_diagnostic": {
+      "applicable_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "case_values": {
+        "SEM-001": true,
+        "SEM-002": true
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "rate",
+      "missing_case_ids": [],
+      "numerator": 2,
+      "observed_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0
+    },
+    "initial_candidates.hitrate@1": {
+      "applicable_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "case_values": {
+        "SEM-001": true,
+        "SEM-002": true
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "rate",
+      "missing_case_ids": [],
+      "numerator": 2,
+      "observed_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0
+    },
+    "initial_candidates.hitrate@10": {
+      "applicable_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "case_values": {
+        "SEM-001": true,
+        "SEM-002": true
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "rate",
+      "missing_case_ids": [],
+      "numerator": 2,
+      "observed_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0
+    },
+    "initial_candidates.hitrate@3": {
+      "applicable_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "case_values": {
+        "SEM-001": true,
+        "SEM-002": true
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "rate",
+      "missing_case_ids": [],
+      "numerator": 2,
+      "observed_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0
+    },
+    "initial_candidates.hitrate@5": {
+      "applicable_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "case_values": {
+        "SEM-001": true,
+        "SEM-002": true
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "rate",
+      "missing_case_ids": [],
+      "numerator": 2,
+      "observed_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0
+    },
+    "initial_candidates.mrr@10": {
+      "applicable_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "case_values": {
+        "SEM-001": 1.0,
+        "SEM-002": 1.0
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "macro",
+      "missing_case_ids": [],
+      "numerator": 2.0,
+      "observed_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0
+    },
+    "initial_candidates.recall@1": {
+      "applicable_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "case_values": {
+        "SEM-001": 1.0,
+        "SEM-002": 1.0
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "macro",
+      "missing_case_ids": [],
+      "numerator": 2.0,
+      "observed_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0
+    },
+    "initial_candidates.recall@10": {
+      "applicable_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "case_values": {
+        "SEM-001": 1.0,
+        "SEM-002": 1.0
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "macro",
+      "missing_case_ids": [],
+      "numerator": 2.0,
+      "observed_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0
+    },
+    "initial_candidates.recall@3": {
+      "applicable_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "case_values": {
+        "SEM-001": 1.0,
+        "SEM-002": 1.0
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "macro",
+      "missing_case_ids": [],
+      "numerator": 2.0,
+      "observed_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0
+    },
+    "initial_candidates.recall@5": {
+      "applicable_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "case_values": {
+        "SEM-001": 1.0,
+        "SEM-002": 1.0
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "macro",
+      "missing_case_ids": [],
+      "numerator": 2.0,
+      "observed_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0
+    },
+    "initial_candidates.recall_micro@1": {
+      "applicable_case_ids": [
+        "SEM-001/1",
+        "SEM-002/1"
+      ],
+      "case_values": {
+        "SEM-001/1": true,
+        "SEM-002/1": true
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "rate",
+      "missing_case_ids": [],
+      "numerator": 2,
+      "observed_case_ids": [
+        "SEM-001/1",
+        "SEM-002/1"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0,
+      "unit": "case/fact-group"
+    },
+    "initial_candidates.recall_micro@10": {
+      "applicable_case_ids": [
+        "SEM-001/1",
+        "SEM-002/1"
+      ],
+      "case_values": {
+        "SEM-001/1": true,
+        "SEM-002/1": true
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "rate",
+      "missing_case_ids": [],
+      "numerator": 2,
+      "observed_case_ids": [
+        "SEM-001/1",
+        "SEM-002/1"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0,
+      "unit": "case/fact-group"
+    },
+    "initial_candidates.recall_micro@3": {
+      "applicable_case_ids": [
+        "SEM-001/1",
+        "SEM-002/1"
+      ],
+      "case_values": {
+        "SEM-001/1": true,
+        "SEM-002/1": true
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "rate",
+      "missing_case_ids": [],
+      "numerator": 2,
+      "observed_case_ids": [
+        "SEM-001/1",
+        "SEM-002/1"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0,
+      "unit": "case/fact-group"
+    },
+    "initial_candidates.recall_micro@5": {
+      "applicable_case_ids": [
+        "SEM-001/1",
+        "SEM-002/1"
+      ],
+      "case_values": {
+        "SEM-001/1": true,
+        "SEM-002/1": true
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "rate",
+      "missing_case_ids": [],
+      "numerator": 2,
+      "observed_case_ids": [
+        "SEM-001/1",
+        "SEM-002/1"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0,
+      "unit": "case/fact-group"
+    },
+    "initial_reranked.hitrate@1": {
+      "applicable_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "case_values": {
+        "SEM-001": true,
+        "SEM-002": true
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "rate",
+      "missing_case_ids": [],
+      "numerator": 2,
+      "observed_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0
+    },
+    "initial_reranked.hitrate@10": {
+      "applicable_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "case_values": {
+        "SEM-001": true,
+        "SEM-002": true
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "rate",
+      "missing_case_ids": [],
+      "numerator": 2,
+      "observed_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0
+    },
+    "initial_reranked.hitrate@3": {
+      "applicable_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "case_values": {
+        "SEM-001": true,
+        "SEM-002": true
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "rate",
+      "missing_case_ids": [],
+      "numerator": 2,
+      "observed_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0
+    },
+    "initial_reranked.hitrate@5": {
+      "applicable_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "case_values": {
+        "SEM-001": true,
+        "SEM-002": true
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "rate",
+      "missing_case_ids": [],
+      "numerator": 2,
+      "observed_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0
+    },
+    "initial_reranked.mrr@10": {
+      "applicable_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "case_values": {
+        "SEM-001": 1.0,
+        "SEM-002": 1.0
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "macro",
+      "missing_case_ids": [],
+      "numerator": 2.0,
+      "observed_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0
+    },
+    "initial_reranked.recall@1": {
+      "applicable_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "case_values": {
+        "SEM-001": 1.0,
+        "SEM-002": 1.0
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "macro",
+      "missing_case_ids": [],
+      "numerator": 2.0,
+      "observed_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0
+    },
+    "initial_reranked.recall@10": {
+      "applicable_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "case_values": {
+        "SEM-001": 1.0,
+        "SEM-002": 1.0
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "macro",
+      "missing_case_ids": [],
+      "numerator": 2.0,
+      "observed_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0
+    },
+    "initial_reranked.recall@3": {
+      "applicable_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "case_values": {
+        "SEM-001": 1.0,
+        "SEM-002": 1.0
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "macro",
+      "missing_case_ids": [],
+      "numerator": 2.0,
+      "observed_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0
+    },
+    "initial_reranked.recall@5": {
+      "applicable_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "case_values": {
+        "SEM-001": 1.0,
+        "SEM-002": 1.0
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "macro",
+      "missing_case_ids": [],
+      "numerator": 2.0,
+      "observed_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0
+    },
+    "initial_reranked.recall_micro@1": {
+      "applicable_case_ids": [
+        "SEM-001/1",
+        "SEM-002/1"
+      ],
+      "case_values": {
+        "SEM-001/1": true,
+        "SEM-002/1": true
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "rate",
+      "missing_case_ids": [],
+      "numerator": 2,
+      "observed_case_ids": [
+        "SEM-001/1",
+        "SEM-002/1"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0,
+      "unit": "case/fact-group"
+    },
+    "initial_reranked.recall_micro@10": {
+      "applicable_case_ids": [
+        "SEM-001/1",
+        "SEM-002/1"
+      ],
+      "case_values": {
+        "SEM-001/1": true,
+        "SEM-002/1": true
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "rate",
+      "missing_case_ids": [],
+      "numerator": 2,
+      "observed_case_ids": [
+        "SEM-001/1",
+        "SEM-002/1"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0,
+      "unit": "case/fact-group"
+    },
+    "initial_reranked.recall_micro@3": {
+      "applicable_case_ids": [
+        "SEM-001/1",
+        "SEM-002/1"
+      ],
+      "case_values": {
+        "SEM-001/1": true,
+        "SEM-002/1": true
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "rate",
+      "missing_case_ids": [],
+      "numerator": 2,
+      "observed_case_ids": [
+        "SEM-001/1",
+        "SEM-002/1"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0,
+      "unit": "case/fact-group"
+    },
+    "initial_reranked.recall_micro@5": {
+      "applicable_case_ids": [
+        "SEM-001/1",
+        "SEM-002/1"
+      ],
+      "case_values": {
+        "SEM-001/1": true,
+        "SEM-002/1": true
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "rate",
+      "missing_case_ids": [],
+      "numerator": 2,
+      "observed_case_ids": [
+        "SEM-001/1",
+        "SEM-002/1"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0,
+      "unit": "case/fact-group"
+    },
+    "round:retrieve-1:candidates.hitrate@1": {
+      "applicable_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "case_values": {
+        "SEM-001": true,
+        "SEM-002": true
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "rate",
+      "missing_case_ids": [],
+      "numerator": 2,
+      "observed_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0
+    },
+    "round:retrieve-1:candidates.hitrate@10": {
+      "applicable_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "case_values": {
+        "SEM-001": true,
+        "SEM-002": true
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "rate",
+      "missing_case_ids": [],
+      "numerator": 2,
+      "observed_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0
+    },
+    "round:retrieve-1:candidates.hitrate@3": {
+      "applicable_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "case_values": {
+        "SEM-001": true,
+        "SEM-002": true
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "rate",
+      "missing_case_ids": [],
+      "numerator": 2,
+      "observed_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0
+    },
+    "round:retrieve-1:candidates.hitrate@5": {
+      "applicable_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "case_values": {
+        "SEM-001": true,
+        "SEM-002": true
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "rate",
+      "missing_case_ids": [],
+      "numerator": 2,
+      "observed_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0
+    },
+    "round:retrieve-1:candidates.mrr@10": {
+      "applicable_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "case_values": {
+        "SEM-001": 1.0,
+        "SEM-002": 1.0
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "macro",
+      "missing_case_ids": [],
+      "numerator": 2.0,
+      "observed_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0
+    },
+    "round:retrieve-1:candidates.recall@1": {
+      "applicable_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "case_values": {
+        "SEM-001": 1.0,
+        "SEM-002": 1.0
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "macro",
+      "missing_case_ids": [],
+      "numerator": 2.0,
+      "observed_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0
+    },
+    "round:retrieve-1:candidates.recall@10": {
+      "applicable_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "case_values": {
+        "SEM-001": 1.0,
+        "SEM-002": 1.0
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "macro",
+      "missing_case_ids": [],
+      "numerator": 2.0,
+      "observed_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0
+    },
+    "round:retrieve-1:candidates.recall@3": {
+      "applicable_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "case_values": {
+        "SEM-001": 1.0,
+        "SEM-002": 1.0
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "macro",
+      "missing_case_ids": [],
+      "numerator": 2.0,
+      "observed_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0
+    },
+    "round:retrieve-1:candidates.recall@5": {
+      "applicable_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "case_values": {
+        "SEM-001": 1.0,
+        "SEM-002": 1.0
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "macro",
+      "missing_case_ids": [],
+      "numerator": 2.0,
+      "observed_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0
+    },
+    "round:retrieve-1:candidates.recall_micro@1": {
+      "applicable_case_ids": [
+        "SEM-001/1",
+        "SEM-002/1"
+      ],
+      "case_values": {
+        "SEM-001/1": true,
+        "SEM-002/1": true
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "rate",
+      "missing_case_ids": [],
+      "numerator": 2,
+      "observed_case_ids": [
+        "SEM-001/1",
+        "SEM-002/1"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0,
+      "unit": "case/fact-group"
+    },
+    "round:retrieve-1:candidates.recall_micro@10": {
+      "applicable_case_ids": [
+        "SEM-001/1",
+        "SEM-002/1"
+      ],
+      "case_values": {
+        "SEM-001/1": true,
+        "SEM-002/1": true
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "rate",
+      "missing_case_ids": [],
+      "numerator": 2,
+      "observed_case_ids": [
+        "SEM-001/1",
+        "SEM-002/1"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0,
+      "unit": "case/fact-group"
+    },
+    "round:retrieve-1:candidates.recall_micro@3": {
+      "applicable_case_ids": [
+        "SEM-001/1",
+        "SEM-002/1"
+      ],
+      "case_values": {
+        "SEM-001/1": true,
+        "SEM-002/1": true
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "rate",
+      "missing_case_ids": [],
+      "numerator": 2,
+      "observed_case_ids": [
+        "SEM-001/1",
+        "SEM-002/1"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0,
+      "unit": "case/fact-group"
+    },
+    "round:retrieve-1:candidates.recall_micro@5": {
+      "applicable_case_ids": [
+        "SEM-001/1",
+        "SEM-002/1"
+      ],
+      "case_values": {
+        "SEM-001/1": true,
+        "SEM-002/1": true
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "rate",
+      "missing_case_ids": [],
+      "numerator": 2,
+      "observed_case_ids": [
+        "SEM-001/1",
+        "SEM-002/1"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0,
+      "unit": "case/fact-group"
+    },
+    "round:retrieve-1:reranked.hitrate@1": {
+      "applicable_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "case_values": {
+        "SEM-001": true,
+        "SEM-002": true
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "rate",
+      "missing_case_ids": [],
+      "numerator": 2,
+      "observed_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0
+    },
+    "round:retrieve-1:reranked.hitrate@10": {
+      "applicable_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "case_values": {
+        "SEM-001": true,
+        "SEM-002": true
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "rate",
+      "missing_case_ids": [],
+      "numerator": 2,
+      "observed_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0
+    },
+    "round:retrieve-1:reranked.hitrate@3": {
+      "applicable_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "case_values": {
+        "SEM-001": true,
+        "SEM-002": true
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "rate",
+      "missing_case_ids": [],
+      "numerator": 2,
+      "observed_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0
+    },
+    "round:retrieve-1:reranked.hitrate@5": {
+      "applicable_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "case_values": {
+        "SEM-001": true,
+        "SEM-002": true
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "rate",
+      "missing_case_ids": [],
+      "numerator": 2,
+      "observed_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0
+    },
+    "round:retrieve-1:reranked.mrr@10": {
+      "applicable_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "case_values": {
+        "SEM-001": 1.0,
+        "SEM-002": 1.0
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "macro",
+      "missing_case_ids": [],
+      "numerator": 2.0,
+      "observed_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0
+    },
+    "round:retrieve-1:reranked.recall@1": {
+      "applicable_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "case_values": {
+        "SEM-001": 1.0,
+        "SEM-002": 1.0
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "macro",
+      "missing_case_ids": [],
+      "numerator": 2.0,
+      "observed_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0
+    },
+    "round:retrieve-1:reranked.recall@10": {
+      "applicable_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "case_values": {
+        "SEM-001": 1.0,
+        "SEM-002": 1.0
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "macro",
+      "missing_case_ids": [],
+      "numerator": 2.0,
+      "observed_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0
+    },
+    "round:retrieve-1:reranked.recall@3": {
+      "applicable_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "case_values": {
+        "SEM-001": 1.0,
+        "SEM-002": 1.0
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "macro",
+      "missing_case_ids": [],
+      "numerator": 2.0,
+      "observed_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0
+    },
+    "round:retrieve-1:reranked.recall@5": {
+      "applicable_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "case_values": {
+        "SEM-001": 1.0,
+        "SEM-002": 1.0
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "macro",
+      "missing_case_ids": [],
+      "numerator": 2.0,
+      "observed_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0
+    },
+    "round:retrieve-1:reranked.recall_micro@1": {
+      "applicable_case_ids": [
+        "SEM-001/1",
+        "SEM-002/1"
+      ],
+      "case_values": {
+        "SEM-001/1": true,
+        "SEM-002/1": true
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "rate",
+      "missing_case_ids": [],
+      "numerator": 2,
+      "observed_case_ids": [
+        "SEM-001/1",
+        "SEM-002/1"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0,
+      "unit": "case/fact-group"
+    },
+    "round:retrieve-1:reranked.recall_micro@10": {
+      "applicable_case_ids": [
+        "SEM-001/1",
+        "SEM-002/1"
+      ],
+      "case_values": {
+        "SEM-001/1": true,
+        "SEM-002/1": true
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "rate",
+      "missing_case_ids": [],
+      "numerator": 2,
+      "observed_case_ids": [
+        "SEM-001/1",
+        "SEM-002/1"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0,
+      "unit": "case/fact-group"
+    },
+    "round:retrieve-1:reranked.recall_micro@3": {
+      "applicable_case_ids": [
+        "SEM-001/1",
+        "SEM-002/1"
+      ],
+      "case_values": {
+        "SEM-001/1": true,
+        "SEM-002/1": true
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "rate",
+      "missing_case_ids": [],
+      "numerator": 2,
+      "observed_case_ids": [
+        "SEM-001/1",
+        "SEM-002/1"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0,
+      "unit": "case/fact-group"
+    },
+    "round:retrieve-1:reranked.recall_micro@5": {
+      "applicable_case_ids": [
+        "SEM-001/1",
+        "SEM-002/1"
+      ],
+      "case_values": {
+        "SEM-001/1": true,
+        "SEM-002/1": true
+      },
+      "confirmed_lower_bound": 1.0,
+      "denominator": 2,
+      "kind": "rate",
+      "missing_case_ids": [],
+      "numerator": 2,
+      "observed_case_ids": [
+        "SEM-001/1",
+        "SEM-002/1"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 1.0,
+      "rate": 1.0,
+      "unit": "case/fact-group"
+    },
+    "service_error": {
+      "applicable_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "case_values": {
+        "SEM-001": false,
+        "SEM-002": false
+      },
+      "confirmed_lower_bound": 0.0,
+      "denominator": 2,
+      "kind": "rate",
+      "missing_case_ids": [],
+      "numerator": 0,
+      "observed_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "observed_denominator": 2,
+      "observed_rate": 0.0,
+      "rate": 0.0
+    },
+    "task_success": {
+      "applicable_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "case_values": {
+        "SEM-001": null,
+        "SEM-002": null
+      },
+      "confirmed_lower_bound": 0.0,
+      "denominator": 2,
+      "kind": "rate",
+      "missing_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "numerator": 0,
+      "observed_case_ids": [],
+      "observed_denominator": 0,
+      "observed_rate": null,
+      "rate": null
+    }
+  },
+  "notice": "Offline fixture/tool validation only; not real RAG evaluation or independent acceptance.",
+  "performance": {
+    "all": {
+      "actual_actions": {
+        "answer": 2
+      },
+      "case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "input_tokens": {
+        "observed_count": 0,
+        "observed_fraction": 0.0,
+        "observed_sum": null,
+        "p50": null,
+        "p95": null,
+        "total_count": 2
+      },
+      "latency_ms": {
+        "observed_count": 2,
+        "observed_fraction": 1.0,
+        "observed_sum": 15.999999828636646,
+        "p50": 0.0,
+        "p95": 15.999999828636646,
+        "total_count": 2
+      },
+      "model_calls": {
+        "observed_count": 2,
+        "observed_fraction": 1.0,
+        "observed_sum": 0,
+        "p50": 0,
+        "p95": 0,
+        "total_count": 2
+      },
+      "output_tokens": {
+        "observed_count": 0,
+        "observed_fraction": 0.0,
+        "observed_sum": null,
+        "p50": null,
+        "p95": null,
+        "total_count": 2
+      }
+    },
+    "expected:answer": {
+      "actual_actions": {
+        "answer": 2
+      },
+      "case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "input_tokens": {
+        "observed_count": 0,
+        "observed_fraction": 0.0,
+        "observed_sum": null,
+        "p50": null,
+        "p95": null,
+        "total_count": 2
+      },
+      "latency_ms": {
+        "observed_count": 2,
+        "observed_fraction": 1.0,
+        "observed_sum": 15.999999828636646,
+        "p50": 0.0,
+        "p95": 15.999999828636646,
+        "total_count": 2
+      },
+      "model_calls": {
+        "observed_count": 2,
+        "observed_fraction": 1.0,
+        "observed_sum": 0,
+        "p50": 0,
+        "p95": 0,
+        "total_count": 2
+      },
+      "output_tokens": {
+        "observed_count": 0,
+        "observed_fraction": 0.0,
+        "observed_sum": null,
+        "p50": null,
+        "p95": null,
+        "total_count": 2
+      }
+    },
+    "outcome:answer": {
+      "actual_actions": {
+        "answer": 2
+      },
+      "case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "input_tokens": {
+        "observed_count": 0,
+        "observed_fraction": 0.0,
+        "observed_sum": null,
+        "p50": null,
+        "p95": null,
+        "total_count": 2
+      },
+      "latency_ms": {
+        "observed_count": 2,
+        "observed_fraction": 1.0,
+        "observed_sum": 15.999999828636646,
+        "p50": 0.0,
+        "p95": 15.999999828636646,
+        "total_count": 2
+      },
+      "model_calls": {
+        "observed_count": 2,
+        "observed_fraction": 1.0,
+        "observed_sum": 0,
+        "p50": 0,
+        "p95": 0,
+        "total_count": 2
+      },
+      "output_tokens": {
+        "observed_count": 0,
+        "observed_fraction": 0.0,
+        "observed_sum": null,
+        "p50": null,
+        "p95": null,
+        "total_count": 2
+      }
+    },
+    "type:semantic_article": {
+      "actual_actions": {
+        "answer": 2
+      },
+      "case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "input_tokens": {
+        "observed_count": 0,
+        "observed_fraction": 0.0,
+        "observed_sum": null,
+        "p50": null,
+        "p95": null,
+        "total_count": 2
+      },
+      "latency_ms": {
+        "observed_count": 2,
+        "observed_fraction": 1.0,
+        "observed_sum": 15.999999828636646,
+        "p50": 0.0,
+        "p95": 15.999999828636646,
+        "total_count": 2
+      },
+      "model_calls": {
+        "observed_count": 2,
+        "observed_fraction": 1.0,
+        "observed_sum": 0,
+        "p50": 0,
+        "p95": 0,
+        "total_count": 2
+      },
+      "output_tokens": {
+        "observed_count": 0,
+        "observed_fraction": 0.0,
+        "observed_sum": null,
+        "p50": null,
+        "p95": null,
+        "total_count": 2
+      }
+    }
+  },
+  "provider_usage_summary": {
+    "estimated_cost": {
+      "currencies": [],
+      "full_sum": null,
+      "missing_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "observation_ratio": 0.0,
+      "observed_count": 0,
+      "observed_sum": null,
+      "total_count": 2
+    },
+    "input_tokens": {
+      "currencies": [],
+      "full_sum": null,
+      "missing_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "observation_ratio": 0.0,
+      "observed_count": 0,
+      "observed_sum": null,
+      "total_count": 2
+    },
+    "output_tokens": {
+      "currencies": [],
+      "full_sum": null,
+      "missing_case_ids": [
+        "SEM-001",
+        "SEM-002"
+      ],
+      "observation_ratio": 0.0,
+      "observed_count": 0,
+      "observed_sum": null,
+      "total_count": 2
+    }
+  },
+  "review_progress": {
+    "ai_reviewed_case_ids": [],
+    "human_approval_complete": false,
+    "human_confirmed_task_success_lower_bound": 0.0,
+    "human_reviewed_case_ids": [],
+    "pending_quality_case_ids": [
+      "SEM-001",
+      "SEM-002"
+    ]
+  },
+  "run_id": "run",
+  "schema_version": "rag-eval.report.v1",
+  "scorer_version": "rag-eval.scorer.v1",
+  "scoring_note": "Semantic scores may include disclosed AI reviews; no acceptance without human approval and frozen thresholds."
+}

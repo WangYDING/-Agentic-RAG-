@@ -1,0 +1,680 @@
+[
+  {
+    "actual_action": "answer",
+    "actual_scope": {
+      "business_ids": []
+    },
+    "answer_text": "南向北和西向东为上行，北向南和东向西为下行；环线外环为上行、内环为下行。 [E1]",
+    "case_id": "SEM-001",
+    "citations": [
+      {
+        "citation_id": "E1",
+        "evidence_id": "E1",
+        "parse_valid": true,
+        "scope_valid": true
+      }
+    ],
+    "error": null,
+    "extensions": {
+      "generator_calls": [
+        {
+          "completed": true,
+          "input": {
+            "chat_history": [],
+            "evidences": [
+              {
+                "article_id": "4.3.1",
+                "chapter_id": null,
+                "chapter_title": null,
+                "chunk_id": 32,
+                "content_type": "text",
+                "display_ref": null,
+                "edition_id": null,
+                "evidence_id": "E1",
+                "metadata": {},
+                "page_end": 32,
+                "page_start": 32,
+                "pdf_page_end": 32,
+                "pdf_page_start": 32,
+                "printed_page_end": null,
+                "printed_page_start": null,
+                "rerank_score": null,
+                "score": null,
+                "source": "城市轨道交通工程设计标准.pdf",
+                "spec_id": null,
+                "spec_title": null,
+                "standard_code": null,
+                "table_id": null,
+                "table_title": null,
+                "text": "南向北和西向东为上行，北向南和东向西为下行；环线外环为上行、内环为下行。"
+              }
+            ],
+            "query": "城市轨道交通线路在不同方向上，怎样划分上行和下行？",
+            "scope_business_ids": []
+          },
+          "input_sha256": "7717c252c99d4bb3d38be41e5953877d87e3d23d231525ae83908056b257e6fb",
+          "output": "南向北和西向东为上行，北向南和东向西为下行；环线外环为上行、内环为下行。 [E1]"
+        }
+      ],
+      "index_snapshot": "743675f313e214108cc3769fd8da627cc790eeb3a85c4ae116b0932c21672be9",
+      "provider_usage": {
+        "attempt_count": 0,
+        "attempts": [],
+        "currency": null,
+        "estimated_cost": null,
+        "expected_attempt_count": 0,
+        "input_tokens": null,
+        "input_tokens_observation_ratio": null,
+        "input_tokens_observed_attempts": 0,
+        "input_tokens_observed_sum": null,
+        "inventory_complete": true,
+        "output_tokens": null,
+        "output_tokens_observation_ratio": null,
+        "output_tokens_observed_attempts": 0,
+        "output_tokens_observed_sum": null,
+        "pricing": null
+      },
+      "raw_events": [
+        {
+          "arguments": {
+            "query": "城市轨道交通线路在不同方向上，怎样划分上行和下行？",
+            "top_k": 10
+          },
+          "completed": true,
+          "method": "retrieve",
+          "output": [
+            {
+              "article_id": "4.3.1",
+              "chunk_id": 32,
+              "page_end": 32,
+              "page_start": 32,
+              "source": "城市轨道交通工程设计标准.pdf",
+              "text": "南向北和西向东为上行，北向南和东向西为下行；环线外环为上行、内环为下行。"
+            }
+          ]
+        },
+        {
+          "arguments": {
+            "query": "城市轨道交通线路在不同方向上，怎样划分上行和下行？",
+            "results": [
+              {
+                "article_id": "4.3.1",
+                "chunk_id": 32,
+                "page_end": 32,
+                "page_start": 32,
+                "source": "城市轨道交通工程设计标准.pdf",
+                "text": "南向北和西向东为上行，北向南和东向西为下行；环线外环为上行、内环为下行。"
+              }
+            ],
+            "top_n": 3
+          },
+          "completed": true,
+          "method": "rerank",
+          "output": [
+            {
+              "article_id": "4.3.1",
+              "chunk_id": 32,
+              "page_end": 32,
+              "page_start": 32,
+              "source": "城市轨道交通工程设计标准.pdf",
+              "text": "南向北和西向东为上行，北向南和东向西为下行；环线外环为上行、内环为下行。"
+            }
+          ]
+        },
+        {
+          "arguments": {
+            "chat_history": [],
+            "evidences": [
+              {
+                "article_id": "4.3.1",
+                "chapter_id": null,
+                "chapter_title": null,
+                "chunk_id": 32,
+                "content_type": "text",
+                "display_ref": null,
+                "edition_id": null,
+                "evidence_id": "E1",
+                "metadata": {},
+                "page_end": 32,
+                "page_start": 32,
+                "pdf_page_end": 32,
+                "pdf_page_start": 32,
+                "printed_page_end": null,
+                "printed_page_start": null,
+                "rerank_score": null,
+                "score": null,
+                "source": "城市轨道交通工程设计标准.pdf",
+                "spec_id": null,
+                "spec_title": null,
+                "standard_code": null,
+                "table_id": null,
+                "table_title": null,
+                "text": "南向北和西向东为上行，北向南和东向西为下行；环线外环为上行、内环为下行。"
+              }
+            ],
+            "query": "城市轨道交通线路在不同方向上，怎样划分上行和下行？",
+            "scope_business_ids": []
+          },
+          "completed": true,
+          "method": "generate_answer",
+          "output": "南向北和西向东为上行，北向南和东向西为下行；环线外环为上行、内环为下行。 [E1]"
+        }
+      ],
+      "raw_final_evidence": [
+        {
+          "article_id": "4.3.1",
+          "chapter_id": null,
+          "chapter_title": null,
+          "chunk_id": 32,
+          "content_type": "text",
+          "display_ref": null,
+          "edition_id": null,
+          "evidence_id": "E1",
+          "metadata": {},
+          "page_end": 32,
+          "page_start": 32,
+          "pdf_page_end": 32,
+          "pdf_page_start": 32,
+          "printed_page_end": null,
+          "printed_page_start": null,
+          "rerank_score": null,
+          "score": null,
+          "source": "城市轨道交通工程设计标准.pdf",
+          "spec_id": null,
+          "spec_title": null,
+          "standard_code": null,
+          "table_id": null,
+          "table_title": null,
+          "text": "南向北和西向东为上行，北向南和东向西为下行；环线外环为上行、内环为下行。"
+        }
+      ],
+      "raw_request_metrics": {
+        "app_version": "0.1.0",
+        "error_code": null,
+        "estimated_cost": null,
+        "index_version": "743675f313e214108cc3769fd8da627cc790eeb3a85c4ae116b0932c21672be9",
+        "model_calls": 0,
+        "model_retries": 0,
+        "models": {
+          "embedding": "offline-embedding",
+          "generation": "offline-generation",
+          "reranker": "offline-reranker"
+        },
+        "outcome": "answer",
+        "request_id": "001e486bba3c44c4a4a79a7e55e2412a",
+        "retrieval_retries": 0,
+        "retryable": false,
+        "stage_timings_ms": {
+          "generation": 0.0,
+          "grader": 0.0,
+          "rerank": 16.0,
+          "retrieval": 0.0
+        },
+        "token_usage": {
+          "input": 0,
+          "output": 0,
+          "total": 0
+        },
+        "total_ms": 16.0
+      },
+      "request_id": "001e486bba3c44c4a4a79a7e55e2412a",
+      "trace": [
+        {
+          "query": "城市轨道交通线路在不同方向上，怎样划分上行和下行？",
+          "retry_count": 0,
+          "step": "retrieve"
+        },
+        {
+          "decision": "sufficient",
+          "missing_requirements": [],
+          "retry_count": 0,
+          "step": "grade"
+        },
+        {
+          "step": "answer"
+        },
+        {
+          "step": "citation_validation",
+          "valid": true
+        }
+      ],
+      "usage_note": "full totals require all SDK attempts and observed response usage; legacy totals are not inferred"
+    },
+    "final_decision_evidence": [
+      {
+        "article": "4.3.1",
+        "chunk_id": 32,
+        "document_id": "LEGACY-FIXTURE",
+        "document_version": "synthetic-edition-not-verified",
+        "evidence_id": "E1",
+        "locator": null,
+        "page": 32,
+        "page_end": 32,
+        "quote": "南向北和西向东为上行，北向南和东向西为下行；环线外环为上行、内环为下行。",
+        "table": null
+      }
+    ],
+    "generator_context": [
+      {
+        "article": "4.3.1",
+        "chunk_id": 32,
+        "document_id": "LEGACY-FIXTURE",
+        "document_version": "synthetic-edition-not-verified",
+        "evidence_id": "E1",
+        "locator": null,
+        "page": 32,
+        "page_end": 32,
+        "quote": "南向北和西向东为上行，北向南和东向西为下行；环线外环为上行、内环为下行。",
+        "table": null
+      }
+    ],
+    "generator_invoked": true,
+    "initial_candidates": [
+      {
+        "article": "4.3.1",
+        "chunk_id": 32,
+        "document_id": "LEGACY-FIXTURE",
+        "document_version": "synthetic-edition-not-verified",
+        "evidence_id": "R1-1",
+        "locator": null,
+        "page": 32,
+        "page_end": 32,
+        "quote": "南向北和西向东为上行，北向南和东向西为下行；环线外环为上行、内环为下行。",
+        "table": null
+      }
+    ],
+    "measurements": {
+      "input_tokens": null,
+      "latency_ms": 15.999999828636646,
+      "model_calls": 0,
+      "output_tokens": null
+    },
+    "reranked_results": [
+      {
+        "article": "4.3.1",
+        "chunk_id": 32,
+        "document_id": "LEGACY-FIXTURE",
+        "document_version": "synthetic-edition-not-verified",
+        "evidence_id": "S1-1",
+        "locator": null,
+        "page": 32,
+        "page_end": 32,
+        "quote": "南向北和西向东为上行，北向南和东向西为下行；环线外环为上行、内环为下行。",
+        "table": null
+      }
+    ],
+    "retrieval_rounds": [
+      {
+        "candidates": [
+          {
+            "article": "4.3.1",
+            "chunk_id": 32,
+            "document_id": "LEGACY-FIXTURE",
+            "document_version": "synthetic-edition-not-verified",
+            "evidence_id": "R1-1",
+            "locator": null,
+            "page": 32,
+            "page_end": 32,
+            "quote": "南向北和西向东为上行，北向南和东向西为下行；环线外环为上行、内环为下行。",
+            "table": null
+          }
+        ],
+        "reranked": [
+          {
+            "article": "4.3.1",
+            "chunk_id": 32,
+            "document_id": "LEGACY-FIXTURE",
+            "document_version": "synthetic-edition-not-verified",
+            "evidence_id": "S1-1",
+            "locator": null,
+            "page": 32,
+            "page_end": 32,
+            "quote": "南向北和西向东为上行，北向南和东向西为下行；环线外环为上行、内环为下行。",
+            "table": null
+          }
+        ],
+        "round_id": "retrieve-1"
+      }
+    ],
+    "schema_version": "rag-eval.observation.v1"
+  },
+  {
+    "actual_action": "answer",
+    "actual_scope": {
+      "business_ids": []
+    },
+    "answer_text": "站台有效长度范围内，A型车曲线半径不应小于1500m，B型车不应小于1000m。 [E1]",
+    "case_id": "SEM-002",
+    "citations": [
+      {
+        "citation_id": "E1",
+        "evidence_id": "E1",
+        "parse_valid": true,
+        "scope_valid": true
+      }
+    ],
+    "error": null,
+    "extensions": {
+      "generator_calls": [
+        {
+          "completed": true,
+          "input": {
+            "chat_history": [],
+            "evidences": [
+              {
+                "article_id": "7.2.1",
+                "chapter_id": null,
+                "chapter_title": null,
+                "chunk_id": 45,
+                "content_type": "text",
+                "display_ref": null,
+                "edition_id": null,
+                "evidence_id": "E1",
+                "metadata": {},
+                "page_end": 45,
+                "page_start": 45,
+                "pdf_page_end": 45,
+                "pdf_page_start": 45,
+                "printed_page_end": null,
+                "printed_page_start": null,
+                "rerank_score": null,
+                "score": null,
+                "source": "城市轨道交通工程设计标准.pdf",
+                "spec_id": null,
+                "spec_title": null,
+                "standard_code": null,
+                "table_id": null,
+                "table_title": null,
+                "text": "站台有效长度范围内，A型车曲线半径不应小于1500m，B型车不应小于1000m。"
+              }
+            ],
+            "query": "站台不得不设在曲线上时，A 型车和 B 型车对曲线半径分别有什么要求？",
+            "scope_business_ids": []
+          },
+          "input_sha256": "0d437cac84e5347bc8059259b938335ab3457b1659f85ef3843a716a1725899d",
+          "output": "站台有效长度范围内，A型车曲线半径不应小于1500m，B型车不应小于1000m。 [E1]"
+        }
+      ],
+      "index_snapshot": "743675f313e214108cc3769fd8da627cc790eeb3a85c4ae116b0932c21672be9",
+      "provider_usage": {
+        "attempt_count": 0,
+        "attempts": [],
+        "currency": null,
+        "estimated_cost": null,
+        "expected_attempt_count": 0,
+        "input_tokens": null,
+        "input_tokens_observation_ratio": null,
+        "input_tokens_observed_attempts": 0,
+        "input_tokens_observed_sum": null,
+        "inventory_complete": true,
+        "output_tokens": null,
+        "output_tokens_observation_ratio": null,
+        "output_tokens_observed_attempts": 0,
+        "output_tokens_observed_sum": null,
+        "pricing": null
+      },
+      "raw_events": [
+        {
+          "arguments": {
+            "query": "站台不得不设在曲线上时，A 型车和 B 型车对曲线半径分别有什么要求？",
+            "top_k": 10
+          },
+          "completed": true,
+          "method": "retrieve",
+          "output": [
+            {
+              "article_id": "7.2.1",
+              "chunk_id": 45,
+              "page_end": 45,
+              "page_start": 45,
+              "source": "城市轨道交通工程设计标准.pdf",
+              "text": "站台有效长度范围内，A型车曲线半径不应小于1500m，B型车不应小于1000m。"
+            }
+          ]
+        },
+        {
+          "arguments": {
+            "query": "站台不得不设在曲线上时，A 型车和 B 型车对曲线半径分别有什么要求？",
+            "results": [
+              {
+                "article_id": "7.2.1",
+                "chunk_id": 45,
+                "page_end": 45,
+                "page_start": 45,
+                "source": "城市轨道交通工程设计标准.pdf",
+                "text": "站台有效长度范围内，A型车曲线半径不应小于1500m，B型车不应小于1000m。"
+              }
+            ],
+            "top_n": 3
+          },
+          "completed": true,
+          "method": "rerank",
+          "output": [
+            {
+              "article_id": "7.2.1",
+              "chunk_id": 45,
+              "page_end": 45,
+              "page_start": 45,
+              "source": "城市轨道交通工程设计标准.pdf",
+              "text": "站台有效长度范围内，A型车曲线半径不应小于1500m，B型车不应小于1000m。"
+            }
+          ]
+        },
+        {
+          "arguments": {
+            "chat_history": [],
+            "evidences": [
+              {
+                "article_id": "7.2.1",
+                "chapter_id": null,
+                "chapter_title": null,
+                "chunk_id": 45,
+                "content_type": "text",
+                "display_ref": null,
+                "edition_id": null,
+                "evidence_id": "E1",
+                "metadata": {},
+                "page_end": 45,
+                "page_start": 45,
+                "pdf_page_end": 45,
+                "pdf_page_start": 45,
+                "printed_page_end": null,
+                "printed_page_start": null,
+                "rerank_score": null,
+                "score": null,
+                "source": "城市轨道交通工程设计标准.pdf",
+                "spec_id": null,
+                "spec_title": null,
+                "standard_code": null,
+                "table_id": null,
+                "table_title": null,
+                "text": "站台有效长度范围内，A型车曲线半径不应小于1500m，B型车不应小于1000m。"
+              }
+            ],
+            "query": "站台不得不设在曲线上时，A 型车和 B 型车对曲线半径分别有什么要求？",
+            "scope_business_ids": []
+          },
+          "completed": true,
+          "method": "generate_answer",
+          "output": "站台有效长度范围内，A型车曲线半径不应小于1500m，B型车不应小于1000m。 [E1]"
+        }
+      ],
+      "raw_final_evidence": [
+        {
+          "article_id": "7.2.1",
+          "chapter_id": null,
+          "chapter_title": null,
+          "chunk_id": 45,
+          "content_type": "text",
+          "display_ref": null,
+          "edition_id": null,
+          "evidence_id": "E1",
+          "metadata": {},
+          "page_end": 45,
+          "page_start": 45,
+          "pdf_page_end": 45,
+          "pdf_page_start": 45,
+          "printed_page_end": null,
+          "printed_page_start": null,
+          "rerank_score": null,
+          "score": null,
+          "source": "城市轨道交通工程设计标准.pdf",
+          "spec_id": null,
+          "spec_title": null,
+          "standard_code": null,
+          "table_id": null,
+          "table_title": null,
+          "text": "站台有效长度范围内，A型车曲线半径不应小于1500m，B型车不应小于1000m。"
+        }
+      ],
+      "raw_request_metrics": {
+        "app_version": "0.1.0",
+        "error_code": null,
+        "estimated_cost": null,
+        "index_version": "743675f313e214108cc3769fd8da627cc790eeb3a85c4ae116b0932c21672be9",
+        "model_calls": 0,
+        "model_retries": 0,
+        "models": {
+          "embedding": "offline-embedding",
+          "generation": "offline-generation",
+          "reranker": "offline-reranker"
+        },
+        "outcome": "answer",
+        "request_id": "e10f2ca155ce4109a957ca767459654c",
+        "retrieval_retries": 0,
+        "retryable": false,
+        "stage_timings_ms": {
+          "generation": 0.0,
+          "grader": 0.0,
+          "rerank": 0.0,
+          "retrieval": 0.0
+        },
+        "token_usage": {
+          "input": 0,
+          "output": 0,
+          "total": 0
+        },
+        "total_ms": 0.0
+      },
+      "request_id": "e10f2ca155ce4109a957ca767459654c",
+      "trace": [
+        {
+          "query": "站台不得不设在曲线上时，A 型车和 B 型车对曲线半径分别有什么要求？",
+          "retry_count": 0,
+          "step": "retrieve"
+        },
+        {
+          "decision": "sufficient",
+          "missing_requirements": [],
+          "retry_count": 0,
+          "step": "grade"
+        },
+        {
+          "step": "answer"
+        },
+        {
+          "step": "citation_validation",
+          "valid": true
+        }
+      ],
+      "usage_note": "full totals require all SDK attempts and observed response usage; legacy totals are not inferred"
+    },
+    "final_decision_evidence": [
+      {
+        "article": "7.2.1",
+        "chunk_id": 45,
+        "document_id": "LEGACY-FIXTURE",
+        "document_version": "synthetic-edition-not-verified",
+        "evidence_id": "E1",
+        "locator": null,
+        "page": 45,
+        "page_end": 45,
+        "quote": "站台有效长度范围内，A型车曲线半径不应小于1500m，B型车不应小于1000m。",
+        "table": null
+      }
+    ],
+    "generator_context": [
+      {
+        "article": "7.2.1",
+        "chunk_id": 45,
+        "document_id": "LEGACY-FIXTURE",
+        "document_version": "synthetic-edition-not-verified",
+        "evidence_id": "E1",
+        "locator": null,
+        "page": 45,
+        "page_end": 45,
+        "quote": "站台有效长度范围内，A型车曲线半径不应小于1500m，B型车不应小于1000m。",
+        "table": null
+      }
+    ],
+    "generator_invoked": true,
+    "initial_candidates": [
+      {
+        "article": "7.2.1",
+        "chunk_id": 45,
+        "document_id": "LEGACY-FIXTURE",
+        "document_version": "synthetic-edition-not-verified",
+        "evidence_id": "R1-1",
+        "locator": null,
+        "page": 45,
+        "page_end": 45,
+        "quote": "站台有效长度范围内，A型车曲线半径不应小于1500m，B型车不应小于1000m。",
+        "table": null
+      }
+    ],
+    "measurements": {
+      "input_tokens": null,
+      "latency_ms": 0.0,
+      "model_calls": 0,
+      "output_tokens": null
+    },
+    "reranked_results": [
+      {
+        "article": "7.2.1",
+        "chunk_id": 45,
+        "document_id": "LEGACY-FIXTURE",
+        "document_version": "synthetic-edition-not-verified",
+        "evidence_id": "S1-1",
+        "locator": null,
+        "page": 45,
+        "page_end": 45,
+        "quote": "站台有效长度范围内，A型车曲线半径不应小于1500m，B型车不应小于1000m。",
+        "table": null
+      }
+    ],
+    "retrieval_rounds": [
+      {
+        "candidates": [
+          {
+            "article": "7.2.1",
+            "chunk_id": 45,
+            "document_id": "LEGACY-FIXTURE",
+            "document_version": "synthetic-edition-not-verified",
+            "evidence_id": "R1-1",
+            "locator": null,
+            "page": 45,
+            "page_end": 45,
+            "quote": "站台有效长度范围内，A型车曲线半径不应小于1500m，B型车不应小于1000m。",
+            "table": null
+          }
+        ],
+        "reranked": [
+          {
+            "article": "7.2.1",
+            "chunk_id": 45,
+            "document_id": "LEGACY-FIXTURE",
+            "document_version": "synthetic-edition-not-verified",
+            "evidence_id": "S1-1",
+            "locator": null,
+            "page": 45,
+            "page_end": 45,
+            "quote": "站台有效长度范围内，A型车曲线半径不应小于1500m，B型车不应小于1000m。",
+            "table": null
+          }
+        ],
+        "round_id": "retrieve-1"
+      }
+    ],
+    "schema_version": "rag-eval.observation.v1"
+  }
+]

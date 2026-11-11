@@ -1,0 +1,114 @@
+name: Reproducible baseline
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  windows-python-312:
+    runs-on: windows-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
+      - name: Install the locked development environment
+        run: uv sync --locked --extra dev
+
+      - name: Check Python errors and imports
+        run: uv run --locked ruff check .
+
+      - name: Run offline tests
+        run: uv run --locked python -m pytest -m "not integration and not model"
+
+      - name: Validate evaluation datasets without model calls
+        # Explicit seen-only inventory; never discover new independent candidates.
+        run: >-
+          uv run --locked python -m eval.dataset_manifest
+          eval/datasets/dev_v0.manifest.json
+          eval/datasets/dev_v0_retrieval.manifest.json
+          eval/datasets/independent_v2_draft.manifest.json
+          eval/datasets/phase0_seen_regression_20.manifest.json
+          eval/datasets/phase0_seen_regression_evidence_selection.manifest.json
+          eval/datasets/phase0_seen_regression_grader.manifest.json
+          eval/datasets/phase0_seen_regression_ind012.manifest.json
+          eval/datasets/phase1_cross_spec_independent_v2.manifest.json
+          eval/datasets/refusal_dev_v0.manifest.json
+          eval/datasets/regression_v1_draft.manifest.json
+          eval/datasets/sufficiency_dev_v0.manifest.json
+          eval/datasets/test_v1.manifest.json
+
+      - name: Build source and wheel distributions
+        run: uv run --locked python -m build
+
+      - name: Verify the wheel outside the source directory
+        shell: pwsh
+        run: |
+          $smokeDir = Join-Path $env:RUNNER_TEMP "engineering-rag-wheel-smoke"
+          uv venv --python 3.12 $smokeDir
+          $wheel = (Get-ChildItem "dist\*.whl" | Select-Object -First 1).FullName
+          uv pip install --python "$smokeDir\Scripts\python.exe" $wheel
+
+          Push-Location $env:RUNNER_TEMP
+          try {
+            & "$smokeDir\Scripts\python.exe" -c "import agent_demo; import src.application; import src.config"
+            if ($LASTEXITCODE -ne 0) { throw "Installed package import failed" }
+
+            & "$smokeDir\Scripts\engineering-rag.exe" --help
+            if ($LASTEXITCODE -ne 0) { throw "CLI help failed" }
+
+            & "$smokeDir\Scripts\engineering-rag-web.exe" --help
+            if ($LASTEXITCODE -ne 0) { throw "Web help failed" }
+
+            & "$smokeDir\Scripts\engineering-rag-index.exe" --help
+            if ($LASTEXITCODE -ne 0) { throw "Index CLI help failed" }
+
+            & "$smokeDir\Scripts\engineering-rag-model.exe" --help
+            if ($LASTEXITCODE -ne 0) { throw "Model CLI help failed" }
+
+            & "$smokeDir\Scripts\engineering-rag-health.exe" --help
+            if ($LASTEXITCODE -ne 0) { throw "Health CLI help failed" }
+
+            $env:DEEPSEEK_API_KEY = $null
+            $env:DEEPSEEK_BASE_URL = $null
+            $previousNativePreference = $PSNativeCommandUseErrorActionPreference
+            $PSNativeCommandUseErrorActionPreference = $false
+            $output = & "$smokeDir\Scripts\engineering-rag.exe" --question smoke 2>&1
+            if ($LASTEXITCODE -ne 2) { throw "Expected configuration exit code 2" }
+            $PSNativeCommandUseErrorActionPreference = $previousNativePreference
+            $outputText = $output | Out-String
+            if ($outputText -notmatch "DEEPSEEK_API_KEY" -or $outputText -notmatch "DEEPSEEK_BASE_URL") {
+              throw "Configuration error did not name missing fields"
+            }
+            $global:LASTEXITCODE = 0
+          }
+          finally {
+            Pop-Location
+          }
+
+  linux-container-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build the locked non-root container image
+        run: docker build --tag engineering-rag:ci .
+
+      - name: Verify image user and installed operations commands
+        run: |
+          test "$(docker image inspect engineering-rag:ci --format '{{.Config.User}}')" = "rag"
+          docker run --rm engineering-rag:ci engineering-rag-index --help
+          docker run --rm engineering-rag:ci engineering-rag-model --help
+          docker run --rm engineering-rag:ci engineering-rag-health --help

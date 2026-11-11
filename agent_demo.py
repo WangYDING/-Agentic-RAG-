@@ -1,96 +1,39 @@
 import argparse
-import os
-from collections.abc import Mapping
+import logging
+from uuid import uuid4
 
 from dotenv import load_dotenv
 
-from src.agent_workflow import AgentResponse, AgentWorkflow
+from src.agent_workflow import AgentResponse
+from src.application import build_agent_workflow, build_multi_spec_agent_workflow
+from src.config import AppConfig, ConfigurationError
 from src.evidence import format_evidence_citation
-
-
-REQUIRED_ENV_VARS = (
-    "DEEPSEEK_API_KEY",
-    "DEEPSEEK_BASE_URL",
-    "DEEPSEEK_MODEL",
+from src.presentation import (
+    configure_utf8_output,
+    format_agent_trace,
+    present_agent_response,
 )
+from src.observability import configure_json_logging
+from src.query_scope import QueryScope, QueryScopeError, SpecEdition
 
 
-class DemoConfigurationError(RuntimeError):
-    pass
-
-
-def validate_environment(environ: Mapping[str, str] | None = None) -> None:
-    values = os.environ if environ is None else environ
-    missing = [name for name in REQUIRED_ENV_VARS if not values.get(name, "").strip()]
-    if missing:
-        names = ", ".join(missing)
-        raise DemoConfigurationError(
-            f"缺少 DeepSeek 配置：{names}。请复制 .env.example 为 .env 并填写有效值。"
-        )
-
-
-def build_agent_workflow(
-    pdf_path: str = "data/raw/城市轨道交通工程设计标准.pdf",
-    index_dir: str = ".rag_index",
-) -> AgentWorkflow:
-    validate_environment()
-
-    # Keep model imports local so formatting/configuration tests stay lightweight.
-    from eval.bm25 import BM25Retriever
-    from eval.run_agent_test import HybridRetriever
-    from src.embedder import Embedder
-    from src.evidence_sufficiency import EvidenceSufficiencyGrader
-    from src.generator import Generator
-    from src.index_manager import IndexManager
-    from src.query_rewriter import QueryRewriter
-    from src.reranker import Reranker
-    from src.retriever import Retriever
-
-    embedder = Embedder()
-    managed = IndexManager(index_dir).build_or_load(pdf_path, embedder=embedder)
-    hybrid_retriever = HybridRetriever(
-        Retriever(managed.vector_store, embedder),
-        BM25Retriever(managed.vector_store.chunk_records),
-    )
-    return AgentWorkflow(
-        retriever=hybrid_retriever,
-        reranker=Reranker(),
-        grader=EvidenceSufficiencyGrader(),
-        generator=Generator(),
-        rewriter=QueryRewriter(),
-    )
-
-
-def format_agent_trace(response: AgentResponse) -> list[str]:
-    lines = []
-    for event in response.state.trace:
-        step = event.get("step")
-        if step == "retrieve":
-            lines.append("retrieve")
-        elif step == "grade":
-            lines.append(f"grade: {event.get('decision', 'unknown')}")
-        elif step == "retry":
-            lines.append("retry")
-        elif step == "answer":
-            lines.append("generate")
-        elif step == "citation_validation":
-            valid = str(bool(event.get("valid"))).lower()
-            lines.append(f"citation_validate: {valid}")
-        elif step == "refuse":
-            lines.append("refuse")
-    return lines
+logger = logging.getLogger(__name__)
 
 
 def render_response(response: AgentResponse) -> str:
     state = response.state
-    lines = ["### Final Answer", "", response.answer, "", "### Evidence", ""]
-    if state.evidences:
-        lines.extend(
-            format_evidence_citation(evidence)
-            for evidence in state.evidences
-        )
-    else:
-        lines.append("无")
+    public = present_agent_response(response)
+    lines = [f"### {public.heading}", "", public.message]
+    lines.extend(["", *public.details])
+    if public.show_evidence:
+        lines.extend(["", "### Evidence", ""])
+        if state.evidences:
+            lines.extend(
+                format_evidence_citation(evidence)
+                for evidence in state.evidences
+            )
+        else:
+            lines.append("无")
 
     lines.extend(["", "### Agent Trace", ""])
     lines.extend(format_agent_trace(response))
@@ -110,27 +53,78 @@ def render_response(response: AgentResponse) -> str:
 
 
 def main(argv: list[str] | None = None) -> int:
+    configure_utf8_output()
+    configure_json_logging()
     parser = argparse.ArgumentParser(description="Run the bounded Hybrid RAG Agent demo.")
-    parser.add_argument("--pdf", default="data/raw/城市轨道交通工程设计标准.pdf")
-    parser.add_argument("--index-dir", default=".rag_index")
+    parser.add_argument("--pdf", help="覆盖 RAG_PDF_PATH")
+    parser.add_argument("--index-dir", help="覆盖 RAG_INDEX_DIR")
     parser.add_argument("--question", help="直接提供问题；省略时进入交互输入。")
+    parser.add_argument("--knowledge-base-root", help="使用已发布的多规范知识库目录")
+    parser.add_argument("--catalog", default="data/spec_catalog.v1.json")
+    parser.add_argument("--all-specs", action="store_true", help="查询当前快照全部规范")
+    parser.add_argument(
+        "--spec-version",
+        action="append",
+        default=[],
+        metavar="SPEC_ID@EDITION_ID",
+        help="限定规范版本；可重复提供",
+    )
+    parser.add_argument("--expected-snapshot", help="要求活动快照精确匹配此 ID")
     args = parser.parse_args(argv)
 
     load_dotenv()
     try:
-        workflow = build_agent_workflow(args.pdf, args.index_dir)
-    except DemoConfigurationError as exc:
+        config = AppConfig.from_sources(
+            pdf_path=args.pdf,
+            index_dir=args.index_dir,
+        )
+        if args.knowledge_base_root:
+            workflow = build_multi_spec_agent_workflow(
+                config,
+                knowledge_base_root=args.knowledge_base_root,
+                catalog_path=args.catalog,
+                expected_snapshot_id=args.expected_snapshot,
+            )
+        else:
+            workflow = build_agent_workflow(config)
+    except ConfigurationError as exc:
         print(f"配置错误：{exc}")
         return 2
+    except Exception:
+        request_id = uuid4().hex
+        logger.exception("application initialization failed request_id=%s", request_id)
+        print(f"初始化失败，请检查本地文件和服务配置。 request_id: {request_id}")
+        return 1
 
     question = args.question or input("请输入问题：").strip()
     if not question:
         print("问题不能为空。")
         return 2
 
-    response = workflow.run(question)
+    try:
+        scope = _query_scope_from_args(args) if args.knowledge_base_root else None
+    except QueryScopeError as exc:
+        print(f"范围错误：{exc}")
+        return 2
+    response = workflow.run(question, scope=scope)
     print(render_response(response))
-    return 0
+    return 1 if response.result_type == "error" else 0
+
+
+def _query_scope_from_args(args) -> QueryScope:
+    if args.all_specs and args.spec_version:
+        raise QueryScopeError("--all-specs 与 --spec-version 不能同时使用")
+    if args.all_specs:
+        return QueryScope.all_documents()
+    if args.spec_version:
+        versions = []
+        for value in args.spec_version:
+            spec_id, separator, edition_id = value.rpartition("@")
+            if not separator:
+                raise QueryScopeError("--spec-version 必须使用 SPEC_ID@EDITION_ID")
+            versions.append(SpecEdition(spec_id, edition_id))
+        return QueryScope.exact_versions(versions)
+    return QueryScope.unspecified()
 
 
 if __name__ == "__main__":

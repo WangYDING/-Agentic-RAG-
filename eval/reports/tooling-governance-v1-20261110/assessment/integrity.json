@@ -1,0 +1,9 @@
+{
+  "files": {
+    "decision.json": "7365662a596f95dc931f8f1470b58055da54c252dce2a5d0b9fe2668c1e472ad",
+    "decision.md": "c92679d886b60f3184426886ad65a68e2ad965adf5d3016cbfee848ec8b3c526",
+    "lineage.json": "b8558f057ae93b1eb291fc736f05a9942d9570392b7830b931d25aab2dbc9f2c"
+  },
+  "hash_mode": "sha256-raw-bytes",
+  "schema_version": "rag-eval.artifacts.v1"
+}

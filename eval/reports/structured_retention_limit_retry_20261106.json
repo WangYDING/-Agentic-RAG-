@@ -1,0 +1,663 @@
+{
+  "run_type": "phase1_scoped_real_agent_evaluation",
+  "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+  "generation_model": "deepseek-flash",
+  "questions": [
+    {
+      "id": "P1-IND-018",
+      "question": "DB11/T 995-2025 与 GB 55033-2022 对车站出入口数量和周边协调分别提出了什么要求？",
+      "requested_scope": {
+        "spec_ids": [
+          "cn.beijing.db11t995",
+          "cn.gb55033"
+        ],
+        "edition_ids": [
+          "2025",
+          "2022"
+        ]
+      },
+      "request_id": "94fe4a82beae460298ec847b4fe4b7da",
+      "result_type": "answer",
+      "answer": "核心结论：DB11/T 995-2025 要求按车站分级确定出入口数量，并通过连通率、结建率强化与周边用地协调；GB 55033-2022 则原则性要求合理确定出入口数量，并应与周边用地、建筑、道路相协调 [E1][E4]。\n\n**DB11/T 995-2025**\n- 出入口数量：车站应划定为枢纽级、城市级、区域级、街区级，出入口数量宜根据分级确定，并与连通率、结建率相匹配 [E1]；出入口数量包括独立地铁出入口以及与周边建筑一体化连通的出入口 [E2]。\n- 周边协调：车站与周边用地应连尽连，枢纽级、城市级车站连通率宜70%以上 [E1]；周边规划实施率未达到80%的车站，附属结建率宜按表10.2.1执行，达到80%的可结合工程条件灵活确定 [E1]。表10.2.1关键分档为：周边规划实施率40%～80%时，枢纽级/城市级70%、区域级/街区级50%；低于40%时分别为90%、70% [E1]。\n- 给定片段未给出各分级对应的具体出入口数量值 [E1]。\n\n**GB 55033-2022**\n- 出入口数量：应合理确定车站出入口数量及用地控制范围 [E4]；给定片段未给出具体数量指标 [E4]。\n- 周边协调：应与周边用地、建筑、道路相协调，保障车站出入口处客流顺畅，并不对周边道路造成影响 [E4]。",
+      "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+      "bound_scope": [
+        "cn.beijing.db11t995@2025",
+        "cn.gb55033@2022"
+      ],
+      "retry_count": 1,
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "text": "10.2.1\n车站应根据线路一体化规划划定为枢纽级、城市级、区域级、街区级四个层级，确定与之需求\n相匹配的车站出入口数量、连通率和结建率，并应符合下列规定：\n1\n车站出入口数量宜根据分级确定；\n2\n车站与周边用地应连尽连，枢纽级、城市级车站的连通率宜70%以上；\n3\n周边规划实施率未达到80%的车站，附属结建率宜按照表10.2.1 执行；达到80%的车站，附属\n结建率可结合工程条件灵活确定。\n表10.2.1\n车站附属的结建率建议值\n附属结建率\n枢纽级/城市级\n区域级/街区级\n周边规划实施率40%-80%的车站\n70%\n50%\n周边规划实施率低于40%的车站\n90%\n70%",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 59,
+          "page_end": 59,
+          "chunk_id": 587,
+          "content_type": "text",
+          "chapter_id": "10",
+          "chapter_title": "车站建筑",
+          "article_id": "10.2.1",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第10.2.1条",
+          "score": 27.360679880552926,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.beijing.db11t995",
+          "edition_id": "2025",
+          "standard_code": "DB11/T 995-2025",
+          "spec_title": "城市轨道交通工程设计标准",
+          "pdf_page_start": 59,
+          "pdf_page_end": 59,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E2",
+          "text": "10.2.1\n轨道交通工程的线路一体化规划方案是轨道交通工程设计与建设实施的直接依据。线路一体化\n规划方案将车站根据站点功能定位和周边规划情况分为枢纽级、城市级、区域级、街区级四个级别。因\n此，车站分级与上位规划保持一致，采用相同的分级体系，才能保证各项规划控制指标的落地。\n为提高轨道站点的服务水平，并加强轨道站点与毗邻地块地下空间功能、连通及交通组织等方面的\n引导要求，明确了站点的出入口数量、结建率和连通率要求。其中，出入口数量包括独立地铁出入口以\n及与周边建筑一体化连通的出入口，连通率是车站与周边建筑一体化连通的出入口数量占出入口总数的\n比例，结建率是站点与用地建筑或景观结合建设附属的数量",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 294,
+          "page_end": 294,
+          "chunk_id": 2945,
+          "content_type": "text",
+          "chapter_id": "10",
+          "chapter_title": "车站建筑",
+          "article_id": "10.2.1",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第10.2.1条",
+          "score": 22.540209808608747,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.beijing.db11t995",
+          "edition_id": "2025",
+          "standard_code": "DB11/T 995-2025",
+          "spec_title": "城市轨道交通工程设计标准",
+          "pdf_page_start": 294,
+          "pdf_page_end": 294,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E3",
+          "text": "与周边建筑一体化连通的出入口数量占出入口总数的\n比例，结建率是站点与用地建筑或景观结合建设附属的数量占附属总量的比例，其中风亭与建筑用地内\n的景观环境融合建设，也属于附属结建的一种类型。\n10.4\n车站平面布局\nⅠ\n公共区",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 294,
+          "page_end": 294,
+          "chunk_id": 2946,
+          "content_type": "text",
+          "chapter_id": "10",
+          "chapter_title": "车站建筑",
+          "article_id": "10.2.1",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第10.2.1条",
+          "score": 30.929737007945597,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.beijing.db11t995",
+          "edition_id": "2025",
+          "standard_code": "DB11/T 995-2025",
+          "spec_title": "城市轨道交通工程设计标准",
+          "pdf_page_start": 294,
+          "pdf_page_end": 294,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E4",
+          "text": "2.1.30 城市轨道交通工程建设应合理确定车站出入口数量、用\n地控制范围，并应与周边用地、建筑、道路相协调，保障车站出\n入口处客流顺畅，不对周边道路造成影响。",
+          "source": "GB55033-2022_城市轨道交通工程项目规范.pdf",
+          "page_start": 9,
+          "page_end": 9,
+          "chunk_id": 43,
+          "content_type": "text",
+          "chapter_id": "2",
+          "chapter_title": "2 基本规定",
+          "article_id": "2.1.30",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第2.1.30条",
+          "score": 0.6315706968307495,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.gb55033",
+          "edition_id": "2022",
+          "standard_code": "GB 55033-2022",
+          "spec_title": "城市轨道交通工程项目规范",
+          "pdf_page_start": 9,
+          "pdf_page_end": 9,
+          "printed_page_start": null,
+          "printed_page_end": null
+        }
+      ],
+      "trace": [
+        {
+          "step": "bind_scope",
+          "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+          "scope": [
+            "cn.beijing.db11t995@2025",
+            "cn.gb55033@2022"
+          ]
+        },
+        {
+          "step": "retrieve",
+          "query": "DB11/T 995-2025 与 GB 55033-2022 对车站出入口数量和周边协调分别提出了什么要求？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "DB11/T 995-2025 对车站出入口数量的具体要求（证据仅说明明确了出入口数量要求及其构成，未给出具体数量规定）"
+          ],
+          "retry_count": 0
+        },
+        {
+          "step": "parse_evidence_requirements",
+          "question_requirements": [
+            {
+              "business_id": "cn.beijing.db11t995@2025",
+              "article_id": null,
+              "subrequirement": "DB11/T 995-2025 与 GB 55033-2022 对车站出入口数量和周边协调分别提出了什么要求？",
+              "source": "question",
+              "authoritative": true,
+              "status": "parsed",
+              "reason": null
+            },
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": null,
+              "subrequirement": "DB11/T 995-2025 与 GB 55033-2022 对车站出入口数量和周边协调分别提出了什么要求？",
+              "source": "question",
+              "authoritative": true,
+              "status": "parsed",
+              "reason": null
+            }
+          ],
+          "grader_requirements": [
+            {
+              "business_id": "cn.beijing.db11t995@2025",
+              "article_id": null,
+              "subrequirement": "DB11/T 995-2025 对车站出入口数量的具体要求（证据仅说明明确了出入口数量要求及其构成，未给出具体数量规定）",
+              "source": "grader",
+              "authoritative": true,
+              "status": "mapped_to_question",
+              "reason": null
+            }
+          ]
+        },
+        {
+          "step": "retry",
+          "retry_count": 1,
+          "missing_requirements": [
+            "DB11/T 995-2025 对车站出入口数量的具体要求（证据仅说明明确了出入口数量要求及其构成，未给出具体数量规定）"
+          ]
+        },
+        {
+          "step": "retrieve",
+          "query": "DB11/T 995-2025 对车站出入口数量的具体要求（证据仅说明明确了出入口数量要求及其构成，未给出具体数量规定）",
+          "retry_count": 1
+        },
+        {
+          "step": "retain_article_groups",
+          "evidence_limit": 4,
+          "retained_groups": [
+            {
+              "business_id": "cn.beijing.db11t995@2025",
+              "article_id": "10.2.1",
+              "chunk_ids": [
+                587,
+                2945,
+                2946
+              ],
+              "basis": "unique_direct_coverage",
+              "covered_text": "DB11/T 995-2025 与 GB 55033-2022 对车站出入口数量和周边协调分别提出了什么要求？"
+            },
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": "2.1.30",
+              "chunk_ids": [
+                43
+              ],
+              "basis": "unique_direct_coverage",
+              "covered_text": "DB11/T 995-2025 与 GB 55033-2022 对车站出入口数量和周边协调分别提出了什么要求？"
+            }
+          ],
+          "fallbacks": [
+            {
+              "subrequirement": "DB11/T 995-2025 对车站出入口数量的具体要求（证据仅说明明确了出入口数量要求及其构成，未给出具体数量规定）",
+              "reason": "no_direct_coverage",
+              "candidate_articles": []
+            }
+          ]
+        },
+        {
+          "step": "verify_final_evidence_context",
+          "complete": true,
+          "within_scope": true,
+          "incomplete_groups": [],
+          "out_of_scope": []
+        },
+        {
+          "step": "grade",
+          "decision": "sufficient",
+          "missing_requirements": [],
+          "retry_count": 1
+        },
+        {
+          "step": "answer"
+        },
+        {
+          "step": "citation_validation",
+          "valid": true
+        }
+      ],
+      "request_metrics": {
+        "request_id": "94fe4a82beae460298ec847b4fe4b7da",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 62.0,
+          "rerank": 12907.0,
+          "grader": 14187.0,
+          "generation": 13500.0
+        },
+        "total_ms": 41672.0,
+        "outcome": "answer",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 1,
+        "model_calls": 3,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 3839,
+          "output": 5108,
+          "total": 8947
+        },
+        "estimated_cost": null
+      }
+    },
+    {
+      "id": "P1-IND-025",
+      "question": "请分别说明三份规范各自第6.2.3条的主题和核心要求，不要把同号条文混在一起。",
+      "requested_scope": {
+        "spec_ids": [
+          "cn.beijing.db11t995",
+          "cn.gb55033",
+          "cn.gb50157"
+        ],
+        "edition_ids": [
+          "2025",
+          "2022",
+          "2013"
+        ]
+      },
+      "request_id": "bcaf0b9d39344c7dad43e981d2d13601",
+      "result_type": "answer",
+      "answer": "核心结论：三份规范第6.2.3条主题各不相同，应分别理解为隧道阻塞比、曲线间夹直线长度、通信电源及接地防雷要求。\n\n- **DB11/T 995-2025 第6.2.3条**：主题为**隧道阻塞比**。核心要求是隧道阻塞比应符合表6.2.3规定：列车运行速度为110km/h时，隧道阻塞比不应大于0.45；为120km/h时，不应大于0.4 [E1]。\n\n- **GB 50157-2013 第6.2.3条**：主题为**曲线间夹直线设计**。核心要求是：正线、联络线及车辆基地出入线上，两相邻曲线间无超高夹直线最小长度应按表6.2.3确定；表中给出A型车、B型车困难时最小长度分别为25m、20m，注中V为列车通过夹直线的运行速度 [E2][E3]。此外，道岔缩短渡线其曲线间夹直线可缩短为10m [E3]。\n\n- **GB 55033-2022 第6.2.3条**：主题为**通信电源、通信接地及防雷**。核心要求是：通信电源应能实现集中监控管理，并应满足通信设备不间断、无瞬变供电要求；通信电源后备供电时间不应少于2h；通信接地系统应满足人身安全、通信设备安全及通信设备正常工作要求；通信系统应采取防雷措施 [E4]。",
+      "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+      "bound_scope": [
+        "cn.beijing.db11t995@2025",
+        "cn.gb50157@2013",
+        "cn.gb55033@2022"
+      ],
+      "retry_count": 1,
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "text": "6.2.3\n隧道阻塞比应符合表6.2.3 的规定：\n表6.2.3\n隧道阻塞比表\n列车运行速度\n110km/h\n120km/h\n隧道阻塞比\n≤0.45\n≤0.4\n6.3\n建筑限界",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 40,
+          "page_end": 40,
+          "chunk_id": 406,
+          "content_type": "text",
+          "chapter_id": "6",
+          "chapter_title": "限界",
+          "article_id": "6.2.3",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第6.2.3条",
+          "score": 1.0,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.beijing.db11t995",
+          "edition_id": "2025",
+          "standard_code": "DB11/T 995-2025",
+          "spec_title": "城市轨道交通工程设计标准",
+          "pdf_page_start": 40,
+          "pdf_page_end": 40,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E2",
+          "text": "6.2.3\n曲线间的夹直线设计应符合下列规定：\n1 正线、联络线及车辆基地出入线上，两相邻曲线间，无\n超高的夹直线最小长度，应按表6.2.3确定；\n38",
+          "source": "GB50157-2013_地铁设计规范.pdf",
+          "page_start": 57,
+          "page_end": 57,
+          "chunk_id": 319,
+          "content_type": "text",
+          "chapter_id": "6",
+          "chapter_title": null,
+          "article_id": "6.2.3",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第6.2.3条",
+          "score": 1.0,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.gb50157",
+          "edition_id": "2013",
+          "standard_code": "GB 50157-2013",
+          "spec_title": "地铁设计规范",
+          "pdf_page_start": 57,
+          "pdf_page_end": 57,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E3",
+          "text": "表6.2.3 夹直线最小长度（m）\n正线、\n一般情况\nλ≥0.5V\n联络线、\nA型车\nB型车\n困难时最小长度λ\n出入线\n25\n20\n注：V为列车通过夹直线的运行速度（km/h)。\n2道岔缩短渡线，其曲线间夹直线可缩短为10m。",
+          "source": "GB50157-2013_地铁设计规范.pdf",
+          "page_start": 58,
+          "page_end": 58,
+          "chunk_id": 320,
+          "content_type": "text",
+          "chapter_id": "6",
+          "chapter_title": null,
+          "article_id": "6.2.3",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第6.2.3条",
+          "score": 1.0,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.gb50157",
+          "edition_id": "2013",
+          "standard_code": "GB 50157-2013",
+          "spec_title": "地铁设计规范",
+          "pdf_page_start": 58,
+          "pdf_page_end": 58,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E4",
+          "text": "6.2.3 通信电源应能实现集中监控管理，并应满足通信设备不\n间断、无瞬变供电要求；通信电源的后备供电时间不应少于2h；\n通信接地系统应满足人身安全、通信设备安全及通信设备正常工\n作要求；通信系统应采取防雷措施。",
+          "source": "GB55033-2022_城市轨道交通工程项目规范.pdf",
+          "page_start": 31,
+          "page_end": 31,
+          "chunk_id": 190,
+          "content_type": "text",
+          "chapter_id": "6",
+          "chapter_title": "给水、排水系统…",
+          "article_id": "6.2.3",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第6.2.3条",
+          "score": 1.0,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.gb55033",
+          "edition_id": "2022",
+          "standard_code": "GB 55033-2022",
+          "spec_title": "城市轨道交通工程项目规范",
+          "pdf_page_start": 31,
+          "pdf_page_end": 31,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E5",
+          "text": "目次\n1 总则\n血\n2 基本规定\n2.1一般要求\n2.2 规划\n2.3\n杂散电流防护\n2.4 环境保护与资源节约\n2.5 应急设施\n3 限界…\n10\n4 车辆\n14\n4.1 一般规定\n14\n4.2 车体及内装\n14\n4.3 牵引和制动…\n15\n4.4 车载设备和设施\n15\n4.5 安全与应急\n16\n土建工程\n18\n一般规定\n18\n5.2 线路工程\n18\n5.3\n轨道与路基工程\n19\n5.4 车站建筑\n20\n5.5 结构工程\n22\n5.6 车辆基地与其他设施\n22\n6 机电设备系统…\n24\n6.1 供电系统\n24\n6.2 通信系统\n26\n6.3 信号系统\n27\n6",
+          "source": "GB55033-2022_城市轨道交通工程项目规范.pdf",
+          "page_start": 3,
+          "page_end": 3,
+          "chunk_id": 6,
+          "content_type": "text",
+          "chapter_id": null,
+          "chapter_title": null,
+          "article_id": null,
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "p3-chunk_6",
+          "score": 0.5819272994995117,
+          "rerank_score": 0.7731128334999084,
+          "metadata": {},
+          "spec_id": "cn.gb55033",
+          "edition_id": "2022",
+          "standard_code": "GB 55033-2022",
+          "spec_title": "城市轨道交通工程项目规范",
+          "pdf_page_start": 3,
+          "pdf_page_end": 3,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E6",
+          "text": "定·········································································································· 264\n8.2\n基本技术要求···································································································· 264\n8.3\n轨道部件·································································",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 273,
+          "page_end": 273,
+          "chunk_id": 2745,
+          "content_type": "text",
+          "chapter_id": "31",
+          "chapter_title": "环保节能",
+          "article_id": "31.3.11",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第31.3.11条",
+          "score": 0.0,
+          "rerank_score": 0.4011722803115845,
+          "metadata": {},
+          "spec_id": "cn.beijing.db11t995",
+          "edition_id": "2025",
+          "standard_code": null,
+          "spec_title": null,
+          "pdf_page_start": 273,
+          "pdf_page_end": 273,
+          "printed_page_start": null,
+          "printed_page_end": null
+        }
+      ],
+      "trace": [
+        {
+          "step": "bind_scope",
+          "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+          "scope": [
+            "cn.beijing.db11t995@2025",
+            "cn.gb50157@2013",
+            "cn.gb55033@2022"
+          ]
+        },
+        {
+          "step": "retrieve",
+          "query": "请分别说明三份规范各自第6.2.3条的主题和核心要求，不要把同号条文混在一起。",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "DB11/T 995-2025第6.2.3条的主题和核心要求",
+            "GB 55033-2022第6.2.3条的主题和核心要求"
+          ],
+          "retry_count": 0
+        },
+        {
+          "step": "parse_evidence_requirements",
+          "question_requirements": [
+            {
+              "business_id": "cn.beijing.db11t995@2025",
+              "article_id": "6.2.3",
+              "subrequirement": "请分别说明三份规范各自第6.2.3条的主题和核心要求，不要把同号条文混在一起",
+              "source": "question",
+              "authoritative": true,
+              "status": "parsed",
+              "reason": null
+            },
+            {
+              "business_id": "cn.gb50157@2013",
+              "article_id": "6.2.3",
+              "subrequirement": "请分别说明三份规范各自第6.2.3条的主题和核心要求，不要把同号条文混在一起",
+              "source": "question",
+              "authoritative": true,
+              "status": "parsed",
+              "reason": null
+            },
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": "6.2.3",
+              "subrequirement": "请分别说明三份规范各自第6.2.3条的主题和核心要求，不要把同号条文混在一起",
+              "source": "question",
+              "authoritative": true,
+              "status": "parsed",
+              "reason": null
+            }
+          ],
+          "grader_requirements": [
+            {
+              "business_id": "cn.beijing.db11t995@2025",
+              "article_id": "6.2.3",
+              "subrequirement": "DB11/T 995-2025第6.2.3条的主题和核心要求",
+              "source": "grader",
+              "authoritative": true,
+              "status": "mapped_to_question",
+              "reason": null
+            },
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": "6.2.3",
+              "subrequirement": "GB 55033-2022第6.2.3条的主题和核心要求",
+              "source": "grader",
+              "authoritative": true,
+              "status": "mapped_to_question",
+              "reason": null
+            }
+          ]
+        },
+        {
+          "step": "retry",
+          "retry_count": 1,
+          "missing_requirements": [
+            "DB11/T 995-2025第6.2.3条的主题和核心要求",
+            "GB 55033-2022第6.2.3条的主题和核心要求"
+          ]
+        },
+        {
+          "step": "retrieve",
+          "query": "DB11/T 995-2025第6.2.3条的主题和核心要求；GB 55033-2022第6.2.3条的主题和核心要求",
+          "retry_count": 1
+        },
+        {
+          "step": "retain_article_groups",
+          "evidence_limit": 6,
+          "retained_groups": [
+            {
+              "business_id": "cn.beijing.db11t995@2025",
+              "article_id": "6.2.3",
+              "chunk_ids": [
+                406
+              ],
+              "basis": "explicit_article",
+              "covered_text": "请分别说明三份规范各自第6.2.3条的主题和核心要求，不要把同号条文混在一起"
+            },
+            {
+              "business_id": "cn.gb50157@2013",
+              "article_id": "6.2.3",
+              "chunk_ids": [
+                319,
+                320
+              ],
+              "basis": "explicit_article",
+              "covered_text": "请分别说明三份规范各自第6.2.3条的主题和核心要求，不要把同号条文混在一起"
+            },
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": "6.2.3",
+              "chunk_ids": [
+                190
+              ],
+              "basis": "explicit_article",
+              "covered_text": "请分别说明三份规范各自第6.2.3条的主题和核心要求，不要把同号条文混在一起"
+            },
+            {
+              "business_id": "cn.beijing.db11t995@2025",
+              "article_id": "6.2.3",
+              "chunk_ids": [
+                406
+              ],
+              "basis": "explicit_article",
+              "covered_text": "DB11/T 995-2025第6.2.3条的主题和核心要求"
+            },
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": "6.2.3",
+              "chunk_ids": [
+                190
+              ],
+              "basis": "explicit_article",
+              "covered_text": "GB 55033-2022第6.2.3条的主题和核心要求"
+            }
+          ],
+          "fallbacks": []
+        },
+        {
+          "step": "verify_final_evidence_context",
+          "complete": true,
+          "within_scope": true,
+          "incomplete_groups": [],
+          "out_of_scope": []
+        },
+        {
+          "step": "grade",
+          "decision": "sufficient",
+          "missing_requirements": [],
+          "retry_count": 1
+        },
+        {
+          "step": "answer"
+        },
+        {
+          "step": "citation_validation",
+          "valid": true
+        }
+      ],
+      "request_metrics": {
+        "request_id": "bcaf0b9d39344c7dad43e981d2d13601",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 93.0,
+          "rerank": 21532.0,
+          "grader": 5890.0,
+          "generation": 4156.0
+        },
+        "total_ms": 32640.0,
+        "outcome": "answer",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 1,
+        "model_calls": 3,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 4690,
+          "output": 1814,
+          "total": 6504
+        },
+        "estimated_cost": null
+      }
+    }
+  ]
+}

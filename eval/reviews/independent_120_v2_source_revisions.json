@@ -1,0 +1,1325 @@
+{
+  "input_sha256": "41c916a1125f8a2c9231aa923294708dfe6d4d997a90b613ef5bacca635727c1",
+  "output_sha256": "e9df6b6c59e9ab805fdc4674f06fc60dd2189759623b3b044ff2211dafe24ce2",
+  "source_pdf_hashes": {
+    "cn.beijing.db11t995": "e5ca2388ad68ed7b21b6092e66c12a73c74c17de8b532bef91c5b2ea57be78f7",
+    "cn.gb55033": "907ffd92c569f79f163121904cccce69bc20905f9563854960bd184ca76f6fef",
+    "cn.gb50157": "a1130f89afba11f00fdb3353375aa1c424b4eb44d462ee6bd1de2835c235dab3"
+  },
+  "protocol": "rag-eval.test-case.v2",
+  "public_input": "rag-eval.rag-input.v1",
+  "corrections": [
+    {
+      "case_id": "I120-N015",
+      "source_pdf": "GB50157-2013_地铁设计规范.pdf",
+      "source_sha256": "a1130f89afba11f00fdb3353375aa1c424b4eb44d462ee6bd1de2835c235dab3",
+      "pdf_pages_1_based": [
+        128
+      ],
+      "basis": "rendered original PDF; article/table and relevant note visually checked",
+      "changed_fields": {
+        "question": {
+          "before": "GB 50157-2013 对防水混凝土环境温度上限，以及侵蚀性地层中现浇和装配式钢筋混凝土结构氯离子扩散系数分别有什么限制？",
+          "after": "GB 50157-2013 对防水混凝土环境温度上限，以及侵蚀性地层中防水混凝土与装配式钢筋混凝土结构的氯离子扩散系数分别有什么限制？"
+        }
+      },
+      "reviewer_type": "ai",
+      "human_approved": false
+    },
+    {
+      "case_id": "I120-T002",
+      "source_pdf": "城市轨道交通工程设计标准.pdf",
+      "source_sha256": "e5ca2388ad68ed7b21b6092e66c12a73c74c17de8b532bef91c5b2ea57be78f7",
+      "pdf_pages_1_based": [
+        69
+      ],
+      "basis": "rendered original PDF; article/table and relevant note visually checked",
+      "changed_fields": {
+        "question": {
+          "before": "DB11/T 995-2025 表10.10.3把换乘路径沿路设施瓶颈处的最大等待人数分为哪三个评价等级？",
+          "after": "DB11/T 995-2025 表10.10.3把换乘路径端部设施（站台、楼扶梯）瓶颈处的最大等待人数分为哪三个评价等级？"
+        },
+        "reference_answer": {
+          "before": "小于50人为良好；50～200人为一般；大于200人为差；评价范围为换乘路径沿路设施（站台、楼扶梯）。",
+          "after": "小于50人为良好；50～200人为一般；大于200人为差；评价范围为换乘路径端部设施（站台、楼扶梯）。"
+        },
+        "necessary_facts": {
+          "before": [
+            {
+              "fact_id": "F1",
+              "description": "小于50人为良好"
+            },
+            {
+              "fact_id": "F2",
+              "description": "50～200人为一般"
+            },
+            {
+              "fact_id": "F3",
+              "description": "大于200人为差"
+            },
+            {
+              "fact_id": "F4",
+              "description": "评价范围为换乘路径沿路设施（站台、楼扶梯）"
+            }
+          ],
+          "after": [
+            {
+              "fact_id": "F1",
+              "description": "小于50人为良好"
+            },
+            {
+              "fact_id": "F2",
+              "description": "50～200人为一般"
+            },
+            {
+              "fact_id": "F3",
+              "description": "大于200人为差"
+            },
+            {
+              "fact_id": "F4",
+              "description": "评价范围为换乘路径端部设施（站台、楼扶梯）"
+            }
+          ]
+        },
+        "evidence_groups": {
+          "before": [
+            {
+              "fact_id": "F1",
+              "alternatives": [
+                {
+                  "scheme_id": "original-table",
+                  "all_of": [
+                    {
+                      "evidence_id": "T002-P69",
+                      "document_id": "cn.beijing.db11t995",
+                      "document_version": "2025",
+                      "page": 69,
+                      "article": "10.10.3",
+                      "table": "表10.10.3",
+                      "quote": "瓶颈设施最大等待人数（人）：<50 良好；50～200 一般；>200 差。"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "fact_id": "F2",
+              "alternatives": [
+                {
+                  "scheme_id": "original-table",
+                  "all_of": [
+                    {
+                      "evidence_id": "T002-P69",
+                      "document_id": "cn.beijing.db11t995",
+                      "document_version": "2025",
+                      "page": 69,
+                      "article": "10.10.3",
+                      "table": "表10.10.3",
+                      "quote": "瓶颈设施最大等待人数（人）：<50 良好；50～200 一般；>200 差。"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "fact_id": "F3",
+              "alternatives": [
+                {
+                  "scheme_id": "original-table",
+                  "all_of": [
+                    {
+                      "evidence_id": "T002-P69",
+                      "document_id": "cn.beijing.db11t995",
+                      "document_version": "2025",
+                      "page": 69,
+                      "article": "10.10.3",
+                      "table": "表10.10.3",
+                      "quote": "瓶颈设施最大等待人数（人）：<50 良好；50～200 一般；>200 差。"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "fact_id": "F4",
+              "alternatives": [
+                {
+                  "scheme_id": "original-table",
+                  "all_of": [
+                    {
+                      "evidence_id": "T002-P69",
+                      "document_id": "cn.beijing.db11t995",
+                      "document_version": "2025",
+                      "page": 69,
+                      "article": "10.10.3",
+                      "table": "表10.10.3",
+                      "quote": "瓶颈设施最大等待人数（人）：<50 良好；50～200 一般；>200 差。"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "after": [
+            {
+              "fact_id": "F1",
+              "alternatives": [
+                {
+                  "scheme_id": "original-table",
+                  "all_of": [
+                    {
+                      "evidence_id": "T002-P69",
+                      "document_id": "cn.beijing.db11t995",
+                      "document_version": "2025",
+                      "page": 69,
+                      "article": "10.10.3",
+                      "table": "表10.10.3",
+                      "quote": "瓶颈设施最大等待人数（人）；评价范围：换乘路径端部设施（站台、楼扶梯）；<50：良好；50～200：一般；>200：差。"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "fact_id": "F2",
+              "alternatives": [
+                {
+                  "scheme_id": "original-table",
+                  "all_of": [
+                    {
+                      "evidence_id": "T002-P69",
+                      "document_id": "cn.beijing.db11t995",
+                      "document_version": "2025",
+                      "page": 69,
+                      "article": "10.10.3",
+                      "table": "表10.10.3",
+                      "quote": "瓶颈设施最大等待人数（人）；评价范围：换乘路径端部设施（站台、楼扶梯）；<50：良好；50～200：一般；>200：差。"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "fact_id": "F3",
+              "alternatives": [
+                {
+                  "scheme_id": "original-table",
+                  "all_of": [
+                    {
+                      "evidence_id": "T002-P69",
+                      "document_id": "cn.beijing.db11t995",
+                      "document_version": "2025",
+                      "page": 69,
+                      "article": "10.10.3",
+                      "table": "表10.10.3",
+                      "quote": "瓶颈设施最大等待人数（人）；评价范围：换乘路径端部设施（站台、楼扶梯）；<50：良好；50～200：一般；>200：差。"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "fact_id": "F4",
+              "alternatives": [
+                {
+                  "scheme_id": "original-table",
+                  "all_of": [
+                    {
+                      "evidence_id": "T002-P69",
+                      "document_id": "cn.beijing.db11t995",
+                      "document_version": "2025",
+                      "page": 69,
+                      "article": "10.10.3",
+                      "table": "表10.10.3",
+                      "quote": "瓶颈设施最大等待人数（人）；评价范围：换乘路径端部设施（站台、楼扶梯）；<50：良好；50～200：一般；>200：差。"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "reviewer_type": "ai",
+      "human_approved": false
+    },
+    {
+      "case_id": "I120-T003",
+      "source_pdf": "城市轨道交通工程设计标准.pdf",
+      "source_sha256": "e5ca2388ad68ed7b21b6092e66c12a73c74c17de8b532bef91c5b2ea57be78f7",
+      "pdf_pages_1_based": [
+        173
+      ],
+      "basis": "rendered original PDF; article/table and relevant note visually checked",
+      "changed_fields": {
+        "question": {
+          "before": "DB11/T 995-2025 表19.2.13对提升高度 H 小于10m与不小于10m的自动扶梯，上导轨转弯半径分别规定了什么下限？",
+          "after": "DB11/T 995-2025 表19.2.13对提升高度 H 小于10m与大于10m的自动扶梯，上导轨转弯半径分别规定了什么下限？"
+        },
+        "reference_answer": {
+          "before": "H<10m时上导轨转弯半径不小于2600mm；H≥10m时上导轨转弯半径不小于3600mm。",
+          "after": "H<10m时上导轨转弯半径不小于2600mm；H>10m时上导轨转弯半径不小于3600mm。"
+        },
+        "necessary_facts": {
+          "before": [
+            {
+              "fact_id": "F1",
+              "description": "H<10m时上导轨转弯半径不小于2600mm"
+            },
+            {
+              "fact_id": "F2",
+              "description": "H≥10m时上导轨转弯半径不小于3600mm"
+            }
+          ],
+          "after": [
+            {
+              "fact_id": "F1",
+              "description": "H<10m时上导轨转弯半径不小于2600mm"
+            },
+            {
+              "fact_id": "F2",
+              "description": "H>10m时上导轨转弯半径不小于3600mm"
+            }
+          ]
+        },
+        "evidence_groups": {
+          "before": [
+            {
+              "fact_id": "F1",
+              "alternatives": [
+                {
+                  "scheme_id": "original-table",
+                  "all_of": [
+                    {
+                      "evidence_id": "T003-P173",
+                      "document_id": "cn.beijing.db11t995",
+                      "document_version": "2025",
+                      "page": 173,
+                      "article": "19.2.13",
+                      "table": "表19.2.13",
+                      "quote": "H<10m：上导轨转弯半径≥2600mm；H≥10m：≥3600mm。"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "fact_id": "F2",
+              "alternatives": [
+                {
+                  "scheme_id": "original-table",
+                  "all_of": [
+                    {
+                      "evidence_id": "T003-P173",
+                      "document_id": "cn.beijing.db11t995",
+                      "document_version": "2025",
+                      "page": 173,
+                      "article": "19.2.13",
+                      "table": "表19.2.13",
+                      "quote": "H<10m：上导轨转弯半径≥2600mm；H≥10m：≥3600mm。"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "after": [
+            {
+              "fact_id": "F1",
+              "alternatives": [
+                {
+                  "scheme_id": "original-table",
+                  "all_of": [
+                    {
+                      "evidence_id": "T003-P173",
+                      "document_id": "cn.beijing.db11t995",
+                      "document_version": "2025",
+                      "page": 173,
+                      "article": "19.2.13",
+                      "table": "表19.2.13",
+                      "quote": "表19.2.13：H<10m，上导轨转弯半径≥2600mm；H>10m，上导轨转弯半径≥3600mm；表未列H=10m。"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "fact_id": "F2",
+              "alternatives": [
+                {
+                  "scheme_id": "original-table",
+                  "all_of": [
+                    {
+                      "evidence_id": "T003-P173",
+                      "document_id": "cn.beijing.db11t995",
+                      "document_version": "2025",
+                      "page": 173,
+                      "article": "19.2.13",
+                      "table": "表19.2.13",
+                      "quote": "表19.2.13：H<10m，上导轨转弯半径≥2600mm；H>10m，上导轨转弯半径≥3600mm；表未列H=10m。"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "numeric_constraints": {
+          "before": [
+            {
+              "value": "2600",
+              "unit": "mm",
+              "comparison": ">=",
+              "condition": "提升高度H<10m，上导轨"
+            },
+            {
+              "value": "3600",
+              "unit": "mm",
+              "comparison": ">=",
+              "condition": "H≥10m，上导轨"
+            }
+          ],
+          "after": [
+            {
+              "value": "2600",
+              "unit": "mm",
+              "comparison": ">=",
+              "condition": "提升高度H<10m，上导轨"
+            },
+            {
+              "value": "3600",
+              "unit": "mm",
+              "comparison": ">=",
+              "condition": "H>10m，上导轨"
+            }
+          ]
+        },
+        "source_excerpt_visual_transcription": {
+          "before": "H<10m：上导轨转弯半径≥2600mm；H≥10m：≥3600mm。",
+          "after": "表19.2.13（PDF第173页）上导轨转弯半径：H<10m为≥2600mm，H>10m为≥3600mm；H=10m无该表行。"
+        },
+        "numeric_constraints_v2": {
+          "before": [
+            {
+              "constraint_id": "N1",
+              "value": "2600",
+              "unit": "mm",
+              "comparison": ">=",
+              "conditions": [
+                "提升高度H<10m，上导轨"
+              ],
+              "fact_ids": [
+                "F1"
+              ],
+              "link_semantics": "all_facts"
+            },
+            {
+              "constraint_id": "N2",
+              "value": "3600",
+              "unit": "mm",
+              "comparison": ">=",
+              "conditions": [
+                "H≥10m，上导轨"
+              ],
+              "fact_ids": [
+                "F2"
+              ],
+              "link_semantics": "all_facts"
+            }
+          ],
+          "after": [
+            {
+              "constraint_id": "N1",
+              "value": "2600",
+              "unit": "mm",
+              "comparison": ">=",
+              "conditions": [
+                "提升高度H<10m，上导轨"
+              ],
+              "fact_ids": [
+                "F1"
+              ],
+              "link_semantics": "all_facts"
+            },
+            {
+              "constraint_id": "N2",
+              "value": "3600",
+              "unit": "mm",
+              "comparison": ">=",
+              "conditions": [
+                "H>10m，上导轨"
+              ],
+              "fact_ids": [
+                "F2"
+              ],
+              "link_semantics": "all_facts"
+            }
+          ]
+        }
+      },
+      "reviewer_type": "ai",
+      "human_approved": false
+    },
+    {
+      "case_id": "I120-T007",
+      "source_pdf": "GB55033-2022_城市轨道交通工程项目规范.pdf",
+      "source_sha256": "907ffd92c569f79f163121904cccce69bc20905f9563854960bd184ca76f6fef",
+      "pdf_pages_1_based": [
+        14,
+        15
+      ],
+      "basis": "rendered original PDF; article/table and relevant note visually checked",
+      "changed_fields": {
+        "evidence_groups": {
+          "before": [
+            {
+              "fact_id": "F1",
+              "alternatives": [
+                {
+                  "scheme_id": "original-table",
+                  "all_of": [
+                    {
+                      "evidence_id": "T007-P15",
+                      "document_id": "cn.gb55033",
+                      "document_version": "2022",
+                      "page": 15,
+                      "article": "3.0.5",
+                      "table": "表3.0.5-2",
+                      "quote": "下部最小安全间隙（mm）：跨座式单轨100、中低速磁浮100、AGT自动导向100；地铁栏为—。"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "fact_id": "F2",
+              "alternatives": [
+                {
+                  "scheme_id": "original-table",
+                  "all_of": [
+                    {
+                      "evidence_id": "T007-P15",
+                      "document_id": "cn.gb55033",
+                      "document_version": "2022",
+                      "page": 15,
+                      "article": "3.0.5",
+                      "table": "表3.0.5-2",
+                      "quote": "下部最小安全间隙（mm）：跨座式单轨100、中低速磁浮100、AGT自动导向100；地铁栏为—。"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "fact_id": "F3",
+              "alternatives": [
+                {
+                  "scheme_id": "original-table",
+                  "all_of": [
+                    {
+                      "evidence_id": "T007-P15",
+                      "document_id": "cn.gb55033",
+                      "document_version": "2022",
+                      "page": 15,
+                      "article": "3.0.5",
+                      "table": "表3.0.5-2",
+                      "quote": "下部最小安全间隙（mm）：跨座式单轨100、中低速磁浮100、AGT自动导向100；地铁栏为—。"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "fact_id": "F4",
+              "alternatives": [
+                {
+                  "scheme_id": "original-table",
+                  "all_of": [
+                    {
+                      "evidence_id": "T007-P15",
+                      "document_id": "cn.gb55033",
+                      "document_version": "2022",
+                      "page": 15,
+                      "article": "3.0.5",
+                      "table": "表3.0.5-2",
+                      "quote": "下部最小安全间隙（mm）：跨座式单轨100、中低速磁浮100、AGT自动导向100；地铁栏为—。"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "after": [
+            {
+              "fact_id": "F1",
+              "alternatives": [
+                {
+                  "scheme_id": "original-table",
+                  "all_of": [
+                    {
+                      "evidence_id": "T007-P14-CLAUSE",
+                      "document_id": "cn.gb55033",
+                      "document_version": "2022",
+                      "page": 14,
+                      "article": "3.0.5",
+                      "quote": "当车辆存在低于运行面以下部分且无安装设备时，建筑限界下部距设备限界的轨道最小安全间隙应符合表3.0.5-2的规定。"
+                    },
+                    {
+                      "evidence_id": "T007-P15",
+                      "document_id": "cn.gb55033",
+                      "document_version": "2022",
+                      "page": 15,
+                      "article": "3.0.5",
+                      "table": "表3.0.5-2",
+                      "quote": "下部最小安全间隙（mm）：跨座式单轨100、中低速磁浮100、AGT自动导向100；地铁栏为—。"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "fact_id": "F2",
+              "alternatives": [
+                {
+                  "scheme_id": "original-table",
+                  "all_of": [
+                    {
+                      "evidence_id": "T007-P14-CLAUSE",
+                      "document_id": "cn.gb55033",
+                      "document_version": "2022",
+                      "page": 14,
+                      "article": "3.0.5",
+                      "quote": "当车辆存在低于运行面以下部分且无安装设备时，建筑限界下部距设备限界的轨道最小安全间隙应符合表3.0.5-2的规定。"
+                    },
+                    {
+                      "evidence_id": "T007-P15",
+                      "document_id": "cn.gb55033",
+                      "document_version": "2022",
+                      "page": 15,
+                      "article": "3.0.5",
+                      "table": "表3.0.5-2",
+                      "quote": "下部最小安全间隙（mm）：跨座式单轨100、中低速磁浮100、AGT自动导向100；地铁栏为—。"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "fact_id": "F3",
+              "alternatives": [
+                {
+                  "scheme_id": "original-table",
+                  "all_of": [
+                    {
+                      "evidence_id": "T007-P14-CLAUSE",
+                      "document_id": "cn.gb55033",
+                      "document_version": "2022",
+                      "page": 14,
+                      "article": "3.0.5",
+                      "quote": "当车辆存在低于运行面以下部分且无安装设备时，建筑限界下部距设备限界的轨道最小安全间隙应符合表3.0.5-2的规定。"
+                    },
+                    {
+                      "evidence_id": "T007-P15",
+                      "document_id": "cn.gb55033",
+                      "document_version": "2022",
+                      "page": 15,
+                      "article": "3.0.5",
+                      "table": "表3.0.5-2",
+                      "quote": "下部最小安全间隙（mm）：跨座式单轨100、中低速磁浮100、AGT自动导向100；地铁栏为—。"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "fact_id": "F4",
+              "alternatives": [
+                {
+                  "scheme_id": "original-table",
+                  "all_of": [
+                    {
+                      "evidence_id": "T007-P14-CLAUSE",
+                      "document_id": "cn.gb55033",
+                      "document_version": "2022",
+                      "page": 14,
+                      "article": "3.0.5",
+                      "quote": "当车辆存在低于运行面以下部分且无安装设备时，建筑限界下部距设备限界的轨道最小安全间隙应符合表3.0.5-2的规定。"
+                    },
+                    {
+                      "evidence_id": "T007-P15",
+                      "document_id": "cn.gb55033",
+                      "document_version": "2022",
+                      "page": 15,
+                      "article": "3.0.5",
+                      "table": "表3.0.5-2",
+                      "quote": "下部最小安全间隙（mm）：跨座式单轨100、中低速磁浮100、AGT自动导向100；地铁栏为—。"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "source_excerpt_visual_transcription": {
+          "before": "下部最小安全间隙（mm）：跨座式单轨100、中低速磁浮100、AGT自动导向100；地铁栏为—。",
+          "after": "PDF第14页3.0.5下部条件；第15页表3.0.5-2跨座式单轨、中低速磁浮、AGT均为100mm，地铁列为—。"
+        }
+      },
+      "reviewer_type": "ai",
+      "human_approved": false
+    },
+    {
+      "case_id": "I120-T009",
+      "source_pdf": "GB55033-2022_城市轨道交通工程项目规范.pdf",
+      "source_sha256": "907ffd92c569f79f163121904cccce69bc20905f9563854960bd184ca76f6fef",
+      "pdf_pages_1_based": [
+        16,
+        17
+      ],
+      "basis": "rendered original PDF; article/table and relevant note visually checked",
+      "changed_fields": {
+        "reference_answer": {
+          "before": "地铁空车静止时不大于50mm；中低速磁浮悬浮静止时不大于30mm；任何工况下站台面不应高于客室地板面。",
+          "after": "地铁空车静止时不大于50mm；中低速磁浮悬浮静止时不大于30mm。"
+        },
+        "necessary_facts": {
+          "before": [
+            {
+              "fact_id": "F1",
+              "description": "地铁空车静止时不大于50mm"
+            },
+            {
+              "fact_id": "F2",
+              "description": "中低速磁浮悬浮静止时不大于30mm"
+            },
+            {
+              "fact_id": "F3",
+              "description": "任何工况下站台面不应高于客室地板面"
+            }
+          ],
+          "after": [
+            {
+              "fact_id": "F1",
+              "description": "地铁空车静止时不大于50mm"
+            },
+            {
+              "fact_id": "F2",
+              "description": "中低速磁浮悬浮静止时不大于30mm"
+            }
+          ]
+        },
+        "evidence_groups": {
+          "before": [
+            {
+              "fact_id": "F1",
+              "alternatives": [
+                {
+                  "scheme_id": "original-table",
+                  "all_of": [
+                    {
+                      "evidence_id": "T009-P16",
+                      "document_id": "cn.gb55033",
+                      "document_version": "2022",
+                      "page": 16,
+                      "article": "3.0.8",
+                      "table": "表3.0.8",
+                      "quote": "地铁／空车静止：≤50mm；中低速磁浮／悬浮静止：≤30mm；续表跨PDF页16—17。"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "fact_id": "F2",
+              "alternatives": [
+                {
+                  "scheme_id": "original-table",
+                  "all_of": [
+                    {
+                      "evidence_id": "T009-P17",
+                      "document_id": "cn.gb55033",
+                      "document_version": "2022",
+                      "page": 17,
+                      "article": "3.0.8",
+                      "table": "表3.0.8",
+                      "quote": "地铁／空车静止：≤50mm；中低速磁浮／悬浮静止：≤30mm；续表跨PDF页16—17。"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "fact_id": "F3",
+              "alternatives": [
+                {
+                  "scheme_id": "original-table",
+                  "all_of": [
+                    {
+                      "evidence_id": "T009-P16",
+                      "document_id": "cn.gb55033",
+                      "document_version": "2022",
+                      "page": 16,
+                      "article": "3.0.8",
+                      "table": "表3.0.8",
+                      "quote": "地铁／空车静止：≤50mm；中低速磁浮／悬浮静止：≤30mm；续表跨PDF页16—17。"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "after": [
+            {
+              "fact_id": "F1",
+              "alternatives": [
+                {
+                  "scheme_id": "original-table",
+                  "all_of": [
+                    {
+                      "evidence_id": "T009-P16",
+                      "document_id": "cn.gb55033",
+                      "document_version": "2022",
+                      "page": 16,
+                      "article": "3.0.8",
+                      "table": "表3.0.8",
+                      "quote": "表3.0.8：地铁／空车静止／车站站台面与车辆客室地板面间的高差≤50mm。"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "fact_id": "F2",
+              "alternatives": [
+                {
+                  "scheme_id": "original-table",
+                  "all_of": [
+                    {
+                      "evidence_id": "T009-P17",
+                      "document_id": "cn.gb55033",
+                      "document_version": "2022",
+                      "page": 17,
+                      "article": "3.0.8",
+                      "table": "表3.0.8",
+                      "quote": "续表3.0.8：中低速磁浮／悬浮静止／车站站台面与车辆客室地板面间的高差≤30mm。"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "source_excerpt_visual_transcription": {
+          "before": "地铁／空车静止：≤50mm；中低速磁浮／悬浮静止：≤30mm；续表跨PDF页16—17。",
+          "after": "PDF第16页3.0.8正文另规定任何工况下站台面不应高于地板面；本题只问第16-17页的两行高差上限。"
+        }
+      },
+      "reviewer_type": "ai",
+      "human_approved": false
+    },
+    {
+      "case_id": "I120-T011",
+      "source_pdf": "GB50157-2013_地铁设计规范.pdf",
+      "source_sha256": "a1130f89afba11f00fdb3353375aa1c424b4eb44d462ee6bd1de2835c235dab3",
+      "pdf_pages_1_based": [
+        73
+      ],
+      "basis": "rendered original PDF; article/table and relevant note visually checked",
+      "changed_fields": {
+        "reference_answer": {
+          "before": "R≤600m加宽0.5m；600m<R≤800m加宽0.4m；单线加宽在曲线外侧，双线在外股曲线外侧。",
+          "after": "R≤600m加宽0.5m；600m<R≤800m加宽0.4m。"
+        },
+        "necessary_facts": {
+          "before": [
+            {
+              "fact_id": "F1",
+              "description": "R≤600m加宽0.5m"
+            },
+            {
+              "fact_id": "F2",
+              "description": "600m<R≤800m加宽0.4m"
+            },
+            {
+              "fact_id": "F3",
+              "description": "单线加宽在曲线外侧，双线在外股曲线外侧"
+            }
+          ],
+          "after": [
+            {
+              "fact_id": "F1",
+              "description": "R≤600m加宽0.5m"
+            },
+            {
+              "fact_id": "F2",
+              "description": "600m<R≤800m加宽0.4m"
+            }
+          ]
+        },
+        "evidence_groups": {
+          "before": [
+            {
+              "fact_id": "F1",
+              "alternatives": [
+                {
+                  "scheme_id": "original-table",
+                  "all_of": [
+                    {
+                      "evidence_id": "T011-P73",
+                      "document_id": "cn.gb50157",
+                      "document_version": "2013",
+                      "page": 73,
+                      "article": "8.2.4",
+                      "table": "表8.2.4",
+                      "quote": "R≤600m：0.5m；600<R≤800m：0.4m；路基面外侧加宽值。"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "fact_id": "F2",
+              "alternatives": [
+                {
+                  "scheme_id": "original-table",
+                  "all_of": [
+                    {
+                      "evidence_id": "T011-P73",
+                      "document_id": "cn.gb50157",
+                      "document_version": "2013",
+                      "page": 73,
+                      "article": "8.2.4",
+                      "table": "表8.2.4",
+                      "quote": "R≤600m：0.5m；600<R≤800m：0.4m；路基面外侧加宽值。"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "fact_id": "F3",
+              "alternatives": [
+                {
+                  "scheme_id": "original-table",
+                  "all_of": [
+                    {
+                      "evidence_id": "T011-P73",
+                      "document_id": "cn.gb50157",
+                      "document_version": "2013",
+                      "page": 73,
+                      "article": "8.2.4",
+                      "table": "表8.2.4",
+                      "quote": "R≤600m：0.5m；600<R≤800m：0.4m；路基面外侧加宽值。"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "after": [
+            {
+              "fact_id": "F1",
+              "alternatives": [
+                {
+                  "scheme_id": "original-table",
+                  "all_of": [
+                    {
+                      "evidence_id": "T011-P73",
+                      "document_id": "cn.gb50157",
+                      "document_version": "2013",
+                      "page": 73,
+                      "article": "8.2.4",
+                      "table": "表8.2.4",
+                      "quote": "R≤600m：0.5m；600<R≤800m：0.4m；路基面外侧加宽值。"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "fact_id": "F2",
+              "alternatives": [
+                {
+                  "scheme_id": "original-table",
+                  "all_of": [
+                    {
+                      "evidence_id": "T011-P73",
+                      "document_id": "cn.gb50157",
+                      "document_version": "2013",
+                      "page": 73,
+                      "article": "8.2.4",
+                      "table": "表8.2.4",
+                      "quote": "R≤600m：0.5m；600<R≤800m：0.4m；路基面外侧加宽值。"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "reviewer_type": "ai",
+      "human_approved": false
+    },
+    {
+      "case_id": "I120-T015",
+      "source_pdf": "GB50157-2013_地铁设计规范.pdf",
+      "source_sha256": "a1130f89afba11f00fdb3353375aa1c424b4eb44d462ee6bd1de2835c235dab3",
+      "pdf_pages_1_based": [
+        293
+      ],
+      "basis": "rendered original PDF; article/table and relevant note visually checked",
+      "changed_fields": {
+        "reference_answer": {
+          "before": "1类声环境功能区敏感点昼间55dBA；夜间45dBA；无法满足标准要求时应采取降噪措施。",
+          "after": "1类声环境功能区敏感点昼间55dBA；夜间45dBA。"
+        },
+        "necessary_facts": {
+          "before": [
+            {
+              "fact_id": "F1",
+              "description": "1类声环境功能区敏感点昼间55dBA"
+            },
+            {
+              "fact_id": "F2",
+              "description": "夜间45dBA"
+            },
+            {
+              "fact_id": "F3",
+              "description": "无法满足标准要求时应采取降噪措施"
+            }
+          ],
+          "after": [
+            {
+              "fact_id": "F1",
+              "description": "1类声环境功能区敏感点昼间55dBA"
+            },
+            {
+              "fact_id": "F2",
+              "description": "夜间45dBA"
+            }
+          ]
+        },
+        "evidence_groups": {
+          "before": [
+            {
+              "fact_id": "F1",
+              "alternatives": [
+                {
+                  "scheme_id": "original-table",
+                  "all_of": [
+                    {
+                      "evidence_id": "T015-P293",
+                      "document_id": "cn.gb50157",
+                      "document_version": "2013",
+                      "page": 293,
+                      "article": "29.3.2",
+                      "table": "表29.3.2",
+                      "quote": "1类：居住、医疗、文教、科研区的敏感点；昼间55dBA、夜间45dBA。"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "fact_id": "F2",
+              "alternatives": [
+                {
+                  "scheme_id": "original-table",
+                  "all_of": [
+                    {
+                      "evidence_id": "T015-P293",
+                      "document_id": "cn.gb50157",
+                      "document_version": "2013",
+                      "page": 293,
+                      "article": "29.3.2",
+                      "table": "表29.3.2",
+                      "quote": "1类：居住、医疗、文教、科研区的敏感点；昼间55dBA、夜间45dBA。"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "fact_id": "F3",
+              "alternatives": [
+                {
+                  "scheme_id": "original-table",
+                  "all_of": [
+                    {
+                      "evidence_id": "T015-P293",
+                      "document_id": "cn.gb50157",
+                      "document_version": "2013",
+                      "page": 293,
+                      "article": "29.3.2",
+                      "table": "表29.3.2",
+                      "quote": "1类：居住、医疗、文教、科研区的敏感点；昼间55dBA、夜间45dBA。"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "after": [
+            {
+              "fact_id": "F1",
+              "alternatives": [
+                {
+                  "scheme_id": "original-table",
+                  "all_of": [
+                    {
+                      "evidence_id": "T015-P293",
+                      "document_id": "cn.gb50157",
+                      "document_version": "2013",
+                      "page": 293,
+                      "article": "29.3.2",
+                      "table": "表29.3.2",
+                      "quote": "1类：居住、医疗、文教、科研区的敏感点；昼间55dBA、夜间45dBA。"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "fact_id": "F2",
+              "alternatives": [
+                {
+                  "scheme_id": "original-table",
+                  "all_of": [
+                    {
+                      "evidence_id": "T015-P293",
+                      "document_id": "cn.gb50157",
+                      "document_version": "2013",
+                      "page": 293,
+                      "article": "29.3.2",
+                      "table": "表29.3.2",
+                      "quote": "1类：居住、医疗、文教、科研区的敏感点；昼间55dBA、夜间45dBA。"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "reviewer_type": "ai",
+      "human_approved": false
+    },
+    {
+      "case_id": "I120-Q014",
+      "source_pdf": "GB50157-2013_地铁设计规范.pdf",
+      "source_sha256": "a1130f89afba11f00fdb3353375aa1c424b4eb44d462ee6bd1de2835c235dab3",
+      "pdf_pages_1_based": [
+        268
+      ],
+      "basis": "rendered original PDF; article/table and relevant note visually checked",
+      "changed_fields": {
+        "reason_for_refusal_or_clarification": {
+          "before": "表27.3.14按停车库、列检库、月检库等车库种类给不同数值，部分格有括号及表注。",
+          "after": "表27.3.14按车库种类列值；停车库、列检库的括号数值按表注5供接触轨供电车辆使用，非括号数值供架空接触网车辆使用。"
+        },
+        "clarification_annotation_v2": {
+          "before": {
+            "required_fields": [
+              "车库种类（停车库、列检库、月检库等）",
+              "适用的表注或括号标示条件"
+            ],
+            "branches": []
+          },
+          "after": {
+            "required_fields": [
+              "车库种类：停车库、列检库、月检库、临修库、架修库、油漆库或调机车库",
+              "仅当停车库或列检库的括号值与非括号值都可能适用时：车辆为接触轨供电还是架空接触网供电；其他车库不强制追问此项"
+            ],
+            "branches": []
+          }
+        }
+      },
+      "reviewer_type": "ai",
+      "human_approved": false
+    },
+    {
+      "case_id": "I120-Q019",
+      "source_pdf": "GB50157-2013_地铁设计规范.pdf",
+      "source_sha256": "a1130f89afba11f00fdb3353375aa1c424b4eb44d462ee6bd1de2835c235dab3",
+      "pdf_pages_1_based": [
+        168,
+        169
+      ],
+      "basis": "rendered original PDF; article/table and relevant note visually checked",
+      "changed_fields": {
+        "reason_for_refusal_or_clarification": {
+          "before": "表15.4.3跨页，电力与控制电缆、通道/电缆沟及水平/垂直布置对应不同值或空白格。",
+          "after": "续表15.4.3的“电缆支架之间的距离”按电力/控制电缆和通道/电缆沟、水平/垂直四列列值；电缆沟垂直列为—。"
+        },
+        "clarification_annotation_v2": {
+          "before": {
+            "required_fields": [
+              "电缆类型（电力或控制）",
+              "通道或电缆沟布置",
+              "水平还是垂直间距及所指支架位置"
+            ],
+            "branches": []
+          },
+          "after": {
+            "required_fields": [
+              "电缆种类：电力电缆或控制电缆",
+              "敷设地点：电缆通道或电缆沟",
+              "所问支架间距的方向：水平或垂直（电缆沟垂直列为—时不得给出本表数值）"
+            ],
+            "branches": []
+          }
+        }
+      },
+      "reviewer_type": "ai",
+      "human_approved": false
+    }
+  ],
+  "corrected_case_ids": [
+    "I120-N015",
+    "I120-T002",
+    "I120-T003",
+    "I120-T007",
+    "I120-T009",
+    "I120-T011",
+    "I120-T015",
+    "I120-Q014",
+    "I120-Q019"
+  ],
+  "additional_discovery": "T003 PDF p173 has H>10m, not H≥10m; exactly H=10m lacks table assignment",
+  "specific_remaining_for_human_adjudication": {
+    "I120-R012": "13.1.4对车站及人行通道有规定，但未单独列出入口；核定可选支持前提是否恰当，仍不得据此判定具体项目合规。",
+    "I120-Q015": "19.1.2未覆盖无集中空调且每层封闭面积≤2000m²的一级/二级分支；明确允许后续说明标准范围不涵盖该分支。",
+    "I120-T003": "原表H<10m与H>10m均有值，等于10m未列出；修订题只问有值的两行，不得外推。"
+  },
+  "visual_table_coverage": {
+    "T001": [
+      51
+    ],
+    "T002": [
+      69
+    ],
+    "T003": [
+      173
+    ],
+    "T004": [
+      207
+    ],
+    "T005": [
+      216
+    ],
+    "T006": [
+      14
+    ],
+    "T007": [
+      14,
+      15
+    ],
+    "T008": [
+      15
+    ],
+    "T009": [
+      16,
+      17
+    ],
+    "T010": [
+      17
+    ],
+    "T011": [
+      73
+    ],
+    "T012": [
+      113
+    ],
+    "T013": [
+      128
+    ],
+    "T014": [
+      260
+    ],
+    "T015": [
+      293
+    ],
+    "Q011": [
+      216
+    ],
+    "Q012": [
+      35
+    ],
+    "Q013": [
+      163
+    ],
+    "Q014": [
+      268
+    ],
+    "Q015": [
+      211
+    ],
+    "Q016": [
+      16
+    ],
+    "Q017": [
+      51
+    ],
+    "Q018": [
+      99,
+      100
+    ],
+    "Q019": [
+      168,
+      169
+    ]
+  },
+  "visually_checked_source_pages": {
+    "cn.beijing.db11t995": [
+      51,
+      55,
+      69,
+      72,
+      106,
+      127,
+      128,
+      173,
+      207,
+      216
+    ],
+    "cn.gb55033": [
+      14,
+      15,
+      16,
+      17,
+      18,
+      23,
+      24,
+      25,
+      28,
+      31
+    ],
+    "cn.gb50157": [
+      35,
+      73,
+      99,
+      100,
+      113,
+      128,
+      159,
+      161,
+      163,
+      168,
+      169,
+      211,
+      249,
+      260,
+      268,
+      293
+    ]
+  },
+  "cases": 120,
+  "review_rows": 58,
+  "reviewer": "Codex AI",
+  "human_approved": false,
+  "formal_run_allowed": false,
+  "remaining_checks": "See 58-case coverage CSV; R012 optional source scope, Q015 unprovided branch and T003 exact 10m caveat require human adjudication; all 58 need new human signoff and semantic overlap recheck",
+  "rag_invoked": false,
+  "independent_run_started": false
+}

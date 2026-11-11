@@ -1,0 +1,971 @@
+{
+  "dataset_id": "phase1_cross_spec_independent_v1",
+  "reviewed_at": "2026-11-06",
+  "reviewer": "Codex (AI; user-authorized PDF content reviewer)",
+  "reviewer_type": "AI",
+  "licensed_domain_expert": false,
+  "candidate_system_answers_run_or_inspected": false,
+  "source_files": {
+    "cn.beijing.db11t995@2025": {
+      "pdf": "data/raw/城市轨道交通工程设计标准.pdf",
+      "sha256": "e5ca2388ad68ed7b21b6092e66c12a73c74c17de8b532bef91c5b2ea57be78f7"
+    },
+    "cn.gb55033@2022": {
+      "pdf": "data/raw/GB55033-2022_城市轨道交通工程项目规范.pdf",
+      "sha256": "907ffd92c569f79f163121904cccce69bc20905f9563854960bd184ca76f6fef"
+    },
+    "cn.gb50157@2013": {
+      "pdf": "data/raw/GB50157-2013_地铁设计规范.pdf",
+      "sha256": "a1130f89afba11f00fdb3353375aa1c424b4eb44d462ee6bd1de2835c235dab3"
+    }
+  },
+  "dataset_sha256": "f870154d3cc4e6dabd700e4c2b031f81ffb6604073ea1926f926e231255391de",
+  "case_count": 30,
+  "approved": 30,
+  "rejected": 0,
+  "limitations": [
+    "AI content review; not a licensed domain-expert sign-off.",
+    "Rendered PDF pages were checked for layout, tables, numbers, units and conditions.",
+    "No candidate-system retrieval, grader or generation result was run or inspected before review and first commit."
+  ],
+  "cases": [
+    {
+      "id": "P1-IND-001",
+      "verdict": "approved",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "checks": {
+        "question_is_new_and_not_a_rewrite_of_phase1_development_examples": "pass",
+        "scope_and_version": "pass",
+        "answerability_or_clarification_boundary": "pass",
+        "pdf_page_article_or_table": "pass",
+        "required_answer_points": "pass",
+        "numeric_values_units_conditions": "pass"
+      },
+      "references": [
+        {
+          "business_id": "cn.gb55033@2022",
+          "pdf_page": 6,
+          "article": "2.1.5",
+          "table": null,
+          "source_excerpt": "初期3年、近期10年、远期25年；运能储备不小于10%。"
+        }
+      ],
+      "visually_reviewed_pages": [
+        "cn.gb55033@2022#pdf-page-6"
+      ],
+      "system_answer_inspected": false
+    },
+    {
+      "id": "P1-IND-002",
+      "verdict": "approved",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "checks": {
+        "question_is_new_and_not_a_rewrite_of_phase1_development_examples": "pass",
+        "scope_and_version": "pass",
+        "answerability_or_clarification_boundary": "pass",
+        "pdf_page_article_or_table": "pass",
+        "required_answer_points": "pass",
+        "numeric_values_units_conditions": "pass"
+      },
+      "references": [
+        {
+          "business_id": "cn.gb55033@2022",
+          "pdf_page": 8,
+          "article": "2.1.21",
+          "table": null,
+          "source_excerpt": "附属设施10m；地面高架和车辆基地30m；地下车站隧道50m；穿跨水域100m。"
+        }
+      ],
+      "visually_reviewed_pages": [
+        "cn.gb55033@2022#pdf-page-8"
+      ],
+      "system_answer_inspected": false
+    },
+    {
+      "id": "P1-IND-003",
+      "verdict": "approved",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "checks": {
+        "question_is_new_and_not_a_rewrite_of_phase1_development_examples": "pass",
+        "scope_and_version": "pass",
+        "answerability_or_clarification_boundary": "pass",
+        "pdf_page_article_or_table": "pass",
+        "required_answer_points": "pass",
+        "numeric_values_units_conditions": "pass"
+      },
+      "references": [
+        {
+          "business_id": "cn.gb55033@2022",
+          "pdf_page": 9,
+          "article": "2.1.26",
+          "table": null,
+          "source_excerpt": "完成验收，不载客试运行不少于90d，通过运营前安全评估。"
+        }
+      ],
+      "visually_reviewed_pages": [
+        "cn.gb55033@2022#pdf-page-9"
+      ],
+      "system_answer_inspected": false
+    },
+    {
+      "id": "P1-IND-004",
+      "verdict": "approved",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "checks": {
+        "question_is_new_and_not_a_rewrite_of_phase1_development_examples": "pass",
+        "scope_and_version": "pass",
+        "answerability_or_clarification_boundary": "pass",
+        "pdf_page_article_or_table": "pass",
+        "required_answer_points": "pass",
+        "numeric_values_units_conditions": "pass"
+      },
+      "references": [
+        {
+          "business_id": "cn.gb55033@2022",
+          "pdf_page": 11,
+          "article": "2.3.5",
+          "table": null,
+          "source_excerpt": "纵向电阻小于0.01Ω/km；过渡电阻分别不低于150Ω·km和15Ω·km。"
+        }
+      ],
+      "visually_reviewed_pages": [
+        "cn.gb55033@2022#pdf-page-11"
+      ],
+      "system_answer_inspected": false
+    },
+    {
+      "id": "P1-IND-005",
+      "verdict": "approved",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "checks": {
+        "question_is_new_and_not_a_rewrite_of_phase1_development_examples": "pass",
+        "scope_and_version": "pass",
+        "answerability_or_clarification_boundary": "pass",
+        "pdf_page_article_or_table": "pass",
+        "required_answer_points": "pass",
+        "numeric_values_units_conditions": "pass"
+      },
+      "references": [
+        {
+          "business_id": "cn.gb55033@2022",
+          "pdf_page": 34,
+          "article": "6.4.9",
+          "table": null,
+          "source_excerpt": "开式30m³，闭式12.6m³且不低于总送风量10%。"
+        },
+        {
+          "business_id": "cn.gb55033@2022",
+          "pdf_page": 34,
+          "article": "6.4.10",
+          "table": null,
+          "source_excerpt": "空调方式12.6m³且不低于总送风量10%。"
+        }
+      ],
+      "visually_reviewed_pages": [
+        "cn.gb55033@2022#pdf-page-34"
+      ],
+      "system_answer_inspected": false
+    },
+    {
+      "id": "P1-IND-006",
+      "verdict": "approved",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "checks": {
+        "question_is_new_and_not_a_rewrite_of_phase1_development_examples": "pass",
+        "scope_and_version": "pass",
+        "answerability_or_clarification_boundary": "pass",
+        "pdf_page_article_or_table": "pass",
+        "required_answer_points": "pass",
+        "numeric_values_units_conditions": "pass"
+      },
+      "references": [
+        {
+          "business_id": "cn.gb50157@2013",
+          "pdf_page": 20,
+          "article": "1.0.8",
+          "table": null,
+          "source_excerpt": "初期第3年、近期第10年、远期第25年。"
+        }
+      ],
+      "visually_reviewed_pages": [
+        "cn.gb50157@2013#pdf-page-20"
+      ],
+      "system_answer_inspected": false
+    },
+    {
+      "id": "P1-IND-007",
+      "verdict": "approved",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "checks": {
+        "question_is_new_and_not_a_rewrite_of_phase1_development_examples": "pass",
+        "scope_and_version": "pass",
+        "answerability_or_clarification_boundary": "pass",
+        "pdf_page_article_or_table": "pass",
+        "required_answer_points": "pass",
+        "numeric_values_units_conditions": "pass"
+      },
+      "references": [
+        {
+          "business_id": "cn.gb50157@2013",
+          "pdf_page": 80,
+          "article": "9.2.6",
+          "table": null,
+          "source_excerpt": "车站应设置公共厕所，管理人员厕所不宜与公共厕所合用。"
+        }
+      ],
+      "visually_reviewed_pages": [
+        "cn.gb50157@2013#pdf-page-80"
+      ],
+      "system_answer_inspected": false
+    },
+    {
+      "id": "P1-IND-008",
+      "verdict": "approved",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "checks": {
+        "question_is_new_and_not_a_rewrite_of_phase1_development_examples": "pass",
+        "scope_and_version": "pass",
+        "answerability_or_clarification_boundary": "pass",
+        "pdf_page_article_or_table": "pass",
+        "required_answer_points": "pass",
+        "numeric_values_units_conditions": "pass"
+      },
+      "references": [
+        {
+          "business_id": "cn.beijing.db11t995@2025",
+          "pdf_page": 59,
+          "article": "10.2.1",
+          "table": "表10.2.1",
+          "source_excerpt": "表10.2.1：实施率低于40%时分别为90%和70%。"
+        }
+      ],
+      "visually_reviewed_pages": [
+        "cn.beijing.db11t995@2025#pdf-page-59"
+      ],
+      "system_answer_inspected": false
+    },
+    {
+      "id": "P1-IND-009",
+      "verdict": "approved",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "checks": {
+        "question_is_new_and_not_a_rewrite_of_phase1_development_examples": "pass",
+        "scope_and_version": "pass",
+        "answerability_or_clarification_boundary": "pass",
+        "pdf_page_article_or_table": "pass",
+        "required_answer_points": "pass",
+        "numeric_values_units_conditions": "pass"
+      },
+      "references": [
+        {
+          "business_id": "cn.beijing.db11t995@2025",
+          "pdf_page": 146,
+          "article": "17.2.6",
+          "table": null,
+          "source_excerpt": "乘客求助不少于90d，其他保存时间不少于365d。"
+        }
+      ],
+      "visually_reviewed_pages": [
+        "cn.beijing.db11t995@2025#pdf-page-146"
+      ],
+      "system_answer_inspected": false
+    },
+    {
+      "id": "P1-IND-010",
+      "verdict": "approved",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "checks": {
+        "question_is_new_and_not_a_rewrite_of_phase1_development_examples": "pass",
+        "scope_and_version": "pass",
+        "answerability_or_clarification_boundary": "pass",
+        "pdf_page_article_or_table": "pass",
+        "required_answer_points": "pass",
+        "numeric_values_units_conditions": "pass"
+      },
+      "references": [
+        {
+          "business_id": "cn.beijing.db11t995@2025",
+          "pdf_page": 190,
+          "article": "24.4.2",
+          "table": null,
+          "source_excerpt": "查询至少90d运营数据；恢复通信后上传或转发相应数据。"
+        }
+      ],
+      "visually_reviewed_pages": [
+        "cn.beijing.db11t995@2025#pdf-page-190"
+      ],
+      "system_answer_inspected": false
+    },
+    {
+      "id": "P1-IND-011",
+      "verdict": "approved",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "checks": {
+        "question_is_new_and_not_a_rewrite_of_phase1_development_examples": "pass",
+        "scope_and_version": "pass",
+        "answerability_or_clarification_boundary": "pass",
+        "pdf_page_article_or_table": "pass",
+        "required_answer_points": "pass",
+        "numeric_values_units_conditions": "pass"
+      },
+      "references": [
+        {
+          "business_id": "cn.gb55033@2022",
+          "pdf_page": 6,
+          "article": "2.1.5",
+          "table": null,
+          "source_excerpt": "3/10/25年且运能储备不小于10%。"
+        },
+        {
+          "business_id": "cn.gb50157@2013",
+          "pdf_page": 20,
+          "article": "1.0.8",
+          "table": null,
+          "source_excerpt": "3/10/25年。"
+        }
+      ],
+      "visually_reviewed_pages": [
+        "cn.gb50157@2013#pdf-page-20",
+        "cn.gb55033@2022#pdf-page-6"
+      ],
+      "system_answer_inspected": false
+    },
+    {
+      "id": "P1-IND-012",
+      "verdict": "approved",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "checks": {
+        "question_is_new_and_not_a_rewrite_of_phase1_development_examples": "pass",
+        "scope_and_version": "pass",
+        "answerability_or_clarification_boundary": "pass",
+        "pdf_page_article_or_table": "pass",
+        "required_answer_points": "pass",
+        "numeric_values_units_conditions": "pass"
+      },
+      "references": [
+        {
+          "business_id": "cn.beijing.db11t995@2025",
+          "pdf_page": 50,
+          "article": "8.2.2",
+          "table": "表8.2.2",
+          "source_excerpt": "1435mm；R<250m按表8.2.2加宽。"
+        },
+        {
+          "business_id": "cn.gb55033@2022",
+          "pdf_page": 6,
+          "article": "2.1.2",
+          "table": null,
+          "source_excerpt": "钢轮钢轨系统采用1435mm标准轨距。"
+        },
+        {
+          "business_id": "cn.gb50157@2013",
+          "pdf_page": 64,
+          "article": "7.2.2",
+          "table": "表7.2.2",
+          "source_excerpt": "1435mm；R<250m按表7.2.2加宽。"
+        }
+      ],
+      "visually_reviewed_pages": [
+        "cn.beijing.db11t995@2025#pdf-page-50",
+        "cn.gb50157@2013#pdf-page-64",
+        "cn.gb55033@2022#pdf-page-6"
+      ],
+      "system_answer_inspected": false
+    },
+    {
+      "id": "P1-IND-013",
+      "verdict": "approved",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "checks": {
+        "question_is_new_and_not_a_rewrite_of_phase1_development_examples": "pass",
+        "scope_and_version": "pass",
+        "answerability_or_clarification_boundary": "pass",
+        "pdf_page_article_or_table": "pass",
+        "required_answer_points": "pass",
+        "numeric_values_units_conditions": "pass"
+      },
+      "references": [
+        {
+          "business_id": "cn.beijing.db11t995@2025",
+          "pdf_page": 116,
+          "article": "14.2.11",
+          "table": null,
+          "source_excerpt": "区间20、公共区20、设备管理用房30m³/h。"
+        },
+        {
+          "business_id": "cn.gb55033@2022",
+          "pdf_page": 34,
+          "article": "6.4.9",
+          "table": null,
+          "source_excerpt": "开式30、闭式12.6m³/h且10%。"
+        },
+        {
+          "business_id": "cn.gb55033@2022",
+          "pdf_page": 34,
+          "article": "6.4.10",
+          "table": null,
+          "source_excerpt": "空调12.6m³/h且10%。"
+        },
+        {
+          "business_id": "cn.gb50157@2013",
+          "pdf_page": 140,
+          "article": "13.2.4",
+          "table": null,
+          "source_excerpt": "区间12.6m³/h。"
+        },
+        {
+          "business_id": "cn.gb50157@2013",
+          "pdf_page": 141,
+          "article": "13.2.17",
+          "table": null,
+          "source_excerpt": "开式30、闭式12.6m³/h且10%。"
+        },
+        {
+          "business_id": "cn.gb50157@2013",
+          "pdf_page": 143,
+          "article": "13.2.33",
+          "table": null,
+          "source_excerpt": "设备管理用房30m³/h且10%。"
+        }
+      ],
+      "visually_reviewed_pages": [
+        "cn.beijing.db11t995@2025#pdf-page-116",
+        "cn.gb50157@2013#pdf-page-140",
+        "cn.gb50157@2013#pdf-page-141",
+        "cn.gb50157@2013#pdf-page-143",
+        "cn.gb55033@2022#pdf-page-34"
+      ],
+      "system_answer_inspected": false
+    },
+    {
+      "id": "P1-IND-014",
+      "verdict": "approved",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "checks": {
+        "question_is_new_and_not_a_rewrite_of_phase1_development_examples": "pass",
+        "scope_and_version": "pass",
+        "answerability_or_clarification_boundary": "pass",
+        "pdf_page_article_or_table": "pass",
+        "required_answer_points": "pass",
+        "numeric_values_units_conditions": "pass"
+      },
+      "references": [
+        {
+          "business_id": "cn.beijing.db11t995@2025",
+          "pdf_page": 37,
+          "article": "5.4.8",
+          "table": null,
+          "source_excerpt": "丧失1/4、1/3、1/2动力及救援要求。"
+        },
+        {
+          "business_id": "cn.gb55033@2022",
+          "pdf_page": 19,
+          "article": "4.3.5",
+          "table": null,
+          "source_excerpt": "1/4到终点、1/2到最近车站及空载救援。"
+        },
+        {
+          "business_id": "cn.gb50157@2013",
+          "pdf_page": 38,
+          "article": "4.1.19",
+          "table": null,
+          "source_excerpt": "1/4到终点、1/2到最近车站及空载救援。"
+        }
+      ],
+      "visually_reviewed_pages": [
+        "cn.beijing.db11t995@2025#pdf-page-37",
+        "cn.gb50157@2013#pdf-page-38",
+        "cn.gb55033@2022#pdf-page-19"
+      ],
+      "system_answer_inspected": false
+    },
+    {
+      "id": "P1-IND-015",
+      "verdict": "approved",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "checks": {
+        "question_is_new_and_not_a_rewrite_of_phase1_development_examples": "pass",
+        "scope_and_version": "pass",
+        "answerability_or_clarification_boundary": "pass",
+        "pdf_page_article_or_table": "pass",
+        "required_answer_points": "pass",
+        "numeric_values_units_conditions": "pass"
+      },
+      "references": [
+        {
+          "business_id": "cn.gb55033@2022",
+          "pdf_page": 38,
+          "article": "6.9.2",
+          "table": null,
+          "source_excerpt": "每天20h、每周140h。"
+        },
+        {
+          "business_id": "cn.gb50157@2013",
+          "pdf_page": 249,
+          "article": "25.1.8",
+          "table": null,
+          "source_excerpt": "每天20h、每周140h，每3h以100%制动载荷运行1h。"
+        }
+      ],
+      "visually_reviewed_pages": [
+        "cn.gb50157@2013#pdf-page-249",
+        "cn.gb55033@2022#pdf-page-38"
+      ],
+      "system_answer_inspected": false
+    },
+    {
+      "id": "P1-IND-016",
+      "verdict": "approved",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "checks": {
+        "question_is_new_and_not_a_rewrite_of_phase1_development_examples": "pass",
+        "scope_and_version": "pass",
+        "answerability_or_clarification_boundary": "pass",
+        "pdf_page_article_or_table": "pass",
+        "required_answer_points": "pass",
+        "numeric_values_units_conditions": "pass"
+      },
+      "references": [
+        {
+          "business_id": "cn.gb55033@2022",
+          "pdf_page": 7,
+          "article": "2.1.16",
+          "table": null,
+          "source_excerpt": "全封闭运行车站应设置公共厕所。"
+        },
+        {
+          "business_id": "cn.gb50157@2013",
+          "pdf_page": 80,
+          "article": "9.2.6",
+          "table": null,
+          "source_excerpt": "车站应设置公共厕所，管理人员厕所不宜合用。"
+        }
+      ],
+      "visually_reviewed_pages": [
+        "cn.gb50157@2013#pdf-page-80",
+        "cn.gb55033@2022#pdf-page-7"
+      ],
+      "system_answer_inspected": false
+    },
+    {
+      "id": "P1-IND-017",
+      "verdict": "approved",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "checks": {
+        "question_is_new_and_not_a_rewrite_of_phase1_development_examples": "pass",
+        "scope_and_version": "pass",
+        "answerability_or_clarification_boundary": "pass",
+        "pdf_page_article_or_table": "pass",
+        "required_answer_points": "pass",
+        "numeric_values_units_conditions": "pass"
+      },
+      "references": [
+        {
+          "business_id": "cn.beijing.db11t995@2025",
+          "pdf_page": 40,
+          "article": "6.2.2",
+          "table": "表6.2.2",
+          "source_excerpt": "表6.2.2及950/50/150/300mm。"
+        },
+        {
+          "business_id": "cn.gb55033@2022",
+          "pdf_page": 17,
+          "article": "3.0.10",
+          "table": null,
+          "source_excerpt": "低于车厢地板150～200mm，曲线间隙不大于300mm。"
+        }
+      ],
+      "visually_reviewed_pages": [
+        "cn.beijing.db11t995@2025#pdf-page-40",
+        "cn.gb55033@2022#pdf-page-17"
+      ],
+      "system_answer_inspected": false
+    },
+    {
+      "id": "P1-IND-018",
+      "verdict": "approved",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "checks": {
+        "question_is_new_and_not_a_rewrite_of_phase1_development_examples": "pass",
+        "scope_and_version": "pass",
+        "answerability_or_clarification_boundary": "pass",
+        "pdf_page_article_or_table": "pass",
+        "required_answer_points": "pass",
+        "numeric_values_units_conditions": "pass"
+      },
+      "references": [
+        {
+          "business_id": "cn.beijing.db11t995@2025",
+          "pdf_page": 59,
+          "article": "10.2.1",
+          "table": null,
+          "source_excerpt": "按四个层级确定数量、连通率和结建率。"
+        },
+        {
+          "business_id": "cn.gb55033@2022",
+          "pdf_page": 9,
+          "article": "2.1.30",
+          "table": null,
+          "source_excerpt": "合理确定数量和用地范围并与周边协调。"
+        }
+      ],
+      "visually_reviewed_pages": [
+        "cn.beijing.db11t995@2025#pdf-page-59",
+        "cn.gb55033@2022#pdf-page-9"
+      ],
+      "system_answer_inspected": false
+    },
+    {
+      "id": "P1-IND-019",
+      "verdict": "approved",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "checks": {
+        "question_is_new_and_not_a_rewrite_of_phase1_development_examples": "pass",
+        "scope_and_version": "pass",
+        "answerability_or_clarification_boundary": "pass",
+        "pdf_page_article_or_table": "pass",
+        "required_answer_points": "pass",
+        "numeric_values_units_conditions": "pass"
+      },
+      "references": [
+        {
+          "business_id": "cn.gb55033@2022",
+          "pdf_page": 34,
+          "article": "6.4.11",
+          "table": null,
+          "source_excerpt": "二氧化碳日平均浓度小于0.15%。"
+        },
+        {
+          "business_id": "cn.gb50157@2013",
+          "pdf_page": 142,
+          "article": "13.2.19",
+          "table": null,
+          "source_excerpt": "二氧化碳日平均浓度小于1.5%。"
+        }
+      ],
+      "visually_reviewed_pages": [
+        "cn.gb50157@2013#pdf-page-142",
+        "cn.gb55033@2022#pdf-page-34"
+      ],
+      "system_answer_inspected": false
+    },
+    {
+      "id": "P1-IND-020",
+      "verdict": "approved",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "checks": {
+        "question_is_new_and_not_a_rewrite_of_phase1_development_examples": "pass",
+        "scope_and_version": "pass",
+        "answerability_or_clarification_boundary": "pass",
+        "pdf_page_article_or_table": "pass",
+        "required_answer_points": "pass",
+        "numeric_values_units_conditions": "pass"
+      },
+      "references": [
+        {
+          "business_id": "cn.beijing.db11t995@2025",
+          "pdf_page": 150,
+          "article": "17.5.6",
+          "table": null,
+          "source_excerpt": "民用传输系统不间断电源后备供电不少于2h。"
+        },
+        {
+          "business_id": "cn.gb55033@2022",
+          "pdf_page": 31,
+          "article": "6.2.3",
+          "table": null,
+          "source_excerpt": "通信电源后备供电不少于2h，并有监控、接地、防雷要求。"
+        }
+      ],
+      "visually_reviewed_pages": [
+        "cn.beijing.db11t995@2025#pdf-page-150",
+        "cn.gb55033@2022#pdf-page-31"
+      ],
+      "system_answer_inspected": false
+    },
+    {
+      "id": "P1-IND-021",
+      "verdict": "approved",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "checks": {
+        "question_is_new_and_not_a_rewrite_of_phase1_development_examples": "pass",
+        "scope_and_version": "pass",
+        "answerability_or_clarification_boundary": "pass",
+        "pdf_page_article_or_table": "pass",
+        "required_answer_points": "pass",
+        "numeric_values_units_conditions": "pass"
+      },
+      "references": [
+        {
+          "business_id": "cn.gb55033@2022",
+          "pdf_page": 14,
+          "article": "3.0.4",
+          "table": "表3.0.4",
+          "source_excerpt": "密闭性车体140km/h<0.35，160km/h<0.29。"
+        }
+      ],
+      "visually_reviewed_pages": [
+        "cn.gb55033@2022#pdf-page-14"
+      ],
+      "system_answer_inspected": false
+    },
+    {
+      "id": "P1-IND-022",
+      "verdict": "approved",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "checks": {
+        "question_is_new_and_not_a_rewrite_of_phase1_development_examples": "pass",
+        "scope_and_version": "pass",
+        "answerability_or_clarification_boundary": "pass",
+        "pdf_page_article_or_table": "pass",
+        "required_answer_points": "pass",
+        "numeric_values_units_conditions": "pass"
+      },
+      "references": [
+        {
+          "business_id": "cn.beijing.db11t995@2025",
+          "pdf_page": 50,
+          "article": "8.2.2",
+          "table": "表8.2.2",
+          "source_excerpt": "表8.2.2两档半径对应A/B型车加宽值。"
+        }
+      ],
+      "visually_reviewed_pages": [
+        "cn.beijing.db11t995@2025#pdf-page-50"
+      ],
+      "system_answer_inspected": false
+    },
+    {
+      "id": "P1-IND-023",
+      "verdict": "approved",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "checks": {
+        "question_is_new_and_not_a_rewrite_of_phase1_development_examples": "pass",
+        "scope_and_version": "pass",
+        "answerability_or_clarification_boundary": "pass",
+        "pdf_page_article_or_table": "pass",
+        "required_answer_points": "pass",
+        "numeric_values_units_conditions": "pass"
+      },
+      "references": [
+        {
+          "business_id": "cn.gb50157@2013",
+          "pdf_page": 68,
+          "article": "7.4.1",
+          "table": null,
+          "source_excerpt": "C35/C40、100年、12.5m/6m及适用场景。"
+        }
+      ],
+      "visually_reviewed_pages": [
+        "cn.gb50157@2013#pdf-page-68"
+      ],
+      "system_answer_inspected": false
+    },
+    {
+      "id": "P1-IND-024",
+      "verdict": "approved",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "checks": {
+        "question_is_new_and_not_a_rewrite_of_phase1_development_examples": "pass",
+        "scope_and_version": "pass",
+        "answerability_or_clarification_boundary": "pass",
+        "pdf_page_article_or_table": "pass",
+        "required_answer_points": "pass",
+        "numeric_values_units_conditions": "pass"
+      },
+      "references": [
+        {
+          "business_id": "cn.gb55033@2022",
+          "pdf_page": 38,
+          "article": "6.9.3",
+          "table": null,
+          "source_excerpt": "任意3h内100%制动载荷1h；紧急停止、附加制动器；安全系数及链/带数量。"
+        }
+      ],
+      "visually_reviewed_pages": [
+        "cn.gb55033@2022#pdf-page-38"
+      ],
+      "system_answer_inspected": false
+    },
+    {
+      "id": "P1-IND-025",
+      "verdict": "approved",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "checks": {
+        "question_is_new_and_not_a_rewrite_of_phase1_development_examples": "pass",
+        "scope_and_version": "pass",
+        "answerability_or_clarification_boundary": "pass",
+        "pdf_page_article_or_table": "pass",
+        "required_answer_points": "pass",
+        "numeric_values_units_conditions": "pass"
+      },
+      "references": [
+        {
+          "business_id": "cn.beijing.db11t995@2025",
+          "pdf_page": 40,
+          "article": "6.2.3",
+          "table": "表6.2.3",
+          "source_excerpt": "隧道阻塞比：110km/h≤0.45，120km/h≤0.4。"
+        },
+        {
+          "business_id": "cn.gb55033@2022",
+          "pdf_page": 31,
+          "article": "6.2.3",
+          "table": null,
+          "source_excerpt": "通信电源集中监控、不间断供电、后备2h、接地与防雷。"
+        },
+        {
+          "business_id": "cn.gb50157@2013",
+          "pdf_page": 57,
+          "article": "6.2.3",
+          "table": "表6.2.3",
+          "source_excerpt": "曲线间夹直线设计及表6.2.3。"
+        }
+      ],
+      "visually_reviewed_pages": [
+        "cn.beijing.db11t995@2025#pdf-page-40",
+        "cn.gb50157@2013#pdf-page-57",
+        "cn.gb55033@2022#pdf-page-31"
+      ],
+      "system_answer_inspected": false
+    },
+    {
+      "id": "P1-IND-026",
+      "verdict": "approved",
+      "answerable": false,
+      "expected_behavior": "clarify_scope",
+      "checks": {
+        "question_is_new_and_not_a_rewrite_of_phase1_development_examples": "pass",
+        "scope_and_version": "pass",
+        "answerability_or_clarification_boundary": "pass",
+        "pdf_page_article_or_table": "pass",
+        "required_answer_points": "pass",
+        "numeric_values_units_conditions": "pass"
+      },
+      "references": [],
+      "visually_reviewed_pages": [],
+      "system_answer_inspected": false
+    },
+    {
+      "id": "P1-IND-027",
+      "verdict": "approved",
+      "answerable": false,
+      "expected_behavior": "clarify_scope",
+      "checks": {
+        "question_is_new_and_not_a_rewrite_of_phase1_development_examples": "pass",
+        "scope_and_version": "pass",
+        "answerability_or_clarification_boundary": "pass",
+        "pdf_page_article_or_table": "pass",
+        "required_answer_points": "pass",
+        "numeric_values_units_conditions": "pass"
+      },
+      "references": [],
+      "visually_reviewed_pages": [],
+      "system_answer_inspected": false
+    },
+    {
+      "id": "P1-IND-028",
+      "verdict": "approved",
+      "answerable": false,
+      "expected_behavior": "refuse",
+      "checks": {
+        "question_is_new_and_not_a_rewrite_of_phase1_development_examples": "pass",
+        "scope_and_version": "pass",
+        "answerability_or_clarification_boundary": "pass",
+        "pdf_page_article_or_table": "pass",
+        "required_answer_points": "pass",
+        "numeric_values_units_conditions": "pass"
+      },
+      "references": [
+        {
+          "business_id": "cn.beijing.db11t995@2025",
+          "pdf_page": 59,
+          "article": "10.2.1",
+          "table": null,
+          "source_excerpt": "按层级确定数量、连通率和结建率。"
+        },
+        {
+          "business_id": "cn.gb55033@2022",
+          "pdf_page": 9,
+          "article": "2.1.30",
+          "table": null,
+          "source_excerpt": "合理确定出入口数量并与周边协调。"
+        }
+      ],
+      "visually_reviewed_pages": [
+        "cn.beijing.db11t995@2025#pdf-page-59",
+        "cn.gb55033@2022#pdf-page-9"
+      ],
+      "system_answer_inspected": false
+    },
+    {
+      "id": "P1-IND-029",
+      "verdict": "approved",
+      "answerable": false,
+      "expected_behavior": "refuse",
+      "checks": {
+        "question_is_new_and_not_a_rewrite_of_phase1_development_examples": "pass",
+        "scope_and_version": "pass",
+        "answerability_or_clarification_boundary": "pass",
+        "pdf_page_article_or_table": "pass",
+        "required_answer_points": "pass",
+        "numeric_values_units_conditions": "pass"
+      },
+      "references": [],
+      "visually_reviewed_pages": [],
+      "system_answer_inspected": false
+    },
+    {
+      "id": "P1-IND-030",
+      "verdict": "approved",
+      "answerable": false,
+      "expected_behavior": "refuse",
+      "checks": {
+        "question_is_new_and_not_a_rewrite_of_phase1_development_examples": "pass",
+        "scope_and_version": "pass",
+        "answerability_or_clarification_boundary": "pass",
+        "pdf_page_article_or_table": "pass",
+        "required_answer_points": "pass",
+        "numeric_values_units_conditions": "pass"
+      },
+      "references": [
+        {
+          "business_id": "cn.gb55033@2022",
+          "pdf_page": 34,
+          "article": "6.4.11",
+          "table": null,
+          "source_excerpt": "二氧化碳日平均浓度应小于0.15%。"
+        }
+      ],
+      "visually_reviewed_pages": [
+        "cn.gb55033@2022#pdf-page-34"
+      ],
+      "system_answer_inspected": false
+    }
+  ]
+}

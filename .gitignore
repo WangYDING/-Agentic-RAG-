@@ -1,5 +1,6 @@
 .env
 .rag_index/
+.rag_knowledge_base/
 .venv/
 __pycache__/
 *.py[cod]
@@ -7,3 +8,11 @@ __pycache__/
 .coverage
 htmlcov/
 .idea/
+build/
+dist/
+*.egg-info/
+
+# Local preservation workspaces and tooling caches
+/tmp/
+/evaluation-worktree/
+.ruff_cache/

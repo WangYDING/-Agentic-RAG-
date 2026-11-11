@@ -1,0 +1,8 @@
+{
+  "claimed_at": "2026-11-10T03:57:13.029838+00:00",
+  "dataset_sha256": "76cac7d0ab21047bd608d50ed2d92d2cf37c8eb1695551e9e3d7d7923a0cbf51",
+  "freeze_sha256": "5d7bd2dacde5ac23e76303c710db199805699994462bb8dda782325610d62a04",
+  "output": "E:\\-Agentic-RAG--main\\evaluation-worktree\\eval\\reports\\tooling-governance-v1-20261110-final\\run",
+  "retain_failed_attempts": true,
+  "schema_version": "rag-eval.attempt.v1"
+}

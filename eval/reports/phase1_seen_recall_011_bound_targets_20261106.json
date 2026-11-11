@@ -1,0 +1,306 @@
+{
+  "run_type": "phase1_scoped_real_agent_evaluation",
+  "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+  "generation_model": "deepseek-flash",
+  "questions": [
+    {
+      "id": "P1-IND-011",
+      "question": "比较 GB 55033-2022 与 GB 50157-2013 的设计年限规定，并指出前者额外提出的运能要求。",
+      "requested_scope": {
+        "spec_ids": [
+          "cn.gb55033",
+          "cn.gb50157"
+        ],
+        "edition_ids": [
+          "2022",
+          "2013"
+        ]
+      },
+      "request_id": "0f012241f780478781cf2e62a3a6f5f0",
+      "result_type": "refuse",
+      "answer": "当前规范及已检索证据不足以完整回答该问题。 缺少的信息：GB 50157-2013 对设计年限的具体规定（如初期、近期、远期的年限划分）。",
+      "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+      "bound_scope": [
+        "cn.gb50157@2013",
+        "cn.gb55033@2022"
+      ],
+      "retry_count": 1,
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "text": "2.1.5 城市轨道交通工程设计年限应以建成通车年为基准年，\n之后应分为初期3年、近期10年、远期25年。在设计年限内，\n设计运能应满足客流预测需求，应留有不小于10%的运能储备。",
+          "source": "GB55033-2022_城市轨道交通工程项目规范.pdf",
+          "page_start": 6,
+          "page_end": 6,
+          "chunk_id": 17,
+          "content_type": "text",
+          "chapter_id": "2",
+          "chapter_title": "2 基本规定",
+          "article_id": "2.1.5",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第2.1.5条",
+          "score": 0.6568983793258667,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.gb55033",
+          "edition_id": "2022",
+          "standard_code": "GB 55033-2022",
+          "spec_title": "城市轨道交通工程项目规范",
+          "pdf_page_start": 6,
+          "pdf_page_end": 6,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E2",
+          "text": "3.3.4 在客流断面变化较大的区段宜组织区段运行。列车运行\n交路应根据各设计年限客流量和分布特征综合确定。",
+          "source": "GB50157-2013_地铁设计规范.pdf",
+          "page_start": 32,
+          "page_end": 32,
+          "chunk_id": 160,
+          "content_type": "text",
+          "chapter_id": "3",
+          "chapter_title": "2 术语3 运营组织",
+          "article_id": "3.3.4",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第3.3.4条",
+          "score": 8.657759295859748,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.gb50157",
+          "edition_id": "2013",
+          "standard_code": "GB 50157-2013",
+          "spec_title": "地铁设计规范",
+          "pdf_page_start": 32,
+          "pdf_page_end": 32,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E3",
+          "text": "2.2.3 线路的敷设和封闭方式应根据线路功能定位和运能需求，\n以及沿线城市土地利用规划、自然条件、历史文化遗产保护、环\n境保护要求综合确定。",
+          "source": "GB55033-2022_城市轨道交通工程项目规范.pdf",
+          "page_start": 10,
+          "page_end": 10,
+          "chunk_id": 50,
+          "content_type": "text",
+          "chapter_id": "2",
+          "chapter_title": "2 基本规定",
+          "article_id": "2.2.3",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第2.2.3条",
+          "score": 8.838496618693632,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.gb55033",
+          "edition_id": "2022",
+          "standard_code": "GB 55033-2022",
+          "spec_title": "城市轨道交通工程项目规范",
+          "pdf_page_start": 10,
+          "pdf_page_end": 10,
+          "printed_page_start": null,
+          "printed_page_end": null
+        }
+      ],
+      "trace": [
+        {
+          "step": "bind_scope",
+          "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+          "scope": [
+            "cn.gb50157@2013",
+            "cn.gb55033@2022"
+          ]
+        },
+        {
+          "step": "retrieve",
+          "query": "比较 GB 55033-2022 与 GB 50157-2013 的设计年限规定，并指出前者额外提出的运能要求。",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "GB 50157-2013 的具体设计年限规定"
+          ],
+          "retry_count": 0
+        },
+        {
+          "step": "parse_evidence_requirements",
+          "question_requirements": [
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": null,
+              "subrequirement": "GB55033-2022设计年限",
+              "source": "question",
+              "authoritative": true,
+              "status": "parsed",
+              "reason": null
+            },
+            {
+              "business_id": "cn.gb50157@2013",
+              "article_id": null,
+              "subrequirement": "GB50157-2013设计年限",
+              "source": "question",
+              "authoritative": true,
+              "status": "parsed",
+              "reason": null
+            },
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": null,
+              "subrequirement": "GB55033-2022运能",
+              "source": "question",
+              "authoritative": true,
+              "status": "parsed",
+              "reason": null
+            }
+          ],
+          "grader_requirements": [
+            {
+              "business_id": "cn.gb50157@2013",
+              "article_id": null,
+              "subrequirement": "GB 50157-2013 的具体设计年限规定",
+              "source": "grader",
+              "authoritative": true,
+              "status": "mapped_to_question",
+              "reason": null
+            }
+          ]
+        },
+        {
+          "step": "retry",
+          "retry_count": 1,
+          "missing_requirements": [
+            "GB 50157-2013 的具体设计年限规定"
+          ]
+        },
+        {
+          "step": "retrieve",
+          "query": "GB 50157-2013 的具体设计年限规定",
+          "retry_count": 1
+        },
+        {
+          "step": "retry_scope_target_preference",
+          "selected": [
+            {
+              "business_id": "cn.gb50157@2013",
+              "article_id": "3.3.4",
+              "chunk_id": 160
+            },
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": "2.1.5",
+              "chunk_id": 17
+            },
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": "2.2.3",
+              "chunk_id": 50
+            }
+          ]
+        },
+        {
+          "step": "retain_article_groups",
+          "evidence_limit": 6,
+          "retained_groups": [
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": "2.1.5",
+              "chunk_ids": [
+                17
+              ],
+              "basis": "unique_direct_coverage",
+              "covered_text": "GB55033-2022设计年限"
+            }
+          ],
+          "fallbacks": [
+            {
+              "subrequirement": "GB50157-2013设计年限",
+              "reason": "not_unique",
+              "candidate_articles": [
+                "3.3.4",
+                "3.2.6",
+                "29.4.5",
+                "3.2.1",
+                "1.0.8"
+              ]
+            },
+            {
+              "subrequirement": "GB55033-2022运能",
+              "reason": "not_unique",
+              "candidate_articles": [
+                "2.1.5",
+                "2.2.3",
+                "2.2.10",
+                "2.2.9"
+              ]
+            },
+            {
+              "subrequirement": "GB 50157-2013 的具体设计年限规定",
+              "reason": "not_unique",
+              "candidate_articles": [
+                "3.3.4",
+                "3.2.6",
+                "29.4.5",
+                "3.2.1",
+                "1.0.8"
+              ]
+            }
+          ]
+        },
+        {
+          "step": "verify_final_evidence_context",
+          "complete": true,
+          "within_scope": true,
+          "incomplete_groups": [],
+          "out_of_scope": []
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "GB 50157-2013 对设计年限的具体规定（如初期、近期、远期的年限划分）"
+          ],
+          "retry_count": 1
+        },
+        {
+          "step": "refuse",
+          "missing_requirements": [
+            "GB 50157-2013 对设计年限的具体规定（如初期、近期、远期的年限划分）"
+          ]
+        }
+      ],
+      "request_metrics": {
+        "request_id": "0f012241f780478781cf2e62a3a6f5f0",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 93.0,
+          "rerank": 6812.0,
+          "grader": 10173.0
+        },
+        "total_ms": 17688.0,
+        "outcome": "refuse",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 1,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 1796,
+          "output": 1302,
+          "total": 3098
+        },
+        "estimated_cost": null
+      }
+    }
+  ]
+}

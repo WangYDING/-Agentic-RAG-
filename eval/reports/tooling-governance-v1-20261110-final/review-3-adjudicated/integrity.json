@@ -1,0 +1,10 @@
+{
+  "files": {
+    "lineage.json": "1ed8a936ac7dcad1c061767d9ecf2ce001fde04084007aef18855d28b5483fa2",
+    "packet-original.json": "ddef71af79410af3faaff5e3e9eaf63263a622f8ca11fd2e1827d37d44d99a26",
+    "packet.json": "ddef71af79410af3faaff5e3e9eaf63263a622f8ca11fd2e1827d37d44d99a26",
+    "state.json": "cbd825f2a1062c52ee93564bc65d74e53dd7cba7610f776f957b04583a56bcb0"
+  },
+  "hash_mode": "sha256-raw-bytes",
+  "schema_version": "rag-eval.artifacts.v1"
+}

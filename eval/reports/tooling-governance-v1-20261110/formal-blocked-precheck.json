@@ -1,0 +1,58 @@
+{
+  "checked_bindings": [
+    "configuration",
+    "dataset",
+    "dataset_descriptor",
+    "environment",
+    "evaluation_source",
+    "knowledge_base",
+    "rag_source",
+    "rules",
+    "thresholds"
+  ],
+  "eligible": false,
+  "freeze_sha256": "ff1a3f6c9b706c06190b5dd8022f0d4446e3cf95521dc14cb9986cad96c487dd",
+  "purpose": "independent",
+  "reasons": [
+    {
+      "code": "ATTEMPT_ALREADY_EXISTS",
+      "detail": "single-attempt policy forbids another execution"
+    },
+    {
+      "code": "FREEZE_APPROVAL",
+      "detail": "human actor required"
+    },
+    {
+      "code": "DIRTY_SOURCE",
+      "detail": "rag_source"
+    },
+    {
+      "code": "DIRTY_SOURCE",
+      "detail": "rag_source current working tree"
+    },
+    {
+      "code": "DIRTY_SOURCE",
+      "detail": "evaluation_source"
+    },
+    {
+      "code": "DIRTY_SOURCE",
+      "detail": "evaluation_source current working tree"
+    },
+    {
+      "code": "CONFIG_INVALID",
+      "detail": "provider endpoint identity hash missing"
+    },
+    {
+      "code": "ENVIRONMENT_UNVERIFIED",
+      "detail": "complete locked environment sync has not been verified"
+    },
+    {
+      "code": "ENVIRONMENT_UNVERIFIED",
+      "detail": "locked sync success attestation missing"
+    },
+    {
+      "code": "DATASET_INVALID",
+      "detail": "dataset role/status/hash mismatch"
+    }
+  ]
+}

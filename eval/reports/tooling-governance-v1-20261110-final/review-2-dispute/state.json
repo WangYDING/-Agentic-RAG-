@@ -1,0 +1,119 @@
+{
+  "base_bundle_sha256": "ae3dd95be2991f24f6e0843299543ae3108627b311e705c29075ce36599d465e",
+  "changes": [],
+  "disputes": [
+    {
+      "case_id": "SEM-001",
+      "dispute_id": "SYN-DISPUTE-1",
+      "field": "/fact_reviews/0/correct",
+      "opened_by": {
+        "at": "2026-11-10T03:59:14.504278+00:00",
+        "identity": "SYNTHETIC-AI-ROLE-NOT-A-REAL-REVIEWER",
+        "type": "ai"
+      },
+      "reason": "SYNTHETIC conflict only; not real semantic review",
+      "resolution": null,
+      "review_sha256": "9940ee0b9227fec79f1f346bc6518e510aa240966c7092d64cbcff4c755027b6"
+    }
+  ],
+  "identity_assurance": "asserted identity; not a cryptographic or professional credential verification",
+  "packet_sha256": "4d627540b2f62fb483d9feb8e0e62619a3a9fc1c1620655fb78bfa3ef1cdaeac",
+  "parent_state_sha256": "58aa50608ffdf8e1e3c9a01323b91395e47f98cc011bd066fc13112e3996c6e3",
+  "reviews": [
+    {
+      "adjudication": null,
+      "answer_review": {
+        "citations_support_claims": true,
+        "claims_exhaustive": true,
+        "no_contradictions": true,
+        "no_material_outside_conclusions": true
+      },
+      "behavior_review": {
+        "appropriate": true,
+        "reason": "synthetic label"
+      },
+      "case_id": "SEM-001",
+      "claim_reviews": [
+        {
+          "claim_id": "fixture-claim",
+          "evidence_ids": [
+            "E1"
+          ],
+          "reason": "SYNTHETIC label for testing only",
+          "support": "supported",
+          "text": "南向北和西向东为上行，北向南和东向西为下行；环线外环为上行、内环为下行。 [E1]"
+        }
+      ],
+      "fact_reviews": [
+        {
+          "answer_covered": true,
+          "context_supported": true,
+          "correct": true,
+          "evidence_ids": [
+            "E1"
+          ],
+          "fact_id": "F1",
+          "final_evidence_supported": true,
+          "numeric_conditions_correct": true,
+          "reason": "SYNTHETIC review label, not actual semantic verification"
+        }
+      ],
+      "human_approved": null,
+      "reviewer": {
+        "identity": "SYNTHETIC-AI-ROLE-NOT-A-REAL-REVIEWER",
+        "reviewed_at": "2026-11-10T03:57:14.616382+00:00",
+        "reviewer_type": "ai",
+        "rubric_version": "7c4e6f08f38a70ecbad340b239318a117063b588b617a2ea77c6119862f98c2b"
+      },
+      "schema_version": "rag-eval.review.v1"
+    },
+    {
+      "adjudication": null,
+      "answer_review": {
+        "citations_support_claims": true,
+        "claims_exhaustive": true,
+        "no_contradictions": true,
+        "no_material_outside_conclusions": true
+      },
+      "behavior_review": {
+        "appropriate": true,
+        "reason": "synthetic label"
+      },
+      "case_id": "SEM-002",
+      "claim_reviews": [
+        {
+          "claim_id": "fixture-claim",
+          "evidence_ids": [
+            "E1"
+          ],
+          "reason": "SYNTHETIC label for testing only",
+          "support": "supported",
+          "text": "站台有效长度范围内，A型车曲线半径不应小于1500m，B型车不应小于1000m。 [E1]"
+        }
+      ],
+      "fact_reviews": [
+        {
+          "answer_covered": true,
+          "context_supported": true,
+          "correct": true,
+          "evidence_ids": [
+            "E1"
+          ],
+          "fact_id": "F1",
+          "final_evidence_supported": true,
+          "numeric_conditions_correct": true,
+          "reason": "SYNTHETIC review label, not actual semantic verification"
+        }
+      ],
+      "human_approved": null,
+      "reviewer": {
+        "identity": "SYNTHETIC-AI-ROLE-NOT-A-REAL-REVIEWER",
+        "reviewed_at": "2026-11-10T03:57:14.616382+00:00",
+        "reviewer_type": "ai",
+        "rubric_version": "7c4e6f08f38a70ecbad340b239318a117063b588b617a2ea77c6119862f98c2b"
+      },
+      "schema_version": "rag-eval.review.v1"
+    }
+  ],
+  "schema_version": "rag-eval.review-state.v1"
+}

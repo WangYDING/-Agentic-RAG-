@@ -5,11 +5,11 @@ from pathlib import Path
 import numpy as np
 from sklearn.metrics import average_precision_score, roc_auc_score
 
-from eval.bm25 import BM25Retriever
-from eval.rrf import reciprocal_rank_fusion
 from eval.schema import load_eval_dataset, matched_gold_indices
+from src.bm25_retriever import BM25Retriever
 from src.embedder import Embedder
 from src.index_manager import IndexManager
+from src.retrieval_fusion import reciprocal_rank_fusion
 from src.reranker import Reranker
 from src.retriever import Retriever
 

@@ -1,0 +1,86 @@
+[
+  {
+    "case_id": "SYN-ANSWER",
+    "query_scope": {
+      "edition_ids": [
+        "v1"
+      ],
+      "spec_ids": [
+        "SYN-SPEC"
+      ]
+    },
+    "question": "合成规范中设备间距是多少？",
+    "schema_version": "rag-eval.rag-input.v1"
+  },
+  {
+    "case_id": "SYN-REFUSE",
+    "query_scope": {
+      "edition_ids": [
+        "v1"
+      ],
+      "spec_ids": [
+        "SYN-SPEC"
+      ]
+    },
+    "question": "请给出不在指定范围内的价格。",
+    "schema_version": "rag-eval.rag-input.v1"
+  },
+  {
+    "case_id": "SYN-CLARIFY",
+    "query_scope": {},
+    "question": "这个限值是多少？",
+    "schema_version": "rag-eval.rag-input.v1"
+  },
+  {
+    "case_id": "SYN-ERROR",
+    "query_scope": {
+      "edition_ids": [
+        "v1"
+      ],
+      "spec_ids": [
+        "SYN-SPEC"
+      ]
+    },
+    "question": "用于模拟服务错误的问题。",
+    "schema_version": "rag-eval.rag-input.v1"
+  },
+  {
+    "case_id": "SYN-EQUIVALENT",
+    "query_scope": {
+      "edition_ids": [
+        "v1"
+      ],
+      "spec_ids": [
+        "SYN-SPEC"
+      ]
+    },
+    "question": "合成条款允许哪一种等价证据？",
+    "schema_version": "rag-eval.rag-input.v1"
+  },
+  {
+    "case_id": "SYN-COMPOSITE",
+    "query_scope": {
+      "edition_ids": [
+        "v1"
+      ],
+      "spec_ids": [
+        "SYN-SPEC"
+      ]
+    },
+    "question": "合成条件的上下限分别是什么？",
+    "schema_version": "rag-eval.rag-input.v1"
+  },
+  {
+    "case_id": "SYN-MISSING-OBS",
+    "query_scope": {
+      "edition_ids": [
+        "v1"
+      ],
+      "spec_ids": [
+        "SYN-SPEC"
+      ]
+    },
+    "question": "用于模拟缺失可观测字段的问题。",
+    "schema_version": "rag-eval.rag-input.v1"
+  }
+]

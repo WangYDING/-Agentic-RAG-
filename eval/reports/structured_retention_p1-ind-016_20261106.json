@@ -1,0 +1,142 @@
+{
+  "run_type": "phase1_scoped_real_agent_evaluation",
+  "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+  "generation_model": "deepseek-flash",
+  "questions": [
+    {
+      "id": "P1-IND-016",
+      "question": "三份规范对车站公共厕所分别有什么直接规定？给定证据未找到直接规定时请审慎说明。",
+      "requested_scope": {
+        "spec_ids": [
+          "cn.beijing.db11t995",
+          "cn.gb55033",
+          "cn.gb50157"
+        ],
+        "edition_ids": [
+          "2025",
+          "2022",
+          "2013"
+        ]
+      },
+      "request_id": "a17f0a9b24cd45c4821b097f92014b8a",
+      "result_type": "answer",
+      "answer": "核心结论：三份规范中，GB 50157-2013 和 GB 55033-2022 对车站公共厕所有直接规定；DB11/T 995-2025 在给定证据中未找到直接规定。\n\n- **DB11/T 995-2025**：给定片段[E1]为通风空调与供暖章节的空调冷源规定，未包含车站公共厕所的直接规定；不能据此推断该规范其他章节不存在相关规定。\n- **GB 50157-2013**：车站应设置公共厕所；管理人员厕所不宜与公共厕所合用。[E2]\n- **GB 55033-2022**：全封闭运行的城市轨道交通车站应设置公共厕所。[E3]",
+      "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+      "bound_scope": [
+        "cn.beijing.db11t995@2025",
+        "cn.gb50157@2013",
+        "cn.gb55033@2022"
+      ],
+      "retry_count": 0,
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "text": "14.2.36\n空调冷源设计应符合下列规定：\n1\n空调系统的冷源宜采用自然冷源，无条件采用自然冷源时，可采用人工冷源；\n2\n设于地下线路内的空调冷源设备应采用电动压缩式冷水机组或电动压缩式直接蒸发空调机组，\n不应采用直接燃烧型吸收式冷水机组；\n3\n冷水机组的选择应根据空调系统的负荷情况、运行时间、运行调节要求，结合制冷工质的种类、\n装机容量和节能效果等因素确定；\n4\n车站公共区与设备管理用房的空调系统冷源宜独立分别设置；\n5\n同期建设、开通期相差2 年以内的换乘车站空调水系统可共享设置，共享的冷冻机房应设置在\n先期开通的线路范围内。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 117,
+          "page_end": 117,
+          "chunk_id": 1152,
+          "content_type": "text",
+          "chapter_id": "14",
+          "chapter_title": "通风空调与供暖",
+          "article_id": "14.2.36",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第14.2.36条",
+          "score": 12.517579735476575,
+          "rerank_score": 0.021450238302350044,
+          "metadata": {},
+          "spec_id": "cn.beijing.db11t995",
+          "edition_id": "2025",
+          "standard_code": "DB11/T 995-2025",
+          "spec_title": "城市轨道交通工程设计标准",
+          "pdf_page_start": 117,
+          "pdf_page_end": 117,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E2",
+          "text": "9.2.6 车站应设置公共厕所，管理人员厕所不宜与公共厕所\n合用。\n9.3车站平面",
+          "source": "GB50157-2013_地铁设计规范.pdf",
+          "page_start": 80,
+          "page_end": 80,
+          "chunk_id": 445,
+          "content_type": "text",
+          "chapter_id": "9",
+          "chapter_title": null,
+          "article_id": "9.2.6",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第9.2.6条",
+          "score": 0.6908878087997437,
+          "rerank_score": 0.9849727153778076,
+          "metadata": {},
+          "spec_id": "cn.gb50157",
+          "edition_id": "2013",
+          "standard_code": "GB 50157-2013",
+          "spec_title": "地铁设计规范",
+          "pdf_page_start": 80,
+          "pdf_page_end": 80,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E3",
+          "text": "2.1.16 全封闭运行的城市轨道交通车站应设置公共厕所。",
+          "source": "GB55033-2022_城市轨道交通工程项目规范.pdf",
+          "page_start": 7,
+          "page_end": 7,
+          "chunk_id": 29,
+          "content_type": "text",
+          "chapter_id": "2",
+          "chapter_title": "2 基本规定",
+          "article_id": "2.1.16",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第2.1.16条",
+          "score": 0.5758168697357178,
+          "rerank_score": 0.9362005591392517,
+          "metadata": {},
+          "spec_id": "cn.gb55033",
+          "edition_id": "2022",
+          "standard_code": "GB 55033-2022",
+          "spec_title": "城市轨道交通工程项目规范",
+          "pdf_page_start": 7,
+          "pdf_page_end": 7,
+          "printed_page_start": null,
+          "printed_page_end": null
+        }
+      ],
+      "request_metrics": {
+        "request_id": "a17f0a9b24cd45c4821b097f92014b8a",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 47.0,
+          "rerank": 2781.0,
+          "grader": 5985.0,
+          "generation": 5109.0
+        },
+        "total_ms": 15125.0,
+        "outcome": "answer",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 0,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 1931,
+          "output": 1119,
+          "total": 3050
+        },
+        "estimated_cost": null
+      }
+    }
+  ]
+}

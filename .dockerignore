@@ -1,0 +1,14 @@
+.git
+.github
+.venv
+.rag_index
+.model_cache
+.env
+data
+eval
+tests
+docs
+*.egg-info
+__pycache__
+.pytest_cache
+.ruff_cache

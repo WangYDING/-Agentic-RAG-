@@ -1,0 +1,35 @@
+{
+  "dataset_id": "independent_120_provisional_review",
+  "role": "independent_candidate",
+  "status": "draft_pending_source_and_human_review",
+  "frozen_at": null,
+  "data_file": "independent_120_provisional_review.jsonl",
+  "sha256_raw_bytes": "14446fbb43c76417576a30851a7dc8cb24ffa186abe212275b308b8861207b7b",
+  "count": 120,
+  "type_distribution": {
+    "单规范直接查询": 20,
+    "数值、单位与条件": 20,
+    "表格查询": 15,
+    "单规范多证据组合": 15,
+    "跨规范查询与比较": 20,
+    "应拒答问题": 20,
+    "应澄清问题": 10
+  },
+  "candidate_count": 150,
+  "excluded_count": 30,
+  "input_sha256": {
+    "independent_120_candidates_batch1.jsonl": "7ec73d88328b5d29d1b91fe98f67d23b8c4a63b80db26c9c3775303f29be2572",
+    "independent_120_numeric_direct_batch5.jsonl": "f78621d8ca7ddc7330728aa44eadc48503b87afc22a29875144d7fe62319ceed",
+    "independent_120_tables_batch2.jsonl": "e034ac17e370196e17673657ec97c1717ec3a402faf14c235e4603b6075810cb",
+    "independent_120_multi_batch4.jsonl": "46e77cdfa504f60531aec8096a81a25c67556c76b34fffc6afd1a63d050abf4f",
+    "independent_120_cross_batch3.jsonl": "6940b264aa682a7eaed305ff2d7bf02511812184e7a63a5b4adfd73cc5fd369e",
+    "independent_120_behavior_candidates.jsonl": "f24f0b841cca62ef809a5179e1cc1611d10e6806481cebf3a81f6887df0dae46"
+  },
+  "source_pdf_sha256": {
+    "DB11/T 995-2025": "e5ca2388ad68ed7b21b6092e66c12a73c74c17de8b532bef91c5b2ea57be78f7",
+    "GB 55033-2022": "907ffd92c569f79f163121904cccce69bc20905f9563854960bd184ca76f6fef",
+    "GB 50157-2013": "a1130f89afba11f00fdb3353375aa1c424b4eb44d462ee6bd1de2835c235dab3"
+  },
+  "human_approved": false,
+  "formal_run_allowed": false
+}

@@ -1,0 +1,66 @@
+{
+  "actor": {
+    "at": "2026-11-10T03:52:06.632772+00:00",
+    "identity": "SYNTHETIC-AI-ROLE-NOT-A-REAL-REVIEWER",
+    "type": "ai"
+  },
+  "adjudications": [],
+  "base_bundle_sha256": "488b0a60a845ef3f04d206f895ae486b5a4bd14173f3cf47dcaa4fc4605bacda",
+  "changes": [
+    {
+      "case_id": "SEM-001",
+      "previous_review_sha256": "ecd3ab515feeca7b9675a062094fd00057bd4034ecfd06757372edea4577219e",
+      "reason": "SYNTHETIC failure label to exercise fail branch; NOT a judgment of the real answer",
+      "review": {
+        "adjudication": null,
+        "answer_review": {
+          "citations_support_claims": true,
+          "claims_exhaustive": true,
+          "no_contradictions": true,
+          "no_material_outside_conclusions": false
+        },
+        "behavior_review": {
+          "appropriate": true,
+          "reason": "synthetic label"
+        },
+        "case_id": "SEM-001",
+        "claim_reviews": [
+          {
+            "claim_id": "fixture-claim",
+            "evidence_ids": [
+              "E1"
+            ],
+            "reason": "SYNTHETIC label for testing only",
+            "support": "supported",
+            "text": "南向北和西向东为上行，北向南和东向西为下行；环线外环为上行、内环为下行。 [E1]"
+          }
+        ],
+        "fact_reviews": [
+          {
+            "answer_covered": true,
+            "context_supported": true,
+            "correct": true,
+            "evidence_ids": [
+              "E1"
+            ],
+            "fact_id": "F1",
+            "final_evidence_supported": true,
+            "numeric_conditions_correct": true,
+            "reason": "SYNTHETIC review label, not actual semantic verification"
+          }
+        ],
+        "human_approved": null,
+        "reviewer": {
+          "identity": "SYNTHETIC-AI-ROLE-NOT-A-REAL-REVIEWER",
+          "reviewed_at": "2026-11-10T03:52:06.632772+00:00",
+          "reviewer_type": "ai",
+          "rubric_version": "7c4e6f08f38a70ecbad340b239318a117063b588b617a2ea77c6119862f98c2b"
+        },
+        "schema_version": "rag-eval.review.v1"
+      }
+    }
+  ],
+  "disputes": [],
+  "parent_state_sha256": "78bb615303bd50be713b74fe90caaa27bd3e9d61a961d5432f5de6eb4443267d",
+  "schema_version": "rag-eval.review-change.v1"
+}

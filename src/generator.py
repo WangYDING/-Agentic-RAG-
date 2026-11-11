@@ -1,22 +1,58 @@
+import re
+
 from openai import OpenAI
-from dotenv import load_dotenv
-import os
 
 from src.evidence import Evidence, build_evidence_context
-
-load_dotenv()
-
+from src.reliability import (
+    CallBudget,
+    CallPolicy,
+    InvalidModelResponseError,
+    execute_model_call,
+)
 
 class Generator:
-    def __init__(self):
-        self.client = OpenAI(
-            api_key=os.getenv("DEEPSEEK_API_KEY"),
-            base_url=os.getenv("DEEPSEEK_BASE_URL")
+    def __init__(
+        self,
+        client=None,
+        *,
+        api_key: str | None = None,
+        base_url: str | None = None,
+        model: str = "deepseek-chat",
+        call_policy: CallPolicy | None = None,
+    ):
+        self.call_policy = call_policy or CallPolicy()
+        self.client = client or OpenAI(
+            api_key=api_key,
+            base_url=base_url,
+            max_retries=0,
+            timeout=self.call_policy.request_timeout_seconds,
         )
-        self.model = os.getenv("DEEPSEEK_MODEL", "deepseek-chat")
+        self.model = model
 
-    def generate_answer(self, query: str, evidences: list[Evidence], chat_history: list[dict] = None) -> str:
+    def generate_answer(
+        self,
+        query: str,
+        evidences: list[Evidence],
+        chat_history: list[dict] = None,
+        *,
+        budget: CallBudget | None = None,
+        scope_business_ids: tuple[str, ...] = (),
+    ) -> str:
         context = build_evidence_context(evidences)
+        scope_instructions = ""
+        scope_context = ""
+        if scope_business_ids:
+            scope_instructions = """
+12. 跨规范问题中，不要假定每份规范都覆盖每个并列主题；按规范分别陈述已有直接规定。某规范对某主题没有对应片段时，只能说“给定证据未找到直接规定”，不得据此推断规范全文不存在规定
+13. 对跨规范、多子要求问题，完整覆盖优先于分点数量限制；应逐份规范核对每个有直接证据的子要求，不得为了简洁而遗漏适用证据中直接回答问题的条文
+14. 跨规范问题不受“2～3点”或“留待后续追问”的简略风格限制；引用某条文时，应保留其中与当前问题直接相关的对象、数值、适用条件和并列安全要求
+15. 若表格文本存在明显行列粘连、无法唯一对应的单元格，且用户没有明确询问该单元格数值，不要主动展开该可疑数值；只陈述能可靠对应的表号和直接规定
+"""
+            scope_context = (
+                "\n本次已绑定查询范围（用于逐份组织答案，不代表这些规范都有直接证据）：\n"
+                + ", ".join(scope_business_ids)
+                + "\n"
+            )
 
         history_text = ""
         if chat_history:
@@ -45,6 +81,8 @@ class Generator:
 8. 若信息不足，明确说明：“给定片段未提供完整信息”
 9. 若问题依赖上下文，请结合历史问题理解指代
 10. 引用只能使用参考证据中真实存在的编号，不得编造 [E4]、[E99] 等不存在的编号
+11. 当问题要求划分、列举或比较一条证据中的多类对象时，逐项检查该条文以分号或句号并列给出的直接规定；凡与问题所含“等结构”“各项”等开放列举相符且证据明确支持的对象、措施或条件都应写入答案，不得因“2～3点”风格省略，也不得补写证据没有的内容。特别是“如何划分……等结构”这类开放问法，应覆盖同一条文对其余结构类别给出的配套防水、排水等直接措施，即使该句未重复“等级”二字
+{scope_instructions}
 
 【输出风格要求】
 - 如果用户问“有什么要求”，先概括总体要求，再列最关键的2~3点
@@ -61,6 +99,7 @@ class Generator:
 
 用户当前问题：
 {query}
+{scope_context}
 
 参考片段：
 {context}
@@ -68,13 +107,55 @@ class Generator:
 请给出回答：
 """
 
-        response = self.client.chat.completions.create(
-            model=self.model,
-            messages=[
-                {"role": "system", "content": "你是一个严谨的专业文档问答助手。"},
-                {"role": "user", "content": prompt}
-            ],
-            temperature=0.2
+        active_budget = budget or CallBudget()
+        response = execute_model_call(
+            lambda timeout: self.client.chat.completions.create(
+                model=self.model,
+                messages=[
+                    {"role": "system", "content": "你是一个严谨的专业文档问答助手。"},
+                    {"role": "user", "content": prompt},
+                ],
+                temperature=0.2,
+                timeout=timeout,
+            ),
+            operation="生成",
+            budget=active_budget,
+            policy=self.call_policy,
+        )
+        active_budget.record_usage(response)
+        try:
+            content = response.choices[0].message.content
+        except (AttributeError, IndexError) as exc:
+            raise InvalidModelResponseError("missing completion content") from exc
+        if not isinstance(content, str) or not content.strip():
+            raise InvalidModelResponseError("empty completion content")
+        return self._preserve_open_list_parallel_requirements(
+            query, evidences, content.strip()
         )
 
-        return response.choices[0].message.content
+    @staticmethod
+    def _preserve_open_list_parallel_requirements(
+        query: str, evidences: list[Evidence], answer: str
+    ) -> str:
+        """Append omitted, directly quoted parallel rules for open enumerations."""
+        if not re.search(r"等(?:结构|措施|要求|项目|内容)", query):
+            return answer
+        supplements = []
+        for evidence in evidences:
+            text = " ".join(str(evidence.text).split())
+            for clause in re.split(r"[；。]", text):
+                clause = clause.strip(" ；。")
+                if len(clause) < 10 or not re.search(r"(?:不应|不得|应|宜|可)", clause):
+                    continue
+                subject = re.split(r"(?:不应|不得|应|宜|可)", clause, maxsplit=1)[0]
+                subject = re.sub(r"^\d+(?:\.\d+)+\s*", "", subject)
+                anchors = [
+                    item.strip("的结构防水等级")
+                    for item in re.split(r"[、，,]", subject)
+                    if len(item.strip("的结构防水等级")) >= 4
+                ]
+                if anchors and not any(anchor in answer for anchor in anchors):
+                    supplements.append(f"同条文还规定：{clause} [{evidence.evidence_id}]。")
+        if not supplements:
+            return answer
+        return answer.rstrip() + "\n\n" + "\n".join(dict.fromkeys(supplements))

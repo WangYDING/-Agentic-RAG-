@@ -1,0 +1,1334 @@
+{
+  "dataset_id": "independent_120_user_reviewed",
+  "role": "independent",
+  "status": "reviewed_pending_formal_freeze",
+  "sha256": "1e45a6c493f61a1d1bc550220a8c32d9def1b8fae64cfee4bbd8408ab3826f43",
+  "count": 120,
+  "source_sha256": "14446fbb43c76417576a30851a7dc8cb24ffa186abe212275b308b8861207b7b",
+  "review_basis": "user assertion in conversation",
+  "reviewer_identity_detail": "Name and per-case rationale not provided",
+  "used_for_tuning": false,
+  "formal_run_allowed": false,
+  "case_approvals": [
+    {
+      "case_id": "I120-C001",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "2d9439aae429880df85898a1a881f852d6d387e8707d542ffbf6f2779130e300",
+      "schemes_sha256": "ba1e9f6a32b17dfaf563f10ed2ae2d054f95c55bd95de845306a316efe81cf2a"
+    },
+    {
+      "case_id": "I120-C002",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "2d5fae957f4e1a40716f186e719bf645609a088b63e660bc9bbc71170c70cc39",
+      "schemes_sha256": "598db9b8aec3d75c580f6966d340ae5c14d73cc8f03090c52880f3c968398733"
+    },
+    {
+      "case_id": "I120-C003",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "19b3ac9052091590d08527ce6f3b77f97be7b1f4a0bfaebb774edc490184d162",
+      "schemes_sha256": "939dcc757f728a6904a126332e72f3e8aa1786deab332adad4afb14ffad774cb"
+    },
+    {
+      "case_id": "I120-C004",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "815a23c5d3351ebb2a0c292e2f9091584d5145269db9cf8baa2e1ad7e30aee25",
+      "schemes_sha256": "61af24b3aeb64f6f9fd40cc6aa25533a6475f86cf59d82b09d1a30ccd330ac4b"
+    },
+    {
+      "case_id": "I120-C005",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "4ab9704bc4b7154c47a30778055f51ccb05bf07f9c58c1059b59cf8f1ed62cef",
+      "schemes_sha256": "a2e8ecdb3aeb409cd31adcf852a72c131b1cbc1850fb613711c385b70c621e37"
+    },
+    {
+      "case_id": "I120-C006",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "55043cb9f14ed78300e9cc87d3817b937ee6965266aa619cd61d2f228dca02fb",
+      "schemes_sha256": "ddda7093b7731a3175971d68683ac43a6b13f7b234e9bdd8182324bd8047285d"
+    },
+    {
+      "case_id": "I120-C007",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "c85b5f6af0389f0f8e42488cf83ba623fe8273ce40511b1f6ec35159a8e33325",
+      "schemes_sha256": "a031e0c57ae503a57927ecfe190455c809c1248a8182a04fbf9c7138763069f5"
+    },
+    {
+      "case_id": "I120-C008",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "0a0dc46409b3c496d4cd3b3689ce6c2faec8be9053b09a2b898144883eb6ab03",
+      "schemes_sha256": "b93068c438c9fc94b345bbdef94f78353f5106b928866155f4703f921053a79f"
+    },
+    {
+      "case_id": "I120-C009",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "7f65e08b7073c0ad342042e8e65b265b98d12ec0ad026aa6a376d772a0fa3f54",
+      "schemes_sha256": "dcf9ed3b8cbdbee45f89d30a41f2cc60b0e147a10c0dc6e8834e5744071a11fc"
+    },
+    {
+      "case_id": "I120-C010",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "63562c12096d0a7533bee72e83a470bc938315bd3cfbe32c31485e3e69972017",
+      "schemes_sha256": "0001728f1fdc05428425fa87953bca28a4cc564860888aa098bf072b0c99265d"
+    },
+    {
+      "case_id": "I120-C011",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "674e76b16ff33ee959d04eba6bd4e6fac857f3fd24c28042cfb55c887ca3bb19",
+      "schemes_sha256": "0ca08579365e0b48faf19f5d1a89fefbc33d1a90c9fe962755481b09a1560a1e"
+    },
+    {
+      "case_id": "I120-C013",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "bac3a38e49abdde4f0d094fe9b4fe2295d910ca677649ba9595c7a262d2f2b83",
+      "schemes_sha256": "7c407b7b0cc3b51b38833494d116c11415a9482120ec31b17adc11c94a6cd769"
+    },
+    {
+      "case_id": "I120-C014",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "369e798a7417b32c4af6befc8c0d090a0c8edc641f09e9a37dd58ad744b894a1",
+      "schemes_sha256": "33dff2ad2098d8b733bd8bcfa8ec66da176ca05bf989141d28d0e25f6bc55969"
+    },
+    {
+      "case_id": "I120-C015",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "bb162f577b99514dd5a9f452ec1854f5b34b97b29c8d9726d1e12a236dbed6db",
+      "schemes_sha256": "0888949a1230e7c801c408e25ead5d6e5ef6a4b9d6f910387360dfe8daadac08"
+    },
+    {
+      "case_id": "I120-C016",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "adf81246a7736fc484b5d119db022ce6307fb89cf1862ac9cbe6ad1cba1a55e5",
+      "schemes_sha256": "bb093b3b97d6cb6bfddac5da01b23702a54b47681da67b57cecb0feaa0a69ee8"
+    },
+    {
+      "case_id": "I120-C017",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "7611e5b538c153da9aae84f4be74645b394dcb0e919c05cf67d68640beb9b6ee",
+      "schemes_sha256": "74fd15dcb701f7b1740641236ad15ad0950cfa4a6731f19cb8e7d7be3fc86ad8"
+    },
+    {
+      "case_id": "I120-C018",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "0001da6de1bd3309a0ae81cb6bf3361537ffd418ee2d57196015473c462ee734",
+      "schemes_sha256": "1fc34aa06d8f5427fd009af52c8f479c2f7c4688a87d4f098a59b9342a71c2e2"
+    },
+    {
+      "case_id": "I120-C019",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "e8ee33fc322522defdf75d79d15ea9f34932a37b9b96bfb56e0ff020fb809f9d",
+      "schemes_sha256": "d1ae494654548b56865602b9c62e6cd2f9042ae9dc59d03e2a598904e518c59e"
+    },
+    {
+      "case_id": "I120-N001",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "2ecb00ae6dcc2855ac43734ffba287d381f78af05bf294a87eb5a661a73c61c9",
+      "schemes_sha256": "97e83534700671772cd852487bacb337abfc92a7442258e372b2476a6e6a247f"
+    },
+    {
+      "case_id": "I120-N002",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "e62c93fbaf7736e1680673bd41557519100135148ac32705d289441bf2a3713a",
+      "schemes_sha256": "5463f27ecdc8b6be43baf01f4320c9a3d23e80074d2478e186ec2003ffb89b02"
+    },
+    {
+      "case_id": "I120-N003",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "bd4433a43c9b29cdf91f1af8da3123431d7a7674f6c3c417da06e3b3113739a2",
+      "schemes_sha256": "0c99b355487a64b7fbaa2acf2a6f47771923021e1729b3bd61f261b001fb55a5"
+    },
+    {
+      "case_id": "I120-N004",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "246cf5935d4e0399b4e080f25fe26ca232cf577246952a042d6a9e45353d4042",
+      "schemes_sha256": "fddc1307ea048a9486b787dc3db68f6f831882a4a46825e890726a2baa284170"
+    },
+    {
+      "case_id": "I120-N005",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "908994d5a770acb2b93c55f41e662c491ba98057c54985fa37c7d2bd36a63a17",
+      "schemes_sha256": "3b101836159e35a9538f031ed102fa4edb265a69e71c74469665d8f37ba44d2c"
+    },
+    {
+      "case_id": "I120-N006",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "b774c0c80eb8c51255476ecfe3a58811652ecef0a013751085420cdf486c8e97",
+      "schemes_sha256": "dd12d11c857a5c8b94d5f171ba5f0801f46ae82fa781e269b2a475519308d1ee"
+    },
+    {
+      "case_id": "I120-N007",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "57ea7e84dd43ecfeca42d83314e47d3f72da42eaa6d49aecf59620173c440171",
+      "schemes_sha256": "a2ca920bce4a2b49b9d482a519faf329401727eeae12e1140831fd6320d0388b"
+    },
+    {
+      "case_id": "I120-N008",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "d910ab4be57a595f0ebed9c8c4dc679e8a68957743c60811b4d367305ea8c4ad",
+      "schemes_sha256": "42d74141fe33d77ca57901de5990df00d530e6c94ec915b9481c74d905be22d1"
+    },
+    {
+      "case_id": "I120-N009",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "f29b964a34a6ac066f26b275c6b23107d17afa83e5491691744885d4f4190c53",
+      "schemes_sha256": "bf23eee229107eb2688a1c0caa99510f3a2b72c6ebbba1c73a01fa30c5c53ffe"
+    },
+    {
+      "case_id": "I120-N010",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "9ead4e8bde0eac63f124c56e8c6edc993bf7acd3f5fea7efd23fc9f7fb8f8132",
+      "schemes_sha256": "aabe94138afae4f438fbd0f80134eb91453133749130e3ac4d50b980ef06ae52"
+    },
+    {
+      "case_id": "I120-N011",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "72a7ca5831daca680b02b033cf43ffd3b8f92c8de539e903037ef9f839e49e54",
+      "schemes_sha256": "f387ae31db2acccaf50249cad8c2b5b84822bc60b749d4034656e47afeb953d7"
+    },
+    {
+      "case_id": "I120-N012",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "54a6fb5f2290a45cb8e057c6b8cd47db78410fca4b7a092f0ffeb09379ae59c6",
+      "schemes_sha256": "f78381839f43b6eef98f109651cca8ba1df2b248a4f78a48804b059297d12c24"
+    },
+    {
+      "case_id": "I120-N013",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "da601f3ea69e21d20577f6ded0fc6051f58804ae437f687df75f986e7160e11f",
+      "schemes_sha256": "118debddf77002ea6cdbb860c6bf5d326ddf22c5f2eef8d4c1b2e9cdd9db7518"
+    },
+    {
+      "case_id": "I120-N014",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "70ec815c2579244124611884f567dc385e339d40604a40a14927860cd234d0ff",
+      "schemes_sha256": "d2fd7790fea9c3b27093fc337820d6eef5237c767a7dd39809e2bf705dda0d55"
+    },
+    {
+      "case_id": "I120-N015",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "de3dcba03f7b53cfeee34577b773eebc53a83c16b24ea658e62e354fb27b2c5b",
+      "schemes_sha256": "f95dcd293fd4c333cd7bf0fabf0192ab9868691cbfd6307108341465cdf0ae26"
+    },
+    {
+      "case_id": "I120-N016",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "bbc50a1c1a639f70043038b38aeacc6f15d979ee505868c842070a61eb28948a",
+      "schemes_sha256": "f93e565837025d9dd8df40338633141c747c4716671cbaa957df437abc5505c6"
+    },
+    {
+      "case_id": "I120-N017",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "8be443ab108f9c087caee8920401956f0559363118d87f50f264b86964547597",
+      "schemes_sha256": "fa87acc6a352e9279dc6d0518408ac2b52fe15450c9b940ca19f8dd3145a147f"
+    },
+    {
+      "case_id": "I120-N018",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "381b7d9cf1988b246d99848b2ed8011e498ecad864ac6356ebade8c2fc3894c3",
+      "schemes_sha256": "f3cd5bd5a69fc299c6f375ad981df17b4feb2fccc78ef5f25365cc7a76ae8312"
+    },
+    {
+      "case_id": "I120-N019",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "0e1bd13f3133b1c2bdf2ba6592cb6c343b153e77b432b121d9351287e11c56df",
+      "schemes_sha256": "7dfc3e2ffeb3cfbf461879e154afdfd4a8178bafdac85b48cd451d617f2ab0ab"
+    },
+    {
+      "case_id": "I120-N020",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "92a2356ffced5593c9f1a37943e4315938abcdedbea3aa8def167e7850a6eec3",
+      "schemes_sha256": "dee67dc78e1096c5943f95a9091a9852ebdd73cb6b3ece21662972823b6e903e"
+    },
+    {
+      "case_id": "I120-N021",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "5651dc226bd45ed21e341edd797c1247653979e2ecee177b360fdf6235461f37",
+      "schemes_sha256": "4d60c29cf01fa224b18ff3e7285752da4f15a3a4c2b51d1126913d6dcac06d1b"
+    },
+    {
+      "case_id": "I120-N022",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "a9991cdb5218b7ae395a476f66df4c39c4c33d4814491fd0b68b58ed8362c32d",
+      "schemes_sha256": "c83dc5cba17ccaaa9bdebc66a45e0f071a7da1c9a4c96c61970d9033983147e6"
+    },
+    {
+      "case_id": "I120-T001",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "8d989fbaeeeee9eb5cd04f4a8e8d41e8c9a1c4daf1ac6ba1a910a267e7d03876",
+      "schemes_sha256": "71e53c5be931d5652d74f065ef415c11ff7460fb54954446fee8ce79b4d13823"
+    },
+    {
+      "case_id": "I120-T002",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "8bacac2efefaf80097146caf0d74d62e1e473be53e904bd144cfefba0de6243d",
+      "schemes_sha256": "832fbd4cea4df1cd2d4b85ed0140d29469a38477fed5f07eb69356fb0346a9b7"
+    },
+    {
+      "case_id": "I120-T003",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "72f62e617606301e776ab574f8628cfd1a3f8c9d7ee45593939884c070bca64a",
+      "schemes_sha256": "4876b101e51149ea6f6c28ff813bdacdd9447a3e00ce6d425ccfc262914d43b3"
+    },
+    {
+      "case_id": "I120-T004",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "7763d1df4be60f8a2579c2beb0c22fcc25899a5ba087544abafda90edd7e80e7",
+      "schemes_sha256": "f325c81b3dc1420eecee4a5174ee06a936d0d571a8b4f13bc8ed4c5a5c87952f"
+    },
+    {
+      "case_id": "I120-T005",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "d7734115f774eb51c869d882cca68778e57f7edcf6559163d611b11f5077beae",
+      "schemes_sha256": "908096635a75829f9aa769978557b6034a4d36ae2acfb4b1e2fe7781682d5c15"
+    },
+    {
+      "case_id": "I120-T006",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "e2a90de5f3a027c9606d1c901cf938ffcb6f3e570d9f256dd4be7e78188ef6db",
+      "schemes_sha256": "d1ee188e94705f90bd83e04abda61bac9cf5a78476284a828af3e7b8354bd6de"
+    },
+    {
+      "case_id": "I120-T007",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "eb9692b87d0d3be418a59b85c53269ee265f652cec4d0b5d07335f837b67ad4a",
+      "schemes_sha256": "53c6c66398787471f1286c4369332ce9a7001588502c05d4935b251eabbf77cb"
+    },
+    {
+      "case_id": "I120-T008",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "70b69260c8effc36729fe8d57c5c545a7a2e7ab6814ecbe1a7f9f7f3b3d66f84",
+      "schemes_sha256": "dd331e6399f9bbbee36b7a914f33ac648662fe6c6d7a85cfe949138608a405ae"
+    },
+    {
+      "case_id": "I120-T009",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "1e89bed073c4cc4d6442b8e65f920878519594da7b4d1d03bbaa4fdb720086e3",
+      "schemes_sha256": "85466e572f8efb6a222478134c21d6e03ab42940a06acd63d48edf7e24352f48"
+    },
+    {
+      "case_id": "I120-T010",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "f4acd14ae72bf92cb843893b5062cdfaaabf2abd54f0ebdafa8f2a4748a097e7",
+      "schemes_sha256": "6cccbcd01e5b8fb686daec97483937149b0ca80d04af1010a88da8ff3d7cfe0b"
+    },
+    {
+      "case_id": "I120-T011",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "a1292c5de76ca13543e4613a35611bc16ec31f19510e2c5c8ee241171fd9744d",
+      "schemes_sha256": "184fd3cc9b15f7e5c1e89140ea111f7ebffe580bba19eef77e4881cf6b42297a"
+    },
+    {
+      "case_id": "I120-T012",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "e364c7c1e19d5a0eef51c758bc012742f694baf678cbb2e7addd77fb57f62635",
+      "schemes_sha256": "d2c4e5b31367d92ed0684dbf0076abe7e9eccc489ab9d3a167d2e965229e00f2"
+    },
+    {
+      "case_id": "I120-T013",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "fa44bdaac2ac14a873d320248934cbbd2881196928abb8ae3e7d91e4e3f1c061",
+      "schemes_sha256": "cc599a33959c6dbca140f90949af8f5d3b1a8f2e8e871c3d64b54e232b6075e6"
+    },
+    {
+      "case_id": "I120-T014",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "0f5ccb6da1c394ef453a6253e1080ba8bc1a0f132b41f660423cfc86aea81def",
+      "schemes_sha256": "12a298e0851cc94a90944d9e851df5f6b65de126d6666dfdba5d12ece9c2ff52"
+    },
+    {
+      "case_id": "I120-T015",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "0e48ebd7c47c54b75660f669f109784d740a8235b7129955738d336b45d735aa",
+      "schemes_sha256": "1cda634971f02aa4355b13f2271ff8f11c9c77b409a67895fa93d5f0136e5fec"
+    },
+    {
+      "case_id": "I120-M002",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "bf4e5bbf9664f002a25f42910d1c320be06c9be3ddb45c4d9bc204a965d11dbb",
+      "schemes_sha256": "45d926877be3d2cc50141d0c1aeeb3bb76d11b4802d4da4aa5c86b6c10177803"
+    },
+    {
+      "case_id": "I120-M003",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "6ebe3427605c8dfadbc24bf01bdbf4e89b3af9b2618b5835f98700ccf7272567",
+      "schemes_sha256": "6de7b278edb0607255d932cd2a0c26b1ab20c3b86496b6755bb195657e07e5da"
+    },
+    {
+      "case_id": "I120-M004",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "5dc7279bb56709af112cd36d827270c2dea8d61a1c3342686d73488150a3f3a0",
+      "schemes_sha256": "3c3945a1032b01ec02e0a08b5e50820c717a8822ef7f1ec3432818cd7e3fdc91"
+    },
+    {
+      "case_id": "I120-M005",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "b4b487f5fef244c9722f100e0632ab0eec05405b2090249c46b2a649fe468937",
+      "schemes_sha256": "b19cd1390711384e6a28290117b52220a3e56372ae5ce7d6980605fdfd4cdc9b"
+    },
+    {
+      "case_id": "I120-M006",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "d56e7202966e4199f07fdf434919f9ce4b1240952d67c513b5e02681a40c832f",
+      "schemes_sha256": "1077c7af1540700851ad74d8f21fd2f6d175ef1228a02388e91d981937caab17"
+    },
+    {
+      "case_id": "I120-M007",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "ee2e4f034542af58708ec114725ba58c13e3269c19a5dd13a895968e9ac11aad",
+      "schemes_sha256": "89525e7bbfaee49b44d95733bf857253a77ce0ebda077f5360b66d323d02d844"
+    },
+    {
+      "case_id": "I120-M008",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "e28dbc33b82679ec2d324a31c855860fe6eda79ef26e8ea56ae5efc78832967e",
+      "schemes_sha256": "e1c9419ece7a8d53086d08389ce788f2605f0ada3f2a4fe727313a9516e5539e"
+    },
+    {
+      "case_id": "I120-M009",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "a6b0f8b17c25bea978c19df7202c1d1e322c9fadabe6c9e87515ba5c3cd82f4f",
+      "schemes_sha256": "9fae215fd2b49d15bbac83512b18cbd8530ba264cfb07f92c0b0ba56d845a0ab"
+    },
+    {
+      "case_id": "I120-M010",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "3650c61b2a4e0d66e0ebfe43d524276fd5b09d9a6362f09602c8b9aff9e3767f",
+      "schemes_sha256": "9c33df06d8b384a426587cf0b8b8f86fdd0ac142b54bf7af683a02a618eb5938"
+    },
+    {
+      "case_id": "I120-M011",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "3e958e8b65fdc986c7b423418b8c4dd6106c77e8324979ca03b8ef027e8de9f2",
+      "schemes_sha256": "40e6383e4a0b76c573ffaff95cc5d63e47841253cd295b3e77209d154d651fb9"
+    },
+    {
+      "case_id": "I120-M012",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "61a600e94c72848a6fa6ee43506ec80e5f60906f30339737d41d281f49e066f5",
+      "schemes_sha256": "e0dba03e47b4d3044325c947edfb91edaa25f6cb7764e3a3f70f64f946572775"
+    },
+    {
+      "case_id": "I120-M016",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "2bade635789b07c4da0b0d31fe7f02e3f1f8f8ffdbf8fc75b241606050a927cc",
+      "schemes_sha256": "08312bc090ae56e55111c17963c1dc0fad24abe6eb876a57331ad9c2f67b71e1"
+    },
+    {
+      "case_id": "I120-M017",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "cb972361fe0e9fe268e9ac6975d3fd7c5af6472a987d647da35e150e7628463e",
+      "schemes_sha256": "6acd61f9576526e4c0d0aa12cbc4a855655aa2f9fb6a96791e2c2157003559a8"
+    },
+    {
+      "case_id": "I120-M018",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "c18d307262ed09e9664f4f293fab204bdf7fce61c8226c4f9d753433fb068b93",
+      "schemes_sha256": "c458115f93484e667aa01d0da48b773a87a548dbf1bf207da9a8137a28cfa7d4"
+    },
+    {
+      "case_id": "I120-M019",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "1cfb9d4a70c05ff3ecfd5510d119f98bc1b12b7e9d52d114679a9fcc3b801a73",
+      "schemes_sha256": "a33b4671ef53c22eb79f956c7efbbd3cf9a2161b736a7a6898233365c5de8335"
+    },
+    {
+      "case_id": "I120-X001",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "3e0638b0972a60ed64df302761a61750c7598f630a9b55ef60c8bbcbd9d09dd0",
+      "schemes_sha256": "f19552a8739db0c0c65acbd7ad9a62d7d63dd778eb8d8207b119c6c453c7941b"
+    },
+    {
+      "case_id": "I120-X002",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "69e2132d78840a485e6f58ecc9d5470717e869896181ffdcf830629439d1b447",
+      "schemes_sha256": "467dfafa0d4b3c2e5590dcb1bdbcaddf626e99c2d2dbad85a616415c004440fc"
+    },
+    {
+      "case_id": "I120-X003",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "2d48921960701c990497a095036769cc28855214073249f7048e500149a5f36d",
+      "schemes_sha256": "0af14e0428e4640ee5d5b0031fbe3128073547391d6c4278422820ef0fa91818"
+    },
+    {
+      "case_id": "I120-X004",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "024316d643add763d98988cb2a3b5a69b7b9f9e84f466f1eff2a6e774453f41f",
+      "schemes_sha256": "501d4940c5c8b7a2a67dc9e0f7703e60ff4cce51993fb8f58ad2e8dca9d272a5"
+    },
+    {
+      "case_id": "I120-X005",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "1817fbdb612617ea56d62d382933109176dbb6b76437506ee7ff983352425e57",
+      "schemes_sha256": "6c34f4c4d7cd1ed1222df227e66b4c79cc13a173749b1ae9df7c089abc573f8a"
+    },
+    {
+      "case_id": "I120-X006",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "9c8bd42e5e0d2db42be2773fda1222a66b7b201f7a077d8aa4be091363974079",
+      "schemes_sha256": "6a6c914eb37556c78efc8480c9e5379dc261dcee2477683f8fe2f0bfcf1c7183"
+    },
+    {
+      "case_id": "I120-X007",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "7eafb61bbedd8cedd0916e50677a30e6d8f1a23be372b37c669e63778e611927",
+      "schemes_sha256": "3f78932762967a1c3fcb7c3166ee241669a864d9015c6aaadc80ea54ef11e87f"
+    },
+    {
+      "case_id": "I120-X008",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "0856921c357e363f652a8c5643e61b14bd09310e69735d94ba4ddb9d6a114cc5",
+      "schemes_sha256": "458279456c17bc744f1d34235db310efa111e9f7e37afe0ef43d0658f95d485b"
+    },
+    {
+      "case_id": "I120-X009",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "c87a7385e8659b65a959f3c7d6253372a374df72d8ef743fb67b4a8fda3df712",
+      "schemes_sha256": "0d80f8a64c7b9494b87139d8033c0c9beb25ef961e0a2aea3316b4777ad614da"
+    },
+    {
+      "case_id": "I120-X010",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "2225321dbffd721a373fe51ee268ddb5c827164e0c4d4874642024cef6ec3726",
+      "schemes_sha256": "241e60e3fc62d604644a4b57e42b5667b7b152c4d65aeb619e24f6131364c119"
+    },
+    {
+      "case_id": "I120-X011",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "cc31873b06de1baf970bcacdb8f6a76edec278f9aa24b54a5afe1b07a940d95f",
+      "schemes_sha256": "5a1d0d66ae13e1149989657efcfeb3cdc8fe36c29350e805580207068dbb2709"
+    },
+    {
+      "case_id": "I120-X012",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "ca02bb4b6c39ecce7ae61c9408342c2ef053f7b651b35d29cceca6a047078c9c",
+      "schemes_sha256": "b462b9566b1640e62daf5ba80a30981dd2ed7412122510141be9f08772365107"
+    },
+    {
+      "case_id": "I120-X013",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "0108905a189a82f0cda22183396a0e0f58b3c5204bb35e3e916b772599dc90f4",
+      "schemes_sha256": "a436291bdc4655be5161bf17e77ae584787dbd52390199f56ca692e3bdce001a"
+    },
+    {
+      "case_id": "I120-X014",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "e32019cf668799343317aec1c38f4882fadf5b47b014d889262965e726cfcb25",
+      "schemes_sha256": "3cbd0c87ed1ca5a970541a047a41bbcdeaa1da5a30417cffb64233dda8c83537"
+    },
+    {
+      "case_id": "I120-X015",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "09b2f75a70a0b679c5e708498c7ef93509b6cdd84dc27ffb0f2d834a38f0830e",
+      "schemes_sha256": "2150af73855bd87aa50197e1835bf1feba49d04d2bca4b743f41e9ce13360979"
+    },
+    {
+      "case_id": "I120-X016",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "7e19c09efdd7e435d82f4b8c27d3735ecb3cb9e6df03da06499b466ed5e2d9fc",
+      "schemes_sha256": "a93f3415003f8ad7e14b4fd0325af15d6f73b906a146ed98430e24072d24f2a5"
+    },
+    {
+      "case_id": "I120-X017",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "627589fdb192bd0403a84a53100673ed4731520f2cd3158334ecdb88959b3bcb",
+      "schemes_sha256": "ed4cda9a3e05309104394d8753e7f73252d800a6894a054587b721e0adb65202"
+    },
+    {
+      "case_id": "I120-X018",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "5cbf38aa7fc021abfc7ba38ab36ef10128414d2792207f9ce38e88cd4f21b453",
+      "schemes_sha256": "34b4b726ced251103a18530afaa67496e7b619adecf4f9a30ad2bfafb631d53f"
+    },
+    {
+      "case_id": "I120-X019",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "009ad48f14e28f132e8fadb8e4c58bd718a4bce99b9050716ae43eab9c5ce680",
+      "schemes_sha256": "f0999b05398d47e0dc3cd5a8d58a25d21f514299febae81c9416e8275a076141"
+    },
+    {
+      "case_id": "I120-X020",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "88765792003c4e046e8d3ad0f11846df44f1b6bad99919aa9a5658c6865c40b0",
+      "schemes_sha256": "2ff2abd33bd28c921f8bc56554aba190fac03356aecfb4dfb0065e8920b1450a"
+    },
+    {
+      "case_id": "I120-R001",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "schemes_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "case_id": "I120-R002",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "schemes_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "case_id": "I120-R003",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "schemes_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "case_id": "I120-R004",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "schemes_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "case_id": "I120-R005",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "schemes_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "case_id": "I120-R006",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "schemes_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "case_id": "I120-R007",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "schemes_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "case_id": "I120-R008",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "schemes_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "case_id": "I120-R009",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "schemes_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "case_id": "I120-R010",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "schemes_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "case_id": "I120-R011",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "schemes_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "case_id": "I120-R012",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "schemes_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "case_id": "I120-R013",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "schemes_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "case_id": "I120-R014",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "schemes_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "case_id": "I120-R015",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "schemes_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "case_id": "I120-R016",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "schemes_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "case_id": "I120-R017",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "schemes_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "case_id": "I120-R018",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "schemes_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "case_id": "I120-R019",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "schemes_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "case_id": "I120-R020",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "schemes_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "case_id": "I120-Q007",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "schemes_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "case_id": "I120-Q011",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "schemes_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "case_id": "I120-Q012",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "schemes_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "case_id": "I120-Q013",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "schemes_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "case_id": "I120-Q014",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "schemes_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "case_id": "I120-Q015",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "schemes_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "case_id": "I120-Q016",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "schemes_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "case_id": "I120-Q017",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "schemes_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "case_id": "I120-Q018",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "schemes_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "case_id": "I120-Q019",
+      "status": "approved",
+      "reviewer": {
+        "identity": "User (explicit confirmation in conversation; name not supplied)",
+        "type": "human",
+        "at": "2026-11-10T09:29:55.592712+00:00"
+      },
+      "facts_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "schemes_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    }
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "run_type": "phase1_scoped_real_agent_evaluation",
+  "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+  "generation_model": "deepseek-flash",
+  "questions": [
+    {
+      "id": "P1-IND-017",
+      "question": "DB11/T 995-2025 与 GB 55033-2022 对区间纵向疏散平台的宽度、高差和间隙分别怎样规定？",
+      "requested_scope": {
+        "spec_ids": [
+          "cn.beijing.db11t995",
+          "cn.gb55033"
+        ],
+        "edition_ids": [
+          "2025",
+          "2022"
+        ]
+      },
+      "request_id": "161765f4c1704e29aa3614c8d9819f15",
+      "result_type": "answer",
+      "answer": "核心结论：DB11/T 995-2025对区间纵向辅助疏散平台的宽度给出分单/双线、一般/困难情况的最小值，并规定高差及与设备限界、车辆轮廓线的间隙；GB 55033-2022在给定片段中直接规定高差和曲线地段车辆轮廓间隙，未给出宽度数值 [E3][E1][E2]。\n\n**DB11/T 995-2025**\n- 宽度：最小宽度应符合表6.2.2，单线设于一侧时一般情况800mm、困难情况600mm；双线设于中央时一般情况1000mm、困难情况800mm [E3]。该最小宽度为设备安装后的最小有效净宽 [E1]。\n- 高差：直线段和曲线地段纵向疏散平台距轨道中心线高度宜统一按低于轨道中心线处车厢地板面高度150mm～200mm确定 [E1]；另规定平台顶面距轨面高度宜为950mm [E3]。\n- 间隙：平台边缘与设备限界之间的间隙不应小于50mm；直线地段平台边缘距车辆轮廓线水平距离不宜大于150mm，曲线地段应按偏移量计算加宽，但不宜大于300mm [E3]。\n\n**GB 55033-2022**\n- 宽度：给定证据未找到宽度数值的直接规定 [E2]。\n- 高差：直线地段和曲线地段纵向疏散平台距轨道中心线高度应统一按低于车厢地板面高度150mm～200mm确定 [E2]。\n- 间隙：在车辆静止状态下，车辆轮廓距离疏散平台的间隙，曲线地段不应大于300mm [E2]；直线地段间隙上限在给定证据中未给出。",
+      "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+      "bound_scope": [
+        "cn.beijing.db11t995@2025",
+        "cn.gb55033@2022"
+      ],
+      "retry_count": 0,
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "text": "6.2.2\n纵向辅助疏散平台平时供维修人员行走，在紧急情况下可作为疏散乘客的辅助通道，其设置位置\n主要从方便行走、方便上下行线之间的沟通联络、方便区间与车站的衔接以及疏散人流的组织考虑。\n纵向辅助疏散平台的最小宽度要求为设备安装后的最小有效净宽，主要考虑了人员行走的最小有效\n宽度及各种结构断面的形状影响；本次修订缩小了疏散平台板至车厢地板面的高差，方便车内乘客下到\n平台，直线段和曲线地段纵向疏散平台距轨道中心线高度宜统一按低于轨道中心线处的车厢地板面高度\n150mm～200mm 确定。与设备限界之间的间隙既要保证行车安全，又要方便车内乘客下到平台。总结\n北京近年新建线的设计实践提出了统一规定。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 286,
+          "page_end": 286,
+          "chunk_id": 2880,
+          "content_type": "text",
+          "chapter_id": "6",
+          "chapter_title": "限界",
+          "article_id": "6.2.2",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第6.2.2条",
+          "score": 31.37056169055174,
+          "rerank_score": 0.9769384264945984,
+          "metadata": {},
+          "spec_id": "cn.beijing.db11t995",
+          "edition_id": "2025",
+          "standard_code": "DB11/T 995-2025",
+          "spec_title": "城市轨道交通工程设计标准",
+          "pdf_page_start": 286,
+          "pdf_page_end": 286,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E2",
+          "text": "3.0.10\n区间内的纵向疏散平台应在设备限界外侧设置，直线地\n段和曲线地段纵向疏散平台距轨道中心线高度应统一按低于车厢\n地板面高度150mm～200mm确定。在车辆静止状态下，车辆轮\n廓距离疏散平台间隙，曲线地段不应大于300mm。",
+          "source": "GB55033-2022_城市轨道交通工程项目规范.pdf",
+          "page_start": 17,
+          "page_end": 17,
+          "chunk_id": 91,
+          "content_type": "text",
+          "chapter_id": "3",
+          "chapter_title": null,
+          "article_id": "3.0.10",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第3.0.10条",
+          "score": 0.6955916881561279,
+          "rerank_score": 0.9119856357574463,
+          "metadata": {},
+          "spec_id": "cn.gb55033",
+          "edition_id": "2022",
+          "standard_code": "GB 55033-2022",
+          "spec_title": "城市轨道交通工程项目规范",
+          "pdf_page_start": 17,
+          "pdf_page_end": 17,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E3",
+          "text": "6.2.2\n区间纵向辅助疏散平台应符合下列规定：\n1\n区间纵向辅助疏散平台最小宽度应符合表6.2.2 的规定：\n表6.2.2\n纵向辅助疏散平台最小宽度取值表（mm）\n一般情况\n困难情况\n单线（设于一侧）\n800\n600\n双线（设于中央）\n1000\n800\n2\n区间纵向辅助疏散平台顶面距轨面高度宜为950mm；\n3\n区间纵向辅助疏散平台边缘与设备限界之间的间隙不应小于50mm，直线地段平台边缘距离车\n辆轮廓线的水平距离不宜大于150mm、曲线地段应按偏移量计算加宽，但不宜大于300mm。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 40,
+          "page_end": 40,
+          "chunk_id": 405,
+          "content_type": "text",
+          "chapter_id": "6",
+          "chapter_title": "限界",
+          "article_id": "6.2.2",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第6.2.2条",
+          "score": 0.702346920967102,
+          "rerank_score": 0.9733663201332092,
+          "metadata": {},
+          "spec_id": "cn.beijing.db11t995",
+          "edition_id": "2025",
+          "standard_code": "DB11/T 995-2025",
+          "spec_title": "城市轨道交通工程设计标准",
+          "pdf_page_start": 40,
+          "pdf_page_end": 40,
+          "printed_page_start": null,
+          "printed_page_end": null
+        }
+      ],
+      "request_metrics": {
+        "request_id": "161765f4c1704e29aa3614c8d9819f15",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 31.0,
+          "rerank": 2484.0,
+          "grader": 30406.0,
+          "generation": 16782.0
+        },
+        "total_ms": 50813.0,
+        "outcome": "answer",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 0,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 2295,
+          "output": 8306,
+          "total": 10601
+        },
+        "estimated_cost": null
+      }
+    }
+  ]
+}

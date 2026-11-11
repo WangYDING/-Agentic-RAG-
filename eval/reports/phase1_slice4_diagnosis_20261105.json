@@ -1,0 +1,545 @@
+{
+  "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+  "top_k_per_document_per_route": 10,
+  "corrected_gold_accounting": [
+    {
+      "id": "P1-Q001",
+      "all_expected_articles": {
+        "cn.beijing.db11t995@2025": [
+          "5.6.8"
+        ]
+      },
+      "hit_expected_articles": {
+        "cn.beijing.db11t995@2025": [
+          "5.6.8"
+        ]
+      },
+      "missing_expected_articles": {
+        "cn.beijing.db11t995@2025": []
+      }
+    },
+    {
+      "id": "P1-Q002",
+      "all_expected_articles": {
+        "cn.beijing.db11t995@2025": [
+          "5.6.9"
+        ]
+      },
+      "hit_expected_articles": {
+        "cn.beijing.db11t995@2025": [
+          "5.6.9"
+        ]
+      },
+      "missing_expected_articles": {
+        "cn.beijing.db11t995@2025": []
+      }
+    },
+    {
+      "id": "P1-Q003",
+      "all_expected_articles": {
+        "cn.beijing.db11t995@2025": [
+          "8.3.2"
+        ]
+      },
+      "hit_expected_articles": {
+        "cn.beijing.db11t995@2025": [
+          "8.3.2"
+        ]
+      },
+      "missing_expected_articles": {
+        "cn.beijing.db11t995@2025": []
+      }
+    },
+    {
+      "id": "P1-Q004",
+      "all_expected_articles": {
+        "cn.beijing.db11t995@2025": [
+          "8.7.1"
+        ]
+      },
+      "hit_expected_articles": {
+        "cn.beijing.db11t995@2025": [
+          "8.7.1"
+        ]
+      },
+      "missing_expected_articles": {
+        "cn.beijing.db11t995@2025": []
+      }
+    },
+    {
+      "id": "P1-Q005",
+      "all_expected_articles": {
+        "cn.beijing.db11t995@2025": [
+          "6.1.1"
+        ]
+      },
+      "hit_expected_articles": {
+        "cn.beijing.db11t995@2025": [
+          "6.1.1"
+        ]
+      },
+      "missing_expected_articles": {
+        "cn.beijing.db11t995@2025": []
+      }
+    },
+    {
+      "id": "P1-Q006",
+      "all_expected_articles": {
+        "cn.gb55033@2022": [
+          "2.1.13"
+        ]
+      },
+      "hit_expected_articles": {
+        "cn.gb55033@2022": [
+          "2.1.13"
+        ]
+      },
+      "missing_expected_articles": {
+        "cn.gb55033@2022": []
+      }
+    },
+    {
+      "id": "P1-Q007",
+      "all_expected_articles": {
+        "cn.gb50157@2013": [
+          "4.7.4"
+        ]
+      },
+      "hit_expected_articles": {
+        "cn.gb50157@2013": [
+          "4.7.4"
+        ]
+      },
+      "missing_expected_articles": {
+        "cn.gb50157@2013": []
+      }
+    },
+    {
+      "id": "P1-Q008",
+      "all_expected_articles": {
+        "cn.beijing.db11t995@2025": [
+          "5.6.8"
+        ],
+        "cn.gb55033@2022": [],
+        "cn.gb50157@2013": [
+          "4.7.4"
+        ]
+      },
+      "hit_expected_articles": {
+        "cn.beijing.db11t995@2025": [
+          "5.6.8"
+        ],
+        "cn.gb55033@2022": [],
+        "cn.gb50157@2013": [
+          "4.7.4"
+        ]
+      },
+      "missing_expected_articles": {
+        "cn.beijing.db11t995@2025": [],
+        "cn.gb55033@2022": [],
+        "cn.gb50157@2013": []
+      }
+    },
+    {
+      "id": "P1-Q009",
+      "all_expected_articles": {
+        "cn.beijing.db11t995@2025": [
+          "1.0.2",
+          "4.2.4"
+        ],
+        "cn.gb55033@2022": [
+          "1.0.2",
+          "2.1.6"
+        ],
+        "cn.gb50157@2013": [
+          "1.0.2"
+        ]
+      },
+      "hit_expected_articles": {
+        "cn.beijing.db11t995@2025": [
+          "4.2.4"
+        ],
+        "cn.gb55033@2022": [
+          "2.1.6"
+        ],
+        "cn.gb50157@2013": [
+          "1.0.2"
+        ]
+      },
+      "missing_expected_articles": {
+        "cn.beijing.db11t995@2025": [
+          "1.0.2"
+        ],
+        "cn.gb55033@2022": [
+          "1.0.2"
+        ],
+        "cn.gb50157@2013": []
+      }
+    },
+    {
+      "id": "P1-Q010",
+      "all_expected_articles": {
+        "cn.beijing.db11t995@2025": [
+          "5.6.3"
+        ],
+        "cn.gb55033@2022": [
+          "4.2.1"
+        ],
+        "cn.gb50157@2013": [
+          "4.7.1"
+        ]
+      },
+      "hit_expected_articles": {
+        "cn.beijing.db11t995@2025": [
+          "5.6.3"
+        ],
+        "cn.gb55033@2022": [
+          "4.2.1"
+        ],
+        "cn.gb50157@2013": [
+          "4.7.1"
+        ]
+      },
+      "missing_expected_articles": {
+        "cn.beijing.db11t995@2025": [],
+        "cn.gb55033@2022": [],
+        "cn.gb50157@2013": []
+      }
+    },
+    {
+      "id": "P1-Q011",
+      "all_expected_articles": {
+        "cn.beijing.db11t995@2025": [
+          "3.0.19",
+          "3.0.21"
+        ],
+        "cn.gb55033@2022": [
+          "2.1.14",
+          "5.6.6"
+        ],
+        "cn.gb50157@2013": [
+          "1.0.22"
+        ]
+      },
+      "hit_expected_articles": {
+        "cn.beijing.db11t995@2025": [
+          "3.0.21"
+        ],
+        "cn.gb55033@2022": [
+          "2.1.14",
+          "5.6.6"
+        ],
+        "cn.gb50157@2013": [
+          "1.0.22"
+        ]
+      },
+      "missing_expected_articles": {
+        "cn.beijing.db11t995@2025": [
+          "3.0.19"
+        ],
+        "cn.gb55033@2022": [],
+        "cn.gb50157@2013": []
+      }
+    },
+    {
+      "id": "P1-Q012",
+      "all_expected_articles": {
+        "cn.beijing.db11t995@2025": [
+          "5.7.1"
+        ],
+        "cn.gb55033@2022": [],
+        "cn.gb50157@2013": []
+      },
+      "hit_expected_articles": {
+        "cn.beijing.db11t995@2025": [
+          "5.7.1"
+        ],
+        "cn.gb55033@2022": [],
+        "cn.gb50157@2013": []
+      },
+      "missing_expected_articles": {
+        "cn.beijing.db11t995@2025": [],
+        "cn.gb55033@2022": [],
+        "cn.gb50157@2013": []
+      }
+    },
+    {
+      "id": "P1-Q013",
+      "all_expected_articles": {},
+      "hit_expected_articles": {},
+      "missing_expected_articles": {}
+    },
+    {
+      "id": "P1-Q014",
+      "all_expected_articles": {},
+      "hit_expected_articles": {},
+      "missing_expected_articles": {}
+    },
+    {
+      "id": "P1-Q015",
+      "all_expected_articles": {},
+      "hit_expected_articles": {},
+      "missing_expected_articles": {}
+    },
+    {
+      "id": "P1-Q016",
+      "all_expected_articles": {},
+      "hit_expected_articles": {},
+      "missing_expected_articles": {}
+    },
+    {
+      "id": "P1-Q017",
+      "all_expected_articles": {
+        "cn.beijing.db11t995@2025": [
+          "6.1.1"
+        ]
+      },
+      "hit_expected_articles": {
+        "cn.beijing.db11t995@2025": [
+          "6.1.1"
+        ]
+      },
+      "missing_expected_articles": {
+        "cn.beijing.db11t995@2025": []
+      }
+    },
+    {
+      "id": "P1-Q018",
+      "all_expected_articles": {
+        "cn.beijing.db11t995@2025": [
+          "6.1.1"
+        ],
+        "cn.gb55033@2022": [
+          "6.1.1"
+        ],
+        "cn.gb50157@2013": [
+          "6.1.1"
+        ]
+      },
+      "hit_expected_articles": {
+        "cn.beijing.db11t995@2025": [
+          "6.1.1"
+        ],
+        "cn.gb55033@2022": [
+          "6.1.1"
+        ],
+        "cn.gb50157@2013": [
+          "6.1.1"
+        ]
+      },
+      "missing_expected_articles": {
+        "cn.beijing.db11t995@2025": [],
+        "cn.gb55033@2022": [],
+        "cn.gb50157@2013": []
+      }
+    }
+  ],
+  "failure_diagnostics": [
+    {
+      "id": "P1-Q009",
+      "question": "三份规范对适用范围或线路最高运行速度分别怎样规定？仅陈述各文档明确给出的内容。",
+      "expected_positions": {
+        "cn.beijing.db11t995@2025": {
+          "1.0.2": {
+            "dense_rank": null,
+            "bm25_rank": null,
+            "per_document_fused_rank": null,
+            "cross_document_fused_rank": 25,
+            "final_top3_rank": null
+          },
+          "4.2.4": {
+            "dense_rank": 2,
+            "bm25_rank": null,
+            "per_document_fused_rank": 5,
+            "cross_document_fused_rank": 10,
+            "final_top3_rank": null
+          }
+        },
+        "cn.gb55033@2022": {
+          "1.0.2": {
+            "dense_rank": null,
+            "bm25_rank": null,
+            "per_document_fused_rank": null,
+            "cross_document_fused_rank": 36,
+            "final_top3_rank": null
+          },
+          "2.1.6": {
+            "dense_rank": 1,
+            "bm25_rank": 2,
+            "per_document_fused_rank": 1,
+            "cross_document_fused_rank": 2,
+            "final_top3_rank": 1
+          }
+        },
+        "cn.gb50157@2013": {
+          "1.0.2": {
+            "dense_rank": null,
+            "bm25_rank": 5,
+            "per_document_fused_rank": 9,
+            "cross_document_fused_rank": 1,
+            "final_top3_rank": null
+          }
+        }
+      },
+      "fused_candidate_count": 112,
+      "top3": [
+        {
+          "business_id": "cn.gb55033@2022",
+          "article_id": "2.1.6",
+          "page": 6
+        },
+        {
+          "business_id": "cn.beijing.db11t995@2025",
+          "article_id": "8.2.5",
+          "page": 51
+        },
+        {
+          "business_id": "cn.beijing.db11t995@2025",
+          "article_id": "5.4.1",
+          "page": 36
+        }
+      ],
+      "proposed_evidence": [
+        {
+          "business_id": "cn.beijing.db11t995@2025",
+          "article_id": "1.0.2",
+          "page": 27,
+          "focused_best_rank": 21
+        },
+        {
+          "business_id": "cn.beijing.db11t995@2025",
+          "article_id": "4.2.4",
+          "page": 32,
+          "focused_best_rank": 11
+        },
+        {
+          "business_id": "cn.gb50157@2013",
+          "article_id": "1.0.2",
+          "page": 20,
+          "focused_best_rank": 15
+        },
+        {
+          "business_id": "cn.gb55033@2022",
+          "article_id": "1.0.2",
+          "page": 5,
+          "focused_best_rank": 2
+        },
+        {
+          "business_id": "cn.gb55033@2022",
+          "article_id": "2.1.6",
+          "page": 6,
+          "focused_best_rank": 2
+        }
+      ]
+    },
+    {
+      "id": "P1-Q011",
+      "question": "关于地下工程穿越水域时的防淹，以及车辆基地防洪防淹，三份规范分别有哪些明确要求？",
+      "expected_positions": {
+        "cn.beijing.db11t995@2025": {
+          "3.0.19": {
+            "dense_rank": null,
+            "bm25_rank": null,
+            "per_document_fused_rank": null,
+            "cross_document_fused_rank": 42,
+            "final_top3_rank": null
+          },
+          "3.0.21": {
+            "dense_rank": 1,
+            "bm25_rank": 1,
+            "per_document_fused_rank": 1,
+            "cross_document_fused_rank": 21,
+            "final_top3_rank": null
+          }
+        },
+        "cn.gb55033@2022": {
+          "2.1.14": {
+            "dense_rank": 8,
+            "bm25_rank": 5,
+            "per_document_fused_rank": 3,
+            "cross_document_fused_rank": 3,
+            "final_top3_rank": null
+          },
+          "5.6.6": {
+            "dense_rank": 2,
+            "bm25_rank": 1,
+            "per_document_fused_rank": 2,
+            "cross_document_fused_rank": 1,
+            "final_top3_rank": 2
+          }
+        },
+        "cn.gb50157@2013": {
+          "1.0.22": {
+            "dense_rank": 5,
+            "bm25_rank": 3,
+            "per_document_fused_rank": 3,
+            "cross_document_fused_rank": 4,
+            "final_top3_rank": null
+          }
+        }
+      },
+      "fused_candidate_count": 122,
+      "top3": [
+        {
+          "business_id": "cn.beijing.db11t995@2025",
+          "article_id": "30.8.6",
+          "page": 236
+        },
+        {
+          "business_id": "cn.gb55033@2022",
+          "article_id": "5.6.6",
+          "page": 27
+        },
+        {
+          "business_id": "cn.beijing.db11t995@2025",
+          "article_id": "30.8.6",
+          "page": 237
+        }
+      ],
+      "proposed_evidence": [
+        {
+          "business_id": "cn.beijing.db11t995@2025",
+          "article_id": "3.0.21",
+          "page": 30,
+          "focused_best_rank": 1
+        },
+        {
+          "business_id": "cn.beijing.db11t995@2025",
+          "article_id": "3.0.19",
+          "page": 30,
+          "focused_best_rank": 11
+        },
+        {
+          "business_id": "cn.gb50157@2013",
+          "article_id": "1.0.22",
+          "page": 21,
+          "focused_best_rank": 3
+        },
+        {
+          "business_id": "cn.gb55033@2022",
+          "article_id": "5.5.3",
+          "page": 26,
+          "focused_best_rank": 2
+        },
+        {
+          "business_id": "cn.gb55033@2022",
+          "article_id": "2.1.14",
+          "page": 7,
+          "focused_best_rank": 2
+        },
+        {
+          "business_id": "cn.beijing.db11t995@2025",
+          "article_id": "30.8.6",
+          "page": 236,
+          "focused_best_rank": 1
+        },
+        {
+          "business_id": "cn.gb55033@2022",
+          "article_id": "5.6.6",
+          "page": 27,
+          "focused_best_rank": 2
+        }
+      ]
+    }
+  ]
+}

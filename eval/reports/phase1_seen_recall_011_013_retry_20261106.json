@@ -1,0 +1,915 @@
+{
+  "run_type": "phase1_scoped_real_agent_evaluation",
+  "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+  "generation_model": "deepseek-flash",
+  "questions": [
+    {
+      "id": "P1-IND-011",
+      "question": "比较 GB 55033-2022 与 GB 50157-2013 的设计年限规定，并指出前者额外提出的运能要求。",
+      "requested_scope": {
+        "spec_ids": [
+          "cn.gb55033",
+          "cn.gb50157"
+        ],
+        "edition_ids": [
+          "2022",
+          "2013"
+        ]
+      },
+      "request_id": "b5d66cbd2e9d4107b6b7b8875cc6cd1c",
+      "result_type": "refuse",
+      "answer": "当前规范及已检索证据不足以完整回答该问题。 缺少的信息：GB 50157-2013 的设计年限划分或具体年限规定未在证据中明确，无法完整比较两规范的设计年限规定。",
+      "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+      "bound_scope": [
+        "cn.gb50157@2013",
+        "cn.gb55033@2022"
+      ],
+      "retry_count": 1,
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "text": "3.2.2系统设计能力应满足相应年限设计运输能力的需要，系\n统设计远期最大能力应满足行车密度不小于30对/h的要求。",
+          "source": "GB50157-2013_地铁设计规范.pdf",
+          "page_start": 31,
+          "page_end": 31,
+          "chunk_id": 150,
+          "content_type": "text",
+          "chapter_id": "3",
+          "chapter_title": "2 术语3 运营组织",
+          "article_id": "3.2.2",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第3.2.2条",
+          "score": 0.6725338697433472,
+          "rerank_score": 0.7361215353012085,
+          "metadata": {},
+          "spec_id": "cn.gb50157",
+          "edition_id": "2013",
+          "standard_code": "GB 50157-2013",
+          "spec_title": "地铁设计规范",
+          "pdf_page_start": 31,
+          "pdf_page_end": 31,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E2",
+          "text": "2.1.5 城市轨道交通工程设计年限应以建成通车年为基准年，\n之后应分为初期3年、近期10年、远期25年。在设计年限内，\n设计运能应满足客流预测需求，应留有不小于10%的运能储备。",
+          "source": "GB55033-2022_城市轨道交通工程项目规范.pdf",
+          "page_start": 6,
+          "page_end": 6,
+          "chunk_id": 17,
+          "content_type": "text",
+          "chapter_id": "2",
+          "chapter_title": "2 基本规定",
+          "article_id": "2.1.5",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第2.1.5条",
+          "score": 0.6568983793258667,
+          "rerank_score": 0.6659666895866394,
+          "metadata": {},
+          "spec_id": "cn.gb55033",
+          "edition_id": "2022",
+          "standard_code": "GB 55033-2022",
+          "spec_title": "城市轨道交通工程项目规范",
+          "pdf_page_start": 6,
+          "pdf_page_end": 6,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E3",
+          "text": "前言\n本规范是根据住房和城乡建设部《关于印发〈2008年工程\n建设标准规范制订、修订计划（第一批）的通知》（建标\n2008102号）的要求，由北京城建设计研究总院有限责任公\n司和中国地铁工程咨询有限责任公司会同有关单位，对原国家标\n准《地铁设计规范》GB50157-2003进行修订而成。\n本规范在修订过程中，修订组广泛调查和分析总结了原规范\n执行情况，特别是近年来我国地铁工程建设和运营管理方面积累\n的很多新经验和引入的诸多新的技术系统，同时，认真分析借鉴\n了国（境）外当代地铁有关成功经验和先进技术，在此基础上又\n以多种方式，广泛征求了全国城市轨道交通方面有关专家和单位\n的意见，通过反复论证研究",
+          "source": "GB50157-2013_地铁设计规范.pdf",
+          "page_start": 1,
+          "page_end": 1,
+          "chunk_id": 0,
+          "content_type": "text",
+          "chapter_id": null,
+          "chapter_title": null,
+          "article_id": null,
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "p1-chunk_0",
+          "score": 4.848552585839734,
+          "rerank_score": 0.6005873680114746,
+          "metadata": {},
+          "spec_id": "cn.gb50157",
+          "edition_id": "2013",
+          "standard_code": "GB 50157-2013",
+          "spec_title": "地铁设计规范",
+          "pdf_page_start": 1,
+          "pdf_page_end": 1,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E4",
+          "text": "1出入线应在车站接轨，并宜选在线路的终点站或折返站；\n必要时也可根据车辆基地的位置和接轨条件，按八字形两站\n接轨；\n2出入线应按双线、双向运行设计，并应避免切割正线；\n困难条件下，规模等于或小于12列位的停车场出入线可按单线\n设计；\n3 出入线与正线间的接轨形式，应满足正线设计运能要求；\n4 出入线设计，应根据行车和信号的要求，留有必要的信\n号转换作业长度。",
+          "source": "GB50157-2013_地铁设计规范.pdf",
+          "page_start": 261,
+          "page_end": 261,
+          "chunk_id": 1744,
+          "content_type": "text",
+          "chapter_id": "27",
+          "chapter_title": null,
+          "article_id": "27.2.7",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第27.2.7条",
+          "score": 4.150654588878047,
+          "rerank_score": 0.3349284529685974,
+          "metadata": {},
+          "spec_id": "cn.gb50157",
+          "edition_id": "2013",
+          "standard_code": "GB 50157-2013",
+          "spec_title": "地铁设计规范",
+          "pdf_page_start": 261,
+          "pdf_page_end": 261,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E5",
+          "text": "1 主体结构和使用期间不可更换的结构构件，应根据使用\n环境类别，按设计使用年限为100年的要求进行耐久性设计；\n2 使用期间可以更换且不影响运营的次要结构构件，可按\n设计使用年限50年的要求进行耐久性设计；\n3 临时结构宜根据其使用性质和结构特点确定其使用年限。",
+          "source": "GB50157-2013_地铁设计规范.pdf",
+          "page_start": 104,
+          "page_end": 104,
+          "chunk_id": 611,
+          "content_type": "text",
+          "chapter_id": "11",
+          "chapter_title": null,
+          "article_id": "11.1.6",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第11.1.6条",
+          "score": 32.50220960201149,
+          "rerank_score": 0.7553929090499878,
+          "metadata": {},
+          "spec_id": "cn.gb50157",
+          "edition_id": "2013",
+          "standard_code": "GB 50157-2013",
+          "spec_title": "地铁设计规范",
+          "pdf_page_start": 104,
+          "pdf_page_end": 104,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E6",
+          "text": "11.1.6 地下结构的耐久性设计应符合下列规定：\n84",
+          "source": "GB50157-2013_地铁设计规范.pdf",
+          "page_start": 103,
+          "page_end": 103,
+          "chunk_id": 610,
+          "content_type": "text",
+          "chapter_id": "11",
+          "chapter_title": null,
+          "article_id": "11.1.6",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第11.1.6条",
+          "score": 0.0,
+          "rerank_score": 0.0031869537197053432,
+          "metadata": {},
+          "spec_id": "cn.gb50157",
+          "edition_id": "2013",
+          "standard_code": null,
+          "spec_title": null,
+          "pdf_page_start": 103,
+          "pdf_page_end": 103,
+          "printed_page_start": null,
+          "printed_page_end": null
+        }
+      ],
+      "trace": [
+        {
+          "step": "bind_scope",
+          "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+          "scope": [
+            "cn.gb50157@2013",
+            "cn.gb55033@2022"
+          ]
+        },
+        {
+          "step": "retrieve",
+          "query": "比较 GB 55033-2022 与 GB 50157-2013 的设计年限规定，并指出前者额外提出的运能要求。",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "GB 50157-2013 的设计年限规定（如各设计年限的具体划分或年限值）"
+          ],
+          "retry_count": 0
+        },
+        {
+          "step": "parse_evidence_requirements",
+          "question_requirements": [
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": null,
+              "subrequirement": "GB55033-2022设计年限",
+              "source": "question",
+              "authoritative": true,
+              "status": "parsed",
+              "reason": null
+            },
+            {
+              "business_id": "cn.gb50157@2013",
+              "article_id": null,
+              "subrequirement": "GB50157-2013设计年限",
+              "source": "question",
+              "authoritative": true,
+              "status": "parsed",
+              "reason": null
+            },
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": null,
+              "subrequirement": "GB55033-2022运能",
+              "source": "question",
+              "authoritative": true,
+              "status": "parsed",
+              "reason": null
+            }
+          ],
+          "grader_requirements": [
+            {
+              "business_id": "cn.gb50157@2013",
+              "article_id": null,
+              "subrequirement": "GB 50157-2013 的设计年限规定（如各设计年限的具体划分或年限值）",
+              "source": "grader",
+              "authoritative": true,
+              "status": "mapped_to_question",
+              "reason": null
+            }
+          ]
+        },
+        {
+          "step": "retry",
+          "retry_count": 1,
+          "missing_requirements": [
+            "GB 50157-2013 的设计年限规定（如各设计年限的具体划分或年限值）"
+          ]
+        },
+        {
+          "step": "retrieve",
+          "query": "GB 50157-2013 的设计年限规定（如各设计年限的具体划分或年限值）",
+          "retry_count": 1
+        },
+        {
+          "step": "retain_article_groups",
+          "evidence_limit": 6,
+          "retained_groups": [],
+          "fallbacks": [
+            {
+              "subrequirement": "GB55033-2022设计年限",
+              "reason": "not_unique",
+              "candidate_articles": [
+                "2.1.5",
+                "5.1.3",
+                "2.1.29"
+              ]
+            },
+            {
+              "subrequirement": "GB50157-2013设计年限",
+              "reason": "not_unique",
+              "candidate_articles": [
+                "3.2.2",
+                "11.1.6",
+                "10.1.3",
+                "2.0.2",
+                "7.1.3",
+                "3.3.4",
+                "3.2.6",
+                "1.0.12",
+                "29.4.5",
+                "3.2.1",
+                "1.0.8",
+                "7.4.1"
+              ]
+            },
+            {
+              "subrequirement": "GB55033-2022运能",
+              "reason": "no_direct_coverage",
+              "candidate_articles": []
+            },
+            {
+              "subrequirement": "GB 50157-2013 的设计年限规定（如各设计年限的具体划分或年限值）",
+              "reason": "no_direct_coverage",
+              "candidate_articles": []
+            }
+          ]
+        },
+        {
+          "step": "verify_final_evidence_context",
+          "complete": true,
+          "within_scope": true,
+          "incomplete_groups": [],
+          "out_of_scope": []
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "GB 50157-2013 的设计年限划分或具体年限规定未在证据中明确，无法完整比较两规范的设计年限规定"
+          ],
+          "retry_count": 1
+        },
+        {
+          "step": "refuse",
+          "missing_requirements": [
+            "GB 50157-2013 的设计年限划分或具体年限规定未在证据中明确，无法完整比较两规范的设计年限规定"
+          ]
+        }
+      ],
+      "request_metrics": {
+        "request_id": "b5d66cbd2e9d4107b6b7b8875cc6cd1c",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 124.0,
+          "rerank": 18343.0,
+          "grader": 12329.0
+        },
+        "total_ms": 31421.0,
+        "outcome": "refuse",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 1,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 2646,
+          "output": 1815,
+          "total": 4461
+        },
+        "estimated_cost": null
+      }
+    },
+    {
+      "id": "P1-IND-013",
+      "question": "三份规范对区间、车站公共区以及设备管理用房人员新风量分别有哪些直接规定？请区分使用场景。",
+      "requested_scope": {
+        "spec_ids": [
+          "cn.beijing.db11t995",
+          "cn.gb55033",
+          "cn.gb50157"
+        ],
+        "edition_ids": [
+          "2025",
+          "2022",
+          "2013"
+        ]
+      },
+      "request_id": "3ef82f0203d445a08398d9b7387476d2",
+      "result_type": "refuse",
+      "answer": "当前规范及已检索证据不足以完整回答该问题。 缺少的信息：GB 55033-2022 对区间、车站公共区及设备管理用房人员新风量的直接规定；GB 50157-2013 对车站公共区人员新风量的直接规定。",
+      "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+      "bound_scope": [
+        "cn.beijing.db11t995@2025",
+        "cn.gb50157@2013",
+        "cn.gb55033@2022"
+      ],
+      "retry_count": 1,
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "text": "13.2.4 区间隧道内每个乘客每小时需供应的新鲜空气量不应少\n于12.6m³。",
+          "source": "GB50157-2013_地铁设计规范.pdf",
+          "page_start": 140,
+          "page_end": 140,
+          "chunk_id": 793,
+          "content_type": "text",
+          "chapter_id": "13",
+          "chapter_title": null,
+          "article_id": "13.2.4",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第13.2.4条",
+          "score": 0.7108808159828186,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.gb50157",
+          "edition_id": "2013",
+          "standard_code": "GB 50157-2013",
+          "spec_title": "地铁设计规范",
+          "pdf_page_start": 140,
+          "pdf_page_end": 140,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E2",
+          "text": "14.2.11\n人员新风量应符合下列规定：\n1\n区间隧道内每个乘客每小时需供应的新鲜空气量不应少于20m³；\n2\n地下车站公共区空调系统每个乘客每小时需供应的新鲜空气量不应少于20m³；\n3\n地下车站设备及管理用房内每个工作人员每小时需供应的新鲜空气量不应少于30m³。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 116,
+          "page_end": 116,
+          "chunk_id": 1126,
+          "content_type": "text",
+          "chapter_id": "14",
+          "chapter_title": "通风空调与供暖",
+          "article_id": "14.2.11",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第14.2.11条",
+          "score": 0.6927275061607361,
+          "rerank_score": 0.9966683983802795,
+          "metadata": {},
+          "spec_id": "cn.beijing.db11t995",
+          "edition_id": "2025",
+          "standard_code": "DB11/T 995-2025",
+          "spec_title": "城市轨道交通工程设计标准",
+          "pdf_page_start": 116,
+          "pdf_page_end": 116,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E3",
+          "text": "14.3.6\n地上车站公共区应采用自然通风，设备及管理用房宜采用自然通风；当不具备自然通风条件时，\n可设置机械通风或空调系统。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 119,
+          "page_end": 119,
+          "chunk_id": 1177,
+          "content_type": "text",
+          "chapter_id": "14",
+          "chapter_title": "通风空调与供暖",
+          "article_id": "14.3.6",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第14.3.6条",
+          "score": 0.7075780034065247,
+          "rerank_score": 0.9785012602806091,
+          "metadata": {},
+          "spec_id": "cn.beijing.db11t995",
+          "edition_id": "2025",
+          "standard_code": "DB11/T 995-2025",
+          "spec_title": "城市轨道交通工程设计标准",
+          "pdf_page_start": 119,
+          "pdf_page_end": 119,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E4",
+          "text": "气进行交换获得，部分新鲜空气有时得不到充分利用等不利因素，本次修编将隧道内及车站公共区每人\n的新风量标准保持20m³／（h•人），并取消了10%最小新风比的要求。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 339,
+          "page_end": 339,
+          "chunk_id": 3233,
+          "content_type": "text",
+          "chapter_id": "14",
+          "chapter_title": "通风空调与供暖",
+          "article_id": "14.2.11",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第14.2.11条",
+          "score": 0.719688892364502,
+          "rerank_score": 0.9699743986129761,
+          "metadata": {},
+          "spec_id": "cn.beijing.db11t995",
+          "edition_id": "2025",
+          "standard_code": "DB11/T 995-2025",
+          "spec_title": "城市轨道交通工程设计标准",
+          "pdf_page_start": 339,
+          "pdf_page_end": 339,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E5",
+          "text": "13.2.33 地下车站设备与管理用房内每个工作人员每小时需供\n应的新鲜空气量不应少于30m³，且空调系统新风量不应少于总\n风量的10%。",
+          "source": "GB50157-2013_地铁设计规范.pdf",
+          "page_start": 143,
+          "page_end": 143,
+          "chunk_id": 823,
+          "content_type": "text",
+          "chapter_id": "13",
+          "chapter_title": null,
+          "article_id": "13.2.33",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第13.2.33条",
+          "score": 0.6697675585746765,
+          "rerank_score": 0.9653502702713013,
+          "metadata": {},
+          "spec_id": "cn.gb50157",
+          "edition_id": "2013",
+          "standard_code": "GB 50157-2013",
+          "spec_title": "地铁设计规范",
+          "pdf_page_start": 143,
+          "pdf_page_end": 143,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E6",
+          "text": "30.4.6\n车站站厅公共区和设备与管理用房区应划分防烟分区，并应符合下列规定：\n1\n地下车站的站厅公共区每个防烟分区建筑面积不应大于2000m²；\n2\n设备与管理用房区每个防烟分区的建筑面积不应大于750m²；\n3\n车站地下换乘、连接和出入口通道、设备与管理用房区疏散走道的防烟分区长边长度不应大于\n60m。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 232,
+          "page_end": 232,
+          "chunk_id": 2506,
+          "content_type": "text",
+          "chapter_id": "30",
+          "chapter_title": "防灾",
+          "article_id": "30.4.6",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第30.4.6条",
+          "score": 22.608756539191056,
+          "rerank_score": 0.9641817808151245,
+          "metadata": {},
+          "spec_id": "cn.beijing.db11t995",
+          "edition_id": "2025",
+          "standard_code": "DB11/T 995-2025",
+          "spec_title": "城市轨道交通工程设计标准",
+          "pdf_page_start": 232,
+          "pdf_page_end": 232,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E7",
+          "text": "30.2.35\n本条是根据《建筑防火通用规范》2.2.7 规定，对埋深大于15m 的车站公共区设置消防专用通\n道的细化规定。车站公共区是指车站乘客可到达的区域，只要该区域距离室外地面的高度大于15m，就\n应该考虑消防人员通过消防专用通道到达公共区的便捷性需求。鉴于车站控制室一侧的设备管理用房区\n设有一个消防专用通道，为避免消防人员救援路径的混乱，故明确公共区可与设备区共用一个消防专用\n通道。这种情况下，设备区的消防专用通道的设置位置和进入设备区后的通行路径需要考虑消防人员快\n速进入车站各层公共区的需求。快速进入公共区的条件是指的消防专用通道与设备区的接口缩短与公共\n区的距离，连接公共区的设备区",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 383,
+          "page_end": 383,
+          "chunk_id": 3605,
+          "content_type": "text",
+          "chapter_id": "30",
+          "chapter_title": "防灾",
+          "article_id": "30.2.35",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第30.2.35条",
+          "score": 21.920485291576302,
+          "rerank_score": 0.959403932094574,
+          "metadata": {},
+          "spec_id": "cn.beijing.db11t995",
+          "edition_id": "2025",
+          "standard_code": "DB11/T 995-2025",
+          "spec_title": "城市轨道交通工程设计标准",
+          "pdf_page_start": 383,
+          "pdf_page_end": 383,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E8",
+          "text": "14.2.11\n人员新风量标准。根据国家标准《地铁设计规范》GB 50157 的条文说明，乘客最小新风量标\n准参照商场、博物馆、体育馆等建筑的最少新风量标准制定。国家标准《民用建筑供暖通风与空气调节\n设计规范》GB 50736—2012 为每人每小时15m³～19m³。另外，国家标准《公共场所卫生指标及限值要\n求》GB 37488-2019 的强制性条款要求，对于没有睡眠和休憩需求的公共场所，室内新风量不应小于\n20 m³／（h•人）。因此本标准的乘客最小新风量标准相应提高。第二，本标准2013 年版要求地下车站\n公共区新风量不应少于总送风量的10%，该规定源于国内早期的设计技术措施（如199",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 338,
+          "page_end": 338,
+          "chunk_id": 3231,
+          "content_type": "text",
+          "chapter_id": "14",
+          "chapter_title": "通风空调与供暖",
+          "article_id": "14.2.11",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第14.2.11条",
+          "score": 0.7648413777351379,
+          "rerank_score": 0.9853036403656006,
+          "metadata": {},
+          "spec_id": "cn.beijing.db11t995",
+          "edition_id": "2025",
+          "standard_code": "DB11/T 995-2025",
+          "spec_title": "城市轨道交通工程设计标准",
+          "pdf_page_start": 338,
+          "pdf_page_end": 338,
+          "printed_page_start": null,
+          "printed_page_end": null
+        }
+      ],
+      "trace": [
+        {
+          "step": "bind_scope",
+          "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+          "scope": [
+            "cn.beijing.db11t995@2025",
+            "cn.gb50157@2013",
+            "cn.gb55033@2022"
+          ]
+        },
+        {
+          "step": "retrieve",
+          "query": "三份规范对区间、车站公共区以及设备管理用房人员新风量分别有哪些直接规定？请区分使用场景。",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "GB 50157-2013中区间人员新风量与地下车站公共区人员新风量的直接、明确对象归属规定（E4、E8仅称“每个乘客”，未标明区间或公共区）",
+            "GB 55033-2022中区间人员新风量与地下车站公共区人员新风量的直接、明确对象归属规定（E5、E6仅称“每个乘客”，未标明区间或公共区）"
+          ],
+          "retry_count": 0
+        },
+        {
+          "step": "parse_evidence_requirements",
+          "question_requirements": [
+            {
+              "business_id": "cn.beijing.db11t995@2025",
+              "article_id": null,
+              "subrequirement": "区间人员新风量",
+              "source": "question",
+              "authoritative": true,
+              "status": "scope_expanded",
+              "reason": null
+            },
+            {
+              "business_id": "cn.gb50157@2013",
+              "article_id": null,
+              "subrequirement": "区间人员新风量",
+              "source": "question",
+              "authoritative": true,
+              "status": "scope_expanded",
+              "reason": null
+            },
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": null,
+              "subrequirement": "区间人员新风量",
+              "source": "question",
+              "authoritative": true,
+              "status": "scope_expanded",
+              "reason": null
+            },
+            {
+              "business_id": "cn.beijing.db11t995@2025",
+              "article_id": null,
+              "subrequirement": "车站公共区人员新风量",
+              "source": "question",
+              "authoritative": true,
+              "status": "scope_expanded",
+              "reason": null
+            },
+            {
+              "business_id": "cn.gb50157@2013",
+              "article_id": null,
+              "subrequirement": "车站公共区人员新风量",
+              "source": "question",
+              "authoritative": true,
+              "status": "scope_expanded",
+              "reason": null
+            },
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": null,
+              "subrequirement": "车站公共区人员新风量",
+              "source": "question",
+              "authoritative": true,
+              "status": "scope_expanded",
+              "reason": null
+            },
+            {
+              "business_id": "cn.beijing.db11t995@2025",
+              "article_id": null,
+              "subrequirement": "设备管理用房人员新风量",
+              "source": "question",
+              "authoritative": true,
+              "status": "scope_expanded",
+              "reason": null
+            },
+            {
+              "business_id": "cn.gb50157@2013",
+              "article_id": null,
+              "subrequirement": "设备管理用房人员新风量",
+              "source": "question",
+              "authoritative": true,
+              "status": "scope_expanded",
+              "reason": null
+            },
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": null,
+              "subrequirement": "设备管理用房人员新风量",
+              "source": "question",
+              "authoritative": true,
+              "status": "scope_expanded",
+              "reason": null
+            }
+          ],
+          "grader_requirements": [
+            {
+              "business_id": "cn.gb50157@2013",
+              "article_id": null,
+              "subrequirement": "GB 50157-2013中区间人员新风量与地下车站公共区人员新风量的直接、明确对象归属规定（E4、E8仅称“每个乘客”，未标明区间或公共区）",
+              "source": "grader",
+              "authoritative": true,
+              "status": "mapped_to_question",
+              "reason": null
+            },
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": null,
+              "subrequirement": "GB 55033-2022中区间人员新风量与地下车站公共区人员新风量的直接、明确对象归属规定（E5、E6仅称“每个乘客”，未标明区间或公共区）",
+              "source": "grader",
+              "authoritative": true,
+              "status": "mapped_to_question",
+              "reason": null
+            }
+          ]
+        },
+        {
+          "step": "retry",
+          "retry_count": 1,
+          "missing_requirements": [
+            "GB 50157-2013中区间人员新风量与地下车站公共区人员新风量的直接、明确对象归属规定（E4、E8仅称“每个乘客”，未标明区间或公共区）",
+            "GB 55033-2022中区间人员新风量与地下车站公共区人员新风量的直接、明确对象归属规定（E5、E6仅称“每个乘客”，未标明区间或公共区）"
+          ]
+        },
+        {
+          "step": "retrieve",
+          "query": "GB 50157-2013中区间人员新风量与地下车站公共区人员新风量的直接、明确对象归属规定（E4、E8仅称“每个乘客”，未标明区间或公共区）；GB 55033-2022中区间人员新风量与地下车站公共区人员新风量的直接、明确对象归属规定（E5、E6仅称“每个乘客”，未标明区间或公共区）",
+          "retry_count": 1
+        },
+        {
+          "step": "retain_article_groups",
+          "evidence_limit": 8,
+          "retained_groups": [
+            {
+              "business_id": "cn.gb50157@2013",
+              "article_id": "13.2.4",
+              "chunk_ids": [
+                793
+              ],
+              "basis": "unique_direct_coverage",
+              "covered_text": "区间人员新风量"
+            }
+          ],
+          "fallbacks": [
+            {
+              "subrequirement": "区间人员新风量",
+              "reason": "not_unique",
+              "candidate_articles": [
+                "14.2.11",
+                "31.3.11",
+                "30.7.4"
+              ]
+            },
+            {
+              "subrequirement": "区间人员新风量",
+              "reason": "no_direct_coverage",
+              "candidate_articles": []
+            },
+            {
+              "subrequirement": "车站公共区人员新风量",
+              "reason": "not_unique",
+              "candidate_articles": [
+                "14.2.11",
+                "14.2.27",
+                "30.2.37",
+                "15.2.1",
+                "10.2.3",
+                "30.2.35",
+                "30.2.32",
+                "30.2.13",
+                "30.2.73",
+                "30.5.8",
+                "30.2.18",
+                "30.2.36",
+                "30.2.31"
+              ]
+            },
+            {
+              "subrequirement": "车站公共区人员新风量",
+              "reason": "not_unique",
+              "candidate_articles": [
+                "13.2.33",
+                "13.2.27",
+                "14.2.1",
+                "2.0.18",
+                "9.4.5"
+              ]
+            },
+            {
+              "subrequirement": "车站公共区人员新风量",
+              "reason": "no_direct_coverage",
+              "candidate_articles": []
+            },
+            {
+              "subrequirement": "设备管理用房人员新风量",
+              "reason": "not_unique",
+              "candidate_articles": [
+                "14.2.11",
+                "14.2.27",
+                "30.2.40",
+                "30.2.37",
+                "30.2.35",
+                "30.4.6",
+                "30.4.10",
+                "30.2.12",
+                "30.4.13",
+                "30.2.15",
+                "30.2.13",
+                "31.3.8",
+                "14.5.2",
+                "30.7.4"
+              ]
+            },
+            {
+              "subrequirement": "设备管理用房人员新风量",
+              "reason": "not_unique",
+              "candidate_articles": [
+                "13.2.33",
+                "28.4.13",
+                "13.2.27",
+                "28.4.8",
+                "28.4.14",
+                "13.2.40",
+                "9.10.3",
+                "13.3.6",
+                "9.3.9",
+                "28.4.11",
+                "28.2.9",
+                "28.2.2",
+                "13.2.32",
+                "13.2.38",
+                "13.2.57"
+              ]
+            },
+            {
+              "subrequirement": "设备管理用房人员新风量",
+              "reason": "not_unique",
+              "candidate_articles": [
+                "6.4.11",
+                "6.12.9"
+              ]
+            },
+            {
+              "subrequirement": "GB 50157-2013中区间人员新风量与地下车站公共区人员新风量的直接、明确对象归属规定（E4、E8仅称“每个乘客”，未标明区间或公共区）",
+              "reason": "no_direct_coverage",
+              "candidate_articles": []
+            },
+            {
+              "subrequirement": "GB 55033-2022中区间人员新风量与地下车站公共区人员新风量的直接、明确对象归属规定（E5、E6仅称“每个乘客”，未标明区间或公共区）",
+              "reason": "no_direct_coverage",
+              "candidate_articles": []
+            }
+          ]
+        },
+        {
+          "step": "verify_final_evidence_context",
+          "complete": true,
+          "within_scope": true,
+          "incomplete_groups": [],
+          "out_of_scope": []
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "GB 55033-2022 对区间、车站公共区及设备管理用房人员新风量的直接规定",
+            "GB 50157-2013 对车站公共区人员新风量的直接规定"
+          ],
+          "retry_count": 1
+        },
+        {
+          "step": "refuse",
+          "missing_requirements": [
+            "GB 55033-2022 对区间、车站公共区及设备管理用房人员新风量的直接规定",
+            "GB 50157-2013 对车站公共区人员新风量的直接规定"
+          ]
+        }
+      ],
+      "request_metrics": {
+        "request_id": "3ef82f0203d445a08398d9b7387476d2",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 328.0,
+          "rerank": 31219.0,
+          "grader": 24234.0
+        },
+        "total_ms": 56688.0,
+        "outcome": "refuse",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 1,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 3432,
+          "output": 3928,
+          "total": 7360
+        },
+        "estimated_cost": null
+      }
+    }
+  ]
+}

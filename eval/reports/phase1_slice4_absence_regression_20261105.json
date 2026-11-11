@@ -1,0 +1,276 @@
+{
+  "run_type": "phase1_scoped_real_agent_evaluation",
+  "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+  "generation_model": "deepseek-flash",
+  "questions": [
+    {
+      "id": "P1-Q008",
+      "question": "比较 DB11/T 995-2025、GB 55033-2022 和 GB 50157-2013 对客室车门安全联锁的规定；没有直接规定的文档也要明确说明。",
+      "requested_scope": {
+        "spec_ids": [
+          "cn.beijing.db11t995",
+          "cn.gb55033",
+          "cn.gb50157"
+        ],
+        "edition_ids": [
+          "2025",
+          "2022",
+          "2013"
+        ]
+      },
+      "request_id": "e1231aa6bea04d66862126b6cc059167",
+      "result_type": "answer",
+      "answer": "**核心结论：** DB11/T 995-2025 和 GB 50157-2013 均直接规定客室车门应设置安全联锁；给定片段未提供 GB 55033-2022 对客室车门安全联锁的直接规定。\n\n1. **DB11/T 995-2025：有直接规定。** 客室车门系统应有安全联锁，确保运营时车速大于5 km/h时不能开启客室车门、车门未全关闭时不能起动列车；并明确安全联锁功能应符合 GB 55033 及 GB 50157 的规定 [E1]。\n\n2. **GB 50157-2013：有直接规定。** 客室车门系统应设置安全联锁，应确保车速大于5 km/h时不能开启、车门未全关闭时不能启动列车 [E2]。\n\n3. **GB 55033-2022：给定片段未找到直接规定。** 现有证据未包含该规范关于客室车门安全联锁的具体条文，不能据此推断其规范全文不存在相关规定。",
+      "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+      "bound_scope": [
+        "cn.beijing.db11t995@2025",
+        "cn.gb50157@2013",
+        "cn.gb55033@2022"
+      ],
+      "retry_count": 0,
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "text": "5.6.8\n客室车门系统应有安全联锁，确保运营时车速大于5km/h 时不能开启客室车门、车门未全关闭时\n不能起动列车。安全联锁功能应符合国家标准《城市轨道交通工程项目规范》GB 55033 及《地铁设计\n规范》GB 50157 的规定。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 39,
+          "page_end": 39,
+          "chunk_id": 387,
+          "content_type": "text",
+          "chapter_id": "5",
+          "chapter_title": "车辆",
+          "article_id": "5.6.8",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第5.6.8条",
+          "score": 0.7699736952781677,
+          "rerank_score": 0.9960451722145081,
+          "metadata": {},
+          "spec_id": "cn.beijing.db11t995",
+          "edition_id": "2025",
+          "standard_code": "DB11/T 995-2025",
+          "spec_title": "城市轨道交通工程设计标准",
+          "pdf_page_start": 39,
+          "pdf_page_end": 39,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E2",
+          "text": "4.7.4 客室车门系统应设置安全联锁，应确保车速大于5km/h\n时不能开启、车门未全关闭时不能启动列车。",
+          "source": "GB50157-2013_地铁设计规范.pdf",
+          "page_start": 43,
+          "page_end": 43,
+          "chunk_id": 252,
+          "content_type": "text",
+          "chapter_id": "4",
+          "chapter_title": null,
+          "article_id": "4.7.4",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第4.7.4条",
+          "score": 0.7258469462394714,
+          "rerank_score": 0.9895182251930237,
+          "metadata": {},
+          "spec_id": "cn.gb50157",
+          "edition_id": "2013",
+          "standard_code": "GB 50157-2013",
+          "spec_title": "地铁设计规范",
+          "pdf_page_start": 43,
+          "pdf_page_end": 43,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E3",
+          "text": "。客室侧门应具有车门闭锁装置，行驶中车门的锁闭应无误。单个侧门应具有系统隔离功能，在发生\n故障时应具有机械切除功能，且不应影响系统指令，还应具有在客室内/外手动操作解锁开闭车门的功能；\n4\n车辆应设有架车支座、车体吊装座、救援设备支座，并应标注允许架车、起吊、起复的位置；\n5\n客室内应布置适量的客室座椅，座椅形状应满足人体工程学要求；\n6\n客室内应设置数量足够、牢固美观的立柱、扶手杆，并加装适量的吊环；\n7\n客室应有足够的灯光照明，在距地板面高800mm 处的照度平均值不应低于200 lx。在正常供电\n中断时，应备有紧急照明，其照度不应低于60 lx；\n8\n每列车中宜至少设置两处轮椅专用位置，",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 37,
+          "page_end": 37,
+          "chunk_id": 367,
+          "content_type": "text",
+          "chapter_id": "5",
+          "chapter_title": "车辆",
+          "article_id": "5.5.1",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第5.5.1条",
+          "score": 0.7140816450119019,
+          "rerank_score": 0.9731263518333435,
+          "metadata": {},
+          "spec_id": "cn.beijing.db11t995",
+          "edition_id": "2025",
+          "standard_code": "DB11/T 995-2025",
+          "spec_title": "城市轨道交通工程设计标准",
+          "pdf_page_start": 37,
+          "pdf_page_end": 37,
+          "printed_page_start": null,
+          "printed_page_end": null
+        }
+      ],
+      "request_metrics": {
+        "request_id": "e1231aa6bea04d66862126b6cc059167",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 62.0,
+          "rerank": 3360.0,
+          "grader": 7657.0,
+          "generation": 5656.0
+        },
+        "total_ms": 18031.0,
+        "outcome": "answer",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 0,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 2097,
+          "output": 2236,
+          "total": 4333
+        },
+        "estimated_cost": null
+      }
+    },
+    {
+      "id": "P1-Q012",
+      "question": "三份规范是否直接规定全自动运行列车功能？有规定时列出功能和条文，没有时明确说明未找到直接规定。",
+      "requested_scope": {
+        "spec_ids": [
+          "cn.beijing.db11t995",
+          "cn.gb55033",
+          "cn.gb50157"
+        ],
+        "edition_ids": [
+          "2025",
+          "2022",
+          "2013"
+        ]
+      },
+      "request_id": "34ea6ee163d5402caea479c135beaad6",
+      "result_type": "refuse",
+      "answer": "当前规范及已检索证据不足以完整回答该问题。 缺少的信息：第三份规范的名称及其是否直接规定全自动运行列车功能、对应功能和条文；给定证据仅涉及 DB11/T 995-2025 和 GB 55033-2022 两份规范，无法按“三份规范”逐一完整回答。",
+      "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+      "bound_scope": [
+        "cn.beijing.db11t995@2025",
+        "cn.gb50157@2013",
+        "cn.gb55033@2022"
+      ],
+      "retry_count": 1,
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "text": "5.7.1\n列车应适应全自动运行需要，支持实现全自动运行模式（FAM）模式运行功能、唤醒功能、休眠\n功能、远程控制功能、站台屏蔽门车门对位隔离功能、障碍物检测功能、乘客服务功能等。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 39,
+          "page_end": 39,
+          "chunk_id": 392,
+          "content_type": "text",
+          "chapter_id": "5",
+          "chapter_title": "车辆",
+          "article_id": "5.7.1",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第5.7.1条",
+          "score": 0.6891833543777466,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.beijing.db11t995",
+          "edition_id": "2025",
+          "standard_code": "DB11/T 995-2025",
+          "spec_title": "城市轨道交通工程设计标准",
+          "pdf_page_start": 39,
+          "pdf_page_end": 39,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E2",
+          "text": "18.4.5\n全自动运行线路除满足本标准第18.4.4 条的功能外，还应满足下列要求：\n1\n远程和本地休眠、唤醒功能；\n2\n跳跃、自动对位调整功能；\n3\n蠕动运行模式、远程限速运行功能；\n4\n配合车门与站台屏蔽门实现故障对位隔离功能；\n5\n站台自动发车功能；\n6\n清客功能；\n7\n全自动折返功能；\n8\n全自动进出车辆基地功能；\n9\n全自动洗车功能；\n10\n具备机械编组功能的线路，ATO系统应具备FAM模式下控制列车进行自动联挂、解编的功能。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 158,
+          "page_end": 158,
+          "chunk_id": 1669,
+          "content_type": "text",
+          "chapter_id": "18",
+          "chapter_title": "信号",
+          "article_id": "18.4.5",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第18.4.5条",
+          "score": 21.68325760901967,
+          "rerank_score": 0.9875118732452393,
+          "metadata": {},
+          "spec_id": "cn.beijing.db11t995",
+          "edition_id": "2025",
+          "standard_code": "DB11/T 995-2025",
+          "spec_title": "城市轨道交通工程设计标准",
+          "pdf_page_start": 158,
+          "pdf_page_end": 158,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E3",
+          "text": "6.3.9 全自动运行系统应符合下列规定：\n1 全自动运行系统建设应与线路、站场配置及运行管理模\n式相互协调。全自动运行系统应能实现信号、通信、防灾报警等\n机电系统设备及车辆的协同控制；\n2控制中心或车站有人值班室应能监控全自动运行列车的\n运行状态，应能实现列车停车及对车门、站台屏蔽门的应急\n控制。",
+          "source": "GB55033-2022_城市轨道交通工程项目规范.pdf",
+          "page_start": 32,
+          "page_end": 32,
+          "chunk_id": 203,
+          "content_type": "text",
+          "chapter_id": "6",
+          "chapter_title": "给水、排水系统…",
+          "article_id": "6.3.9",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第6.3.9条",
+          "score": 0.7099312543869019,
+          "rerank_score": 0.9648503661155701,
+          "metadata": {},
+          "spec_id": "cn.gb55033",
+          "edition_id": "2022",
+          "standard_code": "GB 55033-2022",
+          "spec_title": "城市轨道交通工程项目规范",
+          "pdf_page_start": 32,
+          "pdf_page_end": 32,
+          "printed_page_start": null,
+          "printed_page_end": null
+        }
+      ],
+      "request_metrics": {
+        "request_id": "34ea6ee163d5402caea479c135beaad6",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 203.0,
+          "rerank": 16141.0,
+          "grader": 15031.0
+        },
+        "total_ms": 32343.0,
+        "outcome": "refuse",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 1,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 2032,
+          "output": 2315,
+          "total": 4347
+        },
+        "estimated_cost": null
+      }
+    }
+  ]
+}

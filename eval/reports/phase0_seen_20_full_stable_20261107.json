@@ -1,0 +1,5190 @@
+{
+  "report_schema_version": 2,
+  "provenance": {
+    "schema_version": 1,
+    "captured_at": "2026-11-07T02:22:08.386689+00:00",
+    "git_commit": "7f358f499b019f741b4cb9cbb170a1ef5a66a3f1",
+    "git_dirty": true,
+    "uv_lock_sha256": "9a754f29cd24fa85de1db0c1398df9b21d9b5c32cd1e6be49678fd8e83f677e2",
+    "dataset_sha256": "2791c00f07eeddd9764198bc20ad8f7ee1c6ad5965a0fbc273cad5c26f624531",
+    "pdf_sha256": "e5ca2388ad68ed7b21b6092e66c12a73c74c17de8b532bef91c5b2ea57be78f7",
+    "configuration": {
+      "embedding_model": "BAAI/bge-small-zh-v1.5",
+      "embedding_revision": null,
+      "reranker_model": "BAAI/bge-reranker-base",
+      "generation_model": "deepseek-flash",
+      "retrieval_top_k": 10,
+      "evidence_top_n": 3,
+      "request_timeout_seconds": 30.0,
+      "max_network_retries": 1,
+      "total_timeout_seconds": 90.0,
+      "max_model_calls": 6,
+      "input_cost_per_million": null,
+      "output_cost_per_million": null,
+      "index_auto_build": false,
+      "index_lock_timeout_seconds": 30.0,
+      "api_endpoint_sha256": "ede47230ac9ca7d26f3cfe67de26982cce152929ba545e7ebcbcb7c00211178b"
+    },
+    "configuration_sha256": "25e10b218f11d5c033d2fa58d1c469ad690b7d737b2f9b2e2580d53d5c83b0d1",
+    "index_manifest": {
+      "schema_version": 3,
+      "source": "城市轨道交通工程设计标准.pdf",
+      "document_id": "e32b2a73134e8548ffbd374f14a52b27aaee9c2d7d2e482b802e756fb0c5fca2",
+      "version_id": "a1445f985213104ec683f9cc26146f5aa40f5766384ea527ae64e19bc903f5b9",
+      "checksum_sha256": "e5ca2388ad68ed7b21b6092e66c12a73c74c17de8b532bef91c5b2ea57be78f7",
+      "chunk_size": 300,
+      "overlap": 50,
+      "embedding_model": "BAAI/bge-small-zh-v1.5",
+      "embedding_revision": null,
+      "parser_version": "pymupdf-structured-v2-superscript",
+      "embedding_dim": 512,
+      "chunk_count": 3701,
+      "index_file": "index.faiss",
+      "metadata_file": "metadata.json",
+      "index_sha256": "6e70f528c811828feab5f4ffb17a6e906237525a7542535b9d446d6203f25ee9",
+      "metadata_sha256": "7bdcba78567d26417a096271f095b999b7500ecc8566abe997ea7505e94c8c29"
+    },
+    "prompt_source_sha256": {
+      "src/generator.py": "b7c342f98aa424de7dd21364069533aa0fa6647dab9e774d2392b5cf832b8ba5",
+      "src/evidence_sufficiency.py": "6a587ba85d9a6f7befa66c2e4a172e36c85cf95e9fc4e8a49bf8f53781e3b047",
+      "src/query_rewriter.py": "d9c0ff24cd09d733604a793f699653a46cfd10d8fd9625efec640e3fdd95de16"
+    },
+    "runtime_source_sha256": {
+      "src/agent_workflow.py": "f5a2fe93e92875dc2cda297a70a1c1af66e04d8c91b6252076a902be7991c565",
+      "src/application.py": "5ab811c31937c4c98e7f429c5d086aa1de550ce9d20937e28fc265ccba41ad5c",
+      "src/bm25_retriever.py": "41175a0f83cef59da552f7f3b5e85b9c3ff0f6535bb1fee14dd73125594feb2b",
+      "src/chat_memory.py": "e7eb6507d2d853c5ecfc7f31583515f201824e796e6b17badc4104c9ba28e490",
+      "src/config.py": "18798879a21a8457d6d29ce60b484b944598617cd3d8fd816b0af5396fc7cd7f",
+      "src/document_schema.py": "f3c37014349440103edda71e16afbd093ea641ccc2e00da7702e0565c2713faf",
+      "src/embedder.py": "155055fbabd7371f6a9b78d61daf20ad818ac4ce4dbd03ca58314a9bb50d2376",
+      "src/evidence.py": "b49ce1a4b95c5ffea60665d35f47908515930662dfe4bc7010679b6d93632608",
+      "src/evidence_retention.py": "1962a8cbf08f9c862140c3409ea23a27799a852ab35f45fd1ba4024b7321df5f",
+      "src/evidence_sufficiency.py": "6a587ba85d9a6f7befa66c2e4a172e36c85cf95e9fc4e8a49bf8f53781e3b047",
+      "src/generator.py": "b7c342f98aa424de7dd21364069533aa0fa6647dab9e774d2392b5cf832b8ba5",
+      "src/health_cli.py": "ad7dd5f8e19a667cb94a9de3ec1482ebebb3057b7b1afd1137358e7f641fde15",
+      "src/hybrid_retriever.py": "3780cf8d94bff14a67133e9e72a0c7b420e38d789ed224f440e6d851b787704a",
+      "src/index_cli.py": "840aae7f2124c3acb90bd2e88e528370e0adb6c9a5432599e5951e3e148d94fd",
+      "src/index_manager.py": "3c44831f5855630efd001916d0d6e51d8c3f38db6fe77b6fdaef351fa5e91cc8",
+      "src/knowledge_base.py": "3ec59bbfc90bc629ea617044dedbd950fc29e883c89173eac8c6b75cce71a6d6",
+      "src/knowledge_base_cli.py": "08e0074aad4a481681fe74c48f63edaed3cd3fc293f7d14b23ea2d24fceb556b",
+      "src/loader.py": "c26c998659aecb9be946144f1ad71e46d31f91128a13fb823ce6d90230d65943",
+      "src/model_cli.py": "9e7081084a1f207fd3479f07e5292cd29058b88df35ad7b86dbdeb6561f50cd7",
+      "src/observability.py": "41278de595cccfd1d62c7fe092341cf7c2834decd67401d88d22e7c9e5f8f8e1",
+      "src/ocr_artifacts.py": "e587b0488ad70b442dd8bad97b3e0c7bb4aa9eefa23ebf04c6871b938b206397",
+      "src/ocr_cli.py": "e031032400276ab95880d543f2df9bbcc7fc024d83f3940893414ea70b81843f",
+      "src/ocr_table_derivation.py": "6c0e8ff97905b18a1da8e51b5581e9d395d315e114ea31d0075daf8eea5a267b",
+      "src/presentation.py": "a2832024399406e9a521b932ced451162c472ad08c37a914f00f2049bd87a43c",
+      "src/query_decomposition.py": "565301413f5e76922e39d1e3c065c2b47e5d626935d286b7642732a1b1d9ecd8",
+      "src/query_rewriter.py": "d9c0ff24cd09d733604a793f699653a46cfd10d8fd9625efec640e3fdd95de16",
+      "src/query_scope.py": "e80b6cf11631ed038262ee08f310b6c1a372f118dd3c32568073697e649bad1a",
+      "src/rag_service.py": "0ab79be8821ca04050c17fdd58be1a3578ac6b015899ef95cc27c6fe39826c7f",
+      "src/reliability.py": "ceaeac5642249356c82ebd6e49f0249a26927e859683d5a1155dae8728c7a2f7",
+      "src/reranker.py": "1a43434f779f49fb078115f3b0dddd2d9c6838312d5594aa528c752b23b8ae78",
+      "src/results.py": "dfdac9b35ad394857412f6f25d42dc8ac8e6b18eec1a09b6d8929497b7c6d13f",
+      "src/retrieval_fusion.py": "0449e1e27ecbc0a22066eaae0763da01e114491a643a2b134d20bc0ef7bd321e",
+      "src/retriever.py": "4f8a420a1e282e94b1571ad53a81b6987c7eedc0f6f970db1370bdbebcdce760",
+      "src/snapshot_retriever.py": "0bd6842c5b9fa4b116343e1d37ecebf3c4bf00d2c6c4f6bf299cab987ab4cc8e",
+      "src/spec_catalog.py": "1db0fd3b90d211469e9d4b05f95e293dfcc12f3f7b75aa8f045b0ba7825812bb",
+      "src/splitter.py": "0d15fff9cda7a12d539927e9ed37f60e96c53197fa677567e4edec7af13ffce4",
+      "src/vector_store.py": "a9525fe137d14af087a2c13a6bc9806a995cbdd33a40b767db9b70d1fde4d9a8",
+      "src/web_launcher.py": "4895316604e7f70acbe5aab8be31dcd0fbf876c87b05a382288208b654b738c3",
+      "eval/__init__.py": "adf57529570e1ef094cdb288f04b68682b71bb47920a61069cf3aaa60404fd19",
+      "eval/audit_phase1_independent_v1.py": "2ca7a27f8eff3c0e02f7a08c435156633c1fdf4e5ccd7240c6dbcf2083c95f95",
+      "eval/build_phase1_independent_review_v1.py": "f26a6289909bc81bf2be03bd7057939698e632a93afdb0146bbdbaf34506fdc1",
+      "eval/build_phase1_independent_v1.py": "983dabc29b2539f610b5ded6193ec8f89b4afb628e962c751366c4a89d1a143b",
+      "eval/build_sufficiency_dataset.py": "5c01f16c63bf7d541e87155f227bfe42dd3a6167fb4f33284ffbbd776f0bdfe0",
+      "eval/curate_candidates.py": "5da7af6aa84dd7ad9ae20782e4554396137c78943d37de0a5146bc16b3b66b12",
+      "eval/dataset_manifest.py": "96fd489a3746e44a20ec1f3fb7f3a0e12bbd41810d2587a794d90e8c1ed9af74",
+      "eval/diagnose_phase1_evidence_selection.py": "65383d000041f26b4e04c0b784be4615119bb4fab3a017b124ec33d20ee37125",
+      "eval/finalize_candidate_review.py": "7008018647c888bbccb8c3abcc70939f29b1e2b84d516491fc108cab7f47b241",
+      "eval/metrics.py": "d5e509c06c32ed31d01c859df1dab8604fa1480382e1a3d770bed37b3f3bb0dd",
+      "eval/phase1_real_smoke.py": "1bba2be29a4d10fa39f41d5afcfbdcbdbb8405fdd195685e8efb03f8da6114fd",
+      "eval/phase1_scope_retrieval.py": "2778367547e34d4e86ca484fc31179ddecffdbd7191da78118c202165903541b",
+      "eval/phase1_slice4_diagnose.py": "05929216eedfcb3ef070de06bb70a5ca41777952f69a1bc8cb0004423066461e",
+      "eval/provenance.py": "719f40e976c39fe1ae2d595428b9ca6e264e5d99e3bdb67b4bb00fdfad84afb3",
+      "eval/report.py": "3b0071bb967d2e21c2ed2e07a05ade582874b4478dd93bb0f739db25476943be",
+      "eval/review.py": "ff50e2c9a5d4b6d9a8ce60bba640235a84834c0ad764881cb2db2ac82127c8ea",
+      "eval/run_agent_test.py": "cc5002e0e28a39c05aadcf9bc6fcb3226de92847c09ac8ddc717a9527357edef",
+      "eval/run_phase1_independent_v1.py": "1db0a53be93f6c23c5d51f3622b0ce02b2eae25c78a05dcf6c203f374c67391a",
+      "eval/run_retrieval.py": "b83dcfe19a3f1a65b88b2db6a3225afcccc216d6aa8da78735dc1d24533bbb9c",
+      "eval/run_score_diagnostic.py": "46ddf49d30112bbbffa524a64f2b431647711fe75b94261dbb8282fcb3c6e36d",
+      "eval/run_sufficiency.py": "0d39cf4073f2ed6f51d797c4a0231031f036cb6e8a01588bea7c97363695bd33",
+      "eval/schema.py": "7cb95d69ef3432058b6a0adeebd9f4e93313588434cb5f9d8fa37cb893676e1d",
+      "eval/summarize_phase1_seen_regression.py": "3327369e60e20739dfbf0d8791e55c574eb089544b381c4f52c883ad98ecd38a",
+      "eval/validate_phase1_independent_v1.py": "f79e18e29688cb5f91e4cada2f6ea569f3523d60ced49b54dd4b9416927d90ed"
+    },
+    "prompt_hash_scope": "whole source files; changes outside prompts also invalidate hashes",
+    "model_revisions": {
+      "embedding": null,
+      "reranker": null,
+      "generation": null
+    },
+    "environment": {
+      "python": "3.12.16",
+      "platform": "Windows-10-10.0.19044-SP0",
+      "packages": {
+        "numpy": "2.5.4",
+        "scipy": "1.18.1",
+        "scikit-learn": "1.9.1",
+        "faiss-cpu": "1.15.1",
+        "openai": "1.109.1",
+        "pymupdf": "1.28.2",
+        "sentence-transformers": "5.7.0"
+      }
+    },
+    "release_dependencies": {
+      "real_deployment_latency_baseline": "pending",
+      "real_model_usage_cost_baseline": "pending"
+    },
+    "dataset_manifest": {
+      "schema_version": 1,
+      "dataset_id": "independent_v2_draft",
+      "version": "0.3-pdf-content-reviewed",
+      "role": "independent",
+      "status": "frozen",
+      "data_file": "independent_v2_draft.jsonl",
+      "sha256": "2791c00f07eeddd9764198bc20ad8f7ee1c6ad5965a0fbc273cad5c26f624531",
+      "count": 20,
+      "type_distribution": {
+        "multi_evidence_candidate": 3,
+        "numeric_candidate": 8,
+        "table_lookup": 1,
+        "partial_support_unanswerable": 1,
+        "article_lookup_candidate": 4,
+        "unanswerable_candidate": 3
+      },
+      "source_pdf_sha256": "e5ca2388ad68ed7b21b6092e66c12a73c74c17de8b532bef91c5b2ea57be78f7",
+      "frozen_at": "2026-11-01T00:00:00+08:00",
+      "used_for_tuning": false,
+      "acceptance_criteria": {
+        "gate_id": "independent-v2-quality-gate-v1",
+        "path": "../acceptance/quality_gate_v1.json",
+        "sha256": "49a63015c101810309b6d0527d95e4d39a36166516098795697a1fcf099a0fdb",
+        "declared_before_independent_run": true
+      },
+      "notes": "User-authorized AI content review completed against the repository PDF on 2026-11-01. All cases record approved annotations after checking question scope, answerability, evidence page/clause/table, answer points, values, units, and applicability conditions. Reviewer identity and non-domain-expert limitations are explicit in eval/reviews/candidate_content_review_2026-11-01.json. The acceptance gate was predeclared and the dataset frozen on 2026-11-01 before any independent system result was run or inspected."
+    },
+    "index_version_id": "a1445f985213104ec683f9cc26146f5aa40f5766384ea527ae64e19bc903f5b9",
+    "runtime_workflow": {
+      "retrieval_top_k": 10,
+      "evidence_top_n": 3,
+      "max_model_calls": 6,
+      "total_timeout_seconds": 90.0,
+      "max_retries": 1
+    },
+    "retrieval_constants": {
+      "rrf_k": 60,
+      "bounded_retrieval_retries": 1
+    }
+  },
+  "evidence_top_n": 3,
+  "dataset_path": "eval/datasets/independent_v2_draft.jsonl",
+  "pdf_path": "data/raw/城市轨道交通工程设计标准.pdf",
+  "index_dir": ".rag_index",
+  "model": "deepseek-flash",
+  "dataset": {
+    "count": 20,
+    "type_distribution": {
+      "multi_evidence_candidate": 3,
+      "numeric_candidate": 8,
+      "table_lookup": 1,
+      "partial_support_unanswerable": 1,
+      "article_lookup_candidate": 4,
+      "unanswerable_candidate": 3
+    },
+    "answerable": 16,
+    "unanswerable": 4
+  },
+  "category_counts": {
+    "article_lookup_candidate": {
+      "count": 4,
+      "answer": 4,
+      "refuse": 0,
+      "error": 0
+    },
+    "multi_evidence_candidate": {
+      "count": 3,
+      "answer": 3,
+      "refuse": 0,
+      "error": 0
+    },
+    "numeric_candidate": {
+      "count": 8,
+      "answer": 8,
+      "refuse": 0,
+      "error": 0
+    },
+    "partial_support_unanswerable": {
+      "count": 1,
+      "answer": 0,
+      "refuse": 1,
+      "error": 0
+    },
+    "table_lookup": {
+      "count": 1,
+      "answer": 1,
+      "refuse": 0,
+      "error": 0
+    },
+    "unanswerable_candidate": {
+      "count": 3,
+      "answer": 0,
+      "refuse": 3,
+      "error": 0
+    }
+  },
+  "initial_rank_metrics": {
+    "recall@1": 0.8125,
+    "hitrate@1": 0.875,
+    "recall@3": 0.9375,
+    "hitrate@3": 1.0,
+    "recall@5": 0.96875,
+    "hitrate@5": 1.0,
+    "recall@10": 1.0,
+    "hitrate@10": 1.0,
+    "mrr@10": 0.9270833333333334,
+    "count": 16
+  },
+  "retrieval_evidence": {
+    "initial_hit_rate_at_n": 1.0,
+    "initial_recall_at_n": 0.8947368421052632,
+    "initial_recall_at_10": 1.0,
+    "final_hit_rate_at_n": 1.0,
+    "final_recall_at_n": 1.0,
+    "multi_evidence_complete_at_n": 3,
+    "multi_evidence_count": 3
+  },
+  "agent_decision": {
+    "first_sufficient": 14,
+    "first_insufficient_retry": 6,
+    "retry_sufficient": 2,
+    "retry_still_insufficient": 4,
+    "final_answer": 16,
+    "final_error": 0,
+    "final_refuse": 4,
+    "correct_unanswerable_refusal": 4,
+    "false_accept": 0,
+    "false_refusal": 0,
+    "false_accept_rate": 0.0,
+    "false_refusal_rate": 0.0
+  },
+  "citation_validation": {
+    "answered": 16,
+    "valid": 16,
+    "invalid_ids": []
+  },
+  "finished_at": "2026-11-07T02:26:29.762738+00:00",
+  "human_review_status": "pending",
+  "release_decision": "blocked_pending_human_review_and_real_deployment_baselines",
+  "cases": [
+    {
+      "id": "IND-001",
+      "measurements": {
+        "wall_time_ms": 20155.99999949336,
+        "stage_timings_ms": {
+          "retrieval": 47.0,
+          "rerank": 4875.0,
+          "grader": 9437.0,
+          "generation": 5797.0
+        },
+        "token_usage": {
+          "input": 2535,
+          "output": 2059,
+          "total": 4594
+        },
+        "estimated_cost": null,
+        "model_calls": 3,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [
+            0
+          ],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [
+            1
+          ],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 2,
+        "metric_eligible": true
+      },
+      "category": "multi_evidence_candidate",
+      "question": "客室车门安全联锁与车辆前后端照明、信号装置分别有哪些要求？",
+      "expected_answerability": true,
+      "gold_answer": "客室车门系统应有安全联锁，确保运营时车速大于5km/h 时不能开启客室车门、车门未全关闭时 不能起动列车。安全联锁功能应符合国家标准《城市轨道交通工程项目规范》GB 55033 及《地铁设计 规范》GB 50157 的规定。 司机室前端应装设可远近光变换的前照灯。前照灯在车辆前端紧急制停距离处照度不应小于2 lx。 列车尾端应设有红色防护灯。车辆侧壁可设置显示车门开闭、制动缸缓解等指示灯。",
+      "required_requirements": [
+        "覆盖要点：客室车门系统应有安全联锁，确保运营时车速大于5km/h 时不能开启客室车门、车门未全关闭时 不能起动列车",
+        "覆盖要点：安全联锁功能应符合国家标准《城市轨道交通工程项目规范》GB 55033 及《地铁设计 规范》GB 50157 的规定",
+        "覆盖要点：司机室前端应装设可远近光变换的前照灯",
+        "覆盖要点：前照灯在车辆前端紧急制停距离处照度不应小于2 lx",
+        "覆盖要点：列车尾端应设有红色防护灯",
+        "覆盖要点：车辆侧壁可设置显示车门开闭、制动缸缓解等指示灯"
+      ],
+      "key_answer_points": [
+        "客室车门系统应有安全联锁，确保运营时车速大于5km/h 时不能开启客室车门、车门未全关闭时 不能起动列车",
+        "安全联锁功能应符合国家标准《城市轨道交通工程项目规范》GB 55033 及《地铁设计 规范》GB 50157 的规定",
+        "司机室前端应装设可远近光变换的前照灯",
+        "前照灯在车辆前端紧急制停距离处照度不应小于2 lx",
+        "列车尾端应设有红色防护灯",
+        "车辆侧壁可设置显示车门开闭、制动缸缓解等指示灯"
+      ],
+      "numeric_expectations": [
+        {
+          "value": "5",
+          "unit": "km/h",
+          "conditions": [
+            "客室车门系统应有安全联锁，确保运营时车速大于5km/h 时不能开启客室车门、车门未全关闭时 不能起动列车"
+          ]
+        },
+        {
+          "value": "2",
+          "unit": "lx",
+          "conditions": [
+            "前照灯在车辆前端紧急制停距离处照度不应小于2 lx"
+          ]
+        }
+      ],
+      "request_id": "40ff173f24f845c0bb27de5fe6bba02f",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 39,
+          "article": "5.6.8",
+          "table": null
+        },
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 39,
+          "article": "5.6.9",
+          "table": null
+        }
+      ],
+      "final_action": "answer",
+      "retry_count": 1,
+      "rewritten_query": "车辆前后端照明的要求；车辆前后端信号装置的要求",
+      "final_answer_or_refusal": "客室车门应设安全联锁，车辆前端应设可远近光变换的前照灯、尾端应设红色防护灯；给定片段未提供专门的“信号装置”完整要求。\n\n1. 客室车门安全联锁：运营时车速大于5 km/h时不能开启客室车门，车门未全关闭时不能起动列车；安全联锁功能应符合《城市轨道交通工程项目规范》GB 55033及《地铁设计规范》GB 50157的规定。[E2]\n\n2. 车辆前后端照明及指示：司机室前端应装设可远近光变换的前照灯，前照灯在车辆前端紧急制停距离处照度不应小于2 lx；列车尾端应设有红色防护灯；车辆侧壁可设置显示车门开闭、制动缸缓解等指示灯。[E1]\n\n给定片段未提供车辆前后端“信号装置”的专门条文，信号装置要求需结合其他规范条款确认。",
+      "first_grade": {
+        "step": "grade",
+        "decision": "insufficient",
+        "missing_requirements": [
+          "车辆前后端照明的要求",
+          "车辆前后端信号装置的要求"
+        ],
+        "retry_count": 0
+      },
+      "second_grade": {
+        "step": "grade",
+        "decision": "sufficient",
+        "missing_requirements": [],
+        "retry_count": 1
+      },
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "客室车门安全联锁与车辆前后端照明、信号装置分别有哪些要求？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "车辆前后端照明的要求",
+            "车辆前后端信号装置的要求"
+          ],
+          "retry_count": 0
+        },
+        {
+          "step": "parse_evidence_requirements",
+          "question_requirements": [
+            {
+              "business_id": null,
+              "article_id": null,
+              "subrequirement": "客室车门安全联锁",
+              "source": "question",
+              "authoritative": true,
+              "status": "missing_version",
+              "reason": "specification_version_not_explicit"
+            },
+            {
+              "business_id": null,
+              "article_id": null,
+              "subrequirement": "车辆前后端照明、信号装置",
+              "source": "question",
+              "authoritative": true,
+              "status": "missing_version",
+              "reason": "specification_version_not_explicit"
+            }
+          ],
+          "grader_requirements": [
+            {
+              "business_id": null,
+              "article_id": null,
+              "subrequirement": "车辆前后端照明的要求",
+              "source": "grader",
+              "authoritative": true,
+              "status": "mapped_to_question",
+              "reason": null
+            },
+            {
+              "business_id": null,
+              "article_id": null,
+              "subrequirement": "车辆前后端信号装置的要求",
+              "source": "grader",
+              "authoritative": true,
+              "status": "mapped_to_question",
+              "reason": null
+            }
+          ]
+        },
+        {
+          "step": "retry",
+          "retry_count": 1,
+          "missing_requirements": [
+            "车辆前后端照明的要求",
+            "车辆前后端信号装置的要求"
+          ]
+        },
+        {
+          "step": "retrieve",
+          "query": "车辆前后端照明的要求；车辆前后端信号装置的要求",
+          "retry_count": 1
+        },
+        {
+          "step": "retain_article_groups",
+          "evidence_limit": 3,
+          "retained_groups": [
+            {
+              "business_id": "None@None",
+              "article_id": "5.6.9",
+              "chunk_ids": [
+                388
+              ],
+              "basis": "unique_direct_coverage",
+              "covered_text": "车辆前后端照明、信号装置"
+            },
+            {
+              "business_id": "None@None",
+              "article_id": "5.6.9",
+              "chunk_ids": [
+                388
+              ],
+              "basis": "unique_direct_coverage",
+              "covered_text": "车辆前后端照明的要求"
+            },
+            {
+              "business_id": "None@None",
+              "article_id": "5.6.9",
+              "chunk_ids": [
+                388
+              ],
+              "basis": "unique_direct_coverage",
+              "covered_text": "车辆前后端信号装置的要求"
+            }
+          ],
+          "fallbacks": [
+            {
+              "subrequirement": "客室车门安全联锁",
+              "reason": "not_unique",
+              "candidate_articles": [
+                "5.6.8",
+                "27.5.4"
+              ]
+            }
+          ]
+        },
+        {
+          "step": "verify_final_evidence_context",
+          "complete": true,
+          "within_scope": true,
+          "incomplete_groups": [],
+          "out_of_scope": []
+        },
+        {
+          "step": "grade",
+          "decision": "sufficient",
+          "missing_requirements": [],
+          "retry_count": 1
+        },
+        {
+          "step": "answer"
+        },
+        {
+          "step": "citation_validation",
+          "valid": true
+        }
+      ],
+      "initial_candidate_count": 16,
+      "retry_candidate_count": 20,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": false
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [
+          0,
+          1
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": true
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [
+          0,
+          1
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": true
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [
+          0,
+          1
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": true
+      },
+      "final_evidence_refs": [
+        {
+          "text": "5.6.9\n司机室前端应装设可远近光变换的前照灯。前照灯在车辆前端紧急制停距离处照度不应小于2 lx。\n列车尾端应设有红色防护灯。车辆侧壁可设置显示车门开闭、制动缸缓解等指示灯。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 39,
+          "page_end": 39,
+          "article_id": "5.6.9",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 388,
+          "score": 0.7049673795700073,
+          "rrf_score": null,
+          "rerank_score": null,
+          "display_ref": "第5.6.9条"
+        },
+        {
+          "text": "5.6.8\n客室车门系统应有安全联锁，确保运营时车速大于5km/h 时不能开启客室车门、车门未全关闭时\n不能起动列车。安全联锁功能应符合国家标准《城市轨道交通工程项目规范》GB 55033 及《地铁设计\n规范》GB 50157 的规定。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 39,
+          "page_end": 39,
+          "article_id": "5.6.8",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 387,
+          "score": 0.6881489753723145,
+          "rrf_score": null,
+          "rerank_score": 0.9835002422332764,
+          "display_ref": "第5.6.8条"
+        },
+        {
+          "text": "况时的需要，应能满足车辆\n在故障情况下的应急照明、外部照明、车载安全设备、广播、通讯、应急通风等工作不低于45min；采\n用电动客室车门的车辆还应满足紧急开闭一次客室侧门的用电需求。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 38,
+          "page_end": 38,
+          "article_id": "5.5.4",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 373,
+          "score": 0.7072722911834717,
+          "rrf_score": null,
+          "rerank_score": 0.9824122786521912,
+          "display_ref": "第5.5.4条"
+        }
+      ],
+      "citation_validation": {
+        "valid": true,
+        "cited_ids": [
+          "E1",
+          "E2"
+        ],
+        "available_ids": [
+          "E1",
+          "E2",
+          "E3"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "IND-002",
+      "measurements": {
+        "wall_time_ms": 16266.00000075996,
+        "stage_timings_ms": {
+          "retrieval": 16.0,
+          "rerank": 1281.0,
+          "grader": 9828.0,
+          "generation": 5141.0
+        },
+        "token_usage": {
+          "input": 1408,
+          "output": 2091,
+          "total": 3499
+        },
+        "estimated_cost": null,
+        "model_calls": 2,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [
+            0
+          ],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 1,
+        "metric_eligible": true
+      },
+      "category": "numeric_candidate",
+      "question": "司机室前照灯、列车尾灯和车辆侧壁指示灯有哪些配置与性能要求？",
+      "expected_answerability": true,
+      "gold_answer": "司机室前端应装设可远近光变换的前照灯。前照灯在车辆前端紧急制停距离处照度不应小于2 lx。 列车尾端应设有红色防护灯。车辆侧壁可设置显示车门开闭、制动缸缓解等指示灯。",
+      "required_requirements": [
+        "覆盖要点：司机室前端应装设可远近光变换的前照灯",
+        "覆盖要点：前照灯在车辆前端紧急制停距离处照度不应小于2 lx",
+        "覆盖要点：列车尾端应设有红色防护灯",
+        "覆盖要点：车辆侧壁可设置显示车门开闭、制动缸缓解等指示灯"
+      ],
+      "key_answer_points": [
+        "司机室前端应装设可远近光变换的前照灯",
+        "前照灯在车辆前端紧急制停距离处照度不应小于2 lx",
+        "列车尾端应设有红色防护灯",
+        "车辆侧壁可设置显示车门开闭、制动缸缓解等指示灯"
+      ],
+      "numeric_expectations": [
+        {
+          "value": "2",
+          "unit": "lx",
+          "conditions": [
+            "前照灯在车辆前端紧急制停距离处照度不应小于2 lx"
+          ]
+        }
+      ],
+      "request_id": "3088137498f74f1c9e25a29fb0650d0a",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 39,
+          "article": "5.6.9",
+          "table": null
+        }
+      ],
+      "final_action": "answer",
+      "retry_count": 0,
+      "rewritten_query": null,
+      "final_answer_or_refusal": "核心结论：司机室前照灯应具备远近光变换功能，且在车辆前端紧急制停距离处照度不应小于2 lx；列车尾端应设红色防护灯；车辆侧壁指示灯为可设置，用于显示车门开闭、制动缸缓解等状态 [E1]。\n\n1. **前照灯**：司机室前端应装设可远近光变换的前照灯；其性能要求为在车辆前端紧急制停距离处照度不应小于2 lx [E1]。\n2. **列车尾灯**：列车尾端应设有红色防护灯 [E1]。\n3. **车辆侧壁指示灯**：车辆侧壁可设置显示车门开闭、制动缸缓解等指示灯，规范未给出更具体的性能指标 [E1]。\n\n给定片段未提供列车尾灯及侧壁指示灯的照度、颜色以外光学参数等完整性能要求。",
+      "first_grade": {
+        "step": "grade",
+        "decision": "sufficient",
+        "missing_requirements": [],
+        "retry_count": 0
+      },
+      "second_grade": null,
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "司机室前照灯、列车尾灯和车辆侧壁指示灯有哪些配置与性能要求？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "sufficient",
+          "missing_requirements": [],
+          "retry_count": 0
+        },
+        {
+          "step": "answer"
+        },
+        {
+          "step": "citation_validation",
+          "valid": true
+        }
+      ],
+      "initial_candidate_count": 18,
+      "retry_candidate_count": null,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_evidence_refs": [
+        {
+          "text": "5.6.9\n司机室前端应装设可远近光变换的前照灯。前照灯在车辆前端紧急制停距离处照度不应小于2 lx。\n列车尾端应设有红色防护灯。车辆侧壁可设置显示车门开闭、制动缸缓解等指示灯。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 39,
+          "page_end": 39,
+          "article_id": "5.6.9",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 388,
+          "score": 0.773747980594635,
+          "rrf_score": null,
+          "rerank_score": 0.9993247985839844,
+          "display_ref": "第5.6.9条"
+        },
+        {
+          "text": "5.6.7\n司机室内应设置客室侧门开闭状态显示灯。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 39,
+          "page_end": 39,
+          "article_id": "5.6.7",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 386,
+          "score": 0.6802053451538086,
+          "rrf_score": null,
+          "rerank_score": 0.9735690951347351,
+          "display_ref": "第5.6.7条"
+        },
+        {
+          "text": "5.7.4\n列车宜设置模式运行灯和动车提示灯。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 39,
+          "page_end": 39,
+          "article_id": "5.7.4",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 395,
+          "score": 0.6282236576080322,
+          "rrf_score": null,
+          "rerank_score": 0.9642956852912903,
+          "display_ref": "第5.7.4条"
+        }
+      ],
+      "citation_validation": {
+        "valid": true,
+        "cited_ids": [
+          "E1"
+        ],
+        "available_ids": [
+          "E1",
+          "E2",
+          "E3"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "IND-003",
+      "measurements": {
+        "wall_time_ms": 26593.999999575317,
+        "stage_timings_ms": {
+          "retrieval": 46.0,
+          "rerank": 5532.0,
+          "grader": 15031.0,
+          "generation": 5985.0
+        },
+        "token_usage": {
+          "input": 2659,
+          "output": 2804,
+          "total": 5463
+        },
+        "estimated_cost": null,
+        "model_calls": 3,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          false,
+          false,
+          true,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [],
+          [],
+          [
+            0
+          ],
+          [],
+          [
+            1
+          ],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 2,
+        "metric_eligible": true
+      },
+      "category": "multi_evidence_candidate",
+      "question": "全自动运行列车应具备哪些功能，限界坐标系又应如何建立？",
+      "expected_answerability": true,
+      "gold_answer": "列车应适应全自动运行需要，支持实现全自动运行模式（FAM）模式运行功能、唤醒功能、休眠 功能、远程控制功能、站台屏蔽门车门对位隔离功能、障碍物检测功能、乘客服务功能等。 限界坐标系应为正交于轨道所在平面的直角坐标，应以直线地段通过两钢轨轨顶中心连线的中点 引出的水平坐标轴为水平轴，以Y 表示；应以通过该中点垂直于水平轴的坐标轴为垂直轴，以Z 表示。",
+      "required_requirements": [
+        "覆盖要点：列车应适应全自动运行需要，支持实现全自动运行模式（FAM）模式运行功能、唤醒功能、休眠 功能、远程控制功能、站台屏蔽门车门对位隔离功能、障碍物检测功能、乘客服务功能等",
+        "覆盖要点：限界坐标系应为正交于轨道所在平面的直角坐标，应以直线地段通过两钢轨轨顶中心连线的中点 引出的水平坐标轴为水平轴，以Y 表示",
+        "覆盖要点：应以通过该中点垂直于水平轴的坐标轴为垂直轴，以Z 表示"
+      ],
+      "key_answer_points": [
+        "列车应适应全自动运行需要，支持实现全自动运行模式（FAM）模式运行功能、唤醒功能、休眠 功能、远程控制功能、站台屏蔽门车门对位隔离功能、障碍物检测功能、乘客服务功能等",
+        "限界坐标系应为正交于轨道所在平面的直角坐标，应以直线地段通过两钢轨轨顶中心连线的中点 引出的水平坐标轴为水平轴，以Y 表示",
+        "应以通过该中点垂直于水平轴的坐标轴为垂直轴，以Z 表示"
+      ],
+      "numeric_expectations": [],
+      "request_id": "b6d4884c992c45a6a021a74e7e773645",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 39,
+          "article": "5.7.1",
+          "table": null
+        },
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 40,
+          "article": "6.1.1",
+          "table": null
+        }
+      ],
+      "final_action": "answer",
+      "retry_count": 1,
+      "rewritten_query": "限界坐标系应如何建立",
+      "final_answer_or_refusal": "全自动运行列车应支持FAM运行及唤醒、休眠、远程控制、车门与站台屏蔽门对位隔离、障碍物检测、乘客服务等功能；限界坐标系应采用以两钢轨轨顶中心连线中点引出水平轴Y、过该中点作垂直于水平轴的垂直轴Z构成的正交直角坐标。\n\n1. **列车基本功能要求**：列车应适应全自动运行需要，支持FAM模式运行功能、唤醒功能、休眠功能、远程控制功能、站台屏蔽门车门对位隔离功能、障碍物检测功能、乘客服务功能等 [E1]。\n\n2. **全自动运行线路相关功能要求**：全自动运行线路尚应满足远程和本地休眠、唤醒，跳跃及自动对位调整，蠕动运行模式及远程限速运行，配合车门与站台屏蔽门实现故障对位隔离，站台自动发车，清客，全自动折返，全自动进出车辆基地，全自动洗车等要求；具备机械编组功能的线路，ATO系统应具备FAM模式下控制列车自动联挂、解编的功能 [E3]。\n\n3. **限界坐标系建立**：限界坐标系应为正交于轨道所在平面的直角坐标；水平轴Y应取直线地段通过两钢轨轨顶中心连线中点引出的水平坐标轴；垂直轴Z应取通过该中点并垂直于水平轴的坐标轴 [E2]。",
+      "first_grade": {
+        "step": "grade",
+        "decision": "insufficient",
+        "missing_requirements": [
+          "限界坐标系应如何建立"
+        ],
+        "retry_count": 0
+      },
+      "second_grade": {
+        "step": "grade",
+        "decision": "sufficient",
+        "missing_requirements": [],
+        "retry_count": 1
+      },
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "全自动运行列车应具备哪些功能，限界坐标系又应如何建立？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "限界坐标系应如何建立"
+          ],
+          "retry_count": 0
+        },
+        {
+          "step": "parse_evidence_requirements",
+          "question_requirements": [
+            {
+              "business_id": null,
+              "article_id": null,
+              "subrequirement": "全自动运行列车应具备哪些功能",
+              "source": "question",
+              "authoritative": true,
+              "status": "missing_version",
+              "reason": "specification_version_not_explicit"
+            },
+            {
+              "business_id": null,
+              "article_id": null,
+              "subrequirement": "限界坐标系应如何建立",
+              "source": "question",
+              "authoritative": true,
+              "status": "missing_version",
+              "reason": "specification_version_not_explicit"
+            }
+          ],
+          "grader_requirements": [
+            {
+              "business_id": null,
+              "article_id": null,
+              "subrequirement": "限界坐标系应如何建立",
+              "source": "grader",
+              "authoritative": true,
+              "status": "mapped_to_question",
+              "reason": null
+            }
+          ]
+        },
+        {
+          "step": "retry",
+          "retry_count": 1,
+          "missing_requirements": [
+            "限界坐标系应如何建立"
+          ]
+        },
+        {
+          "step": "retrieve",
+          "query": "限界坐标系应如何建立",
+          "retry_count": 1
+        },
+        {
+          "step": "retain_article_groups",
+          "evidence_limit": 3,
+          "retained_groups": [
+            {
+              "business_id": "None@None",
+              "article_id": "5.7.1",
+              "chunk_ids": [
+                392
+              ],
+              "basis": "unique_direct_coverage",
+              "covered_text": "全自动运行列车应具备哪些功能"
+            },
+            {
+              "business_id": "None@None",
+              "article_id": "6.1.1",
+              "chunk_ids": [
+                398
+              ],
+              "basis": "unique_direct_coverage",
+              "covered_text": "限界坐标系应如何建立"
+            }
+          ],
+          "fallbacks": []
+        },
+        {
+          "step": "verify_final_evidence_context",
+          "complete": true,
+          "within_scope": true,
+          "incomplete_groups": [],
+          "out_of_scope": []
+        },
+        {
+          "step": "grade",
+          "decision": "sufficient",
+          "missing_requirements": [],
+          "retry_count": 1
+        },
+        {
+          "step": "answer"
+        },
+        {
+          "step": "citation_validation",
+          "valid": true
+        }
+      ],
+      "initial_candidate_count": 17,
+      "retry_candidate_count": 18,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": false
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [
+          0,
+          1
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": true
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [
+          0,
+          1
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": true
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [
+          0,
+          1
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": true
+      },
+      "final_evidence_refs": [
+        {
+          "text": "5.7.1\n列车应适应全自动运行需要，支持实现全自动运行模式（FAM）模式运行功能、唤醒功能、休眠\n功能、远程控制功能、站台屏蔽门车门对位隔离功能、障碍物检测功能、乘客服务功能等。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 39,
+          "page_end": 39,
+          "article_id": "5.7.1",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 392,
+          "score": 0.7222284078598022,
+          "rrf_score": null,
+          "rerank_score": null,
+          "display_ref": "第5.7.1条"
+        },
+        {
+          "text": "6.1\n一般规定\n6.1.1\n限界坐标系应为正交于轨道所在平面的直角坐标，应以直线地段通过两钢轨轨顶中心连线的中点\n引出的水平坐标轴为水平轴，以Y 表示；应以通过该中点垂直于水平轴的坐标轴为垂直轴，以Z 表示。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 40,
+          "page_end": 40,
+          "article_id": "6.1.1",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 398,
+          "score": 0.6696627736091614,
+          "rrf_score": null,
+          "rerank_score": null,
+          "display_ref": "第6.1.1条"
+        },
+        {
+          "text": "18.4.5\n全自动运行线路除满足本标准第18.4.4 条的功能外，还应满足下列要求：\n1\n远程和本地休眠、唤醒功能；\n2\n跳跃、自动对位调整功能；\n3\n蠕动运行模式、远程限速运行功能；\n4\n配合车门与站台屏蔽门实现故障对位隔离功能；\n5\n站台自动发车功能；\n6\n清客功能；\n7\n全自动折返功能；\n8\n全自动进出车辆基地功能；\n9\n全自动洗车功能；\n10\n具备机械编组功能的线路，ATO系统应具备FAM模式下控制列车进行自动联挂、解编的功能。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 158,
+          "page_end": 158,
+          "article_id": "18.4.5",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 1669,
+          "score": 0.678593635559082,
+          "rrf_score": null,
+          "rerank_score": 0.9885604977607727,
+          "display_ref": "第18.4.5条"
+        }
+      ],
+      "citation_validation": {
+        "valid": true,
+        "cited_ids": [
+          "E1",
+          "E2",
+          "E3"
+        ],
+        "available_ids": [
+          "E1",
+          "E2",
+          "E3"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "IND-004",
+      "measurements": {
+        "wall_time_ms": 7046.000000089407,
+        "stage_timings_ms": {
+          "retrieval": 31.0,
+          "rerank": 1109.0,
+          "grader": 2688.0,
+          "generation": 3218.0
+        },
+        "token_usage": {
+          "input": 2220,
+          "output": 765,
+          "total": 2985
+        },
+        "estimated_cost": null,
+        "model_calls": 2,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [],
+          [
+            0
+          ],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 1,
+        "metric_eligible": true
+      },
+      "category": "table_lookup",
+      "question": "直线地段单线矩形隧道中，A型车、B1型车和B2型车在左右侧不同疏散平台条件下的建筑限界宽度分别是多少？",
+      "expected_answerability": true,
+      "gold_answer": "表6.3.1显示：行车方向右侧限界至线路中心线距离，A型车、B1型车、B2型车分别为2200mm、2100mm、2100mm。行车方向左侧设置纵向辅助疏散平台时分别为2500mm、2400mm、2400mm。左侧不设纵向辅助疏散平台时分别为2100mm、2000mm、2000mm。",
+      "required_requirements": [
+        "给出行车方向右侧三种车型的限界距离",
+        "给出左侧设纵向辅助疏散平台时三种车型的限界距离",
+        "给出左侧不设纵向辅助疏散平台时三种车型的限界距离"
+      ],
+      "key_answer_points": [
+        "表6.3.1显示：行车方向右侧限界至线路中心线距离，A型车、B1型车、B2型车分别为2200mm、2100mm、2100mm",
+        "行车方向左侧设置纵向辅助疏散平台时分别为2500mm、2400mm、2400mm",
+        "左侧不设纵向辅助疏散平台时分别为2100mm、2000mm、2000mm"
+      ],
+      "numeric_expectations": [
+        {
+          "value": "2200",
+          "unit": "mm",
+          "conditions": [
+            "行车方向右侧，A型车"
+          ]
+        },
+        {
+          "value": "2100",
+          "unit": "mm",
+          "conditions": [
+            "行车方向右侧，B1型车或B2型车"
+          ]
+        },
+        {
+          "value": "2500",
+          "unit": "mm",
+          "conditions": [
+            "行车方向左侧设纵向辅助疏散平台，A型车"
+          ]
+        },
+        {
+          "value": "2400",
+          "unit": "mm",
+          "conditions": [
+            "行车方向左侧设纵向辅助疏散平台，B1型车或B2型车"
+          ]
+        },
+        {
+          "value": "2100",
+          "unit": "mm",
+          "conditions": [
+            "行车方向左侧无纵向辅助疏散平台，A型车"
+          ]
+        },
+        {
+          "value": "2000",
+          "unit": "mm",
+          "conditions": [
+            "行车方向左侧无纵向辅助疏散平台，B1型车或B2型车"
+          ]
+        }
+      ],
+      "request_id": "f73d112d00bf4e68bd701fe8afc9a578",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 41,
+          "article": null,
+          "table": "表6.3.1"
+        }
+      ],
+      "final_action": "answer",
+      "retry_count": 0,
+      "rewritten_query": null,
+      "final_answer_or_refusal": "直线地段单线矩形隧道中，A型车、B1型车和B2型车的建筑限界按“限界至线路中心线距离”取值如下 [E1][E2]：\n\n- **A型车**：行车方向右侧为 **2200 mm**；左侧设纵向辅助疏散平台时为 **2500 mm**，无纵向辅助疏散平台时为 **2100 mm** [E1][E2]。\n- **B1型车**：右侧为 **2100 mm**；左侧设纵向辅助疏散平台时为 **2400 mm**，无平台时为 **2000 mm** [E1][E2]。\n- **B2型车**：右侧为 **2100 mm**；左侧设纵向辅助疏散平台时为 **2400 mm**，无平台时为 **2000 mm** [E1][E2]。",
+      "first_grade": {
+        "step": "grade",
+        "decision": "sufficient",
+        "missing_requirements": [],
+        "retry_count": 0
+      },
+      "second_grade": null,
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "直线地段单线矩形隧道中，A型车、B1型车和B2型车在左右侧不同疏散平台条件下的建筑限界宽度分别是多少？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "sufficient",
+          "missing_requirements": [],
+          "retry_count": 0
+        },
+        {
+          "step": "answer"
+        },
+        {
+          "step": "citation_validation",
+          "valid": true
+        }
+      ],
+      "initial_candidate_count": 14,
+      "retry_candidate_count": null,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_evidence_refs": [
+        {
+          "text": "表6.3.1\n直线地段单线矩形隧道建筑限界宽度取值表（mm）\nA型车\nB型车\nB1\nB2\n行车方向右侧限界至线路中心线距离\n2200\n2100\n2100\n行车方向左侧限界至线路中心线距离（设纵向辅助疏散平台）\n2500\n2400\n2400\n行车方向左侧限界至线路中心线距离（无纵向辅助疏散平台）\n2100\n2000\n2000\n2\n平面曲线地段矩形隧道建筑限界，应在直线地段建筑限界基础上加宽。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 41,
+          "page_end": 41,
+          "article_id": "6.3.1",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 410,
+          "score": 0.8147290945053101,
+          "rrf_score": null,
+          "rerank_score": 0.9997747540473938,
+          "display_ref": "第6.3.1条"
+        },
+        {
+          "text": "表格 页码: 41\n表号: 表6.3.1\n表题: 直线地段单线矩形隧道建筑限界宽度取值表（mm）\n表头: A型车 | B型车 | B1 | B2 | 行车方向右侧限界至线路中心线距离 | 2200 | 2100 | 2100\n第1行: 行车方向左侧限界至线路中心线距离（设纵向辅助疏散平台） | 2500 | 2400 | 2400\n第2行: 行车方向左侧限界至线路中心线距离（无纵向辅助疏散平台） | 2100 | 2000 | 2000",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 41,
+          "page_end": 41,
+          "article_id": null,
+          "table_id": "表6.3.1",
+          "content_type": "table",
+          "chunk_id": 416,
+          "score": 0.7712949514389038,
+          "rrf_score": null,
+          "rerank_score": 0.9995928406715393,
+          "display_ref": "表6.3.1"
+        },
+        {
+          "text": "6.3.6\n隧道外的区间建筑限界，包括高架区间、地面区间和U 形槽过渡段，均按照隧道外设备限界设计。\n隧道外区间多为双线地段，设置纵向辅助疏散平台时，线间距按设备限界（直线地段采用直线设备限界、\n曲线地段采用曲线设备限界）加纵向辅助疏散平台宽度以及安全间隙50mm 计算确定。安全间隙规定\n50mm 有利于调节线间距（当纵向辅助疏散平台宽度为定值时）或纵向辅助疏散平台宽度取整（当曲、\n直线线间距相同时）。建筑限界宽度参照矩形隧道建筑限界制定方法确定。\n接触网支柱和声屏障的设置，本条只作原则规定，应由接触网专业和声屏障专业具体设计。\n建筑限界高度：对于采用受电弓受流的A 型车和B2 型车，建筑限界",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 287,
+          "page_end": 287,
+          "article_id": "6.3.6",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2887,
+          "score": 0.8066688179969788,
+          "rrf_score": null,
+          "rerank_score": 0.9989756345748901,
+          "display_ref": "第6.3.6条"
+        }
+      ],
+      "citation_validation": {
+        "valid": true,
+        "cited_ids": [
+          "E1",
+          "E2"
+        ],
+        "available_ids": [
+          "E1",
+          "E2",
+          "E3"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "IND-005",
+      "measurements": {
+        "wall_time_ms": 12265.999999828637,
+        "stage_timings_ms": {
+          "retrieval": 16.0,
+          "rerank": 1281.0,
+          "grader": 3407.0,
+          "generation": 7562.0
+        },
+        "token_usage": {
+          "input": 1734,
+          "output": 1591,
+          "total": 3325
+        },
+        "estimated_cost": null,
+        "model_calls": 2,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          true,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 2,
+        "metric_eligible": true
+      },
+      "category": "multi_evidence_candidate",
+      "question": "人防隔断门或防淹门的建筑限界，以及设备安装地段的限界检算有哪些要求？",
+      "expected_answerability": true,
+      "gold_answer": "直线地段人防隔断门（或防淹门）门框建筑限界应符合下列规定： 1 防隔断门、防淹门的建筑限界，在车辆静止状态下应满足宽度方向的安全间隙，且不应小 于600mm； 2 人防隔断门（或防淹门）门框顶部距走行轨轨顶面的限界高度应与区间矩形隧道一致； 3 曲线地段的建筑限界应在直线地段建筑限界的基础上加宽。 在安装射流风机、风管、配电柜、控制箱、接触网隔离开关道岔转辙机等设备地段，应按设备 安装位置及尺寸检算建筑限界，必要时应采取局部加宽、加高措施。",
+      "required_requirements": [
+        "覆盖要点：防隔断门、防淹门的建筑限界，在车辆静止状态下应满足宽度方向的安全间隙，且不应小 于600mm",
+        "覆盖要点：人防隔断门（或防淹门）门框顶部距走行轨轨顶面的限界高度应与区间矩形隧道一致",
+        "覆盖要点：曲线地段的建筑限界应在直线地段建筑限界的基础上加宽",
+        "覆盖要点：在安装射流风机、风管、配电柜、控制箱、接触网隔离开关道岔转辙机等设备地段，应按设备 安装位置及尺寸检算建筑限界，必要时应采取局部加宽、加高措施"
+      ],
+      "key_answer_points": [
+        "防隔断门、防淹门的建筑限界，在车辆静止状态下应满足宽度方向的安全间隙，且不应小 于600mm",
+        "人防隔断门（或防淹门）门框顶部距走行轨轨顶面的限界高度应与区间矩形隧道一致",
+        "曲线地段的建筑限界应在直线地段建筑限界的基础上加宽",
+        "在安装射流风机、风管、配电柜、控制箱、接触网隔离开关道岔转辙机等设备地段，应按设备 安装位置及尺寸检算建筑限界，必要时应采取局部加宽、加高措施"
+      ],
+      "numeric_expectations": [
+        {
+          "value": "600",
+          "unit": "mm",
+          "conditions": [
+            "直线地段人防隔断门（或防淹门）门框建筑限界应符合下列规定： 1 防隔断门、防淹门的建筑限界，在车辆静止状态下应满足宽度方向的安全间隙，且不应小 于600mm"
+          ]
+        }
+      ],
+      "request_id": "b82ca97c0ac24d27bafc5d6cc2c0a522",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 42,
+          "article": "6.3.10",
+          "table": null
+        },
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 42,
+          "article": "6.3.11",
+          "table": null
+        }
+      ],
+      "final_action": "answer",
+      "retry_count": 0,
+      "rewritten_query": null,
+      "final_answer_or_refusal": "核心结论：人防隔断门（或防淹门）门框建筑限界应满足宽度安全间隙、门框高度及曲线加宽要求；设备安装地段应按设备位置和尺寸检算建筑限界，必要时局部加宽、加高 [E1][E2]。\n\n1. **门框建筑限界**：直线地段在车辆静止状态下，宽度方向安全间隙不应小于600mm [E1]；宽度限界同时考虑列车通过限界和人员疏散空间 [E3]。门框顶部距走行轨轨顶面的限界高度应与区间矩形隧道一致 [E1][E3]。建筑限界内除架空接触导线外，一切管线应在门框以外通过 [E3]。\n\n2. **曲线地段**：建筑限界应在直线地段建筑限界基础上加宽 [E1]。\n\n3. **设备安装地段**：在安装射流风机、风管、配电柜、控制箱、接触网隔离开关、道岔转辙机等设备地段，应按设备安装位置及尺寸检算建筑限界，必要时应采取局部加宽、加高措施 [E2]。",
+      "first_grade": {
+        "step": "grade",
+        "decision": "sufficient",
+        "missing_requirements": [],
+        "retry_count": 0
+      },
+      "second_grade": null,
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "人防隔断门或防淹门的建筑限界，以及设备安装地段的限界检算有哪些要求？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "sufficient",
+          "missing_requirements": [],
+          "retry_count": 0
+        },
+        {
+          "step": "answer"
+        },
+        {
+          "step": "citation_validation",
+          "valid": true
+        }
+      ],
+      "initial_candidate_count": 17,
+      "retry_candidate_count": null,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [
+          0,
+          1
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": true
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [
+          0,
+          1
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": true
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [
+          0,
+          1
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": true
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [
+          0,
+          1
+        ],
+        "gold_count": 2,
+        "hit": true,
+        "complete": true
+      },
+      "final_evidence_refs": [
+        {
+          "text": "6.3.10\n直线地段人防隔断门（或防淹门）门框建筑限界应符合下列规定：\n1\n防隔断门、防淹门的建筑限界，在车辆静止状态下应满足宽度方向的安全间隙，且不应小\n于600mm；\n2\n人防隔断门（或防淹门）门框顶部距走行轨轨顶面的限界高度应与区间矩形隧道一致；\n3\n曲线地段的建筑限界应在直线地段建筑限界的基础上加宽。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 42,
+          "page_end": 42,
+          "article_id": "6.3.10",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 423,
+          "score": 0.8112068176269531,
+          "rrf_score": null,
+          "rerank_score": 0.9991344809532166,
+          "display_ref": "第6.3.10条"
+        },
+        {
+          "text": "6.3.11\n在安装射流风机、风管、配电柜、控制箱、接触网隔离开关道岔转辙机等设备地段，应按设备\n安装位置及尺寸检算建筑限界，必要时应采取局部加宽、加高措施。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 42,
+          "page_end": 42,
+          "article_id": "6.3.11",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 424,
+          "score": 0.6795482635498047,
+          "rrf_score": null,
+          "rerank_score": 0.994036078453064,
+          "display_ref": "第6.3.11条"
+        },
+        {
+          "text": "6.3.10\n本条第1 款为修订条文，人防门、防淹门宽度除了保证列策划通过限界，同时考虑了人员疏散\n空间。防淹门和人防隔断门建筑限界内除架空接触导线外的一切管线都需在门框以外通过。考虑空气动\n力学因素，规定门框高度应与区间矩形隧道的限界高度一致。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 287,
+          "page_end": 287,
+          "article_id": "6.3.10",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2892,
+          "score": 0.7957153916358948,
+          "rrf_score": null,
+          "rerank_score": 0.9896717071533203,
+          "display_ref": "第6.3.10条"
+        }
+      ],
+      "citation_validation": {
+        "valid": true,
+        "cited_ids": [
+          "E1",
+          "E2",
+          "E3"
+        ],
+        "available_ids": [
+          "E1",
+          "E2",
+          "E3"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "IND-006",
+      "measurements": {
+        "wall_time_ms": 13781.000000424683,
+        "stage_timings_ms": {
+          "retrieval": 32.0,
+          "rerank": 5875.0,
+          "grader": 7874.0
+        },
+        "token_usage": {
+          "input": 1886,
+          "output": 1081,
+          "total": 2967
+        },
+        "estimated_cost": null,
+        "model_calls": 2,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [
+            0
+          ],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 1,
+        "metric_eligible": false
+      },
+      "category": "partial_support_unanswerable",
+      "question": "安装射流风机、风管和配电柜等设备时应怎样检算建筑限界？本项目实际设备尺寸和最终加宽、加高量是多少？",
+      "expected_answerability": false,
+      "gold_answer": "在安装射流风机、风管、配电柜、控制箱、接触网隔离开关道岔转辙机等设备地段，应按设备 安装位置及尺寸检算建筑限界，必要时应采取局部加宽、加高措施。 规范未给出本项目实际设备尺寸和最终加宽、加高量，因此不能完整回答项目实施值。",
+      "required_requirements": [
+        "说明设备安装地段的建筑限界检算与处置要求",
+        "识别项目实际设备尺寸和最终加宽、加高量不在规范中，拒绝编造"
+      ],
+      "key_answer_points": [
+        "在安装射流风机、风管、配电柜、控制箱、接触网隔离开关道岔转辙机等设备地段，应按设备 安装位置及尺寸检算建筑限界，必要时应采取局部加宽、加高措施。",
+        "规范不能给出本项目实际设备尺寸和最终加宽、加高量"
+      ],
+      "numeric_expectations": [],
+      "request_id": "b32a7aab49424333b32e6c1af551f612",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 42,
+          "article": "6.3.11",
+          "table": null
+        }
+      ],
+      "final_action": "refuse",
+      "retry_count": 1,
+      "rewritten_query": "本项目实际设备尺寸；本项目最终加宽量；本项目最终加高量",
+      "final_answer_or_refusal": "当前规范及已检索证据不足以完整回答该问题。 缺少的信息：本项目实际设备尺寸；本项目最终加宽量；本项目最终加高量。",
+      "first_grade": {
+        "step": "grade",
+        "decision": "insufficient",
+        "missing_requirements": [
+          "本项目实际设备尺寸",
+          "本项目最终加宽量",
+          "本项目最终加高量"
+        ],
+        "retry_count": 0
+      },
+      "second_grade": {
+        "step": "grade",
+        "decision": "insufficient",
+        "missing_requirements": [
+          "本项目实际设备尺寸",
+          "本项目最终加宽量",
+          "本项目最终加高量"
+        ],
+        "retry_count": 1
+      },
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "安装射流风机、风管和配电柜等设备时应怎样检算建筑限界？本项目实际设备尺寸和最终加宽、加高量是多少？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "本项目实际设备尺寸",
+            "本项目最终加宽量",
+            "本项目最终加高量"
+          ],
+          "retry_count": 0
+        },
+        {
+          "step": "parse_evidence_requirements",
+          "question_requirements": [
+            {
+              "business_id": null,
+              "article_id": null,
+              "subrequirement": "安装射流风机、风管和配电柜等设备时应怎样检算建筑限界？本项目实际设备尺寸和最终加宽、加高量是多少？",
+              "source": "question",
+              "authoritative": true,
+              "status": "missing_version",
+              "reason": "specification_version_not_explicit"
+            }
+          ],
+          "grader_requirements": [
+            {
+              "business_id": null,
+              "article_id": null,
+              "subrequirement": "本项目实际设备尺寸",
+              "source": "grader",
+              "authoritative": true,
+              "status": "mapped_to_question",
+              "reason": null
+            },
+            {
+              "business_id": null,
+              "article_id": null,
+              "subrequirement": "本项目最终加宽量",
+              "source": "grader",
+              "authoritative": true,
+              "status": "mapped_to_question",
+              "reason": null
+            },
+            {
+              "business_id": null,
+              "article_id": null,
+              "subrequirement": "本项目最终加高量",
+              "source": "grader",
+              "authoritative": true,
+              "status": "mapped_to_question",
+              "reason": null
+            }
+          ]
+        },
+        {
+          "step": "retry",
+          "retry_count": 1,
+          "missing_requirements": [
+            "本项目实际设备尺寸",
+            "本项目最终加宽量",
+            "本项目最终加高量"
+          ]
+        },
+        {
+          "step": "retrieve",
+          "query": "本项目实际设备尺寸；本项目最终加宽量；本项目最终加高量",
+          "retry_count": 1
+        },
+        {
+          "step": "retain_article_groups",
+          "evidence_limit": 3,
+          "retained_groups": [
+            {
+              "business_id": "None@None",
+              "article_id": "6.3.11",
+              "chunk_ids": [
+                424
+              ],
+              "basis": "unique_direct_coverage",
+              "covered_text": "安装射流风机、风管和配电柜等设备时应怎样检算建筑限界？本项目实际设备尺寸和最终加宽、加高量是多少？"
+            }
+          ],
+          "fallbacks": [
+            {
+              "subrequirement": "本项目实际设备尺寸",
+              "reason": "no_direct_coverage",
+              "candidate_articles": []
+            },
+            {
+              "subrequirement": "本项目最终加宽量",
+              "reason": "no_direct_coverage",
+              "candidate_articles": []
+            },
+            {
+              "subrequirement": "本项目最终加高量",
+              "reason": "no_direct_coverage",
+              "candidate_articles": []
+            }
+          ]
+        },
+        {
+          "step": "verify_final_evidence_context",
+          "complete": true,
+          "within_scope": true,
+          "incomplete_groups": [],
+          "out_of_scope": []
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "本项目实际设备尺寸",
+            "本项目最终加宽量",
+            "本项目最终加高量"
+          ],
+          "retry_count": 1
+        },
+        {
+          "step": "refuse",
+          "missing_requirements": [
+            "本项目实际设备尺寸",
+            "本项目最终加宽量",
+            "本项目最终加高量"
+          ]
+        }
+      ],
+      "initial_candidate_count": 18,
+      "retry_candidate_count": 20,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_evidence_refs": [
+        {
+          "text": "6.3.11\n在安装射流风机、风管、配电柜、控制箱、接触网隔离开关道岔转辙机等设备地段，应按设备\n安装位置及尺寸检算建筑限界，必要时应采取局部加宽、加高措施。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 42,
+          "page_end": 42,
+          "article_id": "6.3.11",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 424,
+          "score": 0.8372566103935242,
+          "rrf_score": null,
+          "rerank_score": null,
+          "display_ref": "第6.3.11条"
+        },
+        {
+          "text": "加宽量应按下式计算：\n���=\n222768+30240��\n���\n（E.0.1-3）\n式中：\n���—缓和曲线引起的曲线外侧限界加宽量（mm）。\n4\nB1 型车和B2 型车缓和曲线外侧加宽量应按下式计算：\n���=\n160107+25280��\n���\n（E.0.1-4）\nE.0.2 轨道超高引起的加宽量应按下列公式计算：\nihe ⁼X¹ cosα⁺Y¹ sinα-X¹\n（E.0.2-1）\no\nhe ⁼X² cosα-Y² sinα-X²\n（E.0.2-2）\nhtc =hac×lj/L\n（E.0.2-3）\nα=sin\n-1（htc/s）\n（E.0.2-4）\n式中：\nihe\n—轨道超高引起的",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 257,
+          "page_end": 257,
+          "article_id": "31.3.11",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2680,
+          "score": 0.592071533203125,
+          "rrf_score": null,
+          "rerank_score": 0.9521123766899109,
+          "display_ref": "第31.3.11条"
+        },
+        {
+          "text": ".0.2-3）\nα=sin\n-1（htc/s）\n（E.0.2-4）\n式中：\nihe\n—轨道超高引起的缓和曲线内侧限界加宽量（mm）；\no\nhe\n—轨道超高引起的缓和曲线外侧限界加宽量（mm）；\nX1 —计算曲线内侧限界加宽的设备限界控制点的横坐标值（mm）；\nY1 —计算曲线内侧限界加宽的设备限界控制点的纵坐标值（mm）；\nX2 —计算曲线外侧限界加宽的设备限界控制点的横坐标值（mm）；\nY2 —计算曲线外侧限界加宽的设备限界控制点的纵坐标值（mm）；\nhac —圆曲线段轨道超高值；\nhtc\n—缓和曲线上计算点处的超高值（mm）。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 257,
+          "page_end": 257,
+          "article_id": "31.3.11",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2681,
+          "score": 0.0,
+          "rrf_score": null,
+          "rerank_score": 0.9207007884979248,
+          "display_ref": "第31.3.11条"
+        }
+      ],
+      "citation_validation": null
+    },
+    {
+      "id": "IND-007",
+      "measurements": {
+        "wall_time_ms": 11718.999999575317,
+        "stage_timings_ms": {
+          "retrieval": 32.0,
+          "rerank": 1125.0,
+          "grader": 4265.0,
+          "generation": 6297.0
+        },
+        "token_usage": {
+          "input": 2348,
+          "output": 1475,
+          "total": 3823
+        },
+        "estimated_cost": null,
+        "model_calls": 2,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [
+            0
+          ],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 1,
+        "metric_eligible": true
+      },
+      "category": "numeric_candidate",
+      "question": "车辆基地库内平台、车库大门和信号设备与车辆轮廓或设备限界之间有哪些净距要求？",
+      "expected_answerability": true,
+      "gold_answer": "车辆基地内轨行区周边的建筑限界应符合下列规定： 1 车辆基地库内检修高平台及安全栅栏距车辆轮廓之间的间隙应限定在80mm～120mm； 2 库内作业平台的低平台及司机登车平台应采用车站站台限界，司机登车平台安全栅栏按设备限 界确定； 3 当列车升弓进库时，车库大门高度应按接触网安装高度限界确定； 4 线路直线地段信号设备至设备限界的净距不得小于200mm，曲线段及道岔区限界应加宽。",
+      "required_requirements": [
+        "覆盖要点：车辆基地库内检修高平台及安全栅栏距车辆轮廓之间的间隙应限定在80mm～120mm",
+        "覆盖要点：库内作业平台的低平台及司机登车平台应采用车站站台限界，司机登车平台安全栅栏按设备限 界确定",
+        "覆盖要点：当列车升弓进库时，车库大门高度应按接触网安装高度限界确定",
+        "覆盖要点：线路直线地段信号设备至设备限界的净距不得小于200mm，曲线段及道岔区限界应加宽"
+      ],
+      "key_answer_points": [
+        "车辆基地库内检修高平台及安全栅栏距车辆轮廓之间的间隙应限定在80mm～120mm",
+        "库内作业平台的低平台及司机登车平台应采用车站站台限界，司机登车平台安全栅栏按设备限 界确定",
+        "当列车升弓进库时，车库大门高度应按接触网安装高度限界确定",
+        "线路直线地段信号设备至设备限界的净距不得小于200mm，曲线段及道岔区限界应加宽"
+      ],
+      "numeric_expectations": [
+        {
+          "value": "80",
+          "unit": "mm",
+          "conditions": [
+            "车辆基地内轨行区周边的建筑限界应符合下列规定： 1 车辆基地库内检修高平台及安全栅栏距车辆轮廓之间的间隙应限定在80mm～120mm"
+          ]
+        },
+        {
+          "value": "120",
+          "unit": "mm",
+          "conditions": [
+            "车辆基地内轨行区周边的建筑限界应符合下列规定： 1 车辆基地库内检修高平台及安全栅栏距车辆轮廓之间的间隙应限定在80mm～120mm"
+          ]
+        },
+        {
+          "value": "200",
+          "unit": "mm",
+          "conditions": [
+            "4 线路直线地段信号设备至设备限界的净距不得小于200mm，曲线段及道岔区限界应加宽"
+          ]
+        }
+      ],
+      "request_id": "6c43f730e59d4788848fb3c5df4e35d4",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 42,
+          "article": "6.3.12",
+          "table": null
+        }
+      ],
+      "final_action": "answer",
+      "retry_count": 0,
+      "rewritten_query": null,
+      "final_answer_or_refusal": "核心结论：库内高平台及安全栅栏距车辆轮廓应控制在80mm～120mm，信号设备至设备限界直线地段不得小于200mm；低平台、司机登车平台及车库大门按相应限界确定。\n\n1. **库内检修高平台及安全栅栏**：距车辆轮廓之间的间隙应限定在80mm～120mm [E1]。  \n2. **库内低平台及司机登车平台**：应采用车站站台限界；司机登车平台安全栅栏应按设备限界确定 [E1]。  \n3. **车库大门**：当列车升弓进库时，车库大门高度应按接触网安装高度限界确定 [E1]。车库大门等部位最小尺寸宜符合表27.6.13，但给定片段未列出大门具体尺寸值 [E2]。  \n4. **信号设备**：线路直线地段信号设备至设备限界的净距不得小于200mm；曲线段及道岔区限界应加宽 [E1]。  \n\n车库大门与车辆轮廓或设备限界之间的具体数值净距，给定片段未提供完整信息。",
+      "first_grade": {
+        "step": "grade",
+        "decision": "sufficient",
+        "missing_requirements": [],
+        "retry_count": 0
+      },
+      "second_grade": null,
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "车辆基地库内平台、车库大门和信号设备与车辆轮廓或设备限界之间有哪些净距要求？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "sufficient",
+          "missing_requirements": [],
+          "retry_count": 0
+        },
+        {
+          "step": "answer"
+        },
+        {
+          "step": "citation_validation",
+          "valid": true
+        }
+      ],
+      "initial_candidate_count": 13,
+      "retry_candidate_count": null,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_evidence_refs": [
+        {
+          "text": "6.3.12\n车辆基地内轨行区周边的建筑限界应符合下列规定：\n1\n车辆基地库内检修高平台及安全栅栏距车辆轮廓之间的间隙应限定在80mm～120mm；\n2\n库内作业平台的低平台及司机登车平台应采用车站站台限界，司机登车平台安全栅栏按设备限\n界确定；\n3\n当列车升弓进库时，车库大门高度应按接触网安装高度限界确定；\n4\n线路直线地段信号设备至设备限界的净距不得小于200mm，曲线段及道岔区限界应加宽。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 42,
+          "page_end": 42,
+          "article_id": "6.3.12",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 425,
+          "score": 0.7710623741149902,
+          "rrf_score": null,
+          "rerank_score": 0.9993942975997925,
+          "display_ref": "第6.3.12条"
+        },
+        {
+          "text": "27.6.13\n车辆基地各车库的通道宽度和车库大门等部位的最小尺寸宜符合表27.6.13 的规定。\n表27.6.13\n车辆基地各车库有关部位最小尺寸（m）\n车库种类项目名称\n停车库\n列检库\n月检库\n临修库\n架修库\n油漆库\n调车机车库\n车体之间通道宽度（无柱）\n1.6（1.4）\n2.0（1.8）\n3.0\n4.0\n4.5\n2.5\n2.0\n车体与侧墙之间通道宽度\n1.5（1.4）\n2.0（1.6）\n3.0\n3.5\n4.0\n2.5\n1.7\n车体与柱边通道宽度\n1.3（1.2）\n1.8（1.4）\n2.2\n3.0\n3.2\n2.2\n1.5\n库内前、后通道净宽\n4.0\n4.0\n4.0\n5.0\n5.0\n3.0",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 207,
+          "page_end": 207,
+          "article_id": "27.6.13",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2253,
+          "score": 0.6789654493331909,
+          "rrf_score": null,
+          "rerank_score": 0.9439408779144287,
+          "display_ref": "第27.6.13条"
+        },
+        {
+          "text": "18.8.8\n全自动车辆基地信号系统除应满足本标准第18.8.7 条的要求外，还应满足下列要求：\n1\n应在自动化区域内实现列车出入车辆基地的全自动运行功能；\n2\n正线与车辆基地之间的转换轨至洗车库线、洗车库线至停车列检库之间的范围应纳入自动化区\n域；\n3\n自动化区域内应按防护区域分别设置人员防护开关及人员防护旁路开关，对进入自动化区域的\n作业人员进行防护；洗车库线和车辆基地咽喉区应分别设置为单独人员防护区域，停车列检库内宜结合\n车辆基地工艺专业的防护分区划分设置库内人员防护区域；\n4\n在进出洗车库前设置出库/入库信号机，采用矮型黄、白、红三显示信号机构，红灯为定位；\n5\n车辆基地内的自动作业宜",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 163,
+          "page_end": 163,
+          "article_id": "18.8.8",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 1722,
+          "score": 27.595100250878087,
+          "rrf_score": null,
+          "rerank_score": 0.9337748885154724,
+          "display_ref": "第18.8.8条"
+        }
+      ],
+      "citation_validation": {
+        "valid": true,
+        "cited_ids": [
+          "E1",
+          "E2"
+        ],
+        "available_ids": [
+          "E1",
+          "E2",
+          "E3"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "IND-008",
+      "measurements": {
+        "wall_time_ms": 22938.000000081956,
+        "stage_timings_ms": {
+          "retrieval": 16.0,
+          "rerank": 1406.0,
+          "grader": 11234.0,
+          "generation": 10282.0
+        },
+        "token_usage": {
+          "input": 1808,
+          "output": 3224,
+          "total": 5032
+        },
+        "estimated_cost": null,
+        "model_calls": 2,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [
+            0
+          ],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 1,
+        "metric_eligible": true
+      },
+      "category": "numeric_candidate",
+      "question": "区间隧道的强弱电设备、消防水管、疏散平台和射流风机应如何布置？",
+      "expected_answerability": true,
+      "gold_answer": "区间隧道内管线设备布置应符合下列规定： 1 行车方向右侧宜布置弱电设备、消防水管和管线，行车方向左侧宜布置强电设备和管线； 2 纵向辅助疏散平台面上方的净高不应小于2000mm； 3 射流风机宜设置在行车方向右侧，条件允许时射流风机可设置在隧道顶部； 4 当接触网（轨）隔离开关安装在轨行区时，不得侵入设备限界。",
+      "required_requirements": [
+        "覆盖要点：行车方向右侧宜布置弱电设备、消防水管和管线，行车方向左侧宜布置强电设备和管线",
+        "覆盖要点：纵向辅助疏散平台面上方的净高不应小于2000mm",
+        "覆盖要点：射流风机宜设置在行车方向右侧，条件允许时射流风机可设置在隧道顶部",
+        "覆盖要点：当接触网（轨）隔离开关安装在轨行区时，不得侵入设备限界"
+      ],
+      "key_answer_points": [
+        "行车方向右侧宜布置弱电设备、消防水管和管线，行车方向左侧宜布置强电设备和管线",
+        "纵向辅助疏散平台面上方的净高不应小于2000mm",
+        "射流风机宜设置在行车方向右侧，条件允许时射流风机可设置在隧道顶部",
+        "当接触网（轨）隔离开关安装在轨行区时，不得侵入设备限界"
+      ],
+      "numeric_expectations": [
+        {
+          "value": "2000",
+          "unit": "mm",
+          "conditions": [
+            "2 纵向辅助疏散平台面上方的净高不应小于2000mm"
+          ]
+        }
+      ],
+      "request_id": "5d66cf2823ae413ca70afd8233fbd5be",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 42,
+          "article": "6.4.3",
+          "table": null
+        }
+      ],
+      "final_action": "answer",
+      "retry_count": 0,
+      "rewritten_query": null,
+      "final_answer_or_refusal": "核心结论：区间隧道内强弱电与消防水管应按行车方向分侧布置，疏散平台应满足净高及防火构造要求，射流风机宜设于行车方向右侧或隧道顶部。[E1][E2]\n\n1. **强弱电设备及消防水管**：行车方向右侧宜布置弱电设备、消防水管和管线；行车方向左侧宜布置强电设备和管线。[E1]\n2. **疏散平台**：纵向辅助疏散平台面上方净高不应小于2000mm；靠隧道壁的墙上应设置靠墙扶手，与联络通道有高差时应采用楼梯或坡道连接；平台应采用不燃烧体，耐火极限不应低于1.00h，最小宽度和平台高度等应符合第6.2节、6.4节规定。[E1][E2]\n3. **射流风机**：宜设置在行车方向右侧，条件允许时可设置在隧道顶部；当接触网（轨）隔离开关安装在轨行区时，不得侵入设备限界。[E1]",
+      "first_grade": {
+        "step": "grade",
+        "decision": "sufficient",
+        "missing_requirements": [],
+        "retry_count": 0
+      },
+      "second_grade": null,
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "区间隧道的强弱电设备、消防水管、疏散平台和射流风机应如何布置？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "sufficient",
+          "missing_requirements": [],
+          "retry_count": 0
+        },
+        {
+          "step": "answer"
+        },
+        {
+          "step": "citation_validation",
+          "valid": true
+        }
+      ],
+      "initial_candidate_count": 18,
+      "retry_candidate_count": null,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_evidence_refs": [
+        {
+          "text": "6.4.3\n区间隧道内管线设备布置应符合下列规定：\n1\n行车方向右侧宜布置弱电设备、消防水管和管线，行车方向左侧宜布置强电设备和管线；\n2\n纵向辅助疏散平台面上方的净高不应小于2000mm；\n3\n射流风机宜设置在行车方向右侧，条件允许时射流风机可设置在隧道顶部；\n4\n当接触网（轨）隔离开关安装在轨行区时，不得侵入设备限界。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 42,
+          "page_end": 42,
+          "article_id": "6.4.3",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 429,
+          "score": 0.8176515102386475,
+          "rrf_score": null,
+          "rerank_score": 0.999455988407135,
+          "display_ref": "第6.4.3条"
+        },
+        {
+          "text": "30.7.5\n区间设置的纵向辅助疏散平台应符合下列规定：\n1\n靠隧道壁的墙上应设置靠墙扶手；\n2\n疏散平台与联络通道有高差时，应采用楼梯或坡道连接；\n3\n疏散平台最小宽度和平台高度等其他要求应符合本标准第6.2 节和6.4 节的规定；\n3\n疏散平台应采用不燃烧体，耐火极限不应低于1.00h；",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 235,
+          "page_end": 235,
+          "article_id": "30.7.5",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2552,
+          "score": 23.65155676986442,
+          "rrf_score": null,
+          "rerank_score": 0.9963507652282715,
+          "display_ref": "第30.7.5条"
+        },
+        {
+          "text": "设；\n4）区间隧道内电缆横向过轨宜采用预埋管方式敷设；\n5）地面或高架地段电缆横向过轨可采用预埋管方式敷设；\n6）电缆接续宜采用免维护接续方式。\n3\n信号电线路应与电力线路分开敷设。交叉敷设或敷设间距不满足要求时，信号系统的电线路应\n采取防护措施，敷设间距应符合本标准第17.2.2 条13 款的规定；",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 165,
+          "page_end": 165,
+          "article_id": "18.9.8",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 1740,
+          "score": 0.6795727014541626,
+          "rrf_score": null,
+          "rerank_score": 0.982783317565918,
+          "display_ref": "第18.9.8条"
+        }
+      ],
+      "citation_validation": {
+        "valid": true,
+        "cited_ids": [
+          "E1",
+          "E2"
+        ],
+        "available_ids": [
+          "E1",
+          "E2",
+          "E3"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "IND-009",
+      "measurements": {
+        "wall_time_ms": 7000.0,
+        "stage_timings_ms": {
+          "retrieval": 15.0,
+          "rerank": 1406.0,
+          "grader": 2469.0,
+          "generation": 3110.0
+        },
+        "token_usage": {
+          "input": 1966,
+          "output": 673,
+          "total": 2639
+        },
+        "estimated_cost": null,
+        "model_calls": 2,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [
+            0
+          ],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 1,
+        "metric_eligible": true
+      },
+      "category": "article_lookup_candidate",
+      "question": "大坡段与小半径曲线、新建线与既有线贯通时的纵坡确定有哪些限制？",
+      "expected_answerability": true,
+      "gold_answer": "大坡段不宜与平面小半径曲线重叠。既有线延伸或新建线与既有线贯通运营时，应核查既有线车 辆的牵引和制动的动力性能后确定新建线路的最大纵坡及长大陡坡。",
+      "required_requirements": [
+        "覆盖要点：大坡段不宜与平面小半径曲线重叠",
+        "覆盖要点：既有线延伸或新建线与既有线贯通运营时，应核查既有线车 辆的牵引和制动的动力性能后确定新建线路的最大纵坡及长大陡坡"
+      ],
+      "key_answer_points": [
+        "大坡段不宜与平面小半径曲线重叠",
+        "既有线延伸或新建线与既有线贯通运营时，应核查既有线车 辆的牵引和制动的动力性能后确定新建线路的最大纵坡及长大陡坡"
+      ],
+      "numeric_expectations": [],
+      "request_id": "8522f2e98ab945f2b0de54c98eb58f70",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 48,
+          "article": "7.3.4",
+          "table": null
+        }
+      ],
+      "final_action": "answer",
+      "retry_count": 0,
+      "rewritten_query": null,
+      "final_answer_or_refusal": "核心结论：大坡段不宜与平面小半径曲线重叠；新建线与既有线贯通运营时，应核查既有线车辆牵引和制动动力性能后，确定新建线路的最大纵坡及长大陡坡 [E1]。\n\n1. **大坡段与平面小半径曲线**：大坡段不宜与平面小半径曲线重叠 [E1]。\n2. **新建线与既有线贯通运营**：既有线延伸或新建线与既有线贯通运营时，应核查既有线车辆的牵引和制动的动力性能，并据此确定新建线路的最大纵坡及长大陡坡 [E1]。\n\n给定片段未提供上述情形下具体的最大纵坡数值或定量限值 [E1]。",
+      "first_grade": {
+        "step": "grade",
+        "decision": "sufficient",
+        "missing_requirements": [],
+        "retry_count": 0
+      },
+      "second_grade": null,
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "大坡段与小半径曲线、新建线与既有线贯通时的纵坡确定有哪些限制？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "sufficient",
+          "missing_requirements": [],
+          "retry_count": 0
+        },
+        {
+          "step": "answer"
+        },
+        {
+          "step": "citation_validation",
+          "valid": true
+        }
+      ],
+      "initial_candidate_count": 18,
+      "retry_candidate_count": null,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_evidence_refs": [
+        {
+          "text": "7.3.4\n大坡段不宜与平面小半径曲线重叠。既有线延伸或新建线与既有线贯通运营时，应核查既有线车\n辆的牵引和制动的动力性能后确定新建线路的最大纵坡及长大陡坡。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 48,
+          "page_end": 48,
+          "article_id": "7.3.4",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 471,
+          "score": 0.8112272024154663,
+          "rrf_score": null,
+          "rerank_score": 0.998333752155304,
+          "display_ref": "第7.3.4条"
+        },
+        {
+          "text": "7.3.3\n坡段与竖曲线设计应符合下列规定：\n1\n线路坡段长度不宜小于远期列车长度，并应满足相邻竖曲线间的夹直线长度不小于50m；\n2\n两相邻坡段的坡度代数差等于或大于2‰时，应设圆曲线型的竖曲线连接，竖曲线的半径不宜小\n于表7.3.3 的规定；\n表7.3.3\n竖曲线半径（m）\n线别\n100＜V≤130km/h\nV≤100km/h\n一般情况\n困难情况\n一般情况\n困难情况\n正线\n区间\n7000\n4000\n5000\n2500\n站台端部\n3000\n2000\n3000\n2000\n联络线、出入段线、车场线\n2000\n注：V 为最高运行速度（km/h）。\n3\n越行车站前后的竖曲线半径宜按区间标准执行；\n4",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 48,
+          "page_end": 48,
+          "article_id": "7.3.3",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 469,
+          "score": 0.6918160319328308,
+          "rrf_score": null,
+          "rerank_score": 0.8488195538520813,
+          "display_ref": "第7.3.3条"
+        },
+        {
+          "text": "27.7.2\n车辆基地站场线路的设置应符合下列规定：\n1\n出入线最小曲线半径：A 型车250m，B 型车200m，困难情况下不小于200m；最大纵坡不宜大\n于35‰（不含坡度折减），困难地段最大坡度不应大于40‰；竖曲线半径不小于2000m；\n2\n车场线最小曲线半径：150m；库外停车线路纵坡不宜大于1.5‰，道岔区坡度不宜大于3‰；\n3\n车场线宜采用7 号道岔。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 208,
+          "page_end": 208,
+          "article_id": "27.7.2",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2261,
+          "score": 25.40745898994635,
+          "rrf_score": null,
+          "rerank_score": 0.7444325089454651,
+          "display_ref": "第27.7.2条"
+        }
+      ],
+      "citation_validation": {
+        "valid": true,
+        "cited_ids": [
+          "E1"
+        ],
+        "available_ids": [
+          "E1",
+          "E2",
+          "E3"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "IND-010",
+      "measurements": {
+        "wall_time_ms": 11561.999999918044,
+        "stage_timings_ms": {
+          "retrieval": 15.0,
+          "rerank": 1281.0,
+          "grader": 2672.0,
+          "generation": 7578.0
+        },
+        "token_usage": {
+          "input": 1644,
+          "output": 1440,
+          "total": 3084
+        },
+        "estimated_cost": null,
+        "model_calls": 2,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [
+            0
+          ],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 1,
+        "metric_eligible": true
+      },
+      "category": "numeric_candidate",
+      "question": "竖曲线与缓和曲线重叠有哪些限制，整体道床重叠时超高顺坡率上限是多少？",
+      "expected_answerability": true,
+      "gold_answer": "竖曲线与缓和曲线（或超高顺坡段）在碎石道床地段不得重叠。整体道床曲线半径400m 以下地 段，宜避免竖缓重叠；当出现竖、缓两种曲线重叠时，轨道的超高顺坡率不得大于2.0‰。",
+      "required_requirements": [
+        "覆盖要点：竖曲线与缓和曲线（或超高顺坡段）在碎石道床地段不得重叠",
+        "覆盖要点：整体道床曲线半径400m 以下地 段，宜避免竖缓重叠",
+        "覆盖要点：当出现竖、缓两种曲线重叠时，轨道的超高顺坡率不得大于2.0‰"
+      ],
+      "key_answer_points": [
+        "竖曲线与缓和曲线（或超高顺坡段）在碎石道床地段不得重叠",
+        "整体道床曲线半径400m 以下地 段，宜避免竖缓重叠",
+        "当出现竖、缓两种曲线重叠时，轨道的超高顺坡率不得大于2.0‰"
+      ],
+      "numeric_expectations": [
+        {
+          "value": "400",
+          "unit": "m",
+          "conditions": [
+            "整体道床曲线半径低于400m时宜避免竖缓重叠"
+          ]
+        },
+        {
+          "value": "2.0",
+          "unit": "‰",
+          "conditions": [
+            "竖曲线与缓和曲线重叠时的超高顺坡率上限"
+          ]
+        }
+      ],
+      "request_id": "a3e06d1c75f94493a6b378299841c732",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 48,
+          "article": "7.3.6",
+          "table": null
+        }
+      ],
+      "final_action": "answer",
+      "retry_count": 0,
+      "rewritten_query": null,
+      "final_answer_or_refusal": "核心结论：碎石道床地段竖曲线与缓和曲线（或超高顺坡段）不得重叠；整体道床曲线半径400m以下地段宜避免竖缓重叠，若发生重叠，超高顺坡率不得大于2.0‰ [E1]。\n\n- 碎石道床：竖曲线与缓和曲线或超高顺坡段不得重叠 [E1]。\n- 整体道床：曲线半径400m以下地段宜避免竖曲线与缓和曲线重叠 [E1]；当出现竖、缓两种曲线重叠时，轨道超高顺坡率上限为不得大于2.0‰ [E1]。",
+      "first_grade": {
+        "step": "grade",
+        "decision": "sufficient",
+        "missing_requirements": [],
+        "retry_count": 0
+      },
+      "second_grade": null,
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "竖曲线与缓和曲线重叠有哪些限制，整体道床重叠时超高顺坡率上限是多少？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "sufficient",
+          "missing_requirements": [],
+          "retry_count": 0
+        },
+        {
+          "step": "answer"
+        },
+        {
+          "step": "citation_validation",
+          "valid": true
+        }
+      ],
+      "initial_candidate_count": 16,
+      "retry_candidate_count": null,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_evidence_refs": [
+        {
+          "text": "7.3.6\n竖曲线与缓和曲线（或超高顺坡段）在碎石道床地段不得重叠。整体道床曲线半径400m 以下地\n段，宜避免竖缓重叠；当出现竖、缓两种曲线重叠时，轨道的超高顺坡率不得大于2.0‰。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 48,
+          "page_end": 48,
+          "article_id": "7.3.6",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 473,
+          "score": 0.8366395235061646,
+          "rrf_score": null,
+          "rerank_score": 0.9995587468147278,
+          "display_ref": "第7.3.6条"
+        },
+        {
+          "text": "曲线超高应在缓和曲线全长范围内递减，无缓和曲线时应在直线段递减；\n3\n最高运行速度不大于100km/h 的线路，超高顺坡率一般条件下不应大于2‰，困难条件下不应大\n于2.5‰。最高运行速度大于100km/h 的线路，超高顺坡率一般条件下不应大于1/（10Vmax），困难条\n件下不应大1/（8Vmax），Vmax 为列车通过曲线时的最高速度（单位为km/h）。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 51,
+          "page_end": 51,
+          "article_id": "8.2.5",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 492,
+          "score": 0.6558057069778442,
+          "rrf_score": null,
+          "rerank_score": 0.9761666655540466,
+          "display_ref": "第8.2.5条"
+        },
+        {
+          "text": "8.2.5\n曲线超高设置方式应符合下列规定：\n1\n地下线及U 型槽整体道床地段曲线超高宜按半超高设置，其余地段按全超高设置；",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 50,
+          "page_end": 50,
+          "article_id": "8.2.5",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 490,
+          "score": 0.6841611862182617,
+          "rrf_score": null,
+          "rerank_score": 0.9424925446510315,
+          "display_ref": "第8.2.5条"
+        }
+      ],
+      "citation_validation": {
+        "valid": true,
+        "cited_ids": [
+          "E1"
+        ],
+        "available_ids": [
+          "E1",
+          "E2",
+          "E3"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "IND-011",
+      "measurements": {
+        "wall_time_ms": 5594.0000005066395,
+        "stage_timings_ms": {
+          "retrieval": 16.0,
+          "rerank": 1015.0,
+          "grader": 2157.0,
+          "generation": 2406.0
+        },
+        "token_usage": {
+          "input": 1500,
+          "output": 585,
+          "total": 2085
+        },
+        "estimated_cost": null,
+        "model_calls": 2,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [
+            0
+          ],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 1,
+        "metric_eligible": true
+      },
+      "category": "article_lookup_candidate",
+      "question": "轨道结构部件、工程材料和新产品选用有哪些原则？",
+      "expected_answerability": true,
+      "gold_answer": "轨道结构部件及工程材料应符合国家或行业的相关要求，北京宜选用北京地铁通用产品，新产品、 新材料和新工艺应按相关程序选用，全线轨道产品宜统一。",
+      "required_requirements": [
+        "覆盖要点：轨道结构部件及工程材料应符合国家或行业的相关要求，北京宜选用北京地铁通用产品，新产品、 新材料和新工艺应按相关程序选用，全线轨道产品宜统一"
+      ],
+      "key_answer_points": [
+        "轨道结构部件及工程材料应符合国家或行业的相关要求，北京宜选用北京地铁通用产品，新产品、 新材料和新工艺应按相关程序选用，全线轨道产品宜统一"
+      ],
+      "numeric_expectations": [],
+      "request_id": "69660b5eb72940d5bedb2cc27f835e52",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 50,
+          "article": "8.1.3",
+          "table": null
+        }
+      ],
+      "final_action": "answer",
+      "retry_count": 0,
+      "rewritten_query": null,
+      "final_answer_or_refusal": "轨道结构部件及工程材料选用应符合国家或行业相关要求，并宜统一全线轨道产品 [E1]。\n\n1. 轨道结构部件及工程材料应符合国家或行业的相关要求；北京地区宜选用北京地铁通用产品 [E1]。\n2. 新产品、新材料和新工艺应按相关程序选用 [E1]。\n3. 全线轨道产品宜统一 [E1]。",
+      "first_grade": {
+        "step": "grade",
+        "decision": "sufficient",
+        "missing_requirements": [],
+        "retry_count": 0
+      },
+      "second_grade": null,
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "轨道结构部件、工程材料和新产品选用有哪些原则？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "sufficient",
+          "missing_requirements": [],
+          "retry_count": 0
+        },
+        {
+          "step": "answer"
+        },
+        {
+          "step": "citation_validation",
+          "valid": true
+        }
+      ],
+      "initial_candidate_count": 18,
+      "retry_candidate_count": null,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_evidence_refs": [
+        {
+          "text": "8.1.3\n轨道结构部件及工程材料应符合国家或行业的相关要求，北京宜选用北京地铁通用产品，新产品、\n新材料和新工艺应按相关程序选用，全线轨道产品宜统一。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 50,
+          "page_end": 50,
+          "article_id": "8.1.3",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 483,
+          "score": 0.7924432754516602,
+          "rrf_score": null,
+          "rerank_score": 0.9977352619171143,
+          "display_ref": "第8.1.3条"
+        },
+        {
+          "text": "8.1\n一般规定\n8.1.1\n轨道结构应具有足够的强度和适量弹性，满足安全性、稳定性、平顺性、耐久性、绝缘性及环保\n的要求。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 50,
+          "page_end": 50,
+          "article_id": "8.1.1",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 481,
+          "score": 0.6909781098365784,
+          "rrf_score": null,
+          "rerank_score": 0.9315282106399536,
+          "display_ref": "第8.1.1条"
+        },
+        {
+          "text": "8.2.7\n当线路按困难条件设计时，通过增加轨枕根数，可提高轨道的纵、横向刚度，增强轨道结构的安\n全性、可靠性。洗车线、立柱式检查坑等特殊区段的扣件间距需结合工艺等专业的相关要求确定。\n8.3\n轨道部件",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 290,
+          "page_end": 290,
+          "article_id": "8.2.7",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2914,
+          "score": 0.6757138967514038,
+          "rrf_score": null,
+          "rerank_score": 0.8744881749153137,
+          "display_ref": "第8.2.7条"
+        }
+      ],
+      "citation_validation": {
+        "valid": true,
+        "cited_ids": [
+          "E1"
+        ],
+        "available_ids": [
+          "E1",
+          "E2",
+          "E3"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "IND-012",
+      "measurements": {
+        "wall_time_ms": 9702.99999974668,
+        "stage_timings_ms": {
+          "retrieval": 31.0,
+          "rerank": 1141.0,
+          "grader": 4297.0,
+          "generation": 4234.0
+        },
+        "token_usage": {
+          "input": 1910,
+          "output": 1293,
+          "total": 3203
+        },
+        "estimated_cost": null,
+        "model_calls": 2,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [
+            0
+          ],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 1,
+        "metric_eligible": true
+      },
+      "category": "numeric_candidate",
+      "question": "无砟轨道扣件的弹性、刚度、动静比、绝缘和防腐要求是什么？",
+      "expected_answerability": true,
+      "gold_answer": "扣件应符合下列规定： 1 无砟轨道应采用弹性扣件； 2 无砟道床一般地段的扣件节点垂向静刚度宜为20 kN/mm～40kN/mm，动静比不应大于1.4； 3 单个扣件节点绝缘部件的工作电阻不应小于108Ω； 4 扣件金属件表面应进行防锈防腐蚀处理，防腐层不应影响使用功能；",
+      "required_requirements": [
+        "覆盖要点：无砟轨道应采用弹性扣件",
+        "覆盖要点：无砟道床一般地段的扣件节点垂向静刚度宜为20 kN/mm～40kN/mm，动静比不应大于1.4",
+        "覆盖要点：单个扣件节点绝缘部件的工作电阻不应小于108Ω",
+        "覆盖要点：扣件金属件表面应进行防锈防腐蚀处理，防腐层不应影响使用功能"
+      ],
+      "key_answer_points": [
+        "无砟轨道应采用弹性扣件",
+        "无砟道床一般地段的扣件节点垂向静刚度宜为20 kN/mm～40kN/mm，动静比不应大于1.4",
+        "单个扣件节点绝缘部件的工作电阻不应小于108Ω",
+        "扣件金属件表面应进行防锈防腐蚀处理，防腐层不应影响使用功能"
+      ],
+      "numeric_expectations": [
+        {
+          "value": "20～40",
+          "unit": "kN/mm",
+          "conditions": [
+            "无砟道床一般地段扣件节点垂向静刚度"
+          ]
+        },
+        {
+          "value": "1.4",
+          "unit": "无量纲",
+          "conditions": [
+            "扣件节点动静比上限"
+          ]
+        },
+        {
+          "value": "10^8",
+          "unit": "Ω",
+          "conditions": [
+            "单个扣件节点绝缘部件工作电阻下限"
+          ]
+        }
+      ],
+      "request_id": "40382904b102499fb3dd019305654a32",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 51,
+          "article": "8.3.2",
+          "table": null
+        }
+      ],
+      "final_action": "answer",
+      "retry_count": 0,
+      "rewritten_query": null,
+      "final_answer_or_refusal": "无砟轨道应采用弹性扣件，其一般地段扣件节点垂向静刚度宜为20 kN/mm～40 kN/mm、动静比不应大于1.4，并应满足绝缘和防腐要求 [E1]。\n\n- **弹性与刚度**：无砟轨道应采用弹性扣件；一般地段扣件节点垂向静刚度宜为20 kN/mm～40 kN/mm [E1]。无减振需求地段，轨道弹性主要靠扣件提供 [E2]。\n- **动静比**：扣件节点动静比不应大于1.4 [E1]；动静比是保证轨道弹性的重要指标 [E2]。\n- **绝缘与防腐**：单个扣件节点绝缘部件的工作电阻不应小于10⁸Ω [E1]；扣件金属件表面应进行防锈防腐蚀处理，且防腐层不应影响使用功能 [E1]。",
+      "first_grade": {
+        "step": "grade",
+        "decision": "sufficient",
+        "missing_requirements": [],
+        "retry_count": 0
+      },
+      "second_grade": null,
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "无砟轨道扣件的弹性、刚度、动静比、绝缘和防腐要求是什么？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "sufficient",
+          "missing_requirements": [],
+          "retry_count": 0
+        },
+        {
+          "step": "answer"
+        },
+        {
+          "step": "citation_validation",
+          "valid": true
+        }
+      ],
+      "initial_candidate_count": 17,
+      "retry_candidate_count": null,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_evidence_refs": [
+        {
+          "text": "8.3.2\n扣件应符合下列规定：\n1\n无砟轨道应采用弹性扣件；\n2\n无砟道床一般地段的扣件节点垂向静刚度宜为20 kN/mm～40kN/mm，动静比不应大于1.4；\n3\n单个扣件节点绝缘部件的工作电阻不应小于10⁸Ω；\n4\n扣件金属件表面应进行防锈防腐蚀处理，防腐层不应影响使用功能；",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 51,
+          "page_end": 51,
+          "article_id": "8.3.2",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 497,
+          "score": 0.8041373491287231,
+          "rrf_score": null,
+          "rerank_score": 0.9992554783821106,
+          "display_ref": "第8.3.2条"
+        },
+        {
+          "text": "8.3.2\n城市轨道交通碎石道床地段扣件一般直接引用铁标弹条I、Ⅱ型扣件的的相关要求，因此不再对\n相关指标进行规定。无砟轨道的弹性主要靠扣件提供（无减振需求的地段），动静比是保证轨道弹性的\n重要指标，因此结合大量的工程实践经验，给出了动静比的取值。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 290,
+          "page_end": 290,
+          "article_id": "8.3.2",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2916,
+          "score": 0.7416248321533203,
+          "rrf_score": null,
+          "rerank_score": 0.9949808716773987,
+          "display_ref": "第8.3.2条"
+        },
+        {
+          "text": "8.4.5\n正线、出入线和试车线的无砟道床刚度大，有砟道床的弹性较好，为改善行车条件、保持有砟道\n床的稳定、减少维修工作量，衔接处应设置轨道弹性过渡段。\n对于库内整体道床与库外碎石道床之间的过渡段，因列车驶入车场库内线时空载且速度低，库内无\n砟道床多采用弹性分开式扣件，弹性好，从既有设计及运营状况看，库内与库外线有砟道床衔接段一般\n情况下不再进行过渡段设计。\n不同减振轨道结构之间过渡时，原则上在动态下沉量较大的减振结构地段内进行与两侧道床的弹性\n过渡。\n8.5\n无缝线路",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 291,
+          "page_end": 291,
+          "article_id": "8.4.5",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2921,
+          "score": 30.46051756117204,
+          "rrf_score": null,
+          "rerank_score": 0.9485501050949097,
+          "display_ref": "第8.4.5条"
+        }
+      ],
+      "citation_validation": {
+        "valid": true,
+        "cited_ids": [
+          "E1",
+          "E2"
+        ],
+        "available_ids": [
+          "E1",
+          "E2",
+          "E3"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "IND-013",
+      "measurements": {
+        "wall_time_ms": 14968.999999575317,
+        "stage_timings_ms": {
+          "retrieval": 16.0,
+          "rerank": 1265.0,
+          "grader": 7219.0,
+          "generation": 6469.0
+        },
+        "token_usage": {
+          "input": 1700,
+          "output": 2035,
+          "total": 3735
+        },
+        "estimated_cost": null,
+        "model_calls": 2,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [
+            0
+          ],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 1,
+        "metric_eligible": true
+      },
+      "category": "numeric_candidate",
+      "question": "地下线、高架线、地面线和车场库内线应选用何种道床，并有哪些控制与防护要求？",
+      "expected_answerability": true,
+      "gold_answer": "道床结构型式应符合下列规定： 1 地下线、高架线及车场库内线宜采用无砟道床。长度较短的单体桥且两端道床类型相同，宜采 用与两端一致的道床类型； 2 地面线宜采用有砟道床； 4 当采用基标铺轨时，应保留控制基标。当采用任意设站控制网铺轨时，应保留控制点； 5 道床结构应根据杂散电流和综合接地的防护要求，与相关专业统筹设计，共同采取防护措施； 6 道床面低于钢轨底面宜不小于70mm。",
+      "required_requirements": [
+        "覆盖要点：地下线、高架线及车场库内线宜采用无砟道床",
+        "覆盖要点：长度较短的单体桥且两端道床类型相同，宜采 用与两端一致的道床类型",
+        "覆盖要点：地面线宜采用有砟道床",
+        "覆盖要点：当采用基标铺轨时，应保留控制基标",
+        "覆盖要点：当采用任意设站控制网铺轨时，应保留控制点",
+        "覆盖要点：道床结构应根据杂散电流和综合接地的防护要求，与相关专业统筹设计，共同采取防护措施",
+        "覆盖要点：道床面低于钢轨底面宜不小于70mm"
+      ],
+      "key_answer_points": [
+        "地下线、高架线及车场库内线宜采用无砟道床",
+        "长度较短的单体桥且两端道床类型相同，宜采 用与两端一致的道床类型",
+        "地面线宜采用有砟道床",
+        "当采用基标铺轨时，应保留控制基标",
+        "当采用任意设站控制网铺轨时，应保留控制点",
+        "道床结构应根据杂散电流和综合接地的防护要求，与相关专业统筹设计，共同采取防护措施",
+        "道床面低于钢轨底面宜不小于70mm"
+      ],
+      "numeric_expectations": [
+        {
+          "value": "70",
+          "unit": "mm",
+          "conditions": [
+            "6 道床面低于钢轨底面宜不小于70mm"
+          ]
+        }
+      ],
+      "request_id": "5aed16a7bcff486e9a20b0a89f4ab9f6",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 52,
+          "article": "8.4.1",
+          "table": null
+        }
+      ],
+      "final_action": "answer",
+      "retry_count": 0,
+      "rewritten_query": null,
+      "final_answer_or_refusal": "核心结论：地下线、高架线及车场库内线宜采用无砟道床，地面线宜采用有砟道床 [E1][E2]。\n\n1. **道床选型控制**：长度较短的单体桥且两端道床类型相同时，宜采用与两端一致的道床类型 [E1]。地下线、高架线沉降较小，优先选用无砟道床；地面线一般沉降较大，考虑投资控制宜选用有砟道床 [E2]。\n\n2. **铺轨与结构控制**：采用基标铺轨时应保留控制基标；采用任意设站控制网铺轨时应保留控制点 [E1]。道床面低于钢轨底面的距离宜不小于70mm [E1]。\n\n3. **防护要求**：道床结构应根据杂散电流和综合接地的防护要求，与相关专业统筹设计并共同采取防护措施 [E1]；地面线及高架线的折返道岔、车场线咽喉区道岔宜设置融雪装置或防雪设施 [E3]。",
+      "first_grade": {
+        "step": "grade",
+        "decision": "sufficient",
+        "missing_requirements": [],
+        "retry_count": 0
+      },
+      "second_grade": null,
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "地下线、高架线、地面线和车场库内线应选用何种道床，并有哪些控制与防护要求？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "sufficient",
+          "missing_requirements": [],
+          "retry_count": 0
+        },
+        {
+          "step": "answer"
+        },
+        {
+          "step": "citation_validation",
+          "valid": true
+        }
+      ],
+      "initial_candidate_count": 17,
+      "retry_candidate_count": null,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_evidence_refs": [
+        {
+          "text": "8.4.1\n道床结构型式应符合下列规定：\n1\n地下线、高架线及车场库内线宜采用无砟道床。长度较短的单体桥且两端道床类型相同，宜采\n用与两端一致的道床类型；\n2\n地面线宜采用有砟道床；\n4\n当采用基标铺轨时，应保留控制基标。当采用任意设站控制网铺轨时，应保留控制点；\n5\n道床结构应根据杂散电流和综合接地的防护要求，与相关专业统筹设计，共同采取防护措施；\n6\n道床面低于钢轨底面宜不小于70mm。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 52,
+          "page_end": 52,
+          "article_id": "8.4.1",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 505,
+          "score": 0.7784225940704346,
+          "rrf_score": null,
+          "rerank_score": 0.9996935129165649,
+          "display_ref": "第8.4.1条"
+        },
+        {
+          "text": "8.4.1\n地下线、高架线沉降较小，优先选用无砟道床，可以降低轨道高度、减小维修工作量。地面线一\n般情况下沉降较大，采用无砟轨道，地基处理费用较大，考虑投资控制选用有砟道床。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 291,
+          "page_end": 291,
+          "article_id": "8.4.1",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2919,
+          "score": 0.7002280950546265,
+          "rrf_score": null,
+          "rerank_score": 0.9990611672401428,
+          "display_ref": "第8.4.1条"
+        },
+        {
+          "text": "8.7.5\n地面线及高架线的折返道岔、车场线咽喉区道岔宜设置融雪装置或防雪设施。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 54,
+          "page_end": 54,
+          "article_id": "8.7.5",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 529,
+          "score": 30.90109645021643,
+          "rrf_score": null,
+          "rerank_score": 0.9731167554855347,
+          "display_ref": "第8.7.5条"
+        }
+      ],
+      "citation_validation": {
+        "valid": true,
+        "cited_ids": [
+          "E1",
+          "E2",
+          "E3"
+        ],
+        "available_ids": [
+          "E1",
+          "E2",
+          "E3"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "IND-014",
+      "measurements": {
+        "wall_time_ms": 8578.000000678003,
+        "stage_timings_ms": {
+          "retrieval": 31.0,
+          "rerank": 1125.0,
+          "grader": 2953.0,
+          "generation": 4469.0
+        },
+        "token_usage": {
+          "input": 1868,
+          "output": 1051,
+          "total": 2919
+        },
+        "estimated_cost": null,
+        "model_calls": 2,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [
+            0
+          ],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 1,
+        "metric_eligible": true
+      },
+      "category": "article_lookup_candidate",
+      "question": "无砟与有砟道床、不同减振地段之间的过渡段应如何设置？",
+      "expected_answerability": true,
+      "gold_answer": "不同道床结构的过渡段设置应符合下列规定： 1 正线、出入线和试车线的无砟道床与有砟道床间应设过渡段，长度不宜短于车辆全轴距； 2 不同减振地段间的过渡方式和长度应根据计算确定。",
+      "required_requirements": [
+        "覆盖要点：正线、出入线和试车线的无砟道床与有砟道床间应设过渡段，长度不宜短于车辆全轴距",
+        "覆盖要点：不同减振地段间的过渡方式和长度应根据计算确定"
+      ],
+      "key_answer_points": [
+        "正线、出入线和试车线的无砟道床与有砟道床间应设过渡段，长度不宜短于车辆全轴距",
+        "不同减振地段间的过渡方式和长度应根据计算确定"
+      ],
+      "numeric_expectations": [],
+      "request_id": "fff19d077e3245cc9e4abdaeebe82f54",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 53,
+          "article": "8.4.5",
+          "table": null
+        }
+      ],
+      "final_action": "answer",
+      "retry_count": 0,
+      "rewritten_query": null,
+      "final_answer_or_refusal": "无砟与有砟道床间应设置过渡段，长度不宜短于车辆全轴距；不同减振地段间的过渡方式和长度应根据计算确定 [E1]。\n\n1. **无砟与有砟道床过渡**：正线、出入线和试车线的无砟道床与有砟道床间应设过渡段，长度不宜短于车辆全轴距 [E1]；衔接处应设置轨道弹性过渡段，以改善行车条件、保持有砟道床稳定并减少维修工作量 [E2]。\n2. **不同减振地段过渡**：过渡方式和长度应根据计算确定 [E1]；原则上应在动态下沉量较大的减振结构地段内，与两侧道床进行弹性过渡 [E2]。\n3. **例外情形**：库内整体道床与库外碎石道床衔接段，一般情况下不再进行过渡段设计 [E2]。",
+      "first_grade": {
+        "step": "grade",
+        "decision": "sufficient",
+        "missing_requirements": [],
+        "retry_count": 0
+      },
+      "second_grade": null,
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "无砟与有砟道床、不同减振地段之间的过渡段应如何设置？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "sufficient",
+          "missing_requirements": [],
+          "retry_count": 0
+        },
+        {
+          "step": "answer"
+        },
+        {
+          "step": "citation_validation",
+          "valid": true
+        }
+      ],
+      "initial_candidate_count": 15,
+      "retry_candidate_count": null,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_evidence_refs": [
+        {
+          "text": "8.4.5\n不同道床结构的过渡段设置应符合下列规定：\n1\n正线、出入线和试车线的无砟道床与有砟道床间应设过渡段，长度不宜短于车辆全轴距；\n2\n不同减振地段间的过渡方式和长度应根据计算确定。\n8.5\n无缝线路",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 53,
+          "page_end": 53,
+          "article_id": "8.4.5",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 512,
+          "score": 0.7462371587753296,
+          "rrf_score": null,
+          "rerank_score": 0.9994726777076721,
+          "display_ref": "第8.4.5条"
+        },
+        {
+          "text": "8.4.5\n正线、出入线和试车线的无砟道床刚度大，有砟道床的弹性较好，为改善行车条件、保持有砟道\n床的稳定、减少维修工作量，衔接处应设置轨道弹性过渡段。\n对于库内整体道床与库外碎石道床之间的过渡段，因列车驶入车场库内线时空载且速度低，库内无\n砟道床多采用弹性分开式扣件，弹性好，从既有设计及运营状况看，库内与库外线有砟道床衔接段一般\n情况下不再进行过渡段设计。\n不同减振轨道结构之间过渡时，原则上在动态下沉量较大的减振结构地段内进行与两侧道床的弹性\n过渡。\n8.5\n无缝线路",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 291,
+          "page_end": 291,
+          "article_id": "8.4.5",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2921,
+          "score": 0.6915801763534546,
+          "rrf_score": null,
+          "rerank_score": 0.9981263279914856,
+          "display_ref": "第8.4.5条"
+        },
+        {
+          "text": "8.3.2\n城市轨道交通碎石道床地段扣件一般直接引用铁标弹条I、Ⅱ型扣件的的相关要求，因此不再对\n相关指标进行规定。无砟轨道的弹性主要靠扣件提供（无减振需求的地段），动静比是保证轨道弹性的\n重要指标，因此结合大量的工程实践经验，给出了动静比的取值。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 290,
+          "page_end": 290,
+          "article_id": "8.3.2",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2916,
+          "score": 33.78740829535523,
+          "rrf_score": null,
+          "rerank_score": 0.8037103414535522,
+          "display_ref": "第8.3.2条"
+        }
+      ],
+      "citation_validation": {
+        "valid": true,
+        "cited_ids": [
+          "E1",
+          "E2"
+        ],
+        "available_ids": [
+          "E1",
+          "E2",
+          "E3"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "IND-015",
+      "measurements": {
+        "wall_time_ms": 10514.999999664724,
+        "stage_timings_ms": {
+          "retrieval": 31.0,
+          "rerank": 1063.0,
+          "grader": 3765.0,
+          "generation": 5656.0
+        },
+        "token_usage": {
+          "input": 1652,
+          "output": 1253,
+          "total": 2905
+        },
+        "estimated_cost": null,
+        "model_calls": 2,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [
+            0
+          ],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 1,
+        "metric_eligible": true
+      },
+      "category": "numeric_candidate",
+      "question": "高架线无缝线路的受力检算、断缝宽度、调节器和钢轨接头位置有哪些要求？",
+      "expected_answerability": true,
+      "gold_answer": "高架线的无缝线路铺设应满足下列要求： 1 桥上无缝线路设计应计算钢轨伸缩力、挠曲力、断轨力；并应进行钢轨断缝检算，钢轨断缝宽 度宜为80mm，困难情况下应为100mm； 2 长大桥上铺设无缝线路时，应根据计算确定钢轨伸缩调节器的设置方式； 3 钢轨接头距梁端的距离不应小于2m。",
+      "required_requirements": [
+        "覆盖要点：高架线的无缝线路铺设应满足下列要求",
+        "覆盖要点：桥上无缝线路设计应计算钢轨伸缩力、挠曲力、断轨力",
+        "覆盖要点：并应进行钢轨断缝检算，钢轨断缝宽 度宜为80mm，困难情况下应为100mm",
+        "覆盖要点：长大桥上铺设无缝线路时，应根据计算确定钢轨伸缩调节器的设置方式",
+        "覆盖要点：钢轨接头距梁端的距离不应小于2m"
+      ],
+      "key_answer_points": [
+        "高架线的无缝线路铺设应满足下列要求",
+        "桥上无缝线路设计应计算钢轨伸缩力、挠曲力、断轨力",
+        "并应进行钢轨断缝检算，钢轨断缝宽 度宜为80mm，困难情况下应为100mm",
+        "长大桥上铺设无缝线路时，应根据计算确定钢轨伸缩调节器的设置方式",
+        "钢轨接头距梁端的距离不应小于2m"
+      ],
+      "numeric_expectations": [
+        {
+          "value": "80",
+          "unit": "mm",
+          "conditions": [
+            "并应进行钢轨断缝检算，钢轨断缝宽 度宜为80mm，困难情况下应为100mm"
+          ]
+        },
+        {
+          "value": "100",
+          "unit": "mm",
+          "conditions": [
+            "并应进行钢轨断缝检算，钢轨断缝宽 度宜为80mm，困难情况下应为100mm"
+          ]
+        },
+        {
+          "value": "2",
+          "unit": "m",
+          "conditions": [
+            "3 钢轨接头距梁端的距离不应小于2m"
+          ]
+        }
+      ],
+      "request_id": "1ddbddc6c990487bbc7032310f285df1",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 54,
+          "article": "8.5.4",
+          "table": null
+        }
+      ],
+      "final_action": "answer",
+      "retry_count": 0,
+      "rewritten_query": null,
+      "final_answer_or_refusal": "高架线无缝线路应计算钢轨伸缩力、挠曲力、断轨力并检算断缝，断缝宽度宜为80mm、困难情况下为100mm；长大桥调节器设置方式应按计算确定，钢轨接头距梁端不应小于2m [E1]。\n\n- **受力检算与断缝宽度**：桥上无缝线路设计应计算钢轨伸缩力、挠曲力、断轨力，并应进行钢轨断缝检算；断缝宽度宜为80mm，困难情况下应为100mm [E1]。检算墩台时，无缝线路纵向力作用点应为墩台支座铰中心；检算支座时应为支座顶中心；桥台顶断轨力作用点应为台顶 [E2]。\n- **钢轨伸缩调节器**：长大桥上铺设无缝线路时，应根据计算确定钢轨伸缩调节器的设置方式 [E1]；给定片段未提供更具体的设置位置要求。\n- **钢轨接头位置**：钢轨接头距梁端的距离不应小于2m [E1]。此外，无缝线路在道岔两端应铺设标准长度钢轨或短轨，钢轨接头优先选用冻结接头 [E3]。",
+      "first_grade": {
+        "step": "grade",
+        "decision": "sufficient",
+        "missing_requirements": [],
+        "retry_count": 0
+      },
+      "second_grade": null,
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "高架线无缝线路的受力检算、断缝宽度、调节器和钢轨接头位置有哪些要求？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "sufficient",
+          "missing_requirements": [],
+          "retry_count": 0
+        },
+        {
+          "step": "answer"
+        },
+        {
+          "step": "citation_validation",
+          "valid": true
+        }
+      ],
+      "initial_candidate_count": 14,
+      "retry_candidate_count": null,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_evidence_refs": [
+        {
+          "text": "8.5.4\n高架线的无缝线路铺设应满足下列要求：\n1\n桥上无缝线路设计应计算钢轨伸缩力、挠曲力、断轨力；并应进行钢轨断缝检算，钢轨断缝宽\n度宜为80mm，困难情况下应为100mm；\n2\n长大桥上铺设无缝线路时，应根据计算确定钢轨伸缩调节器的设置方式；\n3\n钢轨接头距梁端的距离不应小于2m。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 54,
+          "page_end": 54,
+          "article_id": "8.5.4",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 517,
+          "score": 0.79056715965271,
+          "rrf_score": null,
+          "rerank_score": 0.9986799359321594,
+          "display_ref": "第8.5.4条"
+        },
+        {
+          "text": "11.2.6\n检算墩台时，无缝线路纵向力作用点应为墩台支座铰中心，检算支座时应为支座顶中心。桥台\n顶断轨力作用点应为台顶。需要计算对梁的影响时应做专项研究。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 75,
+          "page_end": 75,
+          "article_id": "11.2.6",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 745,
+          "score": 0.7105675935745239,
+          "rrf_score": null,
+          "rerank_score": 0.9464664459228516,
+          "display_ref": "第11.2.6条"
+        },
+        {
+          "text": "8.5.3\n无缝线路在道岔两端应铺设标准长度钢轨或短轨，以提高道岔钢轨件维修的便利型。钢轨接头采\n用优先选用冻结接头，以降低轮轨动力作用，从而提高车辆运行的舒适性，减少轨道病害。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 291,
+          "page_end": 291,
+          "article_id": "8.5.3",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2923,
+          "score": 0.709479808807373,
+          "rrf_score": null,
+          "rerank_score": 0.9142783284187317,
+          "display_ref": "第8.5.3条"
+        }
+      ],
+      "citation_validation": {
+        "valid": true,
+        "cited_ids": [
+          "E1",
+          "E2",
+          "E3"
+        ],
+        "available_ids": [
+          "E1",
+          "E2",
+          "E3"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "IND-016",
+      "measurements": {
+        "wall_time_ms": 5422.00000025332,
+        "stage_timings_ms": {
+          "retrieval": 16.0,
+          "rerank": 844.0,
+          "grader": 1687.0,
+          "generation": 2875.0
+        },
+        "token_usage": {
+          "input": 1396,
+          "output": 520,
+          "total": 1916
+        },
+        "estimated_cost": null,
+        "model_calls": 2,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [
+            0
+          ],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 1,
+        "metric_eligible": true
+      },
+      "category": "article_lookup_candidate",
+      "question": "减振轨道措施的位置和方案应依据哪些评价文件确定？",
+      "expected_answerability": true,
+      "gold_answer": "减振轨道结构应依据项目环境影响评价报告书、工程变化环境影响分析报告书及文物保护等评价 分析结果要求及建议，确定实施减振措施的位置及方案。",
+      "required_requirements": [
+        "覆盖要点：减振轨道结构应依据项目环境影响评价报告书、工程变化环境影响分析报告书及文物保护等评价 分析结果要求及建议，确定实施减振措施的位置及方案"
+      ],
+      "key_answer_points": [
+        "减振轨道结构应依据项目环境影响评价报告书、工程变化环境影响分析报告书及文物保护等评价 分析结果要求及建议，确定实施减振措施的位置及方案"
+      ],
+      "numeric_expectations": [],
+      "request_id": "398c4b33b4684afdbc5f9f426f98f2c7",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 54,
+          "article": "8.6.2",
+          "table": null
+        }
+      ],
+      "final_action": "answer",
+      "retry_count": 0,
+      "rewritten_query": null,
+      "final_answer_or_refusal": "减振轨道措施的位置及方案应依据项目环境影响评价报告书、工程变化环境影响分析报告书及文物保护等评价分析结果的要求和建议确定。[E1]\n\n具体依据包括：\n1. 项目环境影响评价报告书；[E1]\n2. 工程变化环境影响分析报告书；[E1]\n3. 文物保护等评价分析结果及其要求和建议。[E1]",
+      "first_grade": {
+        "step": "grade",
+        "decision": "sufficient",
+        "missing_requirements": [],
+        "retry_count": 0
+      },
+      "second_grade": null,
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "减振轨道措施的位置和方案应依据哪些评价文件确定？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "sufficient",
+          "missing_requirements": [],
+          "retry_count": 0
+        },
+        {
+          "step": "answer"
+        },
+        {
+          "step": "citation_validation",
+          "valid": true
+        }
+      ],
+      "initial_candidate_count": 15,
+      "retry_candidate_count": null,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_evidence_refs": [
+        {
+          "text": "8.6.2\n减振轨道结构应依据项目环境影响评价报告书、工程变化环境影响分析报告书及文物保护等评价\n分析结果要求及建议，确定实施减振措施的位置及方案。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 54,
+          "page_end": 54,
+          "article_id": "8.6.2",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 521,
+          "score": 0.813359260559082,
+          "rrf_score": null,
+          "rerank_score": 0.9993720650672913,
+          "display_ref": "第8.6.2条"
+        },
+        {
+          "text": "8.6.4\n减振地段长度应根据振动敏感点类型、线路条件、减振要求和减振段端部过渡段等因素综合确定。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 54,
+          "page_end": 54,
+          "article_id": "8.6.4",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 523,
+          "score": 16.374190047844962,
+          "rrf_score": null,
+          "rerank_score": 0.9010956883430481,
+          "display_ref": "第8.6.4条"
+        },
+        {
+          "text": "8.6.1\n采取的减振工程措施应满足轨道结构的强度、稳定性和平顺性的要求。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 54,
+          "page_end": 54,
+          "article_id": "8.6.1",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 520,
+          "score": 0.7388988733291626,
+          "rrf_score": null,
+          "rerank_score": 0.8889278769493103,
+          "display_ref": "第8.6.1条"
+        }
+      ],
+      "citation_validation": {
+        "valid": true,
+        "cited_ids": [
+          "E1"
+        ],
+        "available_ids": [
+          "E1",
+          "E2",
+          "E3"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "IND-017",
+      "measurements": {
+        "wall_time_ms": 7671.999999321997,
+        "stage_timings_ms": {
+          "retrieval": 16.0,
+          "rerank": 1375.0,
+          "grader": 2359.0,
+          "generation": 3922.0
+        },
+        "token_usage": {
+          "input": 1972,
+          "output": 784,
+          "total": 2756
+        },
+        "estimated_cost": null,
+        "model_calls": 2,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [
+            0
+          ],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 1,
+        "metric_eligible": true
+      },
+      "category": "numeric_candidate",
+      "question": "高架线防脱护轨应设置在哪些位置和范围？",
+      "expected_answerability": true,
+      "gold_answer": "高架线应采用防脱护轨措施，防脱护轨应设置在钢轨内侧，设置位置应符合下列规定： 1 半径≤500m 曲线地段的缓圆（圆缓）点两侧，其缓和曲线部分不小于缓和曲线长的一半并不小 于20m、圆曲线部分20m 范围内，曲线下股钢轨内侧； 2 高架桥跨越城市干道、铁路及通航航道等重要地段，以及受列车意外撞击时易产生结构性破坏 的高架桥地段及其以外各20m 范围内，应设置在靠近双线高架桥中线侧的钢轨内侧； 3 竖曲线与缓和曲线重叠处，应在竖曲线范围内两股钢轨内侧。",
+      "required_requirements": [
+        "覆盖要点：半径≤500m 曲线地段的缓圆（圆缓）点两侧，其缓和曲线部分不小于缓和曲线长的一半并不小 于20m、圆曲线部分20m 范围内，曲线下股钢轨内侧",
+        "覆盖要点：高架桥跨越城市干道、铁路及通航航道等重要地段，以及受列车意外撞击时易产生结构性破坏 的高架桥地段及其以外各20m 范围内，应设置在靠近双线高架桥中线侧的钢轨内侧",
+        "覆盖要点：竖曲线与缓和曲线重叠处，应在竖曲线范围内两股钢轨内侧"
+      ],
+      "key_answer_points": [
+        "半径≤500m 曲线地段的缓圆（圆缓）点两侧，其缓和曲线部分不小于缓和曲线长的一半并不小 于20m、圆曲线部分20m 范围内，曲线下股钢轨内侧",
+        "高架桥跨越城市干道、铁路及通航航道等重要地段，以及受列车意外撞击时易产生结构性破坏 的高架桥地段及其以外各20m 范围内，应设置在靠近双线高架桥中线侧的钢轨内侧",
+        "竖曲线与缓和曲线重叠处，应在竖曲线范围内两股钢轨内侧"
+      ],
+      "numeric_expectations": [
+        {
+          "value": "500",
+          "unit": "m",
+          "conditions": [
+            "高架线应采用防脱护轨措施，防脱护轨应设置在钢轨内侧，设置位置应符合下列规定： 1 半径≤500m 曲线地段的缓圆（圆缓）点两侧，其缓和曲线部分不小于缓和曲线长的一半并不小 于20m、圆曲线部分20m 范围内，曲线下股钢轨内侧"
+          ]
+        },
+        {
+          "value": "20",
+          "unit": "m",
+          "conditions": [
+            "高架线应采用防脱护轨措施，防脱护轨应设置在钢轨内侧，设置位置应符合下列规定： 1 半径≤500m 曲线地段的缓圆（圆缓）点两侧，其缓和曲线部分不小于缓和曲线长的一半并不小 于20m、圆曲线部分20m 范围内，曲线下股钢轨内侧"
+          ]
+        },
+        {
+          "value": "20",
+          "unit": "m",
+          "conditions": [
+            "高架线应采用防脱护轨措施，防脱护轨应设置在钢轨内侧，设置位置应符合下列规定： 1 半径≤500m 曲线地段的缓圆（圆缓）点两侧，其缓和曲线部分不小于缓和曲线长的一半并不小 于20m、圆曲线部分20m 范围内，曲线下股钢轨内侧"
+          ]
+        },
+        {
+          "value": "20",
+          "unit": "m",
+          "conditions": [
+            "2 高架桥跨越城市干道、铁路及通航航道等重要地段，以及受列车意外撞击时易产生结构性破坏 的高架桥地段及其以外各20m 范围内，应设置在靠近双线高架桥中线侧的钢轨内侧"
+          ]
+        }
+      ],
+      "request_id": "3511745de2f24ce1abc19260666dd598",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 54,
+          "article": "8.7.1",
+          "table": null
+        }
+      ],
+      "final_action": "answer",
+      "retry_count": 0,
+      "rewritten_query": null,
+      "final_answer_or_refusal": "高架线防脱护轨应设置在钢轨内侧，主要覆盖小半径曲线、跨越重要设施及易受撞击高架桥地段、竖曲线与缓和曲线重叠处三类位置范围 [E1]。\n\n1. **小半径曲线地段**：半径≤500m 曲线地段的缓圆（圆缓）点两侧，缓和曲线部分不小于缓和曲线长的一半且不小于20m，圆曲线部分20m范围内，应设置在**曲线下股钢轨内侧** [E1]。\n\n2. **跨越重要设施及易受撞击的高架桥地段**：高架桥跨越城市干道、铁路及通航航道等重要地段，以及受列车意外撞击时易产生结构性破坏的高架桥地段及其以外各20m范围内，应设置在**靠近双线高架桥中线侧的钢轨内侧** [E1]。\n\n3. **竖曲线与缓和曲线重叠处**：应在**竖曲线范围内两股钢轨内侧**设置 [E1]。",
+      "first_grade": {
+        "step": "grade",
+        "decision": "sufficient",
+        "missing_requirements": [],
+        "retry_count": 0
+      },
+      "second_grade": null,
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "高架线防脱护轨应设置在哪些位置和范围？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "sufficient",
+          "missing_requirements": [],
+          "retry_count": 0
+        },
+        {
+          "step": "answer"
+        },
+        {
+          "step": "citation_validation",
+          "valid": true
+        }
+      ],
+      "initial_candidate_count": 19,
+      "retry_candidate_count": null,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_evidence_refs": [
+        {
+          "text": "8.7.1\n高架线应采用防脱护轨措施，防脱护轨应设置在钢轨内侧，设置位置应符合下列规定：\n1\n半径≤500m 曲线地段的缓圆（圆缓）点两侧，其缓和曲线部分不小于缓和曲线长的一半并不小\n于20m、圆曲线部分20m 范围内，曲线下股钢轨内侧；\n2\n高架桥跨越城市干道、铁路及通航航道等重要地段，以及受列车意外撞击时易产生结构性破坏\n的高架桥地段及其以外各20m 范围内，应设置在靠近双线高架桥中线侧的钢轨内侧；\n3\n竖曲线与缓和曲线重叠处，应在竖曲线范围内两股钢轨内侧。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 54,
+          "page_end": 54,
+          "article_id": "8.7.1",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 525,
+          "score": 0.8146827220916748,
+          "rrf_score": null,
+          "rerank_score": 0.9995715022087097,
+          "display_ref": "第8.7.1条"
+        },
+        {
+          "text": "8.7.1\n防脱护轨主要设置在对轮重减载率、脱轨系数等车辆安全性指标影响较大及列车脱轨后可能产生\n严重影响的地段。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 291,
+          "page_end": 291,
+          "article_id": "8.7.1",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2927,
+          "score": 0.7132279872894287,
+          "rrf_score": null,
+          "rerank_score": 0.9969049096107483,
+          "display_ref": "第8.7.1条"
+        },
+        {
+          "text": "11.2.13\n不设护轮轨或防脱轨装置的高架桥梁应计算列车脱轨荷载作用，可按下列两种情形进行结构强\n度和稳定性检算。\n1\n车辆集中力直接作用于线路中线两侧2.1m 以内的桥面板最不利位置处，应检算桥面板强度。检\n算时，集中力值为本线列车实际轴重的1/2，不计列车动力系数，应力提高系数宜采用1.4；\n2\n列车位于轨道外侧但未坠落桥下时，应检算结构的横向稳定性。检算时，可采用长度为20.0m、\n位于线路中线外侧1.4m、平行于线路的线荷载，其值应为本线列车一节车轴重之和除以20.0m，不应计\n列车动力系数、离心力和另一线竖向荷载。倾覆稳定系数不得小于1.3。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 75,
+          "page_end": 75,
+          "article_id": "11.2.13",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 752,
+          "score": 0.6761645078659058,
+          "rrf_score": null,
+          "rerank_score": 0.9768208265304565,
+          "display_ref": "第11.2.13条"
+        }
+      ],
+      "citation_validation": {
+        "valid": true,
+        "cited_ids": [
+          "E1"
+        ],
+        "available_ids": [
+          "E1",
+          "E2",
+          "E3"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "IND-NEG-001",
+      "measurements": {
+        "wall_time_ms": 18031.000000424683,
+        "stage_timings_ms": {
+          "retrieval": 32.0,
+          "rerank": 13734.0,
+          "grader": 4265.0
+        },
+        "token_usage": {
+          "input": 2123,
+          "output": 384,
+          "total": 2507
+        },
+        "estimated_cost": null,
+        "model_calls": 2,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 0,
+        "metric_eligible": false
+      },
+      "category": "unanswerable_candidate",
+      "question": "本项目监理单位本周实际签发了多少份整改通知？",
+      "expected_answerability": false,
+      "gold_answer": "当前规范不能提供该项目或实时事实。",
+      "required_requirements": [
+        "识别所需事实不在规范内，不编造答案"
+      ],
+      "key_answer_points": [
+        "明确不能仅凭规范确定"
+      ],
+      "numeric_expectations": [],
+      "request_id": "53be3941b64a4a6a960cc8e37ac16b29",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [],
+      "final_action": "refuse",
+      "retry_count": 1,
+      "rewritten_query": "本项目监理单位本周实际签发的整改通知份数",
+      "final_answer_or_refusal": "当前规范及已检索证据不足以完整回答该问题。 缺少的信息：本项目监理单位本周实际签发的整改通知份数。",
+      "first_grade": {
+        "step": "grade",
+        "decision": "insufficient",
+        "missing_requirements": [
+          "本项目监理单位本周实际签发的整改通知份数"
+        ],
+        "retry_count": 0
+      },
+      "second_grade": {
+        "step": "grade",
+        "decision": "insufficient",
+        "missing_requirements": [
+          "本项目监理单位本周实际签发的整改通知份数"
+        ],
+        "retry_count": 1
+      },
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "本项目监理单位本周实际签发了多少份整改通知？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "本项目监理单位本周实际签发的整改通知份数"
+          ],
+          "retry_count": 0
+        },
+        {
+          "step": "parse_evidence_requirements",
+          "question_requirements": [
+            {
+              "business_id": null,
+              "article_id": null,
+              "subrequirement": "本项目监理单位本周实际签发了多少份整改通知？",
+              "source": "question",
+              "authoritative": true,
+              "status": "missing_version",
+              "reason": "specification_version_not_explicit"
+            }
+          ],
+          "grader_requirements": [
+            {
+              "business_id": null,
+              "article_id": null,
+              "subrequirement": "本项目监理单位本周实际签发的整改通知份数",
+              "source": "grader",
+              "authoritative": true,
+              "status": "mapped_to_question",
+              "reason": null
+            }
+          ]
+        },
+        {
+          "step": "retry",
+          "retry_count": 1,
+          "missing_requirements": [
+            "本项目监理单位本周实际签发的整改通知份数"
+          ]
+        },
+        {
+          "step": "retrieve",
+          "query": "本项目监理单位本周实际签发的整改通知份数",
+          "retry_count": 1
+        },
+        {
+          "step": "retain_article_groups",
+          "evidence_limit": 3,
+          "retained_groups": [],
+          "fallbacks": [
+            {
+              "subrequirement": "本项目监理单位本周实际签发了多少份整改通知？",
+              "reason": "no_direct_coverage",
+              "candidate_articles": []
+            },
+            {
+              "subrequirement": "本项目监理单位本周实际签发的整改通知份数",
+              "reason": "no_direct_coverage",
+              "candidate_articles": []
+            }
+          ]
+        },
+        {
+          "step": "verify_final_evidence_context",
+          "complete": true,
+          "within_scope": true,
+          "incomplete_groups": [],
+          "out_of_scope": []
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "本项目监理单位本周实际签发的整改通知份数"
+          ],
+          "retry_count": 1
+        },
+        {
+          "step": "refuse",
+          "missing_requirements": [
+            "本项目监理单位本周实际签发的整改通知份数"
+          ]
+        }
+      ],
+      "initial_candidate_count": 18,
+      "retry_candidate_count": 18,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [],
+        "gold_count": 0,
+        "hit": false,
+        "complete": null
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [],
+        "gold_count": 0,
+        "hit": false,
+        "complete": null
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [],
+        "gold_count": 0,
+        "hit": false,
+        "complete": null
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [],
+        "gold_count": 0,
+        "hit": false,
+        "complete": null
+      },
+      "final_evidence_refs": [
+        {
+          "text": "前\n言\n为贯彻《首都标准化发展纲要2035》，推动《北京城市总体规划（2016 年-2035 年）》实施，体现\n北京发展目标和地方特点，进一步促进城市轨道交通的可持续发展，按照《北京市“十四五”时期规划和\n自然资源标准化工作规划（2021 年-2025 年）》和北京市市场监督管理局关于印发《2023 年北京市地方\n标准修订项目计划（第三批）》的通知的要求，完成了本标准的修订工作。\n本标准本标准本标准共分31 章。主要内容包括总则、术语和定义、基本规定、运营组织、车辆、\n限界、线路、轨道、路基、车站建筑、高架结构、地下结构、工程防水、通风空调与供暖、给水与排\n水、供电、通信、信号、车站运营设备、",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 9,
+          "page_end": 9,
+          "article_id": null,
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 9,
+          "score": 14.94047248368376,
+          "rrf_score": null,
+          "rerank_score": 0.01920284517109394,
+          "display_ref": "p9-chunk_9"
+        },
+        {
+          "text": "12.13.5\n监测项目应分为应测项目和选测项目，地下结构常用的明挖法、盖挖逆作法、矿山法、盾构法\n及顶管法的监控量测项目应按表12.13.5 选取。\n表12.13.5\n监控量测项目汇总\n类别\n明挖、盖挖逆作法\n矿山法\n盾构法、顶管法\n应测项目\n基坑及其周围环境描述\n洞内及洞外观察\n地面沉降\n周边环境监测对象的沉降、差异沉降、倾斜、轨道几何形位等\n地下水位\n支护桩墙顶部及桩墙体水平位移\n初期支护拱顶沉降\n边坡顶部及坡面水平位移\n初期支护结构净空收敛\n管片（节）衬砌净空收敛\n盖挖法支护桩墙、中间立柱顶部竖向位移\n中柱竖向位移\n支撑轴力\n锚杆（锚索）拉力\n竖井支护结构井壁净空收敛\n选测项目\n土体分",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 105,
+          "page_end": 105,
+          "article_id": "12.13.5",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 1020,
+          "score": 11.714214814128031,
+          "rrf_score": null,
+          "rerank_score": 0.046292081475257874,
+          "display_ref": "第12.13.5条"
+        },
+        {
+          "text": "柱顶部竖向位移\n中柱竖向位移\n支撑轴力\n锚杆（锚索）拉力\n竖井支护结构井壁净空收敛\n选测项目\n土体分层沉降及水平位移\n围岩压力\n支护桩墙内力\n钢架、钢筋格栅应力\n管片（节）衬砌竖向、水平位移\n主体结构梁、板、柱应力\n二次衬砌结构应力\n管片（节）结构应力\n土钉拉力\n中柱结构应力\n基坑底部隆起",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 105,
+          "page_end": 105,
+          "article_id": "12.13.5",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 1021,
+          "score": 0.0,
+          "rrf_score": null,
+          "rerank_score": 0.012905200012028217,
+          "display_ref": "第12.13.5条"
+        }
+      ],
+      "citation_validation": null
+    },
+    {
+      "id": "IND-NEG-002",
+      "measurements": {
+        "wall_time_ms": 8375.0,
+        "stage_timings_ms": {
+          "retrieval": 32.0,
+          "rerank": 4781.0,
+          "grader": 3562.0
+        },
+        "token_usage": {
+          "input": 1619,
+          "output": 306,
+          "total": 1925
+        },
+        "estimated_cost": null,
+        "model_calls": 2,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 0,
+        "metric_eligible": false
+      },
+      "category": "unanswerable_candidate",
+      "question": "当前这条拟建线路施工现场的实时风速是多少？",
+      "expected_answerability": false,
+      "gold_answer": "当前规范不能提供该项目或实时事实。",
+      "required_requirements": [
+        "识别所需事实不在规范内，不编造答案"
+      ],
+      "key_answer_points": [
+        "明确不能仅凭规范确定"
+      ],
+      "numeric_expectations": [],
+      "request_id": "217951d1ea0d4b6c877b737575db0bd1",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [],
+      "final_action": "refuse",
+      "retry_count": 1,
+      "rewritten_query": "当前拟建线路施工现场的实时风速数值；施工现场风速的实时监测数据",
+      "final_answer_or_refusal": "当前规范及已检索证据不足以完整回答该问题。 缺少的信息：施工现场的实时风速数值。",
+      "first_grade": {
+        "step": "grade",
+        "decision": "insufficient",
+        "missing_requirements": [
+          "当前拟建线路施工现场的实时风速数值",
+          "施工现场风速的实时监测数据"
+        ],
+        "retry_count": 0
+      },
+      "second_grade": {
+        "step": "grade",
+        "decision": "insufficient",
+        "missing_requirements": [
+          "施工现场的实时风速数值"
+        ],
+        "retry_count": 1
+      },
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "当前这条拟建线路施工现场的实时风速是多少？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "当前拟建线路施工现场的实时风速数值",
+            "施工现场风速的实时监测数据"
+          ],
+          "retry_count": 0
+        },
+        {
+          "step": "parse_evidence_requirements",
+          "question_requirements": [
+            {
+              "business_id": null,
+              "article_id": null,
+              "subrequirement": "当前这条拟建线路施工现场的实时风速是多少？",
+              "source": "question",
+              "authoritative": true,
+              "status": "missing_version",
+              "reason": "specification_version_not_explicit"
+            }
+          ],
+          "grader_requirements": [
+            {
+              "business_id": null,
+              "article_id": null,
+              "subrequirement": "当前拟建线路施工现场的实时风速数值",
+              "source": "grader",
+              "authoritative": true,
+              "status": "mapped_to_question",
+              "reason": null
+            },
+            {
+              "business_id": null,
+              "article_id": null,
+              "subrequirement": "施工现场风速的实时监测数据",
+              "source": "grader",
+              "authoritative": true,
+              "status": "mapped_to_question",
+              "reason": null
+            }
+          ]
+        },
+        {
+          "step": "retry",
+          "retry_count": 1,
+          "missing_requirements": [
+            "当前拟建线路施工现场的实时风速数值",
+            "施工现场风速的实时监测数据"
+          ]
+        },
+        {
+          "step": "retrieve",
+          "query": "当前拟建线路施工现场的实时风速数值；施工现场风速的实时监测数据",
+          "retry_count": 1
+        },
+        {
+          "step": "retain_article_groups",
+          "evidence_limit": 3,
+          "retained_groups": [],
+          "fallbacks": [
+            {
+              "subrequirement": "当前这条拟建线路施工现场的实时风速是多少？",
+              "reason": "no_direct_coverage",
+              "candidate_articles": []
+            },
+            {
+              "subrequirement": "当前拟建线路施工现场的实时风速数值",
+              "reason": "no_direct_coverage",
+              "candidate_articles": []
+            },
+            {
+              "subrequirement": "施工现场风速的实时监测数据",
+              "reason": "no_direct_coverage",
+              "candidate_articles": []
+            }
+          ]
+        },
+        {
+          "step": "verify_final_evidence_context",
+          "complete": true,
+          "within_scope": true,
+          "incomplete_groups": [],
+          "out_of_scope": []
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "施工现场的实时风速数值"
+          ],
+          "retry_count": 1
+        },
+        {
+          "step": "refuse",
+          "missing_requirements": [
+            "施工现场的实时风速数值"
+          ]
+        }
+      ],
+      "initial_candidate_count": 18,
+      "retry_candidate_count": 18,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [],
+        "gold_count": 0,
+        "hit": false,
+        "complete": null
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [],
+        "gold_count": 0,
+        "hit": false,
+        "complete": null
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [],
+        "gold_count": 0,
+        "hit": false,
+        "complete": null
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [],
+        "gold_count": 0,
+        "hit": false,
+        "complete": null
+      },
+      "final_evidence_refs": [
+        {
+          "text": "，不言而喻，采用2m/s 的排烟速度就能同时满足上述两方面的要求。\n此外，本条又规定了排烟流速不大于11m/s，因为当排烟速度大于11m/s 时，新鲜空气的流动速度也大\n于11m/s，在此速度下乘客不能行走，无法安全撤离。\n列车非载客区间隧道，例如出入场线、出入段线隧道，列车上没有乘客，仅有司机或少量工作人员。\n由于接受过专业训练、熟悉隧道环境，且在配有消防安全防护与通讯装备的条件下，列车上人员火灾快\n速疏散的条件较好。因此，为了降低工程实施难度，对于此类隧道，本条仅要求排烟风速大于临界风速。\n临界风速的计算公式：\nc\n1\ng\nf\np\ngHQ\nv\nK K\nc AT\n\n\n\n\n\n\n",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 391,
+          "page_end": 391,
+          "article_id": "30.4.11",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 3674,
+          "score": 20.4240755761493,
+          "rrf_score": null,
+          "rerank_score": 0.7966803312301636,
+          "display_ref": "第30.4.11条"
+        },
+        {
+          "text": "19.2.8\n自动扶梯和自动人行道的名义速度宜采用0.65m/s，在建筑疏散能力满足要求的前提下运行速度",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 172,
+          "page_end": 172,
+          "article_id": "19.2.8",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 1817,
+          "score": 0.5803623199462891,
+          "rrf_score": null,
+          "rerank_score": 0.5193661451339722,
+          "display_ref": "第19.2.8条"
+        },
+        {
+          "text": "14.2.23\n站厅和站台的瞬时风速不宜大于5m/s。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 116,
+          "page_end": 116,
+          "article_id": "14.2.23",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 1138,
+          "score": 22.728020965550314,
+          "rrf_score": null,
+          "rerank_score": 0.9667096138000488,
+          "display_ref": "第14.2.23条"
+        }
+      ],
+      "citation_validation": null
+    },
+    {
+      "id": "IND-NEG-003",
+      "measurements": {
+        "wall_time_ms": 7063.000000081956,
+        "stage_timings_ms": {
+          "retrieval": 32.0,
+          "rerank": 4031.0,
+          "grader": 3000.0
+        },
+        "token_usage": {
+          "input": 2113,
+          "output": 260,
+          "total": 2373
+        },
+        "estimated_cost": null,
+        "model_calls": 2,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 0,
+        "metric_eligible": false
+      },
+      "category": "unanswerable_candidate",
+      "question": "本项目业主批准的最新施工总进度计划版本号是什么？",
+      "expected_answerability": false,
+      "gold_answer": "当前规范不能提供该项目或实时事实。",
+      "required_requirements": [
+        "识别所需事实不在规范内，不编造答案"
+      ],
+      "key_answer_points": [
+        "明确不能仅凭规范确定"
+      ],
+      "numeric_expectations": [],
+      "request_id": "19c1189c68ab4e68ae9f619f33a20e7f",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [],
+      "final_action": "refuse",
+      "retry_count": 1,
+      "rewritten_query": "本项目业主批准的最新施工总进度计划版本号",
+      "final_answer_or_refusal": "当前规范及已检索证据不足以完整回答该问题。 缺少的信息：业主批准的最新施工总进度计划版本号。",
+      "first_grade": {
+        "step": "grade",
+        "decision": "insufficient",
+        "missing_requirements": [
+          "本项目业主批准的最新施工总进度计划版本号"
+        ],
+        "retry_count": 0
+      },
+      "second_grade": {
+        "step": "grade",
+        "decision": "insufficient",
+        "missing_requirements": [
+          "业主批准的最新施工总进度计划版本号"
+        ],
+        "retry_count": 1
+      },
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "本项目业主批准的最新施工总进度计划版本号是什么？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "本项目业主批准的最新施工总进度计划版本号"
+          ],
+          "retry_count": 0
+        },
+        {
+          "step": "parse_evidence_requirements",
+          "question_requirements": [
+            {
+              "business_id": null,
+              "article_id": null,
+              "subrequirement": "本项目业主批准的最新施工总进度计划版本号是什么？",
+              "source": "question",
+              "authoritative": true,
+              "status": "missing_version",
+              "reason": "specification_version_not_explicit"
+            }
+          ],
+          "grader_requirements": [
+            {
+              "business_id": null,
+              "article_id": null,
+              "subrequirement": "本项目业主批准的最新施工总进度计划版本号",
+              "source": "grader",
+              "authoritative": true,
+              "status": "mapped_to_question",
+              "reason": null
+            }
+          ]
+        },
+        {
+          "step": "retry",
+          "retry_count": 1,
+          "missing_requirements": [
+            "本项目业主批准的最新施工总进度计划版本号"
+          ]
+        },
+        {
+          "step": "retrieve",
+          "query": "本项目业主批准的最新施工总进度计划版本号",
+          "retry_count": 1
+        },
+        {
+          "step": "retain_article_groups",
+          "evidence_limit": 3,
+          "retained_groups": [],
+          "fallbacks": [
+            {
+              "subrequirement": "本项目业主批准的最新施工总进度计划版本号是什么？",
+              "reason": "no_direct_coverage",
+              "candidate_articles": []
+            },
+            {
+              "subrequirement": "本项目业主批准的最新施工总进度计划版本号",
+              "reason": "no_direct_coverage",
+              "candidate_articles": []
+            }
+          ]
+        },
+        {
+          "step": "verify_final_evidence_context",
+          "complete": true,
+          "within_scope": true,
+          "incomplete_groups": [],
+          "out_of_scope": []
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "业主批准的最新施工总进度计划版本号"
+          ],
+          "retry_count": 1
+        },
+        {
+          "step": "refuse",
+          "missing_requirements": [
+            "业主批准的最新施工总进度计划版本号"
+          ]
+        }
+      ],
+      "initial_candidate_count": 20,
+      "retry_candidate_count": 20,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [],
+        "gold_count": 0,
+        "hit": false,
+        "complete": null
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [],
+        "gold_count": 0,
+        "hit": false,
+        "complete": null
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [],
+        "gold_count": 0,
+        "hit": false,
+        "complete": null
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [],
+        "gold_count": 0,
+        "hit": false,
+        "complete": null
+      },
+      "final_evidence_refs": [
+        {
+          "text": "柱顶部竖向位移\n中柱竖向位移\n支撑轴力\n锚杆（锚索）拉力\n竖井支护结构井壁净空收敛\n选测项目\n土体分层沉降及水平位移\n围岩压力\n支护桩墙内力\n钢架、钢筋格栅应力\n管片（节）衬砌竖向、水平位移\n主体结构梁、板、柱应力\n二次衬砌结构应力\n管片（节）结构应力\n土钉拉力\n中柱结构应力\n基坑底部隆起",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 105,
+          "page_end": 105,
+          "article_id": "12.13.5",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 1021,
+          "score": 0.0,
+          "rrf_score": null,
+          "rerank_score": 0.016921306028962135,
+          "display_ref": "第12.13.5条"
+        },
+        {
+          "text": "站建筑、高架结构、地下结构、工程防水、通风空调与供暖、给水与排\n水、供电、通信、信号、车站运营设备、综合监控系统、环境与设备监控系统、火灾自动报警系统、乘\n客信息、自动售检票、门禁、周界与安检、信息化、车辆基地、控制中心、交通衔接、防灾、环保节能。\n本标准修订的主要技术内容是：1、将最高运行速度提高至120km/h，增加相关技术要求内容；2、\n系统能力配置提出削峰设计理念进一步减冗余，特定场景可按最大断面的85%配置运能；3、新增互联\n互通、快慢车运行、灵活编组等灵活运营组织方式；4、新增上盖综合利用、全自动运行、网络安全、\n交流牵引、双流制牵引、云平台等新技术新应用；5、增加装配式预制板道床",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 9,
+          "page_end": 9,
+          "article_id": null,
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 10,
+          "score": 0.575957179069519,
+          "rrf_score": null,
+          "rerank_score": 0.012328910641372204,
+          "display_ref": "p9-chunk_10"
+        },
+        {
+          "text": "附件\n批准发布的北京市地方标准目录\n2025 年标字第8 号（总第366 号）\n序号\n标准号\n标准名称\n被修订标准号\n发布日期\n实施日期\n1.\nDB11/T 689-2025\n既有建筑抗震加固技术规程\nDB11/ 689-2016\n202525\n20261\n2.\n城市轨道交通工程设计标准\nDB11/ 995-2013\n202525\n20261\n3.\nDB11/T 1455-2025\n电动汽车充电基础设施规划\n设计标准\nDB11/ 1455-2017\n202525\n20251\n4.\nDB11/T 1624-2025\n电动自行车停放场所防火设\n计标准\nDB11/ 1624-2019\n202525",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 8,
+          "page_end": 8,
+          "article_id": null,
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 6,
+          "score": 0.6252046823501587,
+          "rrf_score": null,
+          "rerank_score": 0.1420545130968094,
+          "display_ref": "p8-chunk_6"
+        }
+      ],
+      "citation_validation": null
+    }
+  ],
+  "input_integrity_at_finish": {
+    "dataset_unchanged": true,
+    "pdf_unchanged": true
+  }
+}

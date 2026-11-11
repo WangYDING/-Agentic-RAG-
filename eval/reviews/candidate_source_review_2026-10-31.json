@@ -1,0 +1,707 @@
+{
+  "reviewed_at": "2026-10-31",
+  "reviewer": "Codex AI-assisted source verification",
+  "scope": "PDF source, page, article/table, answer points, numeric units, question/rubric quality",
+  "result": "source_verified",
+  "case_count": 50,
+  "passed": 50,
+  "failed": 0,
+  "human_approval_required": true,
+  "independent_dataset_executed": false,
+  "cases": [
+    {
+      "id": "REG-001",
+      "passed": true,
+      "reference_checks": [
+        {
+          "page": 31,
+          "article": "4.1.1",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        },
+        {
+          "page": 31,
+          "article": "4.1.3",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "answer_points_found": true
+    },
+    {
+      "id": "REG-002",
+      "passed": true,
+      "reference_checks": [
+        {
+          "page": 35,
+          "article": null,
+          "table": "表5.3.1",
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "answer_points_found": null
+    },
+    {
+      "id": "REG-003",
+      "passed": true,
+      "reference_checks": [
+        {
+          "page": 31,
+          "article": "4.1.7",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        },
+        {
+          "page": 31,
+          "article": "4.2.2",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "answer_points_found": true
+    },
+    {
+      "id": "REG-004",
+      "passed": true,
+      "reference_checks": [
+        {
+          "page": 31,
+          "article": "4.2.2",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "answer_points_found": true
+    },
+    {
+      "id": "REG-005",
+      "passed": true,
+      "reference_checks": [
+        {
+          "page": 32,
+          "article": "4.2.4",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        },
+        {
+          "page": 32,
+          "article": "4.3.2",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "answer_points_found": true
+    },
+    {
+      "id": "REG-006",
+      "passed": true,
+      "reference_checks": [
+        {
+          "page": 32,
+          "article": "4.3.2",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "answer_points_found": true
+    },
+    {
+      "id": "REG-007",
+      "passed": true,
+      "reference_checks": [
+        {
+          "page": 32,
+          "article": "4.3.3",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "answer_points_found": null
+    },
+    {
+      "id": "REG-008",
+      "passed": true,
+      "reference_checks": [
+        {
+          "page": 33,
+          "article": "4.3.7",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "answer_points_found": true
+    },
+    {
+      "id": "REG-009",
+      "passed": true,
+      "reference_checks": [
+        {
+          "page": 33,
+          "article": "4.3.8",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "answer_points_found": true
+    },
+    {
+      "id": "REG-010",
+      "passed": true,
+      "reference_checks": [
+        {
+          "page": 33,
+          "article": "4.3.11",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "answer_points_found": true
+    },
+    {
+      "id": "REG-011",
+      "passed": true,
+      "reference_checks": [
+        {
+          "page": 33,
+          "article": "4.3.12",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "answer_points_found": true
+    },
+    {
+      "id": "REG-012",
+      "passed": true,
+      "reference_checks": [
+        {
+          "page": 33,
+          "article": "4.3.13",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "answer_points_found": true
+    },
+    {
+      "id": "REG-013",
+      "passed": true,
+      "reference_checks": [
+        {
+          "page": 33,
+          "article": "4.4.1",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "answer_points_found": true
+    },
+    {
+      "id": "REG-014",
+      "passed": true,
+      "reference_checks": [
+        {
+          "page": 34,
+          "article": "4.4.3",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "answer_points_found": true
+    },
+    {
+      "id": "REG-015",
+      "passed": true,
+      "reference_checks": [
+        {
+          "page": 34,
+          "article": "4.4.4",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "answer_points_found": true
+    },
+    {
+      "id": "REG-016",
+      "passed": true,
+      "reference_checks": [
+        {
+          "page": 34,
+          "article": "4.4.5",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "answer_points_found": true
+    },
+    {
+      "id": "REG-017",
+      "passed": true,
+      "reference_checks": [
+        {
+          "page": 34,
+          "article": "4.4.6",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "answer_points_found": true
+    },
+    {
+      "id": "REG-018",
+      "passed": true,
+      "reference_checks": [
+        {
+          "page": 34,
+          "article": "4.5.3",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "answer_points_found": true
+    },
+    {
+      "id": "REG-019",
+      "passed": true,
+      "reference_checks": [
+        {
+          "page": 35,
+          "article": "5.1.6",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "answer_points_found": true
+    },
+    {
+      "id": "REG-020",
+      "passed": true,
+      "reference_checks": [
+        {
+          "page": 35,
+          "article": "5.1.7",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "answer_points_found": true
+    },
+    {
+      "id": "REG-021",
+      "passed": true,
+      "reference_checks": [
+        {
+          "page": 36,
+          "article": "5.4.1",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "answer_points_found": true
+    },
+    {
+      "id": "REG-022",
+      "passed": true,
+      "reference_checks": [
+        {
+          "page": 37,
+          "article": "5.4.8",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "answer_points_found": true
+    },
+    {
+      "id": "REG-023",
+      "passed": true,
+      "reference_checks": [
+        {
+          "page": 37,
+          "article": "5.4.9",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "answer_points_found": true
+    },
+    {
+      "id": "REG-024",
+      "passed": true,
+      "reference_checks": [
+        {
+          "page": 37,
+          "article": "5.5.2",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "answer_points_found": true
+    },
+    {
+      "id": "REG-025",
+      "passed": true,
+      "reference_checks": [
+        {
+          "page": 38,
+          "article": "5.5.5",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "answer_points_found": true
+    },
+    {
+      "id": "REG-026",
+      "passed": true,
+      "reference_checks": [
+        {
+          "page": 39,
+          "article": "5.5.8",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "answer_points_found": true
+    },
+    {
+      "id": "REG-027",
+      "passed": true,
+      "reference_checks": [
+        {
+          "page": 39,
+          "article": "5.6.1",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "answer_points_found": true
+    },
+    {
+      "id": "REG-NEG-001",
+      "passed": true,
+      "reference_checks": [],
+      "answer_points_found": null
+    },
+    {
+      "id": "REG-NEG-002",
+      "passed": true,
+      "reference_checks": [],
+      "answer_points_found": null
+    },
+    {
+      "id": "REG-NEG-003",
+      "passed": true,
+      "reference_checks": [],
+      "answer_points_found": null
+    },
+    {
+      "id": "IND-001",
+      "passed": true,
+      "reference_checks": [
+        {
+          "page": 39,
+          "article": "5.6.8",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        },
+        {
+          "page": 39,
+          "article": "5.6.9",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "answer_points_found": true
+    },
+    {
+      "id": "IND-002",
+      "passed": true,
+      "reference_checks": [
+        {
+          "page": 39,
+          "article": "5.6.9",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "answer_points_found": true
+    },
+    {
+      "id": "IND-003",
+      "passed": true,
+      "reference_checks": [
+        {
+          "page": 39,
+          "article": "5.7.1",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        },
+        {
+          "page": 40,
+          "article": "6.1.1",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "answer_points_found": true
+    },
+    {
+      "id": "IND-004",
+      "passed": true,
+      "reference_checks": [
+        {
+          "page": 41,
+          "article": null,
+          "table": "表6.3.1",
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "answer_points_found": null
+    },
+    {
+      "id": "IND-005",
+      "passed": true,
+      "reference_checks": [
+        {
+          "page": 42,
+          "article": "6.3.10",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        },
+        {
+          "page": 42,
+          "article": "6.3.11",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "answer_points_found": true
+    },
+    {
+      "id": "IND-006",
+      "passed": true,
+      "reference_checks": [
+        {
+          "page": 42,
+          "article": "6.3.11",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "answer_points_found": null
+    },
+    {
+      "id": "IND-007",
+      "passed": true,
+      "reference_checks": [
+        {
+          "page": 42,
+          "article": "6.3.12",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "answer_points_found": true
+    },
+    {
+      "id": "IND-008",
+      "passed": true,
+      "reference_checks": [
+        {
+          "page": 42,
+          "article": "6.4.3",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "answer_points_found": true
+    },
+    {
+      "id": "IND-009",
+      "passed": true,
+      "reference_checks": [
+        {
+          "page": 48,
+          "article": "7.3.4",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "answer_points_found": true
+    },
+    {
+      "id": "IND-010",
+      "passed": true,
+      "reference_checks": [
+        {
+          "page": 48,
+          "article": "7.3.6",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "answer_points_found": true
+    },
+    {
+      "id": "IND-011",
+      "passed": true,
+      "reference_checks": [
+        {
+          "page": 50,
+          "article": "8.1.3",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "answer_points_found": true
+    },
+    {
+      "id": "IND-012",
+      "passed": true,
+      "reference_checks": [
+        {
+          "page": 51,
+          "article": "8.3.2",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "answer_points_found": true
+    },
+    {
+      "id": "IND-013",
+      "passed": true,
+      "reference_checks": [
+        {
+          "page": 52,
+          "article": "8.4.1",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "answer_points_found": true
+    },
+    {
+      "id": "IND-014",
+      "passed": true,
+      "reference_checks": [
+        {
+          "page": 53,
+          "article": "8.4.5",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "answer_points_found": true
+    },
+    {
+      "id": "IND-015",
+      "passed": true,
+      "reference_checks": [
+        {
+          "page": 54,
+          "article": "8.5.4",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "answer_points_found": true
+    },
+    {
+      "id": "IND-016",
+      "passed": true,
+      "reference_checks": [
+        {
+          "page": 54,
+          "article": "8.6.2",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "answer_points_found": true
+    },
+    {
+      "id": "IND-017",
+      "passed": true,
+      "reference_checks": [
+        {
+          "page": 54,
+          "article": "8.7.1",
+          "table": null,
+          "article_found": true,
+          "table_found": true
+        }
+      ],
+      "answer_points_found": true
+    },
+    {
+      "id": "IND-NEG-001",
+      "passed": true,
+      "reference_checks": [],
+      "answer_points_found": null
+    },
+    {
+      "id": "IND-NEG-002",
+      "passed": true,
+      "reference_checks": [],
+      "answer_points_found": null
+    },
+    {
+      "id": "IND-NEG-003",
+      "passed": true,
+      "reference_checks": [],
+      "answer_points_found": null
+    }
+  ]
+}

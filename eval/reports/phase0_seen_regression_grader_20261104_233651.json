@@ -1,0 +1,680 @@
+{
+  "report_schema_version": 2,
+  "provenance": {
+    "schema_version": 1,
+    "captured_at": "2026-11-04T15:36:51.298807+00:00",
+    "git_commit": "2d991ae70732eca9fda08033d62e348b7e00b544",
+    "git_dirty": true,
+    "uv_lock_sha256": "4093b9a78526c47bf7d4b46457c2c7106cb0338ac31a2fac917a93f28b302a4e",
+    "dataset_sha256": "47c1534397394f891929b2fc1589993ba12a6cde2d119baa78fb501e470f1913",
+    "pdf_sha256": "e5ca2388ad68ed7b21b6092e66c12a73c74c17de8b532bef91c5b2ea57be78f7",
+    "configuration": {
+      "embedding_model": "BAAI/bge-small-zh-v1.5",
+      "embedding_revision": null,
+      "reranker_model": "BAAI/bge-reranker-base",
+      "generation_model": "deepseek-flash",
+      "retrieval_top_k": 10,
+      "evidence_top_n": 3,
+      "request_timeout_seconds": 30.0,
+      "max_network_retries": 1,
+      "total_timeout_seconds": 90.0,
+      "max_model_calls": 6,
+      "input_cost_per_million": null,
+      "output_cost_per_million": null,
+      "index_auto_build": false,
+      "index_lock_timeout_seconds": 30.0,
+      "api_endpoint_sha256": "ede47230ac9ca7d26f3cfe67de26982cce152929ba545e7ebcbcb7c00211178b"
+    },
+    "configuration_sha256": "25e10b218f11d5c033d2fa58d1c469ad690b7d737b2f9b2e2580d53d5c83b0d1",
+    "index_manifest": {
+      "schema_version": 3,
+      "source": "城市轨道交通工程设计标准.pdf",
+      "document_id": "e32b2a73134e8548ffbd374f14a52b27aaee9c2d7d2e482b802e756fb0c5fca2",
+      "version_id": "a1445f985213104ec683f9cc26146f5aa40f5766384ea527ae64e19bc903f5b9",
+      "checksum_sha256": "e5ca2388ad68ed7b21b6092e66c12a73c74c17de8b532bef91c5b2ea57be78f7",
+      "chunk_size": 300,
+      "overlap": 50,
+      "embedding_model": "BAAI/bge-small-zh-v1.5",
+      "embedding_revision": null,
+      "parser_version": "pymupdf-structured-v2-superscript",
+      "embedding_dim": 512,
+      "chunk_count": 3701,
+      "index_file": "index.faiss",
+      "metadata_file": "metadata.json",
+      "index_sha256": "6e70f528c811828feab5f4ffb17a6e906237525a7542535b9d446d6203f25ee9",
+      "metadata_sha256": "7bdcba78567d26417a096271f095b999b7500ecc8566abe997ea7505e94c8c29"
+    },
+    "prompt_source_sha256": {
+      "src/generator.py": "9502e4f333d6ba3fc66d1ad66edb8e210b82f840ae5deeb7d3ca778f93252b38",
+      "src/evidence_sufficiency.py": "1197142dbd9e59170a868bbf841cd1a066ce5be5cf7e661cf802ea89e027a7ce",
+      "src/query_rewriter.py": "d9c0ff24cd09d733604a793f699653a46cfd10d8fd9625efec640e3fdd95de16"
+    },
+    "runtime_source_sha256": {
+      "src/agent_workflow.py": "b4ebdbfc677c6de8db606068840bd41f150a138ecb6c7ce47c3c210b4f26b856",
+      "src/application.py": "7601747eac16f4bc73c2c8361e93a362670d149dabf7aee3477a201ea7d26ba0",
+      "src/bm25_retriever.py": "9292b0b700454a98c6c7eff92c4c6b39137fa8269af12c82590cd1ef8495ab82",
+      "src/chat_memory.py": "e7eb6507d2d853c5ecfc7f31583515f201824e796e6b17badc4104c9ba28e490",
+      "src/config.py": "18798879a21a8457d6d29ce60b484b944598617cd3d8fd816b0af5396fc7cd7f",
+      "src/document_schema.py": "32c001b8ca80a01add7ba60d0d6160e50af10aaddb03c2dc02d85a023a5d075c",
+      "src/embedder.py": "155055fbabd7371f6a9b78d61daf20ad818ac4ce4dbd03ca58314a9bb50d2376",
+      "src/evidence.py": "9b2d8a3fd32e4237440380b4a47c87d82f611059ab98332376c12d5b8532bbac",
+      "src/evidence_sufficiency.py": "1197142dbd9e59170a868bbf841cd1a066ce5be5cf7e661cf802ea89e027a7ce",
+      "src/generator.py": "9502e4f333d6ba3fc66d1ad66edb8e210b82f840ae5deeb7d3ca778f93252b38",
+      "src/health_cli.py": "ad7dd5f8e19a667cb94a9de3ec1482ebebb3057b7b1afd1137358e7f641fde15",
+      "src/hybrid_retriever.py": "faddf7f42e8aa4ec82790a3fcfae927ef2930dd6a123cc4413b8e051d83454d8",
+      "src/index_cli.py": "840aae7f2124c3acb90bd2e88e528370e0adb6c9a5432599e5951e3e148d94fd",
+      "src/index_manager.py": "3c44831f5855630efd001916d0d6e51d8c3f38db6fe77b6fdaef351fa5e91cc8",
+      "src/loader.py": "c9a30f943394643f1a45588a379dcb8c4f2e3ee4f706310af888bc52d22942ed",
+      "src/model_cli.py": "9e7081084a1f207fd3479f07e5292cd29058b88df35ad7b86dbdeb6561f50cd7",
+      "src/observability.py": "41278de595cccfd1d62c7fe092341cf7c2834decd67401d88d22e7c9e5f8f8e1",
+      "src/presentation.py": "cc32314d7e80ee142f3e0cdca42d5c8a76a622d047212a9593bc293d134348ec",
+      "src/query_rewriter.py": "d9c0ff24cd09d733604a793f699653a46cfd10d8fd9625efec640e3fdd95de16",
+      "src/rag_service.py": "0ab79be8821ca04050c17fdd58be1a3578ac6b015899ef95cc27c6fe39826c7f",
+      "src/reliability.py": "ceaeac5642249356c82ebd6e49f0249a26927e859683d5a1155dae8728c7a2f7",
+      "src/reranker.py": "1a43434f779f49fb078115f3b0dddd2d9c6838312d5594aa528c752b23b8ae78",
+      "src/results.py": "dfdac9b35ad394857412f6f25d42dc8ac8e6b18eec1a09b6d8929497b7c6d13f",
+      "src/retrieval_fusion.py": "038d4db65d43e029c3a6c79e013eb65b519eca8ec3ca9e8cba0cac0b0e51e28a",
+      "src/retriever.py": "4f8a420a1e282e94b1571ad53a81b6987c7eedc0f6f970db1370bdbebcdce760",
+      "src/splitter.py": "791c4d27e62f6eec2939e482b5ab2ef077c18df1cf6df9b4afd8f9db8e42c7e0",
+      "src/vector_store.py": "a998526d75d1b3f683a78124cd6b8d3dbc6b9b67279bc0112e50c59068a1c0a9",
+      "src/web_launcher.py": "4895316604e7f70acbe5aab8be31dcd0fbf876c87b05a382288208b654b738c3",
+      "eval/__init__.py": "adf57529570e1ef094cdb288f04b68682b71bb47920a61069cf3aaa60404fd19",
+      "eval/build_sufficiency_dataset.py": "5c01f16c63bf7d541e87155f227bfe42dd3a6167fb4f33284ffbbd776f0bdfe0",
+      "eval/curate_candidates.py": "5da7af6aa84dd7ad9ae20782e4554396137c78943d37de0a5146bc16b3b66b12",
+      "eval/dataset_manifest.py": "96fd489a3746e44a20ec1f3fb7f3a0e12bbd41810d2587a794d90e8c1ed9af74",
+      "eval/finalize_candidate_review.py": "7008018647c888bbccb8c3abcc70939f29b1e2b84d516491fc108cab7f47b241",
+      "eval/metrics.py": "d5e509c06c32ed31d01c859df1dab8604fa1480382e1a3d770bed37b3f3bb0dd",
+      "eval/provenance.py": "719f40e976c39fe1ae2d595428b9ca6e264e5d99e3bdb67b4bb00fdfad84afb3",
+      "eval/report.py": "3b0071bb967d2e21c2ed2e07a05ade582874b4478dd93bb0f739db25476943be",
+      "eval/review.py": "ff50e2c9a5d4b6d9a8ce60bba640235a84834c0ad764881cb2db2ac82127c8ea",
+      "eval/run_agent_test.py": "cc5002e0e28a39c05aadcf9bc6fcb3226de92847c09ac8ddc717a9527357edef",
+      "eval/run_retrieval.py": "b83dcfe19a3f1a65b88b2db6a3225afcccc216d6aa8da78735dc1d24533bbb9c",
+      "eval/run_score_diagnostic.py": "46ddf49d30112bbbffa524a64f2b431647711fe75b94261dbb8282fcb3c6e36d",
+      "eval/run_sufficiency.py": "0d39cf4073f2ed6f51d797c4a0231031f036cb6e8a01588bea7c97363695bd33",
+      "eval/schema.py": "7cb95d69ef3432058b6a0adeebd9f4e93313588434cb5f9d8fa37cb893676e1d"
+    },
+    "prompt_hash_scope": "whole source files; changes outside prompts also invalidate hashes",
+    "model_revisions": {
+      "embedding": null,
+      "reranker": null,
+      "generation": null
+    },
+    "environment": {
+      "python": "3.12.16",
+      "platform": "Windows-10-10.0.19044-SP0",
+      "packages": {
+        "numpy": "2.5.4",
+        "scipy": "1.18.1",
+        "scikit-learn": "1.9.1",
+        "faiss-cpu": "1.15.1",
+        "openai": "1.109.1",
+        "pymupdf": "1.28.2",
+        "sentence-transformers": "5.7.0"
+      }
+    },
+    "release_dependencies": {
+      "real_deployment_latency_baseline": "pending",
+      "real_model_usage_cost_baseline": "pending"
+    },
+    "dataset_manifest": {
+      "schema_version": 1,
+      "dataset_id": "phase0_seen_regression_grader",
+      "version": "1.0-question-bounded-sufficiency",
+      "role": "development",
+      "status": "draft",
+      "data_file": "phase0_seen_regression_grader.jsonl",
+      "sha256": "47c1534397394f891929b2fc1589993ba12a6cde2d119baa78fb501e470f1913",
+      "count": 2,
+      "type_distribution": {
+        "numeric_candidate": 1,
+        "partial_support_unanswerable": 1
+      },
+      "source_pdf_sha256": "e5ca2388ad68ed7b21b6092e66c12a73c74c17de8b532bef91c5b2ea57be78f7",
+      "frozen_at": null,
+      "used_for_tuning": true,
+      "acceptance_criteria": null,
+      "notes": "Known phase 0 cases derived from frozen IND-002 and IND-006 after results were inspected. This pair checks that complete applicable evidence is accepted without invented metrics while explicit unsupported project values still cause refusal. It is seen regression data and must never be reported as independent validation."
+    },
+    "index_version_id": "a1445f985213104ec683f9cc26146f5aa40f5766384ea527ae64e19bc903f5b9",
+    "runtime_workflow": {
+      "retrieval_top_k": 10,
+      "evidence_top_n": 3,
+      "max_model_calls": 6,
+      "total_timeout_seconds": 90.0,
+      "max_retries": 1
+    },
+    "retrieval_constants": {
+      "rrf_k": 60,
+      "bounded_retrieval_retries": 1
+    }
+  },
+  "evidence_top_n": 3,
+  "dataset_path": "eval/datasets/phase0_seen_regression_grader.jsonl",
+  "pdf_path": "data/raw/城市轨道交通工程设计标准.pdf",
+  "index_dir": ".rag_index",
+  "model": "deepseek-flash",
+  "dataset": {
+    "count": 2,
+    "type_distribution": {
+      "numeric_candidate": 1,
+      "partial_support_unanswerable": 1
+    },
+    "answerable": 1,
+    "unanswerable": 1
+  },
+  "category_counts": {
+    "numeric_candidate": {
+      "count": 1,
+      "answer": 1,
+      "refuse": 0,
+      "error": 0
+    },
+    "partial_support_unanswerable": {
+      "count": 1,
+      "answer": 0,
+      "refuse": 1,
+      "error": 0
+    }
+  },
+  "initial_rank_metrics": {
+    "recall@1": 1.0,
+    "hitrate@1": 1.0,
+    "recall@3": 1.0,
+    "hitrate@3": 1.0,
+    "recall@5": 1.0,
+    "hitrate@5": 1.0,
+    "recall@10": 1.0,
+    "hitrate@10": 1.0,
+    "mrr@10": 1.0,
+    "count": 1
+  },
+  "retrieval_evidence": {
+    "initial_hit_rate_at_n": 1.0,
+    "initial_recall_at_n": 1.0,
+    "initial_recall_at_10": 1.0,
+    "final_hit_rate_at_n": 1.0,
+    "final_recall_at_n": 1.0,
+    "multi_evidence_complete_at_n": 0,
+    "multi_evidence_count": 0
+  },
+  "agent_decision": {
+    "first_sufficient": 1,
+    "first_insufficient_retry": 1,
+    "retry_sufficient": 0,
+    "retry_still_insufficient": 1,
+    "final_answer": 1,
+    "final_error": 0,
+    "final_refuse": 1,
+    "correct_unanswerable_refusal": 1,
+    "false_accept": 0,
+    "false_refusal": 0,
+    "false_accept_rate": 0.0,
+    "false_refusal_rate": 0.0
+  },
+  "citation_validation": {
+    "answered": 1,
+    "valid": 1,
+    "invalid_ids": []
+  },
+  "finished_at": "2026-11-04T15:37:42.766055+00:00",
+  "human_review_status": "pending",
+  "release_decision": "blocked_pending_human_review_and_real_deployment_baselines",
+  "cases": [
+    {
+      "id": "IND-002",
+      "measurements": {
+        "wall_time_ms": 23313.000000081956,
+        "stage_timings_ms": {
+          "retrieval": 16.0,
+          "rerank": 1219.0,
+          "grader": 16015.0,
+          "generation": 6063.0
+        },
+        "token_usage": {
+          "input": 1257,
+          "output": 3156,
+          "total": 4413
+        },
+        "estimated_cost": null,
+        "model_calls": 2,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [
+            0
+          ],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 1,
+        "metric_eligible": true
+      },
+      "category": "numeric_candidate",
+      "question": "司机室前照灯、列车尾灯和车辆侧壁指示灯有哪些配置与性能要求？",
+      "expected_answerability": true,
+      "gold_answer": "司机室前端应装设可远近光变换的前照灯。前照灯在车辆前端紧急制停距离处照度不应小于2 lx。列车尾端应设有红色防护灯。车辆侧壁可设置显示车门开闭、制动缸缓解等指示灯。",
+      "required_requirements": [
+        "覆盖要点：司机室前端应装设可远近光变换的前照灯",
+        "覆盖要点：前照灯在车辆前端紧急制停距离处照度不应小于2 lx",
+        "覆盖要点：列车尾端应设有红色防护灯",
+        "覆盖要点：车辆侧壁可设置显示车门开闭、制动缸缓解等指示灯"
+      ],
+      "key_answer_points": [
+        "司机室前端应装设可远近光变换的前照灯",
+        "前照灯在车辆前端紧急制停距离处照度不应小于2 lx",
+        "列车尾端应设有红色防护灯",
+        "车辆侧壁可设置显示车门开闭、制动缸缓解等指示灯"
+      ],
+      "numeric_expectations": [
+        {
+          "value": "2",
+          "unit": "lx",
+          "conditions": [
+            "前照灯在车辆前端紧急制停距离处照度不应小于2 lx"
+          ]
+        }
+      ],
+      "request_id": "e2bc8e18094c4e6d8f60591b92ccf406",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 39,
+          "article": "5.6.9",
+          "table": null
+        }
+      ],
+      "final_action": "answer",
+      "retry_count": 0,
+      "rewritten_query": null,
+      "final_answer_or_refusal": "核心结论：前照灯为强制配置并规定照度下限；尾端应设红色防护灯；侧壁指示灯为可设置的车门开闭、制动缸缓解等状态指示，另司机室内应设客室侧门开闭状态显示灯。\n\n1. **司机室前照灯**：司机室前端应装设可远近光变换的前照灯；在车辆前端紧急制停距离处的照度不应小于 2 lx。[E1]\n\n2. **列车尾灯**：列车尾端应设置红色防护灯。[E1]\n\n3. **车辆侧壁指示灯**：车辆侧壁可设置用于显示车门开闭、制动缸缓解等状态的指示灯；此外，司机室内应设置客室侧门开闭状态显示灯。[E1][E2]\n\n注：给定片段未提供侧壁指示灯的更多性能指标。",
+      "first_grade": {
+        "step": "grade",
+        "decision": "sufficient",
+        "missing_requirements": [],
+        "retry_count": 0
+      },
+      "second_grade": null,
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "司机室前照灯、列车尾灯和车辆侧壁指示灯有哪些配置与性能要求？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "sufficient",
+          "missing_requirements": [],
+          "retry_count": 0
+        },
+        {
+          "step": "answer"
+        },
+        {
+          "step": "citation_validation",
+          "valid": true
+        }
+      ],
+      "initial_candidate_count": 18,
+      "retry_candidate_count": null,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_evidence_refs": [
+        {
+          "text": "5.6.9\n司机室前端应装设可远近光变换的前照灯。前照灯在车辆前端紧急制停距离处照度不应小于2 lx。\n列车尾端应设有红色防护灯。车辆侧壁可设置显示车门开闭、制动缸缓解等指示灯。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 39,
+          "page_end": 39,
+          "article_id": "5.6.9",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 388,
+          "score": 0.773747980594635,
+          "rrf_score": null,
+          "rerank_score": 0.9993247985839844,
+          "display_ref": "第5.6.9条"
+        },
+        {
+          "text": "5.6.7\n司机室内应设置客室侧门开闭状态显示灯。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 39,
+          "page_end": 39,
+          "article_id": "5.6.7",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 386,
+          "score": 0.6802053451538086,
+          "rrf_score": null,
+          "rerank_score": 0.9735690951347351,
+          "display_ref": "第5.6.7条"
+        },
+        {
+          "text": "5.7.4\n列车宜设置模式运行灯和动车提示灯。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 39,
+          "page_end": 39,
+          "article_id": "5.7.4",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 395,
+          "score": 0.6282236576080322,
+          "rrf_score": null,
+          "rerank_score": 0.9642956852912903,
+          "display_ref": "第5.7.4条"
+        }
+      ],
+      "citation_validation": {
+        "valid": true,
+        "cited_ids": [
+          "E1",
+          "E2"
+        ],
+        "available_ids": [
+          "E1",
+          "E2",
+          "E3"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": "IND-006",
+      "measurements": {
+        "wall_time_ms": 9703.000000678003,
+        "stage_timings_ms": {
+          "retrieval": 30.0,
+          "rerank": 4235.0,
+          "grader": 5438.0
+        },
+        "token_usage": {
+          "input": 1652,
+          "output": 548,
+          "total": 2200
+        },
+        "estimated_cost": null,
+        "model_calls": 2,
+        "model_retries": 0,
+        "usage_note": "null means unobserved; zero tokens may also mean provider omitted usage; costs are estimates",
+        "deployment_baseline": false
+      },
+      "initial_retrieval_metric_case": {
+        "hits": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "gold_hit_ids_by_rank": [
+          [
+            0
+          ],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "gold_count": 1,
+        "metric_eligible": false
+      },
+      "category": "partial_support_unanswerable",
+      "question": "安装射流风机、风管和配电柜等设备时应怎样检算建筑限界？本项目实际设备尺寸和最终加宽、加高量是多少？",
+      "expected_answerability": false,
+      "gold_answer": "在安装射流风机、风管、配电柜、控制箱、接触网隔离开关、道岔转辙机等设备地段，应按设备安装位置及尺寸检算建筑限界，必要时应采取局部加宽、加高措施。规范未给出本项目实际设备尺寸和最终加宽、加高量，因此不能完整回答项目实施值。",
+      "required_requirements": [
+        "说明设备安装地段的建筑限界检算与处置要求",
+        "识别项目实际设备尺寸和最终加宽、加高量不在规范中，拒绝编造"
+      ],
+      "key_answer_points": [
+        "在安装射流风机、风管、配电柜、控制箱、接触网隔离开关、道岔转辙机等设备地段，应按设备安装位置及尺寸检算建筑限界，必要时应采取局部加宽、加高措施",
+        "规范不能给出本项目实际设备尺寸和最终加宽、加高量"
+      ],
+      "numeric_expectations": [],
+      "request_id": "274bd06ccb024314aa0162f00d54e81b",
+      "error_code": null,
+      "human_review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null,
+        "evidence_support": null,
+        "completeness": null,
+        "numeric_conditions": null,
+        "unsupported_facts": null,
+        "notes": ""
+      },
+      "gold_evidence": [
+        {
+          "document": "城市轨道交通工程设计标准.pdf",
+          "page": 42,
+          "article": "6.3.11",
+          "table": null
+        }
+      ],
+      "final_action": "refuse",
+      "retry_count": 1,
+      "rewritten_query": "本项目实际设备尺寸；本项目最终加宽量；本项目最终加高量",
+      "final_answer_or_refusal": "当前规范及已检索证据不足以完整回答该问题。 缺少的信息：本项目实际设备尺寸；本项目最终加宽、加高量。",
+      "first_grade": {
+        "step": "grade",
+        "decision": "insufficient",
+        "missing_requirements": [
+          "本项目实际设备尺寸",
+          "本项目最终加宽量",
+          "本项目最终加高量"
+        ],
+        "retry_count": 0
+      },
+      "second_grade": {
+        "step": "grade",
+        "decision": "insufficient",
+        "missing_requirements": [
+          "本项目实际设备尺寸",
+          "本项目最终加宽、加高量"
+        ],
+        "retry_count": 1
+      },
+      "trace": [
+        {
+          "step": "retrieve",
+          "query": "安装射流风机、风管和配电柜等设备时应怎样检算建筑限界？本项目实际设备尺寸和最终加宽、加高量是多少？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "本项目实际设备尺寸",
+            "本项目最终加宽量",
+            "本项目最终加高量"
+          ],
+          "retry_count": 0
+        },
+        {
+          "step": "retry",
+          "retry_count": 1,
+          "missing_requirements": [
+            "本项目实际设备尺寸",
+            "本项目最终加宽量",
+            "本项目最终加高量"
+          ]
+        },
+        {
+          "step": "retrieve",
+          "query": "本项目实际设备尺寸；本项目最终加宽量；本项目最终加高量",
+          "retry_count": 1
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "本项目实际设备尺寸",
+            "本项目最终加宽、加高量"
+          ],
+          "retry_count": 1
+        },
+        {
+          "step": "refuse",
+          "missing_requirements": [
+            "本项目实际设备尺寸",
+            "本项目最终加宽、加高量"
+          ]
+        }
+      ],
+      "initial_candidate_count": 18,
+      "retry_candidate_count": 20,
+      "initial_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "initial_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top_n_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_top10_coverage": {
+        "matched_gold_indices": [
+          0
+        ],
+        "gold_count": 1,
+        "hit": true,
+        "complete": true
+      },
+      "final_evidence_refs": [
+        {
+          "text": "6.3.11\n在安装射流风机、风管、配电柜、控制箱、接触网隔离开关道岔转辙机等设备地段，应按设备\n安装位置及尺寸检算建筑限界，必要时应采取局部加宽、加高措施。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 42,
+          "page_end": 42,
+          "article_id": "6.3.11",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 424,
+          "score": 0.8372566103935242,
+          "rrf_score": null,
+          "rerank_score": 0.9995813965797424,
+          "display_ref": "第6.3.11条"
+        },
+        {
+          "text": "加宽量应按下式计算：\n���=\n222768+30240��\n���\n（E.0.1-3）\n式中：\n���—缓和曲线引起的曲线外侧限界加宽量（mm）。\n4\nB1 型车和B2 型车缓和曲线外侧加宽量应按下式计算：\n���=\n160107+25280��\n���\n（E.0.1-4）\nE.0.2 轨道超高引起的加宽量应按下列公式计算：\nihe ⁼X¹ cosα⁺Y¹ sinα-X¹\n（E.0.2-1）\no\nhe ⁼X² cosα-Y² sinα-X²\n（E.0.2-2）\nhtc =hac×lj/L\n（E.0.2-3）\nα=sin\n-1（htc/s）\n（E.0.2-4）\n式中：\nihe\n—轨道超高引起的",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 257,
+          "page_end": 257,
+          "article_id": "31.3.11",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2680,
+          "score": 0.592071533203125,
+          "rrf_score": null,
+          "rerank_score": 0.9521123766899109,
+          "display_ref": "第31.3.11条"
+        },
+        {
+          "text": ".0.2-3）\nα=sin\n-1（htc/s）\n（E.0.2-4）\n式中：\nihe\n—轨道超高引起的缓和曲线内侧限界加宽量（mm）；\no\nhe\n—轨道超高引起的缓和曲线外侧限界加宽量（mm）；\nX1 —计算曲线内侧限界加宽的设备限界控制点的横坐标值（mm）；\nY1 —计算曲线内侧限界加宽的设备限界控制点的纵坐标值（mm）；\nX2 —计算曲线外侧限界加宽的设备限界控制点的横坐标值（mm）；\nY2 —计算曲线外侧限界加宽的设备限界控制点的纵坐标值（mm）；\nhac —圆曲线段轨道超高值；\nhtc\n—缓和曲线上计算点处的超高值（mm）。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 257,
+          "page_end": 257,
+          "article_id": "31.3.11",
+          "table_id": null,
+          "content_type": "text",
+          "chunk_id": 2681,
+          "score": 0.0,
+          "rrf_score": null,
+          "rerank_score": 0.9207007884979248,
+          "display_ref": "第31.3.11条"
+        }
+      ],
+      "citation_validation": null
+    }
+  ],
+  "input_integrity_at_finish": {
+    "dataset_unchanged": true,
+    "pdf_unchanged": true
+  }
+}

@@ -1,0 +1,456 @@
+{
+  "contract": "rag-eval.test-case.v1",
+  "input_contract": "rag-eval.rag-input.v1",
+  "schema_path": "eval/contract_v1.py",
+  "example_path": "eval/examples/synthetic_contract_v1.json",
+  "interface_docs": [
+    "docs/EVALUATION_INTERFACE_V1.md",
+    "docs/EVALUATION_GOVERNANCE_V1.md"
+  ],
+  "dataset": "independent_120_user_reviewed.jsonl",
+  "cases_valid": 120,
+  "public_inputs_valid": 120,
+  "distribution": {
+    "单规范直接查询": 20,
+    "数值、单位与条件": 20,
+    "表格查询": 15,
+    "单规范多证据组合": 15,
+    "跨规范查询与比较": 20,
+    "应拒答问题": 20,
+    "应澄清问题": 10
+  },
+  "necessary_facts": 206,
+  "evidence_groups": 206,
+  "issue_counts": {
+    "OVERLAP_STATUS_CONFLICT": 18,
+    "NUMERIC_FACT_MAPPING": 35,
+    "PARTIAL_SUPPORT_MAPPING": 14,
+    "SCOPE_BEHAVIOR": 1,
+    "CLARIFICATION_EVIDENCE_MAPPING": 9
+  },
+  "issues": [
+    {
+      "case_id": "I120-C001",
+      "code": "OVERLAP_STATUS_CONFLICT",
+      "resolution": "User asserted completed review, but original per-case overlap status is pending; record actual disposition without overwriting original."
+    },
+    {
+      "case_id": "I120-C002",
+      "code": "OVERLAP_STATUS_CONFLICT",
+      "resolution": "User asserted completed review, but original per-case overlap status is pending; record actual disposition without overwriting original."
+    },
+    {
+      "case_id": "I120-C003",
+      "code": "OVERLAP_STATUS_CONFLICT",
+      "resolution": "User asserted completed review, but original per-case overlap status is pending; record actual disposition without overwriting original."
+    },
+    {
+      "case_id": "I120-C004",
+      "code": "OVERLAP_STATUS_CONFLICT",
+      "resolution": "User asserted completed review, but original per-case overlap status is pending; record actual disposition without overwriting original."
+    },
+    {
+      "case_id": "I120-C005",
+      "code": "OVERLAP_STATUS_CONFLICT",
+      "resolution": "User asserted completed review, but original per-case overlap status is pending; record actual disposition without overwriting original."
+    },
+    {
+      "case_id": "I120-C006",
+      "code": "OVERLAP_STATUS_CONFLICT",
+      "resolution": "User asserted completed review, but original per-case overlap status is pending; record actual disposition without overwriting original."
+    },
+    {
+      "case_id": "I120-C007",
+      "code": "NUMERIC_FACT_MAPPING",
+      "count": 3,
+      "resolution": "Retain original top-level constraints; review allocation to necessary_facts[].numeric before numeric scoring."
+    },
+    {
+      "case_id": "I120-C007",
+      "code": "OVERLAP_STATUS_CONFLICT",
+      "resolution": "User asserted completed review, but original per-case overlap status is pending; record actual disposition without overwriting original."
+    },
+    {
+      "case_id": "I120-C008",
+      "code": "NUMERIC_FACT_MAPPING",
+      "count": 1,
+      "resolution": "Retain original top-level constraints; review allocation to necessary_facts[].numeric before numeric scoring."
+    },
+    {
+      "case_id": "I120-C008",
+      "code": "OVERLAP_STATUS_CONFLICT",
+      "resolution": "User asserted completed review, but original per-case overlap status is pending; record actual disposition without overwriting original."
+    },
+    {
+      "case_id": "I120-C009",
+      "code": "NUMERIC_FACT_MAPPING",
+      "count": 3,
+      "resolution": "Retain original top-level constraints; review allocation to necessary_facts[].numeric before numeric scoring."
+    },
+    {
+      "case_id": "I120-C009",
+      "code": "OVERLAP_STATUS_CONFLICT",
+      "resolution": "User asserted completed review, but original per-case overlap status is pending; record actual disposition without overwriting original."
+    },
+    {
+      "case_id": "I120-C010",
+      "code": "OVERLAP_STATUS_CONFLICT",
+      "resolution": "User asserted completed review, but original per-case overlap status is pending; record actual disposition without overwriting original."
+    },
+    {
+      "case_id": "I120-C011",
+      "code": "OVERLAP_STATUS_CONFLICT",
+      "resolution": "User asserted completed review, but original per-case overlap status is pending; record actual disposition without overwriting original."
+    },
+    {
+      "case_id": "I120-C013",
+      "code": "OVERLAP_STATUS_CONFLICT",
+      "resolution": "User asserted completed review, but original per-case overlap status is pending; record actual disposition without overwriting original."
+    },
+    {
+      "case_id": "I120-C014",
+      "code": "OVERLAP_STATUS_CONFLICT",
+      "resolution": "User asserted completed review, but original per-case overlap status is pending; record actual disposition without overwriting original."
+    },
+    {
+      "case_id": "I120-C015",
+      "code": "OVERLAP_STATUS_CONFLICT",
+      "resolution": "User asserted completed review, but original per-case overlap status is pending; record actual disposition without overwriting original."
+    },
+    {
+      "case_id": "I120-C016",
+      "code": "OVERLAP_STATUS_CONFLICT",
+      "resolution": "User asserted completed review, but original per-case overlap status is pending; record actual disposition without overwriting original."
+    },
+    {
+      "case_id": "I120-C017",
+      "code": "OVERLAP_STATUS_CONFLICT",
+      "resolution": "User asserted completed review, but original per-case overlap status is pending; record actual disposition without overwriting original."
+    },
+    {
+      "case_id": "I120-C018",
+      "code": "OVERLAP_STATUS_CONFLICT",
+      "resolution": "User asserted completed review, but original per-case overlap status is pending; record actual disposition without overwriting original."
+    },
+    {
+      "case_id": "I120-C019",
+      "code": "OVERLAP_STATUS_CONFLICT",
+      "resolution": "User asserted completed review, but original per-case overlap status is pending; record actual disposition without overwriting original."
+    },
+    {
+      "case_id": "I120-N001",
+      "code": "NUMERIC_FACT_MAPPING",
+      "count": 2,
+      "resolution": "Retain original top-level constraints; review allocation to necessary_facts[].numeric before numeric scoring."
+    },
+    {
+      "case_id": "I120-N002",
+      "code": "NUMERIC_FACT_MAPPING",
+      "count": 1,
+      "resolution": "Retain original top-level constraints; review allocation to necessary_facts[].numeric before numeric scoring."
+    },
+    {
+      "case_id": "I120-N003",
+      "code": "NUMERIC_FACT_MAPPING",
+      "count": 1,
+      "resolution": "Retain original top-level constraints; review allocation to necessary_facts[].numeric before numeric scoring."
+    },
+    {
+      "case_id": "I120-N004",
+      "code": "NUMERIC_FACT_MAPPING",
+      "count": 2,
+      "resolution": "Retain original top-level constraints; review allocation to necessary_facts[].numeric before numeric scoring."
+    },
+    {
+      "case_id": "I120-N005",
+      "code": "NUMERIC_FACT_MAPPING",
+      "count": 3,
+      "resolution": "Retain original top-level constraints; review allocation to necessary_facts[].numeric before numeric scoring."
+    },
+    {
+      "case_id": "I120-N006",
+      "code": "NUMERIC_FACT_MAPPING",
+      "count": 2,
+      "resolution": "Retain original top-level constraints; review allocation to necessary_facts[].numeric before numeric scoring."
+    },
+    {
+      "case_id": "I120-N007",
+      "code": "NUMERIC_FACT_MAPPING",
+      "count": 2,
+      "resolution": "Retain original top-level constraints; review allocation to necessary_facts[].numeric before numeric scoring."
+    },
+    {
+      "case_id": "I120-N008",
+      "code": "NUMERIC_FACT_MAPPING",
+      "count": 1,
+      "resolution": "Retain original top-level constraints; review allocation to necessary_facts[].numeric before numeric scoring."
+    },
+    {
+      "case_id": "I120-N009",
+      "code": "NUMERIC_FACT_MAPPING",
+      "count": 2,
+      "resolution": "Retain original top-level constraints; review allocation to necessary_facts[].numeric before numeric scoring."
+    },
+    {
+      "case_id": "I120-N010",
+      "code": "NUMERIC_FACT_MAPPING",
+      "count": 3,
+      "resolution": "Retain original top-level constraints; review allocation to necessary_facts[].numeric before numeric scoring."
+    },
+    {
+      "case_id": "I120-N011",
+      "code": "NUMERIC_FACT_MAPPING",
+      "count": 2,
+      "resolution": "Retain original top-level constraints; review allocation to necessary_facts[].numeric before numeric scoring."
+    },
+    {
+      "case_id": "I120-N012",
+      "code": "NUMERIC_FACT_MAPPING",
+      "count": 1,
+      "resolution": "Retain original top-level constraints; review allocation to necessary_facts[].numeric before numeric scoring."
+    },
+    {
+      "case_id": "I120-N013",
+      "code": "NUMERIC_FACT_MAPPING",
+      "count": 2,
+      "resolution": "Retain original top-level constraints; review allocation to necessary_facts[].numeric before numeric scoring."
+    },
+    {
+      "case_id": "I120-N014",
+      "code": "NUMERIC_FACT_MAPPING",
+      "count": 2,
+      "resolution": "Retain original top-level constraints; review allocation to necessary_facts[].numeric before numeric scoring."
+    },
+    {
+      "case_id": "I120-N015",
+      "code": "NUMERIC_FACT_MAPPING",
+      "count": 3,
+      "resolution": "Retain original top-level constraints; review allocation to necessary_facts[].numeric before numeric scoring."
+    },
+    {
+      "case_id": "I120-N016",
+      "code": "NUMERIC_FACT_MAPPING",
+      "count": 1,
+      "resolution": "Retain original top-level constraints; review allocation to necessary_facts[].numeric before numeric scoring."
+    },
+    {
+      "case_id": "I120-N017",
+      "code": "NUMERIC_FACT_MAPPING",
+      "count": 3,
+      "resolution": "Retain original top-level constraints; review allocation to necessary_facts[].numeric before numeric scoring."
+    },
+    {
+      "case_id": "I120-T001",
+      "code": "NUMERIC_FACT_MAPPING",
+      "count": 2,
+      "resolution": "Retain original top-level constraints; review allocation to necessary_facts[].numeric before numeric scoring."
+    },
+    {
+      "case_id": "I120-T002",
+      "code": "NUMERIC_FACT_MAPPING",
+      "count": 3,
+      "resolution": "Retain original top-level constraints; review allocation to necessary_facts[].numeric before numeric scoring."
+    },
+    {
+      "case_id": "I120-T003",
+      "code": "NUMERIC_FACT_MAPPING",
+      "count": 2,
+      "resolution": "Retain original top-level constraints; review allocation to necessary_facts[].numeric before numeric scoring."
+    },
+    {
+      "case_id": "I120-T004",
+      "code": "NUMERIC_FACT_MAPPING",
+      "count": 2,
+      "resolution": "Retain original top-level constraints; review allocation to necessary_facts[].numeric before numeric scoring."
+    },
+    {
+      "case_id": "I120-T005",
+      "code": "NUMERIC_FACT_MAPPING",
+      "count": 3,
+      "resolution": "Retain original top-level constraints; review allocation to necessary_facts[].numeric before numeric scoring."
+    },
+    {
+      "case_id": "I120-T006",
+      "code": "NUMERIC_FACT_MAPPING",
+      "count": 2,
+      "resolution": "Retain original top-level constraints; review allocation to necessary_facts[].numeric before numeric scoring."
+    },
+    {
+      "case_id": "I120-T007",
+      "code": "NUMERIC_FACT_MAPPING",
+      "count": 1,
+      "resolution": "Retain original top-level constraints; review allocation to necessary_facts[].numeric before numeric scoring."
+    },
+    {
+      "case_id": "I120-T008",
+      "code": "NUMERIC_FACT_MAPPING",
+      "count": 2,
+      "resolution": "Retain original top-level constraints; review allocation to necessary_facts[].numeric before numeric scoring."
+    },
+    {
+      "case_id": "I120-T009",
+      "code": "NUMERIC_FACT_MAPPING",
+      "count": 2,
+      "resolution": "Retain original top-level constraints; review allocation to necessary_facts[].numeric before numeric scoring."
+    },
+    {
+      "case_id": "I120-T010",
+      "code": "NUMERIC_FACT_MAPPING",
+      "count": 2,
+      "resolution": "Retain original top-level constraints; review allocation to necessary_facts[].numeric before numeric scoring."
+    },
+    {
+      "case_id": "I120-T011",
+      "code": "NUMERIC_FACT_MAPPING",
+      "count": 2,
+      "resolution": "Retain original top-level constraints; review allocation to necessary_facts[].numeric before numeric scoring."
+    },
+    {
+      "case_id": "I120-T012",
+      "code": "NUMERIC_FACT_MAPPING",
+      "count": 2,
+      "resolution": "Retain original top-level constraints; review allocation to necessary_facts[].numeric before numeric scoring."
+    },
+    {
+      "case_id": "I120-T013",
+      "code": "NUMERIC_FACT_MAPPING",
+      "count": 2,
+      "resolution": "Retain original top-level constraints; review allocation to necessary_facts[].numeric before numeric scoring."
+    },
+    {
+      "case_id": "I120-T014",
+      "code": "NUMERIC_FACT_MAPPING",
+      "count": 3,
+      "resolution": "Retain original top-level constraints; review allocation to necessary_facts[].numeric before numeric scoring."
+    },
+    {
+      "case_id": "I120-T015",
+      "code": "NUMERIC_FACT_MAPPING",
+      "count": 2,
+      "resolution": "Retain original top-level constraints; review allocation to necessary_facts[].numeric before numeric scoring."
+    },
+    {
+      "case_id": "I120-R007",
+      "code": "PARTIAL_SUPPORT_MAPPING",
+      "resolution": "Retain source references as annotation; decide whether known premise is a scored fact or only refusal rationale."
+    },
+    {
+      "case_id": "I120-R008",
+      "code": "PARTIAL_SUPPORT_MAPPING",
+      "resolution": "Retain source references as annotation; decide whether known premise is a scored fact or only refusal rationale."
+    },
+    {
+      "case_id": "I120-R009",
+      "code": "PARTIAL_SUPPORT_MAPPING",
+      "resolution": "Retain source references as annotation; decide whether known premise is a scored fact or only refusal rationale."
+    },
+    {
+      "case_id": "I120-R010",
+      "code": "PARTIAL_SUPPORT_MAPPING",
+      "resolution": "Retain source references as annotation; decide whether known premise is a scored fact or only refusal rationale."
+    },
+    {
+      "case_id": "I120-R011",
+      "code": "PARTIAL_SUPPORT_MAPPING",
+      "resolution": "Retain source references as annotation; decide whether known premise is a scored fact or only refusal rationale."
+    },
+    {
+      "case_id": "I120-R012",
+      "code": "PARTIAL_SUPPORT_MAPPING",
+      "resolution": "Retain source references as annotation; decide whether known premise is a scored fact or only refusal rationale."
+    },
+    {
+      "case_id": "I120-R013",
+      "code": "PARTIAL_SUPPORT_MAPPING",
+      "resolution": "Retain source references as annotation; decide whether known premise is a scored fact or only refusal rationale."
+    },
+    {
+      "case_id": "I120-R014",
+      "code": "PARTIAL_SUPPORT_MAPPING",
+      "resolution": "Retain source references as annotation; decide whether known premise is a scored fact or only refusal rationale."
+    },
+    {
+      "case_id": "I120-R015",
+      "code": "PARTIAL_SUPPORT_MAPPING",
+      "resolution": "Retain source references as annotation; decide whether known premise is a scored fact or only refusal rationale."
+    },
+    {
+      "case_id": "I120-R016",
+      "code": "PARTIAL_SUPPORT_MAPPING",
+      "resolution": "Retain source references as annotation; decide whether known premise is a scored fact or only refusal rationale."
+    },
+    {
+      "case_id": "I120-R017",
+      "code": "PARTIAL_SUPPORT_MAPPING",
+      "resolution": "Retain source references as annotation; decide whether known premise is a scored fact or only refusal rationale."
+    },
+    {
+      "case_id": "I120-R018",
+      "code": "PARTIAL_SUPPORT_MAPPING",
+      "resolution": "Retain source references as annotation; decide whether known premise is a scored fact or only refusal rationale."
+    },
+    {
+      "case_id": "I120-R019",
+      "code": "PARTIAL_SUPPORT_MAPPING",
+      "resolution": "Retain source references as annotation; decide whether known premise is a scored fact or only refusal rationale."
+    },
+    {
+      "case_id": "I120-R020",
+      "code": "PARTIAL_SUPPORT_MAPPING",
+      "resolution": "Retain source references as annotation; decide whether known premise is a scored fact or only refusal rationale."
+    },
+    {
+      "case_id": "I120-Q007",
+      "code": "SCOPE_BEHAVIOR",
+      "resolution": "Verify public QueryScope edition-only clarification path on frozen interface; no model call."
+    },
+    {
+      "case_id": "I120-Q011",
+      "code": "CLARIFICATION_EVIDENCE_MAPPING",
+      "resolution": "Retain alternative-condition pages; decide whether to model as evidence groups or rubric metadata."
+    },
+    {
+      "case_id": "I120-Q012",
+      "code": "CLARIFICATION_EVIDENCE_MAPPING",
+      "resolution": "Retain alternative-condition pages; decide whether to model as evidence groups or rubric metadata."
+    },
+    {
+      "case_id": "I120-Q013",
+      "code": "CLARIFICATION_EVIDENCE_MAPPING",
+      "resolution": "Retain alternative-condition pages; decide whether to model as evidence groups or rubric metadata."
+    },
+    {
+      "case_id": "I120-Q014",
+      "code": "CLARIFICATION_EVIDENCE_MAPPING",
+      "resolution": "Retain alternative-condition pages; decide whether to model as evidence groups or rubric metadata."
+    },
+    {
+      "case_id": "I120-Q015",
+      "code": "CLARIFICATION_EVIDENCE_MAPPING",
+      "resolution": "Retain alternative-condition pages; decide whether to model as evidence groups or rubric metadata."
+    },
+    {
+      "case_id": "I120-Q016",
+      "code": "CLARIFICATION_EVIDENCE_MAPPING",
+      "resolution": "Retain alternative-condition pages; decide whether to model as evidence groups or rubric metadata."
+    },
+    {
+      "case_id": "I120-Q017",
+      "code": "CLARIFICATION_EVIDENCE_MAPPING",
+      "resolution": "Retain alternative-condition pages; decide whether to model as evidence groups or rubric metadata."
+    },
+    {
+      "case_id": "I120-Q018",
+      "code": "CLARIFICATION_EVIDENCE_MAPPING",
+      "resolution": "Retain alternative-condition pages; decide whether to model as evidence groups or rubric metadata."
+    },
+    {
+      "case_id": "I120-Q019",
+      "code": "CLARIFICATION_EVIDENCE_MAPPING",
+      "resolution": "Retain alternative-condition pages; decide whether to model as evidence groups or rubric metadata."
+    }
+  ],
+  "semantic_changes_made": false,
+  "rag_invoked": false,
+  "formal_run_started": false
+}

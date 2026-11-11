@@ -1,0 +1,11 @@
+{
+  "documents": [
+    {
+      "business_id": "LEGACY-FIXTURE@synthetic-edition-not-verified",
+      "manifest_path": "documents/fixture/manifest.json",
+      "manifest_sha256": "0e0647d414cc48f5f8556509d7a55412ba4524fccc7355b6d2eaea780bcc6f4c",
+      "version_id": "fixture-version"
+    }
+  ],
+  "schema_version": 1
+}

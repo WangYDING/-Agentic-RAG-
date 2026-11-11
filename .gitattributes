@@ -1,0 +1,4 @@
+# Preserve evaluation artifact byte hashes across Windows checkouts.
+/eval/** -text
+/tests/test_eval* -text
+/docs/EVALUATION* -text

@@ -1,0 +1,28 @@
+{
+  "models": {
+    "embedding": {
+      "id": "offline-embedding",
+      "revision": null,
+      "revision_status": "unavailable"
+    },
+    "generation": {
+      "id": "offline-generation",
+      "revision": null,
+      "revision_status": "unavailable"
+    },
+    "reranker": {
+      "id": "offline-reranker",
+      "revision": null,
+      "revision_status": "unavailable"
+    }
+  },
+  "public_config": {
+    "embedding_model": "offline-embedding",
+    "evidence_top_n": 3,
+    "generation_model": "offline-generation",
+    "max_model_calls": 6,
+    "reranker_model": "offline-reranker",
+    "retrieval_top_k": 10,
+    "total_timeout_seconds": 90.0
+  }
+}

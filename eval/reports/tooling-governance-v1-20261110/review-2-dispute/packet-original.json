@@ -1,0 +1,21 @@
+{
+  "actor": {
+    "at": "2026-11-10T03:52:06.427714+00:00",
+    "identity": "SYNTHETIC-AI-ROLE-NOT-A-REAL-REVIEWER",
+    "type": "ai"
+  },
+  "adjudications": [],
+  "base_bundle_sha256": "488b0a60a845ef3f04d206f895ae486b5a4bd14173f3cf47dcaa4fc4605bacda",
+  "changes": [],
+  "disputes": [
+    {
+      "case_id": "SEM-001",
+      "dispute_id": "SYN-DISPUTE-1",
+      "field": "/fact_reviews/0/correct",
+      "reason": "SYNTHETIC disagreement for workflow rehearsal, not real semantic review",
+      "review_sha256": "ecd3ab515feeca7b9675a062094fd00057bd4034ecfd06757372edea4577219e"
+    }
+  ],
+  "parent_state_sha256": "69b03ea32d3be70964211c21d179359c32dfb8d2ecb404c1d698f5cbceea2b4c",
+  "schema_version": "rag-eval.review-change.v1"
+}

@@ -1,0 +1,32 @@
+{
+  "gate_id": "phase1_cross_spec_quality_gate_v1",
+  "declared_before_run": true,
+  "dataset_id": "phase1_cross_spec_independent_v1",
+  "population": {"total": 30, "answer": 25, "clarify_scope": 2, "refuse": 3},
+  "hard_gates": {
+    "service_errors": {"maximum": 0},
+    "scope_or_version_boundary_violations": {"maximum": 0},
+    "clarification_correct_and_no_retrieval_or_model_calls": {"minimum": 2, "denominator": 2},
+    "false_accepts_on_unanswerable_cases": {"maximum": 0, "denominator": 3},
+    "critical_numeric_unit_or_condition_errors": {"maximum": 0},
+    "unsupported_material_claims": {"maximum": 0},
+    "legal_citations_on_generated_answers": {"minimum_rate": 1.0}
+  },
+  "quality_gates": {
+    "correct_final_behavior": {"minimum": 28, "denominator": 30},
+    "false_refusals_on_answerable_cases": {"maximum": 2, "denominator": 25},
+    "complete_answers": {"minimum": 23, "denominator": 25},
+    "all_required_articles_in_candidate_pool": {"minimum": 23, "denominator": 25}
+  },
+  "cost_reporting": {
+    "hard_limit": false,
+    "required": ["latency_by_scope", "token_usage_by_scope", "model_calls_by_scope", "p50", "p95"]
+  },
+  "service_error_rule": "Preserve the sample as a service error; do not delete or count it as a refusal. Any service error makes the run unable to receive a passing verdict.",
+  "verdict_rule": {
+    "pass": "All hard and quality gates pass.",
+    "limited_pass": "All hard gates pass, and at most one quality gate misses by exactly one question.",
+    "fail": "Any hard gate fails, or quality performance is outside the limited-pass band.",
+    "unable_to_determine": "Infrastructure prevents completing all 30 cases or any service error prevents a valid quality judgment."
+  }
+}

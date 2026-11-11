@@ -1,16 +1,28 @@
+import json
 import re
 import fitz
 from pathlib import Path
 from statistics import median
 
 from src.document_schema import DocumentMetadata, Page, PageMetadata, Table, TableMetadata
+from src.ocr_artifacts import OcrArtifactError, validate_ocr_artifact
 
 
 HEADER_FOOTER_MIN_REPEAT_RATIO = 0.35
 WATERMARK_MIN_REPEAT_RATIO = 0.35
+SUPERSCRIPT_FLAG = 1
+SUPERSCRIPT_TRANSLATION = str.maketrans(
+    "0123456789+-=()",
+    "⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾",
+)
 
 
-def load_pdf_pages(file_path: str) -> tuple[DocumentMetadata, list[Page]]:
+def load_pdf_pages(
+    file_path: str,
+    *,
+    spec_id: str | None = None,
+    edition_id: str | None = None,
+) -> tuple[DocumentMetadata, list[Page]]:
     file_path = Path(file_path)
 
     if not file_path.exists():
@@ -20,13 +32,15 @@ def load_pdf_pages(file_path: str) -> tuple[DocumentMetadata, list[Page]]:
     doc = fitz.open(file_path)
     try:
         for page in doc:
-            raw_pages.append(page.get_text("text"))
+            raw_pages.append(extract_page_text(page))
         page_count = doc.page_count
 
         document = DocumentMetadata(
             document_id=file_path.stem,
             source=file_path.name,
             page_count=page_count,
+            spec_id=spec_id,
+            edition_id=edition_id,
         )
         repeated_noise = detect_repeated_page_noise(raw_pages)
 
@@ -50,6 +64,8 @@ def load_pdf_pages(file_path: str) -> tuple[DocumentMetadata, list[Page]]:
                         page_number=index,
                         char_count_raw=len(raw_text),
                         char_count_cleaned=len(cleaned_text),
+                        spec_id=document.spec_id,
+                        edition_id=document.edition_id,
                     ),
                 )
             )
@@ -89,6 +105,8 @@ def extract_page_tables(
             table_id=table_id,
             title=title,
             bbox=tuple(float(value) for value in table.bbox) if table.bbox else None,
+            spec_id=document.spec_id,
+            edition_id=document.edition_id,
         )
         tables.append(
             Table(
@@ -105,6 +123,123 @@ def extract_page_tables(
 def load_pdf_text(file_path: str) -> str:
     _, pages = load_pdf_pages(file_path)
     return "\n".join(page.text for page in pages if page.text.strip())
+
+
+def load_verified_ocr_pages(
+    artifact_dir: str | Path,
+    *,
+    source_pdf: str | Path | None = None,
+) -> tuple[DocumentMetadata, list[Page]]:
+    """Load a hash-verified, page-addressable OCR artifact without parsing its PDF."""
+    artifact_dir = Path(artifact_dir)
+    source_path = Path(source_pdf) if source_pdf is not None else None
+    validation = validate_ocr_artifact(artifact_dir, source_pdf=source_path)
+    if not validation.get("automatic_checks_passed"):
+        raise OcrArtifactError("OCR artifact has not passed automatic validation")
+
+    manifest = json.loads((artifact_dir / "manifest.json").read_text(encoding="utf-8"))
+    spec_id = manifest.get("spec_id")
+    edition_id = manifest.get("edition_id")
+    business_id = manifest.get("business_id")
+    if business_id != f"{spec_id}@{edition_id}":
+        raise OcrArtifactError("OCR business identity is inconsistent")
+
+    source = manifest["source_pdf"]
+    document = DocumentMetadata(
+        document_id=business_id,
+        source=source["file_name"],
+        page_count=source["page_count"],
+        spec_id=spec_id,
+        edition_id=edition_id,
+    )
+    pages: list[Page] = []
+    for entry in manifest["pages"]:
+        record = json.loads(
+            (artifact_dir / entry["path"]).read_text(encoding="utf-8")
+        )
+        text = record["text"]
+        tables = _load_reviewed_ocr_tables(record, document)
+        pages.append(
+            Page(
+                text=text,
+                raw_text=text,
+                tables=tables,
+                metadata=PageMetadata(
+                    document_id=document.document_id,
+                    source=document.source,
+                    page_number=record["page_number"],
+                    char_count_raw=len(text),
+                    char_count_cleaned=len(text),
+                    spec_id=document.spec_id,
+                    edition_id=document.edition_id,
+                ),
+            )
+        )
+    return document, pages
+
+
+def _load_reviewed_ocr_tables(record: dict, document: DocumentMetadata) -> list[Table]:
+    tables = []
+    for payload in record.get("tables", []):
+        cells = payload.get("cells")
+        headers = payload.get("headers")
+        rows = payload.get("rows")
+        if not all(isinstance(value, list) for value in (cells, headers, rows)):
+            raise OcrArtifactError("reviewed OCR table structure is invalid")
+        widths = {len(row) for row in cells if isinstance(row, list)}
+        if not cells or len(widths) != 1 or any(
+            not isinstance(cell, str) for row in cells for cell in row
+        ):
+            raise OcrArtifactError("reviewed OCR table cells must be rectangular strings")
+        if cells != [*headers, *rows]:
+            raise OcrArtifactError("reviewed OCR table headers/rows do not match cells")
+        metadata = TableMetadata(
+            document_id=document.document_id,
+            source=document.source,
+            page_number=record["page_number"],
+            table_id=payload.get("table_id"),
+            title=payload.get("title"),
+            bbox=tuple(payload["bbox"]) if payload.get("bbox") else None,
+            spec_id=document.spec_id,
+            edition_id=document.edition_id,
+        )
+        tables.append(
+            Table(
+                metadata=metadata,
+                headers=headers,
+                rows=rows,
+                cells=cells,
+                retrieval_text=build_table_retrieval_text(metadata, headers, rows),
+            )
+        )
+    return tables
+
+
+def extract_page_text(page) -> str:
+    """Preserve numeric superscripts without guessing from ordinary digit sequences."""
+    text = page.get_text("text")
+    structured = page.get_text("dict")
+
+    for block in structured.get("blocks", []):
+        for line in block.get("lines", []):
+            spans = line.get("spans", [])
+            plain_line = "".join(span.get("text", "") for span in spans)
+            corrected_line = "".join(
+                _preserve_superscript_span(span) for span in spans
+            )
+            if corrected_line != plain_line and plain_line in text:
+                text = text.replace(plain_line, corrected_line, 1)
+
+    return text
+
+
+def _preserve_superscript_span(span: dict) -> str:
+    span_text = span.get("text", "")
+    if not span.get("flags", 0) & SUPERSCRIPT_FLAG:
+        return span_text
+    if not span_text or any(character not in "0123456789+-=()" for character in span_text):
+        return span_text
+    return span_text.translate(SUPERSCRIPT_TRANSLATION)
 
 
 def detect_repeated_page_noise(page_texts: list[str]) -> set[str]:

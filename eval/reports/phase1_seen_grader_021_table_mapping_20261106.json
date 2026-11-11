@@ -1,0 +1,271 @@
+{
+  "run_type": "phase1_scoped_real_agent_evaluation",
+  "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+  "generation_model": "deepseek-flash",
+  "questions": [
+    {
+      "id": "P1-IND-021",
+      "question": "GB 55033-2022 表3.0.4中，密闭性车体在140km/h和160km/h速度等级下的车辆断面与隧道净断面面积之比分别应满足什么值？",
+      "requested_scope": {
+        "spec_ids": [
+          "cn.gb55033"
+        ],
+        "edition_ids": [
+          "2022"
+        ]
+      },
+      "request_id": "3c59350f8eab45049d0a19afdf83863d",
+      "result_type": "refuse",
+      "answer": "当前规范及已检索证据不足以完整回答该问题。 缺少的信息：密闭性车体在140km/h和160km/h速度等级下各自对应的车辆断面与隧道净断面面积之比数值，以及这两个数值与速度等级的一一对应关系。",
+      "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+      "bound_scope": [
+        "cn.gb55033@2022"
+      ],
+      "retry_count": 1,
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "text": "3.0.4\n城市轨道交通线路单线断面建筑限界应符合表3.0.4的\n规定。\n车辆断面与隧道净断面面积之比\n速度等级\n100km/h及以下\n120km/h\n140km/h\n160km/h\n车辆类型\n密闭性车体\n<0.35\n<0.29\n非密闭性车体\n≤0.5\n≤0.4\n≤0.27",
+          "source": "GB55033-2022_城市轨道交通工程项目规范.pdf",
+          "page_start": 14,
+          "page_end": 14,
+          "chunk_id": 81,
+          "content_type": "text",
+          "chapter_id": "3",
+          "chapter_title": null,
+          "article_id": "3.0.4",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第3.0.4条",
+          "score": 1.0,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.gb55033",
+          "edition_id": "2022",
+          "standard_code": "GB 55033-2022",
+          "spec_title": "城市轨道交通工程项目规范",
+          "pdf_page_start": 14,
+          "pdf_page_end": 14,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E2",
+          "text": "3.0.3隧道及永久建（构）筑物的断面尺寸不应小于建筑限界。",
+          "source": "GB55033-2022_城市轨道交通工程项目规范.pdf",
+          "page_start": 14,
+          "page_end": 14,
+          "chunk_id": 80,
+          "content_type": "text",
+          "chapter_id": "3",
+          "chapter_title": null,
+          "article_id": "3.0.3",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第3.0.3条",
+          "score": 0.6318067312240601,
+          "rerank_score": 0.938882052898407,
+          "metadata": {},
+          "spec_id": "cn.gb55033",
+          "edition_id": "2022",
+          "standard_code": "GB 55033-2022",
+          "spec_title": "城市轨道交通工程项目规范",
+          "pdf_page_start": 14,
+          "pdf_page_end": 14,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E3",
+          "text": "3.0.6建筑限界宽度应符合下列规定：\n1 对双线区间，当两条线间无建（构）筑物时，两条线设\n备限界之间的安全间隙应符合表3.0.6的规定。\n表3.0.6 两条线间无建（构）筑物时设备限界之间的安全间隙（mm）\n市域快轨\n地铁、轻轨、直线电机车辆、有轨电车、\n类别\n跨座式单轨、中低速磁浮、AGT自动导向\n140km/h\n160km/h\n安全间隙\n150\n200\n2 当无建（构）筑物或设备时，市域快轨隧道结构与设备\n限界之间的距离不应小于200mm，其他轨道交通形式不应小于\n100mm；当有建（构）筑物或设备时，建（构）筑物或设备与\n设备限界之间的安全间隙不应小于50mm。\n3\n当采用接触轨受电",
+          "source": "GB55033-2022_城市轨道交通工程项目规范.pdf",
+          "page_start": 15,
+          "page_end": 15,
+          "chunk_id": 84,
+          "content_type": "text",
+          "chapter_id": "3",
+          "chapter_title": null,
+          "article_id": "3.0.6",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第3.0.6条",
+          "score": 23.86989382701073,
+          "rerank_score": 0.7367988228797913,
+          "metadata": {},
+          "spec_id": "cn.gb55033",
+          "edition_id": "2022",
+          "standard_code": "GB 55033-2022",
+          "spec_title": "城市轨道交通工程项目规范",
+          "pdf_page_start": 15,
+          "pdf_page_end": 15,
+          "printed_page_start": null,
+          "printed_page_end": null
+        }
+      ],
+      "trace": [
+        {
+          "step": "bind_scope",
+          "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+          "scope": [
+            "cn.gb55033@2022"
+          ]
+        },
+        {
+          "step": "retrieve",
+          "query": "GB 55033-2022 表3.0.4中，密闭性车体在140km/h和160km/h速度等级下的车辆断面与隧道净断面面积之比分别应满足什么值？",
+          "retry_count": 0
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "密闭性车体在140km/h速度等级下的车辆断面与隧道净断面面积之比限值",
+            "密闭性车体在160km/h速度等级下的车辆断面与隧道净断面面积之比限值"
+          ],
+          "retry_count": 0
+        },
+        {
+          "step": "parse_evidence_requirements",
+          "question_requirements": [
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": "3.0.4",
+              "subrequirement": "GB55033-2022表3.0.4中，密闭性车体在140km/h和160km/h速度等级下的车辆断面",
+              "source": "question",
+              "authoritative": true,
+              "status": "parsed",
+              "reason": null
+            },
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": null,
+              "subrequirement": "隧道净断面面积之比",
+              "source": "question",
+              "authoritative": true,
+              "status": "scope_expanded",
+              "reason": null
+            }
+          ],
+          "grader_requirements": [
+            {
+              "business_id": null,
+              "article_id": null,
+              "subrequirement": "密闭性车体在140km/h速度等级下的车辆断面与隧道净断面面积之比限值",
+              "source": "grader",
+              "authoritative": true,
+              "status": "mapped_to_question",
+              "reason": null
+            },
+            {
+              "business_id": null,
+              "article_id": null,
+              "subrequirement": "密闭性车体在160km/h速度等级下的车辆断面与隧道净断面面积之比限值",
+              "source": "grader",
+              "authoritative": true,
+              "status": "mapped_to_question",
+              "reason": null
+            }
+          ]
+        },
+        {
+          "step": "retry",
+          "retry_count": 1,
+          "missing_requirements": [
+            "密闭性车体在140km/h速度等级下的车辆断面与隧道净断面面积之比限值",
+            "密闭性车体在160km/h速度等级下的车辆断面与隧道净断面面积之比限值"
+          ]
+        },
+        {
+          "step": "retrieve",
+          "query": "密闭性车体在140km/h速度等级下的车辆断面与隧道净断面面积之比限值；密闭性车体在160km/h速度等级下的车辆断面与隧道净断面面积之比限值",
+          "retry_count": 1
+        },
+        {
+          "step": "retain_article_groups",
+          "evidence_limit": 3,
+          "retained_groups": [
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": "3.0.4",
+              "chunk_ids": [
+                81
+              ],
+              "basis": "explicit_article",
+              "covered_text": "GB55033-2022表3.0.4中，密闭性车体在140km/h和160km/h速度等级下的车辆断面"
+            },
+            {
+              "business_id": "cn.gb55033@2022",
+              "article_id": "3.0.4",
+              "chunk_ids": [
+                81
+              ],
+              "basis": "unique_direct_coverage",
+              "covered_text": "隧道净断面面积之比"
+            }
+          ],
+          "fallbacks": [
+            {
+              "subrequirement": "密闭性车体在140km/h速度等级下的车辆断面与隧道净断面面积之比限值",
+              "reason": "missing_version",
+              "candidate_articles": []
+            },
+            {
+              "subrequirement": "密闭性车体在160km/h速度等级下的车辆断面与隧道净断面面积之比限值",
+              "reason": "missing_version",
+              "candidate_articles": []
+            }
+          ]
+        },
+        {
+          "step": "verify_final_evidence_context",
+          "complete": true,
+          "within_scope": true,
+          "incomplete_groups": [],
+          "out_of_scope": []
+        },
+        {
+          "step": "grade",
+          "decision": "insufficient",
+          "missing_requirements": [
+            "密闭性车体在140km/h和160km/h速度等级下各自对应的车辆断面与隧道净断面面积之比数值，以及这两个数值与速度等级的一一对应关系"
+          ],
+          "retry_count": 1
+        },
+        {
+          "step": "refuse",
+          "missing_requirements": [
+            "密闭性车体在140km/h和160km/h速度等级下各自对应的车辆断面与隧道净断面面积之比数值，以及这两个数值与速度等级的一一对应关系"
+          ]
+        }
+      ],
+      "request_metrics": {
+        "request_id": "3c59350f8eab45049d0a19afdf83863d",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 62.0,
+          "rerank": 6219.0,
+          "grader": 15672.0
+        },
+        "total_ms": 22312.0,
+        "outcome": "refuse",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 1,
+        "model_calls": 2,
+        "model_retries": 0,
+        "token_usage": {
+          "input": 2342,
+          "output": 2645,
+          "total": 4987
+        },
+        "estimated_cost": null
+      }
+    }
+  ]
+}

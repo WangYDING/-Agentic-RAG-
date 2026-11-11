@@ -31,6 +31,21 @@ class GoldEvidence:
 
 
 @dataclass(frozen=True)
+class NumericExpectation:
+    value: str
+    unit: str
+    conditions: list[str] = field(default_factory=list)
+
+
+@dataclass(frozen=True)
+class AnnotationReview:
+    status: str = "pending"
+    reviewer: str | None = None
+    reviewed_at: str | None = None
+    notes: str = ""
+
+
+@dataclass(frozen=True)
 class EvalExample:
     id: str
     question: str
@@ -43,8 +58,39 @@ class EvalExample:
     hard_negative_type: str | None = None
     why_unanswerable: str | None = None
 
+    required_requirements: list[str] = field(default_factory=list)
+    key_answer_points: list[str] = field(default_factory=list)
+    numeric_expectations: list[NumericExpectation] = field(default_factory=list)
+    annotation_review: AnnotationReview = field(default_factory=AnnotationReview)
+
     @classmethod
     def from_dict(cls, data: dict[str, Any]):
+        if type(data["answerable"]) is not bool:
+            raise ValueError("answerable must be a boolean")
+        for key in ("id", "question", "question_type"):
+            if not isinstance(data[key], str) or not data[key].strip():
+                raise ValueError(f"{key} must be a non-empty string")
+        for key in ("required_requirements", "key_answer_points"):
+            items = data.get(key, [])
+            if not isinstance(items, list) or any(not isinstance(x, str) or not x.strip() for x in items):
+                raise ValueError(f"{key} must be a list of non-empty strings")
+        numeric = []
+        for item in data.get("numeric_expectations", []):
+            if not all(isinstance(item.get(k), str) and item[k].strip() for k in ("value", "unit")):
+                raise ValueError("numeric expectations require string value and unit")
+            conditions = item.get("conditions", [])
+            if not isinstance(conditions, list) or any(not isinstance(x, str) or not x.strip() for x in conditions):
+                raise ValueError("numeric conditions must be non-empty strings")
+            numeric.append(NumericExpectation(item["value"], item["unit"], conditions))
+        review = AnnotationReview(**data.get("annotation_review", {}))
+        if review.status not in {"pending", "source_verified", "approved", "rejected"}:
+            raise ValueError("invalid annotation review status")
+        if review.status in {"source_verified", "approved"} and not (
+            review.reviewer and review.reviewed_at
+        ):
+            raise ValueError(
+                f"{review.status} annotation requires reviewer and reviewed_at"
+            )
         rewritten_query_reference = data.get("rewritten_query_reference")
         if rewritten_query_reference is not None and not isinstance(
             rewritten_query_reference,
@@ -55,7 +101,7 @@ class EvalExample:
             id=data["id"],
             question=data["question"],
             question_type=data["question_type"],
-            answerable=bool(data["answerable"]),
+            answerable=data["answerable"],
             gold_answer=data.get("gold_answer", ""),
             gold_evidence=[
                 GoldEvidence(
@@ -71,6 +117,10 @@ class EvalExample:
                 for item in data.get("conversation_history", [])
             ],
             rewritten_query_reference=rewritten_query_reference,
+            required_requirements=data.get("required_requirements", []),
+            key_answer_points=data.get("key_answer_points", []),
+            numeric_expectations=numeric,
+            annotation_review=review,
             hard_negative_type=data.get("hard_negative_type"),
             why_unanswerable=data.get("why_unanswerable"),
         )
@@ -94,6 +144,9 @@ def load_eval_dataset(path) -> list[EvalExample]:
                 examples.append(EvalExample.from_dict(json.loads(line)))
             except KeyError as exc:
                 raise ValueError(f"Missing required field {exc} at {path}:{line_number}") from exc
+    ids = [example.id for example in examples]
+    if len(ids) != len(set(ids)):
+        raise ValueError(f"Duplicate example IDs in {path}")
     return examples
 
 

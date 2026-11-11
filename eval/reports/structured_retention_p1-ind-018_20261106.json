@@ -1,0 +1,138 @@
+{
+  "run_type": "phase1_scoped_real_agent_evaluation",
+  "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+  "generation_model": "deepseek-flash",
+  "questions": [
+    {
+      "id": "P1-IND-018",
+      "question": "DB11/T 995-2025 与 GB 55033-2022 对车站出入口数量和周边协调分别提出了什么要求？",
+      "requested_scope": {
+        "spec_ids": [
+          "cn.beijing.db11t995",
+          "cn.gb55033"
+        ],
+        "edition_ids": [
+          "2025",
+          "2022"
+        ]
+      },
+      "request_id": "ebe4516ef4474aeba9b1a54ba1c891bf",
+      "result_type": "refuse",
+      "answer": "当前规范及已检索证据不足以完整回答该问题。 缺少的信息：DB11/T 995-2025 对车站出入口数量的要求；DB11/T 995-2025 对车站出入口周边协调的要求。",
+      "snapshot_id": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+      "bound_scope": [
+        "cn.beijing.db11t995@2025",
+        "cn.gb55033@2022"
+      ],
+      "retry_count": 1,
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "text": "2.1.30 城市轨道交通工程建设应合理确定车站出入口数量、用\n地控制范围，并应与周边用地、建筑、道路相协调，保障车站出\n入口处客流顺畅，不对周边道路造成影响。",
+          "source": "GB55033-2022_城市轨道交通工程项目规范.pdf",
+          "page_start": 9,
+          "page_end": 9,
+          "chunk_id": 43,
+          "content_type": "text",
+          "chapter_id": "2",
+          "chapter_title": "2 基本规定",
+          "article_id": "2.1.30",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第2.1.30条",
+          "score": 0.6315706968307495,
+          "rerank_score": null,
+          "metadata": {},
+          "spec_id": "cn.gb55033",
+          "edition_id": "2022",
+          "standard_code": "GB 55033-2022",
+          "spec_title": "城市轨道交通工程项目规范",
+          "pdf_page_start": 9,
+          "pdf_page_end": 9,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E2",
+          "text": "30.5.8\n由于城市轨道交通属于人员密集场所，需要在公共区设置安全照明及疏散照明。根据《城市轨\n道交通工程项目规范》GB 55033-2022,6.1.11 条地下车站及区间的应急照明应具备应急电源。为了简\n化系统设置，本标准提出车站公共区疏散照明宜兼做安全照明，地面的最低水平照度不低于5 lx，平均\n照度不低于正常照明照度的10%的要求。",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 393,
+          "page_end": 393,
+          "chunk_id": 3686,
+          "content_type": "text",
+          "chapter_id": "30",
+          "chapter_title": "防灾",
+          "article_id": "30.5.8",
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "第30.5.8条",
+          "score": 19.50367250654858,
+          "rerank_score": 0.9416660666465759,
+          "metadata": {},
+          "spec_id": "cn.beijing.db11t995",
+          "edition_id": "2025",
+          "standard_code": "DB11/T 995-2025",
+          "spec_title": "城市轨道交通工程设计标准",
+          "pdf_page_start": 393,
+          "pdf_page_end": 393,
+          "printed_page_start": null,
+          "printed_page_end": null
+        },
+        {
+          "evidence_id": "E3",
+          "text": "关于实施北京市地方标准《城市轨道交通\n工程设计标准》的通知\n京规自发〔2025〕172号\n各有关单位：\n为推动第三期轨道交通建设规划实施，规范城市轨道交通工程\n设计，我委组织修订了北京市地方标准《城市轨道交通工程设计标\n准》（DB11/T 995-2025），并已与北京市市场监督管理局联合发布，\n现将有关事宜通知如下：\n《城市轨道交通工程设计标准》（DB11/T 995-2025）自2026\n年1 月1 日起实施，自实施之日起，请各单位在开展北京市行政区\n域内，钢轮钢轨系统和全封闭线路条件下，最高运行速度不大于\n120km/h 的地铁新建工程的设计按照本标准认真执行。\n原《城市轨道交通工程设计",
+          "source": "城市轨道交通工程设计标准.pdf",
+          "page_start": 5,
+          "page_end": 5,
+          "chunk_id": 2,
+          "content_type": "text",
+          "chapter_id": null,
+          "chapter_title": null,
+          "article_id": null,
+          "table_id": null,
+          "table_title": null,
+          "display_ref": "p5-chunk_2",
+          "score": 25.362340583478534,
+          "rerank_score": 0.9146244525909424,
+          "metadata": {},
+          "spec_id": "cn.beijing.db11t995",
+          "edition_id": "2025",
+          "standard_code": "DB11/T 995-2025",
+          "spec_title": "城市轨道交通工程设计标准",
+          "pdf_page_start": 5,
+          "pdf_page_end": 5,
+          "printed_page_start": null,
+          "printed_page_end": null
+        }
+      ],
+      "request_metrics": {
+        "request_id": "ebe4516ef4474aeba9b1a54ba1c891bf",
+        "app_version": "0.1.0",
+        "index_version": "39c3e07c109c07cb1dc331db3055cf041a33498aafb9dde6c2eb022421dd3020",
+        "models": {
+          "embedding": "BAAI/bge-small-zh-v1.5",
+          "reranker": "BAAI/bge-reranker-base",
+          "generation": "deepseek-flash"
+        },
+        "stage_timings_ms": {
+          "retrieval": 234.0,
+          "rerank": 21984.0,
+          "grader": 39063.0
+        },
+        "total_ms": 62359.0,
+        "outcome": "refuse",
+        "error_code": null,
+        "retryable": false,
+        "retrieval_retries": 1,
+        "model_calls": 3,
+        "model_retries": 1,
+        "token_usage": {
+          "input": 2105,
+          "output": 1215,
+          "total": 3320
+        },
+        "estimated_cost": null
+      }
+    }
+  ]
+}

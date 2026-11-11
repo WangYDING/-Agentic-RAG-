@@ -1,0 +1,17 @@
+{
+  "files": {
+    "bundle.json": "c36cbcf77f0a2f3ebc32c5a163c252ad17cf244cc4ebf8d877584f8bd2468d1e",
+    "cases.json": "76cac7d0ab21047bd608d50ed2d92d2cf37c8eb1695551e9e3d7d7923a0cbf51",
+    "input-0-tooling-v1-seen-20261109-seen-input.json": "76cac7d0ab21047bd608d50ed2d92d2cf37c8eb1695551e9e3d7d7923a0cbf51",
+    "input-1-EVALUATION_METRICS_CONTRACT_V1.md": "7c4e6f08f38a70ecbad340b239318a117063b588b617a2ea77c6119862f98c2b",
+    "input-2-dev_v0.jsonl": "66d5db70750e26edca4f97b27a2adc59691899fdc008761b00a798618bdced2e",
+    "observations.json": "d71ca426e871392f2ae4faf9ea92f27572cc2e50e3b3fde06921c47bcdc58178",
+    "rag-inputs.json": "18277a06dbf00fabefe13402f5742ce0255a075c9178d1b98aadf7af7503750d",
+    "report.json": "21e3e136679171f50aadf735c3a7b1f4a77568ccacaaf4d44fe8dfb665994351",
+    "report.md": "da6cf21dca28064a7212f93da80e3bead8274e47a6422bc632f4d3491088380d",
+    "reviews.json": "24eaec51767b1f7759236014ec734d2c4c4f7683892cb430a66097a62eebb2d0",
+    "run.json": "2bec60d59a6fe67fa045c0b75a31e6dea0269c5f3bb4aa87365099c99a69b5eb"
+  },
+  "hash_mode": "sha256-raw-bytes",
+  "schema_version": "rag-eval.artifacts.v1"
+}

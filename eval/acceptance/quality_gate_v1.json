@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "gate_id": "independent-v2-quality-gate-v1",
+  "declared_at": "2026-11-01T00:00:00+08:00",
+  "declared_before_independent_run": true,
+  "dataset_id": "independent_v2_draft",
+  "dataset_count": 20,
+  "answerable_count": 16,
+  "unanswerable_count": 4,
+  "hard_invariants": {
+    "false_accept_max_count": 0,
+    "invalid_citation_answer_max_count": 0,
+    "service_failure_misclassified_max_count": 0,
+    "budget_violation_max_count": 0,
+    "critical_numeric_or_condition_error_max_count": 0,
+    "central_claim_without_support_max_count": 0
+  },
+  "release_thresholds": {
+    "false_refusal_max_count": 2,
+    "false_refusal_max_rate": 0.125,
+    "correct_final_decision_min_count": 18,
+    "correct_final_decision_min_rate": 0.9,
+    "answer_completeness_min_mean": 1.75,
+    "answer_completeness_zero_max_count": 0,
+    "answer_completeness_full_min_count": 14,
+    "numeric_conditions_zero_max_count": 0,
+    "citation_resolution_rate_min": 1.0,
+    "evidence_support_zero_max_count": 0,
+    "evidence_support_min_mean": 1.8,
+    "service_error_max_count": 0
+  },
+  "manual_scales": {
+    "answer_completeness": {
+      "2": "All required requirements and key answer points are covered.",
+      "1": "Only a non-critical point is omitted; the main conclusion remains complete enough to use.",
+      "0": "A critical requirement is missing, contradicted, or the answer is unusable."
+    },
+    "numeric_conditions": {
+      "2": "All applicable values, units, comparison directions, and conditions are correct.",
+      "1": "Formatting differs but meaning is unchanged; no numeric or applicability error.",
+      "0": "Any value, unit, direction, or applicability condition is wrong, unsupported, or materially omitted."
+    },
+    "evidence_support": {
+      "2": "Every material claim is supported by cited evidence.",
+      "1": "Only a non-critical claim lacks direct support.",
+      "0": "A central claim is unsupported or contradicted by the evidence."
+    }
+  },
+  "service_error_policy": "A provider or infrastructure error makes the acceptance run inconclusive, not a business refusal and not a quality pass. Only failed cases may be rerun with the identical frozen code, data, configuration, and gate; all attempts and request IDs must remain in the report.",
+  "decision_rule": "All hard invariants and every release threshold must pass. A service error makes the run inconclusive. Thresholds may not be changed after any independent result is inspected."
+}
