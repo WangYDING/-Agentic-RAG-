@@ -11,3 +11,8 @@ htmlcov/
 build/
 dist/
 *.egg-info/
+
+# Local preservation workspaces and tooling caches
+/tmp/
+/evaluation-worktree/
+.ruff_cache/
