@@ -86,7 +86,16 @@ def test_manifest_hash_and_freeze_gate(tmp_path):
 
 
 def test_historical_manifests_load_without_rewriting_legacy_data():
-    for path in Path("eval/datasets").glob("*.manifest.json"):
+    # Explicit seen-only inventory. Never discover concurrently authored holdouts.
+    historical_names = (
+        "dev_v0", "dev_v0_retrieval", "independent_v2_draft",
+        "phase0_seen_regression_20", "phase0_seen_regression_evidence_selection",
+        "phase0_seen_regression_grader", "phase0_seen_regression_ind012",
+        "phase1_cross_spec_independent_v2", "refusal_dev_v0", "regression_v1_draft",
+        "sufficiency_dev_v0", "test_v1",
+    )
+    for name in historical_names:
+        path = Path("eval/datasets") / (name + ".manifest.json")
         manifest, examples = validate_manifest(path)
         assert len(examples) == manifest["count"]
 

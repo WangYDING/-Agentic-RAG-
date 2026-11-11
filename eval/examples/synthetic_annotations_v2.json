@@ -1,0 +1,8 @@
+{
+  "notice": "SYNTHETIC ONLY; not an independent question or RAG output",
+  "test_cases": [
+    {"schema_version":"rag-eval.test-case.v2","case_id":"SYN-V2-N","dataset_role":"synthetic","question":"合成设备的条件限值？","query_scope":{"spec_ids":["SYN"],"edition_ids":["v1"]},"expected_action":"answer","reference_answer":"两个条件同时成立时至少2m。","necessary_facts":[{"fact_id":"F1","description":"条件限值"}],"evidence_groups":[{"fact_id":"F1","alternatives":[{"scheme_id":"S1","all_of":[{"evidence_id":"E1","document_id":"SYN","document_version":"v1","page":1,"article":"1.1"}]}]}],"numeric_constraints_v2":[{"constraint_id":"N1","value":"2","unit":"m","comparison":">=","conditions":["地下","有设备"],"fact_ids":["F1"],"link_semantics":"all_facts"}]},
+    {"schema_version":"rag-eval.test-case.v2","case_id":"SYN-V2-R","dataset_role":"synthetic","question":"未给实测值，能否断定合格？","query_scope":{"spec_ids":["SYN"],"edition_ids":["v1"]},"expected_action":"refuse","reference_answer":null,"necessary_facts":[],"evidence_groups":[],"refusal_annotation_v2":{"supported_facts":[{"fact_id":"S1","description":"规范有一般限值"}],"missing_facts":[{"fact_id":"M1","description":"项目实测值"}],"allowed_explanation":["可以陈述一般限值"]}},
+    {"schema_version":"rag-eval.test-case.v2","case_id":"SYN-V2-Q","dataset_role":"synthetic","question":"本项目适用哪个值？","query_scope":{"spec_ids":["SYN"],"edition_ids":["v1"]},"expected_action":"clarify","reference_answer":null,"necessary_facts":[],"evidence_groups":[],"clarification_annotation_v2":{"required_fields":["车辆类型"],"branches":[{"branch_id":"A","when":{"车辆类型":"A"},"evidence_groups":[{"fact_id":"FUTURE","alternatives":[{"scheme_id":"S1","all_of":[{"evidence_id":"E2","document_id":"SYN","document_version":"v1","page":2,"table":"T1"}]}]}]}]}}
+  ]
+}
